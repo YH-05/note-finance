@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/solar-drone-with-jumbo-jet-wingspan-broke-a-flight-record-then-it-crashed/",
+  "title": "Solar drone with jumbo jet wingspan broke a flight record—then it crashed",
+  "raw_text": "A solar-powered drone has been lost at sea after a record-breaking flight lasting eight days between late April and early May. The crash also marks the untimely demise of the pioneering aircraft Solar Impulse 2, which previously performed the world’s first solar-powered crossings of the Atlantic and Pacific oceans before becoming an uncrewed test platform for US military missions.\nThe carbon-fiber aircraft could perform such feats of aeronautical endurance while running solely on renewable energy and batteries because of a 236-foot (72-meter) wingspan—comparable to a Boeing 747 jumbo jet’s wings—covered with more than 17,000 solar cells. The company Skydweller Aero purchased and modified the original Solar Impulse 2 aircraft to become a test platform for “perpetual uncrewed flight” with the capability of carrying up to 800 pounds (363 kilograms) of payload.\nSkydweller Aero was conducting test flights for maritime patrol mission scenarios with the US military, and the company also holds contracts with the Navy and Air Force. So the Skydweller drone was operating in that capacity when it took off on its final flight in the early morning hours of April 26.\nIn the Navy\nAfter departing from Stennis International Airport in Mississippi, the Skydweller drone flew to join the US Navy’s annual Fleet Experimentation (FLEX) exercises near Florida’s Key West, according to a Skydweller Aero blog post. The Navy’s press release describes the FLEX 2026 event as testing AI and drone technologies for maritime patrols “in the fight against transnational organized crime.”\nAs part of the event, the drone used radar along with visual and thermal imaging to observe targets on the water during four days of continuous flight, according to Skydweller Aero. It also acted as a flying communications hub for Navy aircraft and warships while supporting AIS transponder-based tracking of ships in the area.",
+  "published_at": "2026-05-13T21:48:27Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-15T03:00:30.485024Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "commercial drones",
+      "Drone strikes",
+      "drones",
+      "military drones",
+      "Skydweller Aero",
+      "solar impulse 2",
+      "solar powered aircraft",
+      "US Navy"
+    ]
+  }
+}

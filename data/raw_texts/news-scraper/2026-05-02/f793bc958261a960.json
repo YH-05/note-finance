@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/24/trump-tariffs-uk-tech-apple-google-meta.html",
+  "title": "Trump warns of ‘big tariff’ if UK doesn’t drop digital services tax on U.S. tech firms",
+  "raw_text": "U.S. President Donald Trump has delivered a stark warning to the U.K., threatening to impose steep tariffs on the country unless it drops its digital services tax on U.S. tech companies.\nThe tax, which was first introduced in 2020, is a 2% levy on the revenues of search engines, social media services and online marketplaces that derive value from U.K. users. This includes several U.S. companies like Alphabet's Google, Meta and Apple.\nSpeaking from the Oval Office on Thursday, Trump criticized those he said were seeking to make an \"easy buck\" by targeting American companies.\n\"We have been looking at it, and we can meet that very easily by just putting a big tariff on the U.K., so they better be careful,\" Trump said.\n\"If they don't drop the tax, we'll probably put a big tariff on the U.K.,\" he added, without providing a specific figure.\nCNBC has contacted the U.K.'s Department for Business and Trade and is awaiting a response.\nBritain's ruling Labor government has previously defended the tax, which it sees as an important fiscal measure given it raised revenues of around £800 million ($1.08 billion) in the 2024-2025 financial year.\nThe measure went unchanged when the U.S. and U.K. agreed to a trade deal in May last year, although Trump told Sky News earlier in the month that the terms of the agreement \"can always be changed.\"\nTrump's comments follow a series of publicly critical remarks about U.K. Prime Minister Keir Starmer in recent weeks, reviving trans-Atlantic trade tensions ahead of a four-day U.S. state visit by King Charles III and Queen Camilla.\nThe king and queen are scheduled to travel to the U.S. on Monday and are expected to meet Trump at the White House.",
+  "published_at": "2026-04-24T11:45:05Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.570279Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

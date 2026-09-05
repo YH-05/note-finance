@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/vast-space-seeks-to-diversify-by-building-satellites-as-well-as-space-stations/",
+  "title": "In addition to space stations, Vast says it will now build high-power satellites",
+  "raw_text": "As part of its plan to develop a private space station, Vast Space built and then launched a small demonstration spacecraft in early November. This vehicle then completed dozens of test objectives with flying colors before making a successful de-orbit three months later.\nThe mission, which tested power, propulsion, tracking, and a multitude of other technologies needed for Vast’s Haven-1 space station, was evidently so successful that the company is ready to use its spaceflight capabilities for other purposes. The Long Beach, California-based company announced Tuesday that it plans to begin selling high-powered satellite buses.\n“Every single successful space company is diversified in its products,” said Max Haot, chief executive of Vast Space, in an interview. “So for us it really was a question of when, not if.”\nA satellite for power-hungry applications\nThe company’s first offering is a 15 kW-class satellite bus capable of supporting a variety of demanding missions. Each satellite is about 3 meters long and 4 meters tall, with a mass of 700 kg and payload capacity of at least 350 kg. They will have a design lifetime of five years and be intended to operate in areas ranging from low-Earth orbit out to lunar orbit. Vast aims to serve a variety of customers, from telecommunications to observation to data services. Haot added that Vast also plans to offer an NVIDIA Space-1 Vera Rubin Module to support orbital data center inferencing needs.\nThe Vast satellite bus—essentially a backbone providing power, propulsion, and navigation for various payoads—will be based largely on technology ported over from the company’s Haven-1 space station, which is due to launch for the first time next year as the world’s first private space station. However there will be some new elements needed for the satellite, and Haot said Vast is already moving forward with in-house development of electric propulsion and a deployable solar array for the satellite.\nVast has already signed a customer for four satellites, with an option to purchase up to 200 additional satellites. Haot said the company is targeting a launch of at least 10 Vast Satellites in the fourth quarter of 2027.",
+  "published_at": "2026-05-19T13:00:45Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-19T15:00:31.035966Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "space",
+      "vast satellites",
+      "vast space"
+    ]
+  }
+}

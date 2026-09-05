@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20353-dayone-signs-major-renewables-deal-for-its-data-centres-in-malaysia.html",
+  "title": "DayOne signs major renewables deal for its data centres in Malaysia",
+  "raw_text": "DayOne Data Centers Limited, a Singapore-headquartered global digital infrastructure platform, signed late last week what it calls landmark renewable energy supply agreements in the Malaysian market with local companies TNB Renewables and TNB Power Generation.\nFormalised under Malaysia’s Corporate Renewable Energy Supply Scheme (CRESS) – a framework introduced by the Energy Commission of Malaysia enabling companies to source green electricity directly from renewable energy developers – the agreements cover approximately 1.5GWp of solar capacity and 2.2GWh of battery energy storage for ground-mounted solar and hybrid hydro floating solar (HHFS).\nThis, says DayOne, marks a major step towards decarbonising its data centre operations in Malaysia and supporting the country's National Energy Transition Roadmap (NETR).\nThe agreements comprise Bilateral Energy Supply Contracts (BESCs) with both TNB Renewables and TNB Power Generation. They also include the transfer of associated renewable energy certificates (RECs), supporting DayOne’s goal of reaching 100% renewable energy across its full platform by 2030 (or earlier where market conditions allow) as well as a 42% absolute reduction in Scope 1 and 2 emissions from its 2025 baseline.\nThis deal builds on DayOne’s CRESS agreement with TNB signed in June 2025, which enables DayOne to secure 500 megawatts of renewable energy over a 21-year term to support its data centre operations in Malaysia. Together, DayOne secures over 1GW of renewable energy in Malaysia through the partnership with TNB.\nDayOne's operations in Malaysia currently include two hyperscale campuses in Nusajaya Tech Park (NTP) and Kempas Tech Park (KTP). Alongside a MYR28 billion (about US$6.87 billion) cumulative commitment by end of 2026, the company is scaling Malaysia into its largest global operational footprint.\nLater the same week, DayOne also announced the final closing of its Series C equity financing with total gross proceeds of US$4.5 billion.",
+  "published_at": "2026-06-08T13:21:06Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-11T03:01:35.754588Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

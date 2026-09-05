@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/ai-evaluation-startup-braintrust-confirms-breach-tells-every-customer-to-rotate-sensitive-keys/",
+  "title": "AI evaluation startup Braintrust confirms breach, tells every customer to rotate sensitive keys",
+  "raw_text": "AI evaluation startup Braintrust has urged customers to revoke and replace their API keys after an earlier breach of customer secrets.\nAccording to an email sent to customers Monday and seen by TechCrunch, the startup confirmed “unauthorized access” in one of its Amazon Web Services (AWS) cloud accounts, which contained API keys used by customers for accessing cloud-based AI models.\n“We’ve communicated with one impacted customer and to date have not found evidence of broader exposure,” read the email.\nThe email asked “every customer to rotate” any of the API keys that they store with Braintrust.\nBraintrust disclosed the security incident on its website on Tuesday. “The incident has been contained, and in the meantime, we’ve locked down the compromised account, audited and restricted access across related systems, and rotated internal secrets.”\nThe company said the cause of the breach is under investigation.\nBraintrust spokesperson Martin Bergman told TechCrunch that the company sent the email to customers “out of an abundance of caution” and that it “confirmed a security incident, but there is no evidence of a breach at this time.”\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nBraintrust provides a platform designed for companies to monitor AI models and products. Founder and CEO Ankur Goyal previously told TechCrunch that Braintrust is like an “operating system for engineers building AI software.” The startup raised $80 million in a Series B funding round in February, which valued the company at $800 million.\nJaime Blasco, the co-founder of cybersecurity startup Nudge Security who received a breach email alert from Braintrust, told TechCrunch that the incident could have “downstream implications for affected customers,” like AI companies that rely on Braintrust.\nContact Us\nDo you have more information about this breach? Or other data breaches? From a non-work device, you can contact Lorenzo Franceschi-Bicchierai securely on Signal at +1 917 257 1382, or via Telegram and Keybase @lorenzofb, or email.Hackers frequently target corporate accounts on cloud services or third-party platforms as an effective way of stealing secrets, like API keys. Once hackers get their hands on API keys, they can log into the company or customers’ systems appearing as if they are legitimate users, without needing to break into the target company’s systems.\nCircleCI, a company that provides development products for software engineers, was hit with a similar cloud data breach in 2023, and similarly asked its customers to rotate “any and all secrets” they stored with the company.\nMore recently, an EU cybersecurity agency said hackers were able to steal 92 gigabytes of data from a compromised AWS account used by the European Commission. The breach affected 29 other EU entities and the data of dozens of internal European Commission clients.",
+  "published_at": "2026-05-06T18:05:41Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-05-07T03:00:27.001793Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "AI",
+      "Braintrust",
+      "cybersecurity",
+      "data breach",
+      "hackers",
+      "hacking"
+    ]
+  }
+}

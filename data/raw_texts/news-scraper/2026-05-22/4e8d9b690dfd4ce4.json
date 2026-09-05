@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/att-sues-california-in-attempt-to-shut-off-old-phone-network/",
+  "title": "AT&T sues California in attempt to shut off old phone network",
+  "raw_text": "AT&T sued California yesterday over the state’s refusal to let the carrier stop providing phone service to all potential customers in its wireline network territory. AT&T is also asking the Federal Communications Commission to declare that California cannot enforce its rules and to let AT&T stop providing service to about 199,000 phone customers.\n“California requires AT&T to spend $1 billion each year to maintain a century-old telephone network that almost no one uses,” AT&T said in a lawsuit filed in US District Court for the Southern District of California. “The copper wires that once served every home now serve just three percent of households in AT&T’s California territory, with consumers fleeing every day to modern broadband services that are more affordable, reliable, and energy-efficient.”\nIn June 2024, the California Public Utilities Commission (CPUC) rejected AT&T’s request to eliminate the Carrier of Last Resort (COLR) obligation that requires it to provide landline telephone service to any potential customer in its service territory. AT&T has said it’s received relief from COLR obligations in 20 of the 21 states in its wireline service territory, all except California.\n“The federal government and virtually all States where AT&T historically offered POTS [Plain Old Telephone Service] have now eliminated outdated regulatory obstacles, allowing AT&T to begin powering down its POTS network and increasing its investments in modern communication technologies. California stands alone in resisting this progress,” AT&T’s lawsuit said.\nAT&T complained that its “barely used copper network is an easy mark for criminals—California has already suffered about 2,000 outages from copper thefts this year—and drains the power grid of over 100 million kilowatt-hours each year.”\nAT&T won’t upgrade all lines to fiber\nAT&T has argued for years that California is preventing it from replacing copper with more modern technology. But California officials say AT&T is allowed to upgrade the copper lines with better technology.",
+  "published_at": "2026-05-21T21:10:01Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-22T03:00:31.371402Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "AT&T",
+      "California",
+      "fiber",
+      "wireless"
+    ]
+  }
+}

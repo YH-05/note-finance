@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/jim-cramer-big-tech-cannot-afford-to-be-cheap-on-ai-spending.html",
+  "title": "Jim Cramer says Big Tech cannot afford to be cheap on AI spending",
+  "raw_text": "Cloud computing giants cannot afford to pinch pennies on the artificial intelligence buildout, CNBC's Jim Cramer argued Wednesday.\nCramer's comments came after he heard someone describe the rally in data center and AI-related stocks as an \"if you build it, they will come\" dynamic — the idea that companies are spending aggressively on infrastructure in hopes customers eventually materialize. However, Cramer said applying the famous phrase from the movie \"Field of Dreams\" to the AI boom misses a crucial point: The customers already exist, and the cloud providers racing to keep up with demand.\n\"The whole point of this data center rally is that it's not a fairy tale, because the data centers are being built and the customers really are coming\" the \"Mad Money\" host said. \"They are on the playing field. They are in the seats ... and the momentum is building for every seat to be filled.\"\nHe pointed to Amazon and its cloud business, Amazon Web Services, as evidence that the AI buildout is no longer speculative. Amazon has committed to spend about $200 billion in capital expenditures this year, most of which will go toward expanding data center capacity as competition intensifies among major cloud providers.\n\"If you don't build the stadium, they are going elsewhere and you will leave a lot of money on the table,\" Cramer said, referencing comments from Amazon CEO Andy Jassy about the need to continue investing aggressively.\nAccording to Cramer, major customers including OpenAI, Anthropic and Meta are already searching for computing power and infrastructure partners capable of handling massive AI workloads.\n\"They — meaning big-time paying potential customers — are already here, and unless you have spent the money to build the infrastructure, they will go somewhere else,\" he said.\nCramer noted many skeptics continue to underestimate both the scale and urgency of the current AI spending cycle. Companies that slow investment, he said, risk losing business to rivals that continue expanding capacity.\n\"If Amazon doesn't put money in, then numbers have to go down, not up, because that business and its billions of dollars in payments will go to Alphabet or Microsoft,\" he said. \"When it comes to the data center, if you build it, they really will come. And if you don't build it, they will simply go to the other guy who did.\"\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-05-06T22:37:41Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.280030Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

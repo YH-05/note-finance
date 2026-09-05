@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://hpcalcs.com/product/hp-16c-collectors-edition/",
+  "title": "HP re-releases classic computer science calculator: The HP-16C",
+  "raw_text": "| Best used for: | Programming; Computer science; Logic design; Engineering |\n| Entry-system logic: | RPN (Reverse Polish Notation) |\n| Keyboard: | Numeric, with dedicated base mode keys (HEX, DEC, OCT, BIN) |\n| Advanced functions: | Integer arithmetic, bitwise operations, logical tests, base conversions (HEX/DEC/OCT/BIN), word-size control (1–64 bits), floating-point math, keystroke programming, conditional branching, subroutines, flags |\n| Memory registers: | 99 |\n| Program memory: | 203 B |\n| Program storage: | Save / load program feature (new) |\n| Power supply: | 2× CR2032 battery |\n| Auto Power off: | 5 minutes |\n| Display: | LCD with 1 line × 10 characters, 7-segment |\n| Dimensions: | 129 × 82 × 15 mm |\n| Weight | 116 g, with batteries |\nRefined Design and Functionality\nThe HP 16c Collector’s Edition retains the familiar layout and design of the classic HP 16c but is now up to 100x faster.\nIt allows users to switch seamlessly between number bases (HEX, DEC, OCT, BIN) and to perform bitwise operations, logical tests, and integer arithmetic with customizable word size (1–64 bits).\nProgramming and Performance\nUsers can program keystroke sequences with conditional branching, subroutines, labels, and flags. Program memory supports up to 203 bytes, and the calculator provides 99 data registers for versatile applications.\nThe new model also includes the ability to save and load programs – a valuable feature for professionals and collectors alike.",
+  "published_at": "2026-06-02T19:02:40Z",
+  "author": "dm319",
+  "collected_at": "2026-06-03T03:00:46.839044Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

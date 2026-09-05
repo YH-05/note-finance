@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606151339",
+  "title": "【市場反応】米6月NY連銀製造業景気指数は予想下回る、ドル続落",
+  "raw_text": "【市況】【市場反応】米6月NY連銀製造業景気指数は予想下回る、ドル続落\n米6月NY連銀製造業景気指数は5.7となった。5月19.6から低下し、予想＋13.7も下回った。3月来で最低。\nドルは軟調推移し、ドル・円は160円18銭から160円13銭まで下落。ユーロ・ドルは1.1604ドルから1.1620ドルまで上昇、ポンド・ドルは1.3416ドルから1.3430ドルまで上昇した。\n【経済指標】\n・米・6月NY連銀製造業景気指数5.7\n・予想：＋13.7\n・5月:＋19.6\n《KY》\n提供：フィスコ",
+  "published_at": "2026-06-15T13:09:57Z",
+  "author": null,
+  "collected_at": "2026-06-15T15:00:17.161805Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

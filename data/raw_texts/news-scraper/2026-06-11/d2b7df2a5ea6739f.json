@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/948181/cash-app-mobile",
+  "title": "Cash App’s launching a phone service",
+  "raw_text": "Cash App’s AT&T-based MVNO will offer an unlimited 5G data plan for $40 per month including taxes and fees. The new mobile service is powered by Gigs, the same firm behind the Klarna mobile service that launched last year with the same pricing and is “rolling out to select users, with broader availability planned in the coming months.”\nCash App’s launching a phone service\nCash App Mobile is using Gigs, the same white label operator that’s behind Klarna’s virtual phone company.\nCash App Mobile is using Gigs, the same white label operator that’s behind Klarna’s virtual phone company.\nCash App also says it’s planning connections to its Cash App Green rewards program and Cash App Families, its setup for managing supervised child and teen accounts.\nCash App Mobile:\nBeyond unlimited connectivity: Cash App, the #1 personal finance app in the US2, plans to deepen how Mobile connects to the rest of its ecosystem through Cash App Green and Families – giving individuals and communities new ways to earn and save on one of life’s largest recurring expenses.\nA phone plan built for financial flexibility: Cash App Mobile exists with the platformʼs full suite of financial tools, allowing users to manage their mobile service, spending, and saving all in one place to create an integrated experience for Modern Earners.\nPremium 5G on AT&T’s network: Unlimited 5G data, talk and text, unlimited HD streaming, and 10 GB of monthly hotspot within the United States, data roaming in Canada and Mexico, and more.\nMost Popular\n- Xbox warns of a ‘reset’ as it prepares for layoffs\n- Microsoft restricts Claude Fable for employees over data retention concerns\n- Nearly a million passports and photo IDs were left unprotected on the public internet\n- Claude Fable won’t answer basic biology questions\n- I tried Siri AI, and so far it actually works",
+  "published_at": "2026-06-11T13:00:00Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-11T15:00:11.307188Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AT&T",
+      "Mobile",
+      "News",
+      "Tech"
+    ]
+  }
+}

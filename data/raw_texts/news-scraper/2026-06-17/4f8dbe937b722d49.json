@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/ecb-rate-hike-energy-prices-inflation.html",
+  "title": "Energy prices take center stage as the ECB prepares to decide on rates",
+  "raw_text": "The European Central Bank is expected to hike interest rates on Thursday, as policymakers address the threat of second-round inflation effects amid elevated energy prices.\nUnlike the Fed, the ECB has a single mandate — keeping inflation close to a target of 2% — and recent data shows an uptick in both its headline and core readings.\nHeadline euro zone inflation rose to 3.2% in May as energy prices soared 10.9% year-on-year. The euro zone is a major energy importer and the bloc is particularly vulnerable to the surge in oil prices sparked by the Iran war.\nBut core inflation also rose to 2.5% in May, primarily driven by higher services costs. That's a major concern for the ECB as this could be the first signs of second-round effects.\nThe ECB is also concerned that tighter monetary policy could push the euro zone from feeble growth to outright recession. Nevertheless, the bank's Governing Council is expected to hike its key deposit rate by 25 basis points to 2.25%.\nMarket watchers will also be keeping a close eye on the ECB's projections for inflation and economic growth. The market is pricing in three rate hikes for the rest of the year.\n\"Compared with March, we expect ECB staff to mark down the growth projections for 2026-27 and raise both headline and core inflation projections, reflecting a more persistent energy shock and stronger indirect effects into prices,\" Sven Jari Stehn, chief European economist at Goldman Sachs, wrote in a note at the end of May.\n\"Our energy price index—the average of oil and gas—is up about 12% through the projection horizon since the March meeting.\"\n\"The core inflation forecasts will be more interesting, especially for 2027,\" wrote Anatoli Annenkov, senior European economist at Société Générale in a note from May.\n\"This forecast will tell us a lot about the ECB staff's confidence in coming second-round effects, especially taking into account the weakening activity data since March.\"\n\"We expect the ECB to keep rates market pricing relatively unchanged,\" said Deutsche Bank Securities Director Mark Wall in research published early this month. \"Interpreting June as a one-off hike won't suit the ECB.\"\nCorrection: This article was updated to correct references to inflation as being in May, not April.",
+  "published_at": "2026-06-11T07:20:29Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.527026Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

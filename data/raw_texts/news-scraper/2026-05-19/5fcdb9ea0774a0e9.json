@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932939/google-io-2026-how-to-watch",
+  "title": "Google I/O 2026: How to watch and what to expect",
+  "raw_text": "Google’s annual developer conference has arrived. We’re expecting plenty of updates to Gemini, Search, and every other product that Google has stuffed AI inside of. The keynote kicks off later today — here’s what to expect.\nGoogle I/O 2026: How to watch and what to expect\nGemini will be the star at Google’s annual developer conference.\nGemini will be the star at Google’s annual developer conference.\nWhen Google I/O will happen and where you can watch it\nGoogle I/O starts at 10AM PT / 1PM ET today, May 19th, with a keynote presentation, which will be livestreamed on Google’s YouTube channel and on the Google I/O site. Unlike last week’s Android Show, the I/O keynote is usually pretty long, around two hours, so plan accordingly if you’re hoping to watch the whole thing.\nThe Verge will also be covering the event live. Come back when the show starts to follow along with our live blog.\nAnother year of Gemini updates\nIt shouldn’t come as a surprise that Gemini and AI updates will likely be the focus of Google I/O. This year, those updates could include a new version of Gemini and agentic AI features, which have been steadily gaining popularity over the past several months with agentic AI tools like Claude Code.\nGoogle gave us a peek at what it might have in store for I/O during the Android Show, where it announced “Gemini Intelligence,” which includes a wider range of AI task automation features and a tool that allows users to generate custom widgets. At I/O, Google could announce similar features for search and its other services.\nAndroid XR\nAlong with AI announcements, Google I/O could also include an update on Android XR. The Verge’s Victoria Song got to try out a pair of prototype smart glasses running Android XR during last year’s I/O, but no glasses with Google’s operating system have actually launched yet. Google announced multiple smart glasses partnerships at the time, as well. It’s possible Google has some glasses from those partnerships ready to show off this year.\nSamsung’s upcoming Galaxy Glasses, which are expected to run on Android XR, could make an appearance at I/O, too, but there are also rumors that Samsung is saving them for a July Galaxy Unpacked event. The Galaxy Glasses are expected to be display-free, similar to the original Ray-Ban Meta smart glasses.\nGemini smart home speakers\nGlasses aren’t the only new hardware Google could have in store for I/O. Google is due to give an update on the Google Home speakers it originally announced last year. According to recent leaks, Walmart is launching its own new Gemini smart home speaker, too, which could hint at expanded support for third-party hardware.",
+  "published_at": "2026-05-19T11:00:00Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-19T15:00:16.058275Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Google",
+      "Google I/O 2026",
+      "Tech"
+    ]
+  }
+}

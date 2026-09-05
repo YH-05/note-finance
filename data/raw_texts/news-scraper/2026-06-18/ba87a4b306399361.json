@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20402-angolas-mercury-signs-bigger-leo-deal-with-eutelsat-oneweb.html",
+  "title": "Angola’s Mercury signs bigger LEO deal with Eutelsat OneWeb",
+  "raw_text": "Eutelsat announced on Tuesday that Angolan telco Mercury (previously known as MSTelcom) will use its OneWeb LEO satellite connectivity services under a new multi-year, multi-million agreement.\nMercury – a subsidiary of Sonangol Group – said the new agreement builds on previous deal signed with Eutelsat in November 2025, and will enable the telco to further expand the reach of Eutelsat OneWeb’s LEO services for enterprise, public sector, offshore and telecom customers across Angola.\n“This new agreement reflects the strength of our partnership with Eutelsat and the value that LEO connectivity brings to our customers,” said Mercury CEO Francisco Pinto Leite in a statement.\nPhilippe Baudrier, VP Africa at Eutelsat, added that the new commitment from Mercury reflects the growing demand for Eutelsat’s LEO services in Angola.\n“Together, we are expanding access to secure, low-latency connectivity across the country, helping enterprise, public sector, offshore, and telecom customers strengthen network resilience and reach locations beyond the coverage of traditional infrastructure,” he said.\nEutelsat – which remains the only LEO satellite operator licenced to offer services in Angola – said it has a significant operational presence in the country via local partners, as well as investments in local infrastructure, including a ground station (in partnership with Paratus Group) and a local point of presence (PoP).\nNo financial details were disclosed on the value of the new multi-year deal.",
+  "published_at": "2026-06-17T02:54:42Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-18T03:01:19.515214Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

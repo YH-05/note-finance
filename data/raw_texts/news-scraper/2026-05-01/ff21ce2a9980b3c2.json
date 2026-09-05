@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/memory-stick-prices-refuse-come-back-earth",
+  "title": "Memory Stick Prices Refuse To Come Back To Earth",
+  "raw_text": "Apple CEO Tim Cook's warning during Thursday evening's earnings call about the deepening global memory shortage sent us back to review memory stick prices.\nLet's review what Cook said…\n\"We believe memory costs will drive an increasing impact on our business,\" Cook told analysts, while also warning about \"supply constraints.\" He added, \"We'll continue to evaluate this.\"\nIt wasn't just Cook warning about memory prices this week. Meta and Microsoft also noted in their earnings results that higher prices contributed to their elevated capital expenditures.\nMemory makers Micron, Samsung, and SK Hynix have all been racing to add new capacity as AI data centers absorb an ever-larger share of memory sticks, which are typically used in PCs and smartphones.\nComments from Cook and other Big Tech firms this week about the dire situation prompted us to check the latest prices amid the memory crunch.\nGoldman analyst Kenta Kinuhata provided the most recent cost breakdown of memory prices.\nBiggest changes:\nDRAM: 2026 price increase estimate jumped from about 150% to 250% to 280%. Supply tightness now extends into late 2026 and early 2027.\nNAND: 2026 price increase estimate jumped from about 100% to 200% to 250%. Like DRAM, supply is now expected to stay tighter for longer.\nPricing\nAmazon price-tracking website CamelCamelCamel shows that pricing for the \"G.SKILL Trident Z5 RGB Series DDR5 RAM\" was around $869 at the end of April. This is up from $149 in early September.\nThe big question is when does all this new memory capacity finally hit the market and relieve the supply crunch enough to make building trading desktops affordable again?",
+  "published_at": "2026-05-01T15:00:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-01T21:00:42.455340Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

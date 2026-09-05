@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515a.htm",
+  "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+  "raw_text": "May 15, 2026\nFederal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust\nFor release at 4:30 p.m. EDT\nThe Federal Reserve Board on Friday announced its approval of the application by the Stephen M. Calk 2025 Trust, of Houston, Texas, to become a savings and loan holding company by acquiring National Bancorp Holdings, Inc., and thereby indirectly acquiring The Federal Savings Bank, both of Chicago, Illinois, as required by law.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-15T20:30:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:00:32.592441Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

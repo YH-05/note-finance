@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 2103, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1535, in main
+    with lock:
+         ^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_api.py", line 567, in __exit__
+    self.release()
+    ~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_api.py", line 538, in release
+    self._release()
+    ~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_unix.py", line 108, in _release
+    fcntl.flock(fd, fcntl.LOCK_UN)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 9] Bad file descriptor

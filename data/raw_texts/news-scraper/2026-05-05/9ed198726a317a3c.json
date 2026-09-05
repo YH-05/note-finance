@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/micron-zooms-past-700-billion-market-cap-rally-in-memory-stocks-.html",
+  "title": "Micron zooms past $700 billion market cap as rally in memory stocks accelerates",
+  "raw_text": "Micron's historic rally continued on Tuesday, with shares of the memory maker surging 11%, lifting the company's market cap past $700 billion for the first time.\nThe stock is now up 124% this year and nearly 700% in the past 12 months, pushing Micron into the top 10 most valuable U.S. tech companies.\nDemand for memory has surged as the artificial intelligence boom has created insatiable demand that's led to a global shortage. Chipmakers like Nvidia and Advanced Micro Devices require large amounts of memory to power their high-performance AI processors. Micron, SK Hynix and Samsung make up almost the entire memory market.\nSandisk, a maker of solid-state drives that rely on what's known as NAND memory, also spiked on Tuesday, jumping 12%. The stock is up about sixfold this year.\nMicron announced Tuesday that it's started shipping its largest commercially available solid-state drive. Compared to traditional hard-disk drives, SSDs allow more memory to be stored with lower power demands.\nJeremy Werner, Micron's senior vice president of its core data center unit, said in the press release that the \"breakthrough capacity gives data center operators a critical new lever to improve rack-level total cost of ownership, especially as power availability becomes a defining constraint for AI infrastructure scale.\"\nMemory makers have been unable to meet demand during the AI frenzy that began in late 2022 with the launch of ChatGPT. After Micron's second-quarter earnings report in March, CEO Sanjay Mehrotra told CNBC that key customers are only getting \"50% to two-thirds of their requirements\" due to the supply crunch.\nWATCH: Nvidia snaps up capacity for a key part of AI chipmaking\nCorrection: This story has been revised to reflect that Micron's CEO is Sanjay Mehrotra. A previous version misspelled his name.",
+  "published_at": "2026-05-05T20:23:48Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:17:45.114754Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

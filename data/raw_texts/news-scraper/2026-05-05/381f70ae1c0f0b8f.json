@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/musk-altman-open-ai-settlement-trial-brockman.html",
+  "title": "Musk texted OpenAI's Brockman about settlement two days before trial began",
+  "raw_text": "Two days before Elon Musk's multibillion-dollar lawsuit against OpenAI was scheduled to head to trial, Musk texted the company's president, Greg Brockman, to gauge his interest in a settlement, according to a filing late Sunday.\n\"When Mr. Brockman responded with a suggestion that both sides drop their respective claims, Mr. Musk shot back: 'By the end of this week, you and Sam will be the most hated men in America. If you insist, so it will be,'\" the filing says.\nMusk, who co-founded OpenAI in 2015, sued the company, Brockman and OpenAI CEO Sam Altman in 2024, alleging they went back on their commitment to keep the artificial intelligence company a nonprofit and to follow its charitable mission.\nTrial proceedings kicked off last week in federal court in Oakland, California, and Brockman could be called to testify as soon as Monday. OpenAI's lawyers moved to enter Musk's text into evidence and suggested they plan to bring it up while Brockman is on the stand.\n\"It tends to prove motive and bias, and, in particular, that Mr. Musk's motivation in pursuing this lawsuit is to attack a competitor and its principals,\" the lawyers wrote in the filing.\nJudge Yvonne Gonzalez Rogers, who is overseeing the case, opted not to enter the text message into evidence.\nMusk took the witness stand last week, and his testimony dominated the trial's first week of proceedings. Over the course of three days, he answered questions about his role in launching OpenAI and repeatedly accused Altman and Brockman of trying to \"steal a charity.\"\nHe also answered questions about his competing AI startup, xAI, which he founded five years after departing OpenAI's board in 2018. Musk merged xAI with his rocket company SpaceX in February in a deal that valued the startup at $250 billion.\nOpenAI began to embrace commercialization following Musk's departure from the board, and it established a for-profit subsidiary in 2018. That business started booming after the launch of ChatGPT in late 2022, and OpenAI is now valued at more than $850 billion by private investors.\nIn his lawsuit, Musk argues that the roughly $38 million he donated to OpenAI in its early years was used for unauthorized commercial purposes. He repeatedly said from the stand that OpenAI's for-profit arm became \"the tail wagging the dog.\"\nOpenAI has dismissed Musk's claims as \"baseless.\"\nProceedings resumed on Monday, and Brockman took the stand. His testimony lasted most of the day, and it will resume on Tuesday morning.",
+  "published_at": "2026-05-04T21:17:18Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.326069Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

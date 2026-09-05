@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/14/stock-market-today-live-updates.html",
+  "title": "U.S. stock futures jump on Iran deal to end the war; Japan's Nikkei surges 5%: Live updates",
+  "raw_text": "Stock futures are rising Sunday night to kick off the holiday-shortened trading week after President Donald Trump announced that an agreement had been reached to end the war between the U.S. and Iran.\nFutures tied to the Dow Jones Industrial Average added 342 points points, or 0.7%. S&P 500 futures climed 0.9%, while Nasdaq 100 futures popped 1.4%.\nAsia-Pacific markets traded higher early Monday, with South Korea's Kospi leading the advance in the region, rising 5.17%; The small-cap Kosdaq was flat. Japan's Nikkei 225 added 5.13% while the Topix rose 3.63%. Australia's benchmark S&P/ASX 200 was up 2.62%.\nHong Kong Hang Seng index futures were at 24,706, lower than the index's last close of 24,718.10\nTrump said late Sunday on social media that the deal with Iran was \"now complete.\" Pakistan Prime Minister Shehbaz Sharif said an official signing ceremony would take place on Friday in Switzerland.\nTrump also said he authorized the reopening of the key Strait of Hormuz passageway, sending oil prices tumbling on Sunday. U.S. crude fell nearly 5%.\nTrump's announcement came after an exchange of fire between Israel and the Tehran-backed Hezbollah in Lebanon raised uncertainty over whether the deal would get across the finish line on Sunday.\nThe three major U.S. stock averages are coming off a winning week, with sentiment bolstered on Friday by SpaceX's record-setting initial public offering. SpaceX ended Friday with a market cap above $2 trillion after a climb of more than 19%.\n\"A successful SpaceX IPO is generally a positive signal for broader investor interest in innovation and technology,\" said Evan Schlossman, principal at SuRo Capital. \"It's a reflection of the demand, interest, and desire to invest in these types of companies.\"\nInvestors are watching for economic data on housing and retail sales this week. They will also closely monitor the Federal Reserve policy meeting, which Fed funds futures indicate has a more than 98% chance of ending with rates unchanged, according to CME's FedWatch tool.\nThe stock market will be dark on Friday in observance of the Juneteenth holiday.",
+  "published_at": "2026-06-15T01:45:09Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.764397Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

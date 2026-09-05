@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/27/ray-dalio-says-kevin-warsh-shouldnt-cut-interest-rates-in-a-stagflation-era.html",
+  "title": "Ray Dalio says Kevin Warsh shouldn't cut interest rates in a ‘stagflation’ era",
+  "raw_text": "Billionaire investor Ray Dalio warned the U.S. economy has slipped into a stagflationary environment and said it would be a mistake for potential Federal Reserve chair successor Kevin Warsh to lower interest rates.\nThe founder of Bridgewater Associates said persistent inflation pressures alongside slowing growth create a backdrop that demands caution from policymakers.\n\"We are certainly in a stagflationary period,\" Dalio said Monday on CNBC's \"Money Movers.\" \"Because of the issues that are here, in terms of a more immediate inflation, farther from the target.\"\nDalio said that if Warsh, who now has a clear path to succeeding Jerome Powell as the next leader of the Fed in mid-May, were to cut rates, it would risk damaging confidence in the central bank at a critical moment.\n\"Certainly, you would not cut interest rates now,\" Dalio said. \"You will lose your credibility. The Federal Reserve would lose its credibility, particularly now. ... If you look at monetary policies by other countries, you're not going to see them cutting,\" he said. \"So whatever your benchmarks are, you're not going to be inclined to cut … not with today's information.\"\nTraders are currently pricing in a 100% chance that the Fed will leave rates unchanged at this week's meeting, with fed funds futures indicating policy is most likely to stay on hold for the rest of the year, according to the CME FedWatch tool.\nDalio said the dramatic rebound in equities made sense despite the ongoing war with Iran because of the strength of corporate earnings. Still, he said he recommends a 5% to 15% allocation to gold as an \"effective diversifier.\"",
+  "published_at": "2026-04-27T18:36:16Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.443678Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

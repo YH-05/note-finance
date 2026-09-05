@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/nvidia-taiwan-investment-150-billion-spending.html",
+  "title": "Taiwan chip stocks climb after Nvidia announces $150 billion spending plans",
+  "raw_text": "Nvidia is expanding heavily in Taiwan with a new campus and a tenfold increase in annual spending, CEO Jensen Huang announced Wednesday, as the chipmaker plans for artificial intelligence-powered growth.\nTaiwan's Taiex stock index climbed 1.7% to a record close on Wednesday. Also helping gains was news that South Korea's SK Hynix and U.S.-based Micron became the latest chip-related companies to reach $1 trillion in market value.\n\"Now we're spending $100 [billion], going to $150 billion in Taiwan each year,\" Huang said in Taipei, noting that's up from $10 billion to $15 billion annually just four or five years ago.\nBy the end of the year, Nvidia will begin building a new office complex called Constellation, which can accommodate 4,000 employees in northern Taipei when it opens in 2030, he said. That would be four times the company's existing headcount in Taiwan.\nShares of Taiwan chip manufacturing giant TSMC closed 1.3% higher on Wednesday, while MediaTek gained 8.8% and Delta Electronics rose by 7.2%. The three stocks — all semiconductor industry giants — are the largest companies by market capitalization on the Taiex index.\nNvidia designs chips while TSMC manufactures them. Nvidia is expected to surpass Apple this year as TSMC's largest customer.\nA $150 billion annual outlay in Taiwan would be among Nvidia's largest spending plans to date, and exceed what the company made in revenue in a single quarter. The company reported a record $81.6 billion in revenue in the quarter ended April 26, and predicts $91 billion in revenue for the current quarter.\nThe company has announced plans to invest $500 billion in AI infrastructure in the U.S. with local manufacturers over four years — which averages out to $125 billion annually in U.S. value creation.\nThe investment comes as Nvidia faces growing regulatory hurdles in selling to the mainland Chinese market. Revenue from Taiwan surged by more than 50% from a year ago in the latest quarter, while revenue from mainland China and Hong Kong halved.\nShares of leading mainland China chip players including SMIC tumbled on Wednesday, with Cambricon falling 5% and Hygon down 7%.\nThe shares had rallied earlier in the week after Chinese telecom giant Huawei announced Monday morning that it had developed a new approach to producing advanced semiconductors. The company plans to use its new \"LogicFolding\" engineering in a smartphone chip this fall, and in its Ascend chips that power data centers \"by around 2030.\"\nEarlier this month, widely followed venture capitalist Chamath Palihapitiya also said Taiwan could become less important to global semiconductor development in 18 months due to advances by U.S.-based Neuralink.\n\"Taiwan is the epicenter of the AI revolution,\" Huang said Wednesday.\nAI combined with hardware, or \"physical AI,\" is going to \"transform manufacturing,\" Huang added. \"In Taiwan, our partners will benefit from all our technologies that will transform manufacturing.\"\n—CNBC's Katie Tarasov contributed to this report",
+  "published_at": "2026-05-27T09:41:14Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.620200Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

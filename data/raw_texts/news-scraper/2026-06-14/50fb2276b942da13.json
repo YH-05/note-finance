@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://twitter.com/zenmagnets/status/2065796012820848699",
+  "title": "Rio de Janeiro's city government model Rio3.5 beats Qwen3.7 in recent benchmarks",
+  "raw_text": "Alibaba Qwen3.7 slowly fading into irrelevance at the frontier due to proprietary stance.\nIn it's place we have Minimax M3 and... *checks notes* Rio 3.5 397b, made by the municipal IT company of Rio de Janeiro's city government.\nhuggingface.co/prefeitura-rio…",
+  "published_at": "2026-06-14T14:38:37Z",
+  "author": "lucasfcosta",
+  "collected_at": "2026-06-14T21:00:55.998878Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

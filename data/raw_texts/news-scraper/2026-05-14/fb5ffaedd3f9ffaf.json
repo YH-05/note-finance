@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930376/amd-fsr-4-expansion",
+  "title": "AMD’s FSR 4.1 upscaling tech is coming to older graphics cards",
+  "raw_text": "AMD is bringing its FSR 4.1 upscaling tech to older graphics cards. In an announcement on X, Jack Huynh, AMD’s head of computing and graphics, says FSR 4.1 will roll out to RDNA 3 GPUs in July, followed by a launch on RDNA 2 chips in early 2027.\nAMD’s FSR 4.1 upscaling tech is coming to older graphics cards\nGPUs with AMD’s RDNA 3 architecture will get the FSR 4.1 upgrade in July, followed by RDNA 2 chips next year.\nGPUs with AMD’s RDNA 3 architecture will get the FSR 4.1 upgrade in July, followed by RDNA 2 chips next year.\nThis summer’s update will allow Radeon RX 7000-series chip owners to access AMD’s upscaling tech across more than 300 supported games, including Cyberpunk 2077, Battlefield 6, and Assassin’s Creed Shadows. FSR 4.1’s broader expansion next year will allow the tech to expand to more devices running RDNA 2 architecture, like the Steam Deck.\nAMD launched its FSR 4.1 update for Radeon RX 9000-series graphics cards in March. The update builds on its AI-powered upscaling tech, which is supposed to boost performance, while offering sharper visuals and smoother gameplay.\nSince RDNA 3 chips don’t come with the hardware required to run FSR 4.1, Huynh says AMD had “to carefully tune, optimize, and validate the model” to get it running on older GPUs. “We tested across hundreds of PC configurations in hundreds of games to ensure visuals are sharp and everything works out of the box,” Huynh says.",
+  "published_at": "2026-05-14T14:06:48Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-14T15:00:16.287995Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AMD",
+      "Entertainment",
+      "Gaming",
+      "News",
+      "PC Gaming",
+      "Tech"
+    ]
+  }
+}

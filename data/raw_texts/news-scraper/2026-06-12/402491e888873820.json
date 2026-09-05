@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/trump-crypto-alt-5-sigma-ai-financial.html",
+  "title": "Company that bet big on Trump-backed crypto says its fortunes have improved",
+  "raw_text": "AI Financial Corp., a publicly traded company that took heavy losses after making a billion-dollar bet on a cryptocurrency backed by the Trump family, said Wednesday that its outlook had improved. Its shares are down 92% since it made that bet to 65 cents a share as of Wednesday's market open.\nThe Trump family earned about $500 million in that transaction, CNBC reported. A spokeswoman for the Trump brothers said previously they have no visibility into or involvement in AI Financial.\nThe company now says, in a Securities and Exchange Commission filing, that the problems that led it to warn investors about its future \"have been substantially mitigated.\"\nAI Financial told investors in May it wasn't clear it would be able to continue as a going concern for another 12 months.\nAI Financial is listed on the Nasdaq. The exchange requires listed companies to keep their stock prices consistently above $1 a share. If AI Financial can't do that within roughly the next two weeks, it may be delisted.\nAI Financial was previously named Alt5 Sigma. Alt5 in August entered into a $1.5 billion deal with World Liberty Financial, a private company co-founded in 2024 by Eric Trump, Donald Trump Jr., and other business partners. The publicly traded company acquired 7.3 billion WLFI tokens, which it hoped would rise in value.\nInstead, as of Wednesday morning, the value of the Trump-backed cryptocurrency has since fallen to 70% below what Alt5 paid for its tokens, according to Coinbase. AI Financial said in a recent securities filing that its crypto assets had lost $348 million in the first quarter. It also took an operating loss in addition to the paper loss on its balance sheet. WLFI's value has continued to fall since then.\nAI Financial can't currently sell its WLFI holdings, but it can lend some of them out. Some 3.2 billion of its WLFI tokens are available \"to use as collateral for a loan transaction\" or for other similar purposes, the company said Wednesday in the filing.\nCEO Tony Isaac said in an accompanying press release that the company has no plans to sell those tokens. They are split into multiple tranches based on how they were acquired and are covered by different lock-up agreements that prevent any sales before mid-August at the earliest.\nAI Financial valued its WLFI holdings at $380 million of Tuesday evening, and said $180 million was available for lending. Those holdings were initially worth $1.4 billion.\nAI Financial's stock rose 3 cents in early trading Wednesday following the announcement.",
+  "published_at": "2026-06-10T18:45:45Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.780630Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

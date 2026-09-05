@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://discourse.ifin.network/t/400-aur-packages-compromised-with-infostealer-and-rootkit/577",
+  "title": "AUR Packages Compromised with Infostealer and Rootkit",
+  "raw_text": "Last Updated: 2026-06-12T12:58:21Z\nIt appears a new AUR package maintainer impersonating a trusted maintainer adopted and infected 408+ packages. The compromise was reported and other AUR maintainers have been working to remove the infected packages.\nThe attack appears to be ongoing, with shifting indicators.\nThe affected packages were modified with preinstall scripts to use npm\nto install the atomic-lockfile\npackage, a malicious payload.\nHere’s an example of the change:\nThis blog has a deep dive into the attack.\nFurther messages to the AUR mailing list have identified further compromised packages with different malware profiles.\nHere’s an example:\nIn this variant, bun\nis used (again) and used to install the malicious js-digest\npackage. That package has been pulled from NPM, according to Socket.\nIf you don’t use Arch (btw), you’re fine.\n- Arch users: review the list of affected packages and use this script to check your exposure: aur_check.sh · GitHub\n- Review the Ioctl blog for the indicators of compromise and if found, preserve the system for forensic investigation as appropriate.\n- If packages are found, follow normal compromise procedures. Rotate all credentials and consider reinstalling Arch. The possibility of a rootkit removes the possibility of system trust.\nAn earlier version of this report stated that a known maintainer account was responsible for the malicious commits. That was inaccurate; the known maintainer account was spoofed.\nMost of these packages are rare, but the scope is significant. Also, it’s rare to see a supply chain attack of this nature go so far as an eBPF rootkit in addition to infostealer behavior.\nSocket.dev has the malicious NPM package. It shows 134 downloads.\nThe NPM package is maintained by user herbsobering. Searching that username on GitHub reveals a single container image that appears to be a reverse shell/proxy tool. Package herbsobering430 · GitHub\nYou might be wondering how this happened. The truth is, the AUR package repository allows anyone to “adopt” a package and submit a change to the PKGBUILD/associated files if the package is marked as unmaintained. It turns out automating the hunt for abandoned packages and adoption of them is not uncommon. See this Mastodon thread for additional context.",
+  "published_at": "2026-06-12T05:59:39Z",
+  "author": "keyle",
+  "collected_at": "2026-06-12T15:00:57.034908Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/cnbc-daily-open-trump-iran-war-100-days-israel-strikes.html",
+  "title": "CNBC Daily Open: Washington's 'war of choice' extends past 100-day mark",
+  "raw_text": "Hello, this is Hui Jie writing to you from Singapore. Welcome to another edition of CNBC's Daily Open.\nThe \"first 100 days\" is a benchmark often used by pundits and experts to evaluate the early accomplishments, governing style, and momentum of a new administration.\nIf we were to apply this to the Iran war, which crossed its 100-day mark this weekend, the report card looks far from great. Mixed messaging from both sides, and a start-stop momentum in peace talks continue to keep investors on edge.\nRead on!\nThe conflict in Iran crossed its 100-day mark this weekend. The war was supposed to conclude in \"four to five weeks\" and not morph into a \"forever war\", but its end date is becoming increasingly blurry.\nWashington and Tehran continue to conduct strikes, most recently on Sunday, when Iran fired missiles at Israel.\nFurthermore, the Strait of Hormuz remains closed, and a peace deal is nowhere in sight. For the first 100 days, its not a great look for Washington, which, as per former Swedish Prime Minister Carl Bildt, chose to start this \"war of choice.\"\nMarkets, of course, were rattled by this latest test of the fragile ceasefire, with U.S. futures slipping, oil prices climbing, and Asia markets opening lower in a bleak start to the week, with South Korea's Kospi tumbling over 8%.\nInternational benchmark Brent is was up 2.34% at $93.09, while U.S. West Texas Intermediate futures climbed 2.19% to $90.54.\nInvestors will also be keeping an eye on a Chinese President Xi Jinping's visit to North Korea, and assess a strong GDP print from India from late Friday, with the economy expanding 7.8% year on year in the three months ended March, surpassing projections of 7.2%.\nAs Middle East tensions escalate, prices of consumer electronics could be hit due to rising oil prices, as it has impacted the supply for resin used for making printed circuit boards, a critical part of electronic devices from smartphones to AI servers.\nThe Jubail petrochemical and industrial complex in Saudi Arabia is offline, knocking out a key world reservoir of resin.\nAfter a whirlwind trip by Nvidia CEO Jensen Huang in Seoul last week, the company has got down to business, announcing a partnership with South Korean memory chip giant SK Hynix on Monday.\nSK Hynix will co-develop memory for various Nvidia platforms, including its supercomputers, CPUs, and robotic computing platforms.\nThis comes after Huang met with heavyweights of South Korea's tech industry during his visit, which also included a traditional Korean barbeque dinner with leaders of SK Group, LG Group and Naver, a ceremonial baseball pitch and even an appearance on one of South Korea's most popular variety shows.",
+  "published_at": "2026-06-08T01:10:42Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.588797Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/04/more-than-half-of-all-long-shot-bets-on-polymarket-pay-off/",
+  "title": "More than half of all  Polymarket \"long shot\" bets on military action pay off",
+  "raw_text": "More than half of “long-shot” bets on military action made on Polymarket are successful, according to a new report that suggests prediction markets could pose a bigger threat than previously recognized to the security of sensitive information.\nAnalysis by the Anti-Corruption Data Collective, a non-profit research and advocacy group, found that long-shot bets—defined as wagers of $2,500 or more at odds of 35 percent or less—on the platform had an average win rate of around 52 percent in markets on military and defense actions.\nThat compares with a win rate of 25 percent across all politics-focused markets and just 14 percent for all markets on the platform as a whole.\nThe research is likely to add to growing concerns among regulators and lawmakers about insiders placing bets on the timing and success of military actions, amid fears that this could reveal classified information in advance.\nThe report, which analyzed more than 400,000 prediction markets settled on Polymarket between January 2021 and March 2026, comes as US prosecutors last week charged a soldier involved in planning the January raid to seize Venezuelan leader Nicolás Maduro with placing Polymarket wagers on the mission that netted more than $400,000.\nGannon Ken Van Dyke, an active duty soldier, is alleged to have made roughly 13 bets worth $33,034 on positions including “US Forces in Venezuela” and “Maduro out” while in possession of classified information. On Tuesday Van Dyke pleaded not guilty.\nThe charges represent the first US prosecution of insider trading on prediction markets. Earlier this year Israel filed charges against a reservist and a civilian accused of using classified information to bet on the country’s military operations on Polymarket.\nPolitical markets where outcomes can be determined by small decision-making groups, particularly military and defense markets, are “structurally vulnerable to insider trading,” said the ACDC, adding that the dynamic not only threatens information security but also “disadvantages regular bettors.”",
+  "published_at": "2026-04-30T13:16:04Z",
+  "author": "Stephanie Stacey, Chris Cook, and Jill R Shah, Financial Times",
+  "collected_at": "2026-05-01T15:00:30.620924Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Kalshi",
+      "polymarket",
+      "prediction markets",
+      "syndication"
+    ]
+  }
+}

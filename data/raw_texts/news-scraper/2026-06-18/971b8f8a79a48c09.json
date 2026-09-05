@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://blog.ui.com/article/introducing-enterprise-nas",
+  "title": "Ubiquiti: Enterprise NAS, Built on ZFS",
+  "raw_text": "Enterprise storage has traditionally required costly licensing, proprietary hardware, and complex management. ENAS changes that by delivering a private, local storage platform designed for performance, scalability, and simplicity, all without the overhead typically associated with enterprise infrastructure.",
+  "published_at": "2026-06-18T14:24:30Z",
+  "author": "ksec",
+  "collected_at": "2026-06-18T21:06:15.936677Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

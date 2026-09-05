@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/928309/mira-murati-thinking-machines-ai-interaction-model",
+  "title": "Here&#8217;s what Mira Murati&#8217;s AI company is up to",
+  "raw_text": "Thinking Machines, the AI company founded by former OpenAI CTO Mira Murati, announced Monday that it’s working on something called “interaction models.” The idea behind interaction models, according to Thinking Machines, is that they will let people “collaborate with AI the way we naturally collaborate with each other — they continuously take in audio, video, and text, and think, respond, and act in real time.”\nHere’s what Mira Murati’s AI company is up to\nThinking Machines is demonstrating AI ‘interaction models’ that respond to users in real time.\nThinking Machines is demonstrating AI ‘interaction models’ that respond to users in real time.\nAs explained by Thinking Machines:\nToday’s models experience reality in a single thread. Until the user finishes typing or speaking, the model waits with no perception of what the user is doing or how the user is doing it. Until the model finishes generating, its perception freezes, receiving no new information until it finishes or is interrupted. This creates a narrow channel for human-AI collaboration that limits how much of a person’s knowledge, intent, and judgement can reach the model, and how much of the model’s work can be understood. Picture trying to resolve a crucial disagreement over email rather than in person.\nAt Thinking Machines, we believe we can solve this bandwidth bottleneck by making AI interactive in real time across any modality. This enables AI interfaces to meet humans where they are, rather than forcing humans to contort themselves to AI interfaces.\nThinking Machines also shared several examples of the model in action, including listening for mentions of animals in a story, translating speech in real time, and telling someone when they’re slouching.\nYou can read a deeper explanation of interaction models on the Thinking Machines website. However, you can’t try interaction models for yourself just yet; Thinking Machines plans to open a “limited research preview” in the “coming months” and aims to do a “wider release later this year.”\nMurati founded Thinking Machines in February 2025 after leaving OpenAI. The AI lab has already had to grapple with many major departures, with key members defecting to Meta and even back to OpenAI.",
+  "published_at": "2026-05-11T22:19:15Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-12T03:00:16.887554Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News"
+    ]
+  }
+}

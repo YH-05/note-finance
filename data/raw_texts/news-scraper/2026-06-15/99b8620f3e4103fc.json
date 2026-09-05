@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/us-industrial-production-disappoints-may",
+  "title": "US Industrial Production Disappoints In May",
+  "raw_text": "Despite strong ISM Manufacturing data, US Industrial Production disappointed in May, rising just 0.1% MoM (vs +0.3% exp), but April's print was revised up to +0.9% MoM. Put together, that lifted the YoY rise in industrial production to +1.67% - its highest since Nov 2025...\nManufacturing excluding motor vehicles and parts was also flat in May, according to the Fed report.\nMining output, which includes energy extraction, increased 1.3%.\nUtilities output fell.\nUS Manufacturing production was unchanged in May (below the 0.3% rise expected), but thanks to an upward revision, the YoY rise was +1.4%, the highest since Nov 2025...\nMay's flat-line comes after four months of gains to start the year.\nThe data showed a split between durable goods manufacturing, which continued to advance, and nondurable goods manufacturing, which declined.\nThat decrease reflected a pullback in output for petroleum and coal products, plastics and rubber, and textiles.\nAnd finally, on the bright side, Capacity Utilization continues to rise, now at its highest in a year...\nThe report is somewhat at odds with signals from recent surveys, which have indicated a pickup in activity amid customer stockpiling induced by the war, rising defense-related orders and the ongoing data center buildout.\nMonday’s figures may be a sign that surging costs are starting to bite after a separate report last week showed prices received by producers rose in May from a year earlier at the fastest pace since 2022.\nTaken all the above, we see this as favoring the doves very modestly.",
+  "published_at": "2026-06-15T13:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-15T15:00:37.141672Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

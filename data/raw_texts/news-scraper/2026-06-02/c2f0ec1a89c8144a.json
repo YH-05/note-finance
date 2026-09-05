@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders/",
+  "title": "Florida sues OpenAI, Sam Altman after multiple ChatGPT-linked murders",
+  "raw_text": "On Monday, Florida became the first state to sue OpenAI over ChatGPT’s allegedly dangerous design.\nIn a complaint filed in state court, Florida Attorney General James Uthmeier accused OpenAI and its CEO, Sam Altman, of prioritizing profits over the safety of Floridians.\nThe civil lawsuit comes after Florida opened an unrelated criminal probe into OpenAI, following a ChatGPT-linked mass shooting where two people were killed at Florida State University. In statements, OpenAI has insisted that ChatGPT isn’t responsible for the FSU shooting, merely providing factual information, but Uthmeier does not seem to agree. In his complaint, Uthmeier noted that Florida has now been blindsided by two violent events where suspects used ChatGPT to assist in planning.\n“Horrifically, ChatGPT has aided and abetted in more than one multiple murder in the State of Florida,” Uthmeier’s complaint said. “The 2026 deaths of University of South Florida graduate students Nahida Bristy and Zamil Limon were also plotted using ChatGPT, which advised Hisham Abugharbieh on how to dispose of bodies, change VIN numbers on a car, and whether cars were checked at the crime scene.”\nUthmeier then went on to list all the ways ChatGPT has allegedly fueled violence. In 2025, ChatGPT was blamed for encouraging several users to commit suicide, including teenager Adam Raine and a 56-year-old bodybuilder who murdered his mother based on a ChatGPT-hallucinated conspiracy.\nMore recently, in February, a man with mental health struggles killed his wife and attacked his mother “after talking with ChatGPT several hours a day and coming to believe robots were taking over the world, ” Uthmeier said. And a small mining town in Canada was shocked by a school shooting that claimed nine lives the same month. Altman later apologized for not alerting law enforcement about the shooter’s ChatGPT logs, which some believe could have averted the shooting.",
+  "published_at": "2026-06-01T18:52:19Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-06-02T15:00:26.368647Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "chatbot",
+      "ChatGPT",
+      "child safety",
+      "Florida",
+      "murder",
+      "Online safety",
+      "openai",
+      "suicide"
+    ]
+  }
+}

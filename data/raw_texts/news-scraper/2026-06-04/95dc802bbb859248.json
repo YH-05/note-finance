@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/barclays-traders-say-its-time-to-buy-protection-for-a-tech-led-sp-500-pullback.html",
+  "title": "Barclays traders say it's time to buy protection for a tech-led S&P 500 pullback",
+  "raw_text": "The stock market rally could be in trouble here as tech falters, and traders at Barclays think investors should protect themselves. The S & P 500 this week hit a fresh record high, topping 7,600 for the first time. However, the benchmark is down 0.4% for the week as some of the biggest tech-related names have slipped. The index was headed for further losses Thursday , as a sell-off in Broadcom put pressure on the semiconductor sector. Barclays trading desk thinks that investors can buy protection in the form of index puts on the cheap right now given the market's strong performance — and they should take advantage of that. Puts are options that give the holder the right to sell a specified number of shares at a predetermined price until the contract expires. Specifically, they noted that the bank's equities timing indicator \"remains deep into sell-signal territory … and implies a poor asymmetry for [S & P 500] performance over the next two months.\" Traders added that \"that the attractiveness of index puts is too good to ignore currently.\" AVGO 5D mountain AVGO year to date To be sure, the bank noted that its cautious stance has more to do with a \"technical assessment of the market asymmetry and not necessarily a fundamental shift in what the potential earnings power could look like going forward.\" \"Semis are now a 19% (!!!!!) weight in SPX and combined with Tech Hardware is over 30% of the broad index. Consequently, a selloff in this cohort could have the effect of dragging a lot of other parts of the market with it (Mag7 included), which would have the effect of driving both index correlation and volatility higher,\" they noted. The VanEck Semiconductor ETF (SMH) has surged 77% in 2026. However, it dropped more than 3% in the premarket Thursday as Broadcom tumbled more than 15% on lackluster quarterly figures and guidance.",
+  "published_at": "2026-06-04T13:31:24Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:19:00.557425Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20192-aws-says-restoring-uae-and-bahrain-cloud-regions-will-take-several-months.html",
+  "title": "AWS says restoring UAE and Bahrain cloud regions will ‘take several months’",
+  "raw_text": "Amazon Web Services (AWS) said on Thursday that it will take several months to fully restore services for its Middle East (UAE) Region (ME-CENTRAL-1) after its data centres in the UAE and Bahrain sustained damage due to the war between the US, Israel and Iran.\nAWS first confirmed the damage in early March, reporting that two data centres in ME-CENTRAL-1 – mec1-az2 and mec1-az3 – were directly hit by drone strikes, while one data centre in the ME-SOUTH-1 (Bahrain) Region was damaged by a drone strike close to the facility.\nOn its health dashboard on Thursday, AWS posted its first official update since the initial outages, saying that it’s “currently unable to reliably support customer applications” due to the drone damage.\n“While some workloads continue to function normally, we strongly recommend customers migrate all accessible resources to other Regions and restore inaccessible resources from remote backups as soon as possible,” the AWS post said.\nAWS issued a similar update for ME-SOUTH-1, advising customers to recover their resources in other Regions from remote backups.\nAWS added that it has suspended relevant billing operations for both Regions while its team works to restore normal operations.\n“This process is expected to take several months,” AWS said.",
+  "published_at": "2026-05-04T03:11:35Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-05T03:01:21.281003Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

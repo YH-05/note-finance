@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/mortgage-rates-are-rising-again-but-homebuyers-are-trickling-back.html",
+  "title": "Mortgage rates are rising again, but homebuyers are trickling back",
+  "raw_text": "Mortgage rates began climbing again last week, and that took a toll on refinance demand. Homebuyers, however, seem finally to be ready for the spring market.\nTotal mortgage application volume fell 1.6% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, increased to 6.37% from 6.35%, with points remaining unchanged at 0.61, including the origination fee, for loans with a 20% down payment.\nRefinance demand, which is always most sensitive to daily moves in interest rates, fell 4% for the week and was 51% higher than the same week one year ago. Last year at this time, the rate on the 30-year fixed was about a half a percentage point higher.\nApplications for a mortgage to purchase a home rose 1% for the week and were 21% higher year over year. More supply has come onto the market, and consumers appear to be getting used to the ever-changing news regarding the war with Iran.\n\"After a brief pause, in part because of the elevated geopolitical uncertainties, potential homebuyers certainly appear to be moving forward this spring and taking advantage of the more favorable inventory conditions in most parts of the country,\" said Mike Fratantoni, MBA's chief economist.\nMortgage rates moved higher to start this week, according to a separate survey from Mortgage News Daily. Investors are now eagerly awaiting the latest report from Federal Reserve Chairman Jerome Powell on Wednesday, at what could be his last meeting as chair. Markets do not expect interest rates to change, but commentary at the news conference following the meeting is always key to future expectations and could move mortgage rates again in either direction.",
+  "published_at": "2026-04-29T12:17:26Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.370922Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

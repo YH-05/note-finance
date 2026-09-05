@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/entertainment/937054/arturia-memory-v-memorymoog-synthesizer",
+  "title": "Memory V re-creates the Memorymoog without the massive headaches or price tag",
+  "raw_text": "The Memorymoog is legendary for being an absolutely massive-sounding synth and being incredibly unreliable. But now you can enjoy its classic Moog sound without the headaches or the sky-high vintage price, thanks to Arturia’s Memory V emulator.\nMemory V re-creates the Memorymoog without the massive headaches or price tag\nEnjoy the legendary Moog polyphonic synth minus its legendary reliability issues.\nThe Memorymoog was only made between 1982 and 1985, and was the last polyphonic synth made by Moog before it declared bankruptcy in 1987. People loved its sound, which was described as being six Minimoogs in a box, and the Memorymoog+ was among the first synths to adopt MIDI. It also came out right as the synth industry was shifting from analog to digital.\nIt was also notorious for being rushed to market, having tuning problems, failing power supplies, being haphazardly built, and exceedingly difficult to service. Things that aren’t really an issue for software.\nOnly about 3,500 were produced and now it regularly goes for around $15,000 on the vintage market. If you’re willing to deal with one that needs some work, you might be able to get a steal at closer to $10,000. For comparison, Memory V will only set you back $149, or less if you’re an existing Arturia customer.\nMemory V has three oscillators and one iconic Moog lowpass ladder filter per voice, just like the real deal. It also features an interface that pretty closely re-creates the dozens of knobs and buttons on the original. And, if you really want, you can stack all six voices — 18 oscillators in all — for crushingly huge leads. There are plenty of towering emulations of classic synths in Arturia’s library of plugins, but Memory V might be capable of the most oppressive tones of the lot.\nArturia also includes a lot of modern amenities that, for obvious reasons, didn’t exist in the ‘80s original. For one, it supports MIDI Polyphonic Expression (MPE) for complex per-note control. It also has a drag-and-drop modulation system with multiple envelopes, LFOs, and a function generator. There’s also a powerful multi-arpeggiator for creating complex rhythmic and melodic lines.\nMemory V excels at typical ‘80s brass sounds, unstable pads, and rich strings. You can even dial in exactly how much analog instability you want. So if you want it to sound like you bought a broken Memorymoog in desperate need of service, you can.\nArturia’s Memory V is available now. Existing customers can log in to see their discount offer.",
+  "published_at": "2026-05-26T16:00:00Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-05-26T21:00:16.502627Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Music",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/stargate-project-michigan-live-updates.html",
+  "title": "Stargate live updates: OpenAI's Altman says 'people are right to be anxious' about AI",
+  "raw_text": "OpenAI and Oracle held an official groundbreaking for the $16 billion Stargate campus in Saline Township, Michigan, on Monday.\nCNBC's David Faber interviewed key figures in the buildout throughout the day.\nWhat you need to know:\n- OpenAI CEO Sam Altman flags danger, need to collaborate in AI race with China.\n- Altman says industry has failed to communicate how humans keep control of the future.\n- Altman says \"people are right to be anxious\" about AI.\n- Oracle CEO Clay Magouyrk expects internal data center components to cost $30 billion to $40 billion more.\n- Magouyrk says Stargate buildout is \"on schedule\"\n- Related Digital Chairman and CEO Jeff Blau says China could be behind paid protesters being bused in to oppose data centers\n- Blau acknowledged community concerns about water, says company is contributing to the community.\nThe data center project, which is being developed by Related Digital, began construction roughly three months ago. The companies said the exterior of one building is almost complete.\nIn January 2025, President Donald Trump unveiled the Stargate project alongside OpenAI CEO Sam Altman, SoftBank CEO Masayoshi Son and Oracle Chairman Larry Ellison during an event at the White House. The companies pledged to deploy $500 billion over four years to build out new artificial intelligence infrastructure in the U.S.\nAltman rattled markets by inking a flurry of multi-billion-dollar infrastructure deals that year, writing in a post in November that OpenAI was looking at commitments of about $1.4 trillion, including Stargate, over the next eight years. But as the company gears up for a potential initial public offering, it's outlined a more measured strategy, telling investors in February that it's targeting roughly $600 billion in total compute spend by 2030.",
+  "published_at": "2026-06-01T22:39:25Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.570747Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605150781",
+  "title": "クラボウ---期末配当を25円増配、年間配当307円へ",
+  "raw_text": "クラボウ ＜日足＞ 「株探」多機能チャートより\nクラボウ<\n3106>は14日、2026年3月31日を基準日とする剰余金の配当について決議したと発表した。\n2026年3月期の期末配当金は、直近予想141円から25円増配となる1株当たり166円とした。すでに実施している中間配当141円とあわせた年間配当金は307円となる。\n同社は、継続的・安定的な利益還元を基本方針としている。また、中期経営計画「Accelerate’27」期間においては、株主資本配当率（DOE）4％を目標値として設定している。\n今回の増配は、同方針のもと実施するものである。\n《KT》\n提供：フィスコ",
+  "published_at": "2026-05-15T02:58:06Z",
+  "author": null,
+  "collected_at": "2026-05-15T03:00:21.771803Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/jwst-maps-the-weather-on-a-hot-gas-giant-700-light-years-away/",
+  "title": "JWST maps the weather on a hot gas giant 700 light-years away",
+  "raw_text": "WASP-94A b is a hot, tidally locked gas giant orbiting close to one of the stars in a binary system roughly 690 light-years away from Earth. In a new Science study, scientists led by Sagnick Mukherjee, an astrophysicist at Johns Hopkins University, used the James Webb Space Telescope to learn what the weather looks like out there.\nTidal locking means that you no longer have day- and night-side temperature differences sweeping across the planet. “We wanted to understand the atmospheres of such planets,” Mukherjee says. “Are they static or dynamic? Do they have winds? Do they have clouds?” His team found that, on WASP-94A b, it’s cloudy in the morning, but the skies are clear in the evening. The fact that we didn’t know this already means we might have gotten the chemistry of this and many other exoplanets surprisingly wrong.\nAveraged atmospheres\nWASP-94A b has a mass slightly below half of Jupiter but has a diameter that’s over 70 percent wider. “This means the planet has low density, and its atmosphere extends further out into space, which makes it easier to observe,” Mukherjee explains. When astronomers study atmospheres like this, they usually rely on transmission spectroscopy. By analyzing the spectrum of light filtering through the planet’s atmosphere as it crosses in front of its star, they can figure out its chemical composition.\nThe problem with this approach is that the light filtering through the entire circumference of the planet’s silhouette was averaged out, as though its atmosphere was one homogenous ball of gas. For tidally locked planets, this was a massive oversimplification.",
+  "published_at": "2026-05-21T19:26:03Z",
+  "author": "Jacek Krywko",
+  "collected_at": "2026-05-22T03:00:31.371655Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "astronomy",
+      "atmospheric science",
+      "gas giant",
+      "planetary science",
+      "Weather"
+    ]
+  }
+}

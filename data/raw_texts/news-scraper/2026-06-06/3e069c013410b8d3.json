@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/otzis-mummified-body-is-home-to-ancient-strains-of-yeast-and-bacteria/",
+  "title": "Some ancient microbes frozen with Ötzi the Iceman are still growing",
+  "raw_text": "Ötzi the Iceman, Europe’s most famous mummy, is crawling with microbes, some long dead, some still eking out a living after thousands of years, and some very modern.\nAfter he died in the Ötztal Alps, the Copper Age man now known as Ötzi lay alone and forgotten for 5,300 years, until a group of hikers stumbled on his freeze-dried remains in 1991. Since then, he’s received a lot of attention from scientists, who have sequenced his DNA, pored over his last meal and the remains of his gut microbes, and examined his clothes and his broken tools. Today, Ötzi lies in a high-tech resting place at the South Tyrol Museum of Archaeology in Italy, where, it turns out, his body is still home to a handful of cold-adapted yeast species that have probably been with him since just after he died.\nSlightly morbid souvenirs from the Alps\nMicrobiologist Mohamed S. Sarhan (of the Institute of Mummy Studies at the private Eurac Research center) and his colleagues recently sampled material from Ötzi’s stomach and meltwater from inside his body, swabbed his skin, and even sampled airborne microbes from his frozen storage room and the lab outside it. They also took samples from a block of frozen alpine soil taken from next to Ötzi’s body back in 1991.\nWe already know quite a bit about Ötzi’s gut microbes thanks to a 2019 study, but Sarhan and his colleagues wanted the bigger picture. Instead of just sequencing all the microbial DNA they could find on Ötzi, the researchers wanted to understand which species were really part of his ancient one-man ecosystem and which were modern contaminants.\nSarhan and his colleagues cultured some of the samples, and also put some through a process called shotgun metagenomics, which involves sequencing all the bits of DNA floating around in a sample. Inside Ötzi’s guts, Sarhan and his colleagues—like previous studies—found ancient DNA from a host of bacteria that match what we expect of ancient, “non-Westernized” gut microbiomes. But elsewhere on and in the mummy, the team also found some microbes that weren’t actually dead.",
+  "published_at": "2026-06-06T11:15:51Z",
+  "author": "Kiona N. Smith",
+  "collected_at": "2026-06-06T15:00:26.383047Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Archaeology",
+      "biological archaeology",
+      "gut microbiome",
+      "human microbiome",
+      "mummies",
+      "otzi",
+      "Ötzi the Iceman",
+      "science"
+    ]
+  }
+}

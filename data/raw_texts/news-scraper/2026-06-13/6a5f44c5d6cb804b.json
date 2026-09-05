@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
+  "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+  "raw_text": "May 14, 2026\nFederal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances\nFor release at 10:00 a.m. EDT\nThe Federal Reserve Board on Thursday released results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances. The Senior Financial Officer Survey is used by the Board to obtain information about banks' reserve balance management strategies and practices, their expectations around the size of their balance sheets and deposit balances their activity in money markets, and their views regarding the discount window.\nThe first survey was conducted between January 30, 2026, and February 9, 2026, and includes responses from banks that held a median asset size of less than $5 billion.\nThe second survey was conducted in collaboration with the Federal Reserve Bank of New York between March 20, 2026, and March 30, 2026, and includes responses from banks that held around three-fourths of total banking system reserve balances at the time of the survey.\nFor media inquiries, please e-mail [email protected] or call (202) 452-2955.",
+  "published_at": "2026-05-14T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:00:31.102421Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

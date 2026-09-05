@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/how-a-melting-glacier-led-to-a-500-meter-high-tsunami/",
+  "title": "Huge landslide created a 500-meter-high tsunami in a major tourist area",
+  "raw_text": "At 5:26 am local time on August 10, 2025, a massive wedge of rock with a volume of at least 63.5 million cubic meters detached from a mountain above Alaska’s Tracy Arm fjord. The falling rock plummeted into the deep waters at the terminus of the South Sawyer Glacier and caused an initial 100-meter-high breaking wave that tore across the fjord at speeds exceeding 70 meters a second. When this wave hit the opposite shoreline, it surged up the steep rocks to a height of 481 meters above sea level.\n“It was the second highest tsunami ever recorded on Earth,” says Aram Fathian, a researcher at the University of Calgary and co-author of a recent Science study that reconstructed this event in detail. “But until now, almost nobody heard about it because it was a near-miss event,” he adds. There were no injuries or fatalities reported following the Tracy Arm fjord tsunami, mostly because it happened early in the morning. But we might not be so lucky next time.\nLandslide megatsunamis\nEarthquake-generated tsunamis usually reach runup heights of a few tens of meters when they strike land. Landslide tsunamis, like the one that happened in Tracy Arm, are often more localized but also way more violent. When millions of tons of rock suddenly fall into a confined body of water like a narrow fjord, the variation in water depth and the direct displacement of the water column produce extremely high waves. Since 1925, scientists have documented 27 such events with runups exceeding 50 meters. The highest was the 1958 Lituya Bay tsunami, which reached 530 meters.\nThe source of the 2025 Tracy Arm tsunami was a steep rock wedge on the northern side of the fjord. Its headscarp, the uppermost boundary of a landslide or rockfall, sat roughly 1,025 meters above sea level. For centuries, the structural integrity of this slope was maintained by a massive wall of ice known as the South Sawyer Glacier. But South Sawyer, like many other glaciers in the Stikine Icefield, has been in a state of retreat due to the warming climate.",
+  "published_at": "2026-05-10T11:00:53Z",
+  "author": "Jacek Krywko",
+  "collected_at": "2026-05-11T03:00:30.933852Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "climate change",
+      "Earth sciences",
+      "geology",
+      "glacier",
+      "landslide",
+      "Tsunami"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/bank-of-america-hikes-sandisk-price-target-to-2100-heres-why.html",
+  "title": "Bank of America hikes Sandisk price target to $2,100. Here's why",
+  "raw_text": "Memory stock Sandisk's wild run higher in 2026 isn't over, despite some cooling last week, according to Bank of America. The bank reiterated its buy rating on the stock and raised its price target to $2,100. That's a 34% gain from Friday's close. Over two sessions at the end of last week, Sandisk fell more than 15% as part of a broader artificial intelligence trade sell-off triggered both by Broadcom's earnings and profit-taking after massive rallies. Sandisk is up more than 550% in 2026. Analyst Wamsi Mohan foresees pricing power for the company to remain strong, as memory shortages due to high demand from the AI buildout linger. SNDK 5D mountain SNDK 5-day. \"So far, SanDisk has signed up over a third of its [fiscal 2027] revenue via\" new business model contracts, \"which means that over 60% of its NAND supply is still available for customers to purchase (albeit at higher prices vs. a year ago),\" wrote Mohan in a Monday note, referring to a type of memory storage technology. \"Over time we see a path to a higher proportion of supply under these NBMs thereby driving more stability in earnings.\" Mohan also said the new business models contracts are a win-win for the company as they lock in revenues for Sandisk and committed supply for customers. Should investors be worried if demand slows, and Sandisk loses its pricing power edge? Mohan says no. \"Given its better margin structure, if demand for NAND were to slow, SanDisk can afford to cut its production (whereas in the past, the company would have had to continue to produce wafers in order to generate cash),\" he wrote.",
+  "published_at": "2026-06-08T10:44:35Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.180272Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

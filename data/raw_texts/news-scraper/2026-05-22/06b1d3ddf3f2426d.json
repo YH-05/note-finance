@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605230025",
+  "title": "金は０．４２％安＝ＮＹ金終値",
+  "raw_text": "NY金先物6月限（COMEX）（終値）\n1オンス＝4523.20（-19.30 -0.42%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-22T17:53:00Z",
+  "author": null,
+  "collected_at": "2026-05-22T21:00:22.170288Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

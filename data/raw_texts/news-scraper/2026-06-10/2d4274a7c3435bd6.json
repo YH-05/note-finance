@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/as-golds-tumble-continues-traders-bet-the-pain-may-last-for-two-more-years.html",
+  "title": "As gold's tumble continues, traders bet the pain may last for two more years",
+  "raw_text": "Turns out all that glitters is not gold.\nSelling in the precious metal just keeps getting worse, with the GLD ETF now down 25% from its intraday record in February. Options trading in the fund has turned bearish in a hurry and is now pointing toward further downside.\nEven after another 3% drop on Wednesday, traders sold more calls than they bought and of the $200 million in options premium traded, $130 million was tied to puts, according to data from ThinkOrSwim and SpotGamma. Of the top 10 contracts traded, eight were puts, and more than half of the put premium was traded at the ask or above, meaning the contracts were mostly bought.\nThe most popular put contract by volume in GLD is currently the in-the-money 380-strike expiring today. The second-most popular is the 240-strike expiring in June 2028 – at $11.50 per contract, that's a deeply bearish bet that gold will fall another 40% over the next two years.\n\"Turkey's central bank is selling gold and buying dollars trying to support the lira, and the gulf nations – Qatar, UAE, Saudi Arabia – they need the money for the war so they've been selling gold, too,\" Nigam Arora, founder of the Arora Report, said in a call. \"At the same time, India's raised duties on gold, and anyone who's just watching charts, they had stops under $4,400 and had to start selling when it broke that level.\"\nThe messaging coming from gold miners might be more hopeful.\nIn GDX, calls outpaced puts more than 2:1 by volume Wednesday with three times more calls bought than puts. The biggest trade of the day in that fund was someone selling 2,000 of the at-the-money puts and calls expiring in December 2028, an almost $8 million short straddle position that wins if GDX stays between about $35 and $115 by expiration.\n\"Gold miners never rose to the level they should have when gold was above $5,000,\" said Arora. \"If you want to be in precious metals, GDX is a better value because if their average cost is around $1,500, their profits are significant.\"",
+  "published_at": "2026-06-10T18:23:22Z",
+  "author": null,
+  "collected_at": "2026-06-10T21:46:29.182748Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

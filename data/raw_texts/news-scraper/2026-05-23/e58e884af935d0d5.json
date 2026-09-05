@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605230134",
+  "title": "今週の【信用規制・解除】銘柄 (5月18日～22日 発表分)",
+  "raw_text": "【注目】今週の【信用規制・解除】銘柄 (5月18日～22日 発表分)\n――――――――――――――――――― 5月22日 (金) 発表分――\n○シリコンスタ <3907> [東証Ｓ]\n東証と日証金が25日売買分から信用取引に関する臨時措置を実施する。東証は委託保証金率を現行の30％以上→50％以上(うち現金を20％以上)に、日証金も同様に貸借取引自己取引分などの増担保金徴収率を現行の30％→50％(うち現金を20％)とする。\n株探ニュース",
+  "published_at": "2026-05-23T00:20:00Z",
+  "author": null,
+  "collected_at": "2026-05-23T03:00:21.886108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

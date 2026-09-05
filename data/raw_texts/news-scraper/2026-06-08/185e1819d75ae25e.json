@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/apples-long-awaited-ai-siri-overhaul-is-finally-here/",
+  "title": "Apple’s long-awaited AI Siri overhaul is finally here",
+  "raw_text": "Two years after promising but failing to launch a smarter Siri, Apple unveiled its overhauled AI-powered assistant at its Worldwide Developers Conference, WWDC 2026, on Monday. The Siri AI revamp will be available in beta later this year.\nThe idea behind the new “Siri AI,” as it’s called, is to turn Siri from a voice-controlled assistant into an AI companion that can do a lot more. The new assistant will launch alongside a dedicated Siri app.\nThe new Siri can draw on current world knowledge to ground its answers to your questions. The updated assistant will also be able to access information on a user’s device and respond based on what’s displayed on their screen.\nThe tech giant is transforming Siri into a full-fledged conversational AI chatbot to take on popular platforms like ChatGPT, Claude, and Gemini. The update marks a major change for Siri, which has until now been known as a voice assistant.\nWhen users ask for information, Siri will display text cards with results, like information from the web or details from text messages.\nThe assistant has also been redesigned for modern iPhones, as it will live in the Dynamic Island. Currently, when you trigger Siri, your side of the phone’s screen glows. With the updated Siri, there’s a new animation in the Dynamic Island instead.\nThe new “Write with Siri” option will let users get help writing text. When you write with Siri in Mail and Messages, the assistant can reflect how you usually communicate with a specific colleague or friend. For example, if you normally send your manager quick and direct bulletin, that’s what you’ll get when you draft an email with Siri.\nYou can swipe down from the dynamic island to search or to start a conversation with Siri by typing, and say “Hey Siri, or use the side button to get an in-depth answer.\nUsers will be able to ask Siri to perform more complex tasks, like writing messages, by giving it specific information and topics to cover. Siri will be able to pull in information from the web and previous emails, along with details from the user’s calendar, contacts, and more.\nThe tech giant also says Siri has a brand-new voice experience, while also being able to speak at a customized pace and expressivity. Additionally, there’s an update to system-wide dictation with a boost in accuracy, as it’s more precise in capturing what you say, from spelling to punctuation and capitalization.\nWith Siri AI, you can ask for an in-depth plan, go back and forth, create a brainstorming session, get feedback on a document, and more.\nOver on macOS, you can tap into Siri from anywhere, as the company is integrating the assistant into Spotlight, which can now find answers to questions as well. On watchOS, users can ask questions and take action right from their watch.",
+  "published_at": "2026-06-08T17:56:21Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-06-08T21:00:26.733518Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Apple",
+      "siri",
+      "siri ai",
+      "wwdc"
+    ]
+  }
+}

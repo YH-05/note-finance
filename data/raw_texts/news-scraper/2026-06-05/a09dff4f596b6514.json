@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/stocks-making-the-biggest-moves-premarket-nnvda-arm-qcom.html",
+  "title": "Stocks making the biggest moves premarket: Nvidia, Arm, Taylor Morrison, Qualcomm & more",
+  "raw_text": "Check out the companies making the biggest moves premarket: Nvidia , Microsoft — The hyperscalers were rising after Nvidia, in a collaboration with Microsoft, revealed a new processor for personal computers . Nvidia was up 2%, while Microsoft was rising nearly 4% in premarket trading. Dell , HP , Arm — Derivatives of Nvidia's computer chip announcement were also jumping on the news. Dell and HP, which are set to manufacture computers featuring the new chip, rose 1.5% and more than 3.5%, respectively. Arm, whose technology was used by Nvidia to develop the new chip, was surging 14.5%. Qualcomm , Intel , Advanced Micro Devices — As Nvidia rose, its chipmaking competitors fell. Qualcomm tumbled 9.5%, while Intel shed more than 6.5%. Advanced Micro Devices was off more than 4% too. Taylor Morrison Home — Shares surged almost 23% after Berkshire Hathaway agreed to acquire the company for $6.8 billion. Berkshire CEO Greg Abel called Taylor Morrison a best-in-class homebuilder and said the addition to the company's portfolio will help deliver homeownership to more Americans. Berkshire shares were slightly lower. Yum Brands — The restaurant operator was up 1.5% after Bloomberg News reported that the company is in talks to sell its Pizza Hut brand to LongRange Capital. Summit Therapeutics — The stock rose 2.5% after a late-stage Chinese trial showed the company's experimental lung cancer drug reduced the risk of death by 34%. While the phase 3 trial was only in China, a global phase 3 trial is also currently being conducted. International Business Machines — Shares jumped 13% after Barclays initiated coverage at an overweight rating. Analysts said quantum computing is set to be the next major compute paradigm, and IBM's strategy on the technology is compelling. Melius Research also hiked its price target on IBM. Software stocks — The software rally gained steam in the first trading day of June as the iShares Expanded Tech-Software Sector ETF (IGV) rose 4.5% in premarket trading. ServiceNow was up 11%. Workday and Adobe were both rising 6%. Salesforce jumped nearly 7%. Robinhood , Coinbase — The trading platforms were down as Bitcoin prices fell below $73,000, the lowest levels since mid-April. Robinhood fell nearly 3%, while Coinbase declined 2%.",
+  "published_at": "2026-06-01T11:36:04Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.706659Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

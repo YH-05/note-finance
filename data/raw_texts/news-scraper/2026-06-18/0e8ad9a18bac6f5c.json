@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/spacex-has-even-more-room-to-run-after-ai-coding-deal-oppenheimer-says.html",
+  "title": "SpaceX has even more room to run after AI coding deal, Oppenheimer says",
+  "raw_text": "Space Exploration Technologies should see its shares surge following the strategic acquisition of an artificial intelligence coding firm, according to Oppenheimer. The investment bank has an outperform rating on Elon Musk's aerospace technology company, which went public last Friday at $135 a share. Oppenheimer raised its SpaceX share price target by 32%, to $250 from $190, implying 30% upside from Wednesday's close. SpaceX said Tuesday it agreed to buy Cursor , a maker of a popular AI coding tool that allows automatic generation, editing and checking of computer code, for $60 billion in stock. \"This deal is highly beneficial for both sides,\" Oppenheimer analyst Timothy Horan said Thursday in a note to clients. \"Cursor gets the compute to train and inference its models, and in return SPCX gets the harness engineering, data and a captive base of expert developers — rounding out its AI flywheel, and vertically integrating, which helps innovation and margins.\" SpaceX has surged 42% since its record-smashing initial public offering last week. SPCX 5D mountain SpaceX was recently up 42% since going public last week SpaceX will pick up two assets through its purchase of Cursor, and the acquisition will add to revenue and profits, according to Oppenheimer. SpaceX is buying a set of agentic coding tools, including an operational software layer that supports the autonomy and reliability of large-language models, as well as a database with more than one million users. \"This distribution surface and data flywheel is difficult to replicate and SpaceX needs it to capture AI market share,\" Horan wrote. Oppenheimer raised its SpaceX estimates following the Cursor deal, saying Cursor's annual recurring revenue is running at a $4 billion rate today, up from $1 billion in 2025 and on pace to rise to $6 billion by the end of 2026. As a result, Horan lifted his expected fourth quarter AI revenue for SpaceX to $8.75 billion from $4.75 billion previously. Oppenheimer's call matches the few other Wall Street researchers who have so far begun coverage of SpaceX. Of five analysts covering SpaceX, four rate it a buy or strong buy, LSEG data shows.",
+  "published_at": "2026-06-18T14:25:07Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.510497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20385-vnpt-expands-digital-finance-development-with-pvcombank.html",
+  "title": "VNPT expands digital finance development with PVcomBank",
+  "raw_text": "Vietnamese state telco VNPT announced on Thursday it has signed a comprehensive agreement with PVcomBank to expand cooperation in the areas of digital finance, digital payments and digital transformation between now and 2030.\nUnder the agreement, VNPT and PVcomBank will jointly research and develop new products and services, and implement many of VNPT's digital technology solutions in banking operations such as eKYC, biometric identification, digital signatures, electronic contracts, AI, cloud, data centre and information security solutions.\nIn a Facebook post, VNPT said the combination of its technological capabilities and PVcomBank's experience in the finance and banking sector “is expected to bring smarter, more convenient, and safer transaction experiences to customers, while contributing to promoting cashless payments and the development of the digital economy in Vietnam.”\nAccording to state news site Vietnam Plus, the two firms will also develop co-branded products, services and new distribution models on digital platforms, as well as explore ways to cooperate in “non-banking finance, investment and business development”.",
+  "published_at": "2026-06-15T05:45:25Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-17T03:01:24.679862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}

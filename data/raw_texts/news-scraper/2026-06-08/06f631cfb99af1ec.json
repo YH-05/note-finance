@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/earthquake-of-magnitude-7point8-strikes-off-southern-philippines-tsunami-warnings-issued.html",
+  "title": "Earthquake of magnitude 7.8 strikes off southern Philippines, tsunami warnings issued",
+  "raw_text": "Tsunami warnings were issued after an earthquake of magnitude 7.8 struck off Mindanao in the southern Philippines on Monday, the German Research Centre for Geosciences said.\nThe quake struck at a depth of 10 km (6.2 miles), GFZ said. The geophysics agencies of the Philippines and neighbouring Indonesia issued tsunami warnings. There were no immediate reports of major damage in either country.\nGFZ had earlier pegged the earthquake at 8.2. The U.S. Tsunami Warning System issued a tsunami threat to the earthquake.\nPhivolcs, the Philippine agency, said the quake was magnitude 7.0 and warned of damage and tsunami waves above one metre (yard), which could continue for several hours.\nIndonesia's BMKG put the quake at a 7.7 magnitude.\nBenjie Ancheta, police chief of Alabel town in Sarangani in the Philippines, said the police building had some cracks immediately after the quake, which occurred during their flag-raising ceremony.\nAncheta said there were no immediate reports of casualties, but some people fainted following the strong tremor.\n\"This is the strongest earthquake we've experienced,\" Ancheta told Reuters by phone.\nWitnesses in Indonesia's northern city of Manado said the quake felt very strong.\nThe Philippines and Indonesia are tectonically complex parts of the \"Pacific Ring of Fire\", a seismically active belt stretching from South America to the Russian Far East.",
+  "published_at": "2026-06-08T01:23:33Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.588478Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

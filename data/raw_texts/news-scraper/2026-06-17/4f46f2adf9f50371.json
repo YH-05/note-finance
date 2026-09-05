@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/17/spacex-alum-nabs-22m-to-turn-rocket-engines-into-geothermal-power-plants/",
+  "title": "SpaceX alum nabs $22M to turn rocket engines into geothermal power plants",
+  "raw_text": "Few energy sources can top geothermal’s potential, with at least 42 terawatts of capacity available worldwide, according to the IEA, more than twice the world’s energy use last year.\nThe technology is shaping up to be the energy world’s dark horse, even though investment in the tech pales in comparison to startups in advanced nuclear fission and fusion power.\nThat makes the $19 million in seed funding raised by a startup called Critical Energy especially notable. Critical Energy hopes to fill a major gap for geothermal power plants by building modular turbines tailored to them. The funds are earmarked to build its first 2.5 megawatt project, the startup exclusively told TechCrunch.\nMeanwhile the darlings of the investment world, those working on nuclear fission and fusion, are targeting the early 2030s for their first commercial deployments. By that time, geothermal startups could be building gigawatt-scale power plants.\n“Geothermal is going to beat them to it. By a lot,” Spencer Jackson, co-founder and CEO of Critical Energy, told TechCrunch. “In four or five years, I hope that we’re doing many gigawatts a year.”\nEven modest expansion of geothermal could pay off to serve the world’s — and especially the tech industry’s — growing energy needs. A recent report said that advanced geothermal could power nearly two-thirds of new data centers by 2030.\nBut Jackson said there’s a looming shortage of compatible turbines. Many projects today are specifying large turbines, which can take months to years to assemble on site, he said. “It’s still way faster and cheaper to make it the other direction, to built it in a factory.”\nCritical Energy hopes to fill the gap with modular turbines. To design them, Jackson leaned on his experience at SpaceX, where he worked on Falcon Heavy, Starship, and the Raptor rocket engine. To build them quickly, Critical Energy is working with machine shops to make the turbomachinery and other turbine components, which resemble rocket engines. It’s buying other parts off the shelf for now. In the future, the startup may decide to bring other pieces in house, similar to how Tesla and SpaceX have done, Jackson said.\nThe first power plant to use Critical Energy’s turbines is scheduled to be completed by 2027 and will be installed at an existing geothermal site similar to those found in Iceland or at The Geysers in Northern California. Critical Energy is also designing a larger, 5 megawatt module targeted at enhanced geothermal companies like Fervo Energy, which drill deeper into the Earth to withdraw more heat.\nBy the early 2030s, Jackson hopes Critical Energy will be making gigawatts worth of turbines. “We are looking for the fastest path to gigawatts of scalable power on the grid,” he said. “Long term goal is 300 gigawatts a year in 2045.”\nThough geothermal development has been quietly proceeding, Jackson expects that once the technology is more mature, oil and gas companies will dive in, speeding things up considerably.\n“Geothermal is great because the oil and gas industry has the replicability to do hundreds and then thousand of wells. They’re very, very good at drilling wells,” he said. “But they need turbines and there’s going to be a massive shortage of those.”\nThe seed rounds were led by Susa Ventures and Upfront Ventures with participation from MaC Venture Capital, Susquehanna Sustainable Investments, Humba Ventures, Scribble Ventures, and Underground Ventures. The startup also nabbed $3 million in venture debt from Silicon Valley Bank bringing its total early capital to $22 million.",
+  "published_at": "2026-06-17T13:30:00Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-17T15:00:21.600681Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "Fundraising",
+      "Exclusive",
+      "geothermal energy",
+      "Critical Energy"
+    ]
+  }
+}

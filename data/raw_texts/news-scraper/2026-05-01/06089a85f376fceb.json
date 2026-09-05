@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/04/30/stripe-link-digital-wallet-ai-agents-shopping/",
+  "title": "Stripe updates Link, a digital wallet that autonomous AI agents can use, too",
+  "raw_text": "Financial services platform Stripe is introducing a digital wallet specifically built for the AI era, where autonomous agents can perform tasks that include shopping, paying for reservations, buying tickets, and more.\nAt its annual conference this week, the company introduced an upgraded version Link, its digital wallet that allows you to connect various payment methods, track your spending, and view your recurring subscriptions. Now, it also lets you integrate your AI agents so they can spend on your behalf, securely.\nLink, which is available on the web, iOS, and Android, offers many things that you might expect from a digital wallet. You can connect payment methods, including cards, banks, crypto wallets, and buy now/pay later services, as well as store important details for online checkout, like your billing and shipping information.\nThe wallet offers other handy features, too, like the ability to see what you’re spending, and track your recurring subscriptions — even updating the payment method the services have on file, as needed. It also offers 90 days of protection on eligible purchases from select merchants.\nBut what makes Link interesting with this recent upgrade is its ability to work with autonomous AI agents, like OpenClaw and others.\nThe number of people experimenting with autonomous AI has been booming to the point that Apple sold out of its base model Mac Minis, a popular platform for running these new, always-on AI agents. However, some people (rightly) take pause at the idea of giving an agent raw payment information, even if it’s providing convenience by automating various bookings.\nLink is meant to offer a solution, as users can connect their AI agents and give them permission to pay, without exposing their payment credentials.\nTo work, users will first grant their agent access to the Link wallet via an OAuth (standard authentication) flow. The agent can then create a spend request, provide you with the context, and wait for your approval. Currently, it works with traditional payment methods, but Stripe says support for agentic tokens, stablecoins, and other types of payments is coming “soon.”\nOn mobile and web, users will get a notification to approve the spend request, which requires they first review the transaction before the payment credential is shared with the AI agent. In the future, Stripe says it will expand its controls so users can set their own spending limits, or even choose when their agents can act without approval.\nThe wallet has been built on Stripe’s new Issuing for agents, which lets users issue virtual cards for agents to use to make purchases autonomously, with real-time authorization, spending controls, and full transaction visibility. Instead of giving an agent access to your payment credentials, users can either give agents programmatic access to Link, which provides a one-time-use card, or they can use a Shared Payment Token (SPT), which is backed by payment cards and banks.\nDevelopers and businesses building agents or AI personal assistants can also use Link’s wallet instead of building their own wallet from scratch, Stripe notes.\nUpdated to further clarify that the agentic features are new, not the wallet itself.",
+  "published_at": "2026-04-30T17:15:19Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-05-01T15:00:26.767008Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Commerce",
+      "Fintech",
+      "AI agents",
+      "openclaw",
+      "payments",
+      "stripe"
+    ]
+  }
+}

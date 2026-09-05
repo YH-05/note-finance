@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/jamie-dimon-jpmorgan-chase-acquisition-target-size.html",
+  "title": "Jamie Dimon says JPMorgan Chase could spend $20 billion on acquisition: 'We are on the lookout'",
+  "raw_text": "JPMorgan Chase CEO Jamie Dimon said Wednesday that his bank could spend up to $20 billion on an acquisition in the coming years.\nA deal that size would be the largest of Dimon's 20-year tenure atop JPMorgan and test regulators' appetite for consolidation among the biggest U.S. banks.\n\"I do think there might be opportunities, and so we are on the lookout,\" Dimon told analysts at a New York financial conference.\n\"There might be, in the next couple years, a chance to put $10 [billion] or $20 billion to work buying something,\" Dimon said.\nThe comments came with caveats. Dimon framed acquisitions almost as a tool of last resort, not a growth strategy, and warned that bankers who lean too hard on dealmaking are often compensating for poor organic growth.\n\"You sit around a lot of management meetings, the first thing they do when they're not doing well in organic growth is they start to bulls--t about [mergers and acquisitions],\" Dimon said. \"I don't want to hear about M&A ... What are you doing to grow your business — sales, branches, tech, profits, products, services?\"\nAny takeover target, he said, would need to integrate cleanly into JPMorgan's existing operations, fit the bank's culture, and enhance core businesses rather than sit as a separate standalone unit.\n\"It can't be just a pie-in-the-sky type of thing,\" Dimon said.\nJPMorgan has mostly grown organically in recent years, with the notable exception of its FDIC-assisted acquisition of First Republic Bank in 2023. It made a $10.6 billion payment to the regulator as part of that transaction.\nUnder Dimon, the bank's largest and most consequential M&A deals were mostly crisis-era acquisitions of regulated banks, including First Republic, Bear Stearns and the retail operations of Washington Mutual.\nThe firm also acquired a string of smaller fintech firms but slowed down after spending $175 million to acquire Frank in 2021, a college aid startup that was later revealed to be a fraud.",
+  "published_at": "2026-05-27T15:51:16Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.165851Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

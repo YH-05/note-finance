@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/02/danco-laboratories-supreme-court-mail-order-abortion-drugs.html",
+  "title": "Danco Laboratories seeks Supreme Court stay of ruling pausing mail-order access to abortion drugs",
+  "raw_text": "Pharmaceutical company Danco Laboratories filed an application with the U.S. Supreme Court on Saturday seeking a stay of an appeals court ruling that temporarily blocks the abortion drug mifepristone from being dispensed through the mail.\nThe appeals court ruling was issued unanimously by a conservative three-judge panel on Friday, significantly curtailing access to the drug nationwide and particularly in states that have banned abortion.\nThe temporary decision was made in a case brought by the Republican-led state of Louisiana, claiming the FDA, in adopting a 2023 rule — which allows mifepristone to be dispensed through the mail — had ignored the risks of serious adverse events posed by the drug, including sepsis and hemorrhaging. The panel ruled that Louisiana was likely to prevail in its challenge.\nDanco, in its Supreme Court application, said the ruling \"injects immediate confusion and upheaval into highly time-sensitive medical decisions — and it forces Danco, FDA, certified Mifeprex providers, patients, and pharmacies all to guess at what is allowed and what is not.\"\nWhile that ruling is temporary, it is the first to significantly curtail access to mifepristone in a series of lawsuits challenging the drug's initial approval in 2000 and subsequent rules making it easier to obtain. The 2023 U.S. Food and Drug Administration regulation removed a requirement that mifepristone be dispensed in person.\nIn states where abortion is legal and doctors are permitted to prescribe drugs via telehealth, fewer than 2% of prescriptions for abortion drugs are filled in person, according to research from the University of Southern California.\nDrug companies GenBioPro and Danco Laboratories have intervened in Louisiana's lawsuit to defend the FDA regulation. The brand-name version of mifepristone, Mifeprex, is Danco's only product.\nIn 2024, the Supreme Court took up a challenge to the mail-order rule by medical groups and doctors, but ruled that they lacked legal standing to sue. Missouri, Kansas and Idaho have taken over that case, which is pending.\nU.S. District Judge David Joseph, in an April 7 decision, paused Louisiana's lawsuit pending a review by President Donald Trump's administration of mifepristone's safety, which, according to media reports, has been delayed until after the November midterm elections.\nThe judge denied Louisiana's request to block the 2023 rule but agreed with the state that it was likely unlawful, indicating he would rule that way when the case resumes.",
+  "published_at": "2026-05-02T18:59:52Z",
+  "author": null,
+  "collected_at": "2026-05-02T21:19:12.881237Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

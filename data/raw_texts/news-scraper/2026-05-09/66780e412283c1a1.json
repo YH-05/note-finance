@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20207-whats-next-for-fintechs-in-africa.html",
+  "title": "What's next for fintechs in Africa?",
+  "raw_text": "A number of new offerings underline the growth of fintech-related businesses across Africa, a trend also highlighted in a recent report by a major consulting group.\nNigerian startup Siiqo is an example. It has launched an all-in-one business management platform designed to help African SMEs and freelancers manage sales, payments, and customer engagement from a single system.\nThe platform provides free branded online stores, escrow-protected payment processing, invoicing tools, inventory management, and a hyperlocal marketplace discovery system.\nThen, the TechAfrica news service notes, there’s MTN Uganda, which, through its mobile money platform MoMo, has partnered with oil marketing company Stabex International Limited to launch a new initiative aimed at accelerating digital payments among boda boda (bicycle and motorcycle taxis) riders.\nThrough the partnership, riders can self-onboard as MoMoPay merchants, enabling them to accept cashless payments at no cost. In addition, participants will earn daily fuel rewards when they consistently use their merchant codes, helping to offset operational costs.\nMeanwhile in South Africa, payment gateway Stitch has launched a new buy now pay later (BNPL) solution aimed at merchants in the country, expanding its payments platform to include flexible instalment options for consumers at checkout.\nThe launch forms part of Stitch’s broader strategy to expand its payments ecosystem and strengthen digital commerce infrastructure across the South African market, where BNPL is rapidly emerging as a mainstream payment option.\nAll this activity, reported recently by a number of websites, should come as no real surprise, according to Beyond Payments: Unlocking Africa’s Second FinTech Wave, a report from Boston Consulting Grouppublished in March.\nThe report suggests that Africa is the fastest-growing fintech market globally. It also notes that the first fintech wave delivered transactional inclusion, improving access to formal banking systems. Indeed mobile money penetration leads globally, yet, the report adds, formal credit, SME financing, and structured savings remain shallow; much lending continues through semi-formal or informal channels even in advanced markets.\nThe next phase, the report says, is about building depth – expanding from consumer payments to B2B/government payments and credit.\nSustained fintech scale, it suggests, will depend on interoperable digital infrastructure, credit and data rails that enable risk-based lending, regulatory clarity that lowers cost-to-scale, stronger consumer trust, and deeper local capital markets.\nThe will to develop solutions certainly seems to exist, if the fintech initiatives mentioned earlier are anything to go by, but will the technical, economic and regulatory environment evolve help to enable such initiatives?",
+  "published_at": "2026-05-06T13:07:51Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-09T03:02:24.066607Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

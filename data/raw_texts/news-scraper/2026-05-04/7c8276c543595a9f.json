@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040023",
+  "title": "欧州株　独ＤＡＸ指数は０．０５％安で取引開始、英市場は休場（アーリー・メイ・バンク・ホリデー）",
+  "raw_text": "欧州株 独ＤＡＸ指数は０．０５％安で取引開始、英市場は休場（アーリー・メイ・バンク・ホリデー）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-04T07:15:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.717789Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

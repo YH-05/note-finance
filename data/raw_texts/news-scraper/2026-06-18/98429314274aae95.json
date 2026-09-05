@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606190044",
+  "title": "【恐怖指数】警戒感は大きく低下",
+  "raw_text": "【恐怖指数】ＶＩＸスポット（NY時間：16:15）\nスポット 16.40（-2.04 -11.06％）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-18T20:48:00Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:00:22.045423Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

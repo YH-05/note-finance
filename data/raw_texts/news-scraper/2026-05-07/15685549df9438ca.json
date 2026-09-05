@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://jp.reuters.com/markets/global-markets/HOUABMFNCZLZDD7MYNGZJYFYHI-2026-05-07/",
+  "title": "横河電、発行済み株式の3.5％・300億円を上限に自社株買い",
+  "raw_text": "［東京 ７日 ロイター］ - 横河電機\n(6841.T)は７日、発行済み株式の３．５％に当たる９００万株・３００億円を上限に自社株買いを実施すると発表した。買い付け期間は８日から９月末まで。",
+  "published_at": "2026-05-07T09:00:06.267254Z",
+  "author": null,
+  "collected_at": "2026-05-07T09:00:31.389087Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "reuters_jp",
+    "category": "business",
+    "tags": []
+  }
+}

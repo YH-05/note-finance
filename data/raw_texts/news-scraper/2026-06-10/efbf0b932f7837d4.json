@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20361-zamtel-and-ericsson-plan-private-4g-and-5g-partnership.html",
+  "title": "Zamtel and Ericsson plan private 4G and 5G partnership",
+  "raw_text": "Zambia’s state-owned telecommunications operator, Zamtel, has signed a memorandum of understanding (MoU) with tech giant Ericsson related to private 4G and 5G connectivity.\nIn a Facebook post Zamtel said it had hosted a delegation from Ericsson, led by the company’s Head of Eastern and Northern Africa, Alain Maupin, for the signing of the MoU which is aimed at delivering private 4G and 5G connectivity solutions in Zambia.\nThe company described this strategic partnership as marking an important step in advancing digital transformation and enabling secure, high-performance connectivity for enterprises across key sectors of the economy.\nIt pointed out that through the deployment of private network solutions, businesses will be empowered with enhanced reliability, efficiency, automation and innovation capabilities.\nAs the TechAfrica News website points out, this initiative reflects a broader push to modernise enterprise connectivity infrastructure in Zambia as demand grows for advanced digital services across industries.\nIt’s certainly true that private wireless networks are increasingly being adopted globally to support mission-critical operations, offering greater control, security, and performance than traditional connectivity solutions. However, in the African continent private networking is still in its infancy.\nFor example, we reported In April that Moroccan operator Inwi had partnered with China Mobile International to deploy what it claims is the country’s first private 5G network dedicated to industrial use.\nPrivate connectivity also seems to be on the cards for a Congo-Brazzaville oil and gas operation, while, in July last year, Vodacom Business said it had deployed a private mobile network for South African energy and chemical company Sasol at its synthetic fuel facility in Secunda, Mpumalanga as an alternative to Wi-Fi.\nBut private networks are not yet widespread in Africa – which makes the Zamtel announcement a very interesting development, although further details are quite sparse at the moment.",
+  "published_at": "2026-06-09T13:25:19Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-10T03:01:28.384609Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

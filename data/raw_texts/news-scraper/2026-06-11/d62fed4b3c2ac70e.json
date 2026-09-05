@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947769/boox-onyx-go-6-gen-ii-android-11-e-reader-google-play",
+  "title": "Boox’s new e-reader could replace your Kindle, Kobo, and digital notepad",
+  "raw_text": "Boox has announced a new version of its smallest e-reader that expands the Go 6’s functionality to now include note-taking. The new Go 6 (Gen II) sticks with a 6-inch, 300PPI E Ink screen like its predecessor but gets a bump from 2GB to 3GB of RAM and now supports Boox’s InkSense Plus stylus, which can be used for sketching, annotating documents, or making handwritten notes.\nBoox’s new e-reader could replace your Kindle, Kobo, and digital notepad\nThe Go 6 (Gen II) e-reader adds support for Boox’s stylus, so instead of just reading, you can also doodle and take notes.\nThe Go 6 (Gen II) e-reader adds support for Boox’s stylus, so instead of just reading, you can also doodle and take notes.\nThe Boox Go 6 (Gen II) is now available for preorder for $199.99 and is expected to start shipping on June 17th. The $45.99 InkSense Plus stylus isn’t included, but you can bundle it with the e-reader for $232.99. That’s more expensive than the entry-level Amazon Kindle and the Kobo Clara BW that also feature 6-inch screens, but the new Go 6 gives you the best of both worlds. It runs Android 11 and supports the Google Play Store so you can install both Amazon and Kobo’s mobile apps, giving you access to both platforms’ ebook stores.\nThe new e-reader’s writing experience might not be as polished as what you’ll get from alternatives like the $449 Remarkable Paper Pro Move, but with Android you’ll be able to choose from a wide variety of note-taking apps and potentially more options for how you can sync notes across platforms.\nThe Boox Go 6 (Gen II) matches other features of Kindle and Kobo e-readers, including a screen light with color temperature adjustments, Wi-Fi, Bluetooth, and a 1,500mAh battery that should last for weeks — unless you try to turn the e-reader into a gaming device. But unlike its competition, Boox includes 32GB of built-in storage with the option to expand that considerably using a microSD card.\nMost Popular\n- Xbox warns of a ‘reset’ as it prepares for layoffs\n- Microsoft restricts Claude Fable for employees over data retention concerns\n- Nearly a million passports and photo IDs were left unprotected on the public internet\n- Claude Fable won’t answer basic biology questions\n- iFixit Trump phone teardown confirms it’s an HTC dupe",
+  "published_at": "2026-06-11T12:00:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-06-11T15:00:11.307827Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

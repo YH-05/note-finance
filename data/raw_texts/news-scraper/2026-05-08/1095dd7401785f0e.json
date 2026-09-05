@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081683",
+  "title": "ナスダック　史上初めて２６０００台に乗せる＝米国株",
+  "raw_text": "【市況】ナスダック 史上初めて２６０００台に乗せる＝米国株\nナスダック 26027.93（+221.73 +0.86%）\n株探ニュース",
+  "published_at": "2026-05-08T13:37:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.837552Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

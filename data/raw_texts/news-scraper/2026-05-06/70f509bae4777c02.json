@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/circle-jumps-16percent-on-clarity-act-compromise-that-preserves-stablecoin-rewards.html",
+  "title": "Circle jumps nearly 20% on Clarity Act compromise that preserves stablecoin rewards",
+  "raw_text": "Shares of Circle surged after lawmakers over the weekend struck a compromise on the market structure bill known as the CLARITY Act, preserving stablecoin reward programs under certain conditions.\nOn Friday, key language in the proposed crypto legislation was updated to restrict crypto companies from paying savings account-like interest or yield to users on passive stablecoin deposits – leaving that function to traditional banks. However, the bill does allow rewards as usage-driven incentives that could be tied to activity like trading, transactions or staking, as expected.\nThe stablecoin issuer Circle closed 19.9% higher, while Coinbase, the main distributor of Circle's USDC stablecoin, gained 6.1%. BitGo and Galaxy Digital rose 10.3% and 3.8%, respectively.\nBitcoin rose more than 1% to about $79,000, after the flagship cryptocurrency topped $80,000 over the weekend for the first time since January.\nEarning yield, usually in the form of rewards, on stablecoins like USDC and others has been a key incentive for users to hold the coins – similar to the interest earned on cash sitting in a bank account. The revised language is a relative win for Circle and Coinbase. However, it could pressure smaller crypto platforms that have leaned heavily on high-yield deposit products to attract users.\nThe development also aligns with a wider industry shift away from return-seeking products and services and toward crypto's use in upgrading financial infrastructure.\nMost banks have yet to weigh in on the legislation, but Bank of America called it a net win for the sector.\n\"Across bank sub‑sectors, the CLARITY Act's resolution of the stablecoin yield debate is a net positive,\" Bank of America analyst Ebrahim H. Poonawala said in a note Monday. \"It should alleviate concerns tied to deposit flight, reduce regulatory uncertainty, and allow banks to engage with digital‑asset infrastructure on more controlled terms.\"\nThe crypto industry has so far had a favorable response to the development.\nCoinbase CEO Brian Armstrong, who has been heavily involved in discussions around this bill on Capitol Hill and strongly in support of evening the playing field between crypto companies and banks, posted on X Monday morning, saying \"Mark it up.\"\n—CNBC's Michael Bloom contributed reporting",
+  "published_at": "2026-05-05T14:15:52Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.679247Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

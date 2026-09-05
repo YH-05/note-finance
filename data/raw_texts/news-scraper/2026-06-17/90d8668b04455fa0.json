@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606171391",
+  "title": "日経225先物：17日22時＝270円高、7万320円",
+  "raw_text": "【市況】日経225先物：17日22時＝270円高、7万320円\nTOPIX先物期近は4045ポイントと前日比22.5ポイント高、TOPIXの現物終値比は31.77ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 70320 +270 3077\n日経225mini 70320 +270 59768\nTOPIX先物 4045 +22.5 4974\nJPX日経400先物 36705 +205 149\nグロース指数先物 704 +2 139\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-06-17T13:00:41Z",
+  "author": null,
+  "collected_at": "2026-06-17T15:00:17.053784Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

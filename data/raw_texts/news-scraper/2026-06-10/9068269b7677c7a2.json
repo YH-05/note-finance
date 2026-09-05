@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606101173",
+  "title": "米株価指数先物　時間外取引　軟調",
+  "raw_text": "米株価指数先物 時間外取引 軟調\n東京時間17:01現在\nダウ平均先物JUN 26月限 50737.00（-172.00 -0.34%）\nＳ＆Ｐ500先物JUN 26月限 7364.00（-28.75 -0.39%）\nＮＡＳＤＡＱ100先物JUN 26月限 28946.75（-170.25 -0.58%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-10T08:11:00Z",
+  "author": null,
+  "collected_at": "2026-06-10T09:00:22.316019Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

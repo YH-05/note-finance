@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/17/uber-eats-returns-pickup-retail-app.html",
+  "title": "Uber Eats has a fix for pesky returns. You can just sit on the couch",
+  "raw_text": "Returning packages is a pain. Uber says it can fix that.\nUber Eats announced a returns feature on Friday that lets customers do it all from the phone, and a courier will pick up and return the items purchased from retailers on the app for a fee.\n\"A first for the on-demand delivery industry, customers will now be able to send back eligible retail items purchased on Uber Eats and receive an instant refund,\" the announcement said.\nThe launch will apply to retailers on Uber Eats, including Best Buy, Dick's Sporting Goods and Petco. Refunds are processed when the courier picks up the returned item, which must cost at least $20.\nTo avoid the courier fee, which is calculated by the driver's time and distance, customers can still return items themselves.\nOriginally just a ride-hailing app, Uber's seen growing success since entering the delivery space.\nIn the last quarter of fiscal 2025, Uber made $4.9 billion in delivery revenue, a 30% increase year over year.\nReturns for online purchases have been a growing problem for years, frustrating retailers and customers alike.\nIn a recent survey of 1,000 people who had made an online return in the last year, a third said that printing labels and finding packaging were stressful, according to post-purchase platform Route. Waiting for the refund ranked as the top return stress point, with 43% of respondents.\nTo streamline the process for customers, Amazon accepts returns at retailers, including Whole Foods, Staples and Kohl's.\nUber Courier, previously known as Uber Connect, has had an option to return prepaid and sealed packages since 2023. With the new returns feature, unpackaged items will brought back to the retailer instead of dropped off at a post office, UPS or FedEx.",
+  "published_at": "2026-04-17T14:08:29Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.400833Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "retail",
+    "tags": []
+  }
+}

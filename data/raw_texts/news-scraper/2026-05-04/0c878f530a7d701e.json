@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/24/regeneron-otarmeni-gene-therapy-hearing-loss.html",
+  "title": "Regeneron weighs overseas price for Otarmeni, gene therapy for rare type of hearing loss",
+  "raw_text": "Regeneron Pharmaceuticals will make its newly approved gene therapy for a rare, genetic form of hearing loss available for free in the U.S. The company hasn't yet decided how much it will charge in other countries, Regeneron CEO Leonard Schleifer told CNBC on Friday.\n\"We haven't set a price yet, but they should pay their fair share outside the United States,\" Schleifer said in an interview with CNBC's Becky Quick. \"In the United States, we're giving it away for free.\"\nRegeneron on Thursday announced it would make the therapy available for free in the U.S. alongside a larger deal with the Trump administration around drug pricing. President Donald Trump, for years, has argued that Americans are unfairly paying more for drugs than other wealthy nations and, as a result, is subsidizing innovation.\nRegeneron's gene therapy Otarmeni treats a rare disease where a faulty OTOF gene limits production of a protein that transmits sound signals in the ear. Otarmeni delivers a working copy of the gene. In a clinical trial, 16 of 20, or 80%, of people who received the gene therapy experienced improvements to their hearing.\nAbout 50 babies a year are estimated to be born with the condition in the U.S. Because it's so rare, the gene therapy wasn't expected to be a financial boon for Regeneron. Piper Sandler analysts estimated peak sales of $130 million.\nSchleifer said Regeneron decided to make the treatment available for free in the U.S., \"to show who we are.\"\nThe treatment was approved under the Food and Drug Administration's newly created National Priority Voucher program, which aims to accelerate reviews of drugs that align with U.S. national health priorities.\nGene therapies can cost millions of dollars, and European countries have balked at the price tags in the past.",
+  "published_at": "2026-04-24T18:37:03Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.095467Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

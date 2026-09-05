@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20246-multi-language-ai-comes-to-nigerian-insurance.html",
+  "title": "Multi-language AI comes to Nigerian insurance",
+  "raw_text": "Heirs Insurance Group has announced the launch in Nigeria of its multi-language generative AI assistant, Prince AI, which, it says, marks a major milestone in its digital transformation journey and reinforces its commitment to making insurance simple, accessible and inclusive.\nWith Prince AI, Heirs Insurance, which describes itself as Nigeria’s fastest-growing insurance group, says it becomes the first insurer in Nigeria to deploy a multi-language generative AI assistant. The AI-powered assistant delivers instant, intelligent responses not only to customer requests about Heirs Insurance products, but also to broader insurance enquiries, helping users understand coverage options, assess their needs, and identify the right policies for their unique situations.\nLanguage is a key part of this offering. Prince communicates fluently in multiple local and international languages, including English, Yoruba, Igbo, Hausa, French, German, Spanish, Portuguese, Chinese and many more.\nBeyond handling enquiries, the AI assistant enables customers to purchase and renew policies, and initiate and track claims. The chatbot is available across WhatsApp, the SimpleLife Mobile App, and the Heirs Insurance website, delivering seamless, always-on service experience across multiple digital touchpoints.\nPeace Okhianmhense-Philips, Chief Digital Officer, Heirs Insurance Group, explains: “By embedding generative AI into our customer experience, we are not only improving speed and efficiency but also humanising insurance. This innovation allows us to connect more meaningfully with our customers, anticipate their needs, and deliver support that is instant, intelligent and accessible.”\nBuilt on adaptive intelligence, the AI Assistant continuously refines its capabilities through every interaction. Personalised counsel is also offered if required.\nHeirs Insurance Group, the insurance arm of Heirs Holdings, a leading pan-African investment company, serves both corporate and individual customers across Nigeria.",
+  "published_at": "2026-05-13T14:49:38Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-20T03:03:25.108732Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

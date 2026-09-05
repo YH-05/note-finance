@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/openai-valuation-doubts-loom-softbank-scales-back-margin-loan",
+  "title": "OpenAI Valuation Doubts Loom As Softbank Scales Back Margin Loan",
+  "raw_text": "SoftBank Group's abrupt scaling back of a planned $10 billion margin loan backed by its roughly 13% stake in OpenAI - now targeting as little as $6 billion - reveals deepening lender unease over the AI giant’s $852 billion post-money valuation set in March 2026.\nThe move follows earlier $40 billion bridge financing and comes amid reports that OpenAI missed internal revenue and weekly-active-user targets earlier this year.\nWhile the loan itself is SoftBank’s problem, the episode carries real risks for OpenAI.\nThe clearest danger is a loss of valuation momentum (a down-round!).\nReuters reports that lenders, including banks and private-credit funds, balked at assigning reliable collateral value to unlisted shares in a company whose secondary-market demand has already cooled.\nWith sellers reportedly outnumbering buyers and rival Anthropic drawing stronger interest, the episode reinforces perceptions that OpenAI’s headline valuation may be frothy.\nThis could make future capital raises more expensive or dilutive, especially if OpenAI needs additional funding to service its enormous compute commitments - estimated in the hundreds of billions over the next few years.\nAn anticipated IPO, once seen as straightforward at premium multiples, might now face haircuts or heavier scrutiny from public-market investors wary of missing-growth signals.\nSoftBank’s own leverage adds indirect pressure.\nThe Japanese conglomerate is one of OpenAI’s largest backers and has layered significant debt atop its AI bets.\nShould credit markets tighten further or OpenAI’s performance lag, SoftBank could face margin calls or be forced to sell secondary shares - flooding an already thin market and driving down perceived value.\nThat, in turn, might erode employee and partner confidence, complicate talent retention in a hyper-competitive sector, and chill the broader AI investment narrative that has sustained OpenAI’s sky-high spending.\nWhile none of this is immediately existential - OpenAI retains strong revenue growth, marquee partnerships, and Sam Altman’s (circular) deal-making clout - the SoftBank loan retreat is a tangible warning: private-market exuberance can evaporate quickly when lenders demand proof that eye-popping valuations match real cash flows.\nIf sentiment sours further, OpenAI could find itself navigating a far narrower runway than its $852 billion price tag once implied... and as OpenAI goes, so goes the hyperscalers' budgets as the circular financing of all this spend breaks down with any chinks in the armor of of OpenAI's exponential growth expectations.",
+  "published_at": "2026-05-08T13:04:52Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T15:00:41.494494Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

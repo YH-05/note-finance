@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606091118",
+  "title": "レーティング日報【格上げ↑】　(6月9日)",
+  "raw_text": "●6月9日に調査機関が投資判断を引き上げた銘柄をまとめました\n銘柄 機関 格付 目標株価 日付\nキッコマン <\n2801> ＪＰモル 中立→強気 1550→1950 6/9\nホシザキ <\n6465> 東海東京 中立→強気 5930→6040 6/9\n※ＪＰモル＝ＪＰモルガン証券\n株探ニュース",
+  "published_at": "2026-06-09T08:00:34Z",
+  "author": null,
+  "collected_at": "2026-06-09T09:00:21.999506Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "特集",
+    "tags": []
+  }
+}

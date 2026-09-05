@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/snowflake-snow-software-stock-rally.html",
+  "title": "Snowflake surges 36% for best day ever on AI frenzy, fueling software rally",
+  "raw_text": "Software stocks popped on Thursday after Snowflake said it plans to spend $6 billion on compute from Amazon and topped earnings estimates on artificial intelligence momentum.\nShares of the software maker closed 36% higher for its best day ever. The company is expanding its use of Amazon's in-house chips for AI.\nAlong with the announcement, Snowflake topped Wall Street's fiscal first quarter adjusted earnings per share and revenue expectations.\nFinance chief Brian Robins told analysts on Wednesday that AI tools such as Cortex Code are driving a \"step function change\" in the company's AI revenue potential.\n\"AI is only transforming how we operate internally, enabling greater productivity through a combination of slower hiring and more cloud spend,\" he said.\nSnowflake also boosted guidance on growing momentum toward its AI-powered tools, including Snowflake Intelligence and Cortex Code.\nSnowflake expects a 12.5% fiscal second-quarter adjusted operating margin on $1.415 billion to $1.420 billion in product revenue. Analysts surveyed by StreetAccount anticipated a 11.9% margin, with $1.37 billion in product revenue.\nSnowflake's results helped alleviate fears that new AI tools will replace software as a service, leading to what many are calling a \"SaaSpocalypse.\" The worries sparked a massive selloff across the sector this year, which also spilled into cybersecurity.\nThe results boosted some popular software stocks. ServiceNow and Oracle added more than 6%, while Palantir jumped over 8%. Microsoft, Palo Alto Networks and Atlassian gained at least 3% each. Salesforce bucked the trend, with shares sinking slightly after posting lackluster guidance.\nAnalysts on Wall Street viewed Snowflake's results as a sign that its AI monetization strategy is reaching an inflection point.\nThe company said it added 616 net new customers in the quarter, reflecting 38% year-over-year growth. Snowflake said it now has 779 customers spending more than $1 million on a trailing 12-month basis. The company had 46 cross the $1 million benchmark in Q1, compared to 26 a year ago.\nBuilding on its AI strategy, Snowflake said it will buy AI startup Natoma. The company did not disclose the financials of the deal.\n\"Through the course of an economic cycle and longer term, the combination of Snowflake's healthy growth profile and cash flow dynamic should show the merits of Snowflake's business model, in our view,\" wrote analysts at JPMorgan.\nWith Thursday's gains, Snowflake shares are now up about 9% this year.",
+  "published_at": "2026-05-28T20:37:19Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.243668Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

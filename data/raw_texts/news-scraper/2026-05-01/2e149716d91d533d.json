@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/21/amazon-glp-1-weight-loss-program.html",
+  "title": "Amazon launches GLP-1 weight loss program, promising 'fast, convenient' access",
+  "raw_text": "Amazon is pushing deeper into the booming weight loss market, unveiling Tuesday a new program that aims to simplify access to popular GLP-1 treatments.\nThe company said its primary care arm, Amazon One Medical, is launching a GLP-1 management program that integrates obesity treatment into routine care. The offering combines virtual and in-person visits, prescription management and pharmacy fulfillment, positioning weight management as a long-term chronic condition rather than a one-off prescription.\n\"Providing customers with fast, convenient medication access and clear, transparent pricing is integral to how Amazon Pharmacy is transforming the pharmacy experience,\" said Tanvi Patel, vice president and general manager of Amazon Pharmacy, in the company's press release.\n\"By expanding access to the latest GLP-1 medications with upfront, clear pricing, we're making it easier for customers to get the treatments their health care providers prescribe and to stay on those medications because they are delivered reliably directly to patients,\" Patel said.\nThrough Amazon Pharmacy, patients will be able to access medications including Novo Nordisk's Wegovy as well as newer oral GLP-1 options. Insured pricing will start as low as $25 per month, Amazon said. For cash-paying patients, oral drugs start at $149 per month, it said.\nInjectable treatments, including Wegovy shots and Eli Lilly's Zepbound, begin at $299 per month when paid for without insurance, Amazon said.\nThose prices are roughly in line with much of the current market.\nBut Amazon's edge is in same-day delivery and convenience as it looks to leverage its logistics network and consumer reach into another corner of the medical system.\nThe company also said it will offer on-demand prescription renewals, starting at $29 for message consultation and $49 for video care. Amazon plans to expand its same-day drug delivery offering to 4,500 cities by the end of 2026.\nShares of several companies tied to the obesity drug boom moved lower following Amazon's Tuesday announcement, including Hims & Hers Health, Viking Therapeutics, Amgen and Septerna.",
+  "published_at": "2026-04-21T18:27:58Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.457500Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

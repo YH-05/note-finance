@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/inside-toyotas-10b-private-utopia-big-ideas-few-people-cameras-everywhere/",
+  "title": "Toyota built a $10 billion private utopia—what’s going on in there?",
+  "raw_text": "At the Consumer Electronics Show in 2020, Toyota CEO Akio Toyoda pledged to build a city of the future, a place where researchers, engineers, and scientists could live and work together. It was framed as the start of a transformation for the world’s largest car company, moving it toward becoming a fully fledged mobility company.\nSix months ago, after Toyota spent an estimated $10 billion to build an urban paradise atop a disused factory, the first residents moved in. One-hundred handpicked “Weavers,” residents chosen to boost the tech cred of the sensor-laden mini-metropolis, began settling in.\nLast week, I got a chance to check it out. Here’s what I learned while wandering the streets of Toyota’s vision of the future.\nThe future is safe\nAs part of its transformation into a true mobility company, Toyota is aiming to become the world’s safest carmaker. The company says it wants to create a “society with zero accidents”—a tall order given the sheer number of Toyotas currently on the road.\n“Statistically, the set of autonomous vehicles out there is nowhere close to the magnitude of vehicles that Toyota has in the world,” John Absmeier, Woven City’s CTO, told me. While companies like Waymo are fielding tens of thousands of vehicles, Toyota’s eventual autonomous fleet will need to operate at a much higher standard, he said.\nTo get there, Absmeier said Toyota’s cars will need far more awareness than onboard systems can provide, even with the most advanced lidar, radar, and imaging sensors on the planet. For instance, the only way to spot a kid darting out from behind a truck, he said, is with cameras on every street watching for hazards, paired with warning systems for oncoming traffic.\nThis is part of the age-old promise of vehicle-to-everything communications, and at Woven City, Toyota is trying to put that idea into practice.\nThe future is a privacy nightmare\nBut if the idea of ubiquitous cameras watching everyone gives you pause, you’re not alone—it certainly seemed startling to me. I counted eight separate cameras at a single intersection in Woven City, plus many more mounted on the ceilings of the buildings I toured. Even the small on-site coffee shop had half a dozen hanging overhead.",
+  "published_at": "2026-05-04T11:00:31Z",
+  "author": "TIm Stevens",
+  "collected_at": "2026-05-04T15:00:30.937967Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Features",
+      "cars",
+      "Future",
+      "Toyota"
+    ]
+  }
+}

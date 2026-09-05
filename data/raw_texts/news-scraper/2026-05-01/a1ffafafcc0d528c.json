@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260408a.htm",
+  "title": "Federal Reserve Board invites public comment on proposal that would allow U.S. banks and credit unions to use intermediaries to transfer funds through the FedNow Service",
+  "raw_text": "April 08, 2026\nFederal Reserve Board invites public comment on proposal that would allow U.S. banks and credit unions to use intermediaries to transfer funds through the FedNow Service\nFor release at 11:30 a.m. EDT\nThe Federal Reserve Board on Wednesday invited public comment on a proposal that would allow U.S. banks and credit unions to use intermediaries to transfer funds through the FedNow Service.\nThis additional flexibility would support new private sector use cases for the FedNow Service. For example, it would allow U.S. banks to use FedNow to transact with correspondent banks to facilitate the international portion of a cross-border payment. Currently, a transfer of funds sent through the FedNow Service can include only two U.S. banks.\nComments are due within 60 days after publication in the Federal Register.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-04-08T15:30:00Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:00:32.416311Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

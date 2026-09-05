@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript",
+  "title": "The Birth and Death of JavaScript (2014)",
+  "raw_text": "The Birth & Death of JavaScript\nThis science fiction / comedy / completely serious talk traces the history of JavaScript, and programming in general, from 1995 until 2035. It's not pro- or anti-JavaScript; the language's flaws are discussed frankly, but its ultimate impact on the industry is tremendously positive. For Gary's more serious (and less futuristic) thoughts on programming, try some Destroy All Software screencasts.\nIf you liked this, you might also like Execute Program: interactive courses on TypeScript, Modern JavaScript, SQL, regular expressions, and more. Each course is made up of hundreds of interactive code examples running live in your browser.",
+  "published_at": "2026-06-14T12:38:31Z",
+  "author": "subset",
+  "collected_at": "2026-06-14T21:00:56.001360Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

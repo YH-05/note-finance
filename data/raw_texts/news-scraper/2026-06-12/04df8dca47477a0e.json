@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/948024/arturia-minilab-37-midi-controller-review",
+  "title": "I&#8217;ve found the Goldilocks of portable MIDI controllers",
+  "raw_text": "I have tested more portable MIDI controllers than I can keep track of, and I will tell you right now: 37 keys is the ideal size. While Arturia’s 25-key MiniLab MK3 is a solid controller that easily fits in a backpack, it feels a bit claustrophobic. The new $149 MiniLab 37 adds another octave, giving you much more room to play bass and lead simultaneously, or just play more expansive chords.\nI’ve found the Goldilocks of portable MIDI controllers\nThe Arturia MiniLab 37 balances size, price, and playability.\nPhysically, the MiniLab 37 isn’t very different from its smaller sibling. It’s got the same solid (if slightly springy) keybed, eight pads, eight endless encoders, four faders, a pair of touch strips, USB-C, and a full-size five-pin MIDI DIN out on the back. It’s also got the same rounded plastic build. It feels a bit cheap, and it’s not gonna win any design awards, but it gets the job done and feels resilient enough to take a few bumps in a backpack.\nThe Good\n- 37 keys is the sweet spot of playability and portability\n- Excellent selection of hands-on controls\n- Integration with Arturia’s top-notch soft synths\n- Great value at $149\nThe Bad\n- Plasticky build\n- Tiny screen makes menu diving a chore\nThe big change is that it’s just not as cramped as the standard MiniLab, and it’s not just about having more keys. With a wider expanse to work with, Arturia was able to rearrange the other controls for easier access; the whole controller is shallower. You no longer have to reach over the pads to get to the knobs, or the touchstrips to change the octave. Instead, everything is laid out in a straight line, with the primary encoder and small LCD right in the center. It’s just a much more pleasurable and intuitive experience. With the MiniLab MK3, I always felt like I was searching before reaching. On the 37, things are just where I’d expect them to be.\nIntegration with Arturia’s software synths is part of the appeal of its controllers. The MiniLab 37 comes bundled with Arturia’s Analog Lab Intro and Ableton Live Lite so you can get straight to making music out of the box. But keep your expectations in check. That tiny screen means you still need to reach for the mouse or keyboard to browse through presets efficiently. And it also makes using some of the controller’s more advanced features a bit cumbersome. For example, the built-in arpeggiator is great, with a ton of options considering this is a portable, budget-minded MIDI controller. But the rate, the mode, the gate, etc., require scrolling and clicking through them one at a time. It’s a slog.\nThe MiniLab also gives you basic control over your digital audio workstation (DAW), allowing you to start or stop recording or loop specific parts of your session straight from the controller. If you’re patient, you can manually map it for even deeper control of your recording session, but it’s never going to match something like Ableton’s Push or even Serato’s Slab, which have far more hands-on controls and out-of-the-box mappings for their respective DAWs.\nYou can also control hardware synths using the MIDI port on the back. You could even build a whole DAW-less setup with multiple instruments on different MIDI channels. Though if your instruments don’t have MIDI out or thru ports, you’ll need to add a MIDI splitter to your setup.\nThe MiniLab 37 isn’t the smallest MIDI controller. It’s not the most luxurious. Nor is it the cheapest. What it is, is the perfect balance of ergonomics, portability, and price. Especially if you’re already using Arturia’s soft synths.",
+  "published_at": "2026-06-11T16:00:00Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-12T03:00:16.163537Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Gadgets",
+      "Music",
+      "Reviews",
+      "Tech"
+    ]
+  }
+}

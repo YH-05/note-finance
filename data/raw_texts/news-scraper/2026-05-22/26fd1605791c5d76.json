@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/ground-system-issue-scrubs-first-launch-of-spacexs-starship-v3-rocket/",
+  "title": "Ground system issue scrubs first launch of SpaceX's Starship V3 rocket",
+  "raw_text": "SpaceX got within 40 seconds of launching the first flight of a taller, more powerful version of its Starship rocket Thursday, but a pesky problem with the launch tower kept the vehicle bound to Earth for at least one more day.\nClouds and rain showers cleared the area around SpaceX’s launch site in South Texas, leaving mostly sunny skies over the Starship launch pad Thursday afternoon. SpaceX pushed back the launch time by one hour, but the countdown appeared to proceed smoothly once propellants began loading into the rocket.\nThat was true, at least, until the countdown clock paused 40 seconds before liftoff. The launch team repeatedly attempted to resume the countdown, only for the computer controlling the launch sequence to stop the clock again. There were five holds in all before SpaceX called off the launch attempt.\n“It is sounding like we are not going to be able to clear this issue in time today, so we are going to be standing down from a launch,” said Dan Huot, a SpaceX official hosting the company’s live broadcast Thursday. “We got the vehicle totally loaded. We hit a couple of different holds as we worked through that count.”\nElon Musk, SpaceX’s founder and CEO, attributed the scrub to a hydraulic pin that failed to retract on an umbilical arm connecting the launch tower to the rocket. “If that can be fixed tonight, there will be another launch attempt tomorrow,” Musk wrote on X. The 90-minute launch window Friday would open at 5:30 pm CDT (22:30 UTC).\nThe upcoming Starship test flight will mark the first liftoff from a brand new launch pad at Starbase, Texas, the one-year-old city encompassing SpaceX’s South Texas test site near the US-Mexico border. It will be the 12th full-scale test flight of Starship and its Super Heavy booster to date, and the first to employ an overhauled design SpaceX calls Starship Version 3. Starship V3 introduces numerous changes, including 39 more efficient, higher-thrust Raptor engines, a redesigned propulsion system, three larger grid fins to replace four smaller ones, and a reusable hot staging ring permanently attached to the top of the Super Heavy booster.",
+  "published_at": "2026-05-22T02:05:37Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-22T09:00:30.872004Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Commercial space",
+      "launch",
+      "spacex",
+      "Starbase",
+      "starship",
+      "starship flight 12",
+      "starship v3",
+      "texas"
+    ]
+  }
+}

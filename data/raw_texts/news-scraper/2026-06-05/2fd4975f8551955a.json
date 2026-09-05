@@ -1,0 +1,30 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/used-waymo-robotaxi-batteries-become-backup-storage-for-power-grids/",
+  "title": "Used Waymo robotaxi batteries become backup storage for power grids",
+  "raw_text": "Thousands of electric vehicles in Waymo’s autonomous robotaxi fleet may eventually give up their used batteries for a very different purpose—contributing up to hundreds of megawatt-hours of stationary energy storage to local power grids.\nThat prospect comes from a “strategic supply agreement” announced by Waymo and B2U Storage Solutions on June 4. B2U has been repurposing thousands of used batteries from various electric vehicles by installing them in large stationary energy storage projects. Such energy storage facilities can capture excess renewable energy during low demand periods and release such energy when local power grids are experiencing peak demand periods.\n“Our business is getting the full residual value out of electric vehicle batteries after they’re no longer suitable for automotive use,” Freeman Hall, CEO of B2U Storage Solution, told Ars. “Waymo puts a lot of miles on EVs and their model is expanding rapidly, and so we’re just very pleased and honored to be able to work with them.”\nThe agreement would allow B2U to repurpose Waymo batteries that become available at the end of a vehicle’s lifespan, along with obtaining used batteries that are being swapped out from operational vehicles. Waymo’s “proactive maintenance” for its autonomous vehicles includes identifying opportunities to “refresh the battery to improve efficiency overall for our fleet,” Adam Lenz, head of sustainability and environment at Waymo, told Ars. “That’s when we look to these second-life applications, because there’s still a lot of life left in the battery,” he said.\nWaymo did not specify the average mileage at which it swaps out batteries or retires vehicles from service. But Waymo robotaxis drive around much more each day than the typical EV, which means the Waymo fleet is likely to experience faster usage-related degradation of battery capacity over time. The company confirmed to Ars that “some of these vehicles have now been serving riders for years and have mileage beyond what a normal consumer drives.”",
+  "published_at": "2026-06-04T11:00:45Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-06-05T03:02:35.614022Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Science",
+      "battery backup",
+      "battery electric vehicles",
+      "Electric vehicles",
+      "EV battery",
+      "EV battery recycling",
+      "grid storage",
+      "power grids",
+      "renewable energy",
+      "renewables",
+      "waymo"
+    ]
+  }
+}

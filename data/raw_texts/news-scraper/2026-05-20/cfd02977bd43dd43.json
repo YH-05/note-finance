@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/934522/trump-mobile-may-be-leaking-customer-addresses",
+  "title": "Trump Mobile may be leaking customer addresses",
+  "raw_text": "Just as the T1 Phone is seemingly on the verge of release, Trump Mobile has been accused of insecurely storing customer data, leaving addresses and phone numbers vulnerable. The alleged leak has also revealed how many T1 Phone orders were apparently placed, and it’s far fewer than viral figures have claimed.\nTrump Mobile may be leaking customer addresses\nTwo YouTubers say their details have been leaked from the Trump Mobile website.\nTwo YouTubers say their details have been leaked from the Trump Mobile website.\nYouTuber voidzilla was the first to report the apparent leak, having been tipped off by an anonymous person who discovered the “vulnerability” in the Trump Mobile website. The hacker says they’re able to both place fake orders for the phone and “scrape and search the entire pre-order database,” accessing emails, phone numbers, and mailing addresses, though not credit card details. voidzilla confirmed that his details were present in the database, as did fellow YouTuber penguinz0.\nSince the leak apparently includes every order placed for the phone, it also suggests how many orders have been placed. There have been “roughly 10,000 unique customers with roughly 30,000 unique phone orders,” according to voidzilla, though it’s not clear if all those orders are for the phone itself, or if those include Trump Mobile’s 47 Plan SIM. Either way, it’s far shy of the 590,000 number that has repeatedly gone viral over the past six months — though that’s no surprise, since I’d debunked that claim back in January.\nI’ve reached out to Trump Mobile for comment — and no, before you ask, our T1 Phones still haven’t shipped yet.\nGot inside information on Trump Mobile or the Trump phone? Reach out securely from a personal device to tips@theverge.com, or see our How to Tip Us page.",
+  "published_at": "2026-05-20T14:06:19Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-05-20T15:00:11.418994Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Mobile",
+      "News",
+      "Phones",
+      "Policy",
+      "Politics",
+      "Tech"
+    ]
+  }
+}

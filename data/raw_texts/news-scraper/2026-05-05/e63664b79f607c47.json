@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/stablecoin-proposal-still-falls-short-protecting-bank-deposits-us-banks-say",
+  "title": "Stablecoin Proposal Still 'Falls Short' Of Protecting Bank Deposits: US Banks Say",
+  "raw_text": "America’s largest banking groups said they remain dissatisfied with the CLARITY Act’s newly proposed language on stablecoin yield, arguing that it fails to protect bank deposits.\nIn a statement Monday, the bankers acknowledged that US Senators Thom Tillis and Angela Alsobrooks are “seeking to achieve the correct policy goal” in prohibiting stablecoin yield but noted that the CLARITY Act’s “proposed language” currently “falls short of that goal.”\n“It is imperative that Congress get this right,” the American Bankers Association said in a joint statement with the Bank Policy Institute, Consumer Bankers Association, Financial Services Forum and Independent Community Bankers of America.\nThe dispute between bankers and the crypto industry over stablecoin yield has stalled the bipartisan bill, which passed the House of Representatives in July by a 294-134 vote.\nThere are concerns that the CLARITY Act may not pass before the US midterm elections in November 2026, which could further hinder its progress.\nBanking groups have previously cited studies suggesting that widespread stablecoin adoption could lead to trillions in outflows from the US banking system, particularly from community banks, which may not have enough balance-sheet flexibility to absorb these outflows without resorting to higher-cost wholesale borrowing.\nIn the Monday statement, the bankers also cited an article by Stanford-trained economist Andrew Nigrinis to argue that stablecoin yields driving bank deposit outflows “could reduce all consumer, small-business, and farm loans by one-fifth or more, making it essential for the prohibition to be clear and transparent.”\nHowever, White House economists reported in April that banning stablecoin yield may increase bank lending by only $2.1 billion, a marginal net increase of about 0.02%.\nBankers want “loophole” closed\nThe bankers contested the language of Section 404, arguing that it allows crypto platforms to pay users bank-like interest or yield outside traditional rules.\nExtract of the “SEC 404. Prohibiting interest and yield on payment stablecoins” document. Source: Alex Thorn\n“This is a significant loophole that must be addressed,” the bankers said, adding that they will be sharing “detailed suggestions for strengthening the proposed language with lawmakers in the coming days.”\nHowever, Tillis said the current text of the CLARITY Act strikes a compromise by prohibiting stablecoin rewards on idle balances while allowing crypto platforms to “offer other forms of customer rewards.”\n“Most importantly, it helps put us on a bipartisan path to pass the CLARITY Act, providing the regulatory certainty needed to foster innovation. Some in the banking industry may not want either of these things to happen, and we respectfully agree to disagree.”\nThe current text of the CLARITY Act was made public on Friday, with Coinbase and other members of the crypto industry pushing for a Senate markup next week.",
+  "published_at": "2026-05-05T16:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-05T21:00:41.812272Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

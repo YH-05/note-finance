@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/elon-musk-tried-to-hire-openai-founders-to-start-ai-unit-inside-tesla/",
+  "title": "Elon Musk tried to hire OpenAI founders to start AI unit inside Tesla",
+  "raw_text": "Elon Musk tried to hire OpenAI’s founding team, including Sam Altman, to lead a new AI lab within Tesla in 2018, as the AI start-up’s leaders grappled over who should control the company and its direction.\nMusk, a co-founder of the AI group, proposed bringing Altman, Greg Brockman, and Ilya Sutskever to his carmaker, appointing Altman to the board or making OpenAI a Tesla subsidiary, according to evidence in a high-stakes trial between the billionaire and the ChatGPT maker on Wednesday.\nThe disclosures shed light on a crucial issue in the case, in which Musk has claimed that Altman “stole a charity” by converting the company into a for-profit. OpenAI’s lawyers have argued the Tesla chief executive was happy to commercialize the lab, provided that he remained in charge.\nEmails, texts, and testimony on Wednesday showed that by late 2017 Musk had lost confidence in the non-profit OpenAI’s ability to build artificial general intelligence, a powerful form of AI—and was exploring building his own AI lab within Tesla.\n“There is little chance of OpenAI being a successful force if I focus on TeslaAI,” Musk wrote in a message at the time to Shivon Zilis, who testified in court on Wednesday.\nZilis, an OpenAI adviser from 2016 and board member from 2020 until 2023, is the mother of four of Musk’s children and was an important interlocutor between the billionaire and the AI lab’s other founders during the six-month period on which much of the case hinges.\nIn late 2017, Zilis sketched out plans for an event to “share that Tesla is building a world-leading AI lab (?) which will rival the likes of Google / DeepMind and Facebook AI Research.”\nBy early 2018, she laid out nine possible scenarios for achieving AGI. The bulk of those centered on Tesla and included bringing Altman in to run AI at the carmaker. Another proposal was to poach DeepMind founder Demis Hassabis for the same role.",
+  "published_at": "2026-05-07T13:14:01Z",
+  "author": "George Hammond, Financial Times",
+  "collected_at": "2026-05-08T03:00:30.549480Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "Elon Musk",
+      "openai",
+      "openai sam altman",
+      "sam altman"
+    ]
+  }
+}

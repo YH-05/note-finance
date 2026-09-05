@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/five-years-later-windows-11-brings-back-much-missed-taskbar-options-and-more/",
+  "title": "Five years later, Windows 11 brings back much-missed taskbar options (and more)",
+  "raw_text": "When Windows 11 launched in 2021, we mostly liked its refreshed look—the rounded corners and menus with just a hint of translucency were a nice change from the flat colors and hard corners of the Windows 8/10 era. But its reformulated taskbar and Start menu came with a number of functional regressions from the versions in Windows 10. Some of these were addressed quickly; others continue to linger.\nA new Windows Insider Preview build released to testers includes a new wave of improvements that fix longstanding regressions while trying out new things.\nMost significantly, the Windows 11 taskbar can now be docked to any edge of your screen, including the left and right, something that was possible in Windows 10 (and many older versions of Windows) but has been missing from Windows 11 since launch. Users can configure slightly different taskbar behavior for every taskbar position—if you prefer a different icon alignment or a left/right-mounted taskbar over a top/bottom-mounted taskbar, or if you want different settings for labels and icon groupings, you can choose different options for each position and Windows will remember them.\nMicrosoft says there are several features that haven’t been implemented yet—the taskbar won’t auto-hide in any of the alternate positions, and the “tablet-optimized taskbar” with larger, more finger-friendly icon sizes and spacing also isn’t supported. Touch gestures and the Search box also aren’t supported. All of these features are coming at some point; they just aren’t ready now. Microsoft is “evaluating additional features like different taskbar positions per monitor” for multi-monitor setups.",
+  "published_at": "2026-05-18T16:03:02Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-18T21:00:31.128899Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "windows 11",
+      "windows 11 24h2",
+      "windows 11 25h2"
+    ]
+  }
+}

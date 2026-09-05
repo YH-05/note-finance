@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/vendor-news/20305-huawei-proposes-alternative-to-moores-law.html",
+  "title": "Huawei proposes alternative to Moore’s Law",
+  "raw_text": "Huawei unveiled what it called a “new semiconductor path” to drive the chip industry forward, claiming traditional Moore’s Law is reaching its physical limits.\nSpeaking at the 2026 IEEE International Symposium on Circuits and Systems (ISCAS), Huawei Director, Chair of the Huawei Scientist Committee, ITMT Director and President of the Semiconductor Business Department, He Tingbo (pictured), presented the Tau (τ) Scaling Law.\nShe described it as a new principle to guide the future development of the semiconductor industry. Moore’s Law refers to the long-standing observation that the number of transistors on microchips doubles roughly every two years, largely through shrinking transistor sizes. He argued the industry is now approaching physical limitations with this approach, while the cost benefits are also slowing as AI-driven demand for computing power continues to rise.\nHuawei’s Tau Scaling Law proposes shifting the industry’s focus towards reducing signal delay and latency - essentially the time it takes data to move through a system. The Chinese vendor also developed a technology called LogicFolding based on the Tau Scaling Law, which it said can improve transistor density and support continued semiconductor innovation.\nShe added Huawei has already applied the principle to develop and mass produce 381 chips across a wide range of industries and markets. The first Kirin chips using the LogicFolding architecture are scheduled to launch this autumn in Huawei consumer devices.\nBy 2031, Huawei expects its chip designs to reach transistor densities comparable to cutting-edge 1.4nm-class semiconductors, despite the industry increasingly struggling to shrink chips using traditional manufacturing methods.\nHe said: “We believe that openness and collaboration are key to driving ongoing progress in the semiconductor industry. No single company can independently find all the answers along the path of semiconductor evolution. With the τ Scaling Law, we look forward to working closely with scientists, engineers, and industry partners around the world to drive the sustainable development of the semiconductor and electronics industries.”",
+  "published_at": "2026-05-27T10:32:46Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-03T03:01:28.512468Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Vendors"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606181415",
+  "title": "５月の米景気先行指数、前月比０．１％上昇",
+  "raw_text": "【経済】５月の米景気先行指数、前月比０．１％上昇\n結果 0.1％\n予想 0.1％ 前回 0.2％（0.1％から修正）（前月比）\n株探ニュース",
+  "published_at": "2026-06-18T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:00:25.143842Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

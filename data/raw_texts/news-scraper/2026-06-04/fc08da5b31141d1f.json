@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/2022-just-handful-countries-have-driven-sovereign-gold-demand",
+  "title": "Since 2022 Just A Handful Of Countries Have Driven All Sovereign Gold Demand",
+  "raw_text": "The 2008 financial crisis marked a structural shift in central bank behaviour\nBack in January, UBS showed that most of last year’s increase in gold prices was driven by US policy shocks boosting private demand.\nRunning in parallel, however, has been a more gradual but persistent rise in official sector gold holdings. A common narrative, one which was started largely on this website, is that this shift began with the Russia–Ukraine conflict, when the freezing of Russia’s foreign exchange reserves heightened incentives for countries to diversify into assets such as gold. (Russia, for example, confirmed in 2021 that its gold reserves are fully held domestically.)\nWhile that is true, UBS chief economist Arendy Kapteyn notes that the true turning point in official sector gold demand came well before 2022. The increase in official sector gold holdings began around the global financial crisis in 2008, not in 2022 (roughly 85% of the increase occurred between August 2008 and February 2022, and about 15% since then).\nWhile sanctions risk has clearly accelerated and reinforced the trend - Russia also stepped up purchases after Crimea in 2014 - but it is likely not the root cause. As highlighted in this IMF paper, the GFC led emerging markets to reassess the safety of advanced-economy assets, given stresses in banking systems and sovereign balance sheets, making gold an attractive hedge.\nAt the same time, rapid reserve accumulation in the 2000s left many countries heavily exposed to a narrow set of “safe” assets, raising both concentration and correlation risks. In addition, post GFC policies (QE and ultra-low yields) sharply reduced the opportunity cost of holding gold.\nWhat is perhaps most notable is how concentrated - across a universe of roughly 200 countries - the buying has been. Between 2008 and 2022, just six countries — Russia, China, Turkey, India, Poland, and Kazakhstan — accounted for almost the entire increase in official gold holdings. But since 2022, a slightly different group — China, Poland, India, Iraq, Czechia, and Qatar — has driven essentially all net purchases.",
+  "published_at": "2026-06-04T10:55:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T15:00:37.543219Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/reactor-developers-advance-swedens-nuclear-ambitions-while-state-puts-37-billion",
+  "title": "Reactor Developers Advance Sweden's Nuclear Ambitions While State Puts Up $3.7 Billion",
+  "raw_text": "Sweden advanced its nuclear revival with two major filings for new capacity and a government proposal to commit up to $3.7 billion in state capital for SMR projects.\nOn May 18th, Blykalla submitted the first application for an advanced reactor park under Sweden’s new siting process. The Norrsundet site would host six 55-MWe SEALER lead-cooled reactors, for 330 MWe total.\nCEO Jacob Stedman called it a historic first for Sweden, and linked the technology to meeting AI and electrification demand with reliable baseload power. Blykalla has a prototype facility underway at Oskarshamn with Uniper and partnerships with Oklo and ABB.\nStudsvik filed in May for 600-1400 MWe of SMR capacity at its Nyköping site. This follows the Studsvik group’s earlier March application for Valdemarsvik. CEO Karl Thedéen highlighted the site’s decades of expertise and the intention to deliver real grid capacity in the 2030s as part of the company’s ReFirm program.\nThe government also recently proposed to acquire a 60% stake in Videberg Kraft AB, the Vattenfall-led project company for up to 1500 MWe at Ringhals. Vattenfall is the state-owned utility company.\nThe support package includes an initial SEK 1.8 billion ($193 million) injection and up to SEK 34.3 billion (~$3.7 billion) during construction, plus a share of SEK 122 billion (~$13 billion) baseline waste system costs. The structure aims to de-risk the first mover so later projects share fixed costs. Videberg is choosing between five GE Vernova Hitachi BWRX-300s or three Rolls-Royce SMRs, with selection later this year and investment decision in 2029.\nGoldman provided some additional color on Swedish nuclear projects in their recent industry summary. We also touched on Studsvik’s acquisition of Kärnfull Next, which highlights the ongoing skilled engineering manpower bottleneck.\nTimelines for first power remain in the early 2030s, with visible construction still months or years away. Sweden shows what policy certainty and state capital can achieve in spurring applications, but China’s pace of actual reactor builds remains the benchmark for delivery.",
+  "published_at": "2026-06-03T09:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-03T15:00:43.599186Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

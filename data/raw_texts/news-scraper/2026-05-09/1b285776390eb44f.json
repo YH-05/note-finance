@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/congress-crypto-bill-vote-senate-banking-committee.html",
+  "title": "Major crypto bill slated for May 14 Senate Banking Committee vote",
+  "raw_text": "A major rules-of-the-road bill for the crypto industry is set to get an initial vote on May 14 in the Senate Banking Committee.\nThe step to move the legislation forward is a loss for the banking industry. Banks have argued that the proposed legislative language limiting when stablecoins can earn interest is still too similar to yield-bearing products like a savings account, and could threaten traditional banks and their deposits. Historically, interest in the form of rewards has been a key incentive for users to hold stablecoins.\nScott told Fox Business last week that he wanted to have \"13 of 13 Republicans on board\" — referring to all GOP members on the committee.\nIt's not clear if any Democrats will vote for the bill given yet-to-be-resolved differences, including over provisions that would limit how politicians can profit from digital assets.\nSeveral senators and industry experts have suggested the bill can be changed to gain Democratic support between the committee vote and a potential vote on the Senate floor. But time is running out for lawmakers to resolve differences in that chamber, and it's unclear whether the House will want to make its own changes.\nThe committee had been set to advance the bill in January, but it was canceled at the 11th hour after both banking and crypto industries raised concerns about the legislation.\nCrypto companies including Coinbase are now on board after Sens. Thom Tillis, R-N.C., and Angela Alsobrooks, D-Md., released a compromise proposal on how crypto companies could offer rewards to stablecoin users that wouldn't compete with yields banks offer for deposits. Stabecoin is a digital currency designed to maintain a consistent value by being pegged to a reserve currency, usually the U.S. dollar.\nYet groups representing both commercial and community banks say the language \"falls short\" of protecting banking deposits.\nTillis acknowledged in a post on X that while banks might not be happy with the language \" we respectfully agree to disagree.\"",
+  "published_at": "2026-05-08T23:35:48Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.656155Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/trump-eu-auto-tariffs.html",
+  "title": "Trump says he's raising EU auto tariffs to 25%",
+  "raw_text": "President Donald Trump said he would increase tariffs charged to the European Union for cars and trucks to 25%, without saying what authority he would use to raise the levies.\n\"Based on the fact the European Union is not complying with our fully agreed to Trade Deal, next week I will be increasing Tariffs charged to the European Union for Cars and Trucks coming into the United States,\" he wrote on Truth Social on Friday. \"The Tariff will be increased to 25%. It is fully understood and agreed that, if they produce Cars and Trucks in U.S.A. Plants, there will be NO TARIFF.\"\nThe Supreme Court ruled in February that a large part of Trump's tariff agenda was illegal. The president's \"reciprocal\" tariffs were invoked using a novel reading of the International Emergency Economic Powers Act, or IEEPA, but the high court said in a 6-3 majority that the law that undergirds those import duties \"does not authorize the President to impose tariffs.\"\nShortly after the Supreme Court ruling, Trump said he signed an executive order imposing a new 10% \"global tariff\" rate to effectively replace the IEEPA duties, though those tariffs came with a 150-day time limit under Section 122 of the Trade Act of 1974. He then said he would increase the global rate to 15%.\nThe EU in February had warned that its trade deal with the U.S. could be in jeopardy after the new tariff rate was announced and postponed its planned vote on the agreement.\nThe European Union said it is following standard legislative practice and keeping the U.S. administration up to date.\n\"We maintain close contact with our counterparts, including as we also seek clarity on US commitments,\" a a European Commission spokesperson said. \"We remain fully committed to a predictable, mutually beneficial transatlantic relationship. Should the US take measures inconsistent with the Joint Statement, we will keep our options open to protect EU interests.\"\nA White House official said in a statement Friday that the EU has \"failed to make substantial progress on their agreed-upon commitments\" under a trade agreement between the countries.\n\"The White House has always been clear that the President reserves the right to adjust tariff rates if our trade deal partners fail to abide by their commitments,\" the official said.\nThe Trump administration last year broadly implemented 25% tariffs on vehicles and certain auto parts imported into the U.S., citing national security risks under Section 232. Those levies are still in place, and the White House said Trump would increase the EU's levies under Section 232.\nThe European automakers that could most be impacted by a change in tariff rate would be Mercedes, BMW and Volkswagen, which import a large percentage of the vehicles they sell in the U.S. from their plants in Europe.",
+  "published_at": "2026-05-01T21:47:39Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.360805Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

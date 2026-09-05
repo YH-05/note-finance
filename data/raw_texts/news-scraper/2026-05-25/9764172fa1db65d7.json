@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20290-nec-xon-partners-mimosa-to-strengthen-african-wireless-portfolio.html",
+  "title": "NEC XON partners Mimosa to strengthen African wireless portfolio",
+  "raw_text": "NEC XON, a leading African integrator of ICT solutions and part of NEC, a Japanese global company, says it has reinforced its position in the African wireless connectivity market through a strategic distribution partnership with Mimosa Networks.\nMimosa, a leader in next-generation fixed wireless broadband solutions, is a wholly owned subsidiary of technology company Radisys, which is owned by Reliance Jio Platforms.\nNEC XON says the partnership enables the delivery of high-performance fixed wireless access and backhaul solutions across Africa. It also positions NEC XON as a key distributor and solutions provider for Mimosa’s carrier-grade wireless technology, supporting operators, service providers and enterprises that require rapid, scalable connectivity in environments where fibre deployment is limited, impractical or cost prohibitive.\nMimosa’s portfolio is designed to deliver fibre-like performance using advanced wireless technologies, including TDMA scheduling, MU-MIMO and beamforming. Operating in unlicensed 5GHz and 6GHz spectrum, the solutions enable rapid deployment with significantly reduced cost and complexity compared to traditional infrastructure.\nThe partners point out that this approach is particularly relevant in markets where connectivity demand is growing but infrastructure rollout remains constrained. With deployment times measured in days rather than months, they point out, service providers can extend coverage quickly to underserved areas, multi-dwelling units and enterprise environments.\nNEC XON says it has already begun deploying Mimosa solutions across multiple markets in sub-Saharan Africa, with active customer engagements in South Africa, Namibia and Malawi, and ongoing proof-of-concept projects in Ethiopia and Lesotho.\nThe company expects to roll out between 2,000 and 5,000 devices over the next 12 months. Beyond initial deployments, the partnership is expected to play a key role in enabling broader connectivity initiatives, including rural broadband expansion, enterprise connectivity and the restoration of connectivity in regions where network infrastructure has been affected by environmental or logistical challenges.",
+  "published_at": "2026-05-24T22:06:53Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-25T03:01:24.580756Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

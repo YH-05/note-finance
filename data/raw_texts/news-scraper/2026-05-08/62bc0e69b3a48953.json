@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/926609/sonys-ps5-sales-plummet-memory-costs-price-hikes",
+  "title": "Sony&#8217;s PS5 sales plummet amid price rises and a memory crisis",
+  "raw_text": "Sony sold just 1.5 million PS5 consoles in its most recent fourth fiscal quarter, down 46 percent year over year. The slump in PS5 sales comes after Sony raised the price of its PS5 consoles twice over the past year, pushing the price of the regular PS5 from $499.99 all the way up to $649.99.\nSony’s PS5 sales plummet amid price rises and a memory crisis\nPS5 sales dropped by 46 percent year over year.\nPS5 sales dropped by 46 percent year over year.\nSony blamed “continued pressures in the global economic landscape,” for the price hikes in March, amid an ongoing memory crisis and pressure from the war in Iran. Sony now forecasts that annual gaming revenue will drop 6 percent, but these forecasts could be impacted by ongoing memory costs. “We plan to base our PS5 hardware sales in FY26 on the volume of memory we can procure at reasonable prices and we expect hardware profitability to be essentially the same as FY25,” says Sony.\nSony previously revealed in February that it had secured “the minimum quantity necessary” of memory to manage the year-end shopping season and that it was working “with various suppliers to secure enough supply to meet the demand of our customers.” Across the whole 2025 financial year, Sony sold 16 million PS5 consoles, down from 18.5 million in the prior financial year.\nIt’s a tough market for hardware in general right now. Microsoft recently revealed its Xbox hardware revenues plummeted 33 percent year over year. Along with declining Xbox hardware revenue, Microsoft also reported a 5 percent drop in Xbox content and services. Nintendo is also raising its Switch 2 prices by $50 on September 1st and forecasting a drop in sales over the next year.\nSony also revealed that during the last financial year it has recorded a $765 million impairment cost against Bungie, the struggling studio behind Destiny 2 and Marathon. Sony first announced it was acquiring Bungie in a $3.6 billion deal just days after Microsoft’s announcement that it was acquiring Activision Blizzard in 2022. Bungie has been hit with with the layoff of hundreds of workers since joining Sony’s PlayStation division and was forced to delay its extraction shooter Marathon following lackluster alpha test feedback. Last year an artist accused Bungie of using their work in Marathon without permission, and the matter was resolved a few months later.",
+  "published_at": "2026-05-08T09:15:54Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-08T15:00:16.248773Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News",
+      "PlayStation",
+      "Sony",
+      "Tech"
+    ]
+  }
+}

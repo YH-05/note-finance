@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605200523",
+  "title": "日経225先物：20日正午＝1080円安、5万9520円",
+  "raw_text": "【市況】日経225先物：20日正午＝1080円安、5万9520円\nTOPIX先物期近は3772ポイントと前日比80ポイント安、現物終値比11.52ポイント安で推移。\n○主要先物価格・正午時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 59520 -1080 26427\n日経225mini 59530 -1065 501019\nTOPIX先物 3772 -80 42554\nJPX日経400先物 34130 -750 2079\nグロース指数先物 781 -26 3416\n東証REIT指数先物 1801 -21 65\n株探ニュース",
+  "published_at": "2026-05-20T03:01:11Z",
+  "author": null,
+  "collected_at": "2026-05-20T03:02:12.342586Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

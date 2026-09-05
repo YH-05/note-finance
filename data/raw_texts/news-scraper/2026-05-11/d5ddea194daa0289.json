@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/streaming/928071/texas-netflix-lawsuit-privacy",
+  "title": "Texas sues Netflix for advertising &#8216;bait and switch&#8217; and spying",
+  "raw_text": "Texas Attorney General Ken Paxton has filed a lawsuit against Netflix, accusing the company of turning its back on its promise to remain ad-free and safe for kids. The lawsuit, filed on Monday, claims Netflix has “opened Texans’ data for inspection by the same Big Ad Tech community it once criticized for exploiting users in this same way.”\nTexas sues Netflix for advertising ‘bait and switch’ and spying\nTexas Attorney General Ken Paxton claims Netflix’s advertising push turned it into a platform ‘it promised never to be.’\nTexas Attorney General Ken Paxton claims Netflix’s advertising push turned it into a platform ‘it promised never to be.’\nIn the lawsuit, Paxton claims Netflix drove up subscriptions by promoting its platform as an “escape from Big Tech surveillance.” But that changed when Netflix introduced an ad-supported streaming plan in 2022, something co-founder Reed Hastings promised not to do. Its move into digital advertising allowed Netflix to use “the mountains of data it quietly extracted from the children and families,” the lawsuit alleges.\nPaxton accuses Netflix of building a “behavior-surveillance program” that involves collecting information about “user events,” like their location, the device they’re using, search terms, how they rate content, and more. The streaming service is accused of opening this information to data brokers like Experian and Acxiom:\nNetflix’s years-long bait-and-switch has led the company right to where it promised never to be: addicting children and families to its platform, mining those users for data, and then converting that data into lucrative intelligence for global advertising juggernauts.\nNetflix’s ad-supported tier has seen a surge in growth since its launch, with subscribers to the Basic tier more than doubling to 70 million from 2024 to 2025. In January, the streaming giant reported earning $1.5 billion from ads in 2025. This isn’t the first time that Netflix has faced legal issues in Texas, as a grand jury in Tyler County indicted the streamer over its Cuties film in 2020.\nIn addition to accusing Netflix of an advertising “bait-and-switch,” Paxton claims Netflix misled subscribers about child safety, citing its autoplay feature that’s enabled by default across adults’ and kids’ profiles. “Netflix is not the ad-free and kid-friendly platform it claims to be. Instead, it has misled consumers while exploiting their private data to make billions,” Paxton says in the press release.\nPaxton accuses Netflix of violating the Texas Deceptive Trade Practices Act, and asks the court to block the streamer’s “unlawful collection and disclosure” of user data, as well as to disable autoplay by default on kids’ profiles. Netflix didn’t immediately respond to a request for comment.",
+  "published_at": "2026-05-11T17:04:22Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-11T21:00:16.091539Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Netflix",
+      "News",
+      "Streaming"
+    ]
+  }
+}

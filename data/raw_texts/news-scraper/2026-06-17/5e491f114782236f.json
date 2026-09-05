@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/16/mobileye-us-robotaxi-launch-will-put-it-on-both-sides-of-the-av-business/",
+  "title": "Mobileye’s US robotaxi launch will put it on both sides of the AV business",
+  "raw_text": "Mobileye has pitched itself as an autonomous vehicle technology supplier. Now it wants the operator label, too.\nThe Intel subsidiary and publicly traded company said Tuesday it plans to launch a robotaxi service in a U.S. city in 2027, marking an expansion beyond its supplier strategy. Mobileye didn’t name the U.S. city. However, the Israeli-based company said it will have an initial fleet of 100 autonomous vehicles, which will be phased in throughout 2027.\nIf successful, Mobileye said it plans to scale to about 17,000 robotaxis over the following five years.\n“The robotaxi revolution has only just begun, and its potential for transforming how we travel around the world continues to increase,” Mobileye founder and CEO Amnon Shashua said in a statement, noting that the industry has become increasingly dependent on a small number of technology providers and business models.\nMobileye rose to prominence supplying automakers with millions of computer vision chips designed to support automotive safety features and advanced driver-assistance systems. The company later began developing chips and software that could handle autonomous driving and tested the tech in several cities. It now supplies its self-driving system to Volkswagen and its MOIA subsidiary.\nBut Mobileye apparently wants to own some of the robotaxi market, even if that puts it in direct competition with companies it supplies its self-driving system to.\nThese robotaxi aspirations aren’t entirely new. In a 2020 interview with TechCrunch, Shashua said he believed that the “Holy Grail” was passenger car autonomy — in which consumers could buy a car that could operate fully driverless. But to get there he needed to pursue robotaxis.\n“The realization is that you can’t reach that Holy Grail if you don’t go through the robotaxi business,” Shashua said at the time.\nMobileye said it will create a new operating business for its robotaxi service, which will use its self-driving system. Mobileye plans to manage the fleet and will leverage Moovit, the transit and ride-hailing app it owns, for the consumer-facing piece.\nMobileye said this new business will complement its supplier business. The company didn’t name which vehicle will be used in its fleet, only noting that it will work with “AV-ready vehicle platform manufacturers.” However, the company’s press release announcing the partnership shows a photo illustration of what appears to be a modified Ora iQ, the electric crossover produced by the Chinese automaker Great Wall Motors.\n“This initiative is not a replacement for our existing partnerships; it is an extension of them,” said Shashua. “We remain deeply committed to enabling automakers and mobility providers with Mobileye Drive. At the same time, operating our own service allows us to accelerate adoption, gain direct operational experience, and showcase the full potential of autonomous mobility.”",
+  "published_at": "2026-06-16T17:50:23Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-06-17T03:00:27.416390Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "autonomous vehicles",
+      "Mobileye",
+      "robotaxi"
+    ]
+  }
+}

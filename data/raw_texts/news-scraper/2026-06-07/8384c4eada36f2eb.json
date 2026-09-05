@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/18/trump-ebola-virus-concerned-africa.html",
+  "title": "Trump says he's 'concerned' about Ebola after American tests positive in Africa",
+  "raw_text": "President Donald Trump on Monday said he was concerned about Ebola after an American tested positive for it.\n\"I'm concerned about everything, but certainly [I] am,\" Trump said when asked about Ebola during a White House event on his administration's consumer-drug website TrumpRx.\n\"I think that it's been confined right now to Africa, and but it's something that has had a breakout,\" he said of the disease.\nThe Centers for Disease Control and Prevention announced earlier Monday that one American tested positive for Ebola while in the Democratic Republic of the Congo.\nA day earlier, the World Health Organization declared that the spread of the Ebola-causing virus known as Bundibugyo, which is currently appearing in the DRC and Uganda, constitutes a global public health emergency.\nThe WHO specified that it \"does not meet the criteria of pandemic emergency,\" as defined under International Health Regulations.\nIn 2014, when an Ebola outbreak occurred during Barack Obama's presidency, Trump repeatedly criticized Obama on social media for how he handled the spread.\nThe American who tested positive developed symptoms over the weekend and tested positive late Sunday, Dr. Satish Pillai, the CDC's Ebola response incident manager, told reporters on a call.\n\"We have stood up a full interagency response\" to the outbreak, Heidi Overton, a physician who was tapped in 2025 for Trump's Domestic Policy Council, said at the White House event Monday afternoon.\nOverton confirmed that an American is symptomatic and said that person, \"as well as six other high-risk contacts, are going to be taken out of that region and taken to Germany.\"\n\"Right now, there are no cases of Ebola in America. We want to keep it that way, and we are doing everything we can to support Americans in the region,\" she added.",
+  "published_at": "2026-05-18T22:33:35Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.679941Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

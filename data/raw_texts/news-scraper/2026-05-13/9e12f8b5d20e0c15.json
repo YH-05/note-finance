@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/ios-macos-and-ipados-26-5-updates-arrive-with-encrypted-rcs-messaging-and-more/",
+  "title": "iOS, macOS, and iPadOS 26.5 updates arrive with encrypted RCS messaging and more",
+  "raw_text": "Apple has released version 26.5 of all of its operating systems today: iOS 26.5, iPadOS 26.5, macOS 26.5, watchOS 26.5, tvOS 26.5, visionOS 26.5, and version 26.5 of the HomePod software (whew).\nNone of these are particularly momentous updates, which is pretty normal this late in their lifecycle, but they add a small batch of new features alongside the pile of patches outlined on Apple’s security vulnerabilities page. This is Apple’s first release to support end-to-end encryption for the RCS messaging standard, for example, which, when enabled, can give green-bubble messages some of the same security and privacy advantages that iMessage users have long enjoyed.\nEncrypted RCS messaging has a “beta” label in this release, and Apple says it’s limited to a subset of supported cellular carriers. Expanded support “will roll out over time.” Encrypted chats will show up with a padlock icon in the Messages app; if you don’t see a padlock, the message isn’t encrypted, even if you’re using RCS.\nOther additions in the 26.5 releases are new Pride-themed wallpapers and some of the initial work needed to support ads in the Apple Maps app. There are also a handful of smaller platform-specific additions and bug fixes, which you can find on Apple’s release notes pages (we’ve linked each in the first paragraph). Apple has been testing several changes to third-party wearable support in the EU to comply with local regulations for several beta cycles now, and those features also arrive for EU iOS users in the 26.5 update.",
+  "published_at": "2026-05-11T17:20:39Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-13T03:00:30.640757Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Tech",
+      "iOS",
+      "ios 26",
+      "ipados 26",
+      "MacOS",
+      "macos 26 tahoe",
+      "tvos 26",
+      "watchos 26"
+    ]
+  }
+}

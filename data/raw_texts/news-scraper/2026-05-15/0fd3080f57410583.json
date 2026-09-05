@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/energy-supplier-abandons-lake-tahoe-residents-to-serve-data-centers/",
+  "title": "Energy supplier abandons Lake Tahoe residents to serve data centers",
+  "raw_text": "The tourist and ski resort town of Lake Tahoe must scramble to find a new energy supplier by May 2027—the result of a Nevada utility company saying it needs the power capacity in part for new data centers. The resulting energy crisis impacts 49,000 California residents who live near Lake Tahoe, nestled in the Sierra Nevada mountains on the border between California and Nevada.\nLake Tahoe’s local electricity provider, California-based Liberty Utilities, has been obtaining 75 percent of its power from the Nevada-based company NV Energy. But the latter has said it will stop providing power to the Lake Tahoe region by May 2027, according to extensive reporting by Fortune.\nNevada’s fast-growing data center development is one of the main reasons given by NV Energy for ending its energy supply agreement with Liberty, according to a Liberty filing with California regulators. Fortune highlighted data from NV Energy’s own planning documents showing that a dozen data center projects in northern Nevada could drive 5,900 megawatts of new demand by 2033.\nSuch data center demand has also spurred NV Energy to sign contracts with tech companies to secure additional power-generation sources. Amazon recently agreed to support the Nevada utility company’s deployment of 700 megawatts of “low-carbon energy” for Reno data center operations, including 100 megawatts of geothermal energy, according to Data Center Dynamics.\nHowever, NV Energy representatives pushed back on the idea that data centers are the main culprit behind the decision to stop supplying energy to the Lake Tahoe community, telling Fortune that it was part of a long-term transition predating the AI boom. After NV Energy initially sold its California assets to Liberty in 2009, it struck a series of temporary agreements to keep providing power to Lake Tahoe until Liberty could secure another energy supplier.",
+  "published_at": "2026-05-14T19:17:28Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-15T03:00:30.482881Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "ai data centers",
+      "AI energy",
+      "data centers",
+      "electricity demand",
+      "electricity grid",
+      "power grid"
+    ]
+  }
+}

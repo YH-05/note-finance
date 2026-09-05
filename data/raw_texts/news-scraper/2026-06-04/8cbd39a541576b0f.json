@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/new-social-features-further-plexs-evolution-from-media-server-business/",
+  "title": "New social features further Plex’s evolution from media server business",
+  "raw_text": "Plex is adding new social features to the platform.\nAs of today, users can make and share “personalized lists on Plex of any movie, show or episode,” the company said in an announcement. Later this year, users will be able to import lists from other streaming services and react to other people’s lists.\nThis month, Plex will also launch a community forum that will allow people to “post and comment directly on any movie, show, season, or episode.” Later this year, Plex will introduce “Match Scores” based on a viewer’s history and past ratings to predict how much they’ll like a show or movie, Plex said.\nPlex already lets people rate content, and this year it will also allow them to react with emoji. Similarly, Plex will also enable people to respond to reviews and discussions with images. The goal, per Plex’s announcement, is to bring “a new layer of expression to every conversation.”\nFinally, a “Follow Anything” feature coming this year will provide users with alerts around movies, shows, actors, and crew members that they follow.\nPlex’s announcement claimed that its users have already “made over 100 million watching decisions a month and created more than 45 million watchlists,” making the new capabilities relevant to how people use Plex today.\n“The addition of these features marks the next step in Plex’s vision to unify entertainment discovery and help users navigate an increasingly fragmented streaming landscape,” Plex’s announcement said.",
+  "published_at": "2026-06-03T17:35:06Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-06-04T03:00:31.489622Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "Plex",
+      "streaming"
+    ]
+  }
+}

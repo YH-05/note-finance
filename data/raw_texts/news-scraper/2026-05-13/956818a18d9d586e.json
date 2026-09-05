@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/929487/unitree-gd01-giant-mech-suit-robot",
+  "title": "Unitree will sell you a massive ‘transformable mecha’ for $650,000",
+  "raw_text": "Unitree is already one of the most recognizable names in the humanoid robot industry, but now it’s pursuing even nicher sci-fi tech: giant mech suits. The Chinese robotics company has debuted the GD01, which it describes as “the world’s first production-ready manned mecha,” and it can be yours for a paltry $650,000.\nUnitree will sell you a massive ‘transformable mecha’ for $650,000\nThe GD01 can punch through walls and carry you around like a horse.\nThe GD01 can punch through walls and carry you around like a horse.\nWhat is it for? Well, Unitree doesn’t really explain its intended functionality, but the GD01’s introductory video on YouTube provides some ideas. Unitree shows it knocking over a wall of cinderblocks and switching between bipedal position (which, to me, resembles the Power Loader that Ellen Ripley pilots in Aliens) to a mode that allows it to walk around on four legs like an unsettling mechanical horse.\n“It can transform. It’s a civilian vehicle. It weighs ~500kg with you inside,” Unitree says in the video description. “Please everyone be sure to use the robot in a friendly and safe manner.”\nSome shots show Unitree CEO Wang Xingxing clambering into the GD01’s cockpit, what appears to be a racing-style chair surrounded by a roll-cage. I suspect, however, that the “passenger” it’s actually seen carrying around is likely a dummy for testing purposes. It’s also unclear how the mech is actually operated as some clips show that it can perform tasks without having a person inside it.\nIts ability to “transform” — switching between bipedal and quadrupedal modes — also appears to be limited, as the seating position doesn’t orientate itself when the bot flips over. Any passengers in this situation will either find themselves staring into the sky, or, presumably, having to get out and adjust the seat position manually.\nThe GD01 apparently isn’t a prank (Wired confirmed with Unitree), though you’d be forgiven for thinking it is. I certainly did. Unitree is known for putting out viral video demonstrations of its humanoid G1 robots doing martial arts, backflips, playing tennis, and even kicking a guy in the balls. The GD01 launch is serious enough that Unitree is asking customers to “refrain from making any dangerous modifications” or “using the robot in a hazardous manner.”",
+  "published_at": "2026-05-13T12:11:02Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-13T15:00:16.518308Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Robot",
+      "Tech"
+    ]
+  }
+}

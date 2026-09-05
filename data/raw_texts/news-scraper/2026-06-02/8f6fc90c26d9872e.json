@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/nvidia-unitree-humanoid-robotics-system-researchers.html",
+  "title": "Nvidia picks Unitree for humanoid robot platform as Chinese startup eyes IPO",
+  "raw_text": "Nvidia has selected Chinese humanoid robot maker Unitree for the first robotics system the U.S. chipmaker is selling to researchers from Stanford to ETH Zurich, the company announced Monday.\nThe system combines Unitree's nearly 6-foot-tall H2 humanoid robot with Nvidia's Jetson Thor hardware, which includes the company's advanced Blackwell GPU for on-device artificial intelligence capabilities.\nNvidia's humanoid-focused AI models, known as Isaac GR00T, and simulation systems are part of the new robot testing package, according to a press release. The robot also uses mechanical hands made by Singapore-based Sharpa. PitchBook lists Qiming Venture Partners among the startup's backers.\nNvidia CEO Jensen Huang has predicted that \"physical AI\" could become a market worth tens of trillions of dollars. He told investors last month he expects rapid growth in the robotics segment over the next five years.\n\"Today, we're announcing the Nvidia Isaac Root, a reference humanoid robot, all fully integrated, 25 degrees of freedom on that on each hand made by Sharpa, 31 degrees of freedom on the robot, six feet 150 pounds, just like me,\" Huang said Monday in a keynote speech in Taipei.\n\"This platform runs the new Thor, and our entire software stack, data generation stack, data simulation stack, the runtime, all integrated into a robot that is designed for everyone to use,\" he added.\n\"We built this for higher education and university researchers, because for them to build this is insanely hard to do.\"\nThe new system also expands Nvidia presence in robotics software development, building on the chipmaker's edge in AI computing through its widely used CUDA software platform.\nThe news comes as Unitree seeks to raise 4.2 billion yuan ($620 million) through a listing on Shanghai's STAR board. The exchange is scheduled to review the IPO application on Monday.\nUnitree disclosed more than 40% of its revenue already comes from markets outside China.\nThe H2 Plus, an upgraded version of Unitree's H2 humanoid robot, will be available in October, and \"anyone can buy it,\" said Rev Lebaredian, vice president of physical AI simulation at Nvidia.\nIt's a move \"taking frontier humanoid research out of the hands of only the world's largest tech companies and AI unicorns, and putting it in reach of every lab,\" he said.\nAt least four research institutions already plan to use the H2 Plus humanoid, the press release said.\nThey include Seattle-based Ai2, ETH Zurich in Switzerland, the Stanford Robotics Center and UC San Diego's Advanced Robotics and Controls Laboratory. No China-based research institutions were listed.\nHumanoid robots remain a nascent market. While companies including Unitree and California-based 1X Technologies are developing general-purpose robots, deployments of AI-powered humanoids have largely been limited to warehouses, with safety and privacy concerns still posing hurdles to wider use in homes.",
+  "published_at": "2026-06-01T05:45:45Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.586641Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

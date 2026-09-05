@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/staff/2026/06/the-ars-technica-2026-reader-survey-let-your-voice-be-heard/",
+  "title": "The Ars Technica 2026 Reader Survey: Let your voice be heard!",
+  "raw_text": "Greetings, Arsians, and welcome to the great Ars Technica 2026 reader survey! It has been almost four years since we last ran a big site-wide survey like this, where we ask our readers—you!—what you like about the work we do and what we could perhaps improve on. This kind of check-in is absolutely vital to ensuring we’re steering the ship properly, and we take the results very seriously. (The last time we did this, we got several thousand responses, and that’s incredibly valuable data for us!)\nYou don’t have to have been a reader since 1998 to weigh in, either. Whether you’re a first-time reader, an old grizzled forum veteran, a front page comment maven, a newbie sysadmin, or a CEO, we want to hear what you have to say, no matter who you are. The only requirement is that you’re a human! (Aliens are welcome as well, though we didn’t really define any demographic categories for extraterrestrial beings. We’ll tackle this issue if it comes up, I suppose.) There are a few text fields. Yes, we will read what you write there!",
+  "published_at": "2026-06-16T13:35:55Z",
+  "author": "Ken Fisher",
+  "collected_at": "2026-06-17T03:00:31.722980Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Staff",
+      "feature",
+      "features",
+      "reader survey",
+      "survey"
+    ]
+  }
+}

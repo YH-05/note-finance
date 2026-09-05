@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/05/zero-day-exploit-completely-defeats-default-windows-11-bitlocker-protections/",
+  "title": "Zero-day exploit completely defeats default Windows 11 BitLocker protections",
+  "raw_text": "A zero-day exploit circulating online allows people with physical access to a Windows 11 system to bypass default BitLocker protections and gain complete access to an encrypted drive within seconds.\nThe exploit, named YellowKey, was published earlier this week by a researcher who goes by the alias Nightmare-Eclipse. It reliably bypasses default Windows 11 deployments of BitLocker, the full-volume encryption protection Microsoft provides to make disk contents off-limits to anyone without the decryption key, which is stored in a secured piece of hardware known as a trusted platform module (TPM). BitLocker is a mandatory protection for many organizations, including those that contract with governments.\nWhen one disk volume manipulates another\nThe core of the YellowKey exploit is a custom-made FsTx folder. Online documentation of this folder is hard to find. As explained later, the directory associated with the file fstx.dll appears to involve what Microsoft calls the transactional NTFS, which allows developers to have “transactional atomicity” for file operations in transactions with a single file, multiple files, or ones that span multiple sources.\nThe steps for carrying out the bypass are simple:\n- Copy the custom FsTx folder from the Nightmare-Eclipse exploit page to an NTFS- or FAT-formatted USB drive\n- Connect the USB drive to the BitLocker-protected device\n- Boot up the device and immediately press and hold down the [Ctrl] key\n- Enter Windows recovery\nThere are at least two ways to accomplish the third step. One way is to boot into Windows, hold down the [Shift] key, click on the power icon, and click restart. Another is to power on the device and restart it as soon as Windows starts booting.\nIn either case, a command (CMD.EXE) prompt appears. The prompt has full access to the entire drive contents, allowing an attacker to copy, modify, or delete them. In a normal Windows Recovery flow, the attacker would need to enter a BitLocker recovery key. Somehow, the YellowKey exploit bypasses this safeguard. Multiple researchers, including Kevin Beaumont and Will Dormann, have confirmed the exploit works as described here.\nIt’s unclear what in the custom FsTx folder causes the bypass. Dormann said that it appears to be related to Transactional NTFS, which itself uses command-log file system under the hood. Dormann further noted that by looking at the Windows fstx.dll, one will see code that explicitly looks for \\System Volume Information\\FsTx in the FsTxFindSessions() function.”",
+  "published_at": "2026-05-14T18:32:01Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-15T03:00:30.483534Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "BitLocker",
+      "disk encryption",
+      "microsoft",
+      "vulnerabilities"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20204-will-fuel-price-volatility-lessen-telcos-reliance-on-diesel-in-africa.html",
+  "title": "Will fuel price volatility lessen telcos' reliance on diesel in Africa?",
+  "raw_text": "MTN Nigeria’s margins reportedly face a potential US$87.5 million hit as diesel prices rise, a situation that may have been exacerbated by the war in Iran, although the removal of fuel subsidies in 2023 has also played a part.\nNow, according to ITWeb Africa, the operator is intensifying its transition to gas-powered infrastructure to protect network operations from Nigeria’s deepening energy challenges.\nEstimates suggest that MTN Nigeria consumes more than 40 million litres of diesel yearly to power thousands of base stations, data centres and switching facilities nationwide; in fact diesel accounted for a little over 58% of the company’s total energy consumption in 2025.\nPower from gas (about 23.6%) and the grid (about 18%) made up most of the rest. Renewable energy contributed only 0.05%. In fact energy can take up nearly 40% of telecom operating costs in Nigeria but fuel price volatility and weak grid infrastructure are ongoing issues.\nBeyond Nigeria, according to a report from the AP news service, diesel powers the majority of Africa's estimated 500,000 telecommunications towers, but fuel prices and other challenges such as transport logistics, theft and maintenance are forcing a rethink, especially in off-grid areas where energy can account for up to 60% of operating costs for telecom towers.\nThus, says AP, across the continent, mobile network operators are increasingly adopting hybrid systems that combine solar panels, battery storage and limited diesel backup. Some, it suggests, are aiming for fully solar-powered sites over time, particularly in rural and off-grid areas; investments in alternative energy systems may even be accelerating as early results show significant savings. And of course solar-powered towers are less vulnerable to fuel shortages and generator failures.\nThis does beg the question of why the switch to renewables is not yet more advanced. However, if there is one upside to the Iran conflict, it may be to underline the fact that using renewable energy systems for towers means fuel price volatility is less of a problem.\nSuch systems could even enable faster and more cost-effective expansion into underserved areas, and, of course, if they are more reliable, renewable-powered towers could also improve service stability.",
+  "published_at": "2026-05-05T22:03:51Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-10T03:01:30.726155Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

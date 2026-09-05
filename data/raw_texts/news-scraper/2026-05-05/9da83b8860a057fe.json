@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/geothermal-startup-fervo-energy-to-raise-up-to-1-3b-in-ipo/",
+  "title": "Geothermal startup Fervo Energy to raise up to $1.3B in IPO",
+  "raw_text": "Geothermal startup Fervo Energy said Monday it hopes to raise up to $1.3 billion in its initial public offering.\nThe company would be valued at up to $6.5 billion if shares sell at the top of its $21 to $24 price target. That’s more than twice what Fervo had reportedly been seeking earlier this year when it confidentially filed paperwork with the SEC to start the IPO process.\nThe stock will trade on Nasdaq under the ticker FRVO.\nFervo’s price target comes on the heels of X-energy’s successful IPO. The nuclear power startup raised $1 billion in an upsized IPO. When the company set its price target for the IPO, it sought a valuation of around $7 billion. Today, X-energy’s market capitalization i over $8 billion.\nBoth Fervo and X-energy have been boosted by surging electricity demand from tech companies, which have been racing to secure supplies to feed their AI data centers. The scramble has driven prices for new natural gas power plants up 66% in the last two years.\nFervo says it’s Cape Station power plant — its first large-scale project — will generate electricity at $7,000 per kilowatt of installed capacity. The company’s goal is to reduce that to $3,000 per kilowatt of capacity, at which point it will start being cost competitive with natural gas.",
+  "published_at": "2026-05-05T00:13:30Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-05-05T03:00:27.378605Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "Fervo Energy",
+      "geothermal energy",
+      "IPO"
+    ]
+  }
+}

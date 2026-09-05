@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20224-equatorial-guinea-officially-joins-medusa-africa-subsea-cable.html",
+  "title": "Equatorial Guinea officially joins Medusa Africa subsea cable",
+  "raw_text": "Equatorial Guinea has officially signed a construction and maintenance agreement (C&MA) to join AFR-IX Telecom’s Medusa Africa cable project, which would give the country its second international subsea link.\nUnder the C&MA, which was signed on May 6, local public-private telecoms infrastructure provider Guinéenne de Large Bande (GUILAB) will serve as the landing party for the Medusa Africa cable, overseeing management, operation and maintenance of the infrastructure for 25 years.\nGUILAB will land the Medusa Africa cable in Conakry, where it currently operates Guinea’s landing point for the Africa Coast to Europe (ACE) subsea cable – which serves as the country’s only international subsea connection.\nMourana Soumah, Guinea’s Minister of Communication, Digital Economy and Innovation, said the addition of Medusa Africa will diversify the country’s international connectivity routes, reduce dependence on a single infrastructure, and creates the conditions for a more stable and more efficient Internet for citizens, businesses and institutions.\n“By equipping Guinea with a second submarine cable, we are making a strategic choice. We choose to secure our connectivity, strengthen our resilience, and above all, create the conditions for the rise of our digital economy,” Soumah said in a statement.\nGuinea was one of several countries along Africa’s west coast to be impacted after the ACE, WACS Main One and SAT3 subsea systems were damaged in one go by an undersea rock fall near Côte d'Ivoire.\nThe official announcement from Medusa doesn’t mention details on costs or timeline for the Guinea project. As we reported last month, when media reports of an imminent Guinea-Medusa deal surfaced, Guinea will invest somewhere between EUR20-60 million (about US$23.1 million to US$69.3 million) to connect to Medusa Africa, with rollout targeted for 2029–2030.\nMedusa Africa is the planned subsystem of AFR-IX Telecom’s Medusa cable system that features 17 landing points along both sides of the Mediterranean Sea and sports a design capacity of 480 Tbps on 24 fibre pairs.\nLast year, AFR-IX Telecom secured funding from the European Commission to extend the Medusa cable along Africa’s western coastline, as well as from the US Trade and Development Agency (USTDA) for a feasibility study for the project.\n“This extension strengthens the link between the Atlantic and Mediterranean corridors, helping to address growing capacity demands while improving network diversity and resilience,” said Damien Bertrand, COO of Medusa Submarine Cable System. “Our agreement with GUILAB marks an important milestone in delivering high-capacity, reliable international connectivity to Guinea.”\nCameroon finalised an MoU to join the Medusa Africa submarine cable in December 2025, although it has yet to be approved by the presidency.",
+  "published_at": "2026-05-11T03:12:01Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-17T03:01:28.484386Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

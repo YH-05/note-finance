@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081671",
+  "title": "日経225先物：8日22時＝160円高、6万3000円",
+  "raw_text": "【市況】日経225先物：8日22時＝160円高、6万3000円\nTOPIX先物期近は3844.5ポイントと前日比12ポイント高、TOPIXの現物終値比は15.02ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 63000 +160 3117\n日経225mini 63000 +160 86982\nTOPIX先物 3844.5 +12 7045\nJPX日経400先物 35095 +165 165\nグロース指数先物 821 +1 448\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-08T13:00:51Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.837968Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

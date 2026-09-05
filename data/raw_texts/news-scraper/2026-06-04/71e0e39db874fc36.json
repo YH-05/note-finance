@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942860/aura-frame-google-photos-api-update-auto-sync",
+  "title": "This Google Photos update has saved your digital photo frame",
+  "raw_text": "Aura’s digital photo frames will continue to automatically sync with your Google Photos albums, after API changes threatened to remove the feature. Aura is now rolling out a full migration to Google’s new Ambient API, allowing your Aura frame slideshows to be automatically updated with new photos, instead of requiring owners to manually add them via the Google Photos app.\nThis Google Photos update has saved your digital photo frame\nGoogle’s new Ambient API prevents Aura frame users from having to manually update their slideshow libraries.\nGoogle’s new Ambient API prevents Aura frame users from having to manually update their slideshow libraries.\n“With our updated Google Photos integration, you can add photos directly from the Google Photos app or sync an entire Google Photos album to keep Aura frames updated automatically,” Aura said in its announcement. “Photos are sent directly to your Aura frames from Google Photos, without the need for manual uploads.”\nWhile Aura users can automatically add photos to their frame with native albums in the camera roll on iOS or native albums in folders on Android, for those using auto-sync with Google Photos, Aura had previously said the feature would be disabled. This was due to Google changing how apps can access Google Photos libraries. Aura announced in March that it was working with Google to preserve the feature, and now it has fully migrated to the new API.\nThat said, there are a few changes that come with Google’s new Ambient API, principally that adding photos for Aura frames will now happen in the Google Photos app instead of Aura’s. Manual 1:1 photo selection is also moving to Google’s sharesheet for iOS users, or via a new in-app photo selector tool on Android.\nExisting auto-sync users will have to reconnect their Google Photos albums in the Aura app to keep albums syncing with new photos. Just open the Aura app, select your frame, tap the “Add Photos” option, and then connect your Google account. New Aura customers will have to set up and use auto-sync and manual photo adding capabilities through the iOS share sheet or Android tool.\nMost Popular\n- Microsoft and OpenAI broke up — now they’re ready to fight\n- A first look at Microsoft’s Surface Laptop Ultra and Surface Dev Box\n- PlayStation is getting back to what it’s good at\n- Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet",
+  "published_at": "2026-06-04T12:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-04T15:00:11.678002Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

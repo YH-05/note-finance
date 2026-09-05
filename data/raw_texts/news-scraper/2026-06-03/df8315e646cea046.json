@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20306-vodafone-and-airbus-boost-tiranas-airport-security.html",
+  "title": "Vodafone and Airbus boost Tirana’s airport security",
+  "raw_text": "Tirana International Airport (TIA) has become the first airport in the Western Balkans to deploy Airbus’ airport safety solution, a solution powered by Vodafone Albania’s 5G network.\nThe strategic collaboration between Vodafone Albania, Tirana International Airport and Airbus is described as marking a significant step in transforming airport operations, enabling real-time communication, advanced coordination, improved emergency response and enhanced security management.\nThe solution provides direct support to airport operational teams, allowing more efficient communication and faster coordination across all airport processes.\nVodafone Albania and Tirana International Airport (TIA) officially launched the initiative (called “Security that travels with you”) on Monday.\nVodafone Albania says its role in this initiative goes beyond connectivity. The company acts as a full builder and integrator of critical infrastructure, ensuring the seamless performance of the airport’s security and communication systems.\nThe communication system deployed at TIA is based on Airbus’ push-to-talk technology, a platform widely tested in aviation, public safety and critical infrastructure environments. With the Airbus Agnet platform, the company says voice, data, live video and location services can be accessed at the touch of a button, enhancing situational awareness.\nThis solution enables secure, instant communication across all operational teams, advanced coordination in emergency situations, real-time security management, and full integration with the airport’s existing infrastructure.\nLionello Ginelli, Key Account Manager for Southern Europe at Airbus Public Safety and Security, explains: “By combining Airbus’ Agnet mission-critical platform with Vodafone’s premium connectivity, we are delivering a complete, high-level solution tailored to the needs of users.”\nHighlighting the strategic importance of the project Piervittorio Farabbi, Chief Operating Officer of Tirana International Airport, adds: “Tirana International Airport is taking a major step forward by implementing Airbus’ mission-critical communication platform, supported by Vodafone Albania’s advanced 5G connectivity. Together, we are building a resilient digital infrastructure that ensures safer operations, real-time coordination, and supports the sustainable economic development of Albania.”",
+  "published_at": "2026-05-27T14:03:13Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-03T03:01:28.512348Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

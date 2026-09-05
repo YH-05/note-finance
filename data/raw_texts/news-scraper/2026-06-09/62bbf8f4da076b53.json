@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/goldman-sachs-cuts-hong-kong-stocks-to-ne.html",
+  "title": "Goldman Sachs cuts Hong Kong stocks in favor of mainland China AI hardware plays",
+  "raw_text": "Goldman Sachs is officially preferring mainland Chinese stocks to those traded in Hong Kong. The investment bank on Wednesday cut its rating on H shares to market-weight from overweight, while staying overweight on mainland China's A shares — as a way to play artificial intelligence hardware. Most of China's AI semiconductor companies and their suppliers are traded on the mainland stock exchange. For a second time in a year, Goldman said it's raising its 12-month target on the CSI 300 — this time to 5,500, from 5,300 previously. That offers nearly 12% upside from Tuesday's close. The firm still expects 11% potential gains over the next 12 months for the H-share-heavy MSCI China index, but lowered it to market-weight in a regional context. So far this year, the Hang Seng Index is up about 1.5%, while the CSI 300 in mainland China has gained more than 6%. The underperformance is starker when looking at tech. The Hang Seng Tech index has fallen more than 5.5% year-to-date, while the Nasdaq-like ChiNext has surged more than 25% during that time. 'Hard tech' The divergence reflects how Beijing's AI policy has focused more on hardware development than models and software applications. AI hardware has driven 85% of the $3.8 trillion in Chinese AI equity market gains since the DeepSeek moment in January 2025, Goldman Sachs' Kinger Lau pointed out in the report. China accounts for at least 10% of AI-related market capitalization worldwide, but Chinese AI stocks \"are substantially under-owned by international investors,\" he said. The gap has shown up in earnings as well. \"Hard Tech stocks have delivered strong top-line and profit growth but large-scaled Internet companies have continued to struggle to grow their bottom-line,\" Lau said. Highly anticipated Chinese chip and humanoid robot IPOs are also coming to the mainland market, instead of Hong Kong, while H-share AI model companies are planning A share listings.",
+  "published_at": "2026-06-03T01:49:10Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.210269Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

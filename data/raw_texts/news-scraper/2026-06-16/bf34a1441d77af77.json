@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20373-meta-and-reliance-announce-ai-data-centre-first-in-india.html",
+  "title": "Meta and Reliance announce AI data centre first in India",
+  "raw_text": "Multinational technology company Meta Platforms has announced plans to lease an AI-ready data centre to be built by Indian conglomerate Reliance Industries. It is described as Meta’s first AI-enabled data centre in the country.\nMeta is leasing capacity at a new Reliance data centre in Jamnagar, a city in the western Indian state of Gujarat. The data centre is to be powered by renewable energy and cooled with desalinated seawater. Meta will cover the full cost of the energy and water supporting the facility.\nJamnagar is said to be a strategic location, and Reliance is developing one of the largest data centre campuses in the world there, with access to the significant energy resources needed to power advanced AI-enabled infrastructure.\nThe facility’s first phase will deliver 168 MW of capacity, with an option to scale. Paired with Meta’s extensive network investments, including Project Waterworth, the world’s longest subsea cable system, Meta says it will bring industry-leading connectivity to the region and serve India’s community with speed and quality.\nMeta has also announced that it has contracted nearly 1 GW of new clean and renewable energy in India through agreements with two leading clean energy providers. A deal with Clean Max involves 837 MW of new solar and wind projects in Rajasthan, a state in northwestern India, and Karnataka in southwest India. This brings the cumulative capacity announced with CleanMax to over 900 MW.\nAnother deal, with Fourth Partner Energy, involves 88 MW of new solar and wind projects across Tamil Nadu in the south, Karnatak in the southwest, Maharashtra in the west, and Uttar Pradesh in the north.\nMeta and Reliance Industries say they have built a strong partnership over the years. In 2020, Meta made a US$5.7 billion investment in Jio Platforms,\nAccording to the Data Centre Dynamics website, India's data centre market is projected to nearly double to US$13.11 billion by 2034, fuelled by digitisation, cloud adoption and rising AI workloads.\nIt adds that the deal comes at a time when India has seen a surge in hyperscale data centre builds led by US cloud majors such as Amazon, Microsoft and Google.",
+  "published_at": "2026-06-11T13:27:24Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-16T03:01:22.938193Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

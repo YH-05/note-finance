@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/the-worlds-largest-privately-owned-laser-just-turned-on/",
+  "title": "The world’s largest privately owned laser just turned on",
+  "raw_text": "Fusion startup Xcimer Energy on Wednesday flipped the switch on its Phoenix laser system, which the company says is the largest privately owned example in the world.\nXcimer’s approach to fusion power is modeled after the National Ignition Facility (NIF), which proved in December 2022 that a controlled fusion reaction could release more power than required to ignite it.\nThe NIF trained 192 laser beams on a fuel target smaller than a pencil eraser. The energy from the lasers hit the gold target. As the lasers obliterate the gold target, their energy is converted into X-rays, which are focused on the fuel pellet inside, compressing it until atoms in the fuel fuse and release energy.\nThe company is betting that more powerful, less complex lasers will help turn NIF’s concept for fusion power into something more profitable.\nXcimer’s plans for a fusion power plant call for two lasers capable of firing in microsecond-long pulses. Light from those pulses will be fed through a compression system, of sorts, which will delivers the lasers’ energy to the fuel target in nanoseconds. The quicker the fuel is compressed, the more likely it is to generate usable fusion reactions.\nPhoenix is a step toward an eventual power plant. The system uses excimer amplification, similar to those used in semiconductor manufacturing but significantly more powerful. At full strength, the krypton-fluoride laser generates over 1 kilojoule of energy, Xcimer told TechCrunch, and its core is 38 meters long.\nWhile that may be the most powerful privately owned laser, it’s still a fraction of what the company says it will need for a commercial power plant, which could exceed 12 megajoules.\nXcimer hopes to complete a prototype in 2028 before working on a larger system that it hopes will produce at least as much power as it consumes. Sometime in the mid-2030s, it is planning to build its first commercial scale power plant.",
+  "published_at": "2026-06-03T10:00:00Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-03T15:00:28.147159Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "lasers",
+      "nuclear fusion",
+      "fusion power",
+      "Xcimer Energy",
+      "fusion energy"
+    ]
+  }
+}

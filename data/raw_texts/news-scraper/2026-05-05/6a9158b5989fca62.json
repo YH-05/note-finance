@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/f1-in-miami-thats-what-it-looks-like-when-an-upgrade-works/",
+  "title": "F1 in Miami: That's what it looks like when an upgrade works",
+  "raw_text": "After an unanticipated five-week break in the season, Formula One resumed action this past weekend in Miami. Held at a temporary circuit around Hard Rock Stadium, the event is emblematic of the Liberty era of F1: a turbocharged marketing extravaganza crammed full of hospitality suites with ticket prices as high as $95,000. It might be miles from the sea—the original plans to race across a bridge over Biscayne Bay did not survive contact with locals—but the sport is doing its best to make this a modern Monaco, playing up the host city’s glamorous reputation and pastel color palette.\nAs we learned a couple of weeks ago, there have been tweaks to the amount of energy that the cars’ new hybrid power units can regenerate and deploy via the electric motor that contributes almost half of the car’s power output. The first three races of this season were frenetic, but they alarmed many longtime fans, as the cars are now too energy-limited to be driven flat-out during qualifying; that energy limitation also led to cars swapping positions multiple times, derisively dubbed “yo-yo” racing by critics.\nThe new limits on harvesting energy from the V6 to charge the battery on the move should reduce the potential for huge speed differentials like the one that caused Oliver Bearman’s crash in Japan, and energy management was (thankfully) not much of a topic this weekend. Miami’s layout definitely helps there, with plenty of braking zones to help regenerate much of the now-allowed 7 MJ each lap.\nCorrelation is causation\nIn a more conventional season, you might not bring any upgrades to Miami. It’s one of F1’s six sprint weekends, with just a single hour’s practice session on Friday morning; the other two are replaced by a shortened qualifying session on Friday afternoon, then a (roughly) half-hour sprint race on Saturday morning, before normal qualifying later that day and the proper race on Sunday. Mindful that it had imposed new rules for this round, the sport’s organizers increased practice time to 90 minutes on Friday.",
+  "published_at": "2026-05-04T17:47:05Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-05T03:00:31.295856Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Formula 1"
+    ]
+  }
+}

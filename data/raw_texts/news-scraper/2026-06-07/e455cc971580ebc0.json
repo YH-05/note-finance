@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20318-pldts-vitro-establishes-direct-ix-peering-with-bbix.html",
+  "title": "PLDT’s Vitro establishes direct IX peering with BBIX",
+  "raw_text": "PLDT Group’s data centre arm Vitro said on Thursday it has partnered with BBIX Philippines to establish a direct peering connection between BBIX and its Vitro Internet Exchange (VIX) in a play they say will strengthen the country’s digital ecosystem.\nTo that end, Vitro has deployed an initial 100G network-to-network interconnection at its Makati 2 data centre to start. Vitro expects to expand that capacity over time in line with traffic growth and evolving demand.\nVitro said the partnership with BBIX aims to enable more efficient traffic exchange through direct peering, allowing enterprises connected to both BBIX and VIX to benefit from improved routing, reduced latency, and enhanced access to content and digital services.\nVIX’s local ecosystem includes access to over 98 million internet users in the Philippines, alongside a growing base of enterprises, carriers, and hyperscalers hosted within Vitro’s carrier-neutral data centres.\nBBIX said it brings its global peering expertise to the table, as well as a rich and massive ecosystem of content from cloud service providers, content platforms, content delivery networks and other technology solution providers.\nDirect peering between BBIX and VIX will reduce connectivity gaps and optimise traffic routes, enabling efficient traffic flow, reduced latency, and improved access to both regional and international content, said Vitro’s chief commercial officer Gary F. Ignacio.\n“By strengthening how traffic is exchanged between networks, we are improving access to content, enhancing performance, and enabling businesses and communities to better participate in the digital economy,” he said in a statement.\n“Through our direct peering with VIX, we are able to deliver more efficient and reliable connectivity that supports the growing demand for digital services in the country,” added Toya Oba, GM of BBIX.",
+  "published_at": "2026-05-29T04:55:18Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-07T03:04:10.369532Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

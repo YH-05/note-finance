@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20199-sc-caprock-adds-hybrid-satellite-connectivity-to-tabocas-amazon-mining-operations.html",
+  "title": "SC CapRock adds hybrid satellite connectivity to Taboca’s Amazon mining operations",
+  "raw_text": "Satellite operator Speedcast's Brazilian operation, SC CapRock, says it has developed and implemented a hybrid solution for mining company Mineração Taboca to provide more resilient connectivity for its operations in a remote area in the Amazon.\nThe multi-orbit solution combines geostationary satellite, LEO satellite and Speedcast's proprietary Sigma platform that acts as an intelligent band aggregator, allowing the management and combination of multiple links in real time.\nSpeedcast said the solution was initially implemented as a pilot project with three terminals. It has since been expanded to four terminals, serving two distinct locations and numerous users simultaneously.\nTaboca’s existing infrastructure in the mining area is based mainly on fibre optics with its own hydroelectric plant on site. The new architecture gives the company an extra connectivity option to enable its infrastructure to minimise interruptions and further support its operations, said Bruno Moreira, IT manager at Taboca.\n\"In an operation like ours, connectivity is directly linked to the continuity of activities,” Moreira said in a statement. “The solution brought even more stability and predictability to support our demands.”\nSC CapRock director André Gustavo SantAnna said the project is the first project in the North region to use that specific configuration with Sigma Speedcast, enabling the link aggregation technique to optimize performance, expand capacity and ensure redundancy.\n“This project is a clear example of how the combination of different technologies, combined with an intelligent layer of management, allows relevant gains in performance and resilience, especially in remote regions,” he said.",
+  "published_at": "2026-05-05T03:05:44Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-07T03:01:29.917037Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

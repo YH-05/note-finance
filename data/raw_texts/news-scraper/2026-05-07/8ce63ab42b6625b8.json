@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605080119",
+  "title": "米軍、イランの石油タンカーを攻撃",
+  "raw_text": "【注目】米軍、イランの石油タンカーを攻撃\nロイターによると、イラン国営テレビはホルムズ海峡付近の「敵部隊」がミサイル攻撃を受けたと報じているが、詳細や被害状況は明らかになっていない。\n米軍は最近、イラン籍タンカーへの発砲や海上封鎖を継続しており、ホルムズ海峡を巡る軍事的緊張が再び急速に高まっている。\n株探ニュース",
+  "published_at": "2026-05-07T20:51:00Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:00:22.420478Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

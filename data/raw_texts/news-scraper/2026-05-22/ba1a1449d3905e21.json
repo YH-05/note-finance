@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605221293",
+  "title": "２２日香港・ハンセン指数＝終値２５６０６．０３（＋２１９．５１）",
+  "raw_text": "２２日の香港・ハンセン指数の終値は前営業日比２１９．５１ポイント高の２５６０６．０３と反発した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-22T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-05-22T09:00:21.895084Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

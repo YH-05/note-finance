@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/softbank-samsung-tech-ai-stocks-asia-fall.html",
+  "title": "Tech stock sell-off accelerates; SoftBank drops 6% as investors sour on AI-linked names",
+  "raw_text": "Tech stocks in Asia and Europe extended their sell-off Monday, as investors soured on global AI-linked plays after the U.S. tech-heavy Nasdaq declined more than 4.5% last week.\nMemory chip behemoths and heavyweights on South Korea's Kospi Index, Samsung Electronics and SK Hynix, ended Monday's trading session down 10.18% and 7.68%, respectively. The Kospi plunged as much as 8%, as the two companies make up over 40% of the index.\nTaiwan Semiconductor Manufacturing Co, or TSMC, was down 2.96%, while Hon Hai Precision, also known as Foxconn, fell 5.27%.\nJapanese tech investor Softbank Group plunged 6.1%, while Tokyo Electron and Advantest were down 7.45% and 5.72%, respectively.\nEuropean chip stocks followed Asian peers lower, with ASML, Infineon, STMicroelectronics, ASM International and Besi each falling between 3 and 4.5% in early trading.\nThe slump has been exacerbated by a risk-off sentiment amid expectations that interest rates in the U.S. could stay higher for longer, following last week's U.S. labor data that sharply beat estimates.\n\"We are pushing the final two rate cuts in our Fed forecast back to June and December of 2027. The labor market has been stronger than we anticipated,\" Goldman Sachs said in a note on Friday.\nThe share price declines follow a recent rally in Asia tech stocks that was supported by investor optimism on AI demand. Last month, Samsung Electronics and SK Hynix each crossed $1 trillion market valuation, while SoftBank recently became the most valuable company in Japan.\nThe sell-off in tech names was triggered after Broadcom's revenue for fiscal second quarter missed market estimates last week, plunging its shares and causing a cascading impact on the tech sector.\nThe VanEck Semiconductor ETF (SMH) lost over 9% Friday; Softbank's British chip firm Arm Holdings had dropped nearly 13%, while Micron Technology declined more than 13%.\n\"The tech-led rout erased approximately $1.8 trillion in S&P 500 market cap,\" according to a UOB note on Monday.\nUOB, however, said that tech and software companies will remain in focus with \"the debut of a space exploration/AI/tech company on the Nasdaq on Fri (12 Jun), in what may be the largest IPO ever.\"\nBroader Asia markets were also lower Monday, after a fresh escalation in the Iran war signals that the conflict is far from over.\nCNBC's Mike Sheen contributed to this report.",
+  "published_at": "2026-06-08T07:40:29Z",
+  "author": null,
+  "collected_at": "2026-06-08T09:18:21.426270Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

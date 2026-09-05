@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930941/meta-ray-ban-display-virtual-neural-handwriting-apps-developer",
+  "title": "Meta brings virtual writing to everyone with Meta Ray-Ban Display glasses",
+  "raw_text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, including bringing the ability to write messages just with hand gestures to all users. You’ll be able to use the feature in WhatsApp, Messenger, Instagram and with “native Android and iOS messaging,” Meta says.\nMeta brings virtual writing to everyone with Meta Ray-Ban Display glasses\nYou can also now capture a video combining what you see on the lens display, what you see in the world, and the audio around you.\nYou can also now capture a video combining what you see on the lens display, what you see in the world, and the audio around you.\nThe feature, which relies on the Meta Ray-Ban Display’s included neural wristband, was one of the most impressive features of the Meta Ray-Ban Display when it was first announced. However, it wasn’t available at launch, but in January, Meta launched it in early access for WhatsApp and Messenger.\nMeta is bringing a few other upgrades to the Meta Ray-Ban Display as well. With a feature Meta calls “display recording,” you’ll be able to capture a video that combines what you’re seeing in the lens display, what you see in the real world, and the audio around you. Walking directions are now available “throughout the entire US” and in “major international cities like London, Paris, Rome, and more.” And live captions will be available on WhatsApp, Facebook Messenger, and with voice messages in Instagram DMs.\nThe company has also opened up the ability to make apps for the Meta Ray-Ban Display in developer preview, including letting developers deploy web apps to the glasses.",
+  "published_at": "2026-05-14T21:08:46Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-15T03:00:16.149077Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Meta",
+      "Tech",
+      "Wearable"
+    ]
+  }
+}

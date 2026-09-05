@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606161199",
+  "title": "欧州株　上げ幅拡大、原油安を好感、騰落銘柄数も上げ優勢に",
+  "raw_text": "【市況】欧州株 上げ幅拡大、原油安を好感、騰落銘柄数も上げ優勢に\n東京時間17:24現在\n英ＦＴＳＥ100 10459.77（+29.15 +0.28%）\n独ＤＡＸ 25075.95（+181.94 +0.73%）\n仏ＣＡＣ40 8431.29（+47.28 +0.57%）\nスイスＳＭＩ 13755.22（+37.68 +0.27%）\n※仏ＣＡＣ40、スイスSMIは15分遅れ\n米株価指数先物 時間外取引\n東京時間17:24現在\nダウ平均先物SEP 26月限 52206.00（+77.00 +0.15%）\nＳ＆Ｐ500先物SEP 26月限 7626.25（-0.25 0.00%）\nＮＡＳＤＡＱ100先物SEP 26月限 30869.75（+5.50 +0.02%）\n出所：MINKABU PRESS",
+  "published_at": "2026-06-16T08:36:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T09:00:22.037737Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

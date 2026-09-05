@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/deepseek-slated-to-draw-7-billion-in-maiden-fundraising-sources-say.html",
+  "title": "DeepSeek slated to draw $7 billion in maiden fundraising, sources say",
+  "raw_text": "Chinese AI startup DeepSeek is set to raise about 50 billion yuan ($7.4 billion) in its first funding round from investors including Tencent Holdings and CATL people with knowledge of the matter said.\nThe fundraising could value the company after the investment at between 350 billion yuan and 400 billion yuan, or between $52 billion and $59 billion, the people said, declining to be identified because the information is confidential.\nDeepSeek became China's national AI champion and garnered global fame early last year, when its V3 and R1 models drew widespread praise in Silicon Valley and challenged U.S. assumptions about China's AI capabilities.\nThe startup's founder, Liang Wenfeng, has committed 20 billion yuan of his own money, the people said, adding that tech conglomerate Tencent is considering 10 billion yuan and battery giant CATL is looking at 5 billion yuan, which would make them the largest external investors in the round.\nDeepSeek is also in final talks with China's national artificial intelligence fund, gaming developer NetEase and e-commerce giant JD.com, they said, noting that the planned number of investors was fewer than 10.\nDeepSeek, Liang, NetEase, JD.com and the China Integrated Circuit Industry Investment Fund, which is the main backer of the national AI fund, did not immediately respond to Reuters' requests for comment. Tencent and CATL declined to comment.\nThe line-up underscores China's efforts to build an increasingly self-sufficient AI industry, from models to the energy infrastructure needed to power them.\nCATL, best known as a dominant supplier in the electric vehicle battery supply chain, has recently pushed into AI data centres, exploring opportunities to provide power equipment and energy storage solutions as AI workloads drive demand for large-scale, reliable power.\nTencent has sought to promote its own AI model, Hunyuan, but trails domestic market leaders including ByteDance's Doubao and DeepSeek. A closer relationship with DeepSeek could help Tencent keep pace with rival Alibaba, which has prioritised its in-house Qwen AI model.\nDeepSeek is expected to complete the round within the next couple of weeks, said the people, cautioning that financial details could still change.\nThe startup has to date not made any statements about whether it plans an initial public offering sometime in the future.\nHong Kong-headquartered IDG Capital and Monolith Capital are also among the prospective investors, the people said.\nIDG declined to comment while Monolith did not respond to a request for comment.",
+  "published_at": "2026-06-03T06:06:47Z",
+  "author": null,
+  "collected_at": "2026-06-03T09:18:44.998445Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

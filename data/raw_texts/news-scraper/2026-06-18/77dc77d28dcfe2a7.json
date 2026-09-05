@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/amazon-quera-promise-useful-quantum-error-correction-by-2028/",
+  "title": "Sooner than expected? Useful quantum error correction promised for 2028.",
+  "raw_text": "Quantum computing news usually picks up near the end of the year, as companies try to provide evidence that they are hitting benchmarks on time. However, there have been interesting announcements as the summer starts this year, from incremental progress to attention-grabbing promises. As we did earlier this month, Ars has a rundown of some of the most significant announcements.\nThese include a promise of useful, error-corrected quantum computing as soon as 2028, details on an updated trapped ion processor, and a case in which claims of quantum supremacy have been cut back a bit thanks to advances in more traditional algorithms.\n2028 is remarkably soon\nMany people in the field expect that useful quantum computers are still about five to 10 years away. While there may be a few useful algorithms that can be run on existing error-prone hardware, almost all of the interesting problems that quantum computing can be applied to will require some form of error correction enabled by linking a small collection of hardware qubits together into what’s called a logical qubit. Logical qubits include the redundant storage of information along with neighboring qubits that can be measured to determine when errors occur and how to fix them.\nTo do useful computations, you need a healthy number of logical qubits—roughly 100 to provide a complete model of the behavior of some simple chemicals, to tens of thousands to perform complicated algorithms like the one that can break encryption. (So, any definition of “useful” comes with the important caveat “for whom?”) That means, at a minimum, we’re going to need thousands of high-quality hardware qubits to build a useful error-corrected machine.\nAt the moment, existing qubit technologies offer either high quality or lots of qubits. There are roadmaps from here to where we want to be, but they require a few years of incremental progress. Hence, the five- to 10-year estimates.",
+  "published_at": "2026-06-17T20:44:32Z",
+  "author": "John Timmer",
+  "collected_at": "2026-06-18T03:00:31.116997Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Amazon",
+      "Computer science",
+      "Physics",
+      "quantinuum",
+      "quantum advantage",
+      "quantum computing",
+      "quantum mechanics",
+      "QuEra"
+    ]
+  }
+}

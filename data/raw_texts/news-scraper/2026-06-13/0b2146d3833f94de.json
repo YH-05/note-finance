@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://digg.com/tech/ii9xibgn",
+  "title": "GLM 5.2 Is Out",
+  "raw_text": "GLM-5.2 is Fully Open, Frontier Intelligence Belongs to Everyone\nToday, the sudden restriction of certain frontier models is deeply regrettable. At a time when access to frontier models is abruptly cut off for non-technical reasons, we are even more convinced of one thing: science should be global.\nThe path to AGI (Artificial General Intelligence) must never be enclosed by high walls. We have always believed that AGI should be the cornerstone for all of humanity to collaboratively explore the boundaries of intelligence and solve complex challenges, rather than a privilege monopolized by a few rules and subject to revocation at any moment. In the face of external blockades and restrictions, our attitude is one of radical openness. Frontier intelligence must remain open-source, accessible, and buildable, serving every dedicated developer.\nGLM-5.2 is Zhipu's most capable open-source model to date. It not only supports a truly usable 1M context window but also maintains a continuous lead in the independent completion of long-horizon tasks, providing solid foundational support for building complex agent applications. It also continues to be our main engine for creating the strongest domestic coding model.\nTonight at 5:21—at this special moment—GLM-5.2 will officially be available to all GLM Coding Plan users (including Lite / Pro / Max). The API will also go live next week.\nA step closer to frontier intelligence for everyone.\nThe future of AI is open, and it is for the people.\nModelKey: GLM-5.2",
+  "published_at": "2026-06-13T16:18:31Z",
+  "author": "aloknnikhil",
+  "collected_at": "2026-06-13T21:00:52.517329Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

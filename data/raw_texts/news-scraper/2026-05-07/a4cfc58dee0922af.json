@@ -1,0 +1,32 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/as-nasa-eyes-lunar-base-theres-still-much-learn-about-landing-on-the-moon/",
+  "title": "Here's what has to happen if NASA wants to land on the Moon every month",
+  "raw_text": "NASA’s goal of reaching the Moon’s surface as many as 21 times over the next two and a half years will require an overhaul of the agency’s approach to buying lunar landers and success in rectifying the myriad problems that have, so far, caused three of the last four US landing attempts to falter.\nIt will also require improved oversight of NASA’s industrial base and better management of a supply chain that has often failed to deliver on time.\nThese landers are separate from NASA’s Human Landing System program, which has contracts with SpaceX and Blue Origin to develop and deliver human-rated landers to ferry crews to and from the lunar surface for the agency’s Artemis program. Alongside the crew landers, dozens of robotic and cargo landings will deliver payloads to scout for a future Moon base and demonstrate technologies for larger vehicles, mining and resource utilization, and sustained operations during the two-week-long lunar night.\n“Frequent high-mass, low-cost access to the lunar surface” should be the highest priority for the early phase of the Moon base initiative, said Jacki Cortese, vice president of civil space at Blue Origin. This tracks with the roadmap NASA Administrator Jared Isaacman outlined in March, when he announced that the agency will refocus its efforts on building an outpost on the lunar surface, rather than a mini-space station thousands of miles above the Moon.\nThe fundamentals for high-frequency missions to the lunar surface are in place. NASA’s Commercial Lunar Payload Services (CLPS) program, announced eight years ago this week, has assembled a roster of commercial providers to design and build robotic Moon landers. Through CLPS, NASA has contracted with US companies for 13 missions since 2019. Four of them have launched, and just one has completed a fully successful landing. Four more commercial landers are under construction now for launches in the second half of this year, but as is common in the space industry, their schedules have a history of delays, and some are likely to move into 2027.",
+  "published_at": "2026-05-06T14:56:20Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-07T03:00:30.562805Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "artemis",
+      "astrobotic",
+      "blue moon lander",
+      "blue origin",
+      "clps",
+      "Commercial space",
+      "Firefly Aerospace",
+      "intuitive machines",
+      "moon",
+      "moon lander",
+      "NASA",
+      "spacex"
+    ]
+  }
+}

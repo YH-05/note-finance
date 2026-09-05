@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html",
+  "title": "Trump admin moves further into AI oversight, will test Google, Microsoft and xAI models",
+  "raw_text": "The Center for AI Standards and Innovation on Tuesday announced agreements with Google DeepMind, Microsoft and Elon Musk's xAI that will allow the U.S. government to evaluate artificial intelligence models before they are publicly available.\nCAISI, which sits under the U.S. Department of Commerce, will \"conduct pre-deployment evaluations and targeted research to better assess frontier AI capabilities and advance the state of AI security,\" according to a release.\nThe announcement builds on CAISI's previous partnerships with OpenAI and Anthropic from 2024, the center said. Those agreements have been renegotiated to reflect CAISI's directives from the Commerce Secretary Howard Lutnick and America's AI Action Plan, according to the release.\nBeyond CAISI's announcement on Tuesday, the White House has been weighing the creation of a new AI working group that would explore potential oversight procedures, including plans to vet models before they're released to the public, CNBC confirmed.\nThe working group would bring together a variety of tech executives and government officials, according to a source close to the discussions who asked not to be named because the details are confidential. The group may be established through an executive order.\nThe White House told CNBC that discussion about potential executive orders is speculation, and that any policy announcement will come directly from President Donald Trump.\nThe New York Times was first to report the working group.\nThe White House's discussions about a working group come after Anthropic, a leading AI company, caught government officials' attention last month by announcing a powerful new model, Claude Mythos Preview.\nMythos excels at identifying weaknesses and security flaws within software, according to Anthropic, so the company decided to limit the rollout to a select group of companies as part of a new cybersecurity initiative called Project Glasswing.\nAnthropic CEO Dario Amodei met with senior members of the Trump administration to discuss Mythos at the White House just days after it was announced. That meeting happened even after the Defense Department had declared Anthropic a supply chain risk, meaning the company purportedly threatens U.S. national security.\nBoth the White House and Anthropic characterized that meeting as \"productive.\"",
+  "published_at": "2026-05-05T17:06:07Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.339607Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

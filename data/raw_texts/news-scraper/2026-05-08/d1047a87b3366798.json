@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/taiwan-semi-april-sales-grow-slowest-pace-6-months",
+  "title": "Taiwan Semiconductor April Sales Grow At Slowest Pace In 6 Months",
+  "raw_text": "Taiwan Semiconductor, world's largest dedicated independent semiconductor foundry, posted its slowest pace of monthly revenue expansion since October, highlighting the challenges of sustaining torrid AI-fueled pace of growth.\nSales in April rose 17.5% to NT$410.7 billion ($13.1 billion), their smallest rise in about six months. While the rise reflects just 30 days of business and its revenue can fluctuate month-to-month, the drop was notable; analysts expect the company’s June-quarter revenue to grow almost twice as fast, or at about 35% which means that May and June sales will have to be gangbusters to compensate for April's slowness.\nTaiwan’s largest company has become an essential player in the global AI industry by making cutting-edge semiconductors for the likes of Nvidia and AMD. That’s as Alphabet, Amazon.com, Meta and Microsoft said they are setting aside $725 billion for AI this year, significantly more than previously anticipated. The question of where all this money will come from will be the next big hurdle for the market (we discussed it here \"\"Banks Are Choking\": The AI Debt Bubble Has Started To Burst\".)\nOffsetting the huge AI orderbook are plateauing smartphone and consumer electronics sales, where soaring memory chip costs are forcing brands to hike prices leading to a big drop in demand. Economic uncertainty is also dampening consumer demand in many parts of the world.\nFor its part, TSMC has remained bullish on global AI chip demand. In April, the company raised its full-year sales guidance and said its own capital spending should trend toward the upper end of an existing forecast range of as much as $56 billion, conveying confidence in the year’s economic outlook.",
+  "published_at": "2026-05-08T18:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T21:00:41.924963Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

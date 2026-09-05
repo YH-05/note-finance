@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/jobless-claims-jump-us-tech-firms-announce-most-job-cuts-2-years",
+  "title": "Jobless Claims Jump As US Tech Firms Announce Most Job Cuts In 2 Years",
+  "raw_text": "The number of Americans filing for unemployment benefits for the first time jumped to its highest in three months last week at 225k (215k exp), but this remains well within the range of the last five years...\nSource: Bloomberg\nThe biggest increase in initial claims came from California while Texas saw the biggest decline...\nContinuing Jobless Claims dipped to 1.777 million Americans (remaining below the 1.8mm Maginot Line), just above two year lows...\nSource: Bloomberg\nHowever, despite the seemingly solid claims data, outplacement firm Challenger, Gray & Christmas reports that US tech companies in May announced the most job cuts in nearly two years as they ramp up spending on artificial intelligence.\nThe tech sector said last month it planned to eliminate 38,242 positions, the most since August 2024.\nTotal private-sector job cut announcements, meanwhile, were down 7% over the past five months versus the same period a year earlier, reinforcing the picture of an ongoing “low-hire, low-fire” environment in most industries.\nIn May, Artificial Intelligence (AI) led all reasons for job cuts for the third month in a row, with 38,579 announced cuts.\nIt is the highest monthly total ever recorded for the reason since Challenger began tracking it in 2023, and it accounted for 40% of all cuts announced in May - up from just 7% in January, 25% in March, and 26% in April.\nFor the year, AI has been cited in 87,714 cuts, or 22% of all 2026 layoffs, already far surpassing the 54,836 attributed to the reason in all of 2025.\n“The labor market is being reshaped by technology in real time,” said Andy Challenger, the company’s chief revenue officer.\n“AI is now the leading reason companies give for cutting jobs.”\nThe figures jibe with recent high-profile, AI-related workforce reduction plans announced by companies including Meta Platforms Inc., Intuit Inc. and Cisco Systems Inc. Filings for unemployment insurance, however, haven’t meaningfully increased despite the slew of layoff announcements, which have mostly been targeted at white-collar positions.\nOn the bright side, through May 2026, U.S. employers have announced 80,472 planned hires, narrowly topping the 79,741 announced at this point in 2025. However, hiring announcements remain historically low by pre-pandemic standards.",
+  "published_at": "2026-06-04T12:34:38Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T15:00:37.540742Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

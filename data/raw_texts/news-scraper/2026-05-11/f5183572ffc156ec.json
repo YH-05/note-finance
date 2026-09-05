@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605120114",
+  "title": "本日注視すべき【CB発行】銘柄　(11日大引け後 発表分)",
+  "raw_text": "ＪＸ金属 ＜日足＞ 「株探」多機能チャートより\n〇ＪＸ金属 <\n5016> [東証Ｐ]\n総額2500億円の新株予約権付社債(転換社債＝CB)を発行する。調達資金は自己株式公開買付けの買付資金やフォーカス事業の成長投資に係る資金に充てる。\n[2026年5月12日]\n株探ニュース",
+  "published_at": "2026-05-11T20:45:00Z",
+  "author": null,
+  "collected_at": "2026-05-11T21:00:21.843693Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

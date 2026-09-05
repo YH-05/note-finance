@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/you-probably-dont-need-a-1000-hz-gaming-monitor/",
+  "title": "The era of 1,000 Hz gaming monitors has arrived, but why?",
+  "raw_text": "Almost exactly two years ago, we were gawking at prototypes of 1,000 Hz monitors and wondering who really needed a display that could support such ludicrously smooth frame rates. Now that those prototypes are starting to develop into retail products, we’re still wondering how much of a market there is for gaming displays that can update with a new frame every single millisecond.\nThe latest entry in the ultra-fast refresh race is LG’s 24.5″ UltraGear 25G590B, which the company announced this week as “the world’s first Full HD gaming monitor with a native 1000Hz refresh rate” ahead of a planned launch in “select markets” in the second half of the year. That “Full HD” promise means LG’s 1,000 Hz display hits the 1080p threshold that is by far the most common resolution reported by gamers in Steam’s regular hardware surveys.\nThat would represent a decent step up from the likes of Acer’s Predator XB273U F6, Samsung’s Odyssey G6, or Phillips’ EVNIA 27M2N5500XD, all of which have to shift down to a relatively blurry 720p resolution to run at a full 1,000 Hz (but which support 1440p resolutions at a still-quite-fast 500 Hz). LG also notes that its high-end monitor can hit its resolution and refresh rate specs natively, without the need for any “dual mode” rebooting shenanigans to get the fastest performance.",
+  "published_at": "2026-05-19T16:26:56Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-19T21:00:34.799730Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "1000 Hz",
+      "Acer",
+      "frame rate",
+      "gaming",
+      "LG",
+      "Monitors",
+      "refresh rates",
+      "Samsung",
+      "tech"
+    ]
+  }
+}

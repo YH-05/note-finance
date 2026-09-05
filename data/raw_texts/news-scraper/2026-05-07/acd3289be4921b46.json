@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260423a.htm",
+  "title": "Agencies finalize changes to enhance community bank leverage ratio",
+  "raw_text": "April 23, 2026\nAgencies finalize changes to enhance community bank leverage ratio\n- Federal Deposit Insurance Corporation\n- Federal Reserve Board\n- Office of the Comptroller of the Currency\nFor release at 3:30 p.m. EDT\nThe federal bank regulatory agencies today jointly finalized a rule to modify the community bank leverage ratio consistent with existing statutory authority. This change will provide community banks with greater flexibility to use a simpler measure of capital adequacy and reduce regulatory burden. The final rule takes into account the unique business models and risk profiles of community banks.\nThe final rule is being adopted without change from the proposal issued in November 2025. The rule will lower the community bank leverage ratio from nine percent to eight percent, which will provide more flexibility for community banks to opt into the framework. The final rule also extends the grace period from two quarters to four quarters for a community bank that temporarily falls out of compliance. The framework continues to simplify regulatory capital requirements for community banks by allowing them to adopt a relatively simple leverage ratio to measure capital adequacy, rather than calculating and reporting risk-based capital ratios.\nCommunity banks that opt into the framework will be subject to a capital requirement that continues to promote safety and soundness. Under the framework, banks must maintain a leverage ratio that is significantly higher than the leverage ratio standard otherwise applicable to community banks.\nThe changes will take effect on July 1, 2026.",
+  "published_at": "2026-04-23T19:30:00Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:00:29.706911Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

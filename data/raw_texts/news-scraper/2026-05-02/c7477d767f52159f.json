@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/23/how-the-iran-war-is-hitting-homebuilders.html",
+  "title": "How the Iran war is hitting U.S. homebuilders",
+  "raw_text": "Key Points\n- Homebuilder sentiment dropped sharply in April, according to a monthly index from the National Association of Home Builders.\n- The war with Iran has pushed mortgage rates higher and layered on big increases in costs for materials and transportation due to the spike in oil prices.\n- A slew of building suppliers reported price hikes in April on everything from foam insulation and roofing to windows and doors.",
+  "published_at": "2026-04-23T12:15:11Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.574132Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

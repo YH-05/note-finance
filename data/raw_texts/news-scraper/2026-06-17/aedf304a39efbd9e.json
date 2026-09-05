@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/micron-is-up-224percent-this-year-td-cowen-says-it-still-has-room-to-run.html",
+  "title": "This semiconductor stock is up more than 200% this year. TD Cowen says it has more room to run",
+  "raw_text": "Micron Technology is likely to continue climbing as demand for memory storage stays strong, according to TD Cowen. The bank has a buy rating on the semiconductor firm and raised its price target to $1,500 from $660, implying 53% upside from Friday's close. Demand for dynamic random access memory, a type of storage system used by computers, continues to outpace supply — largely due to widening artificial intelligence adoption. \"If this were a typical DRAM cycle, we would argue that the stock is moving closer to a peak as memory stocks historically peaked 3–8 months before server pricing Y/Y peaks, which we expect around C3Q26. But the role of memory in AI is structural, not cyclical,\" analyst Krish Sankar said Sunday in a note to clients. An \"incremental change\" in central processing unit demand has increased buyers' expectations that memory pricing strength can persist into the second half of this year, likely boosting shares of Micron, the analyst noted. \"As utilization rates increase, we see High Bandwidth Memory as game changing for supply given the CapEx intensity associated with it where it costs [three times more] to make,\" he added. TD Cowen's call falls in line with consensus on the Street. Of the 47 analysts covering Micron, 44 have a buy or strong buy on the stock, LSEG data shows. Shares have popped 244% in the year to date. Shares have popped 244% in the year to date.",
+  "published_at": "2026-06-15T11:00:40Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.510696Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

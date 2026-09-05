@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/28/jamie-dimon-bond-crisis-global-debt-risks.html",
+  "title": "Jamie Dimon warns of 'some kind of bond crisis' ahead as global debt risks build",
+  "raw_text": "JPMorgan Chase CEO Jamie Dimon on Tuesday warned that rising government debt levels could trigger a crisis in the bond market, urging policymakers to act before markets force their hand.\nDimon's statement was in response to a question about whether he was worried about rising levels of government debt \"around the world and in your country.\"\n\"The way it's going now, there will be some kind of bond crisis, and then we'll have to deal with it,\" Dimon said at an investment conference held by Norway's sovereign wealth fund, the largest in the world.\n\"I'm not that worried we'll be able to deal with it,\" Dimon said. \"I just think maturity should say you should deal with it, as opposed to let it happen.\"\nDimon, who runs the world's largest bank by market cap, said history has shown that today's growing mix of risks could combine in unpredictable ways. While the timing is uncertain, failing to address those pressures increases the odds that adjustment comes after upheaval rather than deliberate policy moves.\n\"The level of things that are adding to the risk column are high, like geopolitics, oil, government deficits,\" Dimon said. \"They may go away, but they may not, and we don't know what confluence of events causes the problem.\"\nA bond crisis would likely mean a sudden jump in yields and a breakdown in market liquidity, where investors rush to sell and buyers recede, typically forcing central banks to step in as buyers of last resort.\nA recent example is the 2022 U.K. gilt crisis, when yields on the U.K. government bonds surged and the Bank of England had to step in to stabilize the market.\nIn the wide-ranging interview, Dimon addressed risks he saw in the credit cycle and the pace of artificial intelligence adoption and his insights into setting corporate culture.\nWhile he didn't think that private credit, at about $1.7 trillion, was large enough to be a systemic risk to the U.S. economy, he did say that the larger risk was that a downturn across all lending categories would be harsher than expected.\n\"We haven't had a credit recession in so long, so when we have one, it would be worse than people think,\" Dimon said. \"It might be terrible.\"",
+  "published_at": "2026-04-28T18:44:41Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.537633Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

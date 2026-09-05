@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20337-bdx-secures-power-deals-for-digital-infrastructure-in-indonesia.html",
+  "title": "BDx secures power deals for digital infrastructure in Indonesia",
+  "raw_text": "BDx Data Centers (BDx), a leading owner and operator of data centres in Asia, has announced what it calls “a series of transformative power milestones” in a strategic partnership with electrical utility PT Perusahaan Listrik Negara (PLN).\nIt says these three deals, supporting three of the company's data centres, significantly expand Indonesia’s AI and hyperscale infrastructure capacity.\nOne deal involves securing 788 MVA of contracted grid power for BDx’s flagship CGK4 AI Campus in Jatiluhur, West Java. A second successfully energises CGK3A in Cilandak, South Jakarta, with a substantial power capacity expansion to approximately 60 MVA\nThe company has also advanced high-voltage grid infrastructure at CGK5 in Suryacipta, West Java, with up to 385 MVA of secured power capacity.\nTogether, these developments bring BDx Indonesia’s total secured power portfolio to 1.2 GW — representing the single largest power commitment secured by any data centre operator in Indonesia. They also deepen its long-term strategic relationship with PLN; it also secured a power deal with PLN in mid-2025.\nThe agreements were formalised at an official signing ceremony in Jakarta, attended by senior leadership from PLN and BDx Indonesia.\nAgus Hartono Wijaya, CEO of BDx Indonesia explains: “This collaboration supports the build‑out of resilient, AI‑ready infrastructure that can meet long‑term demand from enterprise, hyperscale and sovereign workloads.”\nBDx says its Indonesia portfolio represents the most advanced AI infrastructure ecosystem in Southeast Asia.\nCGK4 is described as Indonesia’s first Nvidia DGX-ready-certified campus, delivering up to 650 MW of renewable-aligned capacity — already supporting H100-class GPU deployments for AI training and sovereign cloud workloads.\nCGK3 brings liquid-cooled, high-density compute to Jakarta, purpose-built for next-generation AI platforms including Nvidia GB200.\nCGK5, at 300 MW, extends BDx’s hyperscale footprint and, together with CGK4, CK5, anchors Indonesia’s sovereign AI digital infrastructure.\nThis is not the only recent boost for BDx in Indonesia. We reported in early April that BDx had announced the successful close of a US$320 million loan facility, marking what it called a major milestone in the company’s commitment to building world-class digital infrastructure across Asia and supporting a number of strategic initiatives in Indonesia.",
+  "published_at": "2026-06-03T18:27:38Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-08T03:01:22.779963Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

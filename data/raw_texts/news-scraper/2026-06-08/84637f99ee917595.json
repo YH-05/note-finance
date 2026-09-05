@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/amazon-taps-corning-for-op.html",
+  "title": "Corning shares jump 4% after company strikes deal to power Amazon AI data centers in U.S.",
+  "raw_text": "Amazon is paying Corning billions of dollars for optical fiber to power and connect its rapidly expanding U.S. data centers, the latest megadeal featuring two companies at the center of the artificial intelligence boom.\nThe agreement, announced Monday, will play out over several years and create 1,000 jobs at Corning's North Carolina factories, the companies said. Corning's fiber optic cable and networking solutions are becoming essential elements of AI infrastructure because they enable fast connections between data centers and the racks and chips they house.\nShares of Corning popped 4% on Monday. Amazon stock was little changed.\n\"Amazon's data centers power the services millions of people and businesses rely on every day,\" the companies said in a press release. \"Corning's fiber optics are a critical piece of that infrastructure, and together, these investments help fuel the U.S. economic engine.\"\nThe deal also expands a Corning training program for fiber optic technicians in North Carolina. Amazon Web Services CEO Matt Garman said in the press release that the company's investments in the state have created over 26,000 jobs. Last year, Amazon committed to spend $10 billion on new data centers in North Carolina.\nFresh demand from AI is reinvigorating the 175-year-old Corning as hyperscalers and AI labs scramble to meet their exploding needs for computing power. Corning's shares have more than doubled so far this year and are up almost sixfold since the end of 2023.\nIn May, Nvidia committed to investing up to $3.2 billion in Corning as part of a deal that involves the glass company building three new advanced manufacturing plants entirely devoted to the chipmaker. And in January, Meta said it would spend up to $6 billion as the flagship customer helping Corning build out its optical cable plant in Hickory, North Carolina, an expansion that's expected to create around 1,000 jobs.\nCorning is well known for making all the display glass for Apple's iPhone, but optical communications remains its largest and fastest-growing business. Since inventing optical fiber for long-range communication in 1970, Corning has provided millions of miles of cables to connect racks together in AI data centers from all the major players.\nThe Trump administration has called on Big Tech to onshore as many steps in the AI supply chain as possible, and Corning helps answer that need. The majority of Corning's business happens overseas, which CEO Wendell Weeks told CNBC earlier this year isn't changing. But he also said \"next year the hyperscalers will be our biggest customers.\"\n\"This agreement with Amazon represents a significant milestone for Corning and for American manufacturing,\" Weeks said in Monday's press release, adding it will \"lead the way toward building a resilient U.S. manufacturing base.\"\nWATCH: Amazon’s biggest AI data center powers Anthropic without Nvidia",
+  "published_at": "2026-06-08T14:25:05Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:19:58.978709Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/uber-says-ai-writing-more-code-and-slowing-hiring-growth",
+  "title": "Uber Says AI Is Writing More Code and Slowing Hiring Growth",
+  "raw_text": "Uber Technologies, Inc. is expanding its use of AI tools and using some of those efficiency gains to slow the pace of hiring, according to Business Insider.\nSpeaking on the company’s first quarter earnings call, CEO Dara Khosrowshahi said autonomous coding agents now account for about 10% of Uber’s code updates. Engineers still review that output before it is committed to internal repositories, but he said the shift offers an early glimpse of how AI can accelerate software development.\nBusiness Insider writes that Uber has long relied on machine learning for customer facing functions such as setting ride prices and pairing drivers with riders. Now the company is rolling out similar tools across internal teams. “We’re seeing uptake of these tools, whether it’s our legal team or marketing team or developers,” Khosrowshahi said. “We think it’s creating kind of employees with superpowers.”\nThat broader adoption is influencing hiring plans. CFO Balaji Krishnamurthy said executives did not fully anticipate how quickly AI tools would improve productivity when they mapped out their 2026 budget.\nHe said on the call, per Goldman: “One last comment on AI. I would say, candidly, when we set up budgets for 2026 in November, we underestimated the amount of impact the AI tools could have,” he said. After a new wave of models arrived in December, Uber “re-upped our investment here,” while also reducing “incremental headcount growth.”\nThe spending ramp has been significant. Last month, CTO Praveen Neppalli Naga said Uber had already used its entire 2026 budget for Anthropic’s Claude Code, underscoring how quickly demand for AI tools is growing inside the company.\nKhosrowshahi said the strategy makes sense if those tools continue improving employee output. “If every person at this company can increase their throughput by 20%, 30%, 50%, 100%, then I think metering headcount growth and leaning in on AI investment is going to be well worth it,” he said.",
+  "published_at": "2026-05-08T01:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T09:00:42.769183Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

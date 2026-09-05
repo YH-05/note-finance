@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20341-viatunisia-segment-of-medusa-subsea-cable-is-now-live.html",
+  "title": "ViaTunisia segment of Medusa subsea cable is now live",
+  "raw_text": "Orange announced on Wednesday that the France-to-Tunisia route of the Medusa Submarine Cable System – dubbed “ViaTunisia” – is now operational, establishing a new digital link between Europe and North Africa.\nOrange – which serves as the landing party in both Marseille and Bizerte – said that ViaTunisia extends directly into Orange's global infrastructure in Marseille via a fully redundant urban fibre ring connecting all the data centres in the city.\n“By combining the resilience, security and performance of a global backbone with Marseille's role as a leading interconnection hub, ViaTunisia provides direct, high-capacity connectivity between North Africa and the wider digital world,” Orange said in a statement.\nViaTunisia also multiplies route options in this area, especially in natural disaster-prone areas, which improves overall network resilience, the telco added.\nThe 1,050-km ViaTunisia link was co-financed by the European Union under the Connecting Europe Facility (CEF Digital) program. Under the EUR10 million grant agreement signed by Orange in December 2022, the CEF funding covered 30% of construction and management costs.\nThe CEF is also co-financing the Medusa system, along with Orange and AFR-IX Telecom. The 8,760km Medusa system features 17 landing points in Cyprus, France, Greece, Italy, Malta, Portugal, and Spain on the north Mediterranean coast, and Algeria, Egypt, Libya, Morocco, and Tunisia on the south coast, with a design capacity of 480 Tbps on 24 fibre pairs.",
+  "published_at": "2026-06-04T03:18:23Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-10T03:01:28.387557Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

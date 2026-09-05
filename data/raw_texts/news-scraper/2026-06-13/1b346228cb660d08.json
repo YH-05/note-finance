@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/stocks-making-the-biggest-moves-premarket-nvidia-marvell-flex-and-more.html",
+  "title": "Stocks making the biggest moves premarket: Nvidia, Marvell, Flex and more",
+  "raw_text": "Check out the companies making headlines before the bell: Nvidia — Shares gained 2.3% after Nvidia announced a partnership with South Korean tech giant SK Hynix for advanced memory for its AI factory buildout. Marvell Technology , Flex — Marvell Technology gained almost 9%, while Flex shares popped 4%, after it was announced the two companies will be joining the S & P 500. The two names are replacing Campbell's and Pool Corp. Nurix Therapeutics — Shares surged 24% after the biotech said it's collaborating with Roche to develop and commercialize bexobrutideg, a protein degrader used to treat cancers and autoimmune diseases. Honeywell — Shares gained slightly after Honeywell reaffirmed its 2026 outlook ahead of the Honeywell Aerospace spin-off. Micron Technology — Chip stocks rebounded strongly after Friday's sell-off, with shares of Micron Technology bouncing 7%, while Broadcom gained 3%. Shares of Advanced Micro Devices jumped 2.7%.",
+  "published_at": "2026-06-08T12:00:05Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:37:30.210453Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

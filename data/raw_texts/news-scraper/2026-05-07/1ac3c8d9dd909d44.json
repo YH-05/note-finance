@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/tesla-model-y-is-first-car-to-meet-new-u-s-driver-assistance-safety-benchmark/",
+  "title": "Tesla Model Y is first car to meet new US driver assistance safety benchmark",
+  "raw_text": "The National Highway Traffic Safety Administration (NHTSA) said Tuesday that the later release 2026 Tesla Model Y is the first vehicle to meet the agency’s new benchmark for advanced driver assistance systems.\nFour pass-fail tests were added to the agency’s safety ratings program, assessing a car’s automatic emergency braking for pedestrians, blind-spot warning, blind-spot intervention, and lane assist, a feature that helps keep the vehicle in the lane.\nThe updated criteria are meant to catch up to ever-advancing vehicles and the long list of features pitched to consumers. Automakers typically brand these features with names that don’t always describe which tasks they perform, and there’s often no government-provided benchmark to assesses how they perform.\nThe new benchmark rating applies to 2026 Tesla Model Y vehicles assembled on or after November 12, 2025.\nThe tests are part of NHTSA’s New Car Assessment Program (NCAP), which runs the government’s 5-Star safety rating program. NCAP also conducts a battery of tests to determine how vehicles handle frontal and side crashes as well as rollover resistance, and crash avoidance. The four advanced driver assistance criteria were added in 2024 as part of an update to NCAP to include advanced driver assistance features.\nTechCrunch has reached out to NHTSA to learn what other vehicles are in the queue. We will update the article if the agency responds.",
+  "published_at": "2026-05-07T20:10:48Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-05-07T21:00:27.103531Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "In Brief",
+      "nhtsa",
+      "Tesla"
+    ]
+  }
+}

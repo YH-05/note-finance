@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/amazon-ai-frontier-openai-anthropic.html",
+  "title": "Amazon has lagged OpenAI and Anthropic, but AI chief sees path to catch up in 'coming year'",
+  "raw_text": "Amazon's top artificial intelligence executive told CNBC on Wednesday that he hopes the company will be able to compete with OpenAI and Anthropic on frontier models in the \"coming year\" after falling behind the two leading labs.\n\"I think it's a fair narrative that our models haven't been at the very frontier for the very largest, most demanding workloads,\" Peter DeSantis, a senior vice president at Amazon who heads up the company's semiconductor, AI and quantum efforts, told CNBC.\nThe \"frontier\" refers to the most advanced AI models.\n\"We've been taking a very deliberate approach to get our foundations right, our data, our architecture, our infrastructure. And you know, we're on a path that we want to be on,\" he said.\nThe aspiration underscores the effort Amazon is putting into its model development as it looks to reassure investors that it is a key player in the AI boom.\nAmazon's approach to AI models has been two-pronged. On the one hand, it has a product called Bedrock, which is a sort of marketplace for models from different companies that its cloud computing customers can access. On the other hand, Amazon released Nova2, its latest AI model, in December in a bid to compete with the likes of OpenAI and Anthropic.\n\"We've got about 50,000 customers for Nova2, so we're pretty excited about it,\" DeSantis said.\n\"Our aspiration is to have a model that people think about as one of the very most capable intelligent models out there,\" he said. \"I'm not sure we're there yet with Nova2, but that's our aspiration.\"\nAmazon's AI strategy also revolves around its semiconductors under the Trainium and Graviton brands.\nThe tech giant has been designing its own custom chips for several years, a strategy that allows it to drive the best performance for its AI models.\nDeSantis drew parallels to Nvidia in its chip development.\n\"We're one of a very few ... players who have the ability to design a chip, design the physical attributes of that chip, and then do the production of that chip. And so I think when you're thinking about us, you should be thinking about us relative to them [Nvidia],\" DeSantis said.\nCurrently, Amazon effectively rents out its compute capacity via its cloud division Amazon Web Services, with Anthropic among its biggest customers.\nBut CEO Andy Jassy said in April that the company could consider selling racks of its Trainium chips to third parties.\nDeSantis said there is no timeline for this, but explained the thinking behind it.\n\"I think that we're going to see an explosion in innovations for how people want to deploy AI infrastructure, and we want to be a part of that,\" DeSantis said.\nHe left the door open to Amazon also selling its Graviton chips to third parties.\n\"Graviton is at the centre of our strategy with chips, and it will continue to be. So, today we're not thinking about deploying that outside of AWS, but who knows,\" DeSantis said.",
+  "published_at": "2026-06-17T17:37:30Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.788910Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

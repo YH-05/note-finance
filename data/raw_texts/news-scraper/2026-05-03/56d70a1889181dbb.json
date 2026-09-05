@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/01/coatue-has-a-plan-to-buy-up-land-for-data-centers-possibly-for-anthropic/",
+  "title": "Coatue has a plan to buy up land for data centers, possibly for Anthropic",
+  "raw_text": "Coatue, one of the biggest names in venture capital and hedge funds, has a new plan to generate bigger returns on AI beyond its sizable stakes in Anthropic, OpenAI, xAI, and data center companies like Singapore’s DayOne and CoreWeave.\nIt has launched a venture called Next Frontier to buy up land near large power sources with the goal of turning those parcels into data centers, the Wall Street Journal reports. Sources tell the WSJ that Next Frontier has already signed a joint venture with Fluidstack, a cloud infrastructure startup that penned a $50 billion deal to build data centers for Anthropic. (Coatue did not respond to a request for comment.)\nAlthough the U.S. already has 3,000 data centers, more than 1,500 new ones are in various stages of being built, according to Pew Research, most of them in rural areas. The frenzy is enticing land speculation and data center financing projects from lots of players, ranging from Blackstone to Kevin O’Leary from “Shark Tank.”\n.",
+  "published_at": "2026-05-01T18:23:04Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-05-03T03:00:27.271090Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Real estate",
+      "Venture",
+      "Anthropic",
+      "coatue",
+      "data centers",
+      "In Brief"
+    ]
+  }
+}

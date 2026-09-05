@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/nasa-assigns-crew-for-artemis-iii-sets-aggressive-timeline-for-flying-it/",
+  "title": "NASA assigns crew for Artemis III, sets aggressive timeline for flying it",
+  "raw_text": "The US space agency unveiled the crew for its Artemis III mission on Tuesday during an enthusiastic event at Johnson Space Center in Houston.\nFor this spaceflight into low-Earth orbit, which will see the Orion spacecraft rendezvous and dock with lunar lander prototypes, NASA chose an experienced, all-male crew with military backgrounds. They were revealed inside a darkened Teague Auditorium where hundreds of friends, family members, and NASA employees cheered enthusiastically.\nThe four crew members are:\n- NASA astronaut Randy Bresnik, commander\n- ESA (European Space Agency) astronaut Luca Parmitano, pilot\n- NASA astronaut Andre Douglas, mission specialist\n- NASA astronaut Frank Rubio, mission specialist\nThe Artemis III test flight will serve as a bridge between the recent Artemis II lunar flyby mission, which was successfully completed in April, and a planned lunar landing with the Artemis IV mission.\n“We are the unifying link between Artemis II and Artemis IV,” Bresnik said Tuesday.\nReducing risks for lunar landings\nNASA added this low-Earth orbit Artemis mission several months ago after new Administrator Jared Isaacman decided the agency needed to “buy down risk” before putting humans on the Moon. And that is the goal with Artemis III, an approximately two-week mission due to launch no earlier than summer 2027.\nSpace agency officials outlined plans for the flight on Tuesday, which will include three separate launches and nominally two dockings in low-Earth orbit.\nThe first launch will be a Blue Origin “lander test vehicle” that will have the capability to loiter in orbit for up to 90 days. Then the four Artemis III astronauts will launch inside the Orion spacecraft on top of a Space Launch System rocket. The crew will subsequently rendezvous with the Blue Moon lander, dock, and enter the Blue Origin vehicle. On board the crew will test out the life support systems on Blue Moon and perform other functions. Orion will control the combined vehicles in flight.",
+  "published_at": "2026-06-09T18:42:19Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-06-10T03:00:25.683670Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "artemis iii",
+      "crew",
+      "hls",
+      "NASA",
+      "orion"
+    ]
+  }
+}

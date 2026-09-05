@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/03/19/cnbc-sport-this-years-march-madness-will-test-the-health-of-cinderella.html",
+  "title": "CNBC Sport: This year's March Madness will test the health of Cinderella",
+  "raw_text": "Key Points\n- This year's men's basketball tournament will provide another data point for how much NIL and the transfer portal have tilted the balance of power to the biggest schools.\n- CNBC spoke with Virginia Commonwealth University's athletic director about how its success in the NCAA Tournament has transformed the school.\n- Former Syracuse men's basketball coach Jim Boeheim said it will be 'way more difficult' for smaller schools to make deeper tournament runs in the current atmosphere.",
+  "published_at": "2026-03-19T19:46:33Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.651665Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "media",
+    "tags": []
+  }
+}

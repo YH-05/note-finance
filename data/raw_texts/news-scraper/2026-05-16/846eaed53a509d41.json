@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605160235",
+  "title": "NY金：大幅安、原油高や金利上昇を警戒",
+  "raw_text": "【市況】NY金：大幅安、原油高や金利上昇を警戒\nCOMEX金6月限終値：4561.90 ↓123.40\n15日のNY金先物6月限は大幅安。ニューヨーク商品取引所（COMEX）の金先物6月限は、前営業日比－123.40ドル（－2.63％）の4561.90ドルで通常取引終了。時間外取引を含めた取引レンジは4513.80-4670.10ドル。米国市場の前半にかけて売りが優勢となり、4513.80ドルまで値下がり。通常取引終了後の時間外取引では主に4550ドルを挟んだ水準で推移。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-16T00:10:40Z",
+  "author": null,
+  "collected_at": "2026-05-16T03:00:22.006640Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

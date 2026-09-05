@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/this-startup-wants-to-reduce-payment-friction-on-prediction-markets.html",
+  "title": "This startup wants to reduce payment friction on prediction markets",
+  "raw_text": "As prediction market volumes continue to march higher and platforms increasingly look to institutional players to engage, a startup is seeking to make it easier to move money around on event contract exchanges.\nEDGE Markets — which runs a banking platform designed for gambling and prediction market spending — is set to debut two products, the company shared exclusively with CNBC ahead of a Monday announcement. It will also reveal a $29.2 million Series A funding round, led by venture capital firm CoinFund.\nThe company will announce EDGE Connect, a real-time payments system to reduce the time it takes for individual traders to transfer funds from their bank accounts into wallets on prediction market exchanges.\nUsers get access to EDGE Connect if they use EDGE Boost, a financial platform that only allows deposits to be used for spending on gambling and prediction markets. CEO Seni Thomas told CNBC in an interview that EDGE Connect is currently available on Kalshi, and that the company is actively working to implement the technology on five other platforms in the coming months.\nKalshi confirmed to CNBC the partnership with EDGE.\n\"We have 24-hour markets… and you can't get money in at the same velocity,\" Thomas said. \"Any one of our users can sign into our consumer bank accounts and actually push out up to $10 million per day, and it hits your Kalshi account within two minutes.\"\nThe company is also announcing EDGE Pro, a platform that will serve as a hub for institutional market makers to easily move money between various prediction markets regulated by the Commodity Futures Trading Commission. Pro will launch to a waitlist as EDGE awaits regulatory approvals from the National Futures Association.\nThomas said that Pro solves a unique issue that institutional traders face in the prediction market space.\n\"You're going to now have 10 different liquidity pools, actually offering very similar contracts,\" he said. \"You need to have a very, very fast infrastructure to be able to kind of move all that in real time.\"\nEDGE Markets was founded in 2020 by Thomas and then launched EDGE Boost in March 2025. Boost has processed over $2 billion in transactions since then.\n\"The biggest moments in gaming and prediction markets happen on nights and weekends, exactly when the banking system slows to a crawl. EDGE built the rails to match that reality,\" Alex Felix, a managing partner at CoinFund, said in a statement. \"We think EDGE becomes the default settlement layer for an entirely new category of financial markets.\"\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-08T12:31:46Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.179229Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

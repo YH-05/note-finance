@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605211241",
+  "title": "東証投資部門別売買動向：５月第２週、外国人・現物は５５７２億円と７週連続買い越し",
+  "raw_text": "【市況】東証投資部門別売買動向：５月第２週、外国人・現物は５５７２億円と７週連続買い越し\n現物での個人投資家は１７２０億２０６万円と２週ぶりの買い越し。信託銀行は２４２０億８２２６万円と２週連続で売り越した。事業法人は２１２８億７３３８万円と２週ぶりに買い越した。この週の日経平均株価は終値ベースで１３０４円３６銭（２．１％）下落している。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-21T08:41:00Z",
+  "author": null,
+  "collected_at": "2026-05-21T09:00:21.643819Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

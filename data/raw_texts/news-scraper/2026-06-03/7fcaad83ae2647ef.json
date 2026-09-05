@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/open-ai-altman-congress-trump-eo.html",
+  "title": "OpenAI CEO Sam Altman meets with lawmakers, Trump officials in DC",
+  "raw_text": "OpenAI CEO Sam Altman met with lawmakers in Washington, D.C., on Wednesday, including officials involved with the executive order on artificial intelligence that President Donald Trump signed this week.\nAltman met with members of the Trump administration at the White House, according to an OpenAI spokesperson. He also sat down with Republican and Democratic members of Congress, including House Speaker Mike Johnson, R-La., and House Minority Leader Hakeem Jeffries, D-N.Y., their representatives confirmed.\nJohnson told CNBC that he had a \"very good, productive meeting\" with Altman. He said they talked about the latest developments in AI, and what the \"light touch\" framework for regulation will be to \"prevent some of the harms that could come from it.\"\nOpenAI released a policy blueprint on Wednesday that outlined several recommendations for what a national safety framework for AI could look like. The company said the U.S. government should strengthen the Center for AI Standards and Innovation, build on the emerging safety consensus emerging from state-level regulations and establish a broader resilience plan to address public safety and national security challenges.\nTrump on Tuesday signed an executive order asking AI companies to voluntarily provide the government access to their models for up to 30 days before their release. The order is thin on specific details, but executives from leading AI companies, including Altman, voiced their support on social media.\n\"The U.S. should lead on AI by continuing to develop the very best models, making sure they're safe, and getting cyber tools into the hands of trusted defenders,\" Altman wrote in a post on X. \"The new EO gets the balance right.\"\nOpenAI kick-started the AI boom with the launch of its chatbot ChatGPT in 2022, and Altman has been a frequent visitor on Capitol Hill in the years since. He met with lawmakers in March after OpenAI inked a controversial deal with the Pentagon, and he attended Trump's inauguration last year.\nOn Monday, OpenAI published a blog post titled \"Our views on AI policy and political advocacy,\" which said the company has not donated to any candidates or campaigns. Additionally, OpenAI said it has not started its own employee-funded political action committees or funded existing PACs to \"shape the public narrative around AI.\"\nThe company pledged to keep advocating for policy \"transparently\" and in its own name.\n\"We support thoughtful regulation, rigorous testing of powerful AI systems, strong safety standards, public accountability, and broad access to AI's benefits,\" OpenAI said.\n— CNBC's Emily Wilkins and Karen Sloan contributed to this report.",
+  "published_at": "2026-06-03T20:49:19Z",
+  "author": null,
+  "collected_at": "2026-06-03T21:19:03.446496Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

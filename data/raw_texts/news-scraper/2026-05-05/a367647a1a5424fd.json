@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/musks-world-war-iii-threat-in-twitter-lawsuit-haunts-him-at-openai-trial/",
+  "title": "Musk’s “World War III” threat in Twitter lawsuit haunts him at OpenAI trial",
+  "raw_text": "Just days before the trial started, Elon Musk tried to settle his lawsuit, which alleges that under Sam Altman’s direction, OpenAI abandoned its mission to serve as a nonprofit making AI to benefit humanity.\nAccording to a Sunday court filing from OpenAI, Musk messaged OpenAI President Greg Brockman two days ahead of the trial to “gauge interest” in a possible settlement. Brockman promptly responded, suggesting that “both sides” drop their claims. But Musk refused, then appeared to grow threatening enough that the court may allow Brockman to testify on the message as evidence supposedly revealing Musk’s true motives for pursuing the litigation.\n“By the end of this week, you and Sam will be the most hated men in America,” Musk responded to Brockman’s suggestion that all claims be dropped. “If you insist, so it will be.”\nOpenAI clearly did not accept the settlement terms, as the trial started last week with Musk as the first witness. On the stand, Musk stumbled several times, perhaps weakening his case by making concessions, growing hot-tempered, backing off claims that AI risks may quickly become existential, and admitting his ignorance when it comes to AI safety at his own company, xAI.\nIf admitted, his alleged threat could become his next big stumble, as Brockman—whom Musk also wants out at OpenAI—will be allowed to testify about the message when he takes the stand, likely today and tomorrow.\nTypically, communications during proposed settlements aren’t admissible, but likely extra-frustrating to Musk, OpenAI pointed to an exception made during Musk’s failed lawsuit attempting to back out of his Twitter purchase.\nIn that 2022 case, Musk’s legal team invited a “renegotiation” of the Twitter purchase price “so that the lawsuit could be dropped,” while threatening that “it would be World War III until the end of time for real” for Twitter leaders and “their heirs,” if Musk was forced to buy Twitter at a price Musk set based on a 420 joke. During that exchange, Musk also supposedly tried to make Twitter executives uncomfortable by reminding them that if he “ends up owning this thing, he’ll have access to all of the company’s records and he could look at everyone’s emails and dig into whatever he wanted to dig into.”",
+  "published_at": "2026-05-04T15:05:58Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-05T03:00:31.296283Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "agi",
+      "artificial general intelligence",
+      "Elon Musk",
+      "greg brockman",
+      "openai",
+      "sam altman",
+      "X",
+      "xAI"
+    ]
+  }
+}

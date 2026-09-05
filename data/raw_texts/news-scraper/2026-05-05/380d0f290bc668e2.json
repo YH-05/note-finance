@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/gamestop-offers-56-billion-for-ebay-struggles-to-explain-how-itll-pay-for-it/",
+  "title": "GameStop offers $56 billion for eBay, struggles to explain how it'll pay for it",
+  "raw_text": "GameStop yesterday made an unsolicited offer to buy eBay for $55.5 billion. GameStop claims that eBay has underperformed and spends too much on sales and marketing and argues that it would become a stronger company if it cuts costs and is combined with GameStop’s physical retail locations.\n“GameStop’s ~1,600 US locations give eBay a national network for authentication, intake, fulfillment, and live commerce,” GameStop Chairman and CEO Ryan Cohen wrote in a letter to eBay Chairman Paul Pressler.\neBay’s market capitalization is over four times larger than GameStop’s. GameStop faces skepticism about the viability of its offer but says it will obtain debt financing and pay with a mix of cash and stock.\nGameStop’s proposal envisions a system in which GameStop staff inspect and verify items to be listed on eBay. “GameStop staff already inspect and grade hardware and trading cards every day. Sellers walk in, items are verified on the spot, and listings carry a trust badge,” the proposal said.\nThe stores will “serve as drop-off and shipping nodes,” providing “a national fulfillment network without incremental eBay capital expenditure,” GameStop said. The stores, according to GameStop’s plan, will “double as broadcasting studios. eBay supplies the inventory and the buyer base; GameStop supplies the physical footprint to compete in the live-commerce category.” This would apparently help eBay sellers use livestreaming to promote their products.\nCohen intends to become CEO of the post-merger company if eBay accepts the deal and completes it. A GameStop press release said that Cohen “owns ~9% of GameStop and receives no salary, no cash bonuses, and no golden parachute. He will be compensated solely based on the performance of the combined company.”\nDoubts about GameStop’s ability to finance deal\nGameStop is still chugging along five years after its meme-stock mania, though it reportedly closed about 470 stores in the US at the beginning of 2026. It also closed 590 US-based stores in 2024. As of this writing, GameStop’s stock price had fallen about 2 percent today, while eBay’s had risen about 5 percent.",
+  "published_at": "2026-05-04T17:57:46Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-05T03:00:31.295612Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Policy",
+      "eBay",
+      "Gamestop"
+    ]
+  }
+}

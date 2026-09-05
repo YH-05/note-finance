@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070095",
+  "title": "[DASH] ドアダッシュ　1Q増収減益　売上高33％増40.3億ドル、営業益3％減1.51億ドル、EPS0.42ドル",
+  "raw_text": "ドアダッシュ<\nDASH>の2026年度第1四半期（1-3月）の業績は増収、営業減益だった。\n米現地5月6日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比33.1％増の40億3600万ドルとなった。営業利益は2.6％減の1億5100万ドル。営業利益率は3.7％へ低下した。前年同期は5.1％だった。1株利益（EPS・希薄化後）は0.42ドル（前年同期0.44ドル）。\nドアダッシュ<\nDASH>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-06T20:24:14Z",
+  "author": null,
+  "collected_at": "2026-05-06T21:00:21.909678Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

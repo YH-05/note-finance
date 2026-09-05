@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/one-mars-spacecraft-two-senators-and-a-cloud-of-questions/",
+  "title": "One Mars spacecraft, two senators, and a cloud of questions",
+  "raw_text": "NASA released a much-anticipated contract solicitation for a Mars-orbiting spacecraft late last week, kicking off what is sure to be a hotly contested and potentially controversial procurement.\nAt issue is $700 million, already appropriated by Congress, to build a spacecraft, launch it to Mars, and once there to serve as a vehicle to relay communications between the red planet and Earth. But the stakes may be even bigger than this, including the possible resurrection of the recently canceled Mars Sample Return mission.\nAs part of the new solicitation, NASA says it will conduct the acquisition “as a full and open competition.” But will it? That’s the question that several people involved with this procurement process are asking. And it could turn messy, quickly.\nWhat is not controversial is that NASA needs a new spacecraft capable of relaying communications from Mars to Earth. NASA’s best communications relay today is the Mars Reconnaissance Orbiter, which has now been there for 20 years. It’s a great spacecraft, but it’s getting long in the tooth.\nThe US Congress, more or less out of the blue, stepped up with $700 million in funding for a new Mars Telecommunications Orbiter in the “One Big Beautiful Bill” passed in 2025. Ars previously wrote about this legislation, which raised some eyebrows, as this is a large appropriation for a relatively straightforward spacecraft.\nCompetition is narrowed\nProposals to build the spacecraft, the name of which has been changed to Mars Telecommunications Network (MTN), are due by June 15. A contract is expected to be awarded by October 1, less than five months from now.\nThere was some curious wording in the legislation that funded the Mars orbiter. It specified the spacecraft must be selected from among US companies that “received funding from the Administration in fiscal year 2024 or 2025 for commercial design studies for Mars Sample Return; and proposed a separate, independently launched Mars telecommunication orbiter supporting an end-to-end Mars sample return mission.”",
+  "published_at": "2026-05-18T19:49:00Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-19T03:00:30.804484Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "Mars",
+      "mars telecommunications network",
+      "mars telecommunications orbiter",
+      "NASA",
+      "rocket lab"
+    ]
+  }
+}

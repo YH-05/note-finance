@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606041251",
+  "title": "リッチモンド連銀総裁、労働市場は概ね均衡状態にあるとの認識",
+  "raw_text": "【注目】リッチモンド連銀総裁、労働市場は概ね均衡状態にあるとの認識\n一方、熟練技能職や医療関連職種では需要がやや強まっている兆候があると説明。ただし、労働市場全体としてはひっ迫した状況にはないとの見方を示した。\n・労働市場は概ね均衡状態。\n・需要が全体的に高まっている兆候はない。\n・熟練技能や医療関連で需要がやや強まっている兆候。\n・企業間で過熱感や人手不足への強い懸念は見られない。\n・私が過熱やひっ迫と呼ぶような状況は確認できていない。\n株探ニュース",
+  "published_at": "2026-06-04T13:37:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:00:17.679177Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

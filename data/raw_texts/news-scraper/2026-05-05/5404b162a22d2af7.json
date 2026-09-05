@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/microsoft-xbox-ceo-asha-sharma-executive-overhaul.html",
+  "title": "Microsoft Xbox CEO overhauls leadership amid sinking sales: 'We need to evolve how we work'",
+  "raw_text": "Microsoft Xbox CEO Asha Sharma told employees in a Tuesday memo that she's appointing new leaders, as the software company looks to return its video game unit to growth.\nSharma moved to Xbox in February as gaming chief Phil Spencer announced his retirement. She came to Microsoft in 2024 after executive stints at Meta and Instacart, becoming president of product in the CoreAI engineering group that works on GitHub Copilot, Visual Studio Code and other developer tools.\n\"We need to evolve how we work and how we are organized across our platform,\" Sharma wrote in a memo viewed by CNBC. \"Right now, it is too hard to ship impact quickly. We spend too much time inward instead of with the community, and we lack the depth we need in some of the fundamentals.\"\nLast week, Microsoft reported its fourth gaming revenue decline in the past six quarters. Satya Nadella, Microsoft's CEO, said the company is trying to win back fans of Xbox, the Bing search engine and other consumer assets.\nThe Nintendo Switch and Switch 2 and Sony PlayStation 5 outsold Microsoft's Xbox Series X and Series S consoles in the first quarter, according to data from video game website VGChartz. In April, Sharma touted price cuts for Game Pass subscriptions that give gamers access to hundreds of titles.\nXbox is \"bringing in new leaders with consumer and technical expertise we do not yet have,\" she wrote in the memo.\nFour of those leaders are coming from the CoreAI group, overlapping with Sharma.\nJared Palmer, who has been CoreAI vice president of product and a senior vice president of Microsoft's GitHub subsidiary, will join Xbox as a member of technical staff to work on product, engineering, developer tools and infrastructure. He will also pay attention to matters of \"taste,\" Sharma wrote. Palmer came to Microsoft in October after a stint as vice president of artificial intelligence app hosting service Vercel, which bought his startup Turborepo in 2021.\nTim Allen, a CoreAI vice president of design and GitHub's senior vice president of design and research, will also go to Xbox and will lead design. Allen arrived at Microsoft in November after spending almost four years as head of design and research at Instacart.\nJonathan McKay, a former Meta director and head of growth for ChatGPT at OpenAI, will be Xbox's head of growth after holding that title in the CoreAI group.\nEvan Chaki, a general manager in CoreAI, will run a team of forward-deployed engineers that will look to simplify development and end repetitive work.\nDavid Schloss, Instacart's senior director of product and growth, will take charge of Xbox's subscription and cloud business.\nKevin Gammill, a corporate vice president working on Xbox user experience, game development and publishing platforms, will leave his post. Roanne Sones, a corporate vice president for Xbox devices and ecosystem, will take a leave of absence after this summer and will later be an Xbox advisor. Sones and Gammill have each spent 24 years at Microsoft.",
+  "published_at": "2026-05-05T16:09:02Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:17:45.123867Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

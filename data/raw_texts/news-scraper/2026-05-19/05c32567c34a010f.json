@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20251-ooredoo-kuwait-announces-healthcare-initiative-with-well-known-hospital.html",
+  "title": "Ooredoo Kuwait announces healthcare initiative with well-known hospital",
+  "raw_text": "Telecommunications and technology provider Ooredoo Kuwait has announced a strategic partnership with Hadi clinic, an acute care and general medical and surgical hospital.\nThis collaboration aims to accelerate digital transformation and strengthen the technological infrastructure of healthcare institutions in line with the latest global advancements in telecommunications, information technology and artificial intelligence.\nThe initiative seeks to develop smart, integrated solutions that enhance the efficiency of medical services and improve the overall patient experience.\nUnder the agreement, Ooredoo Kuwait, working in collaboration with Hadi Clinic and Huawei, will implement a comprehensive ICT ecosystem.\nThis includes next-generation networks, high-performance data centres, cloud computing technologies and advanced storage solutions, as well as disaster recovery and backup systems.\nThe partnership will also provide long-term local support and operational services to ensure continuity and efficiency.\nThis advanced digital infrastructure is expected to enable healthcare institutions to adopt a ‘smart hospital’ model, improve secure and efficient medical data management, and leverage artificial intelligence to support clinical decision-making. Ultimately, say the partners, this will enhance service quality, operational efficiency and patient experience.\nThe collaboration also aims to build an integrated healthcare ecosystem driven by digital innovation, improving the speed and accuracy of medical services while strengthening cybersecurity frameworks to safeguard patient data and ensure the highest standards of privacy and trust.\nThe partnership aligns with the objectives of the Kuwait Vision 2035 development plan, which focuses on building a sustainable knowledge-based economy and advancing digital transformation across key sectors, particularly healthcare.",
+  "published_at": "2026-05-14T14:29:29Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-19T03:01:21.884412Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

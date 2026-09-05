@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/22/rivian-r2-ev.html",
+  "title": "Rivian hits production milestone for R2 EV ahead of customer deliveries",
+  "raw_text": "Rivian Automotive on Wednesday said it has started production of its new R2 all-electric vehicle for customers at its plant in Normal, Illinois.\nThe start of production is a crucial milestone for the company ahead of customer deliveries, which are scheduled for later this spring. Investors will be watching for the company to ramp up production for the foreseeable future.\nRivian expects the R2 — an updated, less expensive EV that looks like its flagship R1 SUV — to attract more buyers and deliver on the company's promises to cut costs and become profitable in the years ahead.\nThe first of the R2 midsize vehicles is a $58,000 performance model with a \"Launch Package\" that includes a 330-mile range, dual motors, special attributes and \"lifetime\" access to its Autonomy+ advanced driver-assistance system.\nRivian has been touting a less expensive, entry-level version of the vehicle, starting at $45,000, but it said that model, which is expected to be less profitable, won't be available until late 2027. Its current vehicles start at more than $70,000.\nThe R2 production announcement comes less than a week after a tornado damaged part of the company's plant being used for R2 parts storage and logistics.\nRivian is scheduled to report its first-quarter results and update investors on R2 production on April 30.",
+  "published_at": "2026-04-22T18:45:01Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.102785Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

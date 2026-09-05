@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/rolls-royce-bags-third-european-smr-deal-while-adding-gas-cooled-reactor-design",
+  "title": "Rolls-Royce Bags Third European SMR Deal While Adding Gas-Cooled Reactor Design",
+  "raw_text": "Rolls-Royce SMR just added its third major European contract. Videberg Kraft, backed by Sweden’s utility Vattenfall, selected the UK design for three units on the west coast, making it Sweden’s first new nuclear plant in more than forty years.\nThe multibillion-pound export win, actively supported by UK government trade efforts, lands on top of existing deals in the UK and Czechia and makes Rolls-Royce the only SMR developer with multiple binding commitments across the continent.\nWe tracked when the UK advanced its own program, Great British Energy – Nuclear signed a contract earlier this year to move forward with initial units at Wylfa in North Wales. CEZ in the Czech Republic had already inked an early works agreement for deployment at Temelin, with plans ultimately targeting up to 3 GW of Rolls-Royce capacity and even taking a 20% stake in the company’s SMR subsidiary.\nThe Sweden announcement came one day after Rolls-Royce, the UK National Nuclear Laboratory, and Japan’s JAEA signed trilateral memorandums to accelerate High-Temperature Gas-Cooled Reactor (HTGR) technology and the next generation of coated particle fuel that goes with it.\nThe program is positioned as complementary to the existing 470 MWe pressurized-water SMR. HTGRs are different reactor technology, different size and power output, but the same modular construction philosophy and supply-chain approach.\nThe fuel development announcement carries added weight given the UK's history of developing the first generation of advanced, durable nuclear fuel.\nCoated particle fuel, the accident-tolerant form that enables the high-temperature safety case for these gas reactors, traces its conceptual lineage straight back to BISO work done in the UK during the Dragon reactor program in the 1960s. TRISO evolved from those early British coated-particle concepts.\nRolls-Royce and its partners are now moving to qualify and ultimately manufacture next-generation versions of this fuel form.\nThe US connection fits the same pattern. Rolls-Royce is already embedded in BWXT’s Project Pele effort for the Department of Defense, delivering the power conversion module for the mobile microreactor that BWXT is building with TRISO fuel and that targets operation around 2028.\nThe growing roadmap and list of projects is great for the company and the rolling press releases, but, similar to most of the other Western reactor developers, the company is lacking with getting nuclear-grade steel in the ground. Site prep work is ongoing in the UK, but given the significant delays with the UK's current larger reactor program, it could still be years before Rolls-Royce reaches criticality on any of their new facilities.",
+  "published_at": "2026-06-17T08:15:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-17T15:00:37.364746Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

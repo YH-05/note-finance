@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/design/945540/nasa-axiom-space-prada-lcvg-spacesuit-moon-artemis",
+  "title": "NASA will wear high-tech Prada long johns to the Moon",
+  "raw_text": "We’ve seen Axiom Space and Prada’s collaboration on the Axiom Extravehicular Mobility Unit (AxEMU) spacesuit. Now the company has revealed the Liquid Cooling and Ventilation Garment (LCVG) that astronauts will wear underneath it when Artemis IV returns humans to the Moon in 2028.\nNASA will wear high-tech Prada long johns to the Moon\nThe LCVG base layer will provide cooling and comfort to astronauts inside their spacesuits.\nThe LCVG is the all-important base layer that will keep the crew cool and comfortable while inside the AxEMU and on spacewalks. Cold water is circulated through tubes embedded in the suit to whisk heat away from astronauts’ bodies. And, should the primary system fail, there is a backup, unlike older cooling suits. The LCVG also houses the ventilation system that supplies fresh oxygen to the AxEMU helmet and directs exhaled CO2 to a scrubber for recirculation.\nThe collaboration between Axiom Space and Prada isn’t the first time NASA has gotten involved with a project that blended high-tech materials and manufacturing with high-fashion design. It also funded the BioSuit concept created by MIT professor Dava Newman with help from renowned architect Guillermo Trotti.",
+  "published_at": "2026-06-07T22:16:41Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-08T03:00:16.824050Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Design",
+      "News",
+      "Science",
+      "Space",
+      "Tech"
+    ]
+  }
+}

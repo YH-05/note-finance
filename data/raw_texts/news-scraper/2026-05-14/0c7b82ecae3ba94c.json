@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/930902/microsoft-xbox-elite-3-controller-leak-images",
+  "title": "Leaked images reveal Xbox Elite 3 controller with mysterious new buttons",
+  "raw_text": "Hours after a smaller Xbox Cloud Gaming controller appeared online, Brazil’s Anatel regulator has also accidentally published images of what appears to be Microsoft’s upcoming Xbox Elite 3 controller. Tecnoblog has posted images that show the successor to the Elite 2 controller, with an interchangeable D-Pad and paddles.\nLeaked images reveal Xbox Elite 3 controller with mysterious new buttons\nThe Elite 3 controller appears to have new scroll wheel buttons, a removable battery, and a cloud mode button.\nThe Elite 3 controller appears to have new scroll wheel buttons, a removable battery, and a cloud mode button.\nThe Elite 3 controller design appears to be more refined this time, with the addition of two new scroll wheels at the bottom that could be related to controller adjustments or a new input for games like Microsoft Flight Simulator.\nThe Elite 3 will also have a new pair button that can switch between a local mode or cloud mode to connect directly to Xbox Cloud Gaming servers. In cloud mode this should improve the latency for cloud streaming games, and it’s something that will also be available on the smaller Xbox controller that leaked earlier today.\nMicrosoft also appears to be moving to a removable rechargeable battery in the Xbox Elite 3 controller, as the filings at Anatel indicate this updated controller has a smaller (1,528mAh) removable battery compared to the Elite 2 (2,050mAh).\nIt’s not clear when Microsoft plans to release these new Xbox controllers, but given they’re leaking at regulators I wouldn’t be surprised to see them get announced at the upcoming Xbox showcase in June.",
+  "published_at": "2026-05-14T20:52:19Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-14T21:00:16.700868Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

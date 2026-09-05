@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20253-nec-completes-emcs-cable-linking-fsm-kiribati-and-nauru.html",
+  "title": "NEC completes EMCS cable linking FSM, Kiribati and Nauru",
+  "raw_text": "NEC announced on Friday it has completed construction of the East Micronesia Cable System (EMCS) that will bring extra international capacity to the Federated States of Micronesia (FSM), Kiribati and Nauru.\nThe 2,250-km EMCS cable links Tarawa Island in Kiribati to Nauru Island, and from there to Kosrae and Pohnpei in the FSM. It also interconnects with the HANTRU1 Cable System that connects Pohnpei and the Marshall Islands to Guam, which connects to several transpacific subsea cables connecting to the US, Japan, Australia and Southeast Asia.\nNEC said the cable has been handed over to FSM Telecommunications Cable Corporation (FSMTCC), BwebwerikiNet Limited (BNL) of Kiribati, and Nauru Fibre Cable Corporation (NFCC), all of whom co-own EMCS, although the project has also received grant funding from the governments of Australia, Japan and the US.\nEMCS is the first subsea cable to serve Kiribati and Nauru, as well as the first to directly connect Kosrae, all of whom have relied exclusively on satellites for international connectivity.\n“Kosrae was the only state in the FSM without a submarine cable connection,” said Gordon Segal, CEO of FSMTCC and chairman of the EMCS Management Committee. “We are truly delighted that the construction of the EMCS has now provided digital connectivity to all four states of the FSM. This infrastructure development not only advances the digitalization of the regional economy but also dramatically improves residents' access to information and services.”\n\"With this vital foundation supporting the digitalization of the regional economy now in place, access to diverse information and essential services will significantly improve going forward,” said Bwanouia Aberaam, officer in charge of BNL.\n\"This project is Nauru's first undersea cable, enabling the provision of high-speed, reliable internet services to residents,” added Cenpac Corporation chairlady Zikki Eoe. “We have high expectations that this will significantly accelerate Nauru's economic development and digitalization going forward.”\nEMCS has been in the works since June 2023, when NEC landed the contract to build the system. Australian prefabricated modular data centre specialist company DXN signed contracts in May 2024 worth A$5.7 million (US$3.8 million) to build the four cable landing stations for the project.",
+  "published_at": "2026-05-15T03:50:43Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-20T03:03:25.107529Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

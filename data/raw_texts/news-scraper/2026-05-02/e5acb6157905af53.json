@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20181-4ig-grid-telecom-sign-mou-to-develop-albania-greece-fibre-corridor.html",
+  "title": "4iG, Grid Telecom sign MoU to develop Albania–Greece fibre corridor",
+  "raw_text": "Hungarian operator 4iG Group and Greece’s Grid Telecom have signed a Memorandum of Understanding to explore joint development of cross-border telecommunications and digital infrastructure across the Balkans and Mediterranean.\nThe partnership, led through 4iG’s international infrastructure arm 4iG International Digital Infrastructure and Grid Telecom, a subsidiary of IPTO (Independent Power Transmission Operator), focuses on building a high-capacity terrestrial fibre link between Albania and Greece. The project is intended to strengthen regional connectivity, improve network resilience, and create a new digital corridor linking Southeast Europe with wider international routes.\nAlongside the terrestrial link, the MoU also outlines potential cooperation on a high-fibre-count subsea cable system across the Adriatic and Mediterranean, aimed at expanding redundancy and capacity for regional and intercontinental data traffic.\nGrid Telecom said the initiative would reinforce Greece’s role as a strategic interconnection hub between Europe, the Middle East and beyond. 4iG highlighted the partnership as a step toward delivering scalable, high-capacity infrastructure to support regional digital growth.\nThe agreement sets a framework for further technical and commercial discussions as the projects move toward potential implementation.",
+  "published_at": "2026-04-30T09:32:28Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-02T03:03:18.536770Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

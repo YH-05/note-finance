@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/att-downgraded-ahead-of-spacex-ipo-on-coming-broadband-competition-from-starlink.html",
+  "title": "AT&T downgraded ahead of SpaceX IPO on coming broadband competition from Starlink",
+  "raw_text": "Space-based internet is coming, and traditional broadband providers could get swept up in its wake. Regulatory and technological tailwinds are blowing in the direction of satellite internet and against older systems like fixed wireless and fiber, investment bank Oppenheimer said in a Wednesday note. Analyst Timothy Horan downgraded telecom giant AT & T to perform from buy on Wednesday, citing looming pressure from launch company SpaceX, which is scheduled to debut on the Nasdaq as early as next week. \"We think longer-term broadband subscriber growth and eventually mobile is at risk from rising threat of satellite [low-earth orbit] constellations,\" the analyst told clients. Horan sees \"strong regulatory support behind satellite, increasing the feasibility for SpaceX to directly enter mobile.\" AT & T shares are off by 12% in the last three months and flat on the year, trailing the broader market. T YTD mountain AT & T, YTD In April, the Federal Communications Commission voted to update its satellite spectrum-sharing rules, which could boost space-based broadband access \"seven-fold,\" the agency said. Space-based internet providers like SpaceX's Starlink \"deliver high-speed, low latency broadband [and] enable direct-to-device communications services,\" FCC Commissioner Olivia Trusty said in an April 30 statement . \"Operators are expanding connectivity.\" Older forms of broadband are still poised to do well in the short term given the relatively higher prices of services like SpaceX's Starlink, Oppenheimer said. However, the firm thinks that \"cable is in trouble\" and that AT & T is \"most at risk\" out of the telcos since competitors Verizon and T-Mobil US have less exposure to broadband. \"In three years, new fiber builds will halt, hitting the entire foodchain,\" the note said. SpaceX is planning to fix its IPO price at $135 per share, Reuters reported Tuesday, citing a source familiar with the plan. The company is aiming for a $1.75 trillion valuation. The headline-grabbing IPO could highlight the risk for investors about AT & T, Oppenheimer said.",
+  "published_at": "2026-06-03T12:33:04Z",
+  "author": null,
+  "collected_at": "2026-06-03T15:19:06.173567Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

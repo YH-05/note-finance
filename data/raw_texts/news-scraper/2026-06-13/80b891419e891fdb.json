@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/volatility-surge-has-trader-eyeing-one-stable-stock.html",
+  "title": "Volatility surge has trader eyeing one 'stable' stock",
+  "raw_text": "With semis whipping around on every AI headline and index volatility spiking, I'm looking for a counterpoint, a stable, cash-generating business where I can sell volatility instead of buying drama.\nCigna (CI) fits the bill — and I'd rather write my way into the stock than chase it.\nCigna isn't a growth story. Revenue growth is steady if modest compared to the eye-watering numbers coming out of the semis. The company beat in the first quarter, reporting adjusted EPS of $7.79, and raised full-year guidance to at least $30.35 per share, extending a multi-year pattern of adjusted EPS growth. That marked the 5th consecutive (albeit modest) quarterly EPS beat. The stock is also supported by a substantial buyback program; ~ $2.5 billion remains on the $6 billion repurchase program announced early last year.\nWith the stock just over $290, you're paying roughly 9.5x forward earnings. Much less than half the turn one would pay for the S&P at current levels, with roughly double the dividend yield at 2.2%.\nIf the dividend is one of the reasons to buy the stock, one would have to wait until the first week of September to get the next one (CI goes ex-div on 9/4). So, to accelerate some potential income, rather than buying shares outright at $290, I'd sell the July $280 cash-secured put, which has recently traded in the neighborhood of $6.\n- Sell CI July put for $6\n- Max gain: $60\n- Max loss: $276\n- Skill level: Intermediate\nTwo things can happen, and either is acceptable. If CI stays above $280 through expiration, we keep the premium — roughly 2% on the cash securing the trade in about six weeks, an annualized yield in the mid-teens for agreeing to buy a 9.5x-earnings business at a discount.\nIf CI dips below $280 and we're assigned, our effective basis is around $274 a 5% discount to the current price and comfortably above the lower half of the 52-week range. From there, the second phase of the strategy kicks in: collect the dividend and systematically sell covered calls against the position, turning a stable managed-care franchise into a persistent income generator.\nLike any trade, this isn't entirely riskless. Managed care carries headline risk, medical cost trends, and other risks. But that's precisely the point. We're assigned at a price we've already decided is reasonable to own.\nAnd of course, selling the put will tie up a lot of margin in your account, but the capital commitment is the same as simply buying the stock.\nWhen volatility keeps showing up uninvited, getting paid to set your own entry on a low volatility play can serve as a nice counterbalance to slow the swings in our portfolios.",
+  "published_at": "2026-06-10T17:25:43Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:37:30.198258Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

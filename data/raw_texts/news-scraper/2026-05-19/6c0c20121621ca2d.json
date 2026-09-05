@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605191262",
+  "title": "４月の米中古住宅仮契約件数、前月比１．４％上昇",
+  "raw_text": "【経済】４月の米中古住宅仮契約件数、前月比１．４％上昇\n結果 1.4％\n予想 1.0％ 前回 1.7％（1.5％から修正）（前月比）\n株探ニュース",
+  "published_at": "2026-05-19T14:02:00Z",
+  "author": null,
+  "collected_at": "2026-05-19T15:00:21.596661Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/blue-energy-and-ge-vernova-bet-gas-bridge-nuclear-ai-power",
+  "title": "Blue Energy & GE Vernova Bet On Gas Bridge-To-Nuclear For AI Power",
+  "raw_text": "Blue Energy announced a collaboration with GE Vernova to develop the world's first gas-plus-nuclear power plant in Texas.\nThe project will use two GE Vernova gas turbines to deliver roughly 1 GW starting around 2030. Steam supply will later shift to GE Vernova Hitachi BWRX-300 small modular reactors for up to 1.5 GW of nuclear capacity by 2032.\nWork at the Texas site could begin as early as this year, with a final investment decision expected in 2027.\nThe plan is similar to other announcements from companies like Oklo and Liberty Energy that plan to deploy gas power turbines at proposed energy sites to initiate power delivery and revenue collection while the longer leg of building the reactor continues in the background.\nEasier said than done, though. The NRC would normally never be involved in a gas energy project, but if it will share facilities with a future nuclear project, then things get a little more interesting. This is why Blue Energy submitted a plan, and recently received approval, for how to involve the NRC with the construction of a gas-to-nuclear site.\nThis new sequencing of gas-to-nuclear allows for power delivery to the data center or grid to begin in under four years, compared to as many as ten years if it was a purely nuclear project.\nDepending on the location, it may be too little too late. Especially on the east coast…\nNext summer the Eastern seaboard will look like North Korea at night thanks to chatbots pic.twitter.com/NEY97pa1LB\n— zerohedge (@zerohedge) May 6, 2026\nThis is where people usually start pointing fingers at the data center for creating the problem. Blaming hyperscalers though requires looking away from the fact that new power generation is also being delayed to connect to the grid.\nConstellation's restart of the Three Mile Island Reactor is currently facing a four-year delay from PJM. The reactor will be ready to provide clean energy to the grid in 2027, but has been told to wait until 2031 to actually connect.\nExtreme demand from data centers is not the source of the problem. Decades of neglect with grid upgrades are the real reasons for the grid's inability to bolt on new supply and demand, and is now driving costs through the roof.",
+  "published_at": "2026-05-06T18:05:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-07T03:00:41.848039Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20294-ufinet-brasil-taps-prysmian-to-boost-data-centre-interconnectivity-in-alphaville.html",
+  "title": "Ufinet Brasil taps Prysmian to boost data centre interconnectivity in Alphaville",
+  "raw_text": "Global cable manufacturer Prysmian announced on Thursday it has partnered with Ufinet Brasil to deploy a 30 km underground network to boost interconnectivity for hyperscale data centres in Sao Paulo Province’s Alphaville.\nAccording to Prysmian, the goal of the project was to increase network capacity and expand data transmission in São Paulo using existing pipeline infrastructure to reduce the social impact of infrastructure works.\nTo that end, Ufinet and Duraline deployed Prysmian’s SiroccoHD solution, which sports a cable density of 8.6 F/mm², enabling the installation of 432 optical fibres in a single 12x10mm microduct.\nPrysmian said this allows the reuse of legacy 40mm duct networks with up to 3 microducts, which can expand the capacity of existing infrastructure up to 1,296 optical fibres.\nUfinet and Duraline deployed the 432-fibre version of the SiroccoHD solution, which Prysmian said is a 3x improvement over conventional microcables in Brazil, which typically accommodate up to 144 fibres in microducts.\n“SiroccoHD addresses a real problem for our customers in large urban centres: how to increase fibre capacity using the infrastructure I already have installed?” said Lucas Nogueira, manager of R&D, innovation and sustainability at Prysmian in a statement. “This is the kind of solution that enables strategic hyperscale data centre projects, positioning Brazil at a new level in the race for digital transformation and demonstrating the strength of our industry.”",
+  "published_at": "2026-05-25T01:43:54Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-25T03:01:24.579840Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

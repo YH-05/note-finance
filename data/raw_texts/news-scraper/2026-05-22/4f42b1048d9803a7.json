@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605230024",
+  "title": "ギャバード米国家情報長官が辞任へ　６月末で",
+  "raw_text": "【注目】ギャバード米国家情報長官が辞任へ ６月末で\nただ、同長官はホワイトハウスやＣＩＡとの対立、イラン政策を巡る緊張なども背景にあるとも指摘されている。軍事介入に反対の立場で、ベネズエラのマドゥロ大統領追放に向けた数カ月に渡る作戦立案にホワイトハウスは長官を関与させなかったとも言われている。\n株探ニュース",
+  "published_at": "2026-05-22T17:36:00Z",
+  "author": null,
+  "collected_at": "2026-05-22T21:00:22.170436Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

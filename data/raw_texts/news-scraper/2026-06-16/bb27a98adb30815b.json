@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/trading-platform-robinhood-cuts-10percent-of-workforce.html",
+  "title": "Trading platform Robinhood cuts 10% of workforce to flatten management layers",
+  "raw_text": "Robinhood said on Tuesday it would cut 10% of its full-time workforce, or about 290 roles, as the trading platform seeks to operate more efficiently by flattening management layers.\nThe move comes as companies across sectors continue to scrutinize headcount and management structures, with many executives arguing that leaner organizations make decisions faster and deploy resources more effectively.\n\"Robinhood's business has never been stronger,\" CEO Vlad Tenev said in a note to employees shared on social media platform X. \"We cannot default to operating as a heavily-layered organization. We must be a lean, hyper-focused team,\" he added.\nShares of Robinhood were up nearly 3% in premarket trading. The stock is down 13% for the year through Monday's close.\nThe company expects to incur restructuring charges of about $20 million for employee severance and benefits costs, as well as roughly $8 million in share-based compensation expenses.\nIt expects to recognize the charges in the second quarter and will close the small number of remaining open roles. The Menlo Park, California-based company had about 2,900 full-time employees as of December 31, a regulatory filing showed.\nRobinhood said it is taking the action \"from a position of business strength,\" citing June month-to-date average daily trading volumes at record levels across equities, options and prediction markets.\nIn April, Robinhood missed expectations for first-quarter profit as crypto-driven market volatility weighed on trading activity. Market conditions have since improved, with easing Middle East tensions and strong equity markets supporting retail trading activity.\nRetail investors, often referred to as mom-and-pop traders, tend to pull back during periods of heightened volatility as sharp market swings erode confidence and cause trading fatigue.\nTo reduce its reliance on trading activity, which can fluctuate with market sentiment, Robinhood has expanded into a broader financial services platform in recent years, offering products such as retirement accounts, wealth management services and credit cards.",
+  "published_at": "2026-06-16T11:23:23Z",
+  "author": null,
+  "collected_at": "2026-06-16T15:23:26.611203Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/flesh-eating-screwworm-infection-detected-in-south-texas-usda-says/",
+  "title": "Possible flesh-eating screwworm infection detected in South Texas, USDA says",
+  "raw_text": "A case of New World screwworm has been confirmed in South Texas, the US Department of Agriculture announced Wednesday night. It marks the first detected breach of the US-Mexico border by the ravenous flesh-eating flies, which have been making their way up through Central America for the past several years.\nIn a social media post Wednesday afternoon, the USDA revealed that a sample from Texas had been sent to the National Veterinary Services Laboratories (NVSL) in Ames, lowa for confirmatory testing of a screwworm infection. Agriculture Secretary Brooke Rollins later posted that the testing had confirmed the infection, which was found in a 3-week-old calf in Zavala County, Texas.\nChatter of a screwworm detection had already been building this week, rattling the US cattle industry.\nAlthough many animals, including humans, can be victims of the parasite, the screwworm is especially dangerous to livestock. Female screwworms lay hundreds of eggs in the wounds and openings of warm-blooded creatures, allowing their larvae to feast on the living animals, causing deep, festering, life-threatening wounds. Although the screwworm was once endemic to the US, it was eradicated amid a yearslong control effort in the 1960s. The USDA estimates that keeping screwworms out of the US has saved the livestock industry $900 million each year.\nBut the fly has broken through control efforts in Central America and has been inching closer. On May 28, a case was found 25 miles from the border in a 5-year-old goat in Coahuila, Mexico, according to the USDA. The case was one of many detected in recent days, including a case in a calf just 39 miles from the border, also in Coahuila.",
+  "published_at": "2026-06-03T21:31:35Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-04T03:00:31.487937Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "flies",
+      "parasite",
+      "screwworm"
+    ]
+  }
+}

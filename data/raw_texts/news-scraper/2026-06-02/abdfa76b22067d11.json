@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/cftc-chair-alleges-gemini-crypto-exchange-was-politically-targeted.html",
+  "title": "Commodities regulator alleges Winklevosses' Gemini crypto exchange was politically targeted",
+  "raw_text": "The chairman of the Commodity Futures Trading Commission said it's correcting a flawed enforcement action against Gemini Space Station, the crypto exchange run by the Winklevoss brothers, alleging caught up in a broader campaign against the crypto industry under the Biden administration.\n\"The Biden administration weaponized the federal agencies against the crypto industry and many other industries,\" Michael Selig said Tuesday in a CNBC \"Squawk Box\" interview. \"They politically targeted people like the Winklevoss twins, and that's not acceptable. We're righting those wrongs. We're going to start fresh. The agency should not be used to engage in lawfare.\"\n\"I'm not going to get into the facts, because this is an active [litigation] … What is important here is that to the extent the agency was used to politically target folks, we're reversing that, and we're starting fresh,\" he added. \"That's not going to happen again. It can't happen again under my administration or a future administration.\"\nThe comments are the first since the top derivatives regulator asked a federal judge in New York last week to vacate the January 2025 order against the exchange – which former CFTC chair Tim Massad has called \"very unusual.\" The order includes a $5 million penalty and an injunction that barred the company from making false statements to the agency. It was implemented in the final weeks of President Joe Biden's administration.\nThe remarks are the latest sign of the Trump administration's effort to roll back Biden-era crypto enforcement actions.\nThe case began in 2022, when the CFTC sued Gemini alleging that the company made false or misleading statements to regulators in 2017 while seeking approval for a bitcoin futures product. It claimed Gemini misrepresented how the bitcoin futures contract would be susceptible to manipulation.\nTyler and Cameron Winklevoss were among the biggest individual crypto donors to the President Trump's 2024 election campaign.\nThe Winklevoss brothers nor Biden immediately responded to CNBC's request for comment.",
+  "published_at": "2026-06-02T14:55:35Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.555261Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

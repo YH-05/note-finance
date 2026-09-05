@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/18/apple-opens-up-app-store-to-new-competition-in-brazil/",
+  "title": "Apple opens up App Store to new competition in Brazil",
+  "raw_text": "Apple announced on Thursday that developers in Brazil are now allowed to distribute their iOS apps through alternative app stores and process payments for digital goods and services outside the App Store.\nThe changes, which are part of Apple’s agreement with Brazil’s competition regulator Conselho Administrativo de Defesa Econômica, or CADE, loosen Apple’s rules in yet another market, following similar revisions in the EU and Japan.\nThe move marks another crack in Apple’s long-held control over the iOS app ecosystem, which has been forced to open up by regulators and, in some cases, via legal battles. In the U.S., for example, Apple now permits developers to direct users to external payment options as a result of the court’s decision in the Epic Games lawsuit against the iPhone maker.\nThe updates in Brazil’s market will include the introduction of new protections, including a notarization process for iOS apps distributed outside the App Store, authorization requirements for alternative app marketplaces, and other rules designed to protect children from inappropriate content and scams, Apple said.\nThe company also updated Attachment 12 of its Apple Developer Program License Agreement to specify terms for iOS apps in Brazil, which will use the Core Technology Commission (CTC) fee structure. This 5% CTC fee had replaced the older Core Technology Fee (CTF) in January as part of Apple’s revised business terms in the EU. It applies to apps distributed from the App Store, via the web, and/or alternative marketplaces.\nIn Brazil, developers will need to agree to the latest update of the license agreement by July 6, 2026, Apple noted.",
+  "published_at": "2026-06-18T15:48:08Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-06-18T21:00:35.405959Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Government & Policy",
+      "app store",
+      "Apple",
+      "Brazil",
+      "developers",
+      "In Brief",
+      "regulation"
+    ]
+  }
+}

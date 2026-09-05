@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606170024",
+  "title": "米２０年債入札結果　最高落札利回り　４．９２７％",
+  "raw_text": "最高落札利回り 4.927％（WI：4.937％）\n応札倍率 2.75倍（前回：2.55倍）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-16T17:18:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T21:00:22.465680Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

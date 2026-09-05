@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/923908/microsoft-xbox-reorg-platform-changes",
+  "title": "Microsoft’s new Xbox shake-up is all about platform changes",
+  "raw_text": "Microsoft’s new Xbox chief, Asha Sharma, has spent the past couple of months making her mark on the Xbox organization. After focusing on highly requested Xbox console features, reducing the price of Game Pass, and moving Microsoft Gaming back to Xbox, Sharma is reorganizing the Xbox platform team at Microsoft today.\nMicrosoft’s new Xbox shake-up is all about platform changes\nXbox CEO Asha Sharma is bringing more technical expertise into the Xbox platform team.\nXbox CEO Asha Sharma is bringing more technical expertise into the Xbox platform team.\nThe changes will see some veterans depart, promotions, and new faces with more technical expertise to help the Xbox platform team. Jared Palmer, who used to work with Sharma in Microsoft’s CoreAI division, is joining Xbox as VP of engineering and a technical adviser to Sharma. In a memo to Xbox employees, seen by The Verge, Sharma says that Palmer will work “directly with me on our most complex product and engineering problems, with a focus on developer tooling, taste, and infrastructure.”\nTim Allen, former Microsoft CoreAI VP of design and GitHub’s senior VP of design and research, is also joining Xbox to lead design. Sharma says Allen’s appointment is the “first time bringing together product design, design engineering, research, and creative with a fan-first focus.”\nJonathan McKay, former head of growth at Microsoft’s CoreAI division, is also joining Xbox to lead its growth, data platform, and analytics. Evan Chaki, a former general manager in CoreAI, is joining a new team in Xbox to “lead a forward-deployed engineering group focused on removing repetitive work, simplifying development, and improving how we operate.”\nThat are a lot of people joining Xbox from Microsoft’s CoreAI team, and it seems like Sharma is bringing over her former colleagues to give the Xbox organization a little more technical expertise for platforms and experience with things like growth and data. It’s also a lot of AI experience, which is bound to sound the alarm bells with some Xbox fans, but looking at the appointments there’s no clear AI push for Xbox here.\nIn fact, last week Sharma posted on X that Xbox is “refocusing our AI efforts to solving player problems like enhancing real-time graphics, improving discovery, and deepening personalization.” That sure sounds like a lot more focus on improving the underlying Xbox software platform instead.\nThese leadership changes at Xbox largely affect the platform teams under former Xbox president Sarah Bond. Microsoft originally announced Bond’s departure in February, and she has remained in place as a “special advisor” to Sharma to help with the leadership transition. Many had expected Bond would be named Xbox chief, but Microsoft CEO Satya Nadella decided to shake up Xbox leadership with an outsider.\nAs part of this new Xbox shake-up, Roanne Sones, corporate vice president of Xbox devices and ecosystem, will be “taking a leave of absence after this summer and will be staying on as an advisor.” Sones previously reported up to Bond, and helped lead the launch of the Xbox Ally devices.\nKevin Gammill, corporate vice president of Xbox user experience, is also stepping down after nearly 20 years at Microsoft. “He has dedicated more than 15 years to Xbox and will support the transition,” says Sharma. “I’m grateful for his leadership and everything he has built here.”\nJason Ronald, vice president of next gen, is also getting a promotion as part of these changes. “On hardware, we are elevating Jason Ronald, accountable for Project Helix, and our platform,” says Sharma. It’s not clear what Ronald’s new title is, though. Jason Beaumont “will lead the product and serve as interim head of engineering,” as part of these changes.\n“This is an important time for Xbox,” says Sharma. “Our goal with this change is simple: build a platform that is affordable, personal, and open by staying close to the work and the people we serve. We will continue to add the capabilities needed to get there.”",
+  "published_at": "2026-05-05T16:46:39Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-05T21:00:15.862800Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

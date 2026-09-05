@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://faroutcompany.com/",
+  "title": "FarOutCompany",
+  "raw_text": "Skip to content",
+  "published_at": "2026-06-14T14:09:29Z",
+  "author": "bookofjoe",
+  "collected_at": "2026-06-15T03:00:49.363264Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

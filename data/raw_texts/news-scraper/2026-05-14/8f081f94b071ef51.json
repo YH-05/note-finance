@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/60-consumer-ecosystems/20230-new-alliances-continue-fintech-growth-trend-in-africa.html",
+  "title": "New alliances continue fintech growth trend in Africa",
+  "raw_text": "Two more fintech alliances have been announced in the last week, one involving a virtual and physical cards collaboration in Nigeria and another a financial infrastructure initiative that aims to be extended across the continent.\nMastercard and BMONI, an AI-powered financial platform focused on simplifying access to money, have announced a collaboration to introduce a new generation of virtual and physical payment cards designed to enable seamless local and global transactions for consumers in Nigeria.\nPowered by Mastercard’s global payment network, the solution enables users to instantly create multiple naira and US dollar-denominated virtual and physical cards that are globally accepted and ready for use within seconds, with all card management handled seamlessly within the BMONI app.\nThe collaboration, says the partners, marks one of the first locally issued international card programmes in Nigeria, enabled by new card issuance models introduced by Mastercard to accelerate digital payments adoption among fintech companies in the market.\nBeyond enabling access, the solution also introduces greater control over how users manage their finances by allowing the creation of multiple cards for different purposes. The BMONI Mastercard is available now.\nA Nigerian element is also evident in the strategic partnership between Paga, a payments and financial solutions company providing multi-currency payments solutions, and Sui, which describes itself the only platform where assets, data and permissions can be owned, programmed and verified.\nThe partnership is aimed at building next-generation financial infrastructure to improve access to digital financial services across Africa. However, Paga’s first market is likely to be Nigeria, where it is licensed to provide mobile money services by the Central Bank of Nigeria.\nTayo Oviosu, the Nigerian-American businessman who is the founder and group CEO of Paga, says the collaboration is focused on addressing long-standing financial challenges on the continent, including slow cross-border payments, currency instability, and limited access to global financial markets.\nAs the TechAfrica news website explains, under the partnership, Paga and Sui plan to launch four key financial solutions designed to improve financial accessibility and economic participation for Africans.\nThe first initiative will introduce high-yield US dollar accounts powered by the Sui Dollar stablecoin, allowing users to protect savings from local currency devaluation. The companies also plan to establish on-ramp and off-ramp infrastructure with deeper liquidity across African markets to simplify movement between local currencies and digital assets.\nIn addition, the partnership aims to make tokenised real-world assets accessible to African users, enabling investments with as little as US$100. The firms also intend to build global financial rails on Sui’s blockchain infrastructure to support faster and cheaper cross-border transactions across the continent.",
+  "published_at": "2026-05-11T14:15:14Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-14T03:01:17.747518Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Consumer Ecosystems"
+    ]
+  }
+}

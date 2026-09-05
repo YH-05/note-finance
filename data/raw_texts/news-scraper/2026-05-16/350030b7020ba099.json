@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/science/931766/arxiv-ai-slop-ban-researchers",
+  "title": "ArXiv will ban researchers who upload papers full of AI slop",
+  "raw_text": "ArXiv, a popular platform for preprint academic research, is taking a new step to attempt to reduce the volume of papers that include AI slop.\nArXiv will ban researchers who upload papers full of AI slop\nLeaving AI prompts or other ‘incontrovertible evidence’ will make it harder to use the site going forward.\nLeaving AI prompts or other ‘incontrovertible evidence’ will make it harder to use the site going forward.\nIf a paper has “incontrovertible evidence that the authors did not check the results of LLM generation,” such as hallucinated references or “meta-comments” left by an LLM, authors will be banned from ArXiv for a year, according to Thomas Dietterich, ArXiv’s section chair of its computer science section. Future ArXiv submissions will also have to be accepted at “a reputable peer-reviewed venue.”\nAttention @arxiv authors: Our Code of Conduct states that by signing your name as an author of a paper, each author takes full responsibility for all its contents, irrespective of how the contents were generated.\nIf generative AI tools generate inappropriate language, plagiarized content, biased content, errors, mistakes, incorrect references, or misleading content, and that output is included in scientific works, it is the responsibility of the author(s).\nWe have recently clarified our penalties for this. If a submission contains incontrovertible evidence that the authors did not check the results of LLM generation, this means we can’t trust anything in the paper.\nThe penalty is a 1-year ban from arXiv followed by the requirement that subsequent arXiv submissions must first be accepted at a reputable peer-reviewed venue.\nExamples of incontrovertible evidence: hallucinated references, meta-comments from the LLM (“here is a 200 word summary; would you like me to make any changes?”; “the data in this table is illustrative, fill it in with the real numbers from your experiments”)\nAuthors can appeal ban decisions, Dietterich told 404Media. He also noted that this policy will only apply “to cases of incontrovertible evidence” and that “our internal process requires first a moderator to document the problem and then for the Section Chair to confirm before imposing the penalty.”\nLast year, ArXiv also updated its policies to reduce AI slop by only allowing computer science review articles and position papers to be published if they have been peer reviewed and have been accepted at a conference or a journal. “The advent of large language models have made this type of content relatively easy to churn out on demand, and the majority of the review articles we receive are little more than annotated bibliographies, with no substantial discussion of open research issues,” ArXiv said at the time.",
+  "published_at": "2026-05-15T20:38:19Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-16T03:00:16.279761Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "Science"
+    ]
+  }
+}

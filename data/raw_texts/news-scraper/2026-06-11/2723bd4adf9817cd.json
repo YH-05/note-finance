@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/doordash-ai-ordering-automation.html",
+  "title": "DoorDash lets customers use photos, prompts to order food and book reservations in latest AI push",
+  "raw_text": "DoorDash is bringing artificial intelligence deeper into the user experience, allowing customers to order food and make reservations with photos and prompts.\nThe company on Thursday announced a new chatbot called Ask DoorDash, which is launching in select markets for grocery shopping and food delivery. DoorDash plans to add reservations and additional U.S. cities in the coming weeks.\nGig economy companies are in a race to add AI into their apps as the rapid development of agentic tools changes how consumers use the internet and mobile devices. DoorDash, along with Uber and Instacart, are rolling out new services to keep from getting left behind in a sector that's become a testing ground for AI agents.\nDoorDash launched AI-powered tools for merchants in May, and is betting on autonomous tech like delivery robots. Earlier this year, Uber launched its own AI cart assistant that uses photos and prompts to build grocery lists. And late last year, Instacart introduced AI tools for grocers.\nThe stakes are high for DoorDash, which is in the middle of a massive investment cycle that involves the creation of a unified tech platform to house all its brands following a string of big acquisitions. Purchases include a $1.2 billion deal for restaurant booking platform SevenRooms and the nearly $4 billion acquisition of Deliveroo.\nFinance chief Ravi Inukonda told investors during last quarter's earnings call that DoorDash is making progress on the tech stack overhaul and plans to carry out most of the spending this year.\nIt's been a rough year on Wall Street for DoorDash, with its stock down 33%, compared to the Nasdaq's roughly 8% gain. The downdraft started late last year, when the company in November announced plans to spend \"several hundred million dollars\" on new products and technology in 2026, sending the stock to its worst day on record.\n\"We wish there was a way to grow a baby into an adult without investment, or to see the baby grow into an adult overnight,\" the company wrote in a release at the time. \"But we do not believe this is how life or business works.\"",
+  "published_at": "2026-06-11T13:00:01Z",
+  "author": null,
+  "collected_at": "2026-06-11T15:21:04.935474Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

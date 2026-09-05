@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/google-deepmind-partners-with-eve-online-for-ai-model-testing/",
+  "title": "Google DeepMind partners with EVE Online for AI model testing",
+  "raw_text": "Google’s AI-focused DeepMind division has taken a minority stake in the developer of popular sci-fi simulation EVE Online, saying it will use the game to study “intelligence in complex, dynamic, player-driven systems.”\nThe research partnership comes as the management behind EVE Online developer CCP Games announced that they have spent $120 million to buy themselves out from their former owners at South Korean publisher Pearl Abyss (Crimson Desert). The newly independent entity is being rebranded as Fenris Creations, which will continue to operate as normal without any restructuring or layoffs, the company said.\n“Something that already behaves like a living world”\nIn today’s announcement, Fenris and DeepMind said that EVE Online presents “a uniquely rich environment for study,” especially when it comes to developing AI systems that use “long-horizon planning, memory, and continual learning.” DeepMind says it will conduct controlled experiments on its models in a specially designed offline version of the game running on a local server, without directly impacting the experience for online players. The two companies “will also explore new gameplay experiences enabled by these technologies,” they wrote.\nGoogle DeepMind has a long history of using games as a proving ground for machine learning models, from enabling breakthroughs in complex board games like Go to outperforming humans in Atari VCS games and StarCraft, for example. More recently, the company has to operate in physical reality.\nFenris CEO Hilmar Veigar Pétursson said in an open letter addressed to players that “EVE is one of the few environments where questions about intelligence can be explored inside something that already behaves like a living world.” Studying EVE will allow Google DeepMind’s models to explore “difficult problems, long timelines [and] strange possibilities,” he added.\n“As a gamer and games producer, I’ve long admired EVE,” Google DeepMind Director Alexandre Moufarek said in a statement. “What the EVE community has created together with [Pétursson] and team is truly unparalleled in gaming. It is a one-of-a-kind simulation for testing general-purpose artificial intelligence in a safe sandbox environment. I’m excited to partner with the team at Fenris Creations to push the frontier of artificial intelligence and explore new player experiences.”",
+  "published_at": "2026-05-06T16:56:49Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-06T21:00:30.778552Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Gaming",
+      "Google",
+      "CCP Games",
+      "Fenris",
+      "google",
+      "google deepmind",
+      "models",
+      "world models"
+    ]
+  }
+}

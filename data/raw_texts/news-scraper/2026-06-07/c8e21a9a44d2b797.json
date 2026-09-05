@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260522a.htm",
+  "title": "Agencies publish resolution plan feedback letters for certain domestic and foreign banking organizations",
+  "raw_text": "May 22, 2026\nAgencies publish resolution plan feedback letters for certain domestic and foreign banking organizations\n- Federal Deposit Insurance Corporation\n- Federal Reserve Board\nFor release at 4:00 p.m. EDT\nThe Federal Deposit Insurance Corporation and the Federal Reserve Board today published feedback letters for several resolution plans submitted in July 2025.\nResolution plans, also known as living wills, must describe a banking organization's strategy for orderly resolution in the event of material financial distress or failure. The agencies conducted a joint review of the 2025 resolution plan submissions from the eight largest and most complex domestic banking organizations as well as from 56 foreign banking organizations. The agencies did not identify any shortcomings or deficiencies in these resolution plan submissions.\nThe agencies also determined that each derivatives-related weakness identified in the 2023 plans from Bank of America, Goldman Sachs, JPMorgan Chase, and Citigroup has been satisfactorily addressed.",
+  "published_at": "2026-05-22T20:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:00:30.733241Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

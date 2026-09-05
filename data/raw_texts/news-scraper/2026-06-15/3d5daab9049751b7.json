@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developers.google.com/maps/documentation/earth/flight-simulator",
+  "title": "Google Flight Simulator",
+  "raw_text": "Use keyboard shortcuts to explore the world in a flight simulator.\nFlight simulator requirements\nWhile the flight simulator is designed to provide an immersive flying experience, the following limitations apply:\n- Web only: The flight simulator is only available on Google Earth on web.\n- Simplified flight physics: The flight simulator is designed for casual exploration rather than high-fidelity aerodynamic training.\n- Dynamic loading: As you fly, 3D buildings and high-resolution imagery stream in dynamically. Flying at extreme speeds or over low-bandwidth connections may result in temporary loading delays.\nStart a flight\nTo launch the flight simulator, do the following:\n- On your computer, open Google Earth.\n- At the top of the home screen, click Explore Earth.\n- Open the Tools menu in the top menu bar.\n- Select Flight simulator from the menu.\nFlight controls and navigation\nUse the following keyboard shortcuts to control your aircraft.\n| Action | Keyboard control | Description |\n|---|---|---|\n| Increase thrust | Page up or click on-screen indicator | Accelerates the aircraft's engine speed |\n| Decrease thrust | Page down or click on-screen indicator | Decelerates the aircraft's engine speed |\n| Pitch down (dive) | Down arrow | Directs the nose of the plane downward to decrease altitude |\n| Pitch up (climb) | Up arrow | Directs the nose of the plane upward to gain altitude |\n| Roll left (bank) | Left arrow | Banks the aircraft to the left |\n| Roll right (bank) | Right arrow | Banks the aircraft to the right |\n| Toggle mouse controls | Click inside simulation | Alternates between mouse-guided flight controls and keyboard controls |\nCrash recovery\nIf your aircraft makes direct impact with the ground terrain, the simulation will pause. Click You crashed! Restart to instantly restore your aircraft at a safe, playable altitude and coordinates.\nExit simulator\nClick the\nback arrow in the upper-left corner of the flight simulator to safely exit the simulation and return to the standard Google Earth map view.Known issues\n- Terrain anomalies: When flying near ground level in regions below sea level (for example, Badwater Basin in California), you may experience occasional flashing or clipping.\n- Overlapping controls: Standard map shortcut keys (such as historical imagery toggles) are deactivated during flight to avoid conflicting with flight controls.",
+  "published_at": "2026-06-15T13:26:08Z",
+  "author": "bookofjoe",
+  "collected_at": "2026-06-15T21:00:52.278692Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

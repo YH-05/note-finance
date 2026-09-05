@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20176-thailand-approves-talaylink-subsea-cable-landing-plan.html",
+  "title": "Thailand approves TalayLink subsea cable landing plan",
+  "raw_text": "Thailand’s National Broadcasting and Telecommunications Commission (NBTC) has approved a request to install a subsea cable landing for the TalayLink project, a regional digital infrastructure initiative backed by Google Cloud.\nThe project, developed in partnership with International Gateway Company, a subsidiary of ALT Telecom, Thailand’s leading regional telecommunication and network service provider, involves laying more than 300 kilometres of submarine cable conduit containing 11 fibre lines through Thai waters, with a landing point in Thailand and a connection to Australia’s Christmas Island.\nFirst announced in 2025, TalayLink is designed to create a new international data route between Thailand and Australia via the Indian Ocean, helping to reduce congestion on existing pathways and improve network resilience.\nTalayLink is also part of Australia Connect, an initiative positioning Australia as a hub linking Pacific island nations and countries in the Indian Ocean via the Sunda Strait, a major corridor for existing subsea cables.\nGoogle says the system will enhance the speed, reliability and redundancy of digital connectivity across Asia-Pacific while directly linking Thailand’s future data centres to its global cloud infrastructure.\nAccording to the Thai Enquirer news service, officials say the approval marks a key regulatory step in advancing the project, as Thailand seeks to strengthen its international connectivity, which still relies heavily on land-based links routed through Singapore.\nTalayLink is one of a number of new subsea cable systems expected to come online this year and will support Google’s broader investment of about 30 billion baht (about US$915 million) to establish a cloud region in the country, covering data centres, cloud infrastructure and regional connectivity.\nThe wider initiative also includes new connectivity hubs in Western Australia and southern Thailand, aimed at boosting regional network resilience and supporting growth in cloud computing, artificial intelligence and the digital economy.\nIt seems that about 70% of Thailand’s international connectivity still relies on terrestrial links to data and internet hubs in Singapore, though the country currently has nine subsea cable systems already operational, and at least three projects under development.",
+  "published_at": "2026-04-29T13:22:32Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-06T03:01:21.263383Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

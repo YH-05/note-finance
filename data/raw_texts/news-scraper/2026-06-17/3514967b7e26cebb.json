@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/cftc-chair-selig-defends-decision-to-approve-perps-in-us.html",
+  "title": "CFTC chair Selig defends decision to approve ‘perps’ in U.S.",
+  "raw_text": "Commodity Futures Trading Commission chair Michael Selig weighed into the perpetual futures debate in a Monday appearance on CNBC's \"Fast Money,\" defending his agency's decision to approve the asset domestically.\nSelig said that incumbents will always fear the future, but that the commission is looking to onshore products that are being developed internationally to ensure they can be made safely under robust regulations.\n\"It's time to approve regulated futures contracts that have no expiration date,\" he said. \"We're going to make sure the product's available, but it's well regulated here in the U.S.\"\nIn late May, the CFTC approved prediction market platform Kalshi to begin offering bitcoin perpetual futures, or \"perps,\" futures contracts with no expiration date that allow traders to speculate on a price without owning the underlying asset. Popular overseas, the approval marked the first time the asset class was allowed in the U.S. Kalshi has since expanded its perps offerings to other cryptocurrencies.\nDemand for perps has been high. At a Thursday event celebrating its perps product, Kalshi said its contracts had done more than $3 billion in notional volume in just over a week in beta testing.\nIn an appearance on \"Fast Money\" shortly after the regulatory decision, CME Group CEO Terrence Duffy blasted the decision to approve perps, including voicing concerns that the leverage carried with the contracts is large and risky.\nBut Selig dismissed that argument in his appearance Monday.\n\"The notion that we should be paternalistic and allow for one type of product, because it's easier to understand, I think that's frankly a misunderstanding itself, because, of course, options are very complicated,\" he said. \"We're going to make sure there's proper disclosure. And to the extent that there's questions around suitability, of course, the brokers have to make those calls and make sure that they're evaluating the customers that are trading in their markets.\"\nIn an appearance on \"Fast Money\" last week, Kalshi CEO Tarek Mansour noted that the maximum leverage that the company is allowing on its perps — around six times — is less than that of what CME offers on some of its futures contracts.\nSelig also denied that the reason the CFTC moved to approve perps was due to political pressure from President Donald Trump's administration. The president's son, Donald Trump Jr., is a strategic advisor to Kalshi.\n\"That's absolutely absurd, that insinuation,\" he said.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-15T22:39:09Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.502167Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930132/amd-ryzen-pro-9000-series-3d-v-cache",
+  "title": "AMD&#8217;s best CPU tech for gamers is coming to workstations too",
+  "raw_text": "For the first time, AMD is including its 3D V-Cache tech in its commercial workstation processors with a refreshed line of Ryzen PRO 9000 series chips. Up until now, AMD’s 3D V-Cache chips have mainly been geared toward gamers, but they’ve also gotten better at creative tasks over recent years. In our review of the Ryzen 9 9950X3D last year, Tom Warren crowned it “the best CPU for both gaming and creator tasks,” noting that it “greatly improves creator workloads” compared to the Ryzen 7 9800X3D.\nAMD’s best CPU tech for gamers is coming to workstations too\nAMD’s new Ryzen PRO 9000 CPUs include chips with 3D V-Cache, previously only seen in gaming CPUs.\nAMD’s new Ryzen PRO 9000 CPUs include chips with 3D V-Cache, previously only seen in gaming CPUs.\nAccording to AMD, the 3D V-Cache tech will be useful for “complex, data-intensive workloads such as simulation, rendering and real-time visualization.”\nThe expanded Ryzen PRO 9000 series, built on AMD’s Zen 5 architecture, includes chips with 6 to 16 cores and 12 to 32 threads, along with support for up to 256GB of EEC DDR5 memory and support for PCIe 5.0. AMD says only “select” models include the 3D V-Cache. The new chips will start rolling out in the second half of 2026, including the Lenovo ThinkStation P4, which AMD says will launch in Q3 2026.",
+  "published_at": "2026-05-13T20:38:16Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-14T03:00:13.963191Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AMD",
+      "Chips",
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

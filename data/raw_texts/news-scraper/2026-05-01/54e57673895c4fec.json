@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/23/homebuilders-report-higher-material-costs-amid-higher-fuel-prices.html",
+  "title": "Homebuilders report higher material costs amid higher fuel prices",
+  "raw_text": "CNBC's Diana Olick reports on the Iran war's impact on homebuilder stocks.",
+  "published_at": "2026-04-23T17:47:26Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.452005Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

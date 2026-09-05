@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/06/04/home-sellers-pull-homes-off-market-at-fastest-pace-since-2020.html",
+  "title": "Home sellers pull homes off market at fastest pace since 2020",
+  "raw_text": "CNBC's Diana Olick reports on news regarding the housing market.",
+  "published_at": "2026-06-04T15:55:17Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.672948Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

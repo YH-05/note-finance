@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/amid-launch-bottleneck-amazon-has-hundreds-of-satellites-waiting-to-fly/",
+  "title": "Among the large new rockets Amazon was counting on, only Europe has delivered",
+  "raw_text": "Amazon now has hundreds of flight-ready satellites standing idle in Florida, waiting to join the company’s low-Earth orbit Internet constellation, an Amazon official said Tuesday.\n“They’re built, and sitting in a payload processing facility waiting for trips to orbit,” said Steve Metayer, vice president of Amazon Leo Production Operations, during a teleconference with reporters. “And we’re currently manufacturing several satellites a day.”\nMetayer spoke on the eve of the company’s next mission, during which an Ariane 64 rocket will launch three dozen Amazon Leo satellites into orbit from a spaceport in French Guiana. Liftoff is targeted for 7:53 am ET (11:53 UTC) on Wednesday.\nArianespace steps up\nFrance-based Arianespace has emerged as a critical partner for Amazon, which, to date, has had the majority of its 331 satellites launched on Atlas V rockets. However, Amazon has just one more mission booked on this rocket, which is operated by United Launch Alliance, as the vehicle is slated for retirement.\nTo launch the majority of its Leo constellation, Amazon booked rides on three large, new rockets four years ago: 18 launches on the Ariane 6 rocket, 12 launches on Blue Origin’s New Glenn rocket, with options for 15 additional launches; and 38 launches of the United Launch Alliance’s Vulcan rocket.\nBut of these new rockets, only Arianespace has delivered so far, with two launches completed this year, another on Wednesday, and more to come. Neither New Glenn (also owned by Amazon founder Jeff Bezos) nor Vulcan has launched Amazon satellites yet.\n“As for Arianespace, they have definitely stepped up,” Metayer said. “They’re very reliable on their manifest dates, and they’re very reliable and safe on their insertions into orbit. So we definitely would continue to look forward to the next 16 launches with them on our existing contract, and we see them being a player long-term beyond that.”",
+  "published_at": "2026-06-16T21:14:08Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-06-17T03:00:31.721337Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "Amazon",
+      "Internet",
+      "leo",
+      "satellite",
+      "space"
+    ]
+  }
+}

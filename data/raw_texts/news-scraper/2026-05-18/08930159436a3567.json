@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/honda-shows-off-new-hybrids-for-america-as-it-absorbs-9-billion-ev-loss/",
+  "title": "Honda shows off new hybrids for America as it absorbs $9 billion EV loss",
+  "raw_text": "After US government policies wrecked the country’s electric vehicle market, automakers have been scrambling to adapt. The loss of federal clean vehicle tax incentives and funding for charging infrastructure, combined with capricious tariffs, has resulted in a 28 percent drop in EV sales for the first three months of the year.\nThat’s a far cry from just a few years ago, when optimism abounded and a strong commitment to an EV-heavy portfolio translated into a higher share price. As those commitments are abandoned, there’s a financial price to pay, including more than $9 billion of write-downs for Honda, which made its first operating loss in the company’s history.\nHonda’s first move was to cancel a trio of EVs it planned to build in Ohio, along with another pair of EVs planned as part of a joint venture with Sony. Yesterday, in Tokyo, Honda CEO Toshihiro Mibe held a press conference to announce the automaker’s plan to rebuild its business in the wake of these changes.\nLike General Motors before it, Honda says it needs more hybrids moving forward; this technology, importantly, requires far fewer expensive battery minerals and materials than a battery EV.\n“Honda will reallocate more development and production resources into hybrid models to accelerate the market launch ahead of the original schedule and increase the number of compelling products,” said Mibe. “We have made steady progress in the development of hybrid vehicle technologies, where Honda has strengths, based on our belief that hybrid models will continue to be the key to addressing environmental challenges.”",
+  "published_at": "2026-05-15T15:56:33Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-18T03:00:30.994809Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "EV adoption",
+      "honda"
+    ]
+  }
+}

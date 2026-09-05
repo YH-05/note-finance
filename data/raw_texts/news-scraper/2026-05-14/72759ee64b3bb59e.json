@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141639",
+  "title": "ダウ平均は反発して始まる　３７２ドル高　ナスダックも上昇＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は反発して始まる ３７２ドル高 ナスダックも上昇＝米国株オープン\nダウ平均 50065.52（+372.32 +0.75%）\nナスダック 26468.12（+65.78 +0.25%）\nCME日経平均先物 62880（大証終比：+160 +0.25%）\n株探ニュース",
+  "published_at": "2026-05-14T13:33:00Z",
+  "author": null,
+  "collected_at": "2026-05-14T15:00:21.628514Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

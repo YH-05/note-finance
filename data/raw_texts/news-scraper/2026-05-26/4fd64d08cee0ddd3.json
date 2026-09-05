@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/porsches-cayenne-coupe-electric-brings-formula-e-tech-to-the-autobahn/",
+  "title": "Driving Porsche's most powerful car—and no, it's not a 911",
+  "raw_text": "MUNICH, GERMANY—Think about every fast Porsche you’ve ever seen on the road—the ones with big wings, bold colors, and wide wheels. Now get ready for an uncomfortable fact: None of them had more horsepower than the SUV you see pictured here. This is the new Cayenne Turbo Coupe, a fastback, dual-motor, upgraded version of Porsche’s electric SUV.\nIt makes a whopping 1,139 hp (850 kW) and 1,106 lb-ft of torque (1,500 Nm), enough to drive this 5,637 lb (2,557 kg) machine and its 113-kilowatt-hour battery pack from zero to 60 mph (97 km/h) in 2.4 seconds. That makes it not only Porsche’s most powerful production car ever but also among its quickest, bested only by the Taycan Turbo GT.\nBut unlike that pared-down, performance-oriented take on Porsche’s sultry electric sedan, the Cayenne Coupe is meant to be an everyday hauler for friends, family, and whatever else you can fit underneath its hatch. Does it succeed? That’s what I went to Munich to find out.\nFormula E-inspired\nManufacturers love trumpeting any track-bred technology that finds its way to the street. With SUVs, such comparisons are generally strained at best, but in its fastest Turbo form, the Cayenne Electric has a legitimate link to Porsche’s efforts in Formula E.\nPorsche has been a competitor on the world’s biggest stage for emissions-free motorsport since 2019, winning multiple championships. Much of Formula E has historically been spec-based, meaning manufacturers can’t modify things like chassis or bodywork. They can, however, develop their own motors.\nFor its Formula E racer, Porsche found a way to insert a cooling system between the stator and the rotor, enabling greater and more consistent power output without running temperatures into the red. That same design is now used on the rear motor of the electric Cayenne’s top-shelf Turbo model.",
+  "published_at": "2026-05-26T12:00:11Z",
+  "author": "Tim Stevens",
+  "collected_at": "2026-05-26T15:00:31.445809Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "car review",
+      "First drive",
+      "Porsche Cayenne",
+      "Porsche Cayenne Coupe electric"
+    ]
+  }
+}

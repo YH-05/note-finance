@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/gold-prices-pare-losses-after-us-inflation-data.html",
+  "title": "Gold prices pare losses after U.S. inflation data",
+  "raw_text": "Gold trimmed losses on Thursday following the release of U.S. April inflation data, but prices were still down for a third straight session as skepticism over a U.S.–Iran deal clouded the interest rate outlook.\nSpot gold was down 0.6% at $4,428.69 an ounce, after falling to its lowest level since late March earlier in the session. U.S. gold futures fell 0.5% to $4,426.20.\nData showed that the U.S. personal consumption expenditures price index jumped 3.8% in the 12 months through April, in line with expectations. The PCE price index rose 0.4% month-on-month in April after shooting up 0.7% in March.\nThe data gave gold a slight reprieve, suggesting the Federal Reserve may opt to hold interest rates where they are rather than pursue a tighter policy, said Bart Melek, global head of commodity strategy at TD Securities.\nGold could still trend significantly lower from here because even if the war stops now, energy prices could remain higher, he added.\nMinutes of the Fed's April 28-29 meeting published last week showed a growing number of officials open to the possibility that they may need to raise rates.\nDespite its safe-haven appeal, bullion underperforms when interest rates rise, as investors gravitate toward yield-bearing assets.\n\"The problem for gold is that geopolitical instability is no longer operating in isolation. Higher energy prices are once again feeding into inflation concerns, pushing Treasury yields modestly higher and strengthening the dollar at the same time,\" said Fawad Razaqzada, market analyst at City Index.\nIn geopolitics, Iran targeted a U.S. air base after the United States struck what Washington described as an Iranian drone operation near the Strait of Hormuz and President Donald Trump rejected a reported compromise deal with Tehran.\nSpot silver fell 1.2% to $73.69 per ounce and platinum lost 1.6% to $1,887.75. Palladium slipped 3.1% to $1,347.31.",
+  "published_at": "2026-05-28T14:51:16Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.490791Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

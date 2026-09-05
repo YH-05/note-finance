@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/speed-boosting-low-latency-profile-is-one-of-the-improvements-coming-to-windows-11/",
+  "title": "Microsoft will lean on your CPU to speed up Windows 11's apps and animations",
+  "raw_text": "Microsoft has heard your complaints about Windows 11, and it wants to make things better. That has been the messaging out of Microsoft for most of this year, and the company is also going out of its way to make sure that people know what is being improved and how.\nOne of the goals on Microsoft’s long list was to improve the performance of core Windows components like the Start menu and File Explorer. One of the strategies for making this happen is something Microsoft is calling the “low latency profile,” which will speed things up by calling on an extra burst of CPU speed when users open Start or other apps and context menus.\nWindows Central has tested the low latency profile available in test builds of Windows 11 and observed a noticeable increase in speed and responsiveness on the same hardware compared to the current public version of Windows 11 25H2.\nSome users on social media criticized Microsoft for boosting performance this way, under the impression that it could increase power usage and decrease battery life, and criticized Microsoft for leaning on hardware rather than optimizing its software. Microsoft and GitHub VP Scott Hanselman responded to these complaints, asserting that the low latency profile is being added alongside other software optimizations and that “everything is a conspiracy when you don’t know how anything works.”\n“All modern operating systems do this, including macOS and Linux,” Hanselman wrote of the CPU boosting behavior. “It’s not ‘cheating’; this is how modern systems make apps feel fast: they temporarily boost the CPU speed and prioritize interactive tasks to reduce latency.”\nParadoxically, letting your CPU or GPU use a lot of power in short bursts can save energy, relative to running at a lower power level for more time. This is called the “race to sleep,” and basically all modern processors are designed to behave this way; as long as the CPU can return to a lower power state quickly after finishing its work, it improves system responsiveness and saving power.",
+  "published_at": "2026-05-12T17:49:21Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-12T21:00:31.171193Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "windows 11",
+      "windows 11 25h2"
+    ]
+  }
+}

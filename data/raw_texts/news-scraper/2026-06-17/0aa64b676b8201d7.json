@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/spacex-options-debut-with-tails-looking-dangerous-strategist-says.html",
+  "title": "SpaceX options debut signals 'expensive' and 'dangerous' bets, strategist says",
+  "raw_text": "SpaceX options on their first day of trading showed about a 15% chance for the stock to rise by 50% and a similar possibility that it loses half its value in the next three months, according to Susquehanna.\nThe stock saw the fifth-highest call volume of the day, Susquehanna strategist Chris Murphy wrote in a note Tuesday.\n\"The largest trades increasingly looked like hedges tied to future supply risk,\" Murphy wrote. \"Upside calls reflect demand for another sharp move higher, while downside puts reflect concern around lock-up supply, valuation risk, and the possibility that the initial post-listing enthusiasm fades. The result is a difficult trading setup. The tails look too expensive to buy, but they also look too dangerous to sell.\"\nSpaceX's stock rose for another day after its initial public offering on Friday — it's up about 50% from its IPO price — and its market cap has surpassed Amazon and is close to Microsoft's valuation. The options reflect a vigorous debate about whether the company can live up to the initial enthusiasm.\nCurrent pricing implies about a 15% probability that SpaceX rises another 50% by September, while also implying roughly a 13% chance the stock falls 50%, Murphy wrote.\nInvestors are \"trading the story, they're trading the action, they're trading the excitement, they're trading Elon Musk, but at some point the rubber meets the road in terms of the fundamentals having to match up with that excitement,\" Peter Boockvar, chief investment officer at One Point BFG Wealth Partners, said on CNBC's \"Squawk Box Asia.\"\n\"If they can deliver, then the upside is certainly there, but the valuation is so enormous that the company is going to really have to show itself in growing into that valuation,\" he added. \"I think that that's going to take at least a couple of years.\"",
+  "published_at": "2026-06-17T01:53:57Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.487609Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

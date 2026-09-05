@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/28/april-new-home-sales-miss-estimates-down-11-percent-year-over-year.html",
+  "title": "April new home sales miss estimates down 11% year-over-year",
+  "raw_text": "CNBC's Diana Olick reports on latest housing data.",
+  "published_at": "2026-05-28T14:09:39Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.654164Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
+  "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
+  "raw_text": "After landing agreements with Google, SpaceX, and OpenAI, the U.S. Defense Department said on Friday that it has signed deals with Nvidia, Microsoft, Amazon Web Services, and Reflection AI that allow it to deploy their AI tech and models on its classified networks for “lawful operational use.”\n“These agreements accelerate the transformation toward establishing the United States military as an AI-first fighting force and will strengthen our warfighters’ ability to maintain decision superiority across all domains of warfare,” the statement reads.\nThe deals come as the U.S. Department of Defense has accelerated its diversification of AI vendors in the wake of its controversial dispute with Anthropic over usage terms of its AI models. The Pentagon wanted unrestricted use of Anthropic’s AI tools, but the AI lab insisted on guardrails to prevent Anthropic’s tech from being used for domestic mass surveillance and autonomous weapons.\nThe two are fighting it out in court at the moment, though Anthropic in March won an injunction against the Pentagon’s move to brand the company a “supply-chain risk.”\n“The Department will continue to build an architecture that prevents AI vendor lock-in and ensures long-term flexibility for the Joint Force,” the statement reads. “Access to a diverse suite of AI capabilities from across the resilient American technology stack will give warfighters the tools they need to act with confidence and safeguard the nation against any threat.”\nThe DOD said the companies’ AI hardware and models will be deployed on Impact Level 6 (IL6) and Impact Level 7 (IL7) environments to “streamline data synthesis, elevate situational understanding, and augment warfighter decision-making.” IL6 and IL7 are high-level security classifications for data and information systems that are deemed critical to national security and require that these systems be protected physically, through strict access controls and audits.\nThe Pentagon said more than 1.3 million DOD personnel have so far used its secure enterprise platform for generative AI, GenAI.mil, which provides access to large language models (LLMs) and other AI tools within government-approved cloud environments. It is designed to help primarily with non-classified tasks like research, document drafting, and data analysis.",
+  "published_at": "2026-05-01T16:02:36Z",
+  "author": "Ram Iyer",
+  "collected_at": "2026-05-04T03:00:27.387246Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Government & Policy",
+      "AWS",
+      "Defense Department",
+      "Google",
+      "Microsoft",
+      "nvidia",
+      "OpenAI",
+      "SpaceX"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/warren-spacex-ipo-exchanges.html",
+  "title": "Warren questions SpaceX IPO oversight in new letter to stock indexes",
+  "raw_text": "Sen. Elizabeth Warren, D-Mass., is raising concerns about whether recent rule changes at stock indexes cleared the way for SpaceX — and potentially OpenAI and Anthropic — to be included in indexes without some of the typical safeguards for investors.\nThe letter to the heads of the Nasdaq, S&P Dow Jones Indices, FTSE Russell and Morningstar Indexes sent on Thursday asked the companies whether they had made or considered rule changes based on lobbying from Elon Musk, other SpaceX officials or officials from OpenAI or Anthropic, and asked for any communications between the companies and the indexes. CNBC is first to report the letter.\nWarren also detailed changes, or proposed changes the indexes had considered, including fast-tracking newly listed stocks into top indexes.\n\"The changes to your index rules to accommodate these large companies, however, have the potential to destabilize markets and create significant risks for American investors, especially retirees and other individuals that rely on index funds for their savings.\"\nSpaceX is set to begin trading on Friday and is poised to be one of the largest public offerings in history, with the company valued around $1.8 trillion. OpenAI and Anthropic also confidentially filed for IPOs as well.\nSpokespersons for the four companies didn't immediately respond to requests for comment.\nEarlier this week, Warren called on the SEC to delay the SpaceX offering over concerns the agency had not done due diligence in protecting investors and market integrity.",
+  "published_at": "2026-06-11T22:26:44Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.758592Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

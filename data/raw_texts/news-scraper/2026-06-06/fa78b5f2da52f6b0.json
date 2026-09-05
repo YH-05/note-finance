@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=48420827",
+  "title": "Ask HN: Why is the HN crowd so anti-AI?",
+  "raw_text": "Genuine question.\nOver the past six months, there hasn’t been a single day where I’ve checked the HN Best RSS feed without seeing a post about how AI “writes bad code,” “introduces bugs,” “creates technical debt,” or something along those lines.\nI’ll probably make a lot of enemies by saying this, but do people realize that code is just a means to an end?\nUsers don’t care whether the code was written by AI or by hand, or which framework you used. They care that the product works.\nI say this as someone who has spent more than 20 years honing their craft as a software engineer.\nLet’s face it: by the time I manually ship version 1.0 of a product, the AI-assisted version could have been deployed 10x faster. By then, enough real-world feedback would have surfaced to identify the major issues, and tools like Claude Code would make it possible to fix and ship version 2.0 at an incredible pace.\nAt some point, execution speed starts to matter more than the elegance of the code.",
+  "published_at": "2026-06-06T02:31:51Z",
+  "author": "Ekami",
+  "collected_at": "2026-06-06T09:00:48.153805Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

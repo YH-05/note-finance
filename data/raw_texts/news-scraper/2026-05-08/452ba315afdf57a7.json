@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/the-hottest-etf-since-bitcoin-mania-just-added-1-billion-in-a-day.html",
+  "title": "The hottest ETF since bitcoin-mania just added $1 billion in a day",
+  "raw_text": "The fastest-growing ETF in years is the latest AI play to go skyward – in more ways than one.\nRoundhill Investment's Memory ETF (DRAM) tracking the red-hot memory sector has raised more than $5 billion since its April 2 launch, including $1.1 billion on Thursday alone. It started out of the gates red hot, garnering $1 billion its first 10 days of trading, a milestone that trails only the big bitcoin ETFs rollout three years go and the debuts of iShare's popular 'LQD' bond fund, the staple GLD gold ETF from SPDR, and JP Morgan's BBCA Canadian equity fund, according to Goldman.\n\"Memory has been identified as the clear AI bottleneck and there's a shortage of these chips that's going to last not for a quarter but multiple years,\" Roundhill CEO Dave Mazza said on the phone.\nDRAM's seen inflows every single day since launch, a 23-session streak that's happening alongside a 70% rally in the price of the ETF as top holdings like Micron and Sandisk set records on a daily basis.\nOptions traders eager for new ways to trade the AI boom are storming into Cboe-listed DRAM, with over 90,000 contracts traded Thursday and almost twice as many calls bought than puts. The fund is already in the top 40 of all U.S.-listed ETFs by options volume.\nAnother reason for the fund's popularity: it includes Korea's star chip stocks SK Hynix and Samsung Electronics.\n\"These are two of the biggest memory companies and they're essentially inaccessible for U.S. investors,\" said Mazza. \"If you buy a South Korea ETF, you're gonna get other stuff you don't want. And if you buy a semiconductor ETF, the weight of companies like Micron is too small.\"",
+  "published_at": "2026-05-08T14:41:36Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:18:05.920601Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

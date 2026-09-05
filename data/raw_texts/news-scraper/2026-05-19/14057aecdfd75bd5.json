@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/1000-year-old-burial-reveals-close-bonds-between-people-and-dingoes/",
+  "title": "Australian Aboriginals cared for a dingo's grave for decades",
+  "raw_text": "A thousand years ago, the ancestors of today’s Barkindji people carefully buried a dingo (or garli, in the Barkindji language) in a mound of shells.\nArchaeologists recently studied the burial in what’s now New South Wales, Australia. They found that the Barkindji ancestors had buried the dingo with the same care and ceremony as any beloved human member of the community and looked after the grave for centuries. The burial reveals that dingoes were, as Australian Museum and University of Sydney archaeologist and study co-author Amy Way puts it, “deeply valued and loved” by ancient people in Australia.\nThe long-lost dingo\nFive years ago, Barkindji Elder Uncle Badger Bates and National Parks and Wildlife Service archaeologist Dan Witter saw bones eroding out of a road cut in Kinchega National Park, an area along the Baaka, or Darling River, in New South Wales, Australia. Badger recognized the bones as a dingo, lying on its left side in what was once a carefully built mound of river mussel shells.\nAt the urging of the Menindee Aboriginal Elders Council, which worried that erosion would end up destroying the dingo bones and any information about the past they contained, a team of archaeologists, working alongside Barkindji elders, excavated and studied the skeleton. The bones turned out to belong to an elderly male dingo, with worn teeth and possible signs of arthritis. Broken and healed bones suggested that he’d lived a tough, active life but also been cared for by people.\nAnd the layers of shells around him revealed that generations of Barkindji had tended his grave and ritually “fed” him by adding shells to the mound for centuries after his death. This is definitely not the first dingo burial ever found in Australia, but it’s farther north and west than any other example. It reveals a far more profound and lasting relationship between ancient people and dingoes than outside researchers, at least, had previously fully realized.",
+  "published_at": "2026-05-18T18:37:55Z",
+  "author": "Kiona N. Smith",
+  "collected_at": "2026-05-19T03:00:30.804748Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "aboriginal australians",
+      "Archaeology",
+      "australia",
+      "dingo",
+      "science",
+      "zooarchaeology"
+    ]
+  }
+}

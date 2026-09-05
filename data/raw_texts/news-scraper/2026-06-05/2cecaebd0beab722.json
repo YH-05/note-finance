@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.bbc.com/news/live/c4g44ew3g1kt",
+  "title": "Astronauts told to return to ISS after sheltering over air leak repairs",
+  "raw_text": "Astronauts have been told to return to the International Space Station (ISS) after sheltering in their spacecraft while repair works were carried out on new air leaks in the Russian segment of the station.\nThe five crew members had been told to assume an \"elevated safety posture\" as two Russian cosmonauts attempted repairs on the Zvezda service module's transfer tunnel.\nNasa said the segment had suffered from cracks and leaks \"for some time\" - our science correspondent Pallab Ghosh reports this is not the first time the station has had to deal with such a problem.\nRussia's Interfax news outlet reported Roscosmos as saying two leaks were identified and one has already been fixed.\nIt added that the crew and the ISS onboard systems were also not in danger, according to reporting by Russia's Tass news agency.\nNasa spokeswoman Bethany Stevens said the structural repair works had been paused while measurements and data were being assessed, prompting the astronauts' being told to return to the station.\nWe are now ending our live coverage, but you can read the latest in our news story here.",
+  "published_at": "2026-06-05T15:00:31Z",
+  "author": "janpot",
+  "collected_at": "2026-06-05T21:00:41.650876Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

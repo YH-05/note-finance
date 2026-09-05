@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/05/googles-synthid-ai-watermarking-tech-is-being-adopted-by-openai-nvidia-and-more/",
+  "title": "Google's SynthID AI watermarking tech is being adopted by OpenAI, Nvidia, and more",
+  "raw_text": "In a few short years, we’ve gone from easily identifying AI content that featured superfluous fingers to images and videos that look shockingly realistic. How can we know what’s real in the age of AI? Google’s answer is SynthID, which it first demonstrated three years ago. The company says SynthID has since been used to label 100 billion images and videos, plus 60,000 years’ worth of audio. Those numbers are only going up now that SynthID is expanding beyond Google.\nSynthID is not Google’s only AI labeling strategy. It’s also committed to the C2PA standard, which tags content with metadata describing how it was created. Google began using C2PA more prominently with its Pixel 10 smartphones. Photos taken with the Pixel 10 include metadata describing how they were processed. If a highly zoomed image includes generative elements, it gets an AI tag, too.\nGoogle now says this same feature is coming to videos recorded on Pixel 8, 9, and 10 phones in an update in the coming weeks. It’s also adding C2PA scanning to Gemini, allowing the chatbot to explain a file’s providence based on the content labeling. This same capability will come to Chrome and Search in a few months.\nThat metadata is fungible, though. On the other hand, SynthID is deeply integrated with AI-generated content. The digital watermark is present in the pixels of images and videos and in the waveform of AI songs and audio overviews from products like NotebookLM. According to Google DeepMind scientist Pushmeet Kohli, the team worked hard to ensure SynthID is much harder to remove, even if you compress it, crop it, or rotate it.\n“A technology like this will always be attacked,” said Kohli. “There was a lot of research that we did in making SynthID robust to different kinds of transformations.”",
+  "published_at": "2026-05-19T18:37:02Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-19T21:00:34.798769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "gemini",
+      "google",
+      "openai",
+      "SynthID"
+    ]
+  }
+}

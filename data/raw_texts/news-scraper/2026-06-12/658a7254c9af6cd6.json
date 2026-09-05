@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/cheap-iranian-drone-downed-25-million-us-army-helicopter-maybe-by-chance/",
+  "title": "Cheap Iranian drone downed $25 million US Army helicopter—maybe by chance",
+  "raw_text": "A US Army helicopter gunship was apparently struck by an Iranian Shahed drone before going down near the Strait of Hormuz—but it’s unclear whether the one-way attack drone was deliberately aimed or achieved more of a lucky accidental strike.\nAxios correspondent Barak Ravid first reported an unnamed US government official’s comments that an Iranian drone had hit the US Army AH-64 Apache helicopter before the latter went down on June 8. The New York Times later confirmed that reporting through more anonymous US officials, including one official who said US military investigators were still evaluating whether the Iranian drone strike on the helicopter was intentional or accidental.\nIran has fired thousands of such Shahed drones against a wide range of military and civilian targets in the Gulf region since February 28, 2026, when the United States and Israel began the war by jointly attacking Iran with a barrage of bombs and missiles. But Shahed drones have mainly struck stationary targets such as Amazon data centers and energy facilities, sometimes hitting slow-moving commercial ships in the Strait of Hormuz.\nThe basic models of Iranian Shahed drones rely on GPS satellite guidance and preprogrammed coordinates to strike stationary targets from long range and are not usually designed to track and strike moving targets, said Mark Cancian, a senior adviser with the Center for Strategic and International Studies, a think tank based in Washington, DC, in an interview with The New York Times. But he suggested that Iran may have received newer Russian-modified Shahed drones that can be remotely operated to strike targets in motion.",
+  "published_at": "2026-06-10T17:04:47Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-06-12T03:00:30.849714Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "apache helicopter",
+      "Close encounters of the unwanted kind",
+      "donald trump iran war",
+      "drones",
+      "Iran",
+      "military drones",
+      "US Military",
+      "USA-Iran War"
+    ]
+  }
+}

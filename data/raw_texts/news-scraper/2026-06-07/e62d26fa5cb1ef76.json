@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/nvidia-ceo-jensen-huang-warren-senate-hearing-china-ai-chips.html",
+  "title": "Warren invites Nvidia CEO Jensen Huang to Senate hearing on China AI chip sales",
+  "raw_text": "Nvidia CEO Jensen Huang is being invited to testify before the Senate Banking Committee on June 11 as Sen. Elizabeth Warren, D-Mass., sharpens her focus on the chipmaker's China sales, export controls and role at the center of the global AI boom.\n\"Appearing as a witness will give you an opportunity to testify about NVIDIA's views on U.S. export control laws and regulations and NVIDIA's business in China,\" Warren wrote in a letter sent Thursday and first obtained by CNBC. She asked Huang to confirm his attendance by Monday.\nNvidia's chips power many of the data centers behind advanced AI models, making the company one of the biggest winners of the artificial intelligence surge. But that dominance has also drawn growing attention from lawmakers and national security officials who warn advanced U.S. chips could be used by China to strengthen its military and surveillance capabilities.\nThe Biden and Trump administrations have both moved to restrict China's access to advanced AI chips, while Nvidia has argued that overly broad limits could damage U.S. competitiveness and push customers toward foreign alternatives.\nThe Senate push coincides with a move by Republicans on the House Energy and Commerce Committee who are separately calling for an investigation into what they say are China's efforts to impede U.S. AI and data-center development.\nWarren previewed her concerns Wednesday on CNBC's \"Squawk Box,\" saying she is worried U.S. companies are profiting from technology sales that could weaken U.S. security.\n\"The Chinese, in effect, buy our stuff, and American companies make a profit doing that,\" Warren said. \"But it certainly undermines our long-term security.\"\nShe said the concern is especially acute because the chips at issue are \"not just chips to help the AI industry in general.\"\n\"In China, these are chips that are actually used for military purposes,\" Warren said.\nThe hearing would give senators a rare chance to question Huang directly on Nvidia's China strategy and export-control posture, just weeks after he accompanied President Donald Trump to China for a high-stakes summit with Chinese President Xi Jinping.\nWarren has also sought to broaden the AI debate beyond China and national security.\nIn the same CNBC interview, she warned that AI could cause major disruption for workers and called for an excise tax on data centers to help pay for health care, child care, education and job training.\n\"We're talking about enormous disruption in ways that we can't anticipate,\" Warren said. \"Now is the moment to get ahead of that.\"\nNvidia did not immediately respond to a request for comment.",
+  "published_at": "2026-06-05T00:58:02Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.629895Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

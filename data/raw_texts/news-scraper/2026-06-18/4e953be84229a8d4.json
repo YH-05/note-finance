@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/951653/pew-research-ai-chatbot-usage-advancing-too-quickly",
+  "title": "Two-thirds of Americans think AI is advancing too quickly",
+  "raw_text": "According to the latest Pew Research poll, 49 percent of Americans report using chatbots at least occasionally, but 63 percent think the tech is advancing too quickly. Overall, use of AI chatbots has increased dramatically since 2024, when only 33 percent reported using them. Specifically, ChatGPT’s usage has doubled since 2023, with 44 percent of respondents saying they’ve used it. But opinions remain negative, with only 16 percent saying that AI will have a positive impact on society.\nTwo-thirds of Americans think AI is advancing too quickly\nThe latest study from Pew Research finds that more people are using chatbots, but they’re wary.\nThe latest study from Pew Research finds that more people are using chatbots, but they’re wary.\nInterestingly, it’s the younger generations who both report using AI more and who are inclined to have a more pessimistic view. 66 percent of Americans between the ages of 18 and 29 report using chatbots, but 48 percent of the same age group believe AI will have a negative impact, and just 14 percent believe it will have a positive one. Progressively older generations report using chatbots less, but also have a less negative opinion of it.\nWhile the youngest respondents were most likely to have used AI at all, it’s those in the age 30 to 49 bracket who use it most, with 34 percent saying they turn to chatbots once a day or more. This is potentially driven in part by the fact that roughly four in ten Americans reported using AI for work tasks. 30 percent of Americans think that AI makes them more productive, and 28 percent believe it helps them be more informed. Though, as we know, information served up by AI can be questionable (at best), and in Pew’s 2024 study, 66 percent of US adults said they were concerned about AI spreading inaccurate information.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Apple’s smart home camera service is starting to impress me\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- The Google / Xreal Aura XR glasses are now available to preorder\n- Snap is finally about to ship AR glasses — and they cost a fortune",
+  "published_at": "2026-06-17T17:20:24Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-18T03:00:16.379482Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News"
+    ]
+  }
+}

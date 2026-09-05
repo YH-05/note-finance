@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/entergy-ceo-pushes-back-fears-ai-data-centers-drive-up-electricity-bills.html",
+  "title": "Entergy CEO pushes back on fears that AI data centers will drive up electricity bills",
+  "raw_text": "Entergy CEO Drew Marsh said the rapid buildout of data centers doesn't have to be a burden for residential communities.\n\"Data centers really want to be good neighbors,\" Marsh said on CNBC's \"Mad Money\" on Tuesday. \"They have reputations that they want to protect, and they want to be part of the community.\"\nThe surge in AI-related power demand has sparked concerns among policymakers and homeowners that residential customers could end up footing the bill for data centers. Marsh said Entergy's approach is designed to avoid that outcome by requiring data center operators to cover the costs of serving their facilities while also contributing to expenses that would otherwise be shared across the utility's customer base.\nThe electric utility company — which serves customers across Louisiana, Arkansas, Mississippi and Texas — has adopted what it calls a \"Fair Share Plus\" framework for large data center customers.\n\"The Fair Share part says that they are going to pay all of the incremental infrastructure costs during the life of their contract as needed to support them,\" Marsh said.\nMarsh added that the framework goes beyond requiring data centers operators to simply pay for the infrastructure they use.\n\"The plus part is that they are also covering some of the fixed costs,\" Marsh said. \"That means overhead costs and storm costs that our existing customers would have already been paying.\"\nAt Entergy's investor day Tuesday, Marsh said those provisions are expected to generate roughly $7 billion in savings for existing customers over the 15 to 20-year life of the contracts.\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-06-09T22:49:27Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.353781Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

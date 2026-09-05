@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934432/samsung-electronics-strike-memory-chip-supply",
+  "title": "Samsung workers set to strike at worst possible time",
+  "raw_text": "More than 47,000 Samsung Electronics workers are gearing up for an 18-day strike after bonus payment negotiations between the company and its union collapsed. The strike is set to start on Thursday, and will be limited to Samsung’s domestic chipmaking plants, raising concerns around the already constrained production of memory chips amid the ongoing shortage.\nSamsung workers set to strike at worst possible time\nThe 18-day strike begins tomorrow as memory chip supplies are already feeling the squeeze.\nThe 18-day strike begins tomorrow as memory chip supplies are already feeling the squeeze.\nWhile the union had agreed to mediation proposed by South Korea’s National Labor Relations Commission (the details of which have not been made public), management at Samsung Electronics rejected the deal without explanation, Nikkei Asia reports.\nAs part of its demands, the Samsung union is seeking performance bonuses equivalent to 15 percent of the company’s operating profit, and the removal of a cap on bonuses of 50 percent of annual wages. The negotiations collapse comes during a time of record Samsung profits, having established itself as the world’s largest producer of memory chips.\nBoth Samsung and the workers union had been urged by South Korean government officials to reach an agreement in the days leading up to the strike, with Prime Minister Kim Min-seok having reportedly warned that the government may step in and prevent the strike from going ahead. South Korean law permits an “emergency adjustment” to be invoked when disputes may harm the economy or daily life. Samsung is South Korea’s largest company, responsible for about 23 percent of the country’s exports and 26 percent of its total market capitalization, according to CNBC.",
+  "published_at": "2026-05-20T08:49:01Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-20T09:00:17.449797Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Business",
+      "News",
+      "Samsung",
+      "Tech"
+    ]
+  }
+}

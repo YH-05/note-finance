@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.apple.com/apple-intelligence/",
+  "title": "Siri AI",
+  "raw_text": "Apple Intelligence and Siri\nIntroducing Siri AI.\nTruly helpful. Truly yours.\nNew Apple Intelligence features coming this fall.\nSiri AI coming in English later this year.\nIntroducing the next generation of Apple Intelligence and Siri. Truly helpful AI that’s centered around you and your needs. Integrated into your apps, grounded in your context, and private at every step. Coming later this year.",
+  "published_at": "2026-06-08T18:17:53Z",
+  "author": "0xedb",
+  "collected_at": "2026-06-09T03:00:56.065953Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

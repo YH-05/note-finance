@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/bmw-sends-off-the-6th-gen-m3-cs-with-a-manual-gearbox-rear-wheel-drive/",
+  "title": "BMW sends off the 6th-gen M3 CS with a manual gearbox, rear-wheel drive",
+  "raw_text": "The march of time, and what counts for progress in the automotive industry, has not been particularly kind to the driving enthusiast. Our vehicles have gotten bigger and heavier. Touch-sensitive panels and screens replaced buttons. Steering feel evaporated about a decade ago. And if you’re a fan of changing your own gears with a stick shift and three pedals, things have been looking bleak for a while now. Which makes BMW’s send-off for its current sixth-generation M3 so notable.\nBMW’s M division kept the six-speed manual alive for the G80 M3, but only the normal version. If you wanted the more powerful, much torquier M3 Competition or the track-focused M3 CS (Competition Sport), the only transmission choice was an eight-speed automatic. That automatic happens to be the excellent ZF 8HP gearbox, and for being fast on track, I’d still choose it, because that makes left-foot braking easier.\nUsing paddle shifts might be faster, but I won’t pretend it’s more engaging than coordinating the movement of a gearstick through its gate, timed properly to the action of the clutch—especially if you’re heel-and-toeing, but even if you use the auto-blip feature that revs the engines for you on downshifts now. BMW appears to recognize that too, because it says the 2027 M3 CS Handschalter is designed for maximum driver engagement, and just for North America.\nThe $107,100 M3 doesn’t use the more powerful engine from the M3 Competition, but the same 473 hp (353 kW) inline six-cylinder engine as the regular six-speed M3. But it’s a lighter car, to the tune of about 75 lbs (34 kg) thanks to things like a titanium exhaust muffler, carbon-fiber seats, carbon ceramic brakes, lighter wheels, and plenty of carbon-fiber reinforced plastic for body panels. And instead of the ZF 8HP, there’s a six-speed manual, which sends its power to the rear wheels and the rear wheels only: There’s no xDrive AWD here, unlike the M3 Competition.",
+  "published_at": "2026-05-18T14:33:34Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-19T03:00:30.806038Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "BMW M3 CS Handschalter"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/amd-promises-to-bring-improved-hardware-backed-fsr-4-upscaling-to-older-radeon-gpus/",
+  "title": "Over a year later, AMD is bringing improved FSR 4 upscaling to its older GPUs",
+  "raw_text": "When AMD announced version 4 of its FidelityFX Super Resolution (FSR) graphics upscaling technology early last year, it came with strings attached: The improved hardware-backed image quality would be available only on Radeon RX 9000-series GPUs based on the RDNA4 architecture, not on any older Radeon GPUs.\nTo date, AMD has released only a handful of 90-series graphics cards, including the RX 9070 XT, the RX 9070, the 8GB and 16GB versions of the RX 9060 XT, and an RX 9060 that’s only available to PC companies rather than end users. That list notably doesn’t include any integrated GPUs, such as those found in AMD-powered thin-and-light laptops or gaming handhelds like the Steam Deck and its imitators.\nOver a year later, AMD Computing and Graphics SVP Jack Huynh has announced that a version of FSR 4 is finally coming to older GPUs. The rollout will begin in July with RDNA3- and 3.5-based GPUs, which include the Radeon RX 7000 series, as well as integrated GPUs like the Radeon 890M and Radeon 8060S.\nIn “early 2027,” support will also be extended to the RDNA2 architecture, which includes the Radeon RX 6000 series, integrated GPUs like the Radeon 680M, and the Steam Deck’s GPU. This would also open the door to supporting FSR 4 on the PlayStation 5 and Xbox Series X and S, all of which also use RDNA2-based GPUs.\nPerformance may take a hit\nHuynh’s short video presentation didn’t get into performance comparisons, but did mention that AMD had to work to get FSR 4’s superior hardware-backed upscaling working on its older graphics architectures. RDNA4 includes AI accelerators that support the FP8 data format in the hardware, and porting FSR 4 to older GPUs meant getting it running on the integer-based INT8 hardware in the RDNA3 and RDNA2-based GPUs.",
+  "published_at": "2026-05-14T18:55:54Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-14T21:00:30.993735Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Tech",
+      "AMD",
+      "amd fsr",
+      "fsr 4",
+      "Radeon"
+    ]
+  }
+}

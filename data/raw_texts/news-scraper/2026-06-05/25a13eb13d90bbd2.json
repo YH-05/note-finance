@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606060073",
+  "title": "４月の米消費者信用残高、２０７億ドル増加　予想上回る",
+  "raw_text": "【経済】４月の米消費者信用残高、２０７億ドル増加 予想上回る\n先ほど発表の４月の米消費者信用残高は前月比２０７億ドル増加した。市場予想は１７７億ドル増だった。クレジットカードなどを含む回転信用残高が１１６億ドル増加。自動車ローンや学資ローンなどの非回転信用は９１億ドル増加した。\n株探ニュース",
+  "published_at": "2026-06-05T19:30:00Z",
+  "author": null,
+  "collected_at": "2026-06-05T21:00:21.909829Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

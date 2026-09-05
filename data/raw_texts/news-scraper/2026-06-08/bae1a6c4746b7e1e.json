@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20314-new-alliance-aims-to-expand-iot-coverage.html",
+  "title": "New alliance aims to expand IoT coverage",
+  "raw_text": "Telenor IoT, a leading global provider of IoT connectivity, and Sateliot, a low Earth orbit (LEO) satellite constellation based on the 5G standard, have announced a strategic partnership that they say represents a significant milestone in expanding global IoT coverage.\nIt will enable standard NB-IoT devices to transition seamlessly between terrestrial and satellite networks without proprietary hardware or custom integrations.\nAs the partners explain, outside populated areas, geographical coverage remains limited or non-existent in many parts of the world.\nHistorically, IoT devices operating in remote areas have needed special satellite-specific hardware, complex integrations or expensive proprietary solutions. Sateliot says its satellite solution promises to change that.\nSateliot’s technology is described as the first satellite network built to work seamlessly with the standard NB-IoT devices that companies also use on the ground. Because Sateliot’s LEO satellites follow the 3GPP Release 17 5G Non-Terrestrial Network (NTN) standard, devices can connect to satellites without any modifications, custom antennas, or special firmware – albeit the devices need to support this 3GPP release.\nThe partnership aims to enable global, resilient IoT solutions that combine terrestrial mobile coverage where it exists, and satellite connectivity everywhere else.\nThis could enable new use cases across a number of industries. In agriculture, for instance, this could involve tracking equipment monitoring soil and weather conditions on remote farmland (like the Philippines rice terrace shown above). In maritime it could enable connecting vessels, buoys and cargo at sea.\nFor transport and logistics it could enhance real-time tracking of assets across remote routes. For energy and utilities the applications could be monitoring pipelines, wind farms and power infrastructure.\nFinally, for environment and wildlife opportunities could arise supporting sensors and research stations in remote natural areas.\nSuccessful field tests in Spain have apparently shown that Telenor IoT SIM cards can stay connected to Sateliot’s satellite network for extended periods. The alliance says it will continue to expand with tests in several countries.\nAs the IoT Business News service points out, this is not a claim that existing NB-IoT devices in the field will automatically gain satellite reach. The practical opportunity is for device makers and enterprises planning new products around NB-IoT modules that support Release 17 NTN. For those designs, the satellite component can become part of a cellular IoT architecture rather than a separate hardware track.\nIt adds that the release announcing this development does not disclose commercial launch timing, service pricing, latency characteristics or supported device models, so suggests that the announcement should be read as an ecosystem and validation step rather than a fully specified service offer.",
+  "published_at": "2026-05-28T16:58:19Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-08T03:01:22.783025Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

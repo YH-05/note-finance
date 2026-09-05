@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/trump-sec-lets-musk-settle-150-million-twitter-lawsuit-for-1-5-million/",
+  "title": "Trump SEC lets Musk settle $150 million Twitter lawsuit for $1.5 million",
+  "raw_text": "The Trump administration is letting Elon Musk pay a $1.5 million fine to settle a lawsuit that originally sought at least $150 million. If approved by a federal court, the proposed settlement submitted yesterday would require a trust in Musk’s name to pay a $1.5 million civil penalty to the government.\nThe January 2025 lawsuit, filed in the last days of the Biden administration, relates to how Musk purchased a 9 percent stake in Twitter in 2022 and failed to disclose it within 10 days as required under US law. The Securities and Exchange Commission alleged that “Musk was able to continue purchasing shares at artificially low prices, allowing him to underpay by at least $150 million for shares he purchased after his beneficial ownership report was due.”\nTwitter’s stock price soared after Musk belatedly disclosed his stake, and he bought the company outright later in 2022. The Biden SEC’s January 2025 lawsuit demanded that Musk “pay disgorgement of his unjust enrichment as a result of his violation,” plus interest and a separate civil penalty. But the SEC had investigated the late disclosure and related matters for nearly three years before filing the lawsuit, leaving no time to litigate the case before the Trump administration took over.\nMusk was accused of violating Section 13(d), which is enforced under a “strict liability” standard. That means it doesn’t matter whether a rule violation was intentional or inadvertent and may explain why the Trump SEC didn’t drop the case against Musk entirely.\nThe Biden SEC filed the case in US District Court for the District of Columbia. Musk unsuccessfully tried to get it moved to a Texas court, and then lost an attempt to have the lawsuit dismissed.\nMusk lawyer touts deal with SEC\nThe SEC’s original lawsuit was filed against Musk alone. But the Trump administration amended it this week to include the “Elon Musk Revocable Trust” as a defendant and imposed the settlement requirements on the trust instead of Musk.",
+  "published_at": "2026-05-05T17:07:32Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-06T03:00:31.373735Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Elon Musk",
+      "SEC"
+    ]
+  }
+}

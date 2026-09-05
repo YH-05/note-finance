@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/04/30/chatgpt-images-2-0-is-a-hit-in-india-but-not-a-big-winner-elsewhere-yet/",
+  "title": "ChatGPT Images 2.0 is a hit in India, but not a big winner elsewhere, yet",
+  "raw_text": "India has emerged as the largest user base for ChatGPT Images 2.0 since its launch last week, OpenAI said on Thursday. However, third-party data reviewed by TechCrunch points to a more measured global response, with limited overall growth alongside sharp spikes in select emerging markets.\nChatGPT Images 2.0, OpenAI’s latest image-generation upgrade, is designed to handle more complex prompts and produce detailed visuals, including accurate text across multiple languages. Early patterns from the company suggest users — especially in India, its largest market — are using it to create personal visuals such as avatars, stylized portraits, and fantasy-themed images.\nData shared by Sensor Tower and Similarweb with TechCrunch suggests the rollout has led to a more mixed global response. ChatGPT’s app downloads rose 11% week-over-week following the launch, per Sensor Tower, but overall engagement gains were modest, with daily active users and sessions up only around 1%. Similarweb data also shows a limited increase in ChatGPT’s global web traffic, rising about 1.6% week-over-week during the same period.\nHowever, Sensor Tower data indicates some emerging markets — including Pakistan, Vietnam, and Indonesia — saw sharper spikes in ChatGPT’s app downloads, with increases of up to 79% week-over-week during the rollout period.\nIndia, meanwhile, remained a major source of activity during the rollout. Sensor Tower estimates show ChatGPT was downloaded about 5 million times in India during the launch week, compared with roughly 2 million in the U.S., though growth remained modest on a week-over-week basis. Similarweb data also points to a limited uptick in engagement, with daily active users in India rising about 3.4% week-over-week during the same period.\nIn India, the early trends suggest ChatGPT Images 2.0 is largely being used as a form of self-expression. Rather than purely functional outputs, users are creating studio-style portraits from everyday photos, social media-ready images, and imaginative visuals that place themselves at the center, OpenAI said.\nThe early patterns also highlight how AI image tools are being adopted differently across markets. While India’s large user base is driving overall scale, sharper spikes in countries like Pakistan and Indonesia point to stronger new-user demand in emerging markets following the launch.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nOpenAI’s Images 2.0 launch comes amid intensifying competition in AI image generation. Google’s earlier image-focused model, the original Nano Banana, also saw strong early traction in India, indicating how the nation has become an important market for image generation.\nWith the new ChatGPT Images release, OpenAI is pushing further with improvements such as better rendering of non-Latin text, including Hindi and Bengali, and new “thinking” capabilities that allow it to refine outputs and generate multiple variations from a single prompt.\nBeyond stylized portraits and avatars, OpenAI said early Images 2.0 users in India are experimenting with a wider range of formats — from fantasy newspaper covers to tarot-style visuals and fashion moodboards. Users are also using the AI tool to restore older photos and create cinematic portrait collages, the company said, suggesting early patterns of more personal use.",
+  "published_at": "2026-05-01T02:00:00Z",
+  "author": "Jagmeet Singh",
+  "collected_at": "2026-05-03T03:00:27.272046Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "ChatGPT",
+      "ChatGPT Images",
+      "ChatGPT Images 2.0",
+      "OpenAI"
+    ]
+  }
+}

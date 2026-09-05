@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/14/israel-says-military-attacks-hezbollah-targets-in-southern-beirut.html",
+  "title": "Israel says its military attacked Hezbollah targets in Beirut's southern suburbs",
+  "raw_text": "Israel said its military attacked Hezbollah targets in Beirut's southern suburbs on Sunday after the Lebanese armed group fired into Israeli territory.\nThe Israeli military said earlier that Hezbollah had launched three projectiles towards communities in northern Israel, calling it a blatant ceasefire violation.\n\"The IDF has now attacked terrorist targets of the Hezbollah terrorist organization in the Dahiyeh neighborhood of Beirut, in response to Hezbollah's firing into Israeli territory,\" a joint statement by Prime Minister Benjamin Netanyahu and Defense Minister Israel Katz said.\nThere was no immediate comment from Hezbollah on the Israeli statement, but the group said it launched missiles and drones towards Israeli troops in southern Lebanon.\nLast week, an Israeli strike on Dahiyeh triggered an exchange of fire between Israel and Iran that threatened to derail a U.S.-Iran deal that would end the wider war.\nWashington and Tehran appear to be getting closer to a deal to end the more than three-month-long conflict, with U.S. and Pakistani leaders forecast a signing on Sunday.\nIran has long made the cessation of fighting in Lebanon a condition for any wider agreement with the United States.\nLebanese security sources said the attack on Dahiyeh appeared to be a targeted strike with two missiles.",
+  "published_at": "2026-06-14T12:11:12Z",
+  "author": null,
+  "collected_at": "2026-06-14T15:20:33.836657Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

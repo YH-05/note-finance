@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20358-telecom-namibias-fibre-push-continues-with-lightstruck-partnership.html",
+  "title": "Telecom Namibia's fibre push continues with Lightstruck partnership",
+  "raw_text": "Telecom Namibia has signed its second open-access fibre deal in the past week – this one with fibre infrastructure provider Lightstruck – as part of its ongoing plan to accelerate its fibre broadband business and replace its fixed copper network.\nUnder the partnership deal announced Monday, Telecom Namibia will lease Lightstruck’s open-access fibre network to deliver high-speed internet services to residential and business customers.\nThe partnership follows a fully managed, opex-based model, where services will be provisioned and managed through Lightstruck’s service portal. Telecom Namibia said this will streamline operations and enhance the customer experience while also enabling the telco to extend its service footprint.\n“Through this collaboration, we are embracing infrastructure sharing as a strategic approach to avoid duplication of efforts, fast-track network deployment, and improve overall efficiency in the sector,” said Telecom Namibia CEO Dr Stanley Shanapinda in a statement. “We are confident that this partnership will significantly strengthen our ability to provide reliable broadband solutions and contribute meaningfully to Namibia’s digital transformation.”\nIt’s the second such fibre leasing deal signed by Telecom Namibia in the past week. Last Thursday, the telco announced it will lease Demshi’s network to provide fibre broadband services, with Demshi being responsible for network deployment, maintenance, and installation of passive fibre infrastructure.\nBoth deals have been pitched as part of Telecom Namibia’s 2025/26 annual operating plan, which aims to accelerate fibre rollout and digital transformation. The telco also said the Lighstruck and Demshi partnerships will help replace its fixed copper network, which has been plagued by copper theft and vandalism, resulting in frequent service disruptions.\n“At a time when copper theft remains a daily occurrence and continues to disrupt services, the transition to fibre strengthens the resilience and reliability of our network infrastructure,” Shanapinda said.\nTelecom Namibia has been under fire amid customer complaints of service interruptions and slower network performance in certain areas. Apart from copper theft, the telco has blamed its poor network performance on aging infrastructure, hardware failures on critical network systems and instability on certain international connectivity routes.\nIn May, Telecom Namibia kicked off an extensive network modernisation programme that includes implementing a converged FMC core, developing a next-generation OSS/BSS platform, upgrading backup power systems, and deploying advanced firewalls to safeguard customer data.\nTelecom Namibia said it will complete key phases of its network modernisation programme by June 2027.",
+  "published_at": "2026-06-09T06:17:47Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-13T03:01:24.967575Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

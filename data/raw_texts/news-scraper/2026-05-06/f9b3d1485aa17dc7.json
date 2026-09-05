@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924976/blink-video-doorbell-2k-wired-battery-price-specs-release-date",
+  "title": "Blink bumps its budget buzzer to 2K",
+  "raw_text": "Amazon-owned Blink has two new video doorbells, the Blink Wired Doorbell 2K+ and the Blink Battery Doorbell 2K+. The wired doorbell is listed at $49.99 on Amazon, but a blog post from the company says it starts at $39.99. The Battery option is $69.99 if you already have a sync module, or $79.99 bundled with the required hub.\nBlink bumps its budget buzzer to 2K\nThe company has announced two new doorbell cameras with higher video resolution, including its first wired-only model for under $50.\nThe company has announced two new doorbell cameras with higher video resolution, including its first wired-only model for under $50.\nThe doorbell cameras join Blink’s 2K camera lineup announced last fall, and also work with Blink’s smart video descriptions, which send alerts with text summaries of events the camera captures, such as “person playing basketball in the driveway.” They’re available for preorder now and will ship on May 20th.\nThe wired version is Blink’s first wired-only buzzer and its first not to require a Blink Sync Module (although it can work with one). Previous Blink doorbells relied on the small hub, and could be wired or run on lithium AA batteries — as the new 2K battery doorbell does. Removing the batteries allows for a smaller form factor, but also means you don’t have a backup if the power goes out.\nWired doorbells are generally less expensive, and at $50, the Blink is now one of the cheapest 2K-capable buzzers you can buy. Wyze’s 2K wired doorbell is $60, and Blink’s sister brand Ring’s wired 2K doorbell camera is $79.99.\nThe AI-powered video descriptions are cloud-based and require one of Blink’s new AI tiers. There’s the Basic AI subscription for $6.99 a month / $69.99 a year for one device (with a deal for the first year of $49.99); if you have multiple Blink devices, there’s the Plus AI sub, which covers all your cameras for $19.99 a month / $199.99 a year (currently $149.99 for the first year).\nIf you don’t want the AI descriptions, Blink still offers its standard plans starting at $3.99 a month or $39.99 a year per camera, which include 60 days of video cloud storage and on-device person alerts. Without a subscription, you will just get a live view, two-way audio, and motion alerts.\nThe doorbell cameras also have the option of recording locally to an SD card using the Sync Module XR or to a USB stick using the Sync Module 2.",
+  "published_at": "2026-05-06T14:00:00Z",
+  "author": "Jennifer Pattison Tuohy",
+  "collected_at": "2026-05-06T15:00:16.593374Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Cameras",
+      "Gadgets",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

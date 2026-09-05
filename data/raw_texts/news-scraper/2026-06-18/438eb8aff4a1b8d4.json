@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.acma.gov.au/sms-sender-id-register",
+  "title": "The Australian Government to Require SMS/MMS Sender ID Registraion",
+  "raw_text": "<p>Article URL: <a href=\"https://www.acma.gov.au/sms-sender-id-register\">https://www.acma.gov.au/sms-sender-id-register</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48581489\">https://news.ycombinator.com/item?id=48581489</a></p>\n<p>Points: 135</p>\n<p># Comments: 70</p>",
+  "published_at": "2026-06-18T06:23:24Z",
+  "author": "anitil",
+  "collected_at": "2026-06-18T15:05:51.227025Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/amid-mythos-hyped-cybersecurity-prowess-researchers-find-gpt-5-5-is-just-as-good/",
+  "title": "GPT-5.5 matches heavily hyped Mythos Preview in new cybersecurity tests",
+  "raw_text": "Last month, Anthropic made a big deal about the supposedly outsize cybersecurity threat represented by its Mythos Preview model, leading the company to restrict the initial release to “critical industry partners.” But new research from the UK’s AI Security Institute (AISI) suggests that OpenAI’s GPT-5.5, which launched publicly last week, reached “a similar level of performance on our cyber evaluations” as Mythos Preview, which the group evaluated last month.\nSince 2023, the AISI has run a variety of frontier AI models through 95 different Capture the Flag challenges designed to test capabilities on cybersecurity tasks, such as reverse engineering, web exploitation, and cryptography. On the highest-level “Expert” tasks, GPT-5.5 passed an average of 71.4 percent, slightly higher than the 68.6 percent achieved by Mythos Preview (though within the margin of error). In one particularly difficult task that involved building a disassembler to decode a Rust binary, AISI notes that “GPT-5.5 solved the challenge in 10 minutes and 22 seconds with no human assistance at a cost of $1.73” in API calls.\nGPT-5.5 also matched Mythos Preview in its progress on “The Last Ones” (TLO), an AISI test range set up to simulate a 32-step data extraction attack on a corporate network. GPT-5.5 succeeded in 3 of 10 attempts on TLO, compared to 2 of 10 for Mythos Preview—no previous model had ever succeeded at the test even once. But GPT-5.5 still fails at AISI’s more difficult “Cooling Tower” simulation of an attempted disruption of the control software for a power plant, as every previously tested AI model also has.",
+  "published_at": "2026-05-01T15:32:27Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-04T03:00:31.682413Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Security",
+      "AISI",
+      "Anthropic",
+      "cybersecurity",
+      "GPT-5.5",
+      "Mythos",
+      "openai",
+      "test"
+    ]
+  }
+}

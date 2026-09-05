@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605250949",
+  "title": "再送：香港株式市場　仏誕節振替休日のため休場、あす取引を再開",
+  "raw_text": "再送：香港株式市場 仏誕節振替休日のため休場、あす取引を再開\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-25T08:15:00Z",
+  "author": null,
+  "collected_at": "2026-05-25T09:00:21.868516Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

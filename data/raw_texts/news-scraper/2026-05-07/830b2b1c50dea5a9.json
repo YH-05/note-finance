@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605071452",
+  "title": "日銀為替市況　午後５時時点、１５６円２６～２８銭のドル安・円高",
+  "raw_text": "日銀が７日公表した午後５時時点の外国為替市況は１ドル＝１５６円２６～２８銭と前日に比べ３５銭のドル安・円高。ユーロは対円で１ユーロ＝１８３円８６～９０銭と同０９銭のユーロ高・円安。対ドルでは１ユーロ＝１．１７６６～６７ドルと同０．００３２ドルのユーロ高・ドル安だった。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-07T08:46:00Z",
+  "author": null,
+  "collected_at": "2026-05-07T09:00:21.762932Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

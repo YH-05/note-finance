@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/the-gold-chart-looks-precarious-heres-how-to-profit.html",
+  "title": "The gold chart looks precarious. Here's how to profit",
+  "raw_text": "Gold is at a technically precarious juncture, and the good news for you is that options market may be mispricing the risk.\nThe metal is hovering near its 200-day moving average while simultaneously testing the 50% Fibonacci retracement of its prior advance, a confluence that technical traders don't take lightly. Compounding the bearish setup, several momentum and trend indicators have rolled over: DMI, along with triangular, weighted, and exponential moving averages, are also all pointing lower.\nThe macro backdrop isn't offering much of a counterargument. Inflation stemming from the conflict in Iran is raising the specter of a more hawkish Fed pivot. \"Higher for longer\" rates are historically corrosive for gold, which pays no yield and competes directly with real rate alternatives. The long-dollar, risk-off playbook that might otherwise support gold as a safe haven is being complicated by the rate trajectory itself.\nFriday morning's hot jobs report is not helping either.\nI believe the price action likely resolves one of two ways: a decisive bounce off these support levels, or a breakdown that accelerates selling through a technically damaged chart. A prolonged range-bound price action strikes me as the least probable outcome.\nWhat makes the current setup particularly interesting from an options perspective is the volatility structure. One, two, and three-month implied volatility is trading near one-year averages. So options aren't pricing in outsized uncertainty, despite the gold sitting at what looks like a critical inflection point. Long options or debit spreads are, at least in absolute terms, fairly priced.\nBetter still, the skew has steepened. Options close to the current spot price have declined more than options further out of the money, so the GLD 395/370 July 17th put spread can be purchased for approximately $4.10. The compression in that spread cost reflects two dynamics: ATM implied volatility has declined by roughly 25% more in implied volatility terms than the lower strike of the put spread, which also carries less \"vega\" (sensitivity to changes in implied volatility) than the higher-strike options do, and has seen a smaller corresponding drop in implied volatility. The result is a wider spread at a lower price.\n- Buy GLD JULY 17TH 395/370 PUT SPREAD FOR $4.10\n- Max loss $410\n- Max gain $2090\n- Skill Level: Intermediate\nThat $4.10 debit offers a maximum payout of approximately $21 at expiration — a nearly 5-to-1 payoff ratio if GLD declines 10% over the next six weeks.\nWhether deployed as an outright bearish expression or as a hedge against an existing long position, the structure has appeal. The technicals are aligned, the macro headwinds are real, the options are reasonably priced, and the risk-reward is clearly defined. That combination doesn't come together often.",
+  "published_at": "2026-06-05T16:03:23Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.789769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

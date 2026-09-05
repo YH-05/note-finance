@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/entertainment/922244/nba-nfl-mlb-prediction-market-unders-bets",
+  "title": "Players from the NBA, NFL, and MLB call for a ban on betting &#8216;unders&#8217;",
+  "raw_text": "The unions backing professional NBA, NFL, MLB, NHL, and MLS players are calling on the Commodity Futures Trading Commission (CFTC) to ban prediction market platforms from allowing users to bet on a player’s underperformance or injury, Sports Business Journal reports. In their letter, the unions cite the need for “appropriate regulations” to protect athletes and their families from “abusive and harassing behavior.”\nPlayers from the NBA, NFL, and MLB call for a ban on betting ‘unders’\nThe unions behind top athletes want prediction market platforms to block users from betting on a player’s underperformance or injury.\nThe unions behind top athletes want prediction market platforms to block users from betting on a player’s underperformance or injury.\nThe unions wrote the letter in response to the CFTC’s request for comment on the regulation of prediction markets, such as those operated by Kalshi and Polymarket. In addition to asking for a ban on “under” bets, the unions also want the CFTC to prevent people from betting on whether certain words or phrases are spoken during a broadcast, like “concussion” — which they describe as “another way of betting on a negative outcome.“\nIn 2024, Jontay Porter, a former Toronto Raptors center, pleaded guilty to conspiracy to commit wire fraud over a betting scandal that involved “limiting his own participation in one or more games for betting purposes,” according to the NBA. The US Department of Justice also charged several current and former NBA players last year with “using private locker room and medical information to enrich themselves.”\nThe sports unions write that the CFTC should ban the “unauthorized use” of information related to a player’s injury, illness, performance metrics, or other health data as well. Separately, the NBA asked that the CFTC limit prediction market betting to people over 21. Kalshi and Polymarket currently allow users aged 18 or older to join.\nAs prediction markets rise in popularity, the CFTC has fought back against states’ attempts to regulate the platforms. So far, the CFTC has filed lawsuits against Arizona, Connecticut, Illinois, New York, and Wisconsin, which accuse the states of violating the CFTC’s “regulatory authority” over prediction betting markets by trying to impose rules on them.",
+  "published_at": "2026-05-01T16:57:27Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-02T03:02:12.436733Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "News",
+      "Sports"
+    ]
+  }
+}

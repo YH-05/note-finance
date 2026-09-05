@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/",
+  "title": "South Korea hits Coupang with $400M+ fine for data breach that affected millions",
+  "raw_text": "South Korean authorities have imposed a record-breaking fine of $624 billion won (over $400 million) on retail giant Coupang after a data breach last year compromised the personal data of more than 34 million customers.\nSeoul’s Personal Information Protection Commission issued the maximum penalty on Thursday following discovery of the breach in December 2025. The retail giant, which is headquartered in the U.S. but popular in South Korea and likened to the “Amazon of Asia,” had said the months-long data breach allowed a former employee to obtain names, email and shipping addresses, phone numbers, and order histories of about two-thirds of South Korea’s population.\nCoupang told BBC News that it plans to challenge the regulator’s decision. The fine represents a rare case of a financial penalty issued against a U.S.-based firm. Korean lawmakers have accused some of their American counterparts of imposing political pressure after reports that U.S. representatives were linking the data breach with U.S.-South Korean bilateral ties in response to the case against Coupang’s executives.\nU.S. companies rarely face financial sanctions or criminal prosecution for data breaches as a result of lacking laws and enforcement powers.",
+  "published_at": "2026-06-11T13:18:51Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-06-12T03:00:26.951918Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "Coupang",
+      "cybersecurity",
+      "data breach",
+      "In Brief"
+    ]
+  }
+}

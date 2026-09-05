@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/23/gas-prices-car-insurance-break.html",
+  "title": "Gas prices are rising, but don't count on significantly lower car insurance premiums as a result",
+  "raw_text": "As war in the Middle East pushes the national average for gas to around $4 a gallon, American drivers are feeling a significant pinch at the pump. Fuel costs have surged 37% since the start of the war, according to insurance-comparison marketplace Insurify.\nTypically, higher gas prices lead consumers to cut back on how many miles they drive. Fewer miles driven translates to fewer accidents and lower car insurance premiums.\nBut a new report from Insurify shows any silver lining to drivers cutting back on miles is incredibly thin.\nWhen gas prices rise 10%, people cut their driving by about 3% on average, according to the report. If Americans were to cut their total mileage by 10% this year, the average annual insurance premium would likely drop to $2,209.\nWhile that's slightly less than the current $2,222 average, the actual savings are negligible when compared to the soaring cost of gasoline.\nReducing driving by 10% would save the average person just $27 a year on insurance. That same person would still end up spending an extra $385 on gas in 2026, even after cutting back their miles, Insurify said.\nMatt Brannon, a senior analyst at Insurify, told CNBC that the drop in insurance costs, roughly 1% annually, doesn't move the needle for most consumers.\n\"Gas prices might overwhelm the savings they could get from insurance, especially if you're driving a lot,\" Brannon said.\nInsurers, meanwhile, are seeing the benefits of consumer driving less and fewer accidents negated by the cost of auto parts, which has risen 4% year over year, according to Insurify.\nProgressive, for example, warned in March that retaliatory tariffs and rising auto part costs could pressure profit margins and lead to rate hikes.",
+  "published_at": "2026-04-23T11:00:01Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.100995Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

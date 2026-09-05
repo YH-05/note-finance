@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://twitter.com/maattttbrown/status/2066215255987163246",
+  "title": "Stanford grads walk out on Google CEO Sundar Pichai speech",
+  "raw_text": "Stanford grads walk out as Google CEO Sundar Pichai takes the stage as commencement speaker. No mention of AI, unlike other uni speakers getting booed down this year. Story for @SFGate shortly",
+  "published_at": "2026-06-14T22:45:55Z",
+  "author": "sosomoxie",
+  "collected_at": "2026-06-15T03:00:49.357066Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

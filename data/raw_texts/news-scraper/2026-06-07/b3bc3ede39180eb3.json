@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://ntsc.rs/",
+  "title": "Ntsc-rs – open-source video emulation of analog TV and VHS artifacts",
+  "raw_text": "ntsc-rs is a free, open-source video effect which accurately emulates analog TV and VHS artifacts.\nOther popular effects eyeball the look of VHS tapes using simple color lookup tables and overlays. ntsc-rs uses algorithms that model how NTSC transmission and VHS encoding actually work, based on algorithms developed in composite-video-simulator, zhuker/ntsc, and ntscQT.\nntsc-rs is written in Rust, and is multithreaded and SIMD-accelerated. Unlike similar effects such as ntscQT, it can run in real time at much higher resolutions than actual NTSC footage.\nntsc-rs is available not just as a standalone and web application, but also as a plugin for After Effects, Premiere, and all OpenFX-compatible software. This includes DaVinci Resolve, Hitfilm, and Vegas.",
+  "published_at": "2026-06-06T19:17:46Z",
+  "author": "gregsadetsky",
+  "collected_at": "2026-06-07T03:00:47.078042Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

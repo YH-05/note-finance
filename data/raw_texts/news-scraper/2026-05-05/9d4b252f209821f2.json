@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050192",
+  "title": "東京為替：ドル・円は小幅安、原油相場にらみ",
+  "raw_text": "【通貨】東京為替：ドル・円は小幅安、原油相場にらみ\n5日午後の東京市場でドル・円は小幅安となり、一時157円13銭と本日安値を下抜けた。NY原油先物(WTI)は1バレル＝104ドル前半に軟化するとドル売りに振れ、ユーロ・ドルはやや値を戻す展開に。ユーロ・円はドル・円に追随し、183円60銭台に下値を切下げた。\nここまでの取引レンジは、ドル・円は157円13銭から157円30銭、ユ-ロ・円は183円67銭から183円85銭、ユ-ロ・ドルは1.1676ドルから1.1693ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-05T07:25:53Z",
+  "author": null,
+  "collected_at": "2026-05-05T09:00:51.874720Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

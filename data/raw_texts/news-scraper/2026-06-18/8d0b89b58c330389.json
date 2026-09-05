@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/apollo-private-equity-credit-lower-returns-assets.html",
+  "title": "Huge private equity software bets most at risk as investors face returns squeeze, Apollo says",
+  "raw_text": "Private equity investors should brace for a sharper divide in returns as the industry struggles with years of delayed exits, aggressive valuations and a $4 trillion backlog of unsold assets, Apollo's deputy global head of private equity Antoine Munfakh has warned.\nSpeaking to CNBC at the SuperReturn International conference in Berlin, Munfakh said that the average hold time for private equity assets has doubled from a historic average of around four years to almost eight years today.\nThat has left a $4 trillion overhang of assets waiting to be sold as sponsors face growing pressure to return capital to investors.\nMunfakh said that distributions are expected to increase as the industry works through this backlog — but this may not necessarily be a positive outcome for general partners.\nA pick-up in exits, he said, could expose the gap between firms that carried assets at realistic valuations and those that held valuations too high.\n\"It will shine a spotlight on those GPs that marked their assets conservatively and those GPs who marked their assets aggressively,\" Munfakh said. \"We believe that will lead to a bifurcation in returns, more dispersion, and some private equity firms will struggle to raise capital going forward.\"\nPressed on whether return levels may need to head lower if investors want their money back, Munfakh told CNBC's Annette Weisbach: \"We'll see.\"\n\"Last year was the first year in history that sponsor exits occurred at prices lower than where those assets were marked,\" he said.\nHe said the pressure is particularly acute in the software sector, where private markets firms piled in at high valuations and high debt levels.\nSoftware historically accounted for about 10% of global buyout volumes, but that figure has since swelled to about 40%.\n\"Our view is that that is a systemic failure of risk management across the asset class — to put 40% of capital into one single industry,\" he said.\nMunfakh said AI would not wipe out every software company, but could lower barriers to entry, heaping pressure on growth and margins, and ultimately making some exits harder. \"You can have bad deals and bad returns for good companies if you overpay, over-lever them, and price them to perfection,\" he said.\nApollo has taken a different path by focusing on so-called HALO assets — heavy asset, low obsolescence businesses — which he described as less vulnerable to rapid technological disruption, he added.\n\"We focus on using AI as a value creation lever, again buying these non-disruptible, real economy businesses… where AI is not only not a disruptive threat but really a lever for value creation,\" he said.",
+  "published_at": "2026-06-11T11:47:55Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.831394Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

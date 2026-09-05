@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/netflix-expands-revamped-mobile-app-across-asia-and-doubles-down-on-kids-gaming/",
+  "title": "Netflix expands revamped mobile app across Asia and doubles down on kids’ gaming",
+  "raw_text": "Netflix is stepping up its game in mobile and gaming, as revealed during the company’s recent APAC Product Innovation Showcase.\nDuring the event, Netflix outlined plans to expand its refreshed mobile experience to additional markets across Asia-Pacific, while also growing its gaming ambitions through the continued rollout of Netflix Playground, a dedicated space for children’s games.\nNetflix also continues to broaden the reach of its redesigned mobile app. After rolling out the updated experience in Australia, New Zealand, the Philippines, India, and Malaysia earlier this year, Netflix plans to launch it in South Korea and Japan in July, with additional Asia-Pacific markets to follow.\nA key part of the redesign is “Clips,” Netflix’s answer to the growing popularity of short-form video. The vertical video feed allows users to browse bite-sized content from across Netflix’s library, offering quick entertainment during moments when viewers may not have time to commit to a full episode or movie.\nNow Netflix is taking the concept a step further. The company revealed plans to test themed Clip collections, which would organize short videos around specific moods, genres, and interests. These curated collections could feature everything from memorable reality TV moments to behind-the-scenes footage and podcast highlights.\nBeyond streaming, Netflix continues to invest in gaming. The company announced it is expanding Netflix Playground, its gaming hub designed specifically for children. The latest addition will focus on “KPop Demon Hunters,” the hit animated musical that has quickly become one of Netflix’s standout family titles.\nThe new experience will launch with six mini-games, allowing fans to interact directly with characters and story elements from the film. The timing is hardly surprising, as “KPop Demon Hunters” generated more than 518 million views in its first six months, making it one of Netflix’s biggest animated successes. Netflix is likely looking to capitalize on viewer interest while creating additional reasons for families to stay within its platform.\nNetflix Playground first rolled out in April across markets including the U.S., Canada, and the U.K., signaling the company’s intention to scale the concept globally.",
+  "published_at": "2026-06-10T17:13:02Z",
+  "author": "Lauren Forristal",
+  "collected_at": "2026-06-10T21:00:27.265965Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Gaming",
+      "Media & Entertainment",
+      "mobile app",
+      "mobile games",
+      "Netflix",
+      "netflix games",
+      "short form video"
+    ]
+  }
+}

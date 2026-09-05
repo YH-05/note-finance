@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/berkshire-hathaway-alphabet-investment.html",
+  "title": "Berkshire Hathaway invests extra $10 billion in Alphabet, deepening bet on AI",
+  "raw_text": "Berkshire Hathaway is deepening its bet on artificial intelligence and one of the industry's dominant players, investing an additional $10 billion in Alphabet through a private stock purchase.\nAlphabet said Monday it reached an agreement to sell $5 billion of its Class A shares to Berkshire at $351.81 apiece and another $5 billion of Class C stock at $348.20 per share. The transaction adds to a position Berkshire has been rapidly building over the past three quarters, marking one of the conglomerate's largest equity investments recently.\nThe latest purchase signals Berkshire's growing conviction in Alphabet's position at the center of the AI boom, spanning search, cloud computing and digital infrastructure. It also offers an early glimpse into CEO Greg Abel's capital allocation approach, suggesting Warren Buffett's successor is willing to commit significant sums to tech companies as Berkshire seeks new avenues for deploying its nearly $400 billion cash pile at the end of March.\nThe stance marks a shift for a conglomerate that has traditionally favored businesses with more predictable economics. Buffett famously characterized Berkshire's investment in Apple as a consumer bet.\nThe deal comes after Berkshire first disclosed a stake in Alphabet during the third quarter of 2025, when it purchased roughly 17.8 million shares. Since then, the conglomerate has dramatically increased its investment for two consecutive quarters, turning the Google parent into one of Berkshire's biggest positions.\nBerkshire's commitment is part of a broader $80 billion stock sale announced by Alphabet. The company said it plans to use the proceeds for general corporate purposes, including capital expenditures to expand its AI infrastructure and global computing capacity. Google's parent said the capital will \"fund investments in its world-class AI compute infrastructure to meet its unprecedented customer demand.\"\nThe move comes just a day after Berkshire agreed to acquire homebuilder Taylor Morrison Home in a $6.8 billion cash deal.",
+  "published_at": "2026-06-02T14:12:33Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.484592Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

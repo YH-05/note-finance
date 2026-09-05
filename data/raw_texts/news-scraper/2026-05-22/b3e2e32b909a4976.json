@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20267-colt-expands-network-in-turkey-with-a-second-istanbul-pop.html",
+  "title": "Colt expands network in Turkey with a second Istanbul PoP",
+  "raw_text": "Global digital infrastructure company Colt Technology Services said on Monday it has added a new point of presence (PoP) in Istanbul, Turkey, to meet growing demand for infrastructure capacity to support AI workloads and enterprise digital transformation plans.\nColt’s infrastructure now has a PoP in two established data centres in the city – one on Istanbul’s Asian side and the other on its European side. Colt said the addition of a second PoP, combined with an upgrade of Colt’s network capabilities in the city, significantly enhances its resilience and reach.\nColt said the expansion enables local and international customers to access a broader portfolio of next-gen, scalable networking solutions, designed to support the growing demands of cloud adoption, data-intensive workloads and AI-driven applications that require high bandwidth and secure, flexible connectivity.\nJoe Scattareggia, Colt’s EVP for infrastructure and connectivity sales, said that demand for high-capacity, low-latency infrastructure in Turkey and the surrounding region is rising fast, driven by AI workloads, cloud adoption and digital transformation, as well its strategic geographical location that provides a natural interconnection point between Europe, Asia, the Middle East and parts of Africa.\n“Deepening our local presence in Istanbul means we can serve enterprise customers in‑country, meet data-residency, performance and resilience requirements, and support hyperscalers and neoscalers expanding into the region,” he said in a statement.",
+  "published_at": "2026-05-19T04:43:35Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-22T03:01:36.700546Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

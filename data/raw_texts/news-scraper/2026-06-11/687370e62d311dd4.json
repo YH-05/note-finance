@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/meta-ai-infrastructure-data-centers-india-hyperscalers-reliance.html",
+  "title": "Meta agrees to Indian AI data center deal as hyperscaler bolsters its infrastructure",
+  "raw_text": "Meta Platforms said on Wednesday it will lease an artificial intelligence-enabled data center in India with 168 megawatts of capacity from billionaire Mukesh Ambani's Reliance Industries.\nReliance Industries, whose broad conglomerate empire includes everything from petrochemicals to textiles and mass media, will build the data center for Meta and deliver the facility within two years, with an option to scale, the U.S. company said in a release.\n\"This world-class facility in Jamnagar will help us scale our AI infrastructure globally while deepening our long-term investment in India's economy,\" said Mark Zuckerberg, founder and chief executive of Meta.\nReliance's partnership with Meta goes back to 2020, when Zuckerberg's company invested $5.7 billion in Ambani's telecom and digital services business, Jio Platforms.\nLast year, the two companies extended their collaboration via a joint venture that made Meta's open-source AI models available for Indian enterprises and developers.\nAmbani, chairman of Reliance, described the latest investment by Meta as a \"transformative moment for India's digital infrastructure.\"\nGlobal hyperscalers have been lining up to invest in data centers in India, with $400 billion flowing into the country's AI ecosystem over the last year, the majority of which has been directed towards such facilities and necessary energy infrastructure.\n\"India's DC [data center] industry is emerging as one of the fastest-growing globally,\" global brokerage Nomura said in a report on June 2. It added that India's data center capacity is expected to rise to 7 GW by 2030 as it remains \"cost-efficient\" relative to other developed Asia Pacific and Western markets.\nEarlier this year, the Indian government announced a 20-year tax exemption for hyperscalers that use data centers in the country to service global clients.\nMeta is also partnering with Indian clean energy providers CleanMax and Fourth Partner Energy for nearly 1GW of renewable energy. These projects, spread across northern and southern Indian states, will supply clean energy to Meta's growing infrastructure in the country.\nThe Facebook owner said these investments were consistent with its global goal of \"matching all operations with 100% clean and renewable energy.\"",
+  "published_at": "2026-06-10T09:54:44Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.351788Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

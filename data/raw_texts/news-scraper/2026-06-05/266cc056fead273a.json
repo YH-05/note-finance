@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/04/cash-app-launches-a-wand-for-tap-and-pay/",
+  "title": "Cash App launches a wand for tap-and-pay",
+  "raw_text": "Digital wallet app Cash App is launching a new gadget on Thursday, seemingly inspired by the social media trend that involves paying for items in the real world with a tap of a homemade magic wand, which hides a tap-and-pay credit card. Now, there’s a real wand you can buy to take part. The company’s $25 wand is part of its new NFC-powered tag hardware lineup, which Cash App plans to expand to include more form factors in the coming months.\nThe company said that its tags are linked to the Cash App Card and would work at outlets compatible with Visa’s tap-to-pay platform. Tags are activated by linking the wand hardware (pictured above) to the app, and there’s no minimum balance needed for the tag to work.\nCash App’s new wand comes with a keychain ring that lets you easily attach it to a bag or clip it to clothes. The gadget ostensibly allows you to make payments at times when it’s too cumbersome to get your phone out of your bag, like concerts or sporting events. Of course, the real driver is that there’s something whimsical about tapping a wand to pay for things, especially on special occasions like birthday shopping trips, which may appeal to younger users.\nWand users will get instant spend notifications as they pay, and they can lock or unlock the tag from the app at any time. If a user loses a tag, they can use the app to deactivate it. The company said it’s also monitoring fraud for payments made through tags to protect users.\n“While digital wallets are invisible and physical cards are often buried in wallets, Cash App Tags are just the opposite. We see a unique opportunity here to make payments visible and social for the first time,” Thomas Templeton, Hardware lead at Block, said in a statement.\nThe company said that it plans to introduce more types of tags, including limited-edition drops, in the coming months before making some versions permanently available this summer.\nCash App is largely targeting Gen Z users with this launch in a move to attract younger users to the app. The Block-owned fintech introduced accounts for teen users in 2021, and this year, it launched a parent-controlled debit card for kids aged between six and 12 years.",
+  "published_at": "2026-06-04T16:00:00Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-06-05T03:02:29.647258Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Cash App",
+      "digital wallet"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/snapchat-limits-users-under-16-to-sharing-spotlights-with-friends/",
+  "title": "Snapchat limits users under 16 to sharing Spotlights with friends",
+  "raw_text": "In an attempt to guard underage users from being doxxed, Snapchat is adding new content control restrictions on its platform: Users between 13 and 15 years old will only be able to share Spotlight posts with people they follow back.\nThe social network said that users under 16 years old will get a separate profile to show Stories and Spotlight posts to friends that they follow back. The content for these users won’t show metrics, like favorite counts, that create pressure to rank up engagement.\nUntil now, Snapchat has allowed this cohort of users to share Spotlight posts with everyone, though their posts aren’t attributed to their profiles, preventing other users from contacting them.\nUsers aged 16 to 18 can still share Spotlight posts publicly, but their posts will be limited to friends, followers, and users with whom they share mutual friends. Plus, parents can see how much time their kids spent on parts of the platform, like Stories and Spotlight, through the Family Center.\nThe company currently prevents strangers from sending friend requests or messages to teenagers. The app shows a warning message to teen users if they start a chat with a stranger, and also restricts the type of content teenagers can see on the platform.\nSocial media platforms like Instagram have also moved to restrict experiences for teenage users in recent years, including introducing specialized accounts.\nEarlier this year, Snap settled a lawsuit that accused it of abetting social media addiction. It is fighting other, similar cases across the U.S.\nIn an interview with CNBC, Snap CEO Evan Spiegel cited some studies to say Snapchat has a “positive impact” on users as it connects them to friends, and that the service shouldn’t be lumped with the likes of TikTok and Instagram.",
+  "published_at": "2026-06-10T12:46:52Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-06-10T15:00:21.904656Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Snap",
+      "Snapchat",
+      "teen safety"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/945614/uber-wayve-robotaxi-interest-list-launch-london",
+  "title": "Uber tells London to get ready for robotaxis",
+  "raw_text": "Uber is getting ready to put robotaxis on London’s streets, opening an interest list for riders who want to be among the first to hail one of Wayve’s autonomous vehicles when the service goes live later this year. The rollout would be a milestone in one of Uber’s biggest markets and an early test of whether there’s appetite for driverless ridehailing beyond the US and China, where robotaxis are already carrying passengers.\nUber tells London to get ready for robotaxis\nUber is inviting customers to join an interest list if they want to ride in a Wayve robotaxi.\nUber is inviting customers to join an interest list if they want to ride in a Wayve robotaxi.\nThe company is asking Londoners to show their interest in being among the first public passengers in its cobranded Uber x Wayve driverless cars. In the Uber app settings, customers can sign up by selecting “join interest list” in the “autonomous vehicles” section of “ride preferences.” Uber says joining the list will “increase their chances of being matched with a Wayve autonomous vehicle at launch” and keep them updated on the service launch.\nNeither Uber nor Wayve, a British startup based in London, would give an exact launch date, though both companies said the service will go live “in the coming months.” Customers matched with a Wayve vehicle will be notified in the Uber app and given the option to switch to a nonautonomous vehicle ride. Uber says riders requesting UberX, Uber Electric, or Uber Comfort will pay the same rate, with “no additional cost” for taking the autonomous vehicle.\nUber and Wayve are positioning the launch as a phased rollout rather than a citywide robotaxi service launch, with negotiations on scope and scale still ongoing with local authorities. Both declined to say which parts of London the vehicles would cover or how large the fleet would be, though Wayve’s Victor Charoonsophonsak told The Verge it would start with a mid-to-high single-digit number of cars.\nThe first rides will also not be fully driverless. Local regulations currently require the vehicles to have a safety driver behind the wheel, ready to take over if needed. Uber and Wayve would not say when those drivers would be removed.\nEven with those limits, Uber’s interest list adds momentum to efforts to bring robotaxis to London’s roads. The UK currently doesn’t have any fully driverless vehicles on public roads, though several companies are testing them. The government has said fully driverless ridehail pilots can begin from spring 2026, though more full rollouts won’t come until late 2027, when the Automated Vehicles Act of 2024 fully takes effect.\nUber and Wayve are not alone in targeting London. Uber has also partnered with Chinese giant Baidu, while Alphabet-owned Waymo has also said it plans to launch a service in the city.\nMost Popular\n- Microsoft’s Xbox 25th anniversary console comes in translucent green\n- Dell’s new XPS 14 is better in almost every way\n- The Virtual OS Museum lets you relive over 600 operating systems right on your desktop\n- Xbox Games Showcase 2026: All the news and trailers\n- The 7 biggest storylines from Summer Game Fest 2026",
+  "published_at": "2026-06-08T11:26:42Z",
+  "author": "Robert Hart",
+  "collected_at": "2026-06-08T15:00:17.048038Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Transportation"
+    ]
+  }
+}

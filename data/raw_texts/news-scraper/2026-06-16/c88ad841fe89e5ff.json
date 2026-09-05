@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/06/users-cry-foul-after-amd-stripped-memory-crypto-from-its-consumer-cpus/",
+  "title": "Users cry foul after AMD stripped memory crypto from its consumer CPUs",
+  "raw_text": "A decade ago, AMD added a protection to its high-end CPUs to protect them against cold boot attacks and other types of physical exploits that siphon sensitive data out of the connected memory chips. Short for Transparent Secure Memory Encryption, TSME encrypts the entire contents stored in memory, making the data useless to physical attackers.\nOver time, AMD added TSME to lower-end processors, including the consumer version of its Ryzen chips, a CPU that costs less than the Pro version. Over the years, users of these lower-end chips have gotten used to the added security. Recently and without warning or notice, this lower-end line of AMD chips suddenly dropped the protection, and did so in a way that was impossible to detect on Windows machines and required a fair amount of technical work when using Linux.\nNow you see it, now you don’t\nAMD has yet to say why TSME worked on these CPUs, or even to confirm the change. AMD declined to answer questions sent by email other than to say TSME “is a security feature only applied to PRO CPUs as part of AMD PRO Technologies.” The statement is the first known time the chipmaker has explicitly made this restriction public.\nIn April, Ben Kilpatrick, who describes himself as a “privacy-conscious Linux hobbyist,” was installing a new OS on his machine running a Ryzen 7 9700X from the Zen 5 architecture. To check that all security protections were enabled, he had his machine run Host Security ID (HSI), an auditing feature that evaluates the firmware and hardware security configurations.\nTo his surprise, HSI showed TSME was no longer possible, as indicated by the “encrypted RAM: not supported” line near the bottom of the screenshot below. A few lines lower, the HSI indicates that previously, TSME had shown as “encrypted.” This made no sense to Kilpatrick because he had enabled TSME in his BIOS settings all along.",
+  "published_at": "2026-06-15T17:55:46Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-06-16T03:00:31.379284Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "AMD",
+      "CPUs",
+      "processors",
+      "Transparent Secure Memory Encryption",
+      "tsme"
+    ]
+  }
+}

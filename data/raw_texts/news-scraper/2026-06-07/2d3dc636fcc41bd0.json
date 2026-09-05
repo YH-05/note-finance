@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/05/google-and-fbi-warn-of-ransomware-group-that-sends-fake-it-workers-to-hack-victims-in-person/",
+  "title": "Google and FBI warn of ransomware group that sends fake IT workers to hack victims in person",
+  "raw_text": "A ransomware gang has escalated its attacks on law firms by sometimes sending fake IT workers in person to the victims’ offices, where the imposters steal data directly from the victims’ computers using USB drives or help other gang members connect to the computers remotely, according to Google and the FBI.\nOn Friday, Google’s cybersecurity teams Mandiant and Google Threat Intelligence Group published a new report accusing the cybercriminal gang known as Silent Ransom Group of attempting to steal victims’ information “using physical, in-person access” in attacks from January through May of this year that targeted “dozens” of victims.\n“Mandiant has investigated various matters where adversaries planted insiders, bribed employees, or physically entered buildings to facilitate cyberattacks,” Mandiant chief technology officer Charles Carmakal told TechCrunch in a statement, adding that the company has seen this tactic used in other cases over the years as well.\nLast month, the FBI published an alert warning that Silent Ransom Group had been targeting law firms with social engineering and phishing attacks pretending to be IT support employees. But in some cases, the group sent fake IT support personnel to the victims’ offices, where they connected to employees’ computers and used USB drives or remote access tools to steal data such as contracts, personal information like Social Security numbers, and financial and tax records.\nAn FBI spokesperson told TechCrunch: “We can confirm we have seen multiple instances of individuals impersonating IT support who have gained or attempted to gain physical in-person access to victim companies’ offices and/or devices as part of Silent Ransom Group’s scheme to exfiltrate data.”\nIn what is now a common extortion tactic — one that does not involve actually encrypting the victims’ data as in traditional ransomware attacks — the gang has its own leak site, where it threatens victims with publishing their stolen data, and then publishes it if the victim doesn’t pay.\nContact Us\nDo you have more information about these hacking campaigns? Or other data breaches? We’d love to hear from you. From a non-work device and network, you can contact Lorenzo Franceschi-Bicchierai securely on Signal at +1 917 257 1382, or via Telegram and Keybase @lorenzofb, or email.That often happens after the hackers email victims directly to threaten them.\n“In case of ignorance or no agreement, We will notify your employees, partners and customers, after which We will publish your data,” the hackers wrote to one victim, according to Google.\nAccording to Google’s report, the hackers also use more traditional methods, such as phishing emails, follow-up phone calls, and social engineering. The cybercriminals pretend to be the company’s IT support to trick victims into granting access to their computers.\n“The callers use a variety of verbal instructions to guide target behavior. Under the guise of addressing a security issue or aiding with a corporate data migration project, they build trust and direct the target to join a screen-sharing session,” Google’s researchers wrote. The hackers then bypass security controls by convincing victims to download and open screen-sharing applications, or by using screen-sharing features in apps like Zoom or Microsoft Teams.\nWhile hackers most of the time steal data remotely via malware or phishing attacks, these cases show that some hackers are now willing to take their crimes one step further, mixing traditional hacking techniques with physical intrusions in what is a novel and significant escalation.",
+  "published_at": "2026-06-05T16:07:46Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-06-07T03:00:26.948209Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cybercrime",
+      "cybersecurity",
+      "FBI",
+      "Google",
+      "Google Threat Intelligence Group",
+      "hackers",
+      "hacking",
+      "Mandiant",
+      "ransomware"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/dna-identifies-four-more-crew-members-of-doomed-franklin-expedition/",
+  "title": "DNA identifies four more crew members of doomed Franklin expedition",
+  "raw_text": "Archaeologists continue to use DNA analysis to identify the recovered remains of the doomed crew members of Captain Sir John S. Franklin’s 1846 Arctic expedition to cross the Northwest Passage. They can now add four more names to the list of previously identified crew members. The findings were reported in two papers, one published in the Journal of Archaeological Science and the other in the Polar Record.\nAs we’ve reported previously, Franklin’s two ships, the HMS Erebus and the HMS Terror, became icebound in the Victoria Strait, and all 129 crew members ultimately died. It has been an enduring mystery that has captured imaginations ever since. The expedition set sail on May 19, 1845, and was last seen in July 1845 in Baffin Bay by the captains of two whaling ships. Historians have compiled a reasonably credible account of what happened: The crew spent the winter of 1845–1846 on Beechey Island, where the graves of three crew members were found.\nWhen the weather cleared, the expedition sailed into the Victoria Strait before getting trapped in the ice off King William Island in September 1846. Franklin died on June 11, 1847, per a surviving note signed by Fitzjames dated the following April. HMS Erebus Captain James Fitzjames had assumed overall command after Franklin’s death, leading 105 survivors from their ice-trapped ships. It’s believed that everyone else died while encamped for the winter or while attempting to walk back to civilization.\nThere was no concrete news about the expedition’s fate until 1854, when local Inuits told 19th-century Scottish explorer John Rae that they had seen about 40 people dragging a ship’s boat on a sledge along the south coast. The following year, several bodies were found near the mouth of the Back River. A second search in 1859 led to the discovery of a location some 80 kilometers to the south of that site, dubbed Erebus Bay, as well as several more bodies and one of the ships’ boats still mounted on a sledge. In 1861, yet another site was found just 2 kilometers away with even more bodies. When those two sites were rediscovered in the 1990s, archaeologists designated them NgLj-3 and NgLj-2, respectively.",
+  "published_at": "2026-05-08T15:15:21Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-09T03:01:26.277609Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Archaeology",
+      "forensic DNA",
+      "Franklin expedition",
+      "shipwrecks"
+    ]
+  }
+}

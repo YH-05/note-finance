@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/929377/canon-eos-r6-v-mirrorless-video-camera-price-specs",
+  "title": "Canon’s latest EOS R6 camera goes V for video",
+  "raw_text": "Canon has announced a new EOS R6 V mirrorless camera, a 32.5-megapixel camera with 7K video. It’s the first full-frame EOS camera to carry the V moniker, signifying that it’s designed primarily for video capture. The R6 V is based on the EOS R6 Mark III, but it eschews features like a viewfinder and a mechanical shutter in favor of a more compact size and active cooling with a fan. It will cost $2,499 for the body only ($300 less than the R6 Mark III) when it launches at the end of June.\nCanon’s latest EOS R6 camera goes V for video\nThe EOS R6 V takes the R6 Mark III, strips out nonessentials for filming, and offers improved 7K video for a lower price.\nThe EOS R6 V takes the R6 Mark III, strips out nonessentials for filming, and offers improved 7K video for a lower price.\nThe R6 V’s full-frame sensor is claimed to have over 15 stops of dynamic range, and it can record 7K RAW footage or 4K video (from oversampled 7K) at up to 60p. Standard uncropped 4K video can go up to 120p, and 2K filming supports a higher 180p frame rate. The R6 V also supports open gate 3:2 filming for full corner-to-corner sensor coverage, allowing more versatility for cropping in post-production.\nOne of the benefits of a video-first mirrorless camera is added features like the R6 V’s second tripod mount for vertical mounting, tally lamps, front record button, and vari-angle LCD that can be pointed forward for self-recording (with rotating UI elements). Pro users will likely appreciate that Canon is also including wave form monitoring, false color, and zebra displays for more detailed exposure information.\nLaunching alongside the R6 V is a new lens, a $1,399 RF 20-50mm f/4 L IS USM PZ. It offers both power zoom and manual zoom controls, toggleable with a physical switch. Canon is billing the lens as having the same or better image quality as the popular RF 24-105mm f/4 L lens, which is a staple of many enthusiasts and pros. But what’s particularly impressive about the 20-50mm is that it has no focus breathing and that its zoom and focus is fully internal — making it ideal for mounting to a gimbal since its center of gravity doesn’t change. You can even control its power zoom via an app. Neat.\nI enjoyed my time testing the EOS R6 Mark III last year, especially since it had some of the best ergonomics around for a full-frame photo camera. The R6 V seems like a smart evolution of the platform for dedicated video users, positioned between Canon’s entry-level EOS R50 V and high-end offerings like the EOS Cinema models.",
+  "published_at": "2026-05-13T13:00:00Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-05-13T15:00:16.517997Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Cameras",
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

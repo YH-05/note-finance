@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605261153",
+  "title": "５月調査の米消費者信頼感指数は９３．１",
+  "raw_text": "【経済】５月調査の米消費者信頼感指数は９３．１\n結果 93.1\n予想 92.0 前回 93.8（92.8から修正）\n株探ニュース",
+  "published_at": "2026-05-26T14:01:00Z",
+  "author": null,
+  "collected_at": "2026-05-26T15:00:22.306306Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

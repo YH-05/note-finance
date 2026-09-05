@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260410a.htm",
+  "title": "Federal Reserve Board announces approval of application by Burke & Herbert Financial Services Corp.",
+  "raw_text": "April 10, 2026\nFederal Reserve Board announces approval of application by Burke & Herbert Financial Services Corp.\nFor release at 4:15 p.m. EDT\nThe Federal Reserve Board on Friday announced its approval of the application by Burke & Herbert Financial Services Corp., of Alexandria, Virginia, to merge with LINKBANCORP, Inc., and thereby indirectly acquire LINKBANK, both of Camp Hill, Pennsylvania.\nThe Board also gave its approval for Burke & Herbert Bank and Trust Company, of Alexandria, Virginia, to merge with LINKBANK and to establish and operate branches at the locations of LINKBANK.\nFor media inquiries, please email [email protected] or call (202) 452-2955.",
+  "published_at": "2026-04-10T20:15:00Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:02:27.817215Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

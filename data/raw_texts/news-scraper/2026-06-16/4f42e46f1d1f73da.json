@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/us-air-force-b-52-bomber-crashes-on-takeoff-in-california-air-force-says.html",
+  "title": "US Air Force B-52 bomber crashes in California; 8-member crew presumed dead",
+  "raw_text": "A U.S. Air Force B-52 Stratofortress bomber crashed on Monday shortly after takeoff from Edwards Air Force Base in Southern California's Mojave Desert, and all eight crew members aboard were presumed to have been killed, the base said.\nThe eight-engine, jet-powered aircraft, built to carry nuclear and conventional bombs, was on a routine test mission when it went down, Edwards said in a statement about four hours after the crash.\nAerial video footage of the crash scene, about 100 miles (161 km) north of Los Angeles, showed a charred, smoldering patch of the desert floor roughly the size of a football field as an emergency vehicle was seen driving along the site's perimeter. There were no large pieces of debris readily visible in the footage.\n\"An Air Force B-52 Stratofortress carrying eight people on a routine test mission crashed today after take-off at 11:20 a.m. (PDT). Initial indications are that the crash was not survivable,\" the base said in an update posted on X. It said an emergency response team was on the scene, and officials were \"working to account for all personnel.\" The Air Force said the cause of the crash was under investigation.\nThe Stratofortress, designed and built by Boeing, is a long-range, subsonic aircraft that has long served as the backbone of the U.S. crewed strategic bomber force, according to the military. The swept-wing aircraft is capable of carrying munitions, including cluster bombs and gravity bombs, at altitudes of up to 50,000 feet (15,166 meters), according to an Air Force fact sheet.\nIn a conventional conflict, the B-52 can perform strategic attack, close-air support, air interdiction, offensive counter-air and maritime operations, the fact sheet said.\nMonday's incident marked the first crash of a B-52 Stratofortress since the same type of bomber crashed on the island of Guam in May 2016, according to the Bureau of Aircraft Accidents Archives, a Geneva-based organization that collects global aviation accident data. All seven crew members aboard that aircraft survived.\nOnly the H model of the B-52 remains in the Air Force inventory. It is assigned to the 5th Bomb Wing at Minot Air Force Base in North Dakota and the 2nd Bomb Wing at Barksdale Air Force Base in Louisiana - both under the Air Force Global Strike Command - and to the Reserve Command's 307th Bomb Wing at Barksdale, according to the military.",
+  "published_at": "2026-06-15T23:06:32Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.273202Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

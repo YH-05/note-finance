@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/08/truecaller-slashes-70-jobs-amid-declining-ad-sales/",
+  "title": "Truecaller slashes 70 jobs amid declining ad sales",
+  "raw_text": "Sweden-based caller ID company Truecaller said it will cut 70 jobs, or roughly 15% of its workforce, in the second quarter, as the company posted its Q1 2026 results with a decline in revenue and profits. Truecaller blamed real-money gaming in India, changes in advertising partner algorithms, and conflict in the Middle East for the slide.\nAs TechCrunch reported last month, the company is already facing challenges from India’s telecom-led solutions, such as Calling Name Presentation (CNAP) identification service, and 5% year-on-year decline in downloads last year.\nIn its Q1 2026 results, Truecaller’s net sales dropped 27% to 362 million SEK ($39.34 million). In its biggest market, India, net sales dipped by 41% year-on-year. In addition, ad revenues declined by 44%.\n“The year-on-year comparison looks especially weak given that Q1 and Q2 last year included a large contribution coming from the real money gaming sector in India in connection with the IPL season that takes place around this time. The situation in the Middle East also reduced our revenues from that region,” Truecaller CEO Rishit Jhunjhunwala said during the earnings call.\nLast August, India banned real-money gaming apps such as Dream 11 and MPL that allowed users to use money to play fantasy sports. Industry bodies estimated that the real-money gaming industry was worth $23 billion in India. Because of this shutdown, platforms on which these real-money apps are advertised were deprived of that revenue.\nTruecaller also said that the revenue decline in the ad business was also due to a programmatic partner, identified as Google by an analyst earlier this year, changing its algorithms.\nThere were only a few positives for the company this quarter. First, it crossed the mark of 500 million active users. Plus, its subscription revenue increased by 27%, representing 31% of net sales. The company has been adding features like AI Assistant and Family Protection to make its paid offerings more attractive.\nTruecaller’s stock has dipped by over 26% this year and by over 79% in the last 12 months. However, after the Q1 results, it has seen some recovery.",
+  "published_at": "2026-05-08T14:41:53Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-05-08T15:00:27.467030Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "India",
+      "Layoffs",
+      "Truecaller"
+    ]
+  }
+}

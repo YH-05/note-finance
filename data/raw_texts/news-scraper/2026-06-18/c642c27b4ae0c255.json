@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/oil-price-us-completes-iran-strikes-after-apache-helicopter-attack.html",
+  "title": "Oil prices rise after Trump says U.S. will attack Iran 'very hard'",
+  "raw_text": "Oil prices rose Wednesday after U.S. President Donald Trump threatened to attack Iran \"very hard,\" raising renewed fears that full-scale war could resume.\nU.S. crude oil futures rose 2.07% to close at $90.03 per barrel. Brent futures, the international benchmark, gained 1.8% higher to settle at $93.10 per barrel.\n\"We hit them hard yesterday, and we're going to hit them hard again today,\" Trump said in televised remarks. \"We're going to be attacking them and attacking them very hard.\"\nThe president warned earlier on social media that Iran \"will have to pay the price\" for taking too long to negotiate a deal. His escalating rhetoric comes after the U.S. military said it had completed strikes against Iranian military targets near the Strait of Hormuz.\nTrump also said Wednesday that the U.S. military has secretly helped 200 commercial ships and more than 100 million barrels of oil through the Strait of Hormuz. He credited the clandestine operation from preventing oil prices from surging higher.\nU.S. forces carried out strikes on Iran on Tuesday night after an American Army Apache helicopter was shot down a day earlier, according to U.S. Central Command. CENTCOM described the operation as a defensive and measured response to what it called Iranian aggression.\nTrump said Tuesday that Iran had brought down a U.S. helicopter conducting patrols near the Strait of Hormuz and indicated that the U.S. would retaliate.\n\"The two pilots involved in the attack are safe and uninjured,\" Trump wrote on Truth Social. \"Nevertheless, the United States must, of necessity, respond to this attack.\"\nRystad Energy said the shutdown of 11.8 million barrels a day of output across six Gulf producers has created the most severe oil supply disruption in modern history. The consultancy estimates cumulative production losses have reached 1 billion barrels and warned that each additional month of conflict could erase another 350 million barrels of output.",
+  "published_at": "2026-06-10T19:11:25Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.833990Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

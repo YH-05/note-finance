@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928470/instructure-canvas-hack-shinyhunters-ransom-agreement",
+  "title": "Canvas owner reaches &#8216;agreement&#8217; with hackers to secure stolen data",
+  "raw_text": "Instructure, the company behind the Canvas learning management platform, says it has “reached an agreement” with hackers that breached its systems last week to prevent stolen data from being leaked online.\nCanvas owner reaches ‘agreement’ with hackers to secure stolen data\nWhich probably means Instructure has paid the hacking group.\nWhich probably means Instructure has paid the hacking group.\nThe ShinyHunters hacking group claimed responsibility for the attack before Canvas was briefly taken offline. The group threatened to publish 3.5 terabytes of student data if ransom demands for a “settlement” weren’t met. Now, Instructure says the stolen data has been returned as part of its unspecified “agreement” with the hackers, alongside a promise that “no Instructure customers will be extorted as a result of this incident.”\n“We understand how unsettling situations like this can be, and protecting our community remains our top priority,” Instructure said in its latest statement. “With that responsibility in mind, Instructure reached an agreement with the unauthorized actor involved in this incident.”\nInstructure doesn’t explicitly say that it paid ShinyHunters, but this update certainly suggests as much. Ransom payments can go toward funding further ransomware attacks, and there’s no guarantee that the hacking group will uphold its side of the bargain. Instructure said it had received proof that the stolen data had been destroyed (which begs the question of how that data was also “returned”), and that its agreement covers all customers impacted by the breach.\n“While there is never complete certainty when dealing with cyber criminals, we believe it was important to take every step within our control to give customers additional peace of mind, to the extent possible. We continue to work with expert vendors to support our forensic analysis, further harden our environment, and conduct a comprehensive review of the data involved.”\nMost Canvas systems have since been restored, and Instructure is planning to share more information about the attack in a webinar tomorrow. Last week, Instructure said hackers had exploited Free-For-Teacher accounts to breach its systems and responded by temporarily shutting down those accounts. Instructure has not announced when access to Free-For-Teacher accounts will be restored.\nMost Popular\n- Logitech’s tiny folding mouse improves upon the laptop trackpad\n- Forza Horizon 6 has been leaked and cracked a week before its release\n- Palantir’s true believers are wearing this jacket\n- Google stopped a zero-day hack that it says was developed with AI\n- Govee’s new portable smart lamp is on sale for the first time",
+  "published_at": "2026-05-12T13:23:10Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-12T15:00:16.362933Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Security",
+      "Tech"
+    ]
+  }
+}

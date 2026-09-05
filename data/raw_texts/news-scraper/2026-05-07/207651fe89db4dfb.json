@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/ryan-cohens-mysterious-bank-letter-backing-his-ebay-bid-reveals-a-big-issue.html",
+  "title": "Ryan Cohen's mysterious bank letter backing GameStop's eBay bid reveals a big issue with deal",
+  "raw_text": "GameStop's mysterious financing letter underpinning its audacious $56 billion bid for eBay is emerging as a central issue in the proposed takeover, as questions mount over whether the deal is actually financeable.\nThe video game retailer said it has lined up a $20 billion financing commitment from TD Securities, part of TD Bank. But a key condition attached to this letter could ultimately make or break the deal: the combined company would need to maintain an investment-grade credit profile, CNBC's David Faber reported, citing people who have seen the document.\nMoody's Ratings said Wednesday that the proposed acquisition would be \"credit negative\" for eBay because of the substantial increase in leverage implied by the deal structure.\nThe ratings agency estimated leverage for the combined company could approach nine times debt to earnings before interest, taxes, depreciation and amortization before accounting for any cost-saving synergies.\nThat level of indebtedness would likely push the combined company below investment grade, potentially undermining a key condition attached to the TD financing package.\nThe proposed takeover has raised immediate questions about how GameStop could fund a deal of that size. The video game retailer's market value of roughly $11 billion is only a fraction of the transaction's implied value.\nCEO Ryan Cohen offered limited clarity on the structure other than saying his company has the ability to issue additional stock in order to get the deal done.\nEBay confirmed that it received the offer in a statement Monday, and said its board would review it.\nThe New York Times and Semafor reported on the mysterious letter Wednesday.",
+  "published_at": "2026-05-07T16:55:23Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.576374Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

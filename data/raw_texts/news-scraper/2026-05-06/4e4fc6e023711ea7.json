@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/in-canada-a-canary-trap-springs-shut-and-ids-election-database-leak/",
+  "title": "Canadian election databases use \"canary traps\"—and they work",
+  "raw_text": "In a world awash in high-tech security tools like passkeys, quantum-safe algorithms, and public-key cryptography, it can be refreshing to get back to the simple things… like a good old-fashioned canary trap.\nThe canary trap is a simple tool often used to identify leakers or double agents. To make one, you simply share a document, image, or database but make tiny changes that are unique to each recipient. That way, if those changes show up verbatim in any leak of the information, you know immediately which recipient was behind the leak.\nYou don’t often see canary traps in the news, though they have long been a staple of spy fiction (and practice), so an account out of Canada last week caught my eye.\nThe Canadian province of Alberta has been the site of recent drama around its electoral list, a database that contains information such as names, addresses, and voting districts for millions of citizens. Political parties can legally get access to the electoral list, though they operate under significant restrictions on how they can use the data. They cannot, for instance, share the list with a third party.\nDespite this, The Centurion Project, described by the CBC as a “separatist group,” used the list to power an online database of voters. Elections Alberta, which maintains the list, went to court last week and obtained an order to shut down the Centurion site.\nBut how had Centurion obtained the data?\nElections Alberta quickly investigated and announced that the list used by Centurion was a copy of one legitimately released to the Republican Party of Alberta. Election officials were confident in their claim because, whenever they release a copy of the electoral list, they salt it with additional but bogus entries. The fake entries inserted in the Republican Party version of the list showed up in Centurion’s online tool, too.\nExactly how the data had passed from the Republican Party to Centurion remains unclear, but the canary trap enabled Elections Alberta to lean quickly on both groups. Each publicly pledged to respect the law, and Centurion took down its tool.",
+  "published_at": "2026-05-04T19:45:57Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-06T03:00:31.375045Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "canary trap",
+      "database",
+      "elections"
+    ]
+  }
+}

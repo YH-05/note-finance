@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/marketer-that-claimed-it-could-tap-devices-for-ad-targeting-will-pay-880k-settlement/",
+  "title": "Marketer that claimed it could tap devices for ad targeting will pay $880K settlement",
+  "raw_text": "In November 2023, we reported on dubious claims made by marketing firm Cox Media Group (CMG) Local Solutions. The company advertised a service called Active Listening on a website that said, “It’s true. Your devices are listening to you” and claimed it could use “voice data” to help advertisers target ads to specific people.\nNaturally, panic ensued. 404 Media, which initially spotted the website, for instance, wrote that the idea of smartphones listening to people to sell products “may finally be a reality.”\nThe idea of a marketing firm using AI to “detect relevant conversations via smartphones, smart TVs, and other devices” in real time—according to a since-deleted CMG blog post from November 2023 (still viewable via the Internet Archive’s Wayback Machine)—has raised alarms.\nBut it was also apparent that CMG’s claims were unlikely to be true. The company never explained how it could remotely extract enough computing and networking power from users’ devices to clandestinely capture and send voice recordings in “real-time” or obtain more intimate access to people’s homes than law enforcement can without a warrant.\nThis week, the Federal Trade Commission (FTC) announced that CMG will pay $880,000 to settle the FTC’s allegations that CMG “falsely” claimed “to offer an AI-powered service that could target localized ads based on conversations captured from consumers’ smart devices and that consumers had opted into such targeting.”\nThe money will go to affected customers, the FTC said.\nThe FTC’s announcement reads:\nAccording to the [FTC-filed] complaints, this service did not, in fact, listen in on consumers’ conversations or use voice data at all—nor did the service accurately place ads in customers’ desired locations. Instead, the service the companies provided consisted of reselling—at a significant markup—email lists obtained from other data brokers.\nAfter working with CMG, two marketing firms, Wisconsin-based 1010 Digital Works LLC and New Hampshire-based MindSift LLC, will each pay $25,000 settlements.\nIn its since-deleted blog from 2023, CMG claimed that Active Listening relied on an unnamed CMG partner that had a “growing ability to access microphone data on devices.” But when we first covered Active Listening, a company spokesperson admitted to Ars that CMG did not “listen to any conversations or have access to anything beyond a third-party aggregated, anonymized, and fully encrypted data set that can be used for ad placement.”",
+  "published_at": "2026-05-22T17:48:03Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-25T03:00:31.941195Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "ads",
+      "FTC",
+      "voice assistant"
+    ]
+  }
+}

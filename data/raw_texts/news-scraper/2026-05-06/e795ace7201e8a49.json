@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/nvidia-chips-jensen-huang-h200-lutnick-chris-coons.html",
+  "title": "Lutnick gets grilling on Nvidia chip sales to China in letter from Sen. Chris Coons",
+  "raw_text": "Sen. Chris Coons, D-Del., pressed Commerce Secretary Howard Lutnick about allowing Nvidia's H200 chips for artificial intelligence to be sold to China in a letter first reported by CNBC.\nThe letter follows Coons questioning Lutnick at a Senate Appropriations subcommittee hearing last week. Lutnick said it was his understanding the U.S. had not sold any H200 to Chinese companies.\n\"We have not sold them any chips as of yet,\" Lutnick said in response to a question from Coons at the April 22 hearing.\nLutnick's statement contradicted remarks from Nvidia CEO Jensen Huang, who told reporters in March that Nvidia had gotten approvals from both the US and Chinese government to sell H200 chips to China.\n\"Your statements before the committee appear to contradict Huang's comments,\" Coons said in the letter sent Thursday.\nCoons, who is also a member of the Senate Foreign Relations Committee, sent his letter weeks before President Donald Trump is scheduled to travel to China to meet with Chinese President Xi Jinping.\nThe Trump administration in 2025 told Nvidia it would need a license to export chips to China and a handful of other countries. Previously at least one-fifth of Nvidia's data center revenue came from China sales.\nCoons added that he remained \"deeply concerned\" about the export of H200 chips to China and \"allowing any companies in China to purchase these products presents a serious risk to our national security and economic leadership.\"\nIn the letter, Coons also asked Lutnick to respond in the next week with how many H200 chips received licenses for export to China, how many have been shipped to China and how many more the Commerce Department plans to license.\nA Commerce Department spokesperson did not respond to an email seeking comment.",
+  "published_at": "2026-05-01T14:08:32Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.707998Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "politics",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/apple-is-tweaking-its-controversial-liquid-glass-design/",
+  "title": "Apple is tweaking its controversial Liquid Glass design",
+  "raw_text": "When Apple announced its major design overhaul, Liquid Glass, at last year’s WWDC, it was met with a polarizing reaction from users. While some users liked the sleek, transparent designs that look “glassy,” others found the new design difficult to read. At Apple’s WWDC 2026 event on Monday, the company announced some changes that may benefit the Liquid Glass haters among us.\nApple says that it is “updating the foundations of how Liquid Glass is built to ensure exceptional readability.” It will apparently accomplish this by diffusing “complex content” behind it to create more depth and separation between content panels.\nCrucially, Apple said that it won’t force users into this new look.\n“Since everyone’s preference varies, we’re adding a new slider and settings to adjust Liquid Glass, so you can set it anywhere from ultra clear to fully tinted,” the company said.\nOn both iOS and MacOS, Apple will also redesign its app icons to look more refined and cohesive, which could help pull the Liquid Glass look together. Developers will be glad to know that Liquid Glass customizations will work within their apps at launch.\nThis is evidently important enough to Apple that the company kicked off WWDC with the assurance that Liquid Glass will get better.\n“Like with all major design updates, there is a natural process where we take a bold leap forward, and then we continue to iterate,” Apple said in its presentation. “Our team really appreciates your feedback, and we considered it deeply as we refined the new design over the past year.”",
+  "published_at": "2026-06-08T17:24:33Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-06-08T21:00:26.733862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Apple",
+      "iOS",
+      "liquid glass",
+      "wwdc",
+      "WWDC 2026"
+    ]
+  }
+}

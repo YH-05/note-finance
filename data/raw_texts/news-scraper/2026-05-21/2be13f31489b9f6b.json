@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/935191/zohran-mamdani-twitch-talk-to-the-people",
+  "title": "NYC Mayor Zohran Mamdani is launching a Twitch series",
+  "raw_text": "New York City Mayor Zohran Mamdani is launching a streaming series on Twitch, in which he’ll respond to questions the public have submitted via the chat, Polygon reports. The series is aptly titled “Talk with the People,” and kicks off later today at 4PM ET.\nNYC Mayor Zohran Mamdani is launching a Twitch series\n‘Talk to the People’ will see Mamdani answering questions submitted in the Twitch chat.\n‘Talk to the People’ will see Mamdani answering questions submitted in the Twitch chat.\n“With the launch of ‘Talk with the People’ we’re bringing City Hall to the platforms where New Yorkers already are — speaking directly with the people,” Mamdani told Polygon in a written statement. “By launching the country’s first recurring cross-platform stream hosted by an elected official, where I’ll answer New Yorkers’ questions live on Twitch, we’re opening up a direct line of conversation between our government and the people, especially younger generations who’ve been ignored for too long.”\nWhile it’s described as a “recurring” series, it’s unclear how often the show will actually air, or what its estimated run time will be. “Talk to the People” will also stream live on YouTube, TikTok, Instagram, Facebook, X, and Bluesky, though questions will only be taken via Twitch chat. This is hardly the first time that a politician has joined Twitch, though we’ll have to see how Mamdani’s debut viewing figures stack up against Alexandria Ocasio-Cortez’s.",
+  "published_at": "2026-05-21T12:22:26Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-21T15:00:16.875021Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Creators",
+      "News",
+      "Policy",
+      "Politics",
+      "Tech",
+      "Twitch"
+    ]
+  }
+}

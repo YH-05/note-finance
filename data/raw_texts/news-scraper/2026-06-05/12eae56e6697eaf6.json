@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/944041/new-york-data-center-moratorium",
+  "title": "New York lawmakers pass one-year ban on new data centers",
+  "raw_text": "The New York State legislature passed a one-year moratorium on new large data centers, the first statewide ban of its kind if Democratic Governor Kathy Hochul signs it into law.\nNew York lawmakers pass one-year ban on new data centers\nIt could become the first ban of its kind in a state.\nIt could become the first ban of its kind in a state.\nLawmakers behind the bill say it’s meant to give policymakers time to understand the impact of large data centers on the environment and energy prices. It directs the state’s environmental agency to create an impact report assessing the amount of electricity, water, and land that data centers use, and the pollution they create. It also requires companies planning to build large data centers — defined as having a peak demand of at least 20 megawatts — to hold and fund a public hearing at least three months before it’s able to gain approval for the project. Hochul has not said whether she will sign the bill, and has until December to decide whether to sign or veto it, according to Bloomberg Government.\nIt requires companies planning to build large data centers to hold and fund a public hearing\nSurveys show that most Americans oppose the idea of data centers in their communities, and heated public meetings across the country have shown it to be a galvanizing issue across the political spectrum. Earlier this year, Maine’s legislature passed a bill that would have banned new data centers until late 2027, but Democratic Governor Janet Mills vetoed it because it failed to include an exemption to a previously planned project, according to The New York Times. The New York Independent System Operator, a nonpartisan entity tasked with maintaining electric grid reliability, has said it’s currently reviewing 24 data center proposals totaling over 9,000 megawatts, according to News10 ABC, and a proposed 180 megawatt project in Albany has drawn concerns from residents.\nThe New York bill is a shorter moratorium than the three-year proposal that was previously introduced, according to Politico. But even the one year pause has garnered pushback from industry groups. Stacey Sikes, acting president and CEO of business group the Long Island Association, told Politico the moratorium would “overall be damaging to the state’s economy, because having a blanket moratorium instead of looking at it at a case by case basis would not allow the state to move forward on a data center project that would actually be helpful to our economy.”\nHochul spokesperson Kristin Devoe told The Verge, “The Governor will review the bill.”\nUpdate, June 5th: Added comment from Governor Hochul’s spokesperson.",
+  "published_at": "2026-06-05T15:25:10Z",
+  "author": "Lauren Feiner",
+  "collected_at": "2026-06-05T21:00:16.227646Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "Policy",
+      "Politics",
+      "Regulation"
+    ]
+  }
+}

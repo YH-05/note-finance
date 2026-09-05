@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/this-will-be-the-summer-of-the-everything-rally-says-wells-fargo.html",
+  "title": "This will be the summer of the 'everything rally,' says Wells Fargo",
+  "raw_text": "It won't just be tech and artificial intelligence stocks driving gains over the next few months, according to Wells Fargo. Strategist Ohsung Kwon raised his year-end S & P 500 target to 7,950, implying upside of more than 5% from Monday's close. He also noted that this summer will be marked by an \"everything rally,\" as money begins flowing into parts of the stock market untouched by the AI buildout. \"Sentiment has reset, providing room for upside in the AI trade. Hyperscalers' race to raise capital is also a big tailwind for Semis & Infra,\" Kwon wrote to clients. \"With the war seemingly coming to an end, we expect a catch-up rally in cyclicals, at the expense of defensives.\" The S & P 500 has soared to record levels this year, with a large portion of that advance powered by chipmakers. The PHLX Semiconductor index (SOX) has nearly doubled in 2026, putting it on pace for its strongest year ever. .SOX YTD mountain SOX index of chip stocks in 2026 Micron Technology , Arm Holdings , Marvell Technology and Intel are leading the charge, with all of them up 200% or more in 2026. Nvidia has gained 14% in that time, while AMD has more than doubled. The rest of the market has also begun to participate in the rally. The equal weighted version of the S & P 500 has climbed 11.6%, slightly outpacing its market cap-weighted counterpart. Kwon noted that his PRSM framework of looking at the market — guided by profits, rates, sentiment and the macroeconomy — suggests further gains ahead. \"Profits and Rates (Liquidity) remain strong. Sentiment [is] now firmly neutral after sell-off. Macro concerns ease after Iran deal,\" he said. Wall Street may get a boost this week as well as the Federal Reserve kicks off its first two-day policy meeting under new chairman, Kevin Warsh. \"We see the risk skewed to the upside for stocks with a hike already priced in,\" wrote Kwon. \"We also see a scenario of a 'run it hot, inflate out' policy. Equities are the best hedge against inflation as long as the Fed doesn't fight it.\"",
+  "published_at": "2026-06-16T13:43:22Z",
+  "author": null,
+  "collected_at": "2026-06-16T15:23:26.604840Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

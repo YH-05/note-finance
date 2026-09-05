@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/meta-business-agent-is-zuckerberg-latest-effort-to-diversify-from-ads.html",
+  "title": "Meta is trying to sell AI agents to businesses in latest effort to diversify away from ads",
+  "raw_text": "Meta's effort to push beyond ads and to make money from artificial intelligence is now targeting the red-hot market of AI agents.\nThe company said Wednesday that a new Meta Business Agent feature can be used across apps like WhatsApp, Messenger and Instagram to respond to customer inquiries, recommend products and book appointments.\nIt will be included in a business-focused subscription tier for Meta One, which the company introduced last week as a way to package premium services for creators and companies. Meta also said at the time that it would begin testing subscription services for its Meta AI app and website.\n\"Today, I want to introduce Meta Business Agent, giving every business, of any size, an agent to talk to customers and help run your operation,\" Meta CEO Mark Zuckerberg said in prepared remarks for a company event in London on Wednesday. \"Now, a clothing shop in Birmingham or a bakery in São Paulo can offer the same always-on, highly-personalized experience as a major brand.\"\nZuckerberg has run a thriving online ads company since Facebook started targeting users with advertisements in 2007. Meta still counts on ads for about 98% of revenue, having repeatedly struggled to sell digital and physical products over the years. While AI has helped the company bolster its core business, Zuckerberg has bigger ambitions in AI as he tries to compete with OpenAI, Anthropic and Google in developing cutting-edge models and selling services on top.\nZuckerberg said Meta is currently \"building agentic capabilities\" that can do advanced tasks such as \"suggesting ways to grow your business, giving you competitive intelligence and real-time insights into what's working and what's not.\"\n\"As our models advance, your agent will take on more and eventually help you run your whole business,\" Zuckerberg said in the prepared remarks.\nIn October, Meta released a free, test version of the service, then called Business AI, that was only available in select countries, including Mexico and India.\nMeta is jumping into an increasingly competitive space. Amazon and Microsoft recently released agent tools, and AI users have swarmed to the freely available OpenClaw AI agent platform that Nvidia CEO Jensen Huang described as \"the most popular, open-source project in the history of humanity.\"\nBig businesses that currently use Meta's WhatsApp Business Platform will be charged on a consumption basis for the new AI agent feature, similar to how they pay for every message they send to customers on the app.\nCustomers can also access a new Meta Business Agent Platform that lets them connect third-party data sources from services like Shopify and Zendesk, allowing them to \"offer personalized experiences, starting within the messaging apps their customers already use,\" Meta said.",
+  "published_at": "2026-06-03T13:40:01Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.691232Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

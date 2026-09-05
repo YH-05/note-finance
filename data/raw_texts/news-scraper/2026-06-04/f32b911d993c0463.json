@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20316-brazil-to-enhance-highway-comms-coverage.html",
+  "title": "Brazil to enhance highway comms coverage",
+  "raw_text": "Brazil’s Ministry of Communications says that, following the auction of the 700MHz band, held in April by telecoms regulator Anatel and the Ministry of Communications, highway coverage will be expanded.\nThe initiative will take connectivity to about 6,500 kilometres of federal highways in 17 states – areas that still lack a signal. Priority will be given to important federal highways that cross unassisted areas, including BR-116, the largest highway.\nThe Ministry of Communications is also working on a National Highway Connectivity Policy, an initiative that seeks to expand and improve mobile coverage with 4G technology, or higher, on Brazilian highways.\nAmong the guidelines of the proposal is the guarantee of continuous communication to users in transit, including in areas without coverage from the originally contracted operator, made available through network sharing mechanisms.\nThe National Policy proposal went through public consultation last year; it is expected that it will be launched in the first half of 2026 (albeit this would mean within the next few weeks).\nCurrently, according to data from Anatel, of the 122,397 kilometres of federal highways in the country, 65,156 kilometres have 4G coverage and 13,139 kilometres have 5G coverage. The Ministry of Communications has been working to expand this connectivity, especially in strategic road corridors.\nSecretary of Telecommunications, Hermano Tercius, says: \"Our goal is to double mobile internet coverage on highways. For this, we are working on two main fronts.” One, it seems, is the implementation of mandatory roaming on the roads, which will bring immediate coverage gains for the user. The Ministry of Communications also aims to work with the Ministry of Transport to ensure that road concessions – presumably a reference to rights to finance, build, maintain, and operate roads – include firm telecommunications obligations.",
+  "published_at": "2026-05-28T21:13:44Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-04T03:01:31.751070Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

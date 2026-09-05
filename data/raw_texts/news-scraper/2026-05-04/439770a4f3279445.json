@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040072",
+  "title": "中国の景気回復、４月も不均一な状態が続いた公算",
+  "raw_text": "【注目】中国の景気回復、４月も不均一な状態が続いた公算\n鉱工業生産は先月も堅調だった可能性が高く、アナリストは前年比５．７％の成長を予想している。対照的に同アナリストは、国内需要が引き続き低調だったと見ており、同期間の小売売上高は約１．０％の増加を予想している。\n輸出がこの差を埋めた可能性が高く、２月の春節休暇による以前の歪みから回復したとみられる。４月の輸出が前年比で約７．０％増加したと予想している。\n株探ニュース",
+  "published_at": "2026-05-04T13:38:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:00:21.856361Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

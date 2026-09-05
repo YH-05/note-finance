@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/police-boast-of-hacking-vpn-where-criminals-believed-themselves-to-be-safe/",
+  "title": "Police boast of hacking VPN where criminals \"believed themselves to be safe\"",
+  "raw_text": "European law enforcement say they hacked into a VPN (virtual private network) service used for ransomware attacks and other crimes, and identified thousands of users before shutting the VPN down and arresting its administrator.\nEuropol announced yesterday the results of the operation against the service, First VPN. The First VPN website now displays a message saying the domain was seized by a joint international law enforcement action.\n“A VPN service used by cybercriminals to conceal ransomware attacks, data theft, and other serious offenses has been dismantled in an international operation led by France and the Netherlands, with support from Europol and Eurojust,” the agency said. “For years, the service, known as ‘First VPN,’ was promoted on Russian-speaking cybercrime forums as a trusted tool for remaining beyond the reach of law enforcement. It offered users anonymous payments, hidden infrastructure, and services designed specifically for criminal use.”\nThe probe began in December 2021. At some point, “investigators gained access to the service, obtained its user database and identified VPN connections used by cybercriminals seeking to conceal their activities,” Europol said. Security vendor Bitdefender helped law enforcement conduct the operation, Europol said.\n“The gathered intelligence exposed thousands of users linked to the cybercrime ecosystem and generated operational leads connected to ransomware attacks, fraud schemes, and other serious offenses worldwide,” according to Europol.\nUsers “mistakenly believed themselves to be safe”\nA statement from the Dutch National Police Corps said that before the domain seizures, “police had access to the criminal traffic of the users of the service, who mistakenly believed themselves to be safe.”\nAn Internet Archive capture of the now-defunct VPN service’s website shows it advertised the ability to conceal one’s IP address, encrypt all communications, and hide one’s actions “from the provider and other interested persons.” First VPN also made the “no logs” promise that is common among VPN providers to assure customers that they don’t store records that could be handed to law enforcement or other third parties.",
+  "published_at": "2026-05-22T18:43:54Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-24T03:00:30.716697Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Security",
+      "First VPN",
+      "ransomware",
+      "VPN"
+    ]
+  }
+}

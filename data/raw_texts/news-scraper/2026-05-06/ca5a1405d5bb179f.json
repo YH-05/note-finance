@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070153",
+  "title": "ベッセント財務長官、１１日に訪日し首相・財務相・日銀総裁と会談",
+  "raw_text": "【注目】ベッセント財務長官、１１日に訪日し首相・財務相・日銀総裁と会談\nベッセント財務長官は１１日から３日間の日程で日本を訪問すると、日本経済新聞が報じた。ベッセント長官は高市首相と、片山財務相、日銀の植田総裁らとそれぞれ会談する方針。投機的な円売りへの対処策も議題となるという。\n株探ニュース",
+  "published_at": "2026-05-06T20:51:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T21:00:21.907018Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
+  "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+  "raw_text": "May 22, 2026\nKevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman\nFor release at 4:15 p.m. EDT\nKevin Warsh on Friday took the oath of office as chairman and a member of the Board of Governors of the Federal Reserve System.\nAlso on Friday, the Federal Open Market Committee unanimously selected Warsh as its chairman.\nPresident Donald J. Trump nominated Mr. Warsh on March 4, 2026. He was confirmed by the United States Senate to serve as a member of the Board on May 12, and as chairman of the Board on May 13. His term as chairman ends on May 21, 2030, and his term as a member of the Board ends on January 31, 2040.\nA biography of Chairman Warsh is available on the Board's website.\nFor media inquiries, please email [email protected] or call (202) 452-2955.",
+  "published_at": "2026-05-22T20:15:00Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:02:34.368001Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

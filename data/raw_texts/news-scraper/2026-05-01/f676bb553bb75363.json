@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://websmith.studio/blog/your-website-is-not-for-you/",
+  "title": "Your Website Is Not for You",
+  "raw_text": "<p>Article URL: <a href=\"https://websmith.studio/blog/your-website-is-not-for-you/\">https://websmith.studio/blog/your-website-is-not-for-you/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47973376\">https://news.ycombinator.com/item?id=47973376</a></p>\n<p>Points: 148</p>\n<p># Comments: 99</p>",
+  "published_at": "2026-05-01T11:08:20Z",
+  "author": "pumbaa",
+  "collected_at": "2026-05-01T15:00:51.839194Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

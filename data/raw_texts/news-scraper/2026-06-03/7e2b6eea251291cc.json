@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/another-falcon-9-lookalike-joins-chinas-growing-roster-of-rockets/",
+  "title": "In a surprise launch, China debuts another big rocket designed for reusability",
+  "raw_text": "The race to field China’s first reusable launch vehicle is far less predictable than a similar competition that played out in the United States a decade ago.\nThere was never any real question of which company would develop and demonstrate the first reusable orbital-class rocket in the United States. SpaceX landed a Falcon 9 booster for the first time in 2015, and a little more than a year later, it launched it back into space. It took nearly 10 years for anyone else to do the same. Blue Origin celebrated its first orbital-class booster landing last November with the successful recovery of one of its New Glenn boosters, followed by a relaunch of the same rocket in April.\nIn China, several companies and state-owned enterprises have a realistic shot at landing an orbital-class booster stage this year. For a time, it seemed like China’s new crop of privately funded launch companies might have the advantage in accomplishing the first landing of an orbital-class booster. But Monday’s launch of China’s Long March 12B rocket, backed by the nearly unrestricted resources of the country’s vast state-owned aerospace enterprise, suggests the industry’s legacy players may now have a leg up.\nSecrecy reigns\nChina’s first two attempts to recover heavy boosters failed in December. First, a company named LandSpace, part of China’s recent wave of quasi-commercial launch providers, debuted its Zhuque 3 rocket on December 2. The launch was successful, but the booster crashed near its landing zone downrange from its launch site in the Gobi Desert of northwestern China. Less than three weeks later, a somewhat less powerful rocket named the Long March 12A had a similar result on its first test flight. The Long March 12A is a product of the Shanghai Academy of Spaceflight Technology, part of China’s legacy government-owned space industry.",
+  "published_at": "2026-06-02T16:05:48Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-06-03T03:00:30.628132Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "china",
+      "jiuquan",
+      "launch",
+      "long march",
+      "long march 12b"
+    ]
+  }
+}

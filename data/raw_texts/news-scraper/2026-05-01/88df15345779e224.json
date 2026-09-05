@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/k-shaped-economy.html",
+  "title": "K-shaped economy is 'alive and well,' expert says — what new research shows",
+  "raw_text": "The so-called K-shaped economy is becoming more pronounced, new data shows.\nIn the aftermath of the Covid pandemic, the K has been used to illustrate Americans' diverging economic experiences: Higher-income households are increasingly better off, while lower-income households are falling further behind.\nA new report by credit reporting bureau TransUnion found that while credit conditions have improved for a large segment of consumers, others are struggling in the face of higher costs and rising debt burdens.\nThe K-shaped economy is \"alive and well,\" said Michele Raneri, TransUnion's vice president and head of U.S. research and consulting.\nOver the past several years, more borrowers have become either superprime, with a credit score of 780 or higher, or subprime, with a credit score below 600, according to TransUnion. The dynamic is creating an increasingly bifurcated consumer economy.\n\"The top end of the K is very strong,\" Raneri said. \"Superprime is stable and resilient,\" she said. \"When people get into that group, they don't flow in and out very much.\"\nOn the bottom part of the K, lower-income households \"are struggling more than they did,\" Raneri said. Consumers in this group are carrying higher debt loads with rising debt-to-income ratios, which are signs of potential financial strain, TransUnion found.\n\"Everyone has seen the effects of inflation somewhat equally — nobody escaped it,\" Raneri said. But when you factor in debt-to-income levels, \"that's where you see that lower-income consumers are hit more,\" she added.\nThose struggling to make ends meet often turn to credit cards to bridge the gap. The average credit card balance per consumer now stands at $6,519, up 2.3% year over year, TransUnion also found.\nNow, consumer spending is driven mostly by high-income households, those earning more than $125,000 a year, according to a new blog post published Friday by the Federal Reserve Bank of New York.\nThe highest earners also spend a disproportionately large share of their consumption on luxury goods, high-end restaurants and entertainment relative to any other group.\nThe economy noticeably diverged in 2023, the New York Fed researchers found, \"shortly after many of the pandemic-era subsidies for low- and middle-income households expired.\"\nSince then, low-income households have been hardest hit by prolonged inflation while wealth has risen fastest for those at the very top, the researchers found.\nAlthough consumer spending and credit card balances remain relatively healthy overall, \"reliance on a single segment of the economy has important implications for spending growth and its fragility, as well as for economic vulnerability and policy,\" the New York Fed researchers wrote.",
+  "published_at": "2026-05-01T14:59:02Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.387724Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

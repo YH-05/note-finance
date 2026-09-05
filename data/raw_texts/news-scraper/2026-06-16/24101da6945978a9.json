@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
+  "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+  "raw_text": "May 28, 2026\nFederal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Thursday announced the execution of the enforcement actions listed below:\nConsent prohibition against Crystal Moore\nFormer employee of Atlantic Union Bank, Richmond, Virginia\nCoronavirus Aid, Relief, and Economic Security, or CARES Act loan fraud\nConsent prohibition order against Jesse Romo\nFormer employee of Frost Bank, San Antonio, Texas\nEmbezzlement of bank funds\nAdditional enforcement actions can be searched for here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-28T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:00:30.762135Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Enforcement Actions"
+    ]
+  }
+}

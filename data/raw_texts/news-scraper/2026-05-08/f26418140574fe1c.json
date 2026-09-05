@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/anthropic-ceo-dario-amodei-says-company-crew-80-fold-in-first-quarter.html",
+  "title": "Anthropic CEO says 80-fold growth in first quarter explains 'difficulties with compute'",
+  "raw_text": "Anthropic CEO Dario Amodei said his company tried to plan for 10-fold growth. But revenue and usage increased 80-fold in the first quarter on an annualized basis, which he says explains why it's been so hard to keep up with demand.\n\"That is the reason we have had difficulties with compute,\" Amodei said Wednesday at his company's developer conference in San Francisco. Amodei added that the company is \"working as quickly as possible to provide more\" capacity and will \"pass that compute on to you as soon as we can.\"\nAmodei's comments came hours after Anthropic announced a deal with Elon Musk's SpaceX to use all of the compute capacity at his company's Colossus 1 data center in Memphis, Tennessee. As part of the agreement, Anthropic will get access to more than 300 megawatts of capacity. SpaceX owns rival artificial intelligence lab xAI, now known as SpaceXAI.\nAnthropic's historic growth has been fueled by the popularity of its Claude AI models, and has seen a notable explosion since last year's launch of Claude Code, which has taken the world of software development by storm. The company is currently in talks with investors about raising cash at a valuation of $900 billion, as CNBC previously reported, which would make it worth more than OpenAI.\n\"Software engineers are the ones who are fastest to adopt new technology,\" Amodei said on stage. \"It's a foreshadowing of how things are going to work across the economy, and how the economy is going to be transformed by AI.\"\nLast month, Anthropic said demand for Claude has led to \"inevitable strain on our infrastructure,\" which has impacted \"reliability and performance\" for its users, particularly during peak hours. The company has inked several compute deals in recent weeks, including a multibillion-dollar agreement with Amazon.\nMeanwhile, Anthropic has been navigating a contentious relationship with the U.S. government and the Pentagon, which declared the company a supply chain risk in March, blacklisting it from work with the military. As that scuffle makes its way through the legal system, Anthropic is only getting more popular.\nAmodei said the current level of growth is \"just crazy\" and \"too hard to handle,\" telling the audience he hope for \"more normal\" expansion.\n—CNBC's Ashley Capoot contributed to this report.\nWATCH: Head of Claude Code on the future of work and productivity",
+  "published_at": "2026-05-07T15:05:53Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.271597Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

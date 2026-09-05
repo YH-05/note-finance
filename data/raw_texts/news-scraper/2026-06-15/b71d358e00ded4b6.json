@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/weekly-mortgage-demand-surges-nearly-11percent-higher-despite-volatile-interest-rates.html",
+  "title": "Weekly mortgage demand surges nearly 11% higher, despite volatile interest rates",
+  "raw_text": "Mortgage rates moved slightly higher last week, but both current homeowners and potential homebuyers returned to the mortgage market, perhaps for the last spring push. Total mortgage application volume rose 10.8% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, increased to 6.60% from 6.57%, with points decreasing to 0.63 from 0.67, including the origination fee, for loans with a 20% down payment.\n\"Mortgage rates were volatile last week as news from the Middle East continues to drive markets,\" said Mike Fratantoni, senior vice president and chief economist at the MBA. \"While the average rate was up slightly, there were opportunities where borrowers were seeing somewhat lower rates.\"\nApplications to refinance a home loan rose 15% for the week and were 20% higher than the same week one year ago. Last year at this time the 30-year fixed rate was 33 basis points higher.\nApplications for a mortgage to purchase a home climbed 7% for the week and were 4% higher year over year. Given how volatile rates were at the start of the spring sales market, some demand may have been pushed forward, with buyers now giving one last push before the dog days of summer.\nConsumers may also be taking advantage of lower rates on adjustable-rate mortgages. The ARM share of activity increased last week to 8.6% of total applications. The average rate on a five-year ARM last week was 5.96%\nMortgage rates were flat to start this week, according to a separate read from Mortgage News Daily, but could move more markedly with the release of the government's monthly consumer price index.\n\"The market is already priced for the median economic forecast, as always,\" wrote Matthew Graham, chief operating officer at Mortgage News Daily. \"If the actual numbers come in much higher or lower than those forecasts, it could cause volatility for rates in either direction.\"",
+  "published_at": "2026-06-10T11:44:59Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.801307Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

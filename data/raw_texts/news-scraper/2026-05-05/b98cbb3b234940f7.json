@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/924225/openai-chatgpt-default-model-gpt-5-5-instant",
+  "title": "OpenAI claims ChatGPT’s new default model hallucinates way less",
+  "raw_text": "OpenAI’s newest default model for ChatGPT might not make stuff up as much. Hallucinations have been an ongoing problem for AI models, but OpenAI says its new GPT-5.5 Instant model has “significant improvements in factuality across the board.”\nOpenAI claims ChatGPT’s new default model hallucinates way less\nThe new model, GPT-5.5 Instant, will also use fewer ‘gratuitous’ emoji.\nThe new model, GPT-5.5 Instant, will also use fewer ‘gratuitous’ emoji.\nThe company claims that, based on “internal evaluations,” GPT-5.5 Instant produced “52.5% fewer hallucinated claims” than its Instant model for GPT-5.3 “on high-stakes prompts covering areas like medicine, law, and finance.” GPT-5.5 Instant also “reduced inaccurate claims by 37.3% on especially challenging conversations users had flagged for factual errors.” (OpenAI has some information about how it evaluated the model in its GPT-5.5 Instant system card.)\nOpenAI also claims that GPT-5.5 Instant is “more capable across everyday tasks,” like analyzing image uploads and knowing when to turn to the web for an answer. GPT-5.5 Instant has “tighter and more to-the-point” responses and will avoid using “gratuitous emojis.”\nWith GPT-5.5 Instant, ChatGPT is now “more effective” at pulling in context from things like previous chats and your Gmail to give you more personalized responses, too. (This is a feature that Google is investing heavily in for Gemini as well.) And for all ChatGPT models, a new “memory sources” feature will let the chatbot show what context was used to inform personalized responses, and you can delete or correct information if you need.\nOpenAI will start rolling out GPT-5.5 Instant on Tuesday to “all ChatGPT users,” though GPT-5.3 Instant will be an option for three months until it’s “retired.” (In the past, users have mourned the loss of older models, so this gives people time to transition.)\nThe enhanced personalization will roll out first to Plus and Pro users on the web and is “coming soon” to the mobile apps. OpenAI has “plans” to bring it “soon” to Free, Go, Business, and Enterprise users. The memory sources feature is rolling out to ChatGPT consumer plans now on the web “and soon on mobile.”\nUpdate, May 5th: Added a link to GPT-5.5 Instant’s system card.",
+  "published_at": "2026-05-05T17:00:00Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-05T21:00:15.862153Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "OpenAI"
+    ]
+  }
+}

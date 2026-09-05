@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-cloud-virtualization/20364-alibaba-cloud-launches-new-public-cloud-region-in-johor.html",
+  "title": "Alibaba Cloud launches new public cloud region in Johor",
+  "raw_text": "Alibaba Cloud said on Tuesday it has launched a new public cloud region in Johor, Malaysia backed by two new data centres to meet the country's growing demand for cloud and AI services – particuarly agentic AI.\nThe new facilities in Johor offer cloud computing products from compute, storage, container, networking, big data, security, and databases to cloud-native services.\nAlibaba Cloud said it also plans to introduce a suite of agentic AI services to Malaysia in the second half of this year to meet growing demand for enterprise agents in the region.\nAgentic AI products planned for launch in Malaysia include AgentRun, a one-stop intelligent agent development and build platform; STAROps, a comprehensive intelligent operations platform; ACS Agent Sandbox, which provides hardware-level security isolation while reducing operational costs of AI agents; Agent Security Center, an integrated defence platform for AI agents; AI Security Guardrails 2.0, an upgraded security solution with end-to-end risk detection capabilities; and Agentic SOC, an enterprise-grade, AI agent-driven security operations platform.\nAlibaba Cloud said the new products are designed to streamline the building and running of enterprise-scale agents in a secure environment, providing enterprises with full cycle management of agent engineering.\nAlibaba Cloud has been operating in Malaysia since 2017. The launch of Johor region and its two data centres brings Alibaba Cloud’s total data centre footprint in Malaysia to five facilities, which marks its largest infrastructure presence in Southeast Asia so far, said Choong Hon Keat, GM of Malaysia for Alibaba Cloud Intelligence.\n“This expansion in Malaysia is a direct response to surging customer demand as local businesses scale cloud-native operations and integrate AI at scale,” he said in a statement. “Our new data centres in Johor will enable us to deliver more resilient, low-latency services, helping companies innovate faster, scale securely, and operate with greater efficiency in the AI era.”\nIncluding Johor, Alibaba Cloud's global infrastructure now comprises 104 availability zones across 32 regions.\nThe Johor facility is part of Alibaba’s previously announced plan in February 2025 to invest US$53 billion globally in AI and cloud infrastructure. In August last year, the company launched its third data centre in Malaysia whilst also announcing plans to expand its presence in Southeast Asia with new data centres in Malaysia and the Philippines.",
+  "published_at": "2026-06-10T04:21:47Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-11T03:01:35.753089Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cloud & Virtualisation"
+    ]
+  }
+}

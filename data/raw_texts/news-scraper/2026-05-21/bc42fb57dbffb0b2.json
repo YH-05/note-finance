@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20254-ericsson-china-mobile-and-oppo-test-device-and-app-level-slicing-on-5g-sa.html",
+  "title": "Ericsson, China Mobile and Oppo test device and app level slicing on 5G SA",
+  "raw_text": "Ericsson, China Mobile and Chinese handset maker Oppo revealed on Wednesday they have successfully tested network slicing at the consumer device and app level on a live 5G Standalone (SA) network.\nThe test – which was carried out on China Mobile’s commercial 5G SA network in the city of Dezhou in Shandong province – leveraged existing network capabilities, and covered application scenarios including uplink for livestreaming, short video download and upload, multiple functionalities with AI-powered glasses, and providing a robust connection for mobile gaming.\nFor example, the application-level slicing test detected when short videos or uplink livestreams were buffering on Oppo devices, which then automatically notified the user and offered to switch the traffic to a dedicated slice for better connectivity if the user agreed to do so. Combined with radio resource partition, network resources were prioritized and allocated to short-video or uplink livestreaming apps.\nChina Mobile said slicing option enables uplink livestreaming and short-video to achieve a more than a twofold improvement in network performance, while latency for gaming scenarios was reduced by at least 30%.\nFor Oppo’s AI glasses – which use cloud-based AI agents and sport an object recognition feature – China Mobile and Ericsson leveraged user-level slicing and latency-priority scheduling technologies for the uplink and downlink to reduce round-trip time latency for object recognition by at least 30%.\nEricsson said the test successfully achieved fine-grained resource allocation and isolation at both the user and application levels, delivering validated results for typical services in terms of guaranteed throughput and latency optimization on the existing 5G network.\nThat said, Ericsson added that the commercial deployment of these slicing capabilities “still requires further ecosystem maturity and broader support from commercial terminals.” Ericsson, China Mobile and Oppo said they will collaborate to jointly advance that ecosystem.",
+  "published_at": "2026-05-15T04:29:01Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-21T03:01:26.730871Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/coinbase-is-falling-after-revenue-miss-but-citigroup-says-a-rebound-is-coming-heres-why.html",
+  "title": "Coinbase is falling after revenue miss, but Citigroup says a rebound is coming. Here's why",
+  "raw_text": "The crypto market structure bill wending its way through Congress —known as the CLARITY Act — could significantly boost Coinbase's growth prospects if it passes, according to Citigroup. Shares of Coinbase are falling after it posted a surprise first-quarter loss on Thursday evening. Trading activity on the platform fell, hurt by the slump in crypto prices in the first three months of the year. Subscription revenue – meant to help Coinbase diversify away from its reliance on speculative trading – also underperformed. Citi is optimistic on the stock long-term, however, and is particularly bullish on stablecoins, payments and institutional adoption — and if CLARITY passes, it would allow more products to be introduced in those businesses as well and foster more institutional participation, analysts said in a note Friday. \"Ultimately, we see potential CLARITY passage as the significant upside catalyst for COIN,\" Citi said. The investment bank also pointed to the Coinbase Developer Platform, a suite of tools and services for developers to build on-chain applications, as a potential catalyst for the stock, saying it's \"prepared to handle post-CLARITY demand from [traditional finance].\" Last week, lawmakers struck a compromise on key language proposed in the crypto legislation regarding interest paid to users on stablecoin balances and activity. The updated version restricts crypto companies like Coinbase from paying savings account-like interest on passive stablecoin deposits, but allows rewards as usage-driven incentives that could be tied to activity like trading, transactions or staking. The crypto industry is expecting a committee vote with bipartisan support before May 21. The White House is aiming for the full Congress to vote on the bill around July 4.",
+  "published_at": "2026-05-08T14:33:25Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.670654Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

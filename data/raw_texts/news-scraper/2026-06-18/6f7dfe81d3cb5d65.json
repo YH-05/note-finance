@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/ai-home-prices.html",
+  "title": "How AI may be messing with home prices",
+  "raw_text": "Key Points\n- Celebrity real estate CEO Ryan Serhant said ChatGPT almost blew up a $50 million deal.\n- For most real estate professionals, the data aggregation capabilities of AI can enhance their expertise.\n- But experts warn artificial intelligence can't match the anecdotal knowledge of a human real estate agent and might not be inclined to offer hard-to-hear advice.",
+  "published_at": "2026-06-16T13:16:47Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.808724Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606081271",
+  "title": "マーベルが反発　Ｓ＆Ｐ５００の算出銘柄に＝米国株個別",
+  "raw_text": "（NY時間09:45）（日本時間22:45）\nマーベル<\nMRVL> 286.67（+23.20 +8.81%）\n半導体のマーベル・テクノロジー<\nMRVL>が反発。Ｓ＆Ｐダウ・ジョーンズ・インデックスが先週末に、同社株をＳ＆Ｐ５００の算出銘柄に採用すると発表した。フレックス<\nFLEX>も採用。プール<\nPOOL>とキャンベルズ<\nCPB>が除外される。６月２２日の取引開始前から。\nＳ＆Ｐ５００の算出銘柄に採用されれば、インデクスのパッシブ系ファンドからの需要が期待される。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-08T13:46:00Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:00:29.657761Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

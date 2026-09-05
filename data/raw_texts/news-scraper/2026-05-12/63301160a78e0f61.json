@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/amazon-employees-are-tokenmaxxing-due-to-pressure-to-use-ai-tools/",
+  "title": "Amazon employees are \"tokenmaxxing\" due to pressure to use AI tools",
+  "raw_text": "Amazon employees are using an internal AI tool to automate non-essential tasks in a bid to show managers they are using the technology more frequently.\nThe Seattle-based group has started to widely deploy its in-house “MeshClaw” product in recent weeks, allowing employees to create AI agents that can connect to workplace software and carry out tasks on a user’s behalf, according to three people familiar with the matter.\nSome employees said colleagues were using the software to automate additional, unnecessary AI activity to increase their consumption of tokens—units of data processed by models.\nThey said the move reflected pressure to adopt the technology after Amazon introduced targets for more than 80 percent of developers to use AI each week, and earlier this year began tracking AI token consumption on internal leader boards.\n“There is just so much pressure to use these tools,” one Amazon employee told the FT. “Some people are just using MeshClaw to maximize their token usage.”\nAmazon has told employees that the AI token statistics would not be used in performance evaluations. But several staff members said they believed managers were monitoring the data.\n“Managers are looking at it,” said another current employee. “When they track usage it creates perverse incentives and some people are very competitive about it.”\nSilicon Valley groups are pushing to increase adoption of generative AI tools, as companies seek to demonstrate returns on vast spending commitments to AI infrastructure and embed the technology more deeply into day-to-day work.\nAmazon this year is expected to spend $200 billion in capital expenditure, the vast majority of which will go toward AI and data center infrastructure.",
+  "published_at": "2026-05-12T13:33:05Z",
+  "author": "Rafe Rosner-Uddin, Financial Times",
+  "collected_at": "2026-05-12T15:00:31.132548Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Amazon",
+      "syndication",
+      "tokens"
+    ]
+  }
+}

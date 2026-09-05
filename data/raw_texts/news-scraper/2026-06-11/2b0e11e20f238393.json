@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20350-telkom-indonesia-combines-groups-ai-solutions-into-one-big-ecosystem.html",
+  "title": "Telkom Indonesia combines group’s AI solutions into one big ecosystem",
+  "raw_text": "Telkom Indonesia launched an integrated AI ecosystem on Friday that combines the AI capabilities across Telkom Group’s various units to support tailored implementation of AI in various industry sectors.\nTelkom said its new “AIcosystem” offering orchestrates the various capabilities of AI that have been implemented by each of the group’s operating companies, including Telkomsel AI, Neutra Compute from NeutraDC, AI Infomedia, and AI Digiserve, to Telkom University, as well as Telkom’s AI Center of Excellence (AI CoE) launched in September 2025.\nA number of institutions and large companies in sectors like education, government, transportation, energy and oil and gas, finance, logistics, telecoms, and manufacturing already use Telkom’s various AI solutions in their operations for things like pricing analytics, traffic management, HR profiling analytics, legal document review and infrastructure planning.\nAIcosystem promises to enable all of the AI offerings across Telkom’s operations to be connected and implemented synergistically, enabling it to present scalable and custom innovations for corporations, governments, and the community at large.\nTelkom digital IT director Faizal Rochmad Djoemadi said AIcosystem differs from other AI initiatives in that it was built and developed end-to-end as a full-stack AI approach with three main layers: infrastructure, models and platforms, and solutions and applications.\n\"AIcosystem is built with a full-stack approach so that Telkom Group not only presents solutions in the form of applications, but also strengthens its AI foundation through infrastructure, data, models, and platforms,” Faizal said. “This approach enables a more secure solution with layered security, scalable, and relevant to business needs and public services in Indonesia.”\nFaizal added that Telkom Group's AI solution was developed specifically to support enterprise needs and prioritise private data, governance and security, as well as business system integration. It also supports the Indonesian language large language model (LLM), which enables AIcosystem to better understand the language, needs, and cultural dynamics of Indonesia.\n\"AI is not only the development of today's technology, but also a new foundation of digital transformation that needs to be built collaboratively and sustainably,” said Telkom president director Dian Siswarini. “With AIcosystem, we unite all the power of Telkom Group AI so that Indonesia has a solid, integrated AI ecosystem, and is able to create a real impact for society, the business world, and the nation's competitiveness.”\nEarlier this year, Telkom Indonesia launched a next-gen agentic AI platform, dubbed Agentic AI by BigBox, that it said will accelerate digital transformation via intelligent automation, business process integration and data-based decision making.",
+  "published_at": "2026-06-08T03:43:34Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-11T03:01:35.754984Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

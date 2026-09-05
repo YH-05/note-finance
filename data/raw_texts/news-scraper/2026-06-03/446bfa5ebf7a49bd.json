@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/plex-launches-new-social-features-amid-a-major-price-hike/",
+  "title": "Plex adds new social features ahead of a major price hike for its lifetime pass",
+  "raw_text": "Plex has come a long way from being just a personal media server. Over the past few years, it has transformed into a streaming hub, today featuring ad-supported content and movie rental options.\nNow, the company is setting its sights on competing with social networking platforms like Reddit and Letterboxd: on Wednesday, Plex unveiled several social features aimed at changing how users interact with the platform.\nNotable among these is Discussions, a community forum where users can post comments and talk about movies or TV shows. Plex is likely hoping this forum will create a dedicated space that challenges Reddit’s dominance when it comes to community discussions of movies and shows.\nThe company said it’s worked up a moderation system that uses a blend of AI and human input to moderate both visual and written content.\nAnother new feature is Lists, which lets users create, manage and share lists of their favorite movies and shows, react with emojis instead of simple star ratings, and share images. Later this year, Plex will add the ability to import existing lists from other platforms, and let users react and comment on their friends’ lists. Letterboxd and IMDb both offer user-generated lists.\nAdditionally, Plex is adding a new Match Score feature that predicts how much a user might enjoy a particular title based on their viewing habits and preferences.\n“It looks at the things you watch and the way you rate them, and turns that into a simple percentage that tells you how closely a title lines up with what you tend to enjoy,” co-founder and chief product officer Scott Olechowski told TechCrunch. “The idea is to take the guesswork out of discovery, so instead of scrolling endlessly, you get a quick, personal read on whether something is likely to be for you.”\nThe platform is also adding Alerts that will notify users about new activities related to lists, movies, shows and film professionals they follow.\nLists are currently available to all Plex users, and Discussions is set to launch this month. Other features will be rolled out throughout the year.\nThe new features aim to create a more community-driven content discovery experience, allowing users to share recommendations, compare opinions and connect over their favorite shows and films.\n“People are spending more time figuring out what to watch than ever before, and we’re seeing viewers are increasingly turning to friends, creators, and communities they trust for recommendations. Discovery has become a shared experience, and we think the products people use to find entertainment should reflect that,” Olechowski added.\nThe new features come as Plex is grappling with an increasingly competitive entertainment landscape where streaming companies and social media platforms together vie for people’s attention. Netflix and Disney+ have even launched short-form video content within their apps in a bid to farm daily engagement.\nThis isn’t Plex’s first foray into social networking. In 2023, the company launched “Discover Together,” which allowed users to create profiles and follow friends’ viewing activities. Last year, Plex rolled out public profiles and reviews for users.\nHowever, it’s important to note that this update also coincides with a significant price hike for Plex’s Lifetime Plex Pass, which will cost $749.99 from July 1. The staggering increase certainly caught the attention of users, especially since Plex just last year increased the Pass’ price from $119.99 to $249.99.\nCurrently, Plex boasts over 42 million active users monthly across more than 180 countries and territories.",
+  "published_at": "2026-06-03T13:00:00Z",
+  "author": "Lauren Forristal",
+  "collected_at": "2026-06-03T15:00:28.146896Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Media & Entertainment",
+      "Apps",
+      "plex",
+      "social networking",
+      "streaming service"
+    ]
+  }
+}

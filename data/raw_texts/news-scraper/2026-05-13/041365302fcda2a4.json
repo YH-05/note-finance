@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/anthropic-blames-dystopian-sci-fi-for-training-ai-models-to-act-evil/",
+  "title": "Anthropic blames dystopian sci-fi for training AI models to act “evil”",
+  "raw_text": "Those with an interest in the concept of AI alignment (i.e., getting AIs to stick to human-authored ethical rules) may remember when Anthropic claimed its Opus 4 model resorted to blackmail to stay online in a theoretical testing scenario last year. Now, Anthropic says it thinks this “misalignment” was primarily the result of training on “internet text that portrays AI as evil and interested in self-preservation.”\nIn a recent technical post on Anthropic’s Alignment Science blog (and an accompanying social media thread and public-facing blog post), Anthropic researchers lay out their attempts to correct for the kind of “unsafe” AI behavior that “the model most likely learned… through science fiction stories, many of which depict an AI that is not as aligned as we would like Claude to be.” In the end, the model maker says the best remedy for overriding those “evil AI” stories might be additional training with synthetic stories showing an AI acting ethically.\n“The beginning of a dramatic story…”\nAfter a model’s initial training on a large corpus of mostly Internet-derived data, Anthropic follows a post-training process intended to nudge the final model toward being “helpful, honest, and harmless” (HHH). In the past, Anthropic said this post-training has leaned on chat-based reinforcement learning with human feedback (RLHF), which it said was “sufficient” for models used mostly for chatting with users.\nWhen it comes to newer models with agentic tools, though, Anthropic found that RLHF post-training did little to improve performance on misalignment evaluations that measure how “HHH” a model is in tricky situations. The problem, the researchers theorize, is that this kind of RLHF safety training couldn’t possibly cover every single type of ethically difficult situation an agentic AI might encounter.\nWhen a modern model encounters an ethical dilemma that isn’t covered by a post-training example, the model “tends to revert to the pretraining prior in terms of behavior,” the researchers write. That means “Claude views the prompt as the beginning of a dramatic story and reverts to prior expectations from pre-training data about how an AI assistant would behave in this scenario.”\nSince Claude’s traditional training data is full of stories about malevolent AIs, in these cases, Claude effectively slots into a “persona” that matches those prevalent “evil AI” narrative tropes, the researchers write. In these situations, Claude is “detaching from the safety-trained Claude character” and playing a more generic AI as represented in its training data, they add.",
+  "published_at": "2026-05-13T16:31:18Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-13T21:00:31.230118Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "clause",
+      "ethics",
+      "morals",
+      "sci-fi",
+      "stories",
+      "training"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/27/qualcomm-qcom-openai-smartphone-chip-partnership-stock.html",
+  "title": "Qualcomm up 7% on report it’s partnering with OpenAI on smartphone AI chip",
+  "raw_text": "Qualcomm shares rose on Monday following reports that it's partnering with OpenAI to create smartphone processing chips to advance the AI firm's hardware ambitions.\nThe U.S. smartphone chipmaker is set to work alongside Taiwanese semiconductor firm MediaTek to develop the chip for OpenAI, with Chinese manufacturer Luxshare co-designing and building the device, Ming-Chi Kuo, an analyst at TF International Securities, said on X on Monday. Mass production of the device is expected in 2028, according to Kuo.\nQualcomm was up 7% just after the opening bell. The stock is down 13% so far this year.\nQualcomm, OpenAI, and MediaTek did not immediately respond to CNBC's request for comment confirming the partnership.\n\"Only by fully controlling both the operating system and hardware can OpenAI deliver a comprehensive AI agent service,\" Kuo said in the post. \"The smartphone is the only device that captures the user's full real-time state, which is the most important input for real-time AI agent inference.\"\nHe explained that smartphones will remain the \"largest-scale device category\" in the immediate future, and it makes sense for OpenAI to develop a device that is entirely run by AI as the firm has accumulated user data over the years.\n\"Smartphone hardware is already highly mature, so OpenAI can work with the supply chain to develop the device,\" Kuo said. \"On the business model side, OpenAI may bundle subscriptions with hardware and build a new AI agent ecosystem with developers.\"\nQualcomm designs chips and wireless technology for smartphones and other devices, and is best known for its Snapdragon processors, which power many Android phones, and its modem technology that enables mobile connectivity like 4G and 5G.\nIt likely comes as no surprise that OpenAI would partner with the firm to help realize its smartphone plans, after it acquired Apple's design chief Jony Ive's startup io for $6.4 billion in equity last year to design new AI devices expected to be revealed in two years.\nAltman said last year that the devices OpenAI is designing with io will be different from smartphones. It will be able to \"know everything you've ever thought about, read, said,\" he said, comparing it to walking through Times Square.\n\"You can then go for a vibe that is not like walking through Times Square and getting bumped into and having all this stuff compete for your attention,\" Altman said. \"But, like, sitting in the most beautiful cabin by a lake and in the mountains and sort of just enjoying the peace and calm.\"\nAdditionally, it was reported in September that Luxshare signed a deal with OpenAI to produce consumer devices.",
+  "published_at": "2026-04-27T13:33:44Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.385820Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

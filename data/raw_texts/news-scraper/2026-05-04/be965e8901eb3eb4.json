@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/mits-virtual-violin-offers-luthiers-a-new-design-tool/",
+  "title": "MIT's virtual violin offers luthiers a new design tool",
+  "raw_text": "Violin makers, aka luthiers, traditionally learn from hands-on experience how to craft parts and select materials to shape an instrument’s final sound. MIT engineers hope to streamline that painstaking process with their new virtual violin. It’s a computer simulation tool that can capture the precise physics of the instrument and even reproduce a realistic sound of a plucked string, according to a paper published in the journal npj Acoustics.\nUnlike the more common software programs and plugins that simulate violin sounds via sampling, averaging the final sound based on thousands of notes, the MIT model is based on the fundamental physics of the instrument. “We’re not saying that we can reproduce the artisan’s magic,” said co-author Nicholas Makris. “We’re just trying to understand the physics of violin sound, and perhaps help luthiers in the design process.”\nViolin acoustics has long been a hot topic of research among acousticians, particularly when it comes to unlocking the secret to the superior sounds of violins crafted during the so-called “Golden Age”—notably the instruments of famed Cremona luthier Antonio Stradivari, as well as those of the Amati family and Giuseppe Guarneri. There are plenty of variables to consider, given a violin’s acoustic complexity.\nPer my 2021 article, the (perceived) unique sound can’t just be due to the instrument’s geometry, although Stradivari’s geometrical approach gave us the violin’s signature shape. It might be due to the wood; some researchers have hypothesized that Stradivari used Alpine spruce grown during a period of uncommonly cold weather for the region. The annual growth rings were closer together, making the wood unusually dense. Differences in wood density, they argue, would have an impact on the instrument’s vibrational efficiency and hence its sound.",
+  "published_at": "2026-05-04T13:12:26Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-04T15:00:30.937725Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "acoustics"
+    ]
+  }
+}

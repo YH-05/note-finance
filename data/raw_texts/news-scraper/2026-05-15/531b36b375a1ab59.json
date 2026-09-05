@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605151434",
+  "title": "日銀為替市況　午後５時時点、１５８円４４～４５銭のドル高・円安",
+  "raw_text": "日銀が１５日公表した午後５時時点の外国為替市況は１ドル＝１５８円４４～４５銭と前日に比べ５２銭のドル高・円安。ユーロは対円で１ユーロ＝１８４円３７～４１銭と同５１銭のユーロ安・円高。対ドルでは１ユーロ＝１．１６３６～３８ドルと同０．００７１ドルのユーロ安・ドル高だった。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-15T08:46:00Z",
+  "author": null,
+  "collected_at": "2026-05-15T09:02:16.859170Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

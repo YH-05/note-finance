@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/ford-sales-post-sharp-144-decline-april-ev-and-hybrid-sales-plunge-248-and-325",
+  "title": "Ford Sales Post Sharp 14.4% Decline In April As EV & Hybrid Sales Plunge",
+  "raw_text": "Ford Motor Company posted a sharp sales decline in April as demand for new vehicles cooled across much of the auto industry, with the company reporting a 14.4% drop year over year to 178,667 vehicles sold, according to Autoevolution.\nThe weaker month pushed Ford’s year-to-date total to roughly 636,000 deliveries — still ahead of Hyundai Motor Company and Kia Corporation, but well behind Toyota Motor North America.\nAutoevolution writes that the slowdown comes as automakers face softer demand after last year’s buying rush, when consumers moved quickly to purchase cars ahead of potential tariff increases. Higher gas prices tied to geopolitical tensions and persistently expensive vehicle prices have also made buyers more cautious.\nWhile General Motors has yet to release April results, several rivals have already reported weaker numbers. Toyota’s U.S. sales fell 4.6% last month to just over 222,000 vehicles, bringing its year-to-date total to nearly 792,000. American Honda Motor Co. was nearly flat, while Hyundai and Kia also slipped slightly after a strong start to the year, though their combined sales still topped 565,000 through April.\nFord’s weakness was broad-based. EV sales dropped nearly 25%, hybrid sales plunged 32.5%, and traditional gas-powered vehicles fell 11.8%. Truck sales declined more than 14%, SUVs were down 16.6%, and the company’s bread-and-butter Ford F-Series slid nearly 14% to just over 61,000 units. Sales at Lincoln were even worse, falling more than 21%.\nThere were a few bright spots. The Ford Mustang climbed more than 18% in April, while the Ford Bronco rose more than 18% to around 17,000 sales. The Ford Explorer and Ford’s heavy-duty truck lineup also posted gains. On a year-to-date basis, Mustang remains Ford’s strongest performer with sales up roughly 39%, followed by the Explorer, Transit van, Ranger pickup, and Bronco. At Lincoln, the Lincoln Aviator remains one of the few bright spots, with sales up nearly 10% so far this year.",
+  "published_at": "2026-05-05T13:15:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-05T15:00:38.349320Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

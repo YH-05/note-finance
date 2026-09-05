@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081606",
+  "title": "欧州為替：ドル・円は動意薄、レンジ相場続く",
+  "raw_text": "【通貨】欧州為替：ドル・円は動意薄、レンジ相場続く\n欧州市場でドル・円は動意が薄く、156円70銭付近でのもみ合い。中東情勢の不透明感で動きづらいなか、ゴールデンウィーク期間中の日本の為替介入で円売りは抑えられている。また、この後の米雇用統計も注目され、日中から30銭余りの値幅にとどまった。\nここまでの取引レンジは、ドル・円は156円63銭から156円85銭、ユ-ロ・円は184円16銭から184円46銭、ユ-ロ・ドルは1.1742ドルから1.1773ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-08T10:54:25Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.839146Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

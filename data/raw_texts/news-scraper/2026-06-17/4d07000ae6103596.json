@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/inflation-uk-cpi-interest-rates-bank-of-england.html",
+  "title": "UK inflation holds steady at 2.8% in May",
+  "raw_text": "U.K. inflation held at 2.8% in May, slightly below expectations, official figures showed on Wednesday.\nEconomists polled by Reuters had been expecting the annual inflation rate to rise to 3% in May.\nInflation cooled to 2.8% in April, but the drop — attributed to a change to the U.K.'s regulated energy price cap — was expected to be short-lived. The price cap is due to rise by 13% later this summer, when energy costs will hit a 2-year high.\nThe U.K.'s May print fell below the euro zone's 3.2% reading for May, and well below the U.S. May inflation rate of 4.2%.\nBritain's Office for National Statistics said Wednesday that transport had been the biggest contributor to rising prices in May, partially offset by falling food and non-alcoholic drink prices.\nSurging prices of air fares, which were up 10.3% month-on-month, as well as motor fuel and sea fares lifted transportation costs for Britons in May, the ONS said. Analysts said the timing of the Easter holiday this year may have contributed to rising fares.\nMeanwhile, the price of gasoline rose by an average 0.6 pence (0.8 U.S. cents) per liter between April and May. In the same period a year earlier, average gasoline prices fell by 2.1 pence. Average prices rose to their highest since November 2022, when energy prices spiked in the wake of Russia's full-scale invasion of Ukraine.\nAt its most recent meeting, the Bank of England's Monetary Policy Committee voted to keep its key interest rate at 3.75%.\nPolicymakers said at the time that \"monetary policy cannot influence energy prices\" in reference to the impact of the U.S.-Iran war, which has kept oil and gas prices elevated for months amid the closure of the Strait of Hormuz.\nMarkets are pricing in a 95% chance that the Bank of England holds rates steady at its next meeting on Thursday, LSEG data shows — but traders are expecting the central bank to hike interest rates by the end of this year.\nScott Gardner, investment strategist at J.P. Morgan Personal Investing, said in a note on Wednesday morning that the latest data \"will provide some hope that any rebound in U.K. inflation could be short-lived.\"\nOver the weekend, the U.S. and Iran announced a framework deal to bring their nearly four-month war to an end, with both U.S. President Donald Trump and Iranian officials saying the Strait of Hormuz will be reopened after the agreement is signed in Geneva later this week.\n\"While energy dynamics could trend higher in future readings, many will be closely watching to see how the Ofgem price cap hits inflation figures and household spending over the coming months,\" Gardner said.\n\"For Bank of England policymakers who are due to make their next rates decision imminently, this unchanged inflation reading could make the decision to hold interest rates in the short term more straightforward. Policymakers are likely to stay in 'wait and see' mode as the volatile Middle East situation continues to pan out and price pressures persist.\"\nCorrection: This story has been updated to reflect that May inflation hit 2.8%.",
+  "published_at": "2026-06-17T06:41:39Z",
+  "author": null,
+  "collected_at": "2026-06-17T09:18:40.034913Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

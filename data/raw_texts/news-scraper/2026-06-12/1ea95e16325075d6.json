@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20367-eu-aims-to-boost-kenyan-digital-transformation-amazon-aims-to-boost-kenyan-satcoms.html",
+  "title": "EU aims to boost Kenyan digital transformation; Amazon aims to boost Kenyan satcoms",
+  "raw_text": "Kenya’s digital development could be boosted by two recently announcements: enhanced EU funding and, potentially, an Amazon satellite ground station in Kenya, which would expand competition in the LEO satellite communications market.\nThe European Union and Kenya say they are deepening their strategic partnership on trade, digital transformation and sustainable investment.\nAs part of this cooperation the EU has highlighted its reinforced investment in Kenya under Global Gateway, an EU strategy to mobilise up to €300 billion (about US$347 billion) in sustainable public and private infrastructure investments worldwide.\nThis agreement between Kenya and the EU will include about US$17.4 million for the aerial expansion of Kenya's national fibre-optic network, extending high-speed connectivity in underserved parts of the country.\nThere will also be around US$13.9 million to advance the digitalisation of land registration, allowing households, farmers and businesses to prove ownership, and around US$11.6 million to support the Digital Transformation Centre in Kenya. This centre supports digital transformation, including artificial intelligence and creating an enabling policy environment for digital trade and investment to drive innovation, skills and jobs.\nIn addition there will be about US$19.7 million to support the transformation of the strategic Northern Corridor into a modern, clean trade and transport route and US$18.5 million for refugee camps to transition into integrated communities\nMeanwhile, multinational technology company Amazon is reportedly seeking regulatory approval to build a satellite ground station in Kenya as it accelerates its move to challenge SpaceX’s Starlink in the region.\nA Nairobi-based ground station would also provide Amazon with a regional foothold from which it could serve neighbouring East African markets.\nLast month, the company applied for a Network Facilities Provider licence, signalling its intention to launch its Amazon Leo satellite broadband service in the country.\nSpaceX activated a point of presence and ground station in Nairobi in early 2025, making Kenya only the second African country after Nigeria to host the company's terrestrial satellite infrastructure.\nThe facility significantly reduced the distance that customer traffic had to travel before entering regional internet backbones.",
+  "published_at": "2026-06-10T13:11:11Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-12T03:01:22.401177Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

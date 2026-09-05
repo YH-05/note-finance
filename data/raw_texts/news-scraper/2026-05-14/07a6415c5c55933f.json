@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141662",
+  "title": "セレブラス、気配が４００ドルに上昇＝米国株個別速報",
+  "raw_text": "ＡＩ半導体メーカーのセレブラス・システムズ<\nCBRS>が本日ナスダックに上場。現在は気配のまま進行しているが、前日決定のＩＰＯ価格は１８５ドルに対して４００ドルまで気配が上昇している。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-14T14:45:00Z",
+  "author": null,
+  "collected_at": "2026-05-14T15:00:21.626675Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

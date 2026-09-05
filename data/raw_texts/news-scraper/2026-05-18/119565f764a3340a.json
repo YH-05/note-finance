@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605190064",
+  "title": "日本の米国債保有、３月は４７７億ドル減　中国は４１０億ドル減",
+  "raw_text": "【経済】日本の米国債保有、３月は４７７億ドル減 中国は４１０億ドル減\nヘッジファンドなどのケイマン諸島は、１６４億ドル増加し４５９４億ドル。英国は２９６億ドル増の９２６９億ドル。ベルギーは７億ドル減の４５４０億ドルとなった。ベルギーには中国の保管勘定があるとみられている。\n対米証券投資は全体で１５０７億ドルの買い越し。長期債は８１３億ドルの買い越しとなった。\n株探ニュース",
+  "published_at": "2026-05-18T20:50:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T21:00:22.079497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

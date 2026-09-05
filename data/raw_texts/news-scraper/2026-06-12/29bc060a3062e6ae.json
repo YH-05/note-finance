@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost/",
+  "title": "Google DeepMind releases DiffusionGemma, a model that runs local AI 4x faster",
+  "raw_text": "Another day, another AI model from Google. This time, Google DeepMind has released a new member of the Gemma 4 open model family, but it’s fundamentally different from the rest of the lineup. DiffusionGemma doesn’t generate outputs linearly like most AI models. Instead, it can produce an entire block of text in parallel. Google says this makes it faster and more efficient when running on local hardware like an Nvidia DGX or a humble gaming GPU.\nMost AI models are designed to be autoregressive—they generate text left to right one token at a time. DiffusionGemma has more in common with image generation models, which start with static and then denoise it to create the desired content. This model takes a field of placeholder tokens running over the canvas multiple times to generate likely tokens and using those to improve estimation of others. At the end of the process, the model finalizes its token outputs in one large block—the “denoised” text canvas.\nDiffusionGemma is fairly large in the realm of Google’s open models. It’s a Mixture of Experts (MoE) model with a total of 26 billion parameters, but only 3.8 billion are activated during inference. That means it should fit in the 18GB RAM allotment of a high-end GPU. In testing with an RTX 5090, DiffusionGemma spits out around 700 tokens per second. With a single Nvidia H100 AI accelerator, DiffusionGemma can produce 1,000+ tokens per second. That’s about four times the output of the similarly sized autoregressive Gemma models.\nThis approach to text generation shifts the bottleneck from memory bandwidth to compute, generating up to 256 tokens in parallel. Google says this offers a measurable boost in non-linear tasks like in-line editing, molecular sequencing, and mathematical graphing. The animation above shows how DiffusionGemma was tuned to solve Sudoku puzzles, which is a notoriously challenging task for standard autoregressive AI models because each token depends on future tokens. DiffusionGemma’s ability to continuously self-correct large sets of tokens makes that easier.",
+  "published_at": "2026-06-10T19:29:21Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-06-12T03:00:30.849211Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "generative ai",
+      "google"
+    ]
+  }
+}

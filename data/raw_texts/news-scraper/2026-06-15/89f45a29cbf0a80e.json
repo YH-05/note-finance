@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/13/spacex-surges-but-bigger-days-are-ahead-td-securities-.html",
+  "title": "Why TD Securities anticipates even bigger days ahead for SpaceX",
+  "raw_text": "The most important dates for SpaceX haven't happened yet, according to TD Securities.\nPeter Haynes, the firm's head of index and market structure, suggests SpaceX's public debut is only a small part of the larger SpaceX timeline.\nHe's urging investors to pay close attention to when SpaceX is added to key indexes — including the S&P Total Market Index, MCI Global Index, Russell Indexes and Nasdaq 100 early this summer.\n\"Day 15 [after SpaceX goes public], which should be July 6… will be the day that Nasdaq rebalances the 100 Index to reflect SpaceX's IPO shares,\" he told CNBC's \"ETF Edge\" this week ahead of Friday's IPO. \"Then from there, we're looking at when do indexes adjust for the additional shares that will be freely tradable down the road.\"\nIn what Haynes called a \"controversial decision,\" the S&P 500 Index Committee announced earlier this month that SpaceX will not be fast-tracked into the index, meaning the Elon Musk rocket maker must trade on the market for at least one year until it becomes eligible.\n\"That leaves us with the other benchmarks and their rebalancing schedule,\" said Haynes.\nThe decision means greater significance for upcoming index events, as many shares will become freely tradable and need to be reflected in the benchmarks, he says.\nSpaceX debuted at the Nasdaq at 11:46 a.m. ET on Friday. The stock surged more than 19% to close at $160.95 — its market cap exceeding $2 trillion.\nIn a special note to CNBC after Friday's market close, Haynes wrote: \"We take for granted that the infrastructure that supports the equity trading business always works. Today was a test of that infrastructure and in my opinion the industry passed the test.\"",
+  "published_at": "2026-06-13T15:00:01Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.772868Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

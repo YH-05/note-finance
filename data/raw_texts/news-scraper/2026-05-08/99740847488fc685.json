@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/ai-causing-tidal-wave-job-cuts-crypto-firms",
+  "title": "AI Is Causing A Tidal Wave Of Job Cuts At Crypto Firms",
+  "raw_text": "Layoffs are spreading across crypto and fintech — and executives increasingly say AI is part of the reason, according to Bloomberg.\nCoinbase, PayPal, Gemini, and Crypto.com have all recently cut jobs while emphasizing efficiency and automation. On Tuesday, Coinbase CEO Brian Armstrong framed the shift in stark terms, warning that “the biggest risk now is not taking action” as the company tries to become “lean, fast, and AI-native.”\nBloomberg writes that the trend gained momentum after Block, Inc. — the parent company of Square, Inc. and Cash App — announced major cuts earlier this year and pointed to AI as part of a broader restructuring effort. Since then, more firms have adopted similar language, pitching layoffs as preparation for an AI-powered future.\nCritics aren’t fully convinced. Many of these companies are also facing more immediate business pressures: crypto trading activity has cooled, digital asset prices remain below their recent highs, and payments companies are navigating slower growth and tighter competition. Some firms have additional internal challenges — Block, Inc. expanded aggressively during the pandemic-era boom, while PayPal is still working through a broader turnaround under new leadership.\nThat has fueled accusations of “AI washing,” where companies use artificial intelligence as a cleaner explanation for layoffs tied to weaker demand or overhiring. John Todaro of Needham & Company questioned how much of the narrative is real: “Whenever I see these layoffs and AI is part of the reason, I step back and ask, do we see this from companies where the market is super hot?” He added: “I am not sure I buy that AI angle.”\nOthers say both things can be true. Raman Shalupau, founder of CryptoJobsList, estimated that current cuts are “probably an 80/20 split across the industry right now between real AI efficiency gains versus trimming down from the last bull run.”\nEven when companies aren’t cutting headcount, they’re reshaping jobs around automation. Coinbase has been flattening management layers and asking leaders to operate more like “player-coaches,” while 0G Labs said it reduced staff by 25% after internal AI tools significantly improved productivity.\nThe bigger question is whether this marks a permanent shift in how crypto and fintech firms operate — or whether AI has simply become the latest justification for cost-cutting during a tougher market cycle. For now, both explanations appear to be driving decisions.",
+  "published_at": "2026-05-07T19:05:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T03:00:40.768269Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

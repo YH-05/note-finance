@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/preprint-server-arxiv-will-ban-submitters-of-ai-generated-hallucinations/",
+  "title": "Send the arXiv AI-generated slop, get a yearlong vacation from submissions",
+  "raw_text": "AI-generated slop has shown up everywhere, including in the peer-reviewed literature. Fake citations, unedited prompt responses, and nonsensical diagrams have all slipped past editors and peer reviewers, and it’s not always clear if there are any consequences for the people responsible.\nNow, it appears that a number of scientific fields will be enforcing rules against AI-generated problems even before peer review or journals get involved. One of the people involved in the physics and astronomy preprint server arXiv used a social media thread to announce that any inappropriate AI-produced content submitted to the server will result in a one-year ban and a permanent requirement that future publications undergo peer review before the arXiv will host them.\nThomas Dietterich, in addition to being an emeritus professor at Oregon State University, is heavily involved with arXiv, serving on its editorial advisory council and on its moderation team. So he’s in a good position to understand the organization’s policies, although we have also reached out to arXiv leadership for confirmation, but have not yet received a response.\nIn a thread on X (also screenshotted on Bluesky, for those without X accounts), Dietterich described the new policy as arising directly from the arXiv’s moderation standards. “Submissions to arXiv must comply with appropriate standards of scholarly communication in form, including appropriate and carefully prepared sections, figures, tables, references, etc.,” those standards read. “General scrupulousness and care of preparation are required.”",
+  "published_at": "2026-05-15T18:25:53Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-15T21:00:30.408593Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Science",
+      "ai slop",
+      "arXiv",
+      "preprints",
+      "Scientific publishing"
+    ]
+  }
+}

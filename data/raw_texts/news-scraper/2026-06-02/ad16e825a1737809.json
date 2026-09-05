@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/barclays-says-ibm-is-mimicking-nvidias-playbook-in-quantum-market.html",
+  "title": "Barclays says IBM is mimicking Nvidia's playbook in quantum market. How the stock could gain 50%",
+  "raw_text": "IBM has taken a massive leap into the quantum computing market, and investors could reap the rewards of its investment into the futuristic technology, according to Barclays. The bank initiated coverage of the original technology stock name with an overweight rating, giving it s 12-month price target of $350, implying 18% upside from Friday's close. IBM rallied more than 8% Monday. In its most optimistic bull case, Barclays has a price target of $449 on IBM, or 51% above the last close. \"We see mid single digit organic revenue growth and ongoing margin leverage, which should create a stable earnings compounder with a Quantum option — a good combination and hence our Overweight rating,\" analysts led by Raimo Lenschow wrote Monday in a report. \"IBM has a compelling opportunity ahead around quantum computing that could accelerate growth if successful.\" IBM recently pledged to invest more than $10 billion in quantum computing over the next five years, with the goal of creating fault-tolerant quantum computers by 2029, according to a filing to federal securities regulators on May 28. The push follows Nvidia 's moves to lead advances in quantum computing. In April, the leading AI chipmaker unveiled Ising , a family of open-source artificial intelligence models to accelerate the adoption of the futuristic technology. A burgeoning industry The quantum computing market was worth just $1.4 billion in 2024, according to market research firm Grand View Research. But the emerging technology is growing quickly and already attracting outsized interest from investors and builders in the U.S. In May, the U.S. Department of Commerce said in a statement that it would grant $2 billion to nine domestic quantum computing companies. Meanwhile, hyperscalers such as Alphabet and Amazon have unveiled chips to power the emerging technology over the last few years. Yet quantum computing is still in its early days. IBM has time to act as an early mover, and possibly lift the shares, according to Barclays. \"Quantum represents a very interesting option value with IBM being an early leader,\" Lenschow wrote. IBM is aiming to bolster its quantum customer base by following Nvidia's winning strategy for its graphics processing units (GPU), which includes \"building software, tools and a developer environment to foster adoption,\" the analysts said. \"Quantum computing has the potential to become the next major compute paradigm, following the [central processing unit] and GPU eras,\" Lenschow added. \"It addresses new challenges, especially around simulation, optimization or materials discovery.\" Barclays' call matches the consensus on Wall Street. Of 24 analysts covering IBM, 14 have a buy or strong buy on the stock, LSEG data shows. The stock is ahead almost 40% in the past month, according to FactSet data.",
+  "published_at": "2026-06-01T14:50:56Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.581706Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

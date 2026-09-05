@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/13/these-stocks-are-most-overbought-or-oversold-after-choppy-market-week.html",
+  "title": "These stocks are the most overbought or oversold after a choppy week on Wall Street",
+  "raw_text": "Humana's stock has more than doubled since the rest of the stock market bottomed during the U.S.-Iran war on March 30. But that rally may be overextended, as the Louisville-based health insurer led the list of overbought stocks in the S & P 500 by the end of the week. Major U.S. indexes were choppy over the past five trading sessions, as some investors moved to rotate out of chip stocks , awaiting geopolitical developments springing from U.S. negotiations with Iran and then reacting to the SpaceX IPO on Friday . For all that, the S & P 500 ended the week higher for the 10th time in 11 weeks. Despite the choppiness — stocks dropped Tuesday and Wednesday after sliding almost 3% last week — several stocks marched higher, reaching into overbought territory. CNBC Pro used its stock screener tool to identify those stocks, based on their 14-day relative strength index, or RSI. Stocks with a 14-day RSI reading above 70 are considered to be overbought and possibly primed for a downturn, while those with an RSI below 30 are regarded as oversold and maybe due for a rebound. The following table shows this week's most overbought companies in the S & P 500: Notably, three healthcare companies appear as overbought: Humana, CVS and Cardinal Health . Humana may have doubled since the end of March, but CVS is up 45% over the same period. Cardinal Health is up more than 20% just since mid-May. In a rocky week for the broad market, UBS said in a note on Tuesday it's no surprise health care weathered the storm. \"Over the past year, the health care sector has outperformed the S & P 500 on 85% of the days when the benchmark was down 1% or more,\" strategists led by the bank's chief investment officer Ulrike Hoffmann-Burchardi wrote. KLAC 5D mountain KLA Corp. 5-day chart. KLA Corporation similarly looked overbought after climbing almost 30% this week. The semiconductor equipment maker rose nearly 13% on Thursday alone after Oracle's capital spending outlook in its latest earnings report highlighted ferocious demand for chips. Jif peanut butter and Cafe Bustelo coffee maker J.M. Smucker Company jumped 11% this week after its own solid earnings. Bank of America analyst Peter Galbo hiked his price target on Ohio-based Smucker to $132, implying about 14% possible upside gain from Friday's close. \"We'd expect shares to continue to outperform center store food peers and for multiple re-rate to continue,\" Galbo wrote in a note on Wednesday. Conversely, after the market's recent strength, fewer stocks appeared as the most oversold: Two of them were Instagram- and Facebook parent Meta Platforms , which fell 5% last week and is now off 11% in June, and AutoDesk which fell 14% on the week. Adobe also looks oversold. The digital media provider tumbled 6% Friday after announcing the departure of chief financial officer Dan Burn and forecasting more muted annual recurring revenue growth.",
+  "published_at": "2026-06-13T13:46:24Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.294254Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

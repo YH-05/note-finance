@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/21/trump-spirit-airlines.html",
+  "title": "Trump says 'maybe' government should help struggling Spirit Airlines",
+  "raw_text": "President Donald Trump said Tuesday that the federal government could help struggling Spirit Airlines as the discount carrier faces the possibility of liquidation.\nTrump told CNBC's \"Squawk Box\": \"I don't mind mergers. I think I'd love somebody to buy Spirit, as an example. You know, Spirit's in trouble. ... Maybe the federal government should help that one out.\"\nSpirit has sought government aid from the Trump administration in recent days, according to people familiar with the matter who were not authorized to speak to the media about the discussions. The request was first reported by aviation news publication The Air Current.\nThe airline has been struggling to find its footing after filing for bankruptcy protection in August for the second time in less than a year.\nSpirit expected to emerge from bankruptcy in the middle of 2026, after selling more aircraft and narrowing its focus to several key cities. But the surge in fuel prices since the U.S. and Israel attacked Iran in February has become an added challenge. Fuel is airlines' biggest expense after labor.\nJet fuel prices have nearly doubled this year since the attacks on Iran, with a gallon going for $3.87 on average on Monday in Los Angeles, Chicago, Houston and New York, according to Argus data published by Airlines for America. That's up about 55% from before the war started on Feb. 28.\nTransportation Secretary Sean Duffy later on Tuesday is set to meet with several discount carriers to discuss the impact of higher fuel on their businesses, and attendees are expected to ask for potential tax relief, people familiar with the matter said, requesting anonymity to speak about matters that had not yet been made public.\nIt wasn't immediately clear if the administration would provide the Florida-based carrier with a lifeline. The U.S. government gave the airline industry billions of dollars during the Covid-19 pandemic, but that money went to many companies, not to one single carrier.",
+  "published_at": "2026-04-21T14:53:48Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.733094Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

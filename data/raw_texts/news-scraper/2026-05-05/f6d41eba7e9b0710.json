@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/05/job-openings-and-labor-turnover-comes-in-at-6-point-86-million-new-home-sales-rise-to-682000.html",
+  "title": "Job openings and labor turnover comes in at 6.86 million; new home sales rise to 682,000",
+  "raw_text": "watch now\nJob openings and labor turnover comes in at 6.86 million; new home sales rise to 682,000\nCNBC's Rick Santelli and Diana Olick break down the latest economic and housing data.\n02:44\nan hour ago",
+  "published_at": "2026-05-05T14:16:53Z",
+  "author": null,
+  "collected_at": "2026-05-05T15:18:22.324589Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

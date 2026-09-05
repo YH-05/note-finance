@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/cable-lobby-warns-of-chaos-if-fcc-doesnt-relax-ban-on-foreign-routers/",
+  "title": "Cable lobby warns of chaos if FCC doesn't relax ban on foreign routers",
+  "raw_text": "The cable industry’s primary lobby group is seeking a waiver of the Federal Communications Commission ban on foreign routers, warning of potential chaos if cable Internet service providers can’t change some of the components in routers they offer to home broadband users.\nIn March, the FCC added all consumer-grade routers made at least partly outside the US to its Covered List, which imposes restrictions on devices deemed to pose an unacceptable risk to national security. The change affected virtually all consumer routers, preventing new or changed models from being imported into or sold in the US.\nIn a petition filed on Tuesday, NCTA-The Internet & Television Association asked the FCC to grant an expedited waiver allowing its members’ suppliers to “substitute substrate materials and memory modules in the previously certified routers that are now on the Covered List” as long as the changes “are otherwise consistent” with FCC regulations.\nThese changes would not alter the functionality of previously authorized devices and would not swap US-produced components for foreign-produced ones, the NCTA said. The component changes are apparently needed to continue production of routers that were approved by the FCC before the Covered List update.\n“NCTA requests an expedited grant of this waiver to enable its members and their suppliers to navigate unavoidable supply chain shortages and prevent disruptions in the availability of broadband for NCTA members’ customers, while still fulfilling the rules’ national security and public safety purpose,” the NCTA said. It argued that “good cause exists to prevent disruptions to millions of Americans’ broadband services.”\nMemory and substrate shortages\nThe FCC last month granted a one-year waiver to AT&T’s suppliers, similar to the waiver requested by the NCTA for all cable broadband companies. “NCTA’s suppliers are similarly situated” to AT&T’s, the cable lobby group’s filing said.\nWhile many Internet users buy their own Wi-Fi routers from the vendor of their choice, it’s common for Internet subscribers to use the hardware leased or sold by their broadband provider. The NCTA said that because all consumer-grade routers are now on the FCC’s Covered List, certain “changes are prohibited by the FCC’s rules.”",
+  "published_at": "2026-06-04T18:34:33Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-04T21:00:31.659674Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "FCC",
+      "NCTA",
+      "router ban"
+    ]
+  }
+}

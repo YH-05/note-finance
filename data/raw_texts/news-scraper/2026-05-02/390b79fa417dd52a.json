@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/922572/apple-mac-mini-256-model",
+  "title": "Apple raises the Mac Mini&#8217;s starting price",
+  "raw_text": "Apple’s Mac Mini now starts at $799 after the company pulled the $599 option with 256GB of storage from its online store, as spotted earlier by MacRumors. The model’s discontinuation comes just one day after Apple CEO Tim Cook said during an earnings call that a chip shortage will impact its Mac products in the coming months.\nApple raises the Mac Mini’s starting price\nApple CEO Tim Cook said ‘supply constraints’ could affect several of its Mac models in the coming months.\nApple CEO Tim Cook said ‘supply constraints’ could affect several of its Mac models in the coming months.\n“If you look forward to June, the majority of our supply constraints will be on several Mac models,” Cook said. “We think looking forward that the Mac Mini and the Mac Studio may take several months to reach supply-demand balance.” He added that both devices saw “higher-than-expected demand” as well, with many people buying up the device to use with AI agents like OpenClaw.\nThe global memory shortage poses challenges for Apple as well, as Cook said that the company expects “significantly higher memory costs” going forward, which could have an “increasing impact” on Apple’s business.\nThe cheapest Mac Mini now costs $799 as a result, offering 512GB of storage and Apple’s M4 processor. With the AI-driven RAM shortage squeezing suppliers across the globe, many device makers are either raising the prices of their products or have stopped selling certain models completely. Apple halted sales of its Mac Studio with 512GB of RAM in March, while boosting the starting prices of its new MacBook Air and MacBook Pro models.",
+  "published_at": "2026-05-01T21:52:09Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-02T03:02:12.435416Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "macOS",
+      "News",
+      "Tech"
+    ]
+  }
+}

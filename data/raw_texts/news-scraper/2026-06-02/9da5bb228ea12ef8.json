@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/19/pending-home-sales-rose-1-point-4-percent-in-april1.html",
+  "title": "Pending home sales rose 1.4% in April",
+  "raw_text": "CNBC’s Diana Olick breaks down the newest housing data.",
+  "published_at": "2026-05-19T15:04:33Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.634780Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

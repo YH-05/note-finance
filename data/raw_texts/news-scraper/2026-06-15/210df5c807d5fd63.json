@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://openrouter.ai/openrouter/fusion",
+  "title": "Openrouter Fusion API",
+  "raw_text": "Fusion turns your prompt into a small multi-model deliberation. A panel of expert models (see below) analyzes your prompt in parallel with web search and web fetch enabled, then a judge model synthesizes their responses into a structured analysis — consensus, contradictions, partial coverage, unique insights, and blind spots — and writes the final answer from it.\nBy default the panel is the Quality\npreset; switch to Budget\nfor cheaper members, or override the panel and judge entirely with the fusion plugin's analysis_models\nand model\nfields. Reach for Fusion when a single model isn't enough — research, expert critique, or anywhere the cost of being wrong outweighs a few extra completions.\nBecause Fusion runs every panel member plus a judge call, your request is priced as the sum of those underlying completions rather than a single model. To see which models ran, visit Activity.\nLearn more in our docs. For another way to route, see the Auto Router.\nQuick Start\nDrop-in code to call this model. OpenRouter's API is OpenAI-compatible — most SDKs work by just swapping the base URL. The only thing that changes between models is the model slug below.",
+  "published_at": "2026-06-15T07:10:57Z",
+  "author": "tdchaitanya",
+  "collected_at": "2026-06-15T15:00:39.245382Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

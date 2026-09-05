@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20378-kkr-nvidia-and-partners-launch-10bn-ai-infrastructure-company.html",
+  "title": "KKR, Nvidia and partners launch $10bn AI infrastructure company",
+  "raw_text": "KKR, Nvidia, the Kuwait Investment Authority (KIA) and power company Vistra have launched Helix Digital Infrastructure, a new company backed by more than US$10 billion in capital to build AI infrastructure for hyperscalers.\nThe company aims to simplify the deployment of AI infrastructure by acting as a single provider for data centres, power generation, connectivity and related infrastructure. Helix will target growing demand from hyperscalers as AI workloads drive a surge in investment across digital infrastructure.\nFormer Amazon Web Services CEO Adam Selipsky will lead Helix as CEO, while KKR’s Global Head of Digital Infrastructure, Waldemar Szlezak, will serve as chief investment officer.\nThe company plans to invest across hyperscale data centres, power generation, transmission infrastructure and fibre networks. Nvidia will act as a strategic technology partner, supporting deployments based on its AI factory architecture, while Vistra will serve as Helix’s preferred power supplier.\nThe launch comes as AI is driving what KKR described as one of the largest infrastructure buildouts in history, with demand for data centres and electricity increasing rapidly. Industry estimates suggest trillions of dollars will be required over the next decade to support AI-related infrastructure globally.\nHelix said it will provide hyperscalers with a more integrated approach to infrastructure deployment, reducing the complexity of coordinating multiple suppliers across power, connectivity and data centre construction.\nNvidia CEO Jensen Huang said demand for AI infrastructure continues to accelerate as cloud providers race to expand AI capacity.\nThe company is backed by KKR’s infrastructure platform, which manages more than US$100 billion in infrastructure assets globally. Following the initial funding round, Helix said it is open to additional institutional investors.",
+  "published_at": "2026-06-12T09:30:30Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-14T03:02:02.679331Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

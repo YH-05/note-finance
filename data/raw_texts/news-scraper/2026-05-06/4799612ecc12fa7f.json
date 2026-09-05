@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060240",
+  "title": "[TRVG] トリバゴ　1Q増収赤字継続　売上高15％増1.42億ユーロ、営業赤字999万ユーロ、EPSマイナス0.02ユーロ",
+  "raw_text": "トリバゴ<\nTRVG>の2026年度第1四半期（1-3月）の業績は増収、営業赤字継続だった。\n米現地5月5日の通常取引終了後に公開された6-K（重要事項報告書）によると、第1四半期は売上高は前年同期比15.1％増の1億4289万ユーロとなった。営業損益は999万ユーロと赤字が継続。前年同期は956万ユーロの赤字だった。1株あたり損失（EPS・希薄化後）は0.02ユーロとなった。前年同期は0.02ユーロだった。\nトリバゴ<\nTRVG>\n発表資料\n原本（英語）\n株探ニュース",
+  "published_at": "2026-05-05T21:33:50Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:00:22.360945Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

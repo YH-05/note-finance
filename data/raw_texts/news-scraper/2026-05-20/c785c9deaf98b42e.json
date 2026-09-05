@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605210079",
+  "title": "本日注視すべき【CB発行】銘柄　(20日大引け後 発表分)",
+  "raw_text": "ＲｅＹｕｕ ＜日足＞ 「株探」多機能チャートより\n〇ＲｅＹｕｕ <\n9425> [東証Ｓ]\n2億円の新株予約権付社債(転換社債＝CB)を発行する。転換価格は231.3円で、Long Corridor Alpha Opportunities Master Fundなど3先に割り当てる。\n[2026年5月21日]\n株探ニュース",
+  "published_at": "2026-05-20T20:45:00Z",
+  "author": null,
+  "collected_at": "2026-05-20T21:00:22.351711Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

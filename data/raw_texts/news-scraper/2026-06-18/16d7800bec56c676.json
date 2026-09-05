@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20408-colombia-fines-telecall-1-8m-over-5g-licence-breaches.html",
+  "title": "Colombia fines Telecall $1.8m over 5G licence breaches",
+  "raw_text": "Colombia's Ministry of ICT (MinTIC) has fined operator Telecall Colombia COP7.42 billion (US$1.8 million) for failing to meet obligations attached to its 5G spectrum licence.\nTelecall Colombia is a subsidiary of Brazilian telecommunications company Telecall, which provides enterprise connectivity, cloud, data centre and mobile services in Brazil. The company was one of four operators to secure spectrum in Colombia’s landmark 5G auction in 2023, alongside established mobile players, marking its entry into the country’s mobile market. However, its participation attracted scrutiny due to questions over its financial capacity and ability to deliver on the substantial investment and coverage commitments attached to the licence.\nTelecall was awarded an 80MHz block in the 3.5GHz band during Colombia's 5G auction in December 2023 after submitting a bid worth COP318.3 billion (US$77 million). The company subsequently received a 20-year spectrum permit covering access, use and exploitation of the frequencies.\nThe licence included a series of connectivity commitments designed to help close the country's digital divide. These included expanding mobile coverage along transport corridors, providing fibre connectivity to 343 educational institutions, and deploying infrastructure in major cities and municipalities with populations exceeding 200,000.\nAccording to MinTIC, Telecall failed to make the first scheduled payment associated with the spectrum permit and did not provide the required performance and civil liability guarantees needed to support the project.\nThe ministry launched administrative proceedings in 2024 and later opened a formal sanctioning process after determining the company had breached its obligations.\nTelecall subsequently remedied the issues, paying approximately COP46.9 billion, including monetary adjustments, in March this year. It also submitted the required guarantees, which were approved by the ministry in May.\nHowever, MinTIC said the late compliance did not remove liability for the original breaches. As a result, the regulator imposed a fine of COP7.42 billion through a resolution issued on May 29. The decision became final on June 11.\nAlongside the penalty, the ministry has adjusted the implementation timetable for Telecall's connectivity obligations. The revised schedule does not alter the operator's spectrum rights, payment commitments or coverage targets, but is intended to ensure the promised infrastructure and connectivity projects are delivered.\nMinTIC said the changes preserve obligations related to educational connectivity, mobile infrastructure deployment and broader efforts to expand coverage in underserved areas.\nThe ministry added that the case demonstrates the government's ability to enforce compliance while ensuring that projects linked to spectrum awards ultimately deliver the intended benefits to communities across the country.",
+  "published_at": "2026-06-18T10:28:46Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-18T15:01:18.644742Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

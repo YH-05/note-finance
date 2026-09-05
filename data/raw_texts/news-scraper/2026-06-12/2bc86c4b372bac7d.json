@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/heres-what-jeff-bezos-new-startup-prometheus-will-do/",
+  "title": "Here's what Jeff Bezos' new startup Prometheus will do",
+  "raw_text": "In November, Jeff Bezos announced that he would become co-CEO of a new startup called Prometheus. At the time, the startup said it would focus on “physical AI”—an increasingly common term for applying the same deep learning principles behind large language models or generative AI to things like robotics and manufacturing—but specifics were scarce. Now, with a major new round of funding, Bezos and co-founder Vik Bajaj have talked about it in slightly more detail.\nThe funding round is significant—$12 billion now, after an initial round of $6.2 billion last year, for a valuation of $41 billion. The funding comes from JPMorgan Chase, Goldman Sachs, BlackRock, and others, plus a sizable amount from Bezos’ coffers. The startup currently employs 150 people.\nMuch of that funding will be put toward buying compute. “One of the reasons we’ve had to raise a significant amount of funding is because… what we’re doing is very compute-intensive and we need to create that data,” Bezos told CNBC.\nSo what exactly are they doing? Bezos summarized a significant portion of the company’s focus as creating an “artificial general engineer.”\n“All societal wealth is driven by invention,” Bezos told The New York Times. “Six thousand years ago, somebody invented the plow, and we all got wealthier. Then, much later, somebody invented the steam engine, and we all got wealthier.” He went on to say that “what Prometheus seeks to do is to offer a set of tools that dramatically accelerates that invention loop.”",
+  "published_at": "2026-06-12T18:45:40Z",
+  "author": "Samuel Axon",
+  "collected_at": "2026-06-12T21:00:32.031743Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "funding",
+      "Jeff Bezos",
+      "physical AI",
+      "project prometheus",
+      "Prometheus",
+      "startups",
+      "Vik Bajaj"
+    ]
+  }
+}

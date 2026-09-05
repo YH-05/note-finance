@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606121403",
+  "title": "米当局者、合意成立ならイランの核開発計画は解体される",
+  "raw_text": "【注目】米当局者、合意成立ならイランの核開発計画は解体される\n・イランの核開発計画は合意の下で廃棄される見通し。\n・合意が成立すれば、イランの核物質は廃棄される。\n・合意が成立すれば、ホルムズ海峡は開放\n・合意が成立すれば、イランの核開発計画は解体される。\n・イランは約束を果たすまで資金を受け取れない。\n株探ニュース",
+  "published_at": "2026-06-12T13:57:00Z",
+  "author": null,
+  "collected_at": "2026-06-12T15:00:25.281837Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

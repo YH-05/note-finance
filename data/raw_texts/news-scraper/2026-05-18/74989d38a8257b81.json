@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605190065",
+  "title": "財務省幹部、米国債下落による円相場への影響リスクを注視",
+  "raw_text": "【注目】財務省幹部、米国債下落による円相場への影響リスクを注視\n・米国債下落（利回り上昇）による円相場への影響リスクを注視。\n・米金利上昇は円安に繋がる可能性。\n・日本は預金・現金を通じた為替介入余力を有している。\n・一般論として為替介入の際に米国債売る必要はない。\n株探ニュース",
+  "published_at": "2026-05-18T20:58:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T21:00:22.078795Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

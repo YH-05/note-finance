@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/929152/apple-ios-27-camera-app-customization",
+  "title": "iOS 27 might add a lot more customization to the Camera app",
+  "raw_text": "Apple’s next iOS update could include something phone photographers have been waiting for: a lot more control over the Camera app. According to Bloomberg’s Mark Gurman, the Camera app will be “fully customizable” in iOS 27 and users will be able to “pick their own set of controls — called widgets — that run along the top of the interface.”\niOS 27 might add a lot more customization to the Camera app\nUsers will reportedly be able to select their own set of “widgets,” including depth-of-field, exposure, and more.\nUsers will reportedly be able to select their own set of “widgets,” including depth-of-field, exposure, and more.\nGurman notes that the Camera app will keep the current set of default widgets, but starting with iOS 27, you will “be able to switch over to an ‘advanced’ array of options or choose their own items.” From there, you’ll reportedly be able to select from a new “Add Widgets” tray, with widgets split into three categories: basic, manual, and settings. There will also be a distinct set of widgets for each of the Camera app’s capture modes. According to Gurman, the Camera app is also getting a new “Siri” mode for using Apple’s visual intelligence features.\niOS 27 will also reportedly include some design changes in other apps, particularly Siri, which Gurman notes will be part of the Dynamic Island in iOS 27. Apple’s AI assistant could also get its own app and integrations with more third-party AI models. Additionally, the Image Playground app and the Safari start page are said to be getting a redesign along with the Weather app adding a new “Conditions” section.",
+  "published_at": "2026-05-12T21:36:11Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-13T03:00:15.824906Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Apple Rumors",
+      "iOS",
+      "News",
+      "Tech"
+    ]
+  }
+}

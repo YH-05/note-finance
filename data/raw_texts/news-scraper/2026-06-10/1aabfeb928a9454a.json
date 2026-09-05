@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/kalshi-rolls-out-tighter-measures-amid-concerns-of-insider-trading-.html",
+  "title": "Kalshi rolls out whistleblower services, employment verification to curb insider trading",
+  "raw_text": "Kalshi said Tuesday that it will roll out measures to clamp down on insider trading, including a requirement for traders to provide employment details, as well as offering whistleblower services.\nThe platform said it's making these changes \"effective immediately\" after an advisory committee called for stronger measures. Traders in certain markets will be asked to submit details on their employment, Kalshi said.\nThe move comes amid rising scrutiny of possible insider trading on prediction markets. Federal prosecutors charged a Google employee with fraud in May, noting the employee made over a million from insider information on Polymarket.\nThe Wall Street Journal first reported that Kalshi will require traders to disclose their employer's identity in certain cases.\nKalshi said it will provide three features, including risk scoring, which will provide a \"risk score\" to markets having possible insider trading or manipulation risk. The platform will have six ways of measuring a market's risk, including if it is a concern for national security or if the market is acceptable under current regulation.\nIf the market's score meets a certain benchmark, participants will require employment verification. Kalshi said it will screen traders \"before a trade is ever placed.\"\nThe platform will also have enhanced whistleblower features that will let traders report abusive trading activity on any market any time of the day. The platform built \"internal alerting controls\" to collect whistleblower tips from traders, which will go to the surveillance team.\n\"By implementing these new integrity measures, we continue to lead the industry on the issue of market integrity amongst federally regulated prediction markets,\" said Robert DeNault, Kalshi Head of Enforcement.\nFor the first quarter, Kalshi said it's stopped over a hundred possible insider trading incidents using its new screening tools.\nKalshi said the committee will continue to provide quarterly reports.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-09T21:35:01Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.427643Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

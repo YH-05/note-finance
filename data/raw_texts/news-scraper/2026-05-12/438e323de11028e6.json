@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605121695",
+  "title": "日経225先物：12日22時＝50円安、6万2610円",
+  "raw_text": "【市況】日経225先物：12日22時＝50円安、6万2610円\nTOPIX先物期近は3885ポイントと前日比16ポイント高、TOPIXの現物終値比は12.10ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 62610 -50 3175\n日経225mini 62620 -30 74879\nTOPIX先物 3885 +16 6789\nJPX日経400先物 35490 +40 322\nグロース指数先物 805 +0 231\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-12T13:00:41Z",
+  "author": null,
+  "collected_at": "2026-05-12T15:00:22.003580Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

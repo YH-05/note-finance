@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/amd-dumps-pumps-new-record-high-after-beat-and-raise",
+  "title": "AMD Dumps & Pumps (To New Record High) After Beat-And-Raise",
+  "raw_text": "Just wow...\nAMD shares initially puked after results dropped showing top- and bottom-line beats:\nEPS: $1.37 vs. $1.29 adjusted expected\nRevenue: $10.25 billion vs. $9.89 billion expected\nBut now they are exploding higher after the second-largest AI chipmaker raised estimates:\n- For the second quarter, AMD said it expects about $11.2 billion in revenue, versus expectations of $10.52 billion, according to LSEG\nThat is a new record high...\nRevenue jumped 38% from $7.44 billion a year ago, the company said in a release on Tuesday, beating in every segment...\nData center revenue $5.78 billion, +57% y/y, estimate $5.61 billion\nGaming revenue $720 million, +11% y/y, estimate $668.6 million\nClient revenue $2.89 billion, +26% y/y, estimate $2.73 billion\nEmbedded revenue $873 million, +6.1% y/y, estimate $868.4 million\n“Looking ahead, we expect server growth to accelerate meaningfully as we scale supply to meet demand,” Chief Executive Officer Lisa Su said in the statement.\n“We delivered an outstanding first quarter, driven by accelerating demand for AI infrastructure, with data center now the primary driver of our revenue and earnings growth.”\nOh and in case you didn't see enough beats...\nCapital expenditure $389 million, +83% y/y, estimate $215.2 million\nAdjusted operating income $2.54 billion, +43% y/y, estimate $2.41 billion\nAdjusted operating margin 25% vs. 24% y/y, estimate 24.3%\nFree cash flow $2.57 billion vs. $727 million y/y, estimate $2.35 billion\nR&D expenses $2.40 billion, +39% y/y, estimate $2.26 billion\nTonight's gains come AFTER AMD's stock has more than tripled over the past year, including a 66% jump so far in 2026.",
+  "published_at": "2026-05-05T20:29:18Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T03:00:41.232229Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

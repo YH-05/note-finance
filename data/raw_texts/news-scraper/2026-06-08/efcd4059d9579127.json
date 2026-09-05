@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606090039",
+  "title": "トランプ大統領、ブランチ司法長官代行を司法長官に指名",
+  "raw_text": "【注目】トランプ大統領、ブランチ司法長官代行を司法長官に指名\nトランプ大統領はブランチ氏を米司法長官に指名したと発表した。上院に送付された指名通知によって明らかになった。ブランチ氏は元連邦検察官で、近年は弁護士として活動しており、トランプ大統領の複数の刑事事件で弁護団の中心メンバーを務めたことで知られている。\n今後、ブランチ氏が司法長官に就任するためには、上院での承認手続きを経る必要がある。\n株探ニュース",
+  "published_at": "2026-06-08T20:06:00Z",
+  "author": null,
+  "collected_at": "2026-06-08T21:00:21.752278Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

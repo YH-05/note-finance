@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/cybercriminals-claim-breach-of-oracle-peoplesoft-servers-at-100-plus-organizations/",
+  "title": "Cybercriminals claim breach of Oracle PeopleSoft servers at 100-plus organizations",
+  "raw_text": "The notorious cybercrime group ShinyHunters claimed to have hacked Oracle PeopleSoft servers at more than 100 organizations, many of them universities, a ShinyHunters member told TechCrunch on Wednesday. The breaches were first reported by BleepingComputer.\nPeopleSoft is enterprise software designed to manage payroll, human resources, administration, and other business operations.\nThe news shows that despite being one of the most visible and prolific cybercrime groups at the moment, ShinyHunters is not slowing down and has turned mass hacks into its specialty. The group’s modus operandi is to find a vulnerability in a popular piece of software so that they can compromise many victims at once.\n“Student, applicant, financial aid, immigration, health, and administrative data has been exfiltrated,” read a message that the hacker said was sent to one of the victims. The hackers claimed to have stolen student records that include home addresses, phone numbers, emails, and dates of birth.\nThe hacker added that most of the targeted schools had already been compromised in earlier, unrelated campaigns.\nThe group’s original goal, the member said, was to compromise an FBI PeopleSoft server — the goal being to post a statement denying ShinyHunters was behind a wave of swatting attempts the FBI flagged in an alert last month. The member said that attempt failed.\nOracle did not respond to a request for comment.",
+  "published_at": "2026-06-10T21:33:32Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-06-11T03:00:27.238647Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cybercrime",
+      "data breach",
+      "hackers",
+      "hacking",
+      "In Brief",
+      "oracle",
+      "shinyhunters"
+    ]
+  }
+}

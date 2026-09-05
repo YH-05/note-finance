@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.githubstatus.com/incidents/2nmfnbknhlnv",
+  "title": "Accidentally deleted subscriptions for chat integrations (Slack and MS Teams)",
+  "raw_text": "Auth issue resulting in API impacts, including some Slack and Teams channel subscriptions\nResolved\nThis incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.\nUpdate\nAffected Slack and Teams subscriptions have been restored. Please contact support if you encounter any additional issues.\nUpdate\nAdditional detail on the scope of impact during the 14:49 UTC to 16:45 UTC window: a small but elevated percentage of authenticated requests to GitHub.com received incorrect authorization failures. We saw a 1 to 2% increase in 4xx responses for a small number of endpoints (/repos/{owner}/{repo}/pulls/{pull_number}, /repos/{owner}/{repo}, /repos/{owner}/{repo}/contents/{path}). The vast majority of requests completed normally; customers who saw errors during the window can retry now and should see them succeed.\nUpdate\nWe are still exploring options to restore the deleted subscriptions, and we will provide another update soon. In the meantime, customers can manually re-subscribe their Slack and Teams channels to repositories.\nMonitoring\nThe degradation has been mitigated. We are monitoring to ensure stability.\nUpdate\nDuring 14:49 UTC to 16:45 UTC, customers may have experienced authorization failures for legitimate requests. This was caused by a recently enabled feature flag, which has now been turned off as a mitigation. Customers should now see normal authorization behavior. This is also the cause of the chat integration issue, and we are exploring options to restore it. In the meantime, customers can manually re-subscribe their repo.\nUpdate\nCustomers may see unexpected repo unsubscription events in their Slack or Teams channels.\nInvestigating\nWe are investigating reports of impacted performance for some GitHub services.",
+  "published_at": "2026-06-05T19:15:36Z",
+  "author": "SparkyDogs",
+  "collected_at": "2026-06-06T09:00:48.157270Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

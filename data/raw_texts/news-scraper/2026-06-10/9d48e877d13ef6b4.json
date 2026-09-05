@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/amazon-freight-expansion-sparks-selloff-across-trucking-stocks",
+  "title": "Amazon Freight Expansion Sparks Selloff Across Trucking Stocks",
+  "raw_text": "Less-than-truckload freight stocks fell in premarket trading in New York after Amazon roiled the industry yet again - this time by announcing expanded LTL services to cover all U.S. destinations, including third-party warehouses, distribution centers, and retail partners.\n\"Businesses now have the flexibility to ship by pallet, choosing LTL to share trailer space for partial loads instead of reserving and paying for a full truckload,\" Amazon wrote in a press release, adding, \"Since 2019, Amazon LTL has served tens of thousands of Amazon selling partners and vendors, moving millions of pallets across its U.S. network last year. The company is now expanding the service based on strong positive feedback and growing customer demand.\"\nAmong the movers in premarket trading, FedEx Freight fell 2%, Old Dominion declined 6%, Saia sank 7%, and ArcBest dropped nearly 8%.\nLTL services are part of Amazon Supply Chain Services, whose launch last month roiled trucking stocks at the time.\nAmazon noted, \"Businesses of all sizes can now use LTL to move freight, typically ranging from one to six pallets, or between 150 and 15,000 pounds.\"\nUBS senior analyst Tom Wadewitz, who covers freight transportation, told clients last month that the selloff in transport names, including UPS, FedEx, and C.H. Robinson, sparked by Amazon’s push into the supply chain network, was \"overdone.\"",
+  "published_at": "2026-06-10T13:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-10T15:00:36.594505Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

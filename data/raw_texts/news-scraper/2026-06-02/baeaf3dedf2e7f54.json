@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/941379/microsoft-build-conference-2026-how-to-watch-livestream",
+  "title": "How to watch Microsoft’s Build 2026 conference",
+  "raw_text": "Microsoft is kicking off its yearly Build developer conference in San Francisco today, sandwiched between the recent Google I/O and Apple’s upcoming WWDC event. While tickets to attend Build in person are sold out, the conference is being streamed for free online, with CEO Satya Nadella opening with a keynote at 12:30PM ET / 9:30AM PT.\nHow to watch Microsoft’s Build 2026 conference\nTune in at 12:30PM ET / 9:30AM PT to hear about Microsoft’s upcoming AI plans.\nTune in at 12:30PM ET / 9:30AM PT to hear about Microsoft’s upcoming AI plans.\nA cursory glance at the featured speakers and virtual sessions suggests that Build will predominantly focus on AI, which isn’t surprising given this is a developer event in 2026. The keynote description also says that Nadella and Microsoft leaders will be sharing “how Microsoft is creating new opportunity for developers across our platforms in this era of AI,” though specific details about the announcements have yet to emerge.\nThere’s also the possibility of new hardware being showcased at the event. Microsoft recently announced that it’s releasing a new Surface Laptop Ultra this fall that’s powered by Nvidia’s new RTX Spark superchip, so we may get a closer look at it. Nothing in the session catalog currently mentions anything related to Microsoft’s Xbox division or gaming.\nHow do I watch Microsoft Build?\nThe Build 2026 keynote starts at 12:30PM ET / 9:30AM PT on June 2nd, with the event running through June 3rd. You’ll need to register for the virtual Build conference if you want to attend any of the online sessions, many of which are focused on improving various AI-related skills. Registration is completely free and gives you access to Microsoft’s scheduler planner to help track the sessions you want to tune in for.\nAlternatively, Microsoft is also streaming the Build opening keynote over on its YouTube channel. You can check that out in the link we’ve embedded below.",
+  "published_at": "2026-06-02T11:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-02T15:00:11.753664Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Microsoft",
+      "Microsoft Build",
+      "News",
+      "Tech"
+    ]
+  }
+}

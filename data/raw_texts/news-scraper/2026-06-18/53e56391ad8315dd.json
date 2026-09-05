@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/952123/google-calendar-event-color-options-expansion",
+  "title": "Google Calendar finally has more color options for events",
+  "raw_text": "Running out of color options for events in Google Calendar shouldn’t be an issue going forward. The previous limit of 11 predefined colors has now been expanded to give users access to up to 200 custom colors for individual events across the native Calendar web and mobile apps, and the Calendar API.\nGoogle Calendar finally has more color options for events\nThe previous 11-color limit has now been expanded to 200 custom options.\nThe previous 11-color limit has now been expanded to 200 custom options.\nThis started rolling out yesterday for users on Google’s rapid release domains, with an extended rollout for more users starting on June 29th, though the update may take a few weeks to reach everyone. It’s available to all Google Workspace customers, Workspace Individual subscribers, and users with personal Google accounts, and it will be enabled by default, according to Google’s announcement.\nThere are now 24 default colors to choose from, but Calendar users on the web (or via the API) can define additional colors using a full RGB color picker. Google says this update “fulfills a long-standing feature request” for more color options, as it’s pretty easy to blast through the previous 11 color presets — especially if you use Calendar for both personal and work events. Now each event can have its own color instead of being shared with other unrelated events, making them easier to scan at a glance.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T14:32:16Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-18T15:00:11.527620Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

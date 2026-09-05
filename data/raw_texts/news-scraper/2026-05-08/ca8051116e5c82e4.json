@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081697",
+  "title": "アップルはウェドブッシュの目標株価引き上げなどもあって堅調＝米国株個別",
+  "raw_text": "ハイテク大手アップル<\nAAPL>は、ウェルス・マネジメント、機関投資家向け証券業務などのウェドブッシュ証券のアナリストがアウトパフォームを維持し、目標株価を３５０ドルから４００ドルに引き上げたことなどが好感されて、買いが優勢となっている。\nアップル<\nAAPL> 293.66（+6.22 +2.16%）\n株探ニュース",
+  "published_at": "2026-05-08T14:26:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.836172Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

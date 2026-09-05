@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/950146/microsoft-surface-laptop-8-surface-pro-12-snapdragon-x2-specs-price",
+  "title": "The Microsoft Surface Laptop 8 and Surface Pro 12 now come with Snapdragon X2 chips",
+  "raw_text": "Microsoft is launching new Surface Laptops and a Surface Pro with Qualcomm Snapdragon X2 processors. These are direct follow-ups to the Surface Laptops and Surface Pro from 2024 that launched with Snapdragon X1 chips and jumpstarted Microsoft’s Copilot Plus PC initiative with Windows on Arm.\nThe Microsoft Surface Laptop 8 and Surface Pro 12 now come with Snapdragon X2 chips\nNew colors and high prices.\nNew colors and high prices.\nThe new X2 Surfaces are available today. The Surface Pro 12th Edition convertible tablet comes in a 13-inch size with 10-core X2 Plus and 12-core X2 Elite chips, while the Surface Laptop 8th Edition is available in 13.8-inch and 15-inch sizes, each offering the same X2 Plus / X2 Elite configurations. The Pro starts at $1,499 with 256GB of storage (before adding a keyboard or stylus), and the Laptop starts at $1,599 with a 512GB SSD — each with 16GB of RAM, with configs that go much higher.\nBoth the new Surface Laptop’s and Surface Pro’s starting prices are $100 higher than the current prices on last-gen models, which saw a sharp price increase in April thanks to RAMageddon. Microsoft is also announcing commercial versions of the X2 Surface Laptop 8 and Surface Pro 12, launching later. The Surface for Business X2 models are expected on July 14th, with starting prices of $1,649.99. That’s a bit higher than the standard consumer-facing X2 Surface models, but not quite as steep as the Intel Panther Lake Surface for Business models announced last month — starting at $1,949.99.\nMicrosoft is boasting that the new X2 Surface generation has significantly faster graphics performance while maintaining excellent battery life, claiming up to 15.5 hours of local video playback on the Surface Pro and up to 20 on the Laptop. Aside from the new color options — jade and dune for the 13.8-inch Surface Laptop and just dune for the Surface Pro (with a matching Flex Keyboard) — much else is the same as the previous generation.\nThe Surface Laptop 8th Edition is still LCD only, while the Surface Pro 8th Edition has an optional OLED — and both still use that handy 3:2 aspect ratio for more vertical screen real estate. The ports are the same as the last-gen models, including the Surface Connect magnetic charging port that’s being left off the upcoming Surface Laptop Ultra. There’s also no optional privacy screen like the new 13.8-inch Surface Laptop for Business.\nBetween the X2 Plus and X2 Elite chips of these new Surfaces, and the Nvidia RTX Spark of the upcoming Surface Laptop Ultra, Microsoft is leaving out Qualcomm’s flagship X2 Elite Extreme chip that impressed me in the $1,700 Asus Zenbook A16. As much as I enjoyed using and testing the cheaper Surface Laptop 13-inch last year, that model now starts at $1,150 instead of its original $900. Surface hardware is some of the best around on the Windows laptop front, but these higher prices make them much less competitive — and without many changes from two years ago aside from a chip bump and some nice new colors.",
+  "published_at": "2026-06-16T13:00:00Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-06-16T15:00:11.851910Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Laptops",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ]
+  }
+}

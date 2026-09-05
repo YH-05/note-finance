@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605260003",
+  "title": "日経225先物：26日0時＝140円高、6万5420円",
+  "raw_text": "【市況】日経225先物：26日0時＝140円高、6万5420円\nTOPIX先物期近は3942ポイントと前日比0.5ポイント高、TOPIXの現物終値比は0.57ポイント安で推移。\n○主要先物価格・0時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 65420 +140 4063\n日経225mini 65425 +140 69172\nTOPIX先物 3942 +0.5 5960\nJPX日経400先物 35785 +5 168\nグロース指数先物 836 -2 199\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-25T15:00:42Z",
+  "author": null,
+  "collected_at": "2026-05-25T21:00:21.767511Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arxiv.org/abs/2603.24647",
+  "title": "Can LLMs Beat Classical Hyperparameter Optimization Algorithms?",
+  "raw_text": "Computer Science > Machine Learning\nTitle:Can LLMs Beat Classical Hyperparameter Optimization Algorithms? A Study on autoresearch\nView PDF HTML (experimental)Abstract:The autoresearch repository enables an LLM agent to optimize hyperparameters by editing training code directly. We use it as a testbed to compare classical HPO algorithms against LLM-based methods on tuning the hyperparameters of a small language model under a fixed compute budget. When defining a fixed search space over autoresearch, classical methods such as CMA-ES and TPE consistently outperform LLM-based agents, where avoiding out-of-memory failures matters more than search diversity. Allowing the LLM to directly edit source code narrows the gap to the classical methods but does not close it, even with frontier models available at the time of writing such as Claude Opus 4.6 and Gemini 3.1 Pro Preview. We observe that LLMs struggle to track optimization state across trials. In contrast, classical methods lack the domain knowledge of LLMs. To combine the strengths of both, we introduce Centaur, a hybrid that shares CMA-ES's interpretable internal state, including mean vector, step-size, and covariance matrix, with an LLM. Centaur achieves the best result in our experiments, and a 0.8B LLM already suffices to outperform all classical and pure LLM methods. Unconstrained code editing requires larger models to be competitive with classical methods. We further analyze search diversity, model scaling from 0.8B to frontier models, and ablate the fraction of LLM-proposed trials in Centaur. All in all, our results suggest that LLMs are most effective as a complement to classical optimizers, not as a replacement.\nCode is available at this https URL & interactive demo at this https URL.\nSubmission history\nFrom: Fabio Ferreira [view email][v1] Wed, 25 Mar 2026 17:29:40 UTC (1,874 KB)\n[v2] Sun, 29 Mar 2026 18:46:53 UTC (2,456 KB)\n[v3] Sat, 4 Apr 2026 10:33:34 UTC (3,843 KB)\n[v4] Mon, 13 Apr 2026 21:59:37 UTC (3,768 KB)\n[v5] Fri, 17 Apr 2026 18:50:51 UTC (3,905 KB)\nCurrent browse context:\nBibliographic and Citation Tools\nCode, Data and Media Associated with this Article\nDemos\nRecommenders and Search Tools\narXivLabs: experimental projects with community collaborators\narXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
+  "published_at": "2026-06-09T15:01:15Z",
+  "author": "galsapir",
+  "collected_at": "2026-06-10T03:01:27.643073Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

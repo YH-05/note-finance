@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/06/wall-streets-fear-gauge-punches-back-as-the-crash-up-in-chip-stocks-finally-reverses.html",
+  "title": "Wall Street's 'fear gauge' punches back as the 'crash up' in chip stocks finally reverses",
+  "raw_text": "It's been one of the wildest stock markets on record lately but you wouldn't have known it looking at the Cboe Volatility Index. Friday's sell-off just made things a lot clearer.\nThe non-stop, two-month 80% rally in semiconductor stocks that added roughly half a trillion dollars in market cap to the Nasdaq 100, spurred one of the most successful ETF launches in history, and birthed dozens of eye-popping, parabolic single stock moves, finally hit a wall on Friday as the VanEck Semiconductor ETF (SMH) dropped almost 10% at its low.\nThe VIX, which had just touched the lowest level since January on Thursday, posted its biggest single-day pop since March. S&P 500 index options trading reached a record 7.8 million contracts at Cboe on Friday, 16% higher than the previous record set in April.\nFor many, the sell-off reads as a warning sign for speculative excess in the face of trillions of dollars in upcoming IPO issuance and the potential for rising interest rates. For options traders who had been watching the roller coaster in single stocks, it looks more like an overdue catchup by the broader index.\nComing into this week, a handful of key volatility metrics were at extremes. The spread between single-stock volatility and the broader index reached the widest since Cboe started tracking the data, and one-month implied correlation between the top 50 stocks and the index reached the lowest in a year.\nIt was the VIX slipping below its long-term average that looked the most out of place.\n\"Everything is re-syncing,\" Brent Kochuba, founder of options analytics platform SpotGamma, said in a call. \"The calls were so rich in things like Micron where premiums were bigger than SPY and QQQ combined, this stuff had to come down. The VIX is up but not crazy.\"\nThe bond market was far from a ballast. The 10-year Treasury dropped 40 basis points after Friday's employment data came in strong, and options traders flooded bearish bets on the iShares 20+ Year Treasury Bond ETF (TLT) as well as in corporate-bond funds iShares iBoxx Investment Grade Corporate Bond ETF (LQD) and iShares iBoxx High Yield Corporate Bond ETF (HYG), where puts outnumbered calls more than 8 to 1.\nHigher yields might have added extra pain to the crypto trade. Bitcoin managed to hold $60,000 after a brief trip below that threshold, but Michael Saylor's Strategy dropped nearly 7% as options traders bought more than twice as many puts as they did calls.\nAdd it all together and you get the worst day for the Nasdaq since April 2025.\n\"It didn't take much to cascade lower,\" said Danny Kirsch, head of options at Piper Sandler. \"There's enormous assets in leveraged ETFs particularly tied to semis, and giant hyperscalers Meta and Alphabet issuing equity in front of a huge IPO… not great, Bob.\"",
+  "published_at": "2026-06-06T12:58:29Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.610268Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

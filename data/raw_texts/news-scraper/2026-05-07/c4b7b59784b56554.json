@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/insurance-startup-corgi-hits-1-3b-valuation-4-months-after-its-series-a/",
+  "title": "Insurance startup Corgi hits $1.3B valuation 4 months after its Series A",
+  "raw_text": "Business insurance startup Corgi announced on Wednesday a $160 million Series B, led by TCV, valuing the startup at $1.3 billion, the startup’s co-founder Nico Laqua said on LinkedIn.\nThis comes just four months after the company announced a $108 million Series A. The company has now raised $268 million in funding to date, Laqua said, and has become Y Combinator’s latest unicorn.\nLaqua started the company with Emily Yuan in 2024 and was part of YC’s Spring 2024 batch. Corgi, which names Deel and Artisan as customers, offers coverage for general liability, cyber liability, and tech and AI liability. Other investors in the round include Kindred Ventures, Leblon Capital, and First Order Fund.\n“We’re excited about the raise and incredibly grateful to our investors for believing in what we’re building. But the job is not done,” Laqua told TechCrunch. “Our mission is bigger: we want to use the fresh capital to expand into more lines of insurance and build a generational company.”",
+  "published_at": "2026-05-06T20:39:16Z",
+  "author": "Dominic-Madori Davis",
+  "collected_at": "2026-05-07T03:00:27.000585Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Startups",
+      "Venture",
+      "In Brief",
+      "InsuranceTech",
+      "Y Combinator",
+      "yc"
+    ]
+  }
+}

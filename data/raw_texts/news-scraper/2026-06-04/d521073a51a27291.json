@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/942956/ai-biological-weapons-open-letter-congress",
+  "title": "AI leaders call for tougher protections against AI-aided bioweapons",
+  "raw_text": "Some of the AI industry’s biggest rivals have put their many, many grievances aside for a common cause: making it harder for people to use their technology to develop biological weapons. In an open letter to US lawmakers, tech leaders are pressing Congress to enact rules closing what they say is an alarming biosecurity gap that could help trigger a global pandemic.\nAI leaders call for tougher protections against AI-aided bioweapons\nAI industry rivals rarely agree, but they’re all concerned their technology could be used to develop biological weapons.\nAI industry rivals rarely agree, but they’re all concerned their technology could be used to develop biological weapons.\nAnthropic’s Dario Amodei, OpenAI’s Sam Altman, and Microsoft’s Mustafa Suleyman are among the signatories urging US lawmakers to require companies selling synthetic DNA and RNA — genetic material that can ordered online and assembled in a lab — to screen purchases for sequences that could be used to make dangerous pathogens. The fear is that AI tools could make it easier to design potentially dangerous sequences, order them from manufacturers, and use them in ways that would previously have required more specialized expertise.\nOther signers include Meta’s AI chief Alexandr Wang and Google DeepMind’s Demis Hassabis, who won the 2024 Nobel Prize in Chemistry for his work on AI-based protein prediction. The letter was also signed by prominent scientists, national security and policy experts, and executives from biotech companies including Twist Bioscience and Ansa Biotechnologies, both major sellers of synthetic genetic material. The letter was reportedly organized by two think tanks: the Foundation for American Innovation and the Institute for Progress.\nScientists have long warned that advances in synthetic biology could make it easier for scientists to engineer dangerous organisms or even resurrect long-dead pathogens — work that could cause devastation if misused, mishandled, or released by accident. But that power has largely remained in the hands of skilled scientists with access to sophisticated labs, equipment, and resources. The concern now is that, as biological tools become cheaper and more accessible and AI models become more capable, barriers preventing misuse are beginning to crumble. Experts also warn that AI could help produce other threats like chemical weapons.\nWhile the letter acknowledges many of the largest providers of synthetic DNA and RNA already screen orders, it is done on a voluntary, not mandatory, basis. Detailed records should also be kept on any orders, in order to track any threat that evaded initial screening, the letter says.\n“Given the pace at which the underlying technology is changing, we believe the need is urgent,” the letter says. “This is a rare moment of agreement across stakeholders that are often at odds. We hope policymakers will meet it with decisive action.”\nMost Popular\n- Microsoft and OpenAI broke up — now they’re ready to fight\n- A first look at Microsoft’s Surface Laptop Ultra and Surface Dev Box\n- PlayStation is getting back to what it’s good at\n- Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet",
+  "published_at": "2026-06-04T12:12:12Z",
+  "author": "Robert Hart",
+  "collected_at": "2026-06-04T15:00:11.677511Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Health",
+      "News",
+      "Science"
+    ]
+  }
+}

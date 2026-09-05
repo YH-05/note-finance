@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605131596",
+  "title": "アルテリス、決算受け時間外で６％高＝米国株個別",
+  "raw_text": "（NY時間08:38）（日本時間21:38）時間外\nアルテリス<\nAIP> 34.64（+2.21 +6.81%）\n半導体設計のアルテリス<\nAIP>が決算を受け時間外で上昇。売上高が予想を上回ったほか、通期ガイダンスで売上高見通しを上方修正している。ＡＩ関連需要の強さが背景。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-13T12:38:00Z",
+  "author": null,
+  "collected_at": "2026-05-13T15:00:21.818942Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

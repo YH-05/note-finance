@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/protein-in-homo-erectus-teeth-suggests-denisovans-gave-us-some-of-their-dna/",
+  "title": "Protein in Homo erectus teeth suggests Denisovans gave us some of their DNA",
+  "raw_text": "Humanity’s ancestry has grown far clearer thanks to our ability to obtain ancient DNA. We now know that, as humans left Africa, they interbred with the groups they met there, Neanderthals and Denisovans. Evidence from the Denisovan genome also suggests that this was nothing new; the Denisovans had apparently interbred with an even earlier group. But the identity of that group remained a bit of a mystery.\nNow, some evidence from ancient proteins suggests that the mystery group was Homo erectus, a species that left Africa over a million years ago and spread throughout Eurasia. And, thanks to the Denisovans, it appears that modern humans inherited some of that Homo erectus DNA.\nIn the teeth\nWithout access to all the repair enzymes made by living cells, DNA rapidly degrades. The double helix fragments, and bases change identity or fall off entirely. While cooler, drier environments slow this process, it sets a hard limit on how far back in time we can obtain DNA sequences. So far, it seems that Homo erectus remains on the far side of that time limit.\nTo get around these limits, people have turned to proteins. While those also degrade over time, there are a few structures, like bone and teeth, that are very robust and protect proteins from the environment. By studying proteins in tooth enamel, for example, researchers have obtained the sequence of amino acids from fragments of proteins that are 2 million years old.\nGiven these past successes, a group of Chinese researchers decided to use microscopic samples of Homo erectus teeth from three sites in China, each dating to about 400,000 years ago. They started by taking samples from animals at the same site and confirmed they were able to isolate and identify protein fragments from the enamel of the teeth. Once they were confident in their process, the researchers turned to the five Homo erectus samples and threw in a Denisovan from Harbin as well.\nDepending on which of the six Homo erectus individuals they looked at, they obtained fragments of anywhere from six to 11 enamel proteins. The Harbin individual yielded a similar number, and a few earlier studies had obtained data from individuals elsewhere, including a Denisovan from near Taiwan and an archaic human from Spain.",
+  "published_at": "2026-05-13T20:27:54Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-14T03:00:28.566973Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Biology",
+      "Denisovans",
+      "evolution",
+      "homo erectus",
+      "human evolution",
+      "paleontology",
+      "proteins"
+    ]
+  }
+}

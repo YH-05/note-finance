@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/wall-streets-fear-gauge-tumbles-as-traders-bid-up-spacex-shares.html",
+  "title": "Wall Street's fear gauge tumbles as traders bid up SpaceX shares",
+  "raw_text": "There's nothing quite like traders gobbling up $2 trillion of new equity to squash the fear out of the market.\nJust 10 days ago, tech was nosediving, the stock market had its worst day since October 2025, and the Cboe Volatility Index was ramping up in a hurry — in part on investor concerns about how the market could digest the deluge in new SpaceX stock. Now, with the biggest initial public offering in history digested without a hiccup, investors are piling back into the very same stocks they previously sold, and Wall Street's so-called \"fear gauge\" is back below its long-term average.\nThe Nasdaq 100 jumped 3% Monday. The S&P 500 was last up about 1.7%, nearing the record reached earlier this month, as semiconductors surge to the front again, adding more than 4% to a new all-time high. Bears who argued that speculators were running out of appetite are now faced with a SpaceX market cap of almost $2.5 trillion that says otherwise. SpaceX shares were last up 13% on Monday.\n\"Although the SPX Index advanced by a modest 0.7% last week, the VIX Index declined far greater than expected due in large part to the unwind of protective next-12-months hedges and downside convexity positions,\" Ed Tom, senior director of derivatives market intelligence at Cboe, wrote in a note to clients Monday.\nThe VIX traded below 16 at its low Monday, a complete unwind of the pop in volatility that started June 5 when the VanEck Semiconductor ETF (SMH) fell more than 10% from its record. While options flows in the chip stocks still show significant hedging activity, trading around the VIX points to a more bullish outlook for stocks.\nMore puts traded than calls in VIX Monday, with almost as many calls sold as bought, according to data from ThinkOrSwim. Of the $93 million in options premium traded, more than $70 million was tied to puts, SpotGamma data show. The most popular contract by volume was the 16-strike put expiring Wednesday that traded 46,000 contracts.\nIn SMH, flows continued to lean bearish, as they have for weeks, despite semiconductors making an all-time high. With stock indexes now holding more semiconductors than ever, perhaps this month's whipsaw has investors paying up for hedges. While roughly 60% of premiums in SMH was in puts, there were notable put-spread sellers. This includes the biggest trader of the day, who collected $5 million selling two big put spreads expiring July 17, then spent $2.7 million getting long the 600/550 spread expiring the same day.\nOptions traders will have plenty to digest on Tuesday when SpaceX options list. Options in Tesla have long been a favorite among retail traders and are consistently among the most active single-stock derivatives.",
+  "published_at": "2026-06-15T19:26:39Z",
+  "author": null,
+  "collected_at": "2026-06-15T21:21:37.786370Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

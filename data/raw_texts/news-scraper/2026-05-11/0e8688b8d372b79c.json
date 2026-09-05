@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/abc-fights-trump-fccs-attempt-to-control-content-of-broadcast-tv-shows/",
+  "title": "ABC refuses to capitulate to Trump admin, fights FCC probe into The View",
+  "raw_text": "ABC is fighting back against the Trump administration’s attempt to police broadcast television content, saying in a filing that the Federal Communications Commission is violating the First Amendment.\nLed by Chairman Brendan Carr, the FCC accused ABC’s The View of not complying with the equal-time rule, even though the interview portions of talk shows have historically been exempt from the rule requiring equal time for opposing political candidates. The FCC also opened an unusual review of ABC’s broadcast licenses one day after the president and First Lady Melania Trump called on ABC to fire Jimmy Kimmel over a recent joke.\nAn ABC filing that was made public today said the FCC exceeded its authority in actions that “threaten to upend decades of settled law and practice and chill critical protected speech, both with respect to The View and more broadly.” The filing is primarily in response to the equal-time investigation, but ABC also seems determined to fight the larger license review.\nABC said in its filing that in 2002, the FCC confirmed that The View qualifies as a bona fide news program and is thus exempt from the equal-time rule, also known as the equal-opportunities rule. Programs are not required to obtain exemptions, but ABC chose to file a petition for declaratory ruling in 2000 because The View was planning to invite more political candidates onto the show.\nThe FCC Media Bureau recently ordered an ABC station to file a new petition for declaratory ruling on The View‘s status. ABC said the FCC bureau lacks the authority to make that demand. But ABC did file a petition to lay out its case that the FCC is overstepping its authority and violating the First Amendment rights of broadcasters.\nABC isn’t backing down this time\n“Some may dislike certain—or even most—of the viewpoints expressed on The View or similar shows,” ABC said. “Such dislike, however, cannot justify using regulatory processes to restrict those views… The danger is that the government will simply decide which perspectives to regulate and which to leave undisturbed. In fact, while the Commission now questions The View’s decades-long exemption, it has not expressed any inclination to apply a similar interpretation of the equal opportunities rule to other broadcasters, including the many voices—conservative and liberal—on broadcast radio.”",
+  "published_at": "2026-05-08T21:08:42Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-11T03:00:30.935563Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "ABC",
+      "brendan carr",
+      "FCC",
+      "The View",
+      "Trump"
+    ]
+  }
+}

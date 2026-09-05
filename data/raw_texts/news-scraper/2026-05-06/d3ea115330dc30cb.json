@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/more-than-just-an-suv-rivian-is-working-on-more-r2-variants/",
+  "title": "More than just an SUV? Rivian is working on more R2 variants.",
+  "raw_text": "We don’t have too much longer to wait for Rivian’s hotly anticipated R2 electric SUV. After cutting its teeth with the ground-breaking R1T electric pickup truck, plus the three-row SUV version (the R1S) and all those Amazon delivery vans, its next step is something smaller and more affordable—launch models of the midsize R2 are competitively priced against rivals like the BMW iX3, and next year if all goes to plan, Rivian will add a $45,000 R2 with a smaller battery.\nBut according to Rivian CEO RJ Scaringe, who was interviewed by Reuters, there’s more R2 in the works. “So clearly there could be an R2X,” Scaringe told Reuters. “There’s going to be combinations… I want to be careful not to announce the program,” he said. Scaringe also told the news organization that Rivian was considering making its own lidar sensors, in collaboration with a Chinese company.\nInitial R2s are being built at Rivian’s factory in Normal, Illinois. But the R2, together with an even smaller R3 (and R3X) that will follow it, will also be built at Rivian’s new factory in Georgia. That plant is due to come online in 2028, funded in part by a $4.5 billion loan from the Department of Energy, which Rivian will begin to access next year.\nOnce the plant in Georgia is up and running, it will have a capacity of 300,000 vehicles a year, so it’s clear there’s room for different versions of the R2 (and R3), should Rivian take a BMW-like approach to spinning off a dizzying array of variants from a single platform. Georgia will also build robotaxis for Uber in a $1.25 billion deal signed between the ride-hailing company and Rivian in March.\nMeanwhile, Rivian’s Normal plant has a capacity to build another 155,000 R2s annually, together with up to 60,000 R1s and delivery vans.",
+  "published_at": "2026-05-06T12:48:53Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-06T15:00:31.139128Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Rivian",
+      "Rivian R2"
+    ]
+  }
+}

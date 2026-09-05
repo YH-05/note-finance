@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605230131",
+  "title": "NY原油：下げ渋り、一時95ドルを下回る",
+  "raw_text": "【市況】NY原油：下げ渋り、一時95ドルを下回る\nNYMEX原油7月限終値：96.60 ↑0.25\n22日のNY原油先物7月限は下げ渋り。ニューヨーク商業取引所（NYMEX）のWTI先物7月限は、前営業日比＋0.25ドル（＋0.26％）の96.60ドルで通常取引を終了した。時間外取引を含めた取引レンジは94.73－99.43ドル。アジア市場で99.43ドルまで買われたが、米国市場の後半にかけて94.73ドルまで下落。イラン戦争終結への期待は残されており、調整的な売りが観測された。ただ、通常取引終了後の時間外取引では主に96ドル台で推移。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-22T23:55:30Z",
+  "author": null,
+  "collected_at": "2026-05-23T03:00:21.886793Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

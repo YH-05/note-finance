@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/psa-the-steam-controllers-magnetic-charger-can-be-a-fire-hazard/",
+  "title": "The Steam Controller’s “drop-in” charger almost started a fire for this owner",
+  "raw_text": "When we reviewed the new Steam Controller last month, we noted how the satisfying click of the magnetic charging puck easily connecting to the back of the controller lets users “save the hassle of fiddling with a power cord.” But one Reddit user’s experience highlights how the exposed contacts on that puck can be a fire hazard if Steam Controller owners aren’t careful.\nOn the r/SteamController subreddit, user Toikka shared how the metal portion of the charging puck “started sizzling due to a short circuit” when it came in contact with their metallic watch strap. The strap had apparently flopped down from a nearby watch charger and hit the controller puck “at the exact wrong angle,” which “almost started a fire,” the user wrote.\nThis is a potential issue that Valve appears to be aware of. In the manual included with every Steam Controller, Valve warns that both the charging puck and the Controller contain ”magnetic parts [that] may attract magnetic items.” Users should make sure both are “free of metallic objects” in order “to reduce the potential risks of sparks and resulting property damage or possible injury,” Valve wrote. The manual also warns that the magnets could have a negative effect on medical devices, credit cards, and magnetic data storage placed nearby.",
+  "published_at": "2026-05-22T16:24:11Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-25T03:00:31.941622Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "charger",
+      "controller",
+      "fire",
+      "hardware",
+      "Hazard",
+      "metal",
+      "pins",
+      "Steam",
+      "Valve"
+    ]
+  }
+}

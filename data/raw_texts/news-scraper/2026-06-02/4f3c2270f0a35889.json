@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606030053",
+  "title": "[GME] ゲームストップ　1Q増収営業黒字転換　売上高14％増8.35億ドル、営業益1.43億ドル、EPS0.66ドル",
+  "raw_text": "ゲームストップ<\nGME>の2027年度第1四半期（2月1日-5月2日）の業績は増収、営業黒字転換だった。\n米現地6月2日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比14.0％増の8億3530万ドルとなった。営業損益は1億4330万ドルの黒字に転換。前年同期は1080万ドルの赤字だった。1株利益（EPS・希薄化後）は0.66ドル（前年同期0.09ドル）。\nゲームストップ<\nGME>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-06-02T20:53:13Z",
+  "author": null,
+  "collected_at": "2026-06-02T21:00:22.533879Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

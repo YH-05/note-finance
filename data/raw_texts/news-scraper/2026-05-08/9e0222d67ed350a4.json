@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20182-kenya-court-petition-challenges-safaricom-stake-sale-as-opposition-flags-valuation-and-process-concerns.html",
+  "title": "Kenya court petition challenges Safaricom stake sale as opposition flags valuation concerns",
+  "raw_text": "Kenyan opposition leader Kalonzo Musyoka has petitioned the High Court seeking to block the government’s proposed sale of its 15% stake in Safaricom to Vodacom, arguing that proper legal and constitutional procedures have not been followed.\nMusyoka, who leads the Wiper Patriotic Front and is a former vice president of Kenya, has asked the court to issue interim orders suspending the transaction pending a full hearing. A ruling has yet to be delivered.\nThe deal could raise approximately KES 204.3 billion (around US$1.6 billion) through the sale of about six billion shares, reducing the government’s stake from 35% to 20% while increasing Vodacom’s holding to a controlling 55%.\nIn his petition, Musyoka argues that the government failed to adequately involve parliament and the public in the disposal of public assets, citing provisions of the Kenyan constitution. He has described the transaction as opaque and against national interest, despite parliamentary approval having been granted on March 31.\nThe opposition is also challenging the valuation, with the share price set at KES 34. They argue the asset is significantly undervalued, estimating a fair range of KES 70–80 per share, and claim the current pricing could result in losses of up to KES 250 billion for the state.\nThe case now awaits a court decision on whether the transaction will be temporarily halted.",
+  "published_at": "2026-04-30T10:25:43Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-08T03:01:18.587120Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

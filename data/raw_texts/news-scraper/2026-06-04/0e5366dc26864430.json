@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/942884/amazon-next-generation-warehouse-robot-proteus",
+  "title": "Amazon develops a warehouse robot that workers can speak to",
+  "raw_text": "Amazon has announced a new version of its fully autonomous warehouse robot, Proteus, that will interact using language instead of code. The expanded capabilities come as part of a growing pivot toward automation as the e-commerce giant replaces its human workers with robots.\nAmazon develops a warehouse robot that workers can speak to\nThe company insists its robot investments are designed to support, not replace, warehouse workers.\nThe company insists its robot investments are designed to support, not replace, warehouse workers.\nAmazon says the AI-powered upgrade means its human employees can assign the robot tasks in the same way they’d communicate with colleagues. Previously, workers would need to use specialized software to direct the floor-level, tortoise-like systems, which are designed for heavy lifting and moving large carts throughout Amazon’s warehouses. “You tell it what needs to be done. It figures out the priority, the route, the timing,” says Scott Dresser, vice president of Amazon Robotics.\nThe next generation of Proteus will also work across a much larger area than the ones currently in use, which Amazon says only operate in dock areas. “The new system can work anywhere items need to be moved,” the company says. This includes transporting containers as they arrive on site, moving them between workstations, and assisting employees across fulfillment centers and delivery sites.\nThe new system is currently being piloted in Amazon’s labs, but the company says it has plans to deploy it in Europe during the first half of 2027.\nProteus is part of Amazon’s broader robotics roadmap. It says it has plans to expand its touch-sensitive robot, called Vulcan, and a collaborative tote-handling system first piloted in Barcelona, to more sites across Europe in the coming year.\nAmazon says it is “creating new jobs alongside these technologies” and claims to have hired hundreds of thousands of employees globally since introducing robotics into its operations. The company insists its robots are designed to support workers and streamline operations, rather than replace hundreds of thousands of workers with robots.\nMost Popular\n- Microsoft and OpenAI broke up — now they’re ready to fight\n- A first look at Microsoft’s Surface Laptop Ultra and Surface Dev Box\n- PlayStation is getting back to what it’s good at\n- Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet",
+  "published_at": "2026-06-04T09:31:14Z",
+  "author": "Robert Hart",
+  "collected_at": "2026-06-04T15:00:11.678124Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Amazon",
+      "News",
+      "Robot",
+      "Tech"
+    ]
+  }
+}

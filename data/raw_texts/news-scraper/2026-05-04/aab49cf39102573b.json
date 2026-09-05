@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/fedex-ups-slide-after-amazon-opens-freight-network-all-businesses",
+  "title": "FedEx, UPS Slide After Amazon Opens Freight Network To All Businesses",
+  "raw_text": "Shares of transportation and logistics giants FedEx and UPS dropped in premarket trading after Amazon debuted Amazon Supply Chain Services, opening its freight network to sellers far beyond the Amazon marketplace.\nAmazon said ASCS is a move to \"open its freight, distribution, fulfillment, and parcel shipping capabilities to businesses of all types and sizes.\" It gives companies outside the Amazon marketplace access to a global delivery network with two- to five-day delivery and 24/7 service.\n\"With this launch, Amazon is expanding its third-party logistics capacity to support businesses in industries such as healthcare, automotive, manufacturing, and retail,\" Amazon noted.\nAmazon said the move mirrors its AWS playbook: build infrastructure for its own operations, prove it internally, then sell it externally.\nThis story may sound familiar. Amazon built another major offering—cloud infrastructure—for the same reason: to run its own business better. And then Amazon started selling it. That's how Amazon Web Services (AWS) was born, and it's transformed how the world builds and runs software. Now, Amazon is ready to do that for the supply chain. -AMZN\nFollowing the ASCS news, FedEx and UPS dropped in premarket trading, both down around 4%.\n\"Amazon is bringing the infrastructure, intelligence, and scale of its supply chain services—proven over decades—to businesses everywhere, much like Amazon Web Services did for cloud computing,\" said Peter Larsen, vice president of ASCS.",
+  "published_at": "2026-05-04T13:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-04T15:00:42.592362Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

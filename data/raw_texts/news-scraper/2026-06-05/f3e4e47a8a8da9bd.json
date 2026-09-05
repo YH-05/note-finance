@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/12/united-airlines-flight-attendants-contract.html",
+  "title": "United Airlines flight attendants ratify new contract with 31% raises this summer",
+  "raw_text": "United Airlines flight attendants approved a new five-year labor contract with 31% average raises to base pay by August and other improvements, marking the last of the major carriers with unionized flight crews to reach a deal post-Covid.\nThe labor deal would give United's roughly 30,000 flight attendants their first raises in close to six years. The company and the flight attendants' union reached a preliminary deal in March. Crews had rejected a contract last year.\nThe union said the contract won 82% approval from the flight attendants, with close to 90% of them voting.\n\"The contract will immediately change the lives of United Flight Attendants, especially our thousands of new hires who have been hired since the pandemic,\" said Ken Diaz, president of the United chapter of the Association of Flight Attendants.\nThe contract also includes boarding pay, or pay for when the aircraft's door is open and travelers are getting on. Airlines had for years started flight attendants' pay clock once the boarding door was closed.\nThe contract comes with a roughly 7% to 8% increase in compensation and $741 million in back pay, as well as quality-of-life improvements like restrictions on red-eye flights and \"sit pay\" during disruptions of more than 2½ hours.",
+  "published_at": "2026-05-12T18:45:35Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.731404Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

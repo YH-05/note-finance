@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/27/new-yorks-pied-a-terre-tax-wealth-effect-heres-what-to-know.html",
+  "title": "New York's pied-à-terre tax wealth effect: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-05-27T12:03:19Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.397765Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/starlink-takes-page-from-cable-firms-with-10-monthly-rental-fee-for-hardware/",
+  "title": "Starlink charges $10 monthly hardware fee in move away from one-time purchases",
+  "raw_text": "Starlink has started charging a $10 monthly rental fee for hardware in a shift away from its longtime practice of selling hardware to customers for a one-time charge.\nStarlink residential ordering pages now show an upfront hardware cost of $0 and a monthly kit fee of $10, similar to the hardware rental fees long charged by cable and telecom companies. Starlink hardware includes a terminal to receive satellite signals and a router to place in a user’s home.\nThe monthly kit fee is in addition to Internet service prices, which Starlink recently raised by $5 to $10 per month. Starlink is charging $55 a month for 100Mbps, $85 for 200Mbps, and $130 for the “Max” tier that can go up to 400Mbps. Starlink also provides a professional-installation service for a one-time fee of $199, or for no additional charge if you subscribe to the Max plan.\nA Starlink support article said hardware rental is now “in select countries” and that “Starlink kits may only be rented for Residential service plans.” Customers who rent Starlink hardware instead of owning it will not be allowed to pause their service. PCMag reported today that the $10 rental fee “appears to be rolling out globally, popping up on Starlink.com for new customers in the US, Canada, the UK, France, Australia, and Mexico.”\nWe did not see any option to buy hardware in the Starlink sign-up page today, but the support article said it is possible to switch from renting to buying. “If you are a current Starlink customer with the rent Starlink option and would like to purchase your kit, create a support ticket,” the support article said. Starlink kits are also sold by retailers.",
+  "published_at": "2026-06-09T21:05:39Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-11T03:00:31.555215Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "spacex",
+      "starlink"
+    ]
+  }
+}

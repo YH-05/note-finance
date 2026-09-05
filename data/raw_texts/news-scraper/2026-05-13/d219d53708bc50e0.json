@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/data-center-used-30-million-gallons-of-water-without-initially-paying/",
+  "title": "Data center guzzled 30 million gallons of water, and nobody noticed for months",
+  "raw_text": "A curious case in Georgia serves as a warning for many parts of the US hastily approving data center developments without first updating their water systems to better monitor for severe upticks in usage.\nOn Friday, Politico reported that one of the country’s biggest data center developments had guzzled nearly 30 million gallons of water without paying for it. Even worse, the water grab came at a time when nearby drought-stricken residents were warned to restrict their personal water consumption, and some reported sudden decreases in water pressure.\nAn investigation conducted by utility officials in Georgia’s Fayette County found that the Quality Technology Services (QTD) facility had two industrial-scale water hookups that weren’t being monitored. “One water connection had been installed without the utility’s knowledge, and the other was not linked to the company’s account and therefore wasn’t being billed,” Politico reported.\nQTS eventually paid about $150,000 for the water, but there were no consequences for exceeding peak limits established by the county during the data center planning process. Frustrating residents, the county declined to fine QTS. Fayette County’s water system director, Vanessa Tigert, told Politico that the decision was partly because the county blamed itself and didn’t want to offend QTS.\n“They’re our largest customer, and we have to be partners,” Tigert said. “It’s called customer service.”\nNotably, the main reason the water usage was overlooked is that the county is transitioning from outdated water meters to a smart, cloud-based system that is supposed to make it easier to track leaks and other unexpected drains on the county’s water system. Tigert also told Politico that the county failed to notice the water usage because it’s understaffed, explaining that the only worker available to inspect meters is “spread pretty thin.”",
+  "published_at": "2026-05-11T20:37:00Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-13T03:00:30.640224Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "ai data center",
+      "Artificial Intelligence",
+      "data center"
+    ]
+  }
+}

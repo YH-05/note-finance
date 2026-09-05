@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/supreme-court-sides-with-fcc-in-clash-with-wireless-carriers.html",
+  "title": "Supreme Court sides with FCC in clash with wireless carriers over fines",
+  "raw_text": "The U.S. Supreme Court backed the Federal Communications Commission's system for levying fines, ruling on Thursday against wireless carriers AT&T and Verizon in their challenge to the agency and handing a win to President Donald Trump's administration.\nThe ruling was 8-1. At issue in the legal dispute was whether the agency's in-house proceedings for imposing the penalties deprived the companies of their right to a jury trial under the U.S. Constitution. Trump's administration defended the FCC's system for assessing financial penalties, known as forfeiture orders.\nThe FCC fined AT&T $57 million and Verizon nearly $47 million after the agency concluded that the companies had unlawfully sold access to customer location data to third parties without securing the consent of users.\nIn all, the FCC imposed nearly $200 million in fines on carriers that it said failed to safeguard customer data. It fined T-Mobile $80 million and Sprint, which T-Mobile acquired in 2020, $12 million.\nVerizon and AT&T paid the fines they were assessed, but also filed legal challenges that eventually led to a split among regional U.S. appellate courts over the lawfulness of the FCC's in-house procedure for imposing the penalties.\nIn Verizon's case, the New York-based 2nd U.S. Circuit Court of Appeals upheld the fine. The Constitution permits the FCC to provide an initial penalty assessment as long as an accused party can challenge the government's collection efforts in court, the 2nd Circuit ruled, prompting Verizon's appeal to the Supreme Court.\nIn AT&T's case, the New Orleans-based 5th U.S. Circuit Court of Appeals ruled that the FCC's initial assessment of wrongdoing and a fine deprived the company of its constitutional right to a jury trial. That ruling prompted the FCC to appeal to the Supreme Court.\nThe legal dispute marked the latest case to test whether a federal agency's internal enforcement arrangement violates the constitutional right to a jury trial after the Supreme Court in 2024 curbed the power of in-house proceedings at the Securities and Exchange Commission.\nIn the government's defense of the FCC's in-house system, Justice Department lawyers had argued that the agency's assessments are not binding. If the government were to bring an enforcement action in court, it would allow the companies to make their case before a jury, the lawyers argued.\nThe companies, for their part, said that the FCC's system impermissibly uses in-house proceedings for a process that belongs in court, depriving them of their right to a jury trial. The FCC's initial assessments, they added, inflict reputational harm before the accused have had their day in court.\nThe Supreme Court in 2025 also issued an important ruling involving the FCC, endorsing the way the agency funds its multi-billion-dollar program to expand phone and broadband internet access to low-income and rural Americans and other beneficiaries.",
+  "published_at": "2026-06-04T15:09:23Z",
+  "author": null,
+  "collected_at": "2026-06-04T21:19:13.970125Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

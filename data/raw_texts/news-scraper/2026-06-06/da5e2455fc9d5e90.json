@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/monthly-auto-loan-payments-above-1000-growing.html",
+  "title": "More monthly auto loan payments are above $1,000, and most are not for luxury models",
+  "raw_text": "In a country where big trucks are a big deal, those pickups and SUVs represent a big percentage of auto loans that come with a sizable monthly payment, more than $1,000 a month, according to new data.\nExperian Automotive's analysis of more than 5 million open auto loans and leases in the first quarter shows nearly 19% of new vehicle loans include a monthly payment of at least $1,000. That's up from roughly 17.4% year over year.\n\"The assumption is that it's all luxury, it's high-line, and that is not the case,\" said Melinda Zabritski, head of automotive financial insights for Experian Automotive.\nAlmost 74% of the auto loans requiring owners to pay $1,000 or more every month are for non-luxury models, with the top five models being popular pickup trucks including the Ford F-150, Chevrolet Silverado 1500 and Ram 1500, according to Experian.\nJust five years ago, auto loans with monthly payments over $1,000 accounted for just 5.4% of the market. Then the global chip shortage hit in 2021 and 2022, and automakers around the world prioritized production of higher-end, more profitable models. Vehicle prices soared, and so did the amount borrowed for auto loans.\nZabritski said those higher prices have changed how car and truck buyers look at what it takes to finance the purchase of a new vehicle.\n\"We haven't seen a reduction in that MSRP, and in those high loan amounts,\" she told CNBC. \"I think as time goes on, I think more consumers are getting used to the $1,000 payment.\"\nThe average amount borrowed is now at an all-time high of $43,952, and the average monthly payment has also climbed to an all-time high of $770, according to Experian Automotive. Both are a reflection of a new auto market that is relatively strong.\nAs for auto loan delinquencies, the percentage of loans that have payments more 30 days late has edged up to 2% of all new vehicle loans, with the 60-day delinquency rate also increasing.\nStill, Zabritski noted that delinquency rates remain below 2018 levels.\n\"The driving force in the 60-day delinquency really does fall within the subprime market. Lower credit scores are going to have a higher likelihood of default,\" she said.",
+  "published_at": "2026-05-28T13:41:32Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.832828Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

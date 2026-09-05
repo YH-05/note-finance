@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/mortgage-refinance-demand-drops.html",
+  "title": "Mortgage refinance demand drops 18% as rates hit highest level since August",
+  "raw_text": "Mortgage rates continued their climb last week, making it harder for current homeowners to save on a refinance. Potential homebuyers also pulled back a bit, causing total mortgage application volume to drop 8.5% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, increased to 6.65% from 6.56%, with points rising to 0.65 from 0.60, including the origination fee, for loans with a 20% down payment. The 30-year fixed rate has climbed 30 basis points over the past five weeks to its highest level since August 2025.\nRefinance demand took the hardest hit, with those applications down 18% for the week. They were still 19% higher than the same week one year ago. Last year at this time the 30-year fixed rate was 33 basis points higher.\n\"There were large declines in applications across loan types – conventional refinances were down 14 percent, along with an 18 percent decrease for FHA applications and a 34 percent decrease for VA applications. Overall, refinance applications accounted for 38 percent of applications, the lowest share since June 2025,\" said Joel Kan, vice president and deputy chief economist at the MBA, in a release.\nApplications for a mortgage to purchase a home fell 0.4% for the week and were just 5% higher than the same week one year ago.\n\"The average loan size for a purchase application reached another survey high at $473,600, as borrowers with smaller loan sizes were less active given the higher rate environment and its negative impact on their purchasing power,\" Kan added.\nMortgage rates moved very slightly lower to start this week, according to a separate survey from Mortgage News Daily. Investors saw a potential de-escalation in the war with Iran, which caused bond yields to drop and mortgage rates to follow.",
+  "published_at": "2026-05-27T11:23:39Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.658310Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

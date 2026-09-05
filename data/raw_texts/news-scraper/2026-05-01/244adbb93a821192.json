@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/27/stocks-making-the-biggest-moves-after-hours-lc-nue-rmbs-bbby.html",
+  "title": "Stocks making the biggest moves after hours: LendingClub, Nucor, Rambus, Bed Bath & Beyond and more",
+  "raw_text": "Check out the companies making headlines after the bell : Bed Bath & Beyond — The home goods retailer surged 31% after reporting first-quarter revenue of $247.8 million, beating the $240.1 million analysts polled by FactSet had expected. The company also posted an adjusted loss of 25 cents per share, narrower than the 28-cent loss per share analysts were anticipating. Rambus — The chip designer saw shares tumble 10%. First-quarter operating margin of 42% on an adjusted basis was lower than the 46% reported in the year-ago period. Adjusted earnings came in at 63 cents per share, compared to 59 cents a share a year earlier. LendingClub — The bank surged 12% after first-quarter results topped estimates. Net interest margin of 6.28% in the period surpassed the FactSet consensus call for 6.06%. Earnings of 44 cents and revenue of $252.3 million beat the LSEG consensus estimate of 36 cents a share and $249 million. Sanmina — Shares rose 15%. The electronics manufacturing solutions company said that third quarter adjusted earnings are expected to range from $2.55 to $2.85 per share, while the FactSet consensus sought $2.53 per share. The company's board also authorized a buyback program of up to $600 million. Cadence Design Systems — The chip design software company slipped 1% after Cadence lowered its full-year adjusted earnings guidance to between $7.85 and $7.95 per share, versus prior forecasts of between $8.05 and $8.15 per share. Separately, first-quarter adjusted earnings of $1.96 per share and revenue of $1.47 billion beat the LSEG consensus call for $1.90 per share in earnings and $1.45 billion in revenue. Nucor — The steel manufacturer added nearly 4% after posting first-quarter earnings of $3.23 per share, exceeding the $2.82 per share analysts polled by LSEG sought. Nucor's $9.50 billion revenue also beat the expected $8.88 billion.",
+  "published_at": "2026-04-27T21:17:29Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.442981Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

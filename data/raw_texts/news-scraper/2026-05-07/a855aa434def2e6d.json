@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/ai-winners-software-datadog-stock.html",
+  "title": "Datadog stock soars 31% on blockbuster earnings as AI winners emerge in software",
+  "raw_text": "Datadog surged 31% on Thursday after reporting blockbuster earnings and lifting its guidance for the year, showing how some software names are starting to prove their case as winners in artificial intelligence.\nQuarterly revenue topped one billion dollars for the first time.\nThe pop fueled rallies in shares of Snowflake and MongoDB, which each climbed 10%.\nDatadog provides the cloud infrastructure that AI models from OpenAI and Anthropic run on. According to analysts, OpenAI is its biggest customer.\nCEO Olivier Pomel revealed on the earnings call that the company landed two major hyperscaler customers for training in their superintelligence labs.\n\"This was an eye-popping print,\" wrote Andrew Sherman, analyst at TD Securities, who called it a \"must-own stock.\"\nThe positivity surrounding Datadog follows strong earnings from Twilio last week.\nInvestors say the performance from Datadog and Twilio underscores how companies that can deploy AI-native solutions while also articulating their path to monetization can ease disruption fears, for now.\nAt Twilio's investor day on Wednesday, the communications software company unveiled new platform capabilities that help AI agents communicate and work together more effectively. The updates include logging customer data, facilitating handoffs, and creating lists of actionable data.\nIt may sound mundane, but Twilio CEO Khozema Shipchandler told CNBC that these enhancements will dramatically improve the customer experience by making agents better at solving customer issues.\nExperts say arming agents with the ability to log memory will make customer service calls less daunting for the end user.\nThe technology will help in scenarios where an individual calls an airline, speaks to an agent while troubleshooting an issue, and then the call drops. If the agent can save the information so the caller can continue the conversation from when it got cut off, the customer ultimately saves time and money.\n\"We're not just lowering their costs, not just serving more consumers, but actually increasing the revenue footprint,\" Shipchandler said.\nDespite continued stress in the software industry, Twilio has been able to win investor confidence, with shares up about 50% in the past month, outperforming every constituent in the IGV Software ETF.\nTwilio's stock appreciation follows the release of strong quarterly earnings in which it posted its highest revenue growth in more than three years. Voice revenue in the first quarter grew by 20% from the period a year ago.\n\"[Twilio] is differentiating on the breadth of its communication channels and the volume of customer data that sits within them,\" wrote Rishi Jaluria, analyst at RBC Capital, in a note to investors following the company's investor day.\nShipchandler told CNBC that new products are on the horizon in both governance and observability.",
+  "published_at": "2026-05-07T20:28:12Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.569223Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

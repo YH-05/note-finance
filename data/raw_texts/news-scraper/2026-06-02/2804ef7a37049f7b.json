@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20301-ucell-deploys-ai-powered-ran-energy-saving-solution-from-zte.html",
+  "title": "Ucell deploys AI-powered RAN energy‑saving solution from ZTE",
+  "raw_text": "ZTE said on Tuesday that Uzbekistan telco Ucell has completed commercial deployment of ZTE's AI‑powered energy‑saving solution for RANs across its network.\nAccording to ZTE, the solution leverages AI analytics to dynamically optimize network energy consumption per cell and per site based on real‑time traffic patterns. This enables Ucell’s RANs to automatically activate energy‑saving techniques on multiple levels (including symbol‑level, channel‑level, carrier‑level and equipment‑level shutdowns) during low‑traffic periods.\nZTE said the solution has increased Ucell’s energy efficiency ratio (defined as volume of data traffic delivered per kilowatt‑hour) by 10.6% across the network. Put another way, for every unit of electricity consumed, the network now delivers 10.6% more data, which directly contributes to lower carbon emissions and reduced opex.\nZTE added that the solution is designed to ensure no impact to the user experience by conducting real‑time monitoring before, during, and after energy‑saving actions. The solution evaluates KPIs and automatically exits energy‑saving mode if any performance thresholds are exceeded.\n“The 10.6% improvement in energy efficiency ratio demonstrates that AI‑driven intelligence can deliver both environmental and economic value without compromising user experience,” said ZTE Uzbekistan CEO Wang Guangdong in a statement.\n“By integrating ZTE's energy-efficient, AI-powered solution into our existing network, we have taken a decisive step toward reducing our carbon footprint and improving operational efficiency,” added Ucell CEO Andrey Shishkovsky.",
+  "published_at": "2026-05-27T02:00:07Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-02T15:01:25.293456Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

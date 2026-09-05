@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/australia-gdp-q1-economic-growth-weather-weak-demand-middle-east-war-energy-costs.html",
+  "title": "Australia's first-quarter economic growth misses estimates on severe weather, weak demand",
+  "raw_text": "Australia's economy lost momentum in the first quarter, as subdued household spending, a pullback in government consumption and severe weather disruptions to mining and exports dampened momentum.\nThe country's GDP expanded 2.5% in the first three months this year, compared to a year earlier, shy of economists' expectations for 2.6% growth and slowing from 2.6% growth in the prior quarter, data from the Australian Bureau of Statistics showed Wednesday.\nOn a quarter-on-quarter basis, Australia's GDP grew 0.3% compared with 0.5% forecast in a Reuters poll, and decelerating from 0.8% growth in the prior quarter.\nThe modest growth was partly driven by robust investment in data center machinery and equipment, the statistics bureau said.\nThe Reserve Bank of Australia became the first central bank among developed economies to raise interest rates this year after the economy posted its strongest quarterly growth in nearly three years in the final quarter last year.\nThe central bank delivered its third interest rate hike this year in May, taking its cash rate target by 25 basis points to 4.35% as economic resilience last year revived inflation pressure.\nAustralia's 10-year government bond yield ticked higher following the data release to 4.898%, according to LSEG data, after gaining about 24 basis points since the Iran war began on Feb. 28. The S&P/ASX 200 rose 0.5% while the Australian dollar was little changed at 0.7176 against the greenback.\nThe country's growth outlook has darkened due to the ongoing Middle East conflict, which has effectively halted oil flows through the Strait of Hormuz, pushing up energy and commodities prices globally. While Australia is a net energy exporter, a sustained rise in commodities costs could ultimately weigh on consumer demand.\nThe first-quarter data would be \"too early to capture any material spillovers from the conflict,\" with negative growth effects more likely to be felt in the second quarter, Nick Stenner, Australia and New Zealand economist at Bank of America, said Monday.\nThe Reserve Bank of Australia will likely focus on the strength of private demand before factoring in the conflict, alongside inflation risks stemming from weak productivity and rising unit labor costs, according to Stenner, who expects household consumption to weaken in the second quarter.\nThe RBA expects the country's economic growth to slow to 1.3% by end of this year, according to its May statement.",
+  "published_at": "2026-06-03T03:47:56Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.477044Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

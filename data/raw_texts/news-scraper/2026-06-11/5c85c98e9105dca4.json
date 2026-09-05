@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.ourcommons.ca/petitions/en/Petition/Sign/e-7416",
+  "title": "Petition to Withdraw Canada's Bill C-22",
+  "raw_text": "We, the undersigned, citizens and residents of Canada, call upon the House of Commons to\n1. Withdraw Bill C-22, An Act respecting lawful access, or vote against it at all stages;\n2. Remove all suspicionless bulk metadata retention requirements from any future lawful access legislation; and\n3. Explicitly prohibit any future lawful access legislation from requiring the weakening or breaking of encryption.",
+  "published_at": "2026-06-11T15:37:23Z",
+  "author": "hmokiguess",
+  "collected_at": "2026-06-11T21:00:46.443935Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

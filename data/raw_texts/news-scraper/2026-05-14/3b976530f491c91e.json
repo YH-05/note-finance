@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/neanderthals-drilled-cavities-to-treat-a-toothache-59000-years-ago/",
+  "title": "Neanderthals drilled cavities to treat a toothache 59,000 years ago",
+  "raw_text": "The world’s first dentist was a Neanderthal, according to a recent study.\n59,000 years ago in what’s now southwestern Siberia, a Neanderthal had a toothache. It must have been a doozy because they were desperate enough to sit still while someone drilled into the tooth with a sharp stone tool, removing the infected tissue and ultimately relieving the pain.\nThe process left behind a hole in the tooth that paleoanthropologist Alisa Zubova of the Russian Academy of Sciences and her colleagues recognized, tens of millennia later, as dental work. Archaeologists unearthed the tooth at Chagyrskaya Cave in Russia, and it’s now the oldest known evidence of dentistry—or any direct medical treatment.\nExperimental archaeology in action\nThe tooth, found in a layer of sediment laid down 59,000 years ago, is an upper third molar with an unusually large hole in the chewing surface, reaching all the way down into the pulp chamber—the protected inner space of the tooth that houses the nerves and blood vessels. Around the edges of the hole, Zubova and her colleagues noticed scratches, which, in addition to the hole’s unusual size and shape, made the archaeologists wonder if it had been drilled intentionally to relieve the pain of a tooth infection. That possibility “demanded special analysis,” said Zubova in an interview with PLOS.\nDrilling a hole in a tooth to relieve pain sounds counterintuitive at first, but it’s the easiest, least destructive way to remove the infected tissue. Exposing the pulp chamber leads to the death of the exposed nerves, which takes away the pain. This didn’t become common practice until a few hundred years ago, but at least one Neanderthal apparently figured it out and convinced someone to go along with it.\nTo test whether the hole was made intentionally, Zubova and her colleagues examined the tooth more closely with scanning electron microscopes, micro-CT, and Raman spectroscopy, a technique for identifying the chemical makeup of an object. They also made their own stone drilll or perforator (a sharp stone tool that would have been used to drill or punch holes in hides, bone, and other materials) and tested it on three human teeth.",
+  "published_at": "2026-05-13T18:00:33Z",
+  "author": "Kiona N. Smith",
+  "collected_at": "2026-05-14T03:00:28.568465Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "anthropology",
+      "Archaeology",
+      "bioarchaeology",
+      "Neanderthals",
+      "osteoarchaeology",
+      "paleoanthropology",
+      "science",
+      "teeth"
+    ]
+  }
+}

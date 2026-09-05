@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/elon-musk-sent-ominous-texts-to-greg-brockman-sam-altman-after-asking-for-a-settlement-openai-claims/",
+  "title": "Elon Musk sent ominous texts to Greg Brockman, Sam Altman after asking for a settlement, OpenAI claims",
+  "raw_text": "Two days before the Elon Musk vs. OpenAI trial began last week, Musk texted the model maker’s president and co-founder Greg Brockman. Musk suggested to Brockman that OpenAI settle the suit.\nAfter Brockman replied by suggesting both sides drop their suits, the exchange went off the rails, with Musk responding: “By the end of this week, you and Sam will be the most hated men in America. If you insist, so it will be.”\nThis is all according to a new filing submitted on Sunday by OpenAI’s lawyers. The filing didn’t include copies of the text exchange, and most of it was dedicated to convincing the judge why this exchange on settlement talks should be admitted into evidence. The judge, however, was not having it, ruling the exchange inadmissible, per TechCrunch reporter Tim Fernholz, who is on-site covering the trial.\nThe implication, however, is clear. Musk’s lawsuit seeks to unwind OpenAI’s for-profit structure, require its tech be made available to the public, strip Microsoft’s licensing agreement, and compel OpenAI to pay him general, compensatory, and punitive damages plus his lawyer’s fees. After OpenAI’s lawyers publicly shared this “settle-or-else” text, observers instantly clocked that maybe this trial isn’t about Musk’s concern for AI safety, but about demanding money from its success while kneecapping a rival. This is, essentially, what OpenAI’s countersuit alleges.\nMeanwhile, the trial continues.",
+  "published_at": "2026-05-04T16:36:03Z",
+  "author": "Julie Bort, Tim Fernholz",
+  "collected_at": "2026-05-04T21:00:26.595334Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "TC",
+      "Elon Musk",
+      "greg brockman",
+      "In Brief",
+      "OpenAI",
+      "openai lawsuit",
+      "sam altman"
+    ]
+  }
+}

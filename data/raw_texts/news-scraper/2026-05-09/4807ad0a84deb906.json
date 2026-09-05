@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/this-win-win-hedge-trade-is-getting-popular-with-traders.html",
+  "title": "This 'win-win' hedge trade is getting popular with traders",
+  "raw_text": "Aggressive options trading in the semiconductor stocks is creating a volatility spread that's being used by traders to stay bullish in the sector that's rallying the most, while simultaneously hedging risks in the broader market.\nThe trade is fairly simple: sell downside protection in semiconductor names where volatility is expensive, and buy downside protection in the S&P 500, where it's relatively cheap, with VIX this week touching the lowest levels in three months.\nHere's why it's uniquely compelling at this juncture.\nImplied volatility in the VanEck Semiconductor ETF (SMH) is 46, more than 2.5 times that of the S&P 500, where the Cboe Volatility index (VIX) trades around 17. Oftentimes volatility moves down as stocks grind higher, but in the case of chips, where prices are moving parabolic, volatility is rising alongside prices.\nAs a result, traders are shifting some of that call-buying appetite in SMH towards selling of puts instead: on Wednesday, more than 5x more puts were sold versus calls bought. It's still a bullish view on the sector, but more specifically targeting the rich premiums of the options.\nThe second part of the trade is to use that income to go long volatility in the S&P 500 via index puts or VIX calls.\nIf chips go up, you keep the net credit. If chips go down, the stock market most likely will too, and the S&P puts will pay off. Plus, there's a bonus kicker to the trade: Because volatility in chips has risen with their price, it's possible volatility could come down even if the group sells off – giving traders even more cushion on the puts they sold.\n\"The premium you're harvesting selling the puts will far outpace what you'd lose on the index because even if the market grinds higher, those S&P puts aren't going to lose a lot of value,\" said Scott Bauer, CEO of Chicago-based Prosper Trading Academy. \"It's massive vol skew and if there is a pull back in semis, it gives you the opportunity to reload at a lower price, whereas selling calls could be a career-ending trade. It absolutely can be a win-win.\"\nWednesday's intraday action offered a prime example of how both trades can win at once. Semiconductors and VIX both hit their lows around 9:20 am CT, then both rallied into the bell",
+  "published_at": "2026-05-07T16:05:58Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.686826Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

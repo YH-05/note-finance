@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/946032/apple-home-ai-camera-descriptions-search-4k",
+  "title": "Cameras get an Apple Intelligence boost in Apple Home",
+  "raw_text": "Apple Intelligence is coming to cameras connected to Apple Home. At WWDC, Apple announced that with iOS27, its HomeKit Secure Video service will use Apple Intelligence to analyze footage and generate descriptions summarizing what the camera saw. You can also search footage with natural language to find clips from across connected cameras, such as when a package was delivered.\nCameras get an Apple Intelligence boost in Apple Home\nSecurity cameras in Apple Home will generate text descriptions and let you search footage with natural language. HomeKit Secure Video finally gets 4K support.\nSecurity cameras in Apple Home will generate text descriptions and let you search footage with natural language. HomeKit Secure Video finally gets 4K support.\nThe Home app will also use Apple Intelligence to connect relevant clips together to give you a picture of what’s happening across your home and surface “noteworthy clips” on the search page to quickly show you videos that might be important.\nThis AI boost is similar to features that Amazon’s Ring and Google’s Nest have added to their home security cameras over the last year. It’s possible these updates are in preparation for Apple’s rumored upcoming video doorbell and security camera.\nApple also announced that support for up to 4K video resolution is coming to compatible HomeKit Secure Video cameras. This should help with clearer images to feed the AI; prior to this, the service only supported 1080p. An iCloud Plus plan is required for HomeKit Secure Video, and will include the new AI features. Apple didn’t mention if it was bringing Matter support for cameras to its smart home platform.\nFinally, a small but welcome update to the Home app is the ability to condense multiple alerts for the same device into a single notification, which will then update as more activity occurs.",
+  "published_at": "2026-06-08T18:37:31Z",
+  "author": "Jennifer Pattison Tuohy",
+  "collected_at": "2026-06-08T21:00:16.239969Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Apple Event",
+      "Smart Home",
+      "Tech",
+      "WWDC 2026"
+    ]
+  }
+}

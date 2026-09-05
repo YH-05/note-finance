@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://isupmap.com/",
+  "title": "The IsUpMap lets you check the status of over 100 major sites at once",
+  "raw_text": "<p>Article URL: <a href=\"https://isupmap.com/\">https://isupmap.com/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48408067\">https://news.ycombinator.com/item?id=48408067</a></p>\n<p>Points: 115</p>\n<p># Comments: 43</p>",
+  "published_at": "2026-06-05T04:44:48Z",
+  "author": "mikelgan",
+  "collected_at": "2026-06-05T21:00:41.654493Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

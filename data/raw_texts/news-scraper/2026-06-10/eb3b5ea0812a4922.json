@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/13/ppi-inflation-report-april-2026-.html",
+  "title": "Wholesale inflation jumps 6% in April on annual basis, biggest increase since 2022",
+  "raw_text": "Wholesale prices in April posted their highest annual increase in more than three years, signaling more nettlesome inflation as pipeline costs intensify.\nThe producer price index rose a seasonally adjusted 1.4% for the month, much higher than the 0.5% Dow Jones consensus forecast and the upwardly revised 0.7% March increase, the Bureau of Labor Statistics reported Wednesday. This was the largest monthly gain since March 2022.\nOn an annual basis, the index was up 6%, the biggest increase since December 2022.\nExcluding food and energy, the core PPI accelerated 1%, compared with the 0.4% estimate. Excluding food, energy and trade services, the PPI rose 0.6 %.\nEnergy was at the root of the unexpectedly high gain in producer prices, as it was for a surge in consumer prices that the BLS reported Tuesday, though there was evidence that the price pain is extending beyond the gas pump.\nSome three-quarters of the gain in goods prices stemmed from a 7.8% jump in final demand energy, the BLS said. More than 40% of that was traced to a 15.6% surge in gasoline, during a month when prices at the pump soared well past $4 a gallon as pressures from the Iran war hit the broader energy complex.\nWhile much of the inflation move has been attributed to the war and President Donald Trump's tariffs that were introduced a year ago, the PPI data shows the price pressures were broad-based.\nThe services index accelerated 1.2%, the biggest monthly gain since March 2022. Two-thirds of the move was attributed to a 2.7% rise in trade services, a sign that tariff costs could be starting to have a larger impact on prices. The move also was buttressed by a 3.5% jump in margins for machinery and equipment wholesaling.\n\"Inflation is sticky and accelerating. The core reading confirms a deeper structural trend, especially in services,\" said David Russell, global head of market strategy at TradeStation. \"The Hormuz crisis is aggravating the problem, but this goes way beyond oil.\"\nFutures tied to the Dow Jones Industrial Average fell following the release while Treasury yields were mildly positive.\nThe report comes a day after the BLS reported that the consumer price index rose 3.8% from a year ago, pushed primarily by surging energy prices but also owing to other factors, including a surprisingly high increase in shelter costs.\nCore inflation was more subdued at 2.8% but still well above the Federal Reserve's 2% goal, likely keeping central bankers on hold as the impacts from the Iran war and Trump's tariffs play out.\nMarket pricing points to little chance of any interest rate cuts through the rest of the year, though odds for a hike climbed to about 39% following the PPI report. The Fed has kept its benchmark interest rate anchored in a range between 3.5%-3.75% as inflation has proved sticky and the labor market has been resilient.",
+  "published_at": "2026-05-13T13:21:15Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.505136Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

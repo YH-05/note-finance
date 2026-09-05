@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/05/no-google-hasnt-changed-chromes-local-ai-features-its-just-as-confusing-as-ever/",
+  "title": "Chrome's 4GB AI model isn't new, but you're not wrong for being confused",
+  "raw_text": "All of Google’s products have been getting more AI features, including Chrome, which now offers split-screen Gemini chatbot support, the ability to automate web browsing, and more. Some desktop Chrome users have also noted that the browser appears to suddenly want more storage space for AI. This is true—Chrome does download a 4GB AI model for on-device processing. It’s been doing that for years, though.\nGoogle hasn’t actually changed anything about Chrome’s on-device AI, but the confusion is understandable, as the company has done a poor job of explaining what it’s doing and why. This is, unfortunately, par for the course with Google’s AI efforts.\nJust this week, someone noticed that Chrome had downloaded a 4GB Gemini Nano model and inferred from its sudden appearance that Google was deploying that AI on all Chrome installs right now. That’s not exactly true. Google announced in 2024 that it would begin adding local AI capabilities to Chrome, powering features like Help Me Write, tab organization, and scam detection.\nThe list of potential uses has changed over time, and Google never rolled the models out universally. It’s possible your machine has been running a local Gemini Nano model since 2024, and it’s also possible the AI was downloaded yesterday. Google tells Ars Technica the flags that determine whether or not Gemini Nano is installed on your machine are multifaceted and include (but are not limited to) your computer’s hardware, account features, and whether you’ve visited a website that uses Google’s on-device Gemini API.\nBecause Gemini Nano is constantly appearing on machines for the first time, people may think this is something new. In reality, Google confirmed to Ars that Chrome’s Gemini Nano model has been around 4GB in size since it debuted two years ago.",
+  "published_at": "2026-05-08T17:17:17Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-11T03:00:30.937007Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "chrome",
+      "gemini nano",
+      "google"
+    ]
+  }
+}

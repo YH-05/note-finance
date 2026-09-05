@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/novelis-restarts-production-at-new-york-plant-supplying-ford.html",
+  "title": "Novelis restarts production at New York plant supplying Ford",
+  "raw_text": "Novelis said on Wednesday it had restarted production at its Oswego, New York facility, a plant key to Ford's F-150 pickup truck line, months after two fires halted operations.\nThe aluminum supplier said it was working closely with customers to ramp up supply.\nWhile Novelis also supplies other automakers, including Stellantis and General Motors, Ford is a major consumer because its flagship F-series trucks largely use aluminum bodies.\nThe fires spurred supply bottlenecks, which led Ford to cut its 2025 profit forecast and flag a charge of up to $2 billion.\n\"Restarting the Oswego hot mill is an important step forward for our operations and, most importantly, for our customers,\" Novelis CEO Steve Fisher said on Wednesday.\nNovelis had been leaning on plants in South Korea and Europe to make up for the downtime from the New York plant and support aluminum production.\nIn May, India's Hindalco Industries, which owns Novelis, said the disruptions cost it roughly $437 million in the fourth-quarter.",
+  "published_at": "2026-06-10T14:32:39Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.369792Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

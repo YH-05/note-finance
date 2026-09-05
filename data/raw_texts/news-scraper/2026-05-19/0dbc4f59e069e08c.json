@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/did-artemis-ii-break-through-registrations-at-space-camp-double-afterward/",
+  "title": "Did Artemis II break through? Registrations at Space Camp double afterward.",
+  "raw_text": "When he was 12 years old, NASA Administrator Jared Isaacman attended the weeklong “Aviation Challenge” program at Space Camp in Huntsville, Alabama.\n“For the first time, I got behind the controls of an airplane when I attended Aviation Challenge,” Isaacman said on Friday evening during an event at the US Space & Rocket Center. “I became a pilot because I thought that was the closest I would ever get to the stars.”\nDecades later, after founding a successful online payments company and flying to space twice as a private citizen aboard SpaceX’s Crew Dragon, Isaacman has returned to Space Camp in Alabama on multiple occasions to meet with participants and share a bit of the awe he experienced as a kid. In 2022, a year after the first of these flights, Inspiration4, Isaacman donated $10 million to kick off a Space Camp expansion.\nNow, as the leader of NASA’s space program, he has sought to continue to pay it forward. He donates his salary to Space Camp, and on Friday, he returned to open the new “Inspiration4 Skills Training Complex,” a 50,000-square-foot facility completed with an additional $15 million donation from Isaacman. The money will also support development of a new dormitory.\nSpace Camp becomes part of the US culture\nSpace Camp has carved out an influential place in American culture. A 1986 feature film, Space Camp, popularized the camp when four teenagers befriended a robot and ended up launching into orbit on a space shuttle. The plot is implausible, to say the least, and the movie was criticized because it came out just a few months after the space shuttle Challenger catastrophe.",
+  "published_at": "2026-05-18T13:49:37Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-19T03:00:30.806262Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "inspiraiton4",
+      "space",
+      "space camp"
+    ]
+  }
+}

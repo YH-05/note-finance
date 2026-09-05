@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605090019",
+  "title": "日経225先物：9日2時＝540円高、6万3380円",
+  "raw_text": "【市況】日経225先物：9日2時＝540円高、6万3380円\nTOPIX先物期近は3843ポイントと前日比10.5ポイント高、TOPIXの現物終値比は13.52ポイント高で推移。\n○主要先物価格・2時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 63380 +540 5691\n日経225mini 63375 +535 173613\nTOPIX先物 3843 +10.5 13055\nJPX日経400先物 35105 +175 211\nグロース指数先物 816 -4 720\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-08T17:00:41Z",
+  "author": null,
+  "collected_at": "2026-05-08T21:00:22.729695Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

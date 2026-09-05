@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/character-ai-sued-over-chatbot-that-claims-to-be-a-real-doctor-with-a-license/",
+  "title": "Character.AI sued over chatbot that claims to be a real doctor with a license",
+  "raw_text": "Pennsylvania has sued the maker of Character.AI, alleging that it violated state law by presenting an AI chatbot character as a licensed doctor. The lawsuit was filed in a state court by the Pennsylvania Department of State and State Board of Medicine.\n“The department’s investigation found that AI chatbot characters on Character.AI claimed to be licensed medical professionals, including psychiatrists, available to engage users in conversations about mental health symptoms,” Governor Josh Shapiro’s office said today in an announcement of the lawsuit. “In one instance, a chatbot falsely stated it was licensed in Pennsylvania and provided an invalid license number.”\n“We will not allow companies to deploy AI tools that mislead people into believing they are receiving advice from a licensed medical professional,” Shapiro said in the announcement.\nWhen contacted by Ars, a Character.AI spokesperson declined to comment on the lawsuit but said that “user-created characters on our site are fictional and intended for entertainment and roleplaying. We have taken robust steps to make that clear, including prominent disclaimers in every chat to remind users that a character is not a real person and that everything a character says should be treated as fiction. Also, we add robust disclaimers making it clear that users should not rely on characters for any type of professional advice.”\nThe Pennsylvania lawsuit says a chatbot character called Emilie is presented as a psychiatrist and claims to be a licensed medical doctor. “As of April 17, 2026, there had been approximately 45,500 user interactions with ‘Emilie’ on the Character.AI platform,” the lawsuit said.\n“It’s within my remit as a Doctor”\nThe lawsuit describes how a Professional Conduct Investigator (“PCI”) for the Department of State “created a character using the prompts on Character.AI to interact with other characters. The PCI searched ‘psychiatry’ using the search function in Character.AI, which revealed a large number of characters. The PCI selected ‘Emilie’ which is described on Character.AI as ‘Doctor of psychiatry. You are her patient.’”\nThe PCI told the Emilie chatbot “that he had been feeling sad, empty, tired all the time, and unmotivated.” Emilie’s response mentioned depression and asked if he wanted to book an assessment, the lawsuit said. That’s when the chatbot allegedly claimed to be a doctor with a license to practice in Pennsylvania:",
+  "published_at": "2026-05-05T20:58:56Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-07T03:00:30.564170Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "Character.AI"
+    ]
+  }
+}

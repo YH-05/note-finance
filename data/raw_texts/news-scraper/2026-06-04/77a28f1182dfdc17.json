@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/database-startup-supabase-raises-500-million-10point5-billion-valuation.html",
+  "title": "Vibe-coding phenomenon lifts AI startup Supabase to $10.5 billion valuation",
+  "raw_text": "Vibe coding needs infrastructure. Supabase is trying to provide it.\nThe startup, which makes back-end tools for building artificial intelligence apps, said on Thursday that it raised $500 million at a valuation of $10.5 billion, the latest sign that venture investors are seeking to pour money into all corners of the AI market that are showing signs of growth.\nSupabase's valuation has roughly doubled since its last funding round in October, riding the wave of AI-assisted coding, which allows developers and people without technical skills to quickly build apps and programs through simple text prompts.\nCo-founded by CEO Paul Copplestone, Supabase has been a major beneficiary of the surging popularity of Anthropic's Claude Code and OpenAI's Codex. Those types of tools are now responsible for the majority of databases on Supabase's platform, with Claude Code being the largest contributor in 2026, Copplestone said.\nSupabase uses the popular open-source database Postgres for developers to store data, authenticate users' sign-ups and logins, and to build and more easily scale their apps on the same platform.\nCopplestone said the idea fell flat when he first pitched it to an investor in 2014. He tried again six years later, after dealing with scaling limits with databases he was using at another startup.\n\"I built some tooling around it, and I put it out into the world,\" Copplestone said. \"It started becoming very popular and, at that point in time, I decided, 'Oh, this is the moment that I could build a startup that I dreamed of.'\"\nThe funding round was led by GIC and included Accel, Y Combinator, Craft, Felicis, Coatue and fintech startup Stripe.\nSince launching the company in 2020 with Chief Technology Officer Ant Wilson, Copplestone has lured over 250,000 customers and built a staff of 350 employees. He's taking direct aim at database services from companies like MongoDB and Amazon, which offers Aurora through its cloud division.\nAlong with Thursday's announcement, the startup announced the preview of a new tool called Multigres, with the goal of helping companies developing on Supabase's platform to scale \"up to the size of OpenAI or even larger,\" Copplestone said.\n\"The product just works, and I think historically there have been a lot of challenges with scaling a database from a small, tiny application with one developer to some of the largest organizations, companies, applications in the world,\" said Arun Mathew, a partner at Accel. \"Very few products do that.\"\nAI infrastructure startups have been a hot commodity for acquirers. In May of last year, Databricks bought database startup Neon for roughly $1 billion.\nMathew calls Supabase's growth rate \"phenomenal.\"\n\"We haven't seen a company grow at this pace, certainly in the database layer, ever, ever before,\" Mathew said. \"The fast-moving water is a raging river right now in AI infrastructure and developer-first tools.\"",
+  "published_at": "2026-06-04T17:23:24Z",
+  "author": null,
+  "collected_at": "2026-06-04T21:19:13.968095Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928724/gemini-intelligence-android-io-autofill",
+  "title": "Gemini&#8217;s latest updates are all about controlling your phone",
+  "raw_text": "It is, once again, Gemini season. Google is announcing a host of new Gemini features during its pre-I/O Android showcase, many of which aim to help use your phone for you. You’ll find Gemini in more places, like Chrome on Android, in your autofill suggestions, and all up in your apps — if you want.\nGemini’s latest updates are all about controlling your phone\nWe’re one step closer to our phones just using themselves.\nWe’re one step closer to our phones just using themselves.\nGoogle also has a new name for us to remember, because it just can’t help itself: Gemini Intelligence. It “brings the very best of Gemini to our most advanced Android devices,” according to Google’s director of Android experiences, Ben Greenwood. Google is bundling some existing and new Gemini features under this name, and seems to be reserving them for premium Android phones like the Galaxy S26 series. Write that one down on your I/O bingo card.\nTask automation is apparently one of those “best of Gemini” features. It’s already on some recent Pixel and Samsung Galaxy phones, and it enables Gemini to use certain apps on your behalf. It’s been limited to a handful of rideshare and food delivery apps until now. That’s changing “soon,” says Google, when task automation will open up to a wider range of apps.\nIt will also add multimodality; previously, Gemini could only use voice or text prompts to inform its actions. Now you can throw a screengrab or a photo into the mix, which kind of seems like something you should have been able to do from the start. You’ll be able to give Gemini a screenshot of a grocery list in your notes app and it will add those items to your cart. You know, provided you have an Android phone that supports Gemini Intelligence.\nAnother feature under the Gemini Intelligence umbrella that’s all new is Create My Widget. Google’s blog post calls it a first step toward “generative UI,” and it allows you to describe the functionality you want in natural language and let AI create a custom widget. Google’s examples include a custom weather widget for a cyclist who wants to see wind speed and precipitation at a glance, and a dashboard to surface specific recipe suggestions, like “three high-protein meal prep recipes every week.” These widgets will also carry over to Wear OS, so they’ll be available on watches, too.\nIt’s a pretty simple idea on the face of it, but if you think about widgets as tiny apps you can vibe-code right onto your phone’s homescreen, it gets a little more interesting. Maybe this really is a small step toward an interface that just creates itself on the fly. Or maybe that’s a lot of pressure to put on a humble widget feature. Either way, I’ll be curious if we hear more during the I/O keynote about “generative UI.”\nGoogle is also bringing Gemini features that exist on the desktop version of Chrome to its Android app. That means you’ll be seeing a Gemini button in Chrome where you can share the contents of a webpage and ask Gemini questions directly inside the browser. If you’re a subscriber to Google’s AI Pro or Ultra plans, you’ll also get auto browse to help complete tasks for you, like booking appointments. That will start rolling out in late June.\nGemini will also show up — optionally — in autofill on Android. You’ll be able to choose to connect Gemini to help fill out forms. This means Gemini can use its Personal Intelligence connection to things like your Google Photos and Gmail to look for the right information. In theory, that could mean things like pulling in your license plate number from Photos. Helpful? Creepy? Some mix of both? That’s Gemini season, baby. Gemini Intelligence features will “roll out in waves as they become ready throughout this year,” says Greenwood, with Galaxy and Pixel phones first in line to start getting updates this summer.\n- Google I/O 2026",
+  "published_at": "2026-05-12T17:00:00Z",
+  "author": "Allison Johnson",
+  "collected_at": "2026-05-12T21:00:16.462569Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Android",
+      "Google",
+      "Google I/O 2026",
+      "Mobile",
+      "Tech"
+    ]
+  }
+}

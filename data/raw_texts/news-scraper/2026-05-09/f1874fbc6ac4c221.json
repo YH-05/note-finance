@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/the-nintendo-switch-2-is-getting-more-expensive-later-this-year/",
+  "title": "The Nintendo Switch 2 is getting more expensive later this year",
+  "raw_text": "When we reviewed the Switch 2 just after its launch last year, we warned that interested customers might want to buy in early, as the launch price could go up. That potential price hike became a reality today, as Nintendo announced the Switch 2’s MSRP will increase to $499.99 on September 1, a $50 (and about 11 percent) increase from the $449.99 launch price.\nIn an announcement of the impending price increase today, Nintendo cited “changes in market conditions” and “the global business outlook” that are “expected to extend over the medium to long term.” That’s likely a reference to the climbing RAM and storage prices that have been impacting all sorts of hardware makers for months.\nNintendo’s pricing move means all three current major consoles have now increased in price since launch. Sony’s PS5 got its second price increase in March, just eight months after its first price hike. The Xbox Series consoles saw their second price increase in September, five months after an initial price hike. Nintendo also raised the price of the aging original Switch console for the first time last year.",
+  "published_at": "2026-05-08T14:11:27Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-09T03:01:26.278663Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "business",
+      "market",
+      "Nintendo",
+      "price increase",
+      "switch 2"
+    ]
+  }
+}

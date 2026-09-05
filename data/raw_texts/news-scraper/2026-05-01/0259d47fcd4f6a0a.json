@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/apple-reported-stellar-results-that-could-boost-the-shares-of-these-suppliers-.html",
+  "title": "Apple reported stellar results. That could boost the shares of these suppliers",
+  "raw_text": "Apple reported excellent fiscal second-quarter results on Thursday, boding well for several technology stocks with exposure to the \"Magnificent Seven\" name, according to two shops on the Street. In a pair of analyst notes, Stifel and KeyBanc said that semiconductor stocks Cirrus Logic , Qorvo and Ceva and wireless networking services provider Skyworks Solutions are likely to benefit from the iPhone maker's growth in the latest period. The company's growth has been partially fueled by robust demand for its iPhones, which is especially likely to boost the group of pick-and-shovel plays, according to Stifel. \"CRUS sees incremental upside from overall iPhone strength given its > 90% revenue exposure, with more content in Pros. Strong iPhone demand and modem shifts benefit SITM and CEVA, while iPhone demand supports revenue targets for SWKS and QRVO despite looming socket loss threats,\" Stifel analyst Tore Svanberg said Thursday in a note to clients. Apple clocked $57 billion in iPhone sales during the quarter, a strong showing even though it was slightly short of the $57.2 billion expected by analysts polled by LSEG due to advanced node capacity constraints. Stifel expects smartphone sales to pick up in the June quarter as supply chain issues improve. KeyBanc estimates Apple will sell 58.3 million iPhones in its fiscal third quarter, implying revenue of $55.5 billion, which is 20% above the consensus on a year-over-year basis. Later this year, Apple is also expected to roll out the iPhone 18 Pro and Pro Max, which could stoke a surge in smartphone sales. While Apple shares were up more than 4% in trading Friday, all of the derivate plays were trading in the red. Cirrus and Ceva were down more than 1%, while Qorvo and Skyworks were down about 3% each.",
+  "published_at": "2026-05-01T14:40:00Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.389102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

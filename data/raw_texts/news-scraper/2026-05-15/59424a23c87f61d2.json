@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20223-zte-and-mediatek-unveil-tri-band-wi-fi-7-targeting-a-relatively-unexplored-premium-niche-in-brazil.html",
+  "title": "ZTE and MediaTek Unveil Tri-band Wi-Fi 7, Targeting a Relatively Unexplored Premium Niche in Brazil",
+  "raw_text": "ZTE Corporation and MediaTek, a global semiconductor company, unveiled a joint strategy at the 2026 ZTE Broadband User Congress. The two parties will expand premium connectivity product portfolios tailored for high-demand residential users and small businesses in Brazil, addressing their needs for advanced technology, comprehensive coverage, ultra-high speed and low-latency network performance.\nDuring the meeting, the companies presented the benefits of tri-band Wi-Fi 7, which operates simultaneously on 2.4 GHz, 5 GHz, and 6 GHz. The adoption of the 6 GHz band, in addition to the already established bands, reinforces the gain in capacity and stability, improving the experience in both homes and small businesses, especially in scenarios with multiple connected devices and higher density of Wi-Fi networks.\n\"In Brazil, there is a clear niche of consumers and businesses that need an above-average connectivity experience, with higher performance, lower latency, and more consistent coverage. Today, this consumer cannot find a direct, structured, and easy-to-acquire offer,\" says Samir Vani, MediaTek's Business Development Director for Latin America. \"By treating all subscribers uniformly, many operators fail to capture value from an audience with a greater willingness to invest and end up missing the opportunity to increase the average ticket price and profitability of broadband services,\" adds the executive.\nBrazil's broadband landscape features more than 20,000 fiber internet providers, leading to intense price competition and homogenized service offerings. Against this backdrop, ZTE and MediaTek regard premium connectivity as a key strategic enabler, helping local operators and ISPs build differentiated, sustainable value propositions.\n\"ZTE can strongly contribute to offering premium equipment geared towards this new level of experience,\" says Phoenix Li, CPE Marketing Director of ZTE LATAM Division. \"One example is the triple bands 4*4 XGSPON model, which can reach up to 4.6 Gbps in Wi-Fi SpeedTest and also features MLO (Multi-Link Operation) technology, a feature that helps deliver a more homogeneous experience throughout the home or professional environment, through the simultaneous use of multiple frequencies.\"\nThe ZTE Broadband User Congress gathers senior industry leaders and professionals to discuss cutting-edge connectivity trends, broadband monetization strategies and the evolving role of Wi-Fi in shaping next-generation user experience.",
+  "published_at": "2026-05-08T14:30:02Z",
+  "author": "Staff Writer",
+  "collected_at": "2026-05-15T03:01:22.107486Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

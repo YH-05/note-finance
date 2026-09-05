@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=47975571",
+  "title": "Ask HN: Who is hiring? (May 2026)",
+  "raw_text": "Please state the location and include REMOTE for remote work, REMOTE (US)\nor similar if the country is restricted, and ONSITE when remote work is\nnot an option.\nPlease only post if you personally are part of the hiring company—no\nrecruiting firms or job boards. One post per company. If it isn't a household name,\nexplain what your company does.\nPlease only post if you are actively filling a position and are committed\nto replying to applicants.\nCommenters: please don't reply to job posts to complain about\nsomething. It's off topic here.\nReaders: please only email if you are personally interested in the job.\nSearchers: try https://nthesis.ai/public/hn-who-is-hiring, https://dheerajck.github.io/hnwhoishiring/, http://nchelluri.github.io/hnjobs/,\nhttps://hnjobs.emilburzo.com, or this (unofficial) Chrome extension:\nhttps://chromewebstore.google.com/detail/hn-hiring-pro/mpfal....\nDon't miss this other fine thread: Who wants to be hired? https://news.ycombinator.com/item?id=47975570",
+  "published_at": "2026-05-01T15:00:07Z",
+  "author": "whoishiring",
+  "collected_at": "2026-05-01T21:01:00.255457Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

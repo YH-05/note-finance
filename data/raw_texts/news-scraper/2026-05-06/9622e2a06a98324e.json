@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924706/apple-iphone-siri-intelligence-class-action-lawsuit-settlement",
+  "title": "Apple agrees to pay iPhone owners $250 million for not delivering AI Siri",
+  "raw_text": "Apple has agreed to pay $250 million to settle a class action lawsuit that accused it of misleading customers about the availability of its Apple Intelligence features. The proposed settlement would apply to people in the US who purchased all models of the iPhone 16 and the iPhone 15 Pro between June 10th, 2024 and March 29th, 2025.\nApple agrees to pay iPhone owners $250 million for not delivering AI Siri\nThe proposed settlement in a class action lawsuit will get some cash back to people who bought the iPhone 16 lineup and the iPhone 15 Pro.\nThe proposed settlement in a class action lawsuit will get some cash back to people who bought the iPhone 16 lineup and the iPhone 15 Pro.\nPeople who submit qualifying claims can receive $25 for each eligible device, “which may decrease or increase up to $95 per device, depending on claim volume and other factors,” according to Clarkson Law Firm, the legal team behind the class action lawsuit.\nThe settlement will resolve a 2025 lawsuit, alleging Apple’s advertisements created a “clear and reasonable consumer expectation” that Apple Intelligence features would be available with the launch of the iPhone 16. The lawsuit claimed Apple’s products “offered a significantly limited or entirely absent version of Apple Intelligence, misleading consumers about its actual utility and performance.”\nIn a statement to The Verge, Apple spokesperson Marni Goldberg said the company “resolved this matter to stay focused on doing what we do best, delivering the most innovative products and services to our users.” You can read Apple’s full statement at the bottom of this article.\nApple previewed a series of AI-powered features coming to its iPhones during its June 2024 Worldwide Developers Conference, including a more personalized Siri. But when the iPhone 16 launched in September, Apple labeled it as “built for Apple Intelligence,” as it lacked many of the capabilities it teased months earlier.\nInstead, Apple gradually rolled out its new AI features, including Image Playground, Genmoji, and a ChatGPT integration in Siri. The company also delayed the launch of its more personalized Siri, which is now expected to arrive later this year.\nLast April, the National Advertising Division recommended that Apple “discontinue or modify” its “available now” claim for the Apple Intelligence page on its website. Apple also pulled an iPhone 16 ad showing actor Bella Ramsey using the AI-upgraded Siri.\nApple denied any wrongdoing. Here’s the company’s full statement:\nSince the launch of Apple Intelligence, we have introduced dozens of features across many languages that are integrated across Apple’s platforms, relevant to what users do every day, and built with privacy protections at every step. These include Visual Intelligence, Live Translation, Writing Tools, Genmoji, Clean Up and many more.\nApple has reached a settlement to resolve claims related to the availability of two additional features. We resolved this matter to stay focused on doing what we do best, delivering the most innovative products and services to our users.",
+  "published_at": "2026-05-05T21:18:23Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-06T03:00:16.590698Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apple",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/chris-wright-hormuz-oil-iran-trump.html",
+  "title": "Energy Secretary Chris Wright says traffic in Strait of Hormuz is rising 'very meaningfully'",
+  "raw_text": "U.S. Energy Secretary Chris Wright said oil traffic has risen and will continue to expand in the Strait of Hormuz, a globally important oil passageway that's been crippled by the Iran War.\n\"I would say [it's] rising very meaningfully,\" Wright told CNBC's Brian Sullivan during an energy conference on Tuesday when asked about where exports stood in comparison with recent weeks.\nWright said that describing the volume of oil exports out of Hormuz as increasing is a \"fair statement,\" adding that shipments \"will continue to rise\" in the future.\nWright's comments come as the latest data from IMF's PortWatch showed traffic remains depressed through Hormuz, a key route for exporting crude from the Middle East. Before the war, about 20% of global oil shipments moved through the strait.\nPortWatch recorded a seven-day moving average of just five ship arrivals as of Sunday, down from more than 100 before the U.S. and Israel struck Iran in February, launching a monthslong regional war.\nWright said Iran has threatened the global energy supply, in addition to worldwide peace and economic stability. The cabinet official said the U.S. is currently in a position to take on the Islamic Republic, and that the situation is \"trending in a very positive direction,\" despite the exchange of missile fire between Iran and Israel on Sunday.\nU.S. and Brent crude oil prices fell more than 3% on Tuesday following Wright's comments.",
+  "published_at": "2026-06-09T22:27:19Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.837389Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

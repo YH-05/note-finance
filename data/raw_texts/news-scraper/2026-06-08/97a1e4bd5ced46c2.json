@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20349-telecom-namibia-fights-copper-theft-by-leasing-demshis-fibre-network.html",
+  "title": "Telecom Namibia fights copper theft by leasing Demshi’s fibre network",
+  "raw_text": "Telecom Namibia says it has signed a strategic partnership agreement with local open-access fibre network provider Demshi Investment Holdings to accelerate its fibre service rollout and replace its copper network with fibre in areas prone to cable theft and vandalism.\nUnder the agreement announced Thursday, Telecom Namibia will lease Demshi’s open-access fibre network to deliver high-speed internet services to residential and business customers. Demshi will be responsible for network deployment, maintenance, and installation of passive fibre infrastructure.\nTelecom Namibia said the partnership will enable it to replace copper in hotspot areas with fibre, which will increase its service reliability by reducing disruptions caused by copper theft and vandalism.\n“As we fast-track our fibre rollout, we are actively addressing the challenges of copper theft by transitioning to fibre infrastructure, particularly in high-risk areas,” said Telecom Namibia CEO Dr Stanley Shanapinda in a statement. “This collaboration will enable us to deliver advanced solutions such as Cloud PABX for businesses and seamless, high-speed connectivity for residential customers.”\nTelecom Namibia said the Demshi partnership is part of its five-year integrated strategic business plan, as well as its 2025/26 annual operating plan, which aims to accelerate fibre rollout and digital transformation.\nIt’s also a component of the telco’s public promise over the past month to improve service quality amid customer complaints of service interruptions and slower network performance in certain areas, which Telecom Namibia has blamed on various factors, including aging infrastructure, hardware failures on critical network systems, instability on certain international connectivity routes, and an increase in copper theft and vandalism.\nLast week, Telecom Namibia announced that it will address these problems by replacing critical network equipment that has reached end-of-life, upgrading its national backbone network from 10 Gbps technology to 100 Gbps capacity, expanding and modernising its international connectivity gateways, strengthening redundancy across key network routes, and increasing security measures to combat infrastructure vandalism and copper theft.\nIn May, Telecom Namibia said it was implementing an extensive network modernisation programme, to include implementing a converged FMC core, developing a next-generation OSS/BSS platform with SATEC to unify the customer experience, upgrading backup power systems (including generators, batteries and solar hybrid systems), and deploying advanced firewalls to safeguard customer data.\nTelecom Namibia said it will complete key phases of its network modernisation programme by June 2027.",
+  "published_at": "2026-06-08T02:54:40Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-08T09:01:19.538739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

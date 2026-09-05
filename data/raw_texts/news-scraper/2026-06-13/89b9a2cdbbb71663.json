@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/verizon-sent-man-a-refurbished-phone-with-mdm-then-deleted-his-data-remotely/",
+  "title": "Verizon sent man a refurbished phone with MDM, then deleted his data remotely",
+  "raw_text": "Verizon sent one of its customers a “refurbished” phone equipped with a Mobile Device Management (MDM) profile that gave the company remote control over the device. The serious mistake raises questions about Verizon’s process for preparing refurbished phones to be sent to customers.\nTom Collery, the unlucky Verizon customer, called Verizon in February after having network problems, including dropped calls. Verizon responded by sending him a replacement for his phone, a Samsung Galaxy Z Flip7. But instead of a brand-new device or a properly functioning refurbished one, Verizon sent Collery a device managed with the same kind of software used to monitor and control company-owned phones.\nIt turned out the device was a store demo unit that wasn’t properly wiped before it was sent to Collery. He said he used the phone for a couple of weeks before all of his data was erased, seemingly due to a remote action that triggered a complete reset.\nVerizon said it would conduct an internal investigation into the mistake that afflicted Collery, but it hasn’t revealed how the error occurred or what the company is doing to ensure it or something similar won’t happen again. Verizon did not answer any of our specific questions except to say it was aware of Collery’s problem and was working to address it.\n“We are aware of this customer’s concern and are actively and directly working with him to address it,” Verizon told Ars in the only comment it provided to us in the seven weeks since we first contacted the carrier about the incident.\nVerizon “made a bunch of promises”\nCollery told Ars that he has been a Verizon customer for 22 years. He was hoping Verizon would offer a full explanation of what happened and make an effort to help him recover data that was lost when the phone was remotely reset. Collery said he may switch to another carrier but that for now, he is focused on taking legal action against Verizon.",
+  "published_at": "2026-06-12T11:00:41Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-13T03:00:31.508881Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Policy",
+      "verizon"
+    ]
+  }
+}

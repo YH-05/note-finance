@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605221438",
+  "title": "５月調査のミシガン大指数確報値は４４．８",
+  "raw_text": "【経済】５月調査のミシガン大指数確報値は４４．８\n結果 44.8\n予想 48.2 速報 48.2\n株探ニュース",
+  "published_at": "2026-05-22T14:02:00Z",
+  "author": null,
+  "collected_at": "2026-05-22T15:00:21.524204Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

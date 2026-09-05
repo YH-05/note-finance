@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/15/traders-now-see-next-fed-interest-rate-move-as-a-hike-following-inflation-surge.html",
+  "title": "Traders now see next Fed interest rate move as a hike following inflation surge",
+  "raw_text": "Markets for the first time in the current cycle now think the Federal Reserve's next move will be an interest rate hike.\nFollowing a week of surprisingly high inflation readings, traders in the fed funds futures market are pricing in an increase as soon as December, with a much higher certainty into the early part of 2027, according to the CME Group's FedWatch tool.\nA December hike has a nearly 51% probability, while a move higher by January carries about a 60% probability with March coming in at better than 71%, according to the measure, which uses prices on 30-day federal funds futures contracts to gauge probabilities.\nThe move comes near the close of a week where both consumer and wholesale inflation posted multiyear highs. Import and export prices also were at levels not seen since the last inflation spike, a period that prompted aggressive Fed rate hikes that started with four consecutive moves in three-quarter percentage point increments in 2022.\nFormer Fed Governor Kevin Warsh takes over the helm of the Fed as of Friday and has indicated he thinks the central bank actually can lower rates in the current environment. At the last Federal Open Market Committee meeting, three members dissented from a vote to hold benchmark rates steady as they objected to language hinting that the next move would be a cut.\nEconomists participating in the Survey of Professional Forecasters think second-quarter inflation will top out at 6%, a huge boost from the last estimate, according to a release on Friday.",
+  "published_at": "2026-05-15T18:55:25Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.236456Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/gm-energy-introduces-v2g-support-and-new-energy-storage-battery-chemistry/",
+  "title": "GM Energy introduces V2G support and new energy storage battery chemistry",
+  "raw_text": "Electric vehicle sales might be better now than the end of last year when demand fell off a cliff following the surge of purchases ahead of the end of the federal financial incentives, but it’s clear they haven’t panned out as well as many in the automotive industry had hoped.\nStill, at a GM event Ars attended in San Francisco this week, the company continues to stick to its guns with an EV lineup spanning its brands. The automaker shared that it has also been working toward the adoption of bidirectional charging to help balance the grid.\nWith the rise of AI, data centers are placing more and more pressure on the nation’s electric infrastructure. GM wants to relieve some of that pressure with news that its GM Energy products now support vehicle-to-grid (V2G) in addition to vehicle-to-home. The grid integration requires working with utilities and includes launch partners PG&E in California and DTE Energy in Michigan. For standalone energy storage solutions, the company also announced partnering with Peak Energy on the development of sodium-ion batteries built specifically for grid energy storage.\nPower from the people\nA desire to reduce friction, and do so quickly, created benefits for potential EV and V2G customers. GM learned during pilot programs that it needed to make everything easier to use. It now hopes that ease-of-use translates into GM Energy system sales.\n“Our mission is to deliver a customer experience like none other to that customer,” GM Energy Vice President Wade Shaffer said during an interview. “So everything has to be focused there [on bi-directional charging], that’s it. That’s our intent, and the speed at which we do it is going to be important.”",
+  "published_at": "2026-06-10T13:13:33Z",
+  "author": "Roberto Baldwin",
+  "collected_at": "2026-06-10T15:00:26.358959Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "GM Energy",
+      "Peak Energy",
+      "sodium batteries",
+      "sodium-ion batteries",
+      "V2G"
+    ]
+  }
+}

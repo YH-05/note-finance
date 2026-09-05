@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/eu-auto-giants-call-made-europe-incentives-amid-rising-chinese-competition",
+  "title": "EU Auto Giants Call For 'Made In Europe' Incentives Amid Rising Chinese Competition",
+  "raw_text": "Europe's largest automakers are stepping up efforts to secure stronger support for domestic vehicle manufacturing as competition from Chinese electric vehicle producers intensifies. Renault, Volkswagen, and Stellantis have jointly urged EU policymakers to introduce rules that more heavily reward cars developed and produced within Europe, according to FT.\nThe companies are advocating for a straightforward local content requirement under which vehicles sold as European would need to source the majority of their components from within the EU and closely associated European countries. They argue that industrial policy should encourage not only final assembly in Europe but also engineering, research, and product development activities.\nFT writes that the proposal forms part of a broader European debate over how to rebuild industrial competitiveness while accelerating the transition to electric vehicles. The automakers are also seeking wider incentives for EVs manufactured in Europe, arguing that higher labor and energy costs put local producers at a disadvantage compared with rivals operating in lower cost regions.\nNot all manufacturers support the plan. Several international carmakers have warned that a narrow definition of European content could exclude important suppliers and technology partners in countries such as Japan, the United Kingdom, and Turkey. Critics argue that stricter sourcing requirements could raise compliance costs and ultimately increase vehicle prices for consumers.\nBattery production remains one of the most challenging aspects of the strategy. European manufacturers continue to rely heavily on supply chains dominated by Chinese companies, and industry leaders have called for a more gradual timeline to localize battery manufacturing capacity within Europe.\nThe debate reflects a broader shift in the global automotive industry over the past two years. Chinese carmakers have rapidly expanded their presence in international markets, supported by strong domestic scale, advanced battery supply chains, and increasingly competitive technology. European manufacturers, meanwhile, have faced slowing EV demand, rising production costs, and growing pressure to protect domestic industry. As Chinese brands continue to gain market share, policymakers in Brussels are increasingly balancing free trade principles against concerns over industrial competitiveness, strategic supply chains, and long term economic security.",
+  "published_at": "2026-06-15T08:15:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-15T09:00:42.689065Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

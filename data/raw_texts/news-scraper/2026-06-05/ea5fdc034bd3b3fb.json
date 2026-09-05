@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606050762",
+  "title": "日経225先物：5日正午＝810円安、6万6530円",
+  "raw_text": "【市況】日経225先物：5日正午＝810円安、6万6530円\nTOPIX先物期近は3952ポイントと前日比6.5ポイント高、現物終値比2.44ポイント安で推移。\n○主要先物価格・正午時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 66530 -810 27510\n日経225mini 66540 -805 481922\nTOPIX先物 3952 +6.5 27260\nJPX日経400先物 35795 -15 2096\nグロース指数先物 757 +22 4247\n東証REIT指数先物 1754 -0.5 323\n株探ニュース",
+  "published_at": "2026-06-05T03:01:01Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:02:24.837936Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

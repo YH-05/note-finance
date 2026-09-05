@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://igerman.cc/blog/dopamine-fracking/",
+  "title": "Dopamine Fracking",
+  "raw_text": "<p>Article URL: <a href=\"https://igerman.cc/blog/dopamine-fracking/\">https://igerman.cc/blog/dopamine-fracking/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48440792\">https://news.ycombinator.com/item?id=48440792</a></p>\n<p>Points: 574</p>\n<p># Comments: 291</p>",
+  "published_at": "2026-06-08T02:42:24Z",
+  "author": "igmn",
+  "collected_at": "2026-06-08T15:01:07.662088Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

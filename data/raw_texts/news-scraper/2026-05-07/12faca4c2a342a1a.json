@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/this-chip-stock-is-tumbling-bullish-evercore-isi-thinks-it-will-be-worth-1-trillion-one-day-.html",
+  "title": "This chip stock is tumbling. Bullish Evercore ISI thinks it will be worth $1 trillion one day",
+  "raw_text": "Shares of CPU-maker Arm Holdings are diving Thursday as concerns about its ability to meet surging chip demand overshadowed better-than-expected fiscal fourth quarter revenue and earnings . But Evercore ISI has nothing but confidence in the semiconductor designer and thinks its market value could one day surpass $1 trillion, putting it in league with other megacaps like Nvidia , Apple , Alphabet and Microsoft . \"ARM has the similar necessary ingredients to cross that $1T threshold themselves, namely that ARM is a de facto standard for rapidly emerging CPU standard in handsets, AI datacenter, IoT, auto robotics, in rapidly growing markets (agentic AI) that plays to their long suit in CPU technology,\" analysts Mark Lipacis and Joseph McCormack at Evercore wrote in a Thursday note to investors, referring to central processing units and the Internet of Things. A market capitalization of $1 trillion would make Cambridge, England-based Arm worth nearly five times its current value of some $209 billion, according to FactSet. The Evercore analysts see Arm's real advantage for expanding its market cap in its diverse and well-established network of suppliers and customers. They've gotten the hard part out of the way, which will allow for the easier work of ramping product, they said. \"ARM has spent the last 35 years building an ecosystem and establishing themselves as the de facto standard, which we view as the most difficult steps,\" Evercore said, reiterating an outperform rating and raising its 12-month price target to $326 from $227. Surging demand for memory, storage and CPUs in the exploding buildout for artificial intelligence notwithstanding, concerns about component availability are serious, and they're weighing on Arm's projected $2 billion in customer demand for its debut data-center CPU. \"Advanced-node wafer availability at TSMC remains the gating factor, limiting near-term confidence in Arm's ability to fully capture the potential $2bn+ FY27/28 chip opportunity,\" analysts led by Lee Simpson at Morgan Stanley wrote Thursday. Analysts at Deutsche Bank and Barclays said Arm repeated a forecast of $1 billion in revenue over fiscal year 2027 to 2028, boosted by the $2 billion \"chip opportunity.\" \"Despite the impressive demand, the [company] has expressed conservativism by not formally increasing their AGI rev target in FY27/28 as uncertainties surround the [company's] ability to obtain supply to keep pace with the stated demand,\" Tom O'Malley wrote for Barclays on Thursday. Evercore characterized Arm's forward guidance as \"conservative.\"",
+  "published_at": "2026-05-07T14:31:48Z",
+  "author": null,
+  "collected_at": "2026-05-07T15:17:27.671887Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

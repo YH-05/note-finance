@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/16/robinhoods-note-on-10-layoffs-shows-blaming-ai-isnt-cutting-it/",
+  "title": "Robinhood’s note on 10% layoffs shows blaming AI isn’t cutting it",
+  "raw_text": "It appears using AI as a cover story for cutting jobs is fast falling out of fashion.\nUnlike many of his tech industry peers who have cut thousands of jobs this year citing the need to restructure their teams to make the most of AI, Robinhood’s CEO Vlad Tenev conspicuously made no mention of AI in his note to employees announcing that the company is letting go 10% of its full-time employees, or about 290 people.\nNor did the company’s regulatory filing announcing the move, which instead framed the cuts as a restructuring exercise.\nStill, Tenev did say the company would use “frontier technologies to push our execution even further,” which sounds like a conscious effort to avoid even naming AI. Which isn’t surprising: Sentiment against AI and related infrastructure projects has been trending lower even as a small minority of tech executives make ridiculous bank.\nBut Tenev did add to the ongoing narrative that it’s now necessary for companies to operate with smaller teams and “flatter organizational structures,” writing: “We cannot default to operating as a heavily-layered organization. We must be a lean, hyper-focused team where every single individual is empowered to make a massive impact.”\nWe’ve seen companies of various stripes, from Amazon, Block, Coinbase, GitLab, and Intuit employing similar language in their layoff announcements, indicating that large teams, bureaucracy and siloed departments are now seen as undesirable line items at a time when AI tools promise to significantly improve productivity.\nSome even think it’s a tacit allusion to the fact that tech companies over-hired following the COVID-19 pandemic, and are now scaling back as expenses begin to pile up — especially those associated with massive AI usage.\nRegardless, these companies are doing quite well. Tech stocks have surged broadly, spurred by record revenues, improving profit margins (GitLab reported 88% gross margin last month), skyrocketing demand for cloud services, and the belief that the billions being poured into data center projects will produce returns that are orders of magnitudes higher.\nRobinhood itself reported a 15% improvement in first-quarter revenue in April, and the company said its second quarter is looking better thanks to rising prediction market fees, subscription revenue, and strong equity and option trading volumes as markets stabilize.\nThe company said on Tuesday it is also closing “a small number” of open roles, and that it would incur about $28 million in costs related to the cuts.",
+  "published_at": "2026-06-16T14:50:09Z",
+  "author": "Ram Iyer",
+  "collected_at": "2026-06-16T15:00:22.458040Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Fintech",
+      "Layoffs",
+      "Robinhood"
+    ]
+  }
+}

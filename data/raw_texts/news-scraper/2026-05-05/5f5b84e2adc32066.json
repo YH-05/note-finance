@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060133",
+  "title": "[JKHY] ジャックヘンリー　3Q増収増益　売上高9％増6.36億ドル、営業益12％増1.55億ドル、EPS1.71ドル",
+  "raw_text": "ジャック・ヘンリー・アンド・アソシエーツ<\nJKHY>の2026年度第3四半期（1-3月）の業績は増収、営業増益だった。\n米現地5月5日の通常取引終了後に公開された8-K（重要事項報告書）によると、第3四半期は売上高は前年同期比8.7％増の6億3624万ドルとなった。営業利益は11.8％増の1億5504万ドル。営業利益率は24.4％へ向上した。前年同期は23.7％だった。1株利益（EPS・希薄化後）は1.71ドル（前年同期1.52ドル）。\nジャック・ヘンリー・アンド・アソシエーツ<\nJKHY>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-05T20:39:55Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:00:21.935427Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

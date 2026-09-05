@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606160038",
+  "title": "NY外為：加ドル軟調、商品通貨売り、原油安で",
+  "raw_text": "NY外為市場で商品通貨のカナダドルは原油安に連れ、売りが優勢となった。米イラン和平の暫定合意を受け、供給ひっ迫懸念の後退で、NY原油先物は一時79ドル台へ下落後も80ドル台半ばで戻りが鈍い。ドル・カナダは1.3993カナダドルまで一時上昇後、1.3982カナダドルでもみ合い。 カナダ・円は114円41銭まで下落後、114円63銭へじり高推移した。\n《KY》\n提供：フィスコ",
+  "published_at": "2026-06-15T18:37:04Z",
+  "author": null,
+  "collected_at": "2026-06-15T21:00:21.869259Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

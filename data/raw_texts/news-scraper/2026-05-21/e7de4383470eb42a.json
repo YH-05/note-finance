@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/trump-admin-didnt-want-ebola-exposed-americans-sent-them-to-berlin-prague/",
+  "title": "Trump admin didn't want Ebola-exposed Americans, sent them to Berlin, Prague",
+  "raw_text": "An American infected with Ebola is being treated in Berlin, while another exposed to the deadly virus is being sent to Prague after the White House reportedly resisted allowing citizens to return to the US for care and monitoring.\nAccording to The Washington Post, five people close to the Ebola response said that, over the weekend, the Trump administration resisted allowing the return of Peter Stafford, a 39-year-old surgeon working in the Democratic Republic of the Congo amid a raging Ebola outbreak. The resistance allegedly delayed Stafford’s evacuation and care, risking his health, as experts note that early treatment is critical for Ebola, which can turn deadly in days.\nOn Monday, the Centers for Disease Control and Prevention said Stafford had developed symptoms over the weekend and tested positive for Ebola late Sunday. In a press briefing on Wednesday, Satish Pillai, the CDC’s incident response manager for the Ebola outbreak, said Stafford had arrived in Germany and is in stable condition. His wife, Rebekah Stafford—also a doctor who was exposed to the virus in DRC but is asymptomatic—along with the couple’s four children, have been flown to Germany as well.\nAnother doctor, Patrick LaRochelle, who worked with the same Christian missionary group as the Staffords, called Serge, was also exposed to the virus but remains asymptomatic. He is being transferred to Prague for monitoring and care. According to the Post, his wife and children, who were with him in the DRC, were flown to the US after the CDC concluded that they had not been exposed to the virus.\n“Did not want him”\nThe Ebola outbreak, caused by the uncommon Bundibugyo virus strain, was first confirmed on Friday and has quickly escalated to a public health emergency of international concern, according to the World Health Organization. On Friday, there were 246 suspected cases and 65 deaths; the latest numbers, as of Wednesday, from WHO stand at 528 suspected cases and 132 deaths.\nIt’s unclear when US officials learned of Stafford’s exposure, but upon receiving the information, a back-and-forth discussion on his evacuation began. “The president and his people did not want him back in the United States,” one source told the Post. Another confirmed, “They would not allow him to be transported to the United States.” Trump has previously criticized decisions to bring American Ebola patients back to the US during earlier outbreaks.",
+  "published_at": "2026-05-20T21:58:01Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-21T03:00:31.286856Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "CDC",
+      "ebola",
+      "restrictions",
+      "travel",
+      "trump administration"
+    ]
+  }
+}

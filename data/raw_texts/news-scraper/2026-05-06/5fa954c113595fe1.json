@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260501a.htm",
+  "title": "Agencies issue host state loan-to-deposit ratios",
+  "raw_text": "May 01, 2026\nAgencies issue host state loan-to-deposit ratios\n- Federal Deposit Insurance Corporation\n- Federal Reserve Board\n- Office of the Comptroller of the Currency\nFor release at 11:00 a.m. EDT\nFederal bank regulatory agencies today jointly issued updated host state loan-to-deposit ratios, as required by law. Each ratio compares the total loans in a state to total deposits in the state for all banks that are legally operating in that state. These ratios replace those issued in May 2025.\nBy law, a bank is generally prohibited from establishing or acquiring branches outside of its home state primarily for the purpose of acquiring additional deposits. This prohibition seeks to ensure that interstate bank branches will not take deposits from a community without the bank also reasonably helping to meet the credit needs of that community.\nThe updated ratios, including additional information on how they are used to evaluate compliance with the requirements, are available here.",
+  "published_at": "2026-05-01T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:00:30.997182Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

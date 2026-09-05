@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://rivian.com/support/article/can-i-disable-all-data-collection-from-my-vehicle",
+  "title": "Can I disable all data collection from my vehicle?",
+  "raw_text": "Can I disable all data collection from my vehicle?\nVehicle connectivity is a core feature of Rivian vehicles. If you choose to disable all vehicle connectivity, it will prevent data from leaving the vehicle, but it will also limit or disable certain functionality in the vehicle (e.g., navigation, active lane centering, and over-the-air updates, which provide new features, better performance, safety enhancements, and bug fixes).\nTo disable all cellular connectivity of the vehicle in Canadian vehicles, use the toggle in the “Data and Privacy” screen of the vehicle’s Settings menu. For non-Canadian vehicles, you may reach out to Rivian Service to request that we disable the eSIM card in the vehicle through a service appointment. Note that disabling connectivity will have no impact on any Rivian subscriptions you may have (e.g., Connect+) -- those will need to be cancelled separately.\nDid you get the answer you needed?",
+  "published_at": "2026-04-30T20:27:22Z",
+  "author": "Cider9986",
+  "collected_at": "2026-05-01T15:00:51.844880Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

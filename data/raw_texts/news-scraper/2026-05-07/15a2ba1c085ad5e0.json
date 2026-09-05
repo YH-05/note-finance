@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/bulls-are-piling-into-this-warren-buffet-favorite-ahead-of-earnings.html",
+  "title": "Bulls are piling into this Warren Buffett favorite ahead of earnings",
+  "raw_text": "The surge in crude prices is igniting traders' appetite for one of the energy sector's most notable leaders.\nTraders piled into bullish options trades on Occidental Petroleum (OXY) ahead of its earnings report on Tuesday, with call volumes outpacing puts 7-to-1, and three times as many calls bought in Monday's session versus sold.\nAmong the 10 biggest trades by dollar amount, nine were buying upside exposure via calls or call spreads.\nIn one of the biggest trades of the day, one trader spent $175,000 on a call spread expiring this Friday. They bought just under 5,000 of the 63-strike calls in OXY and sold the same amount of 69-strike calls, a bullish bet looking for a fresh one-year high in the stock by the end of the week.\nOccidental shares closed higher by 2.7% on Monday and were trading slightly lower Tuesday.\nRecent earnings history makes a compelling case that a positive earnings reaction could happen. Occidental's stock has rallied after 10 of its last 12 reports, including a 10% rip after its most recent report in February. After Monday's bounce it's now up 42% this year, compared with a 30% rally in the State Street Energy Select Sector ETF (XLE).\nThe company has long been a Warren Buffett favorite, with Berkshire owning 27% of the outstanding shares as of the end of the first quarter.",
+  "published_at": "2026-05-05T18:55:45Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.336798Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

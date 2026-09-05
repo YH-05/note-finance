@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/trump-admin-tries-again-to-revive-dying-coal-industry/",
+  "title": "Trump admin tries again to revive dying coal industry",
+  "raw_text": "On Thursday, President Donald Trump announced his administration’s latest attempt to prop up the US coal industry during an incoherent press event that randomly oscillated between energy issues and Trump’s fixation with building and renovating monuments in DC. The energy portion of the events was also frequently disconnected from reality.\n“Today we’re taking historic action to bring down the price of energy and the cost of living for all Americans with the power of clean, beautiful coal,” said Trump, apparently unaware that coal is one of the most expensive means of generating electricity in the US.\nWith wind and solar power getting cheaper, coal has become the second-most expensive way of producing electricity, trailing only the cost of building a new nuclear plant. As a result, no new coal plants have been completed in over a decade, and coal has gone from powering over half the electrical grid to producing only about 15 percent of the nation’s electricity. That’s before the indirect costs of coal use are considered. It produces the most greenhouse gas emissions per unit of energy, releases dangerous particulates and chemicals into the atmosphere, and leaves behind ash that has high levels of toxic metals.\nThat’s reality, but the White House is clearly not inhabiting it. “If you look at some of the real great failures, countries, they’re usually wind,” he proclaimed. “It keeps blowing, blowing, blowing and puts you right out of business. Very expensive. The most expensive energy there is.”",
+  "published_at": "2026-06-05T15:55:14Z",
+  "author": "John Timmer",
+  "collected_at": "2026-06-06T03:00:31.360809Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Science",
+      "coal",
+      "electricity",
+      "Energy",
+      "energy policy",
+      "Trump"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 2103, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1535, in main
+    with lock:
+         ^^^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_api.py", line 567, in __exit__
+    self.release()
+    ~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_api.py", line 538, in release
+    self._release()
+    ~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/filelock/_unix.py", line 108, in _release
+    fcntl.flock(fd, fcntl.LOCK_UN)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 2103, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 1546, in main
+    nas_syncer.push()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/yuki/Desktop/note-finance/scripts/auto_poster.py", line 368, in push
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+        ["bash", str(_SYNC_NAS_SCRIPT), "--push"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        timeout=120,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/subprocess.py", line 1220, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/subprocess.py", line 2153, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/subprocess.py", line 1267, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['bash', '/Users/yuki/Desktop/note-finance/scripts/sync_nas.sh', '--push']' timed out after 120 seconds

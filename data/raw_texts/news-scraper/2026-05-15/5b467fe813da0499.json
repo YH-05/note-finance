@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/930763/openai-codex-chatgpt-ios-android-app-preview",
+  "title": "OpenAI’s Codex is now in the ChatGPT mobile app",
+  "raw_text": "OpenAI is going to let users access Codex, its desktop AI tool that can write code and use apps on your computer, from the ChatGPT app on your phone.\nOpenAI’s Codex is now in the ChatGPT mobile app\nYou’ll be able to tell the company’s desktop AI tool what to do from your iOS or Android phone.\nYou’ll be able to tell the company’s desktop AI tool what to do from your iOS or Android phone.\nFollowing the surge in popularity for Anthropic’s Claude Code, OpenAI has been working quickly to try and catch up, including by cutting back on “side quests,” shutting down projects like the Sora video-generation tool, and focusing on growing its enterprise business. The company’s push included the recently released major update for Codex that lets it operate apps on macOS — a potentially major step as part of its ambitions to make a desktop “superapp.”\nCodex in the ChatGPT mobile app lets you use your phone to tell Codex on your computer to work on a task. With your phone, you can “work across all of your threads, review outputs, approve commands, change models, or start something new” in Codex, according to a blog post. “Your files, credentials, permissions, and local setup stay on the machine where Codex is operating, while updates flow back to your phone in real time, including screenshots, terminal output, diffs, test results, and approvals.”\nThe feature is rolling out now as a preview on iOS and Android for all ChatGPT plans, including the free plan and the more affordable Go plan.",
+  "published_at": "2026-05-14T20:00:00Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-15T03:00:16.149473Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "News",
+      "OpenAI",
+      "Tech"
+    ]
+  }
+}

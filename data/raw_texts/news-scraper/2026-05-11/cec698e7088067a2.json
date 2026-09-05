@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/927695/logitech-folding-mouse-leaked-images",
+  "title": "Logitech’s tiny folding mouse improves upon the laptop trackpad",
+  "raw_text": "Logitech is reportedly developing a new wireless mouse that folds in half to make it easier to carry around in a bag or pocket. According to leaked marketing images shared by WinFuture, Logitech’s foldable mouse caused “22 percent less muscle strain” compared to using a laptop trackpad, and can be used across “multiple operating systems.”\nLogitech’s tiny folding mouse improves upon the laptop trackpad\nLeaked images show a mouse that folds in half like a flip phone.\nLogitech’s design is visually similar to Microsoft’s Surface Arc mouse and Lenovo’s Yoga mouse, sporting the same arched shape when unfolded for use. One key difference is that while Microsoft and Lenovo’s offerings can only be folded flat, the new Logitech mouse — the name of which is still unknown — folds in half like a clamshell. There’s no official specifications or dimensions available yet, but one image shows that it’s very compact when folded, seemingly dwarfed by the hand that’s sliding it into a pocket.\nIn place of a traditional scroll wheel, WinFuture reports the new Logitech mouse will feature a so-called “Adaptive Touch Scrolling” area between the two standard mouse buttons that enables users to scroll by swiping over a small trackpad. A green light can be seen on this touch-sensitive area, which likely indicates an active wireless connection. The new Logitech mouse can be paired with up to three host devices via Bluetooth, according to WinFuture, and its shape allows it to be used by both left- and right-handed users.\nThere’s also some marketing imagery in this leak that says the new mouse “matches perfectly” with the design of Logitech’s Keys-to-Go 2 portable keyboard. We only see a gray version of the mouse in these leaked images, but given the keyboard also comes in white and lilac, other color options may also be available.\nFor information regarding price, battery life, and availability, we’ll need to hang tight for Logitech’s official announcement.",
+  "published_at": "2026-05-11T09:57:19Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-11T15:00:12.978675Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Logitech",
+      "News",
+      "Tech"
+    ]
+  }
+}

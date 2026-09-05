@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/anthropic-goldman-blackstone-ai-venture.html",
+  "title": "Anthropic teams with Goldman, Blackstone and others on $1.5 billion AI venture targeting PE-owned firms",
+  "raw_text": "Anthropic said Monday it is partnering with private equity giants Goldman Sachs and Blackstone to launch a $1.5 billion firm aimed at speeding the adoption of artificial intelligence across hundreds of companies.\nThe new entity, formed alongside the San Francisco-based PE firm Hellman & Friedman and backed by a group of asset managers including Apollo and General Atlantic, will deploy Anthropic's Claude AI model directly inside businesses, starting with companies owned by the investment firms.\nExecutives say the effort is designed to tackle a growing bottleneck in the AI boom: The scarcity of experts capable of implementing the technology inside real-world operations.\n\"There's a big shortage of people who know how to apply these tools into businesses and then transform them,\" Marc Nachmann, Goldman's global head of asset and wealth management, told CNBC in an interview.\nThe move marks Anthropic's latest effort to deepen its lead in the enterprise AI market as competition intensifies with rivals including OpenAI. By pairing the latest Claude models with a built-in network of investor-owned companies, Anthropic is positioning itself to gain an edge in middle-market adoption of the technology.\nIt's a key battleground as both Anthropic and OpenAI prepare for massive IPOs as early as this year.\nRather than acting as a traditional consulting firm, the venture — which hasn't yet been named — will embed engineers inside companies to redesign workflows and integrate AI into core processes, Nachmann said.\n\"Having the model alone doesn't change your workflows or how you operate,\" he said. \"You need people who can combine the technology with what's actually happening in the business and implement those changes.\"\nThe Wall Street Journal earlier reported the $1.5 billion commitment of the firms involved.\nGoldman and its partners expect to use their own portfolio companies as an initial proving ground for the new platform before targeting other mid-sized companies, especially in the PE-owned universe of healthcare, manufacturing, financial services, retail and real estate sectors.\n\"We think there's a lot of value that this new entity can bring to companies to help transform them,\" Nachmann said. \"Obviously, we're going to use it a lot at our portfolio companies.\"",
+  "published_at": "2026-05-04T18:55:20Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.692282Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

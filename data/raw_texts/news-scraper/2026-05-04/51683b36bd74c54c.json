@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/political/anthropic-enters-15-billion-joint-venture-includes-goldman-blackstone",
+  "title": "Anthropic Enters $1.5 Billion Joint Venture That Includes Goldman, Blackstone",
+  "raw_text": "AI startup Anthropic on Monday announced the creation of a joint venture which includes Goldman Sachs, Blackstone and several other Wall Street firms, with the goal of selling artificial-intelligence tools to companies, the Wall Street Journal reports.\nThe new venture will act as a consulting arm for Anthropic, and will educate businesses - including companies in the private-equity firms' portfolios, how to integrate AI across their operations.\nThe deal is being anchored by Blackstone and Hellman & Friedman - each of which are expected to invest roughly $300 million, while Goldman is putting in around $150 million. General Atlantic, Leonard Green, Apollo Global Management, GIC, and Sequoia Capital are also investing in the deal, which is expected to reach $1.5 billion all told, according to the report.\nOn Friday, Bloomberg separately reported that Anthropic is entertaining offers at a $900 billion valuation from investors.\nAnthropic had previously resisted several inbound proposals from investors for a new round at a valuation of $800 billion or more, Bloomberg News has reported.\nThe new discussions, which have not been reported, coincide with a push by Anthropic to ramp up fundraising amid the breakout success of its AI software. Anthropic, which Bloomberg has reported is considering an initial public offering as soon as October, has been on the hunt for more infrastructure to meet growing demand for its products. -Bloomberg\nMeanwhile, rival OpenAI has also been in talks to form a joint venture with PE firms to encourage the adoption of its own AI tools, as both companies turn their attention to industry adoption by companies seeking to improve efficiency and cut costs. Anthropic is already seen as the enterprise king, as OpenAI scrambles to catch up.\nAnthropic is looking at a public listing as soon as this year, as revenues have skyrocketed in recent months due to the success of its Claude Code coding tool, which should strike fear into the heart of budding software engineers taking on loads of student loan debt.",
+  "published_at": "2026-05-04T14:15:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-04T21:00:42.446415Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

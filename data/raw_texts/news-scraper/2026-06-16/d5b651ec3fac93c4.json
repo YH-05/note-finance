@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20394-indias-home-affairs-ministry-piles-extra-scrutiny-on-foreign-satellite-firms.html",
+  "title": "India’s Home Affairs ministry piles extra scrutiny on foreign satellite firms",
+  "raw_text": "Satellite operators Starlink, Eutelsat OneWeb and SES reportedly face new obstacles in getting final clearance to launch internet services in India after the Ministry of Home Affairs (MHA) expressed concerns over signal spillage in border areas.\nAccording to a report from ETTelecom on Monday, citing an unnamed “top government source”, the MHA is worried that signals from foreign-owned satellite players could spill over across India’s borders, which it said raises national security concerns.\nThe MHA is also concerned with the impact of signal spillage on spectrum interference and cybersecurity, the report said.\nThe MHA is the latest Indian government agency to scrutinise the national-security implications of allowing foreign satellite operators to launch data services in India, particularly in light of India’s ongoing tensions with China and Pakistan.\nIn November last year, the Indian National Space Promotion and Authorization Centre (IN-SPACe) reportedly rejected applications from Chinasat, APT Satellite (Apstar) and AsiaSat to offer satellite services in India, citing national security concerns.\nIn May 2025, the Department of Telecommunications (DoT) issued a list of additional security requirements that GMPCS licence holders offering satellite broadband services have to fulfil.\nStarlink obtained a GMPCS licence in June 2025 to offer satellite communications services in India, as well as authorisation from IN-SPACe. It's already signed reseller deals with Reliance Jio and Bharti Airtel.\nEutelsat OneWeb and SES both have GMPCS licences, the latter via SES’s satellite venture with Reliance Jio. Amazon LEO’s application for a GMPCS licence is reportedly still be evaluated by the DoT.\nIn a post on X last week, Starlink VP of business operations Lauren Dreyer said Starlink has “set up a bespoke deployment model for India” to comply with the government’s sovereign technology, regulatory and security requirements.",
+  "published_at": "2026-06-16T02:05:58Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-16T09:01:21.449629Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

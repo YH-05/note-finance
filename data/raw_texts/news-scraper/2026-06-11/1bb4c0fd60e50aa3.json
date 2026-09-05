@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/video/why-andrew-yang-is-building-instead-of-waiting-for-washington/",
+  "title": "Why Andrew Yang is building instead of waiting for Washington",
+  "raw_text": "Andrew Yang’s 2020 presidential campaign was based on a warning that automation and AI would hollow out the labor market and concentrate wealth in the hands of a few. At the time, ideas like Universal Basic Income felt fringe. Now Dario Amodei, Sam Altman, and Bernie Sanders are all saying versions of the same thing.\nAn entrepreneur at heart, Yang has found a new way to put money back into the hands of the people — one phone bill at a time. On this episode of TechCrunch’s Equity podcast, Rebecca Bellan talks to Yang about his startup Noble Mobile, which pays you to use your phone less, ways to combat the “attention economy,” and what startups can do when the government won’t move.\nSubscribe to Equity on YouTube, Apple Podcasts, Overcast, Spotify and all the casts. You also can follow Equity on X and Threads, at @EquityPod.",
+  "published_at": "2026-06-10T22:24:12Z",
+  "author": "Theresa Loconsolo",
+  "collected_at": "2026-06-11T03:00:27.238377Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Startups",
+      "Andrew Yang",
+      "Equity",
+      "lightphone",
+      "noble mobile",
+      "ubi"
+    ]
+  }
+}

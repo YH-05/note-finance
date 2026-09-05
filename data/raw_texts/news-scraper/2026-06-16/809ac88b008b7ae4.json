@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
+  "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+  "raw_text": "May 15, 2026\nFederal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair\nFor release at 5:00 p.m. EDT\nAs Chair Jerome H. Powell's term as chair concludes, and with the swearing in of Kevin M. Warsh as his successor pending, the Federal Reserve Board on Friday named Powell as chair pro tempore. This temporary action to name the incumbent as chair pro tempore is consistent with past practice during similar transitions between chairs. Powell will serve as chair pro tempore until Warsh is sworn in as the new chair.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-15T21:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:00:30.764061Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

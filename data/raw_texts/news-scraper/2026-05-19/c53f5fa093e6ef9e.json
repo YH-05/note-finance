@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/933921/google-wants-to-compete-with-anthropics-mythos",
+  "title": "Google wants to compete with Anthropic’s Mythos",
+  "raw_text": "Google is making a big push into cybersecurity. At I/O, the company announced that it was inviting select groups of experts to test the API for CodeMender, an “AI agent for code security” it debuted last October. The difference is that Google is now making the tool more widely available externally — and marketing it as a way to, as Google DeepMind CTO Koray Kavukcuoglu put it, “help secure the world’s code bases” by both flagging and fixing vulnerabilities.\nGoogle wants to compete with Anthropic’s Mythos\nThe company is marketing its CodeMender tool as a way to ‘help secure the world’s code bases.‘\nThe company is marketing its CodeMender tool as a way to ‘help secure the world’s code bases.‘\nAnthropic’s surprise Claude Mythos Preview announcement seemed to shock the AI world — and a ton of others, like top banks and the Federal Reserve chair. So, led by Anthropic’s news, a lot of companies have been following suit by offering their own versions of a powerful AI model designed to point out unknown security gaps in high-stakes systems. Anthropic made headlines for Mythos Preview being supposedly too powerful to release publicly, and it helped the company get back in the US government’s good graces after its supply chain risk designation and ensuing lawsuit. It also stands to make the company a lot of money if things go well with its early-access enterprise users and government agencies. So as the pressure builds for other companies to turn a profit ahead of potential IPOs, like OpenAI — or to stay in the lead of the ever-intensifying AI race, like Google — AI labs are seeing cybersecurity as a potential key revenue driver.\nOpenAI quickly followed suit with its own offering, and now, so has Google. Kavukcuoglu confirmed to The Verge in an interview that Google has already been in discussions with governments and enterprises about using CodeMender to audit their systems.\nGoogle CEO Sundar Pichai told reporters during a Monday press briefing, “What Mythos has done, and credit to them, is to show that there is a value for the largest-sized model in these kinds of security use cases. But I think it’s something we are capable of doing as well.”",
+  "published_at": "2026-05-19T17:48:22Z",
+  "author": "Hayden Field",
+  "collected_at": "2026-05-19T21:00:19.855812Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Google",
+      "Google I/O 2026",
+      "Tech"
+    ]
+  }
+}

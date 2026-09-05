@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/palintir-gets-a-downgrade-from-hsbc-ahead-of-first-quarter-earnings-.html",
+  "title": "Palantir gets a downgrade and a lower price target from HSBC ahead of first-quarter earnings",
+  "raw_text": "Competition for Palantir Technologies is heating up as artificial intelligence agents erode barriers to entry in its software space, according to HSBC, and that could hurt the stock. The investment bank downgraded its rating on Palantir to hold from buy, and cut its price target to $151 from $205, implying just 5% potential upside over the coming year compared with Friday's close. Palantir gained success by embedding its engineers with customers to implement software and efficiently use the company's AI platform, HSBC analyst Stephen Bersey said in a report published Friday. But that strategy is starting to look less appealing to customers now, he wrote. \"The success is inviting similar approaches by competitors like OpenAI,\" HSBC said. \"Moreover, with the proliferation of agentic frameworks and model context protocol (MCP) servers, we think the company's traditional barriers to entry are starting to erode. Though the AI orchestration market is expanding quickly, the prospect of other players gaining share may put downward pressure on Palantir's multiple.\" For example, Anthropic's growing revenues are shrinking Palantir's, Bersey said. Announcements from Anthropic on various models this year have hit software stocks because of fears AI will disrupt the sector's business model. Palantir is set to report earnings after the market closes Monday. Bersey noted that last quarter's \"exceptional\" results weren't met by a rally in the share price, adding to his concern for downside risk in the stock. PLTR YTD mountain Palantir in 2026",
+  "published_at": "2026-05-04T13:09:34Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.340151Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

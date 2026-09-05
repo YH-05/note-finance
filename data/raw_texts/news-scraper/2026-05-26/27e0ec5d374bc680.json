@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/937027/cox-media-marketing-ai-powered-phone-spying-ads-ftc-fine",
+  "title": "Cox Media fined after bragging it spied on users through their phones",
+  "raw_text": "An exceptionally weird controversy has come back to haunt Cox Media and a pair of marketing firms, which claimed they were secretly listening to users via phones and smart devices — despite little evidence they actually could. On Thursday the Federal Trade Commission announced that Cox, MindSift, and 1010 Digital Works would pay a total of $930,000 to settle allegations that they were in fact lying about spying on people to target ads.\nCox Media fined after bragging it spied on users through their phones\nMore specifically, it was fined for allegedly lying by claiming that it could.\nMore specifically, it was fined for allegedly lying by claiming that it could.\nAs chronicled by Techdirt a couple of years ago, Cox publicly boasted about a system called Voice Data back in 2023, telling potential digital marketing clients they could ensure “every casual conversation between two consumers becomes a tool for you to target, retarget, and retain customers.” It compared the tech to an episode of Black Mirror and described it as a real version of the persistent, largely unsubstantiated rumor that social media companies routinely listen to users through phone microphones. Cox backpedaled and denied it was listening to conversations, but 404 Media published multiple internal pitch decks making essentially the same highly dystopian claim.\nAt the time, there were significant doubts this was actually happening, and the FTC complaints back this up. “This service did not, in fact, listen in on consumers’ conversations or use voice data at all — nor did the service accurately place ads in customers’ desired locations,” it says in its press release. “Instead, the service the companies provided consisted of reselling — at a significant markup — email lists obtained from other data brokers.” The agency also says the companies lied about consumers having opted into this system — so even if they could spy on people, it alleges, they’d still have been breaking the law.\nMost Popular\n- Google’s new anything-to-anything AI model is wild\n- Apple’s latest MacBook Air is $200 off in both sizes for Memorial Day\n- Ferrari reveals its first EV, with design help from Jony Ive\n- If I could only have one laptop for work and gaming, I’d get this one\n- Sennheiser’s new Momentum 5 headphones have upgraded ANC and a replaceable battery",
+  "published_at": "2026-05-25T18:28:30Z",
+  "author": "Adi Robertson",
+  "collected_at": "2026-05-26T03:00:16.904576Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Policy",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

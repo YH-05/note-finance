@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/job-openings-april-2026.html",
+  "title": "Job openings in April surged to 7.6 million, the highest in nearly two years",
+  "raw_text": "Job openings hit their highest level in nearly two years during April while hiring fell sharply, according to a government report Tuesday that showed rising demand but also slow hiring in the labor market.\nThe Bureau of Labor Statistics reported that available employment hit 7.6 million for the month, a surge of 731,000 from the prior month and the highest level since May 2024. Economists surveyed by Dow Jones had been looking for 6.8 million openings from the BLS' Job Openings and Labor Turnover Survey.\nThe jump in openings put the available jobs above the total of unemployed workers. The rate of openings compared with the size of the labor force rose 0.4 percentage point to 4.6%.\nBy industry, nearly all of the openings came from the professional and business services category, which added 668,000 positions, a possible indicator of the impact from artificial intelligence on labor demand. Health care and social assistance, the greatest engine of job creation, added 89,000. Financial activities saw a decline of 134,000. Most other categories reported little change.\nWhile openings jumped, the hiring rate slipped.\nCompanies hired a total 5.12 million workers during the month, a decline of 419,000 from March, taking the rate down to 3.2%, or a decline of 0.3 percentage point. However, layoffs and discharges fell slightly as well, down 192,000 to 1.7 million. Quits, a level of worker mobility and confidence in finding a new job, declined to just under 3 million, down 183,000 and the lowest level since August 2020.\nIn broad terms, the report reflects the continuing low-hire, low-fire environment that has characterized the labor market since early 2025. Weekly jobless claims have held low except for a brief spikes while the unemployment rate has barely budged at 4.3%.\n\"For now, the labor market remains mostly stable. With the quits rate and the layoff rate ticking down in April, neither employees nor employers are in a hurry to make moves.\" Matthew Martin, senior U.S. economist at Oxford Economics, said in a note. \"The US/Israel-Iran war will test the labor market. Weaker household spending and uncertainty are likely to influence firms' hiring intentions.\"\nFederal Reserve officials watch the JOLTS numbers for signs of labor slack. Central bankers spent much of last year worried about weakness in the labor market but have since switched their concerns to the impacts from inflation due to tariffs and soaring energy prices. The Fed meets later this month and is widely expected to stay on hold with interest rates.",
+  "published_at": "2026-06-02T15:38:02Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.820151Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/bumblebees-can-spontaneously-solve-problems-study-finds/",
+  "title": "Bumblebees can spontaneously solve problems, study finds",
+  "raw_text": "Despite having tiny brains, bumblebees have demonstrated a remarkable ability to socially learn how to use tools, solve simple puzzles, and cooperate to achieve a goal. It seems they can also solve object-manipulation tasks without any previous training, according to a new paper published in the journal Science. According to the authors, it’s the first time this kind of spontaneous problem-solving has been demonstrated in an insect.\nIn 2024, Olli Loukola of the University of Finland co-authored a study demonstrating that bumblebees could cooperate to solve complex challenges. It’s the kind of cognitive task scientists had previously only observed in large-brained mammals like humans and chimpanzees. Loukola et al. trained pairs of bees to push a Lego block to the middle of a mini-arena or push against a door at the end of a tunnel to get a reward.\nThe team noticed that the bees were more likely to engage in the tasks if their partners also participated, compared to untrained control groups. They concluded that bees can learn to solve novel cooperative tasks outside the hive and may even be intentionally working together, although the researchers cautioned that more detailed monitoring of the behavior was needed to fully understand the partners’ roles.\nFor this latest study, Loukola was interested in whether bees could spontaneously solve problems. The first experiment featured an artificial flower placed above a pit in the floor so that there was insufficient space for a bee to hover to reach the flower. The bee would have to roll a small ball into the pit and climb on top to reach the flower. “This is essentially an insect version of the classic ‘box-and-banana’ problem,” said Loukola. “The animal must realize that an object can be repositioned and then used as a tool to reach an otherwise inaccessible goal.”",
+  "published_at": "2026-06-04T18:00:35Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-06-04T21:00:31.659995Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "animal cognition",
+      "Biology",
+      "bumblebees",
+      "entomology"
+    ]
+  }
+}

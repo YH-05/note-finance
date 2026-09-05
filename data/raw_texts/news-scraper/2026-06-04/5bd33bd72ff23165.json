@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/beans-use-an-immune-receptor-to-call-in-airstrikes-on-caterpillars/",
+  "title": "Beans use an immune receptor to call in airstrikes on caterpillars",
+  "raw_text": "For decades, scientists have understood that plants can release volatile organic compounds—essentially airborne chemical signals—to attract the natural enemies of the things that eat them, like caterpillars. What we didn’t know was exactly how a plant translates the physical act of being eaten into a specific, predator-summoning distress signal.\n“[One] thing we didn’t know is how the plant detects the caterpillar in the first place,” says Adam Steinbrenner, a biologist at the University of Washington. Now, after years of experimenting with common bean plants in the lab and in the agricultural fields of Oaxaca, Mexico, Steinbrenner’s team pinpointed a single immune receptor that orchestrates its anti-caterpillar defense system.\nDrooling caterpillars\nWhen an herbivorous insect like a caterpillar feeds on a plant, it introduces its saliva straight into the plant’s damaged tissues. This saliva contains biological clues called HAMPs: herbivore-associated molecular patterns. One of the HAMPs molecules is a peptide called inceptin, and there’s an 11-amino acid fragment of inceptin named In11, as well. Both of them turn out to be a fragment of the ATP synthase found in chloroplasts—basically a piece of one of the plant’s own proteins. As the caterpillar ingests the leaf, its gut enzymes chop up the plant’s cellular engines and their pieces, including In11, are regurgitated back onto the leaf’s surface, albeit at extremely small concentrations.\nOver millions of years, plants like the common bean have evolved a specialized cell-surface receptor called the inceptin receptor just to detect In11. When this receptor interacts with In11, it sets off a signaling cascade in the plant’s cells, initiating immune responses. Proving that this specific receptor is responsible for releasing predator-summoning signals, though, was extremely tricky. “We were excited to do that, but we needed the perfect comparison plants—plants lacking the receptor versus ones that have the intact receptor,” Steinbrenner says.",
+  "published_at": "2026-06-03T11:15:07Z",
+  "author": "Jacek Krywko",
+  "collected_at": "2026-06-04T03:00:31.490343Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "beans",
+      "biochemistry",
+      "Biology",
+      "caterpillars",
+      "plants",
+      "wasps"
+    ]
+  }
+}

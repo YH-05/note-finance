@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605121716",
+  "title": "トランプ大統領　イランについては何事も急ぐことはない",
+  "raw_text": "【注目】トランプ大統領 イランについては何事も急ぐことはない\n・イランは単に時間の問題だ。\n・イランについては何事も急ぐことはない。\n・イランの核関連物質は１００％われわれが入手する。\n株探ニュース",
+  "published_at": "2026-05-12T13:47:00Z",
+  "author": null,
+  "collected_at": "2026-05-12T15:00:22.002708Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

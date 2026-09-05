@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/the-us-space-enterprise-is-desperately-waiting-for-starship-will-it-finally-deliver/",
+  "title": "The US space enterprise is desperately waiting for Starship—will it finally deliver?",
+  "raw_text": "These days, one would be forgiven for forgetting that SpaceX is, at its core, a rocket company.\nConsider the company’s mega deals over the last year. SpaceX paid $17 billion—more than it has spent developing every one of its rockets—to EchoStar for wireless spectrum to boost its Starlink network. It revealed plans to launch 1 million orbital data centers. SpaceX merged with xAI in a deal that valued Elon Musk’s artificial intelligence firm at $250 billion, and it announced plans to become a major computer chip manufacturer. And earlier this month, SpaceX sold an enormous amount of ground-based compute to Anthropic.\nAs a result of all this activity, an impending IPO will value the company at something like $1.5 or $2 trillion. That’s trillion, with a t.\nSo yes, one might reasonably ask what SpaceX does these days. Because all the buzz, all the Wall Street euphoria, and all the financial frisson are only tangentially related to what SpaceX cut its teeth on during its first 25 years: becoming the globally dominant player in launch. It largely concerns telecommunications and AI data services.\nAnd yet everything SpaceX aspires to accomplish in the next quarter of a century, all of its enormous valuation, is predicated on a new launch vehicle. A rocket that, to date, has a decidedly mixed record of success. A rocket that has not flown in seven months. A rocket that, finally, may return to the skies on Wednesday.\nWe are speaking, of course, of Starship—a truly revolutionary rocket. If it works. And after a long period of development and three years of test flights and setbacks, it kind of has to.\n“Test Like You Fly”\nA few weeks ago, SpaceX released a visually stunning video that takes viewers inside its massive new Starfactory in South Texas and provides up-close views of its rockets and engines.",
+  "published_at": "2026-05-18T11:00:20Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-18T15:00:31.106276Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Space",
+      "falcon 9",
+      "spacex",
+      "starship"
+    ]
+  }
+}

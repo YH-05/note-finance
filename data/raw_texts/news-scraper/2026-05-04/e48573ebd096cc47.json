@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/allbirds-bird-stock-shoes-ai.html",
+  "title": "Struggling shoe retailer Allbirds makes bizarre pivot to AI, adds $127 million in value",
+  "raw_text": "Allbirds made a surprising announcement Wednesday that it is pivoting from shoes to artificial intelligence.\nThe move boosted shares of the miniscule market cap company — it was valued at about $21 million at Tuesday's close — by 582%. The shares, which were under $3 a day ago, jumped to about $17.\nThe company announced that it's pivoting its business to AI compute infrastructure in a release posted to its investor relations page.\nThe company, which according to the release will be called NewBird AI, announced a deal to raise up to $50 million in funding, expected to close in the second quarter of 2026.\n\"The Company will initially seek to acquire high-performance, low-latency AI compute hardware and provide access under long-term lease arrangements, meeting customer demand that spot markets and hyperscalers are unable to reliably service,\" the company said in the announcement.\nAllbirds, once a Wall Street darling valued north of $4 billion, announced a deal with American Exchange Group to sell its intellectual property and other assets for $39 million last month.\nAmerican Exchange Group is a brand management company focused on the accessory space. According to the release, it will continue to sell products under the Allbirds brand.\nAllbirds closed all its U.S. full-priced stores in February.\nThe company is the latest firm looking to cash in on the AI boom, which has ignited a fever on Wall Street since OpenAI launched its ChatGPT chatbot in 2022.\nAI infrastructure is a notoriously expensive and complex business, but it can be lucrative. Nvidia, which dominates the market for graphics processing units, has ballooned into the most valuable company in the world, with a market cap that's approaching $5 trillion.\nThere's a history in the stock market of troubled companies pivoting to the hot industry of the moment in order to garner interest. During the bitcoin boom, several companies announced a blockchain tie-in or converted outright to a cryptocurrency company to reignite interest in their stock.\nAllbirds was founded in 2015 by former professional soccer player Tim Brown and renewable resources expert Joey Zwillinger to create a new category of shoes that relied on natural materials, not plastics and other petroleum products.\nIn 2016, Allbirds introduced its debut shoe, made with merino wool, and became an instant success, particularly among \"tech bros\" who were drawn to the brand's comfort and sustainability.\nIt embarked on an ambitious store opening plan and went public in 2021, but soon saw its business begin to slow as trends changed, competitors moved in and customer acquisition costs rose.\nBetween 2022 and 2025, sales plummeted nearly 50% — falling from $298 million to $152 million.\n— CNBC's Ashley Capoot contributed to this report.",
+  "published_at": "2026-04-15T22:41:59Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.109882Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "retail",
+    "tags": []
+  }
+}

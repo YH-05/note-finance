@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/just-days-after-record-ipo-spacex-sell-20-billion-bonds",
+  "title": "Just Days After Record IPO, SpaceX To Sell $20 Billion In Bonds",
+  "raw_text": "Earlier this week, we showed the unprecedented pace of hyperscaler Investment Grade debt accumulation, which according to Morgan Stanley calculations had doubled in just two quarters, rising from 0.9x leverage in Q3 '25 to 1.8x currently, a pace that has already surpassed the entire energy sector's gross leverage of 1.6%.\nWe predicted that this staggering growth rate would continue increasing at a pace of over 0.3x per quarter, and moments ago we got another confirmation of the insatiable demand for AI debt when Bloomberg reported that just days after the biggest ever Initial Public Offering in history, bankers for SpaceX are preparing to hold calls with investors as soon as next week to discuss a potential bond offering.\nThe bond is expected to be at least $20 billion, and the investor calls may kick off on Monday. Plans and timing may change of the offering may yet change, according to Bloomberg.\nSpaceX plans to issue investment-grade bonds for the first time, adding to the already overheating IG calendar. The bond proceeds would refinance a temporary $20 billion bridge loan that matures in September 2027. The bridge loan makes up the bulk of SpaceX’s $29.1 billion of long-term debt as of March 31, the company said in its IPO prospectus.\nBank of America, Citigroup, JPMorgan, Goldman and Morgan Stanley provided the bridge financing and are expected to run the bond deal .\nSpaceX’s historic IPO turned the start-up into one of the world’s most valuable public companies and turned its founder into the world’s first trillionaire (although the stock is sliding today, down 10% at one point as momentum left the stock to go back to its preferred memory momentum names). The company’s embrace of AI with the acquisition of Musk’s xAI in February made the listing somewhat of a referendum on the IPO prospects of competitors Anthropic and OpenAI, both of which are expected to go public as soon as this year.\nThe bottom line here is that literally every company is now rushing to issue as much debt (and equity) as the market will possibly absorb, as it is only a matter of time before the debt, and thus capex, window closes.\nAs Goldman Delta-1 head Rich Privorotsky wrotes, \"everyone still appears convinced they must keep spending simply to remain competitive, while token cost compression/advent of neoclouds puts pricing pressure on core business. If token prices continue to compress alongside falling compute costs, the benefits may accrue to users faster than providers. Ironically, the first hyperscaler to signal that it can slow the pace of spending will likely see its share price rewarded (and will crush semiconductor stocks). If that happens, others will take notice. That is the reflexivity that ultimately stalls the capex cycle… not a lack of demand, but investors deciding that incremental returns on the next dollar of spend are no longer attractive.\"\nPrivo's conclusion: \"Watch hyperscalers share price as leading indicator.\"",
+  "published_at": "2026-06-18T17:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-18T21:00:50.689779Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

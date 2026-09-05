@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/06/16/property-play-ai-determining-home-prices.html",
+  "title": "Property Play: AI determining home prices",
+  "raw_text": "CNBC's Diana Olick reports on AI's growing influence on housing transactions for buyers and sellers.",
+  "published_at": "2026-06-16T12:54:02Z",
+  "author": null,
+  "collected_at": "2026-06-16T15:23:26.606881Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

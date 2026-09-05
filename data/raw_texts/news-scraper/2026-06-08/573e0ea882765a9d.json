@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/amd-radeon-rx-9070-gre-review-shrinkflation-isnt-just-for-groceries-anymore/",
+  "title": "Review: AMD's Radeon RX 9070 GRE is a disappointing way to spend $549",
+  "raw_text": "At some point during the fog of 2021 or 2022, I noticed that my son’s preferred brand of fruit snacks had switched from including 0.9 ounces per pouch to 0.8 ounces per pouch. Most shrinkflation is meant to fly under the radar, but in this case, I just happened to notice it. It felt bad! It’s tangible evidence that your money is not going as far as it did in the very recent past.\nA little over a year ago, AMD launched the Radeon RX 9070 for a suggested retail price of $549. This month, it’s launching the similarly named Radeon RX 9070 GRE for a suggested retail price of $549. This new card (actually the US launch of a GPU that’s been available in China for a year or so) has 85 percent as many GPU cores, 75 percent as much memory, and 66 percent as much memory bandwidth as the regular RX 9070.\nWe’ll evaluate the RX 9070 GRE in the context of the current GPU market, where prices have been edging upward due to the same AI-driven RAM shortages and price hikes that have made PC building and buying such a miserable experience for the last few months. But it’s hard not to be a little upset about such a clear example of GPU shrinkflation—the same money for a markedly inferior product.\nRX 9070 GRE specs and speeds\n| RX 9070 XT | RX 9070 | RX 9070 GRE | RX 9060 XT | RX 7800 XT | RX 7700 XT | |\n|---|---|---|---|---|---|---|\n| Compute units (Stream processors) | 64 RDNA4 (4,096) | 56 RDNA4 (3,584) | 48 RDNA4 (3,072) | 32 RDNA4 (2,048) | 60 RDNA3 (3,840) | 54 RDNA3 (3,456) |\n| Boost Clock | 2,970 MHz | 2,520 MHz | 2,790 MHz | 3,130 MHz | 2,430 MHz | 2,544 MHz |\n| Memory Bus Width | 256-bit | 256-bit | 192-bit | 128-bit | 256-bit | 192-bit |\n| Memory Bandwidth | 650GB/s | 650GB/s | 432GB/s | 320GB/s | 624GB/s | 432GB/s |\n| Memory size | 16GB GDDR6 | 16GB GDDR6 | 12GB GDDR6 | 8 or 16GB GDDR6 | 16GB GDDR6 | 12GB GDDR6 |\n| Total board power (TBP) | 304 W | 220 W | 220 W | 150 (8GB) or 160 W (16GB), up to 182 W | 263 W | 245 W |\nI find AMD’s “GRE” label more confusing than helpful. “Extra letters” usually means “better,” across both AMD and Nvidia’s GPU lineups (see XT, Ti, XTX, Super, etc), but in this case, it means “worse.”\nThe RX 9070 GRE does use the same Navi 48 GPU silicon as the rest of the 9070 series, but is significantly cut down: 3,072 shader cores instead of 3,584 for the 9070 or 4,096 for the 9070 XT; a 192-bit memory interface instead of 256-bit; and 12GB of memory rather than 16GB. It’s not a clear successor to any particular past Radeon card, but its hardware is most similar to the old RX 7700 XT, which launched at $449 in 2023.",
+  "published_at": "2026-06-05T11:00:55Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-08T03:00:31.665283Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Gaming",
+      "Tech",
+      "AMD",
+      "Radeon",
+      "rdna 4"
+    ]
+  }
+}

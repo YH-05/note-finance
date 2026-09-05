@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/intel-and-micron-are-poised-to-break-major-milestones.html",
+  "title": "Intel and Micron are poised to break major milestones",
+  "raw_text": "Options traders can't get enough of semiconductor stocks. No matter how high they go or how expensive the options get, bulls just keep flooding the space.\nAfter a 700% rally the past year, traders poured into Micron options Tuesday, paying expensive premiums to get access to further upside in the legacy memory-chip maker that became one of the market's hottest AI trades over the past year.\nMore than $2.8 billion of Micron options premium changed hands Tuesday as of noon Chicago time, eclipsing the dollar-amount traded in index ETFs SPY and QQQ combined. Micron accounted for 12 of the top 20 options trades in the hour after the opening bell, according to data from SpotGamma — a major feat for a stock with no big newsflow and earnings months away.\nCall volumes outpace puts on the stock, and call premiums dwarf the amount paid for puts. More calls were bought than sold, and more puts sold than bought on Tuesday, according to ThinkOrSwim, as implied volatility in the stock rose to 84 — roughly five times the volatility in the S&P 500.\nCall-buyers ranged from deep in-the-money to out-of-the-money strikes, with the biggest trades leaning toward later-dated expiries that bet on a sustained move in Micron, whose market cap surpassed $700 billion.\nConviction in Micron was mirrored by traders in related names such as SanDisk and Western Digital, where call-buying dominated the action as those respective stocks hit all-time highs.\nIn another major market cap milestone, Intel on Tuesday surpassed its dotcom value, nearing a $550 billion valuation after a 13% pop that brings its one-year run to more than 430%.",
+  "published_at": "2026-05-05T18:55:16Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.296589Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

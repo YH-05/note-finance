@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606180614",
+  "title": "シュッピンについて、Fidelity Management & Research Company LLCは保有割合が増加したと報告 [変更報告書No.2]",
+  "raw_text": "【５％】シュッピンについて、Fidelity Management & Research Company LLCは保有割合が増加したと報告 [変更報告書No.2]\n■財務省 ： 6月18日受付\n■発行会社： シュッピン <3179>\n■提出者 ： Fidelity Management & Research Company LLC\n◆義務発生日 保有割合（前回→今回） 保有株数 提出日時\n2024/10/15 6.86％ → 8.52％ 1,978,445 2026/06/18 11:47\n■提出者および共同保有者\n(1)Fidelity Management & Research Company LLC\n5.36％ → 6.11％\n(2)FIAM LLC\n1.30％ → 2.21％\n(3)フィデリティ マネジメント トラスト カンパニー (Fidelity Management Trust Company)\n0.20％ → 0.20％\n※上記は金融庁のEDINET（電子開示システム）で開示された書類に基づく情報です。金融商品取引法上の公衆縦覧ではありません。\n※金融商品取引法で自己株式は保有株券に含めないことになっており、そのため保有株数等が0と表記される場合があります。\n※保有株数が変動せず、発行済み株式数の変動に伴って保有割合が変動しているケースもあります。\n※変動幅が1％未満の変更報告書は契約変更などによる場合があります。\n※詳しくはEDINETで原本をご確認ください。\n株探ニュース",
+  "published_at": "2026-06-18T02:51:02Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:00:21.890262Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "５％",
+    "tags": []
+  }
+}

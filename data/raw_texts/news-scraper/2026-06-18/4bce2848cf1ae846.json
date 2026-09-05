@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://nelson.cloud/.gitignore-isnt-the-only-way-to-ignore-files-in-git/",
+  "title": ".gitignore Isn't the only way to ignore files in Git",
+  "raw_text": "I’ve been using Git for so long and I just realized you can ignore files at three different levels and not just with .gitignore\n. The three files you can use to ignore files are:\n.gitignore\n.git/info/exclude\n~/.config/git/ignore\n.gitignore\nis the usual file where you write files you want to ignore. It’s checked into Git along with the rest of the code. Whatever files you add to it will not get taken into account when running git\ncommands.\nThe exclude\nfile lives in the .git\ndirectory of every Git repository but changes to it are not checked into Git. It usually has a few comment lines on a fresh Git repository. This file is useful for ignoring things on a per-repo basis. For example, you may have a personal notes.txt\nfile in a repository that you don’t want to check into git but you also don’t want to add to .gitignore\nbecause it’s unique to your workflow. In that case you would add notes.txt\nto .git/info/exclude\n.\nThe ignore\nfile lives in your machine’s home directory in ~/.config/git/ignore\n. Whatever filenames are added to this file are ignored globally at a machine-level. This file is not checked into Git and isn’t associated with any particular repository. It’s a great place to add files that you want to ignore in every git repository on your computer. For example, if you’re on macOS, adding .DS_Store\nhere would be ideal.\nYou can customize the global ignore file to be a different file. For example, if you want your global git ignore file to be .gitignore_global\nyou would run the command:\ngit config --global core.excludesFile ~/.gitignore_global\nAnd if you ever want to return to the default setting, run:\ngit config --global --unset core.excludesFile\nWhen adding filenames to any of these, you can use this command to check how a filename is being ignored. For example, if you want to check how .DS_Store\nis being ignored, run git check-ignore -v .DS_Store\nin any Git repository.\nHere is the output when the repository’s .gitignore\nis ignoring .DS_Store\n:\n$ git check-ignore -v .DS_Store\n.gitignore:1:.DS_Store .DS_Store\nHere is the output when the repository’s .git/info/exclude\nis ignoring .DS_Store\n:\n$ git check-ignore -v .DS_Store\n.git/info/exclude:7:.DS_Store .DS_Store\nHere is the output when the global ~/.config/git/ignore\nfile is ignoring .DS_Store\n:\n$ git check-ignore -v .DS_Store\n/Users/nelson/.config/git/ignore:2:.DS_Store .DS_Store\nAnd here is the output when a custom global ignore file .gitignore_global\nis ignoring .DS_Store\n:\n$ git check-ignore -v .DS_Store\n/Users/nelson/.gitignore_global:1:.DS_Store .DS_Store\nIf there is nothing ignoring a file, the git check-ignore -v\ncommand produces no output.",
+  "published_at": "2026-06-18T10:29:20Z",
+  "author": "FergusArgyll",
+  "collected_at": "2026-06-18T21:06:15.940434Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

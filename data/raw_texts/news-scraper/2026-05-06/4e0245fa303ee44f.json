@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060319",
+  "title": "東京為替：ドル・円は小動き、様子見ムードで",
+  "raw_text": "【通貨】東京為替：ドル・円は小動き、様子見ムードで\n6日午後の東京市場でドル・円は半値戻しの後に小動きとなり、156円40銭付近でのもみ合いに。NY原油先物（WTI）は1バレル＝100ドル台前半に失速し、ドル買いは入りづらい。一方、円は強い買いの後に軟化したが、為替介入への警戒感から円売りは抑制された。\nここまでの取引レンジは、ドル・円は155円04銭から157円93銭、ユ-ロ・円は182円06銭から184円95銭、ユ-ロ・ドルは1.1691ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-06T06:21:05Z",
+  "author": null,
+  "collected_at": "2026-05-06T09:00:22.536385Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/ubs-traders-say-its-time-to-reduce-risk-meaningfully-on-tech.html",
+  "title": "UBS traders say it's time to 'reduce risk meaningfully' on tech",
+  "raw_text": "The dangers of being heavily exposed to tech are getting bigger, and investors need to \"reduce risk meaningfully\" in the space, according to UBS traders. \"The market backdrop, and the narratives around the AI trade in semis, have now created an extreme and increasingly binary framework of 'winners' versus 'losers.' There is very little room for debate around the merits of anything in between,\" the bank's trading desk wrote to clients late Wednesday. Artificial intelligence stocks — specifically chipmakers — have led the boom for the broader market seen over the past three-plus years. The PHLX Semiconductor Index (SOX) has risen 67% since the start of 2023. Micron Technology , Credo and Nvidia are the index's top three performers in that time, bolting more than 1,000% each. But UBS traders worry the concentration in the AI trade is becoming too great, while investors also grow complacent. On top of that, the U.S. and Iran have signed an agreement to end the war with Iran, opening the door for other parts of the market to improve. .SOX mountain 2023-06-01 SOX since 2023 \"With [a memorandum of understanding ] in place, markets may have more room to reprice and broaden investment horizons without daily cross-asset volatility being driven by political headlines,\" they said. \"Ultimately, demand/supply, pricing, returns and competition still matter. Yes, this may prove to be a super-cycle. But to assume it is somehow non-cyclical or linear feels complacent.\" The trading desk also pointed out that earnings expectations around AI may be too elevated. \"The standard pushback is that this is all fundamentally supported. That may be true for now, but one central support for earnings has been data-centre demand, and that remains vulnerable to building more slowly than anticipated due to supply bottlenecks—from engineering capacity to chips,\" they said. \"When flows are narrow, breadth is weak, leverage is elevated, sentiment is one-sided, and the rationale for ownership becomes increasingly reflexive, that is usually not the point to add risk. It is usually the point to take some off.\"",
+  "published_at": "2026-06-18T13:29:52Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.514749Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

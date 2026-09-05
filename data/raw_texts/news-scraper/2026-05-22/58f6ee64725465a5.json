@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/culture/2026/05/top-gun-turns-40/",
+  "title": "Stunning aerial footage still best thing about Top Gun at 40",
+  "raw_text": "When the action film Top Gun hit the big screen in 1986, critical reviews were mixed, but audiences were thrilled. The film racked up $358 million globally, making it the highest-grossing film of that year. Its success spawned a few video games and a critically acclaimed blockbuster 2022 sequel, Top Gun: Maverick, and the eye-popping flight sequences definitely boosted enlistment numbers for the US Navy. Those scenes are still the best thing about Top Gun, 40 years later.\n(Spoilers below because it’s been 40 years.)\nThe film was inspired by a 1983 article in California magazine detailing the lives of fighter pilots at Naval Air Station Miramar in San Diego (aka “Fightertown USA”) and featuring plenty of aerial photography alongside the text. Producers Jerry Bruckheimer and Don Simpson tapped Jim Cash and Jack Epps Jr. to write the screenplay, with Epps sitting in on declassified classes at the academy and even taking a flight aboard an F-14.\nTony Scott, then a relative newcomer with just one feature film (1983’s The Hunger) to his name, was hired to direct. However, he had shot a commercial for Saab featuring one of the company’s cars racing against a Saab 37 Viggen fighter jet, so the producers figured he had the chops for Top Gun.\nThe film wastes no time getting us in the air. Our hero, Maverick (Cruise) and his radar intercept officer, Goose (Anthony Andrews) are flying maneuvers in an F-14A Tomcat in the Indian Ocean, along with Maverick’s wingman, Cougar (John Stockwell) and his RIO. They encounter two hostile MiG-28s (a fictitious craft represented in the film by the Northrup F-5). Maverick scares one away with a well-timed missile lock, but the other MiG locks onto Cougar before getting chased away by Maverick. Just to make sure we understand how Maverick got his nickname, the pilot inverts his plane and flies directly above the hostile MiG, giving his adversary the finger as Goose snaps a commemorative Polaroid.",
+  "published_at": "2026-05-21T16:42:43Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-22T03:00:31.372115Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Culture",
+      "entertainment",
+      "film",
+      "film anniversaries",
+      "Paramount Pictures",
+      "Tom Cruise",
+      "Top Gun"
+    ]
+  }
+}

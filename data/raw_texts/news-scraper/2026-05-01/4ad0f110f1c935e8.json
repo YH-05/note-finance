@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/921944/microsoft-word-legal-agent-ai",
+  "title": "Microsoft wants lawyers to trust its new AI agent in Word documents",
+  "raw_text": "Microsoft is launching a new AI agent inside Word that’s specifically designed for legal teams. Legal Agent handles document edits, negotiation history, and complex documents to help legal teams handle tasks like reviewing contracts.\nMicrosoft wants lawyers to trust its new AI agent in Word documents\nMicrosoft’s Legal Agent comes from the work of former Robin AI engineers.\nMicrosoft’s Legal Agent comes from the work of former Robin AI engineers.\n“Instead of relying on general AI models to interpret commands, the agent follows structured workflows shaped by real legal practice, managing clearly defined, repeatable tasks like reviewing contracts clause by clause against a playbook,” explains Sumit Chauhan, corporate vice president of Microsoft’s Office Product Group.\nThe Legal Agent can work with existing documents that have tracked changes, and analyze agreements and contracts to “spot risks and obligations.” Microsoft is releasing its Legal Agent to members of its Frontier program in the US, and it’s part of a broader effort to bring agentic features to Word.\nThis new AI agent in Word comes months after Microsoft hired a bunch of AI specialists and engineers from Robin AI, a failed startup that was working on an AI-powered contract review system.",
+  "published_at": "2026-05-01T11:18:54Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-01T15:00:16.310843Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Microsoft",
+      "News",
+      "Tech"
+    ]
+  }
+}

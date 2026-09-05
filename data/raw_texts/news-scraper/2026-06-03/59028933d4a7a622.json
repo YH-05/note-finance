@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/asia-pacific-markets-today-kospi-nikkei-225-hang-seng-index.html",
+  "title": "Asia-Pacific markets close mixed as Iran war uncertainty keeps investors on edge",
+  "raw_text": "Asia-Pacific markets closed mixed Tuesday, as investors weighed renewed uncertainty over U.S.-Iran peace negotiations, while Wall Street benchmark indexes climbed to fresh highs overnight on tech optimism.\nJapan's Nikkei 225 ended 0.3% lower at 66,734.24, while the Topix declined 0.42% to 3,924.24. South Korea's Kospi fell 0.15% to 8,801.49 and the small-cap Kosdaq dropped 2.29% to 1,026.03.\nIn Australia, the S&P/ASX 200 ended flat at 8,724.4.\nHong Kong's Hang Seng index added 2.41% as of its last hour of trade, while mainland China's CSI 300 ended 1.45% to 4,914.56.\nIndia's Nifty 50 was last up 0.5%.\nU.S. President Donald Trump on Monday shrugged off the possibility that peace talks with Iran could fall apart, telling CNBC, \"I don't care if they're over, honestly.\"\n\"I really don't care. I couldn't care less,\" Trump told CNBC's Eamon Javers in a phone interview midday Monday, adding that he felt the drawn-out negotiations had \"started to get very boring.\"\nTrump was responding to a question about reports earlier Monday that Iranian negotiators were considering ending discussions with Washington and moving to \"completely block\" the Strait of Hormuz in response to Israel's military campaign in Lebanon targeting the Iran-backed Hezbollah group.\nWhen asked whether Iranian officials had informed him that they would no longer continue negotiations, Trump replied, \"No, they haven't.\"\nS&P 500 futures slipped 0.2%, while Nasdaq 100 futures shed 0.3%. Futures tied to the Dow Jones Industrial Average fell by 122 points, or 0.2%.\nOvernight on Wall Street, the S&P 500 rose even as oil prices advanced, with Nvidia leading technology higher following the launch of a new chip for PCs.\nThe broad market index advanced 0.26% to close at 7,599.96, while the Nasdaq Composite gained 0.42% to close at 27,086.81. The Dow Jones Industrial Average added 46.42 points, or 0.09%, and ended at 51,078.88. All three indexes reached new all-time intraday highs and closed at records.\n— CNBC's Sarah Min and Lisa Kailah Han contributed to this report",
+  "published_at": "2026-06-02T14:21:27Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.119430Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

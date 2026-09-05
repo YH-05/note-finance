@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/european-markets-stoxx-600-ftse-dax-cac-iran-latest-news.html",
+  "title": "European markets open mostly positive as Trump threatens new auto tariffs",
+  "raw_text": "LONDON — European markets opened the new trading week in positive territory as investors continue to monitor developments in the Middle East and a potential renewal of transatlantic trade tensions.\nThe pan-European Stoxx 600 was 0.1% higher shortly after 8:00 a.m. in London. France's CAC 40 was down almost 0.1%. Germany's DAX was up 0.1% and the Italian FTSE MIB led the way with a 0.4% gain.\nThe U.K.'s FTSE 100 is closed for the early spring bank holiday.\nMost regional sectors were in positive territory, with telecoms leading the way, advancing 1.2%. Here, Nokia surged 7% in early dealmaking, taking the Finnish telco's gains to more than 100% since the start of the year, after Inseego said Thursday it would acquire Nokia's fixed wireless access business.\nBut European automakers tumbled 1.6% in early dealmaking after U.S. President Donald Trump said Friday he would increase tariffs on cars and trucks from the European Union to 25%. The European Commission said it was keeping its options in terms of its response.\nAuto parts maker Continental slumped to the bottom of the Stoxx 600, falling 5.2% in morning trade, as Mercedes Benz shed 1.9% and Volkswagen traded 1.7% lower.\nThe new tariff threat comes despite a Supreme Court ruling in February striking down large parts of Trump's tariff agenda.\nMeanwhile, President Trump also unveiled a new plan to \"free\" ships that have been unable to pass through the Strait of Hormuz. The initiative, dubbed 'Project Freedom', could involve 15,000 troops, guided missile destroyers, and 100 aircraft guiding commercial ships through the critical shipping channel.\nThe United Kingdom Maritime Trade Operations reported early Monday that a vessel had been struck by projectiles north of the city of Fujairah in the United Arab Emirates.\nOil prices edged lower in early dealmaking, with Brent crude — the global benchmark — down 0.8% to $107.38 a barrel, while West Texas Intermediate slipped 0.84% to $101.10.",
+  "published_at": "2026-05-04T07:24:09Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:19:45.237098Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

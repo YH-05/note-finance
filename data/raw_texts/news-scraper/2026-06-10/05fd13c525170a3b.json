@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-devices-platforms/20339-how-ai-and-satcoms-can-make-cities-cooler.html",
+  "title": "How AI and satcoms can make cities cooler",
+  "raw_text": "Proof perhaps that AI and satcoms can have practical applications in everyday situations comes from Mexico where Google and Fester, a building material company, which have together launched a platform in Mexico that uses AI to help support efforts to make cities cooler.\nGoogle and Fester have developed Cool Roof, a platform that uses artificial intelligence, satellite images and geospatial data in order to identify roofs, estimate surfaces and promote the use of reflective waterproofing.\nThe tool allows users to work out materials necessary to cover roofs and seeks to reduce the impact of accumulated heat in cities.\nDuring a presentation held at Google's offices in Mexico City this week, Google representatives explained that the initiative is based on Open Buildings, an open data project that identifies constructions using artificial intelligence.\nThe technology allows buildings to be detected from aerial and satellite photographs, as well as to analyse roof characteristics.\nIt’s a response to the growth of urban heat islands, a phenomenon associated with the accumulation of temperature in building materials and paved surfaces.\nCities can be appreciably warmer than nearby rural areas and roofs can reach considerably higher temperatures when using dark coatings.\nThis tool allows users to enter an address, locate a property on a map and calculate square metres, estimated amount of product and solar radiation levels. Those responsible for the project indicated that the objective is to provide technical information to homeowners, architects, maintenance specialists and construction project managers.\nAnd of course, it is useful for promoting Fester’s reflective waterproofing, which, it says, can reflect up to 85% of the sun's rays and contribute to reducing the surface temperature of the roofs.",
+  "published_at": "2026-06-03T20:48:05Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-10T03:01:28.387803Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Devices & Platforms"
+    ]
+  }
+}

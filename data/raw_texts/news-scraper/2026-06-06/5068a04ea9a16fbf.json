@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260424a.htm",
+  "title": "Federal Reserve Board announces approval of application by OceanFirst Financial Corp.",
+  "raw_text": "April 24, 2026\nFederal Reserve Board announces approval of application by OceanFirst Financial Corp.\nFor release at 4:00 p.m. EDT\nThe Federal Reserve Board on Friday announced its approval of the application by OceanFirst Financial Corp., of Toms River, New Jersey, to merge with Flushing Financial Corporation, and thereby indirectly acquire Flushing Bank, both of Uniondale, New York.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-04-24T20:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:00:30.972528Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

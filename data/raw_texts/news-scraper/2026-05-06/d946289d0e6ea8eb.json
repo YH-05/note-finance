@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/fda-studies-covid-shingles-vaccines-safe.html",
+  "title": "FDA withdrew studies finding Covid, shingles vaccines were safe",
+  "raw_text": "The FDA blocked the publication of several studies supporting the safety of vaccines against Covid and shingles in recent months, a Health and Human Services Department spokesperson confirmed on Tuesday.\nIt's the latest effort by the Trump administration to challenge safe and effective shots in the U.S. and make them harder to access for some patients. Under Health and Human Services Secretary Robert F. Kennedy Jr., a prominent vaccine skeptic, federal health agencies have softened Covid shot recommendations, cut back research on vaccine development and attempted to overhaul the childhood immunization schedule, among other efforts.\nFDA scientists worked with data firms to analyze millions of patient records for the studies, which found side effects of the shots to be rare, the New York Times first reported on Tuesday.\nIn October, the scientists were directed to withdraw two Covid shot studies that had been accepted for publication in medical journals, the Times reported. In February, top FDA officials did not sign off on submitting study abstracts on Shingrix, a shingles vaccine, to a drug safety conference, the paper added.\nThe HHS spokesperson told CNBC the recent studies were \"withdrawn because the authors drew broad conclusions that were not supported by the underlying data.\"\n\"The FDA acted to protect the integrity of its scientific process and ensure that any work associated with the agency meets its high standards,\" they added.\nWhen asked about the shingles vaccine research, the HHS spokesperson said the design of that study \"fell outside the agency's purview.\"",
+  "published_at": "2026-05-05T20:45:44Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.667362Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

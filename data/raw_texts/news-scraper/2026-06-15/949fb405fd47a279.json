@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/06/12/elon-musks-road-to-trillionaire-status-heres-what-to-know.html",
+  "title": "Elon Musk's road to trillionaire status: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-06-12T11:33:41Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.786807Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

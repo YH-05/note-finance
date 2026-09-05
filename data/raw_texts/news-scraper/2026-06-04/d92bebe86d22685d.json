@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/instagram-is-alerting-users-who-were-targeted-by-hackers-during-ai-chatbot-attacks/",
+  "title": "Instagram is alerting users who were targeted by hackers during AI chatbot attacks",
+  "raw_text": "The widespread hacking campaign that relied on simply asking Meta AI’s chatbot to take over a victim’s Instagram account appears to have continued even after the company said the issue had been resolved. Meanwhile, the company has been scrambling to secure the targeted accounts and alert victims.\nOver the weekend, hackers claimed to be exploiting Meta’s AI support chatbot to take over several high-profile Instagram accounts. At the same time, a large number of people complained on social media that their Instagram accounts had been hacked, some of them with unique short user-profile handles.\nTechCrunch has seen examples of allegedly hacked handles featuring common forenames or names of countries, which can be then re-sold almost as collectibles in a gray market for so-called “OG handles.” Other victims of the hacking spree appeared to be the dormant Obama White House account (which Meta disputed), and the account of the U.S. Space Force’s chief master sergeant, John Bentivegna.\nThese attacks were so simple that calling them hacks may be giving the people behind them too much credit, while at the same time not putting enough blame on Meta for not preventing rudimentary attacks from hijacking people’s accounts.\nHackers simply told Meta’s AI chatbot that they were the owners of the target’s account, and asked the bot to link that person’s account to an email they controlled. The chatbot complied with the request, allowing the hacker to reset the target account’s password and take control of the account — in some cases locking out the victims. At no point were Meta employees or contractors involved in the chat.\nOn Monday, Meta spokesperson Andy Stone said that “the issue that did happen has already been fixed.”\nOn Tuesday, however, more Instagram users claimed to have had their accounts hacked.\nAt the same time, TechCrunch has seen discussions among members of a Telegram channel where the hacking technique had been publicized, who claimed to still be able to exploit Meta’s AI chatbot, and they were advertising apparently hacked handles for sale, including at the time of TechCrunch’s writing. (It’s important to note that it’s hard to know for sure if all these accounts were hacked due to the same technique.)\nContact Us\nDo you have more information about these Instagram hacks? We’d love to hear from you. From a non-work device and network, you can contact Lorenzo Franceschi-Bicchierai securely on Signal at +1 917 257 1382, or via Telegram and Keybase @lorenzofb, or email.In a later post on X, Stone said: “Some people may receive password reset notifications and some may be asked security questions when they try and log into their accounts.”\nStone told TechCrunch in an email that Meta secured affected accounts on Monday, then began sending password reset emails. When asked by TechCrunch, Stone would not say how many users were hacked.\nSeveral people have reported that Meta has begun notifying users that they were being targeted. Victims publicly reported receiving emails from Instagram warning them that the company had “detected some suspicious activity that suggests your Instagram may have been compromised.” The message also said that the company took measures to secure the account, and asked the user to reset their password.\nAs 404 Media noted, Meta announced in March that it was implementing AI to automate its support to users, saying the AI-powered chatbot was “designed to resolve account issues from start to finish,” and would have the ability to “reset your password securely.” That suggests the chatbot can perform actions that may have previously required a human in the loop, given how critical they were.\nFor years there has been a flourishing market where hackers stole and then sold “OG” usernames, referring to the usernames and handles taken by the earliest users of Instagram. In the past, however, taking over those accounts required more complex strategies, such as phishing the victim, taking over their phone number, or bribing insiders at telecom providers.\nHere, the hackers just asked, and Meta’s chatbot dutifully complied.",
+  "published_at": "2026-06-03T16:12:06Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-06-04T03:00:27.434632Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "AI",
+      "cybercrime",
+      "cybersecurity",
+      "hackers",
+      "hacking",
+      "Instagram",
+      "Meta"
+    ]
+  }
+}

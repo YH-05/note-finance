@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/926240/boox-tappy-page-turn-scroll-button-bluetooth-remote",
+  "title": "Boox’s new page-turning e-reader remote is a tiny two-button keyboard",
+  "raw_text": "Boox has announced its own alternative to the Kobo Remote that offers more functionality than just turning the page while reading on its tablets and e-readers. The Tappy can also be used to scroll vertical content in browsers or social media apps and skip to the next or previous track when listening to music or audiobooks. It’s available now through Boox’s online store and Amazon for $25.99, making it slightly cheaper than Kobo’s, but Boox says the Tappy will work with more than just its own devices.\nBoox’s new page-turning e-reader remote is a tiny two-button keyboard\nThe Tappy can be used to flip pages, skip tracks, or doomscroll without having to touch your device.\nWhile Kobo’s remote is reminiscent of a game controller like the Wiimote, Tappy looks more like a retro typewriter that’s been distilled down to just two keys. One key progresses forward through your content, while the other goes back. Alternate keycaps can be swapped in to customize Tappy’s appearance, but in addition to an X and O, they’re limited to pixelated icons of a heart and steaming coffee cup. Cute, but questionably descriptive.\nThere’s a 95mAh rechargeable battery inside Tappy that should last for weeks if you don’t get too tap-happy, and it’s got a wireless Bluetooth range of nearly 33 feet. That’s overkill for just reading, but since Boox is actively encouraging you to pair Tappy with other hardware like your smartphone or laptop, it could double as a basic media remote for your sound system with button customizations, or as an incredibly limited gamepad.",
+  "published_at": "2026-05-08T14:00:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-08T15:00:16.247142Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

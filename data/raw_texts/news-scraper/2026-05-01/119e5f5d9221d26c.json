@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/08/markets-shift-back-towards-potential-fed-rate-cut-this-year-with-iran-ceasefire-in-place.html",
+  "title": "Markets shift back toward potential Fed rate cut this year with Iran ceasefire in place",
+  "raw_text": "Traders are entertaining the possibility of an interest rate cut by the end of the year now that the U.S. and Iran have agreed to a ceasefire.\nOdds for a reduction jumped Wednesday morning, hitting about 43%, according to the CME Group's FedWatch tool, which uses 30-day fed funds futures contracts to compute market expectations for moves by the Federal Reserve.\nMarket pricing is implying a 3.5% rate in December for the overnight borrowing benchmark, compared with the current effective level of 3.64%.\nBefore the announcement, market-implied odds for a cut were just 14%.\nTraders had expected the Fed would be hesitant to cut this year as the Iran conflict had sent energy prices skyrocketing, threatening the central bank's efforts to get inflation back to its 2% goal. Previous to that, markets had expected multiple reductions this year in an effort to shore up the plodding labor market.\nWith at least a fragile peace in Iran, sentiment began tilting back toward the probability for a cut.\n\"The market is now discounting a clear skew to one cut from the Fed this year,\" Krishna Guha, head of global policy and central bank strategy at Evercore ISI, said in a note. \"Assuming a flawed deal likely will be reached, this repricing has more to go, with the looming inflation shock now much less likely to threaten inflation expectations.\"\nGuha sees rate cuts in play for the Fed's global peers including the Bank of England, European Central Bank and Bank of Japan.\nIn the U.S., markets this week will get data that will provide two perspectives on inflation.\nThe Commerce Department on Thursday will release the personal consumption expenditures price index, the Fed's preferred gauge, that will show where inflation was in February, prior to the Middle East war. Then on Friday, the Bureau of Labor Statistics will release the consumer price index for March, which will reflect the price impact from the hostilities.\nEconomists expect the PCE report to show headline inflation at 3% and core, which excludes food and energy, at 2.8%, according to the Dow Jones consensus. For the CPI, the respective readings for March are pegged at 3.3% and 2.7%, with the all-items level reflecting the war-induced energy price increases.\nGuha stressed that the chances for a lasting peace with Iran are still in flux, and said he expects generally cautious tones from policymakers in coming months\n\"Then, provided that incoming information is reassuring, will shift back more dovish potentially from the late summer onwards, with scope for one, possibly two cuts later in the year,\" he said.\nCitigroup is an outlier in market expectations. The firm's economists said Wednesday that if oil prices continue to fall and inflation shows more signs of being benign, they see potential for three rate cuts starting in September.",
+  "published_at": "2026-04-08T16:40:10Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.470063Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

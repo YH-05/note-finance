@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606031218",
+  "title": "メーシーズ、決算受け時間外で上昇＝米国株個別",
+  "raw_text": "（NY時間08:38）（日本時間21:38）時間外\nメーシーズ<\nM> 22.02（+0.35 +1.62%）\n百貨店のメーシーズ<\nM>が決算を受け時間外で上昇。全ブランドで既存店売上高がプラス成長を達成。今回の決算は高級品事業の拡大や商品構成の改善が成果を上げていることを示した。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-03T12:41:00Z",
+  "author": null,
+  "collected_at": "2026-06-03T15:00:22.465320Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

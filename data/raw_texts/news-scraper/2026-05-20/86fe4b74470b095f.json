@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/iran-demands-big-tech-pay-fees-for-undersea-internet-cables-in-strait-of-hormuz/",
+  "title": "Iran demands Big Tech pay fees for undersea Internet cables in Strait of Hormuz",
+  "raw_text": "Iran claims it will charge US tech companies fees for using undersea Internet cables that run beneath the contested Strait of Hormuz shipping lanes. The war has already halted multiple projects and led to the suspension of cable repairs in the region—and the latest Iranian threats may accelerate efforts by Big Tech and Gulf countries to find alternative routes for bypassing the Strait of Hormuz’s digital chokepoint.\nThe latest assertions of Iranian authority over the Strait of Hormuz were announced in a brief statement by Ebrahim Zolfaghari, a spokesperson for Iran’s military and the Islamic Revolutionary Guard Corps. “We will impose fees on internet cables” Zolfaghari wrote in a May 9 post. It was not immediately clear how Iran might implement such fees or impose its rules on cable projects, given that the majority of routes pass through Oman-controlled waters.\nBut Tasnim and Fars, both Iranian state-linked media channels, laid out more detailed proposals on how Iran could charge license fees to US tech giants for the use and maintenance of undersea cables carrying regional Internet traffic, according to The Guardian. For example, the Tasnim plan described charging tech companies—specifically naming Meta, Google, Amazon, and Microsoft—license fees for cable usage while also claiming that Iran alone has the right to repair and maintain the subsea cables.\nMore than 99 percent of international Internet traffic runs through the global network of undersea cables that crisscross various oceans, connecting continents and islands. The major active cables running through the Strait of Hormuz primarily serve the Gulf countries in the region. They include the Asia Africa Europe-1, FALCON, and the Gulf Bridge International Cable System, according to TeleGeography, a telecommunications research organization.\nThe FALCON and Gulf Bridge cables run through Iranian territorial waters at certain points, Alan Mauldin, a research director for TeleGeography, said in a CNN interview. CNN also reported that Iranian state media outlets have “issued veiled threats warning of damage to cables.”",
+  "published_at": "2026-05-19T11:00:49Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-20T03:02:21.420728Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "big tech",
+      "fiber optic cable",
+      "Iran",
+      "Strait of Hormuz",
+      "subsea cables",
+      "undersea cable cuts",
+      "undersea cables",
+      "USA-Iran War"
+    ]
+  }
+}

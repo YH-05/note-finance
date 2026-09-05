@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/933844/kickstarter-just-killed-its-new-mature-content-rules",
+  "title": "Kickstarter just killed its new mature content rules",
+  "raw_text": "Last week, we noted Kickstarter’s new content guidelines, which had some pretty weird new additions, including a prohibition on “sexual wellness products that are not designed for insertion or penetration and are not marketed primarily for sexual gratification.” Those rules have now been eliminated and the company has restored an earlier version of its guidelines.\nKickstarter just killed its new mature content rules\n‘Honestly? We botched it.’\n‘Honestly? We botched it.’\nIn an apology letter issued today from COO Sean Leow, Kickstarter confirmed that the new rules were influenced by the payment processor Stripe:\nThe updates to the rules were primarily driven by requirements from our payments processor, Stripe. Stripe operates under its own legal and compliance requirements separate from Kickstarter’s own rules. And even Stripe’s rules are dictated by a larger system shaped by financial institutions that govern how money moves globally.\nKickstarter says that it’s seen “a growing number of campaigns” that it approved but then got “suspended by Stripe mid-funding.” The company also says it’s “advocated for those creators directly with Stripe,” because “we believe in the work and because creators deserve to see their campaigns through.”\nAfter the new rules were issued a week ago, we immediately asked Kickstarter for comment, followed up to get an answer, and didn’t receive a full response until today — when the company pointed us toward its public post. We had asked how the company defined the distinction between “sexual wellness” and “sexual gratification,” and when I pushed Kickstarter today to address our original question after its revocation of the rules, here’s what we got, from KS director of comms Nikki Kria:\nGiven that we’ve reverted to our previous guidelines, the specific rule you’re referencing is no longer in effect. I don’t want to parse language from guidelines we’ve already walked back. The blog post reflects our current position and is the most accurate representation of where we stand.\n“Mature” content has been strictly regulated by payment processors for years, so it’s no surprise that Kickstarter felt compelled to comply. In fact, it is Stripe that says businesses can’t sell “sexually explicit materials” that are designed for the purpose of “sexual gratification.” Kickstarter’s blog post points to those rules as an explanation for its own now-rescinded rules and insists that the recent update doesn’t represent its values — including the “f*ck the establishment spirit of Kickstarter.” (But perhaps the establishment is still too strong to say the word “fuck” uncensored.)\nKickstarter says its community let it know “loud and clear” that the new rules were wrong and that it’s “going back to the drawing board.” It also says it’s “continuing to push Stripe for flexibility, clarity, and consistency.” We’ll have to wait and see whether a platform that’s helped fund creators with billions of dollars can stand tall against the ones moving the money. In the meantime, creators on the platform could still get burned from Stripe’s rules, even if Kickstarter stands against them.",
+  "published_at": "2026-05-19T18:30:43Z",
+  "author": "TC. Sottek",
+  "collected_at": "2026-05-19T21:00:19.855202Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Kickstarter",
+      "Tech"
+    ]
+  }
+}

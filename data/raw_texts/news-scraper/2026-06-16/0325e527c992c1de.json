@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/did-a-medieval-flying-monk-spot-halleys-comet-twice-its-complicated/",
+  "title": "Did a medieval flying monk spot Halley's comet, twice? It's complicated",
+  "raw_text": "Early in the 11th century, a young Benedictine monk named Eilmer jumped from the 150-foot tower of his abbey in the small English town of Malmesbury, wearing a pair of crude wings he’d fashioned from willow wood and cloth. Eilmer managed to glide a good 600 feet, passing over the city wall before crash-landing in a small valley near the river Avon. The fall broke both his legs, crippling him. Malmesbury Abbey still boasts a stained-glass window in honor of Brother Eilmer.\nThis legendary experiment in medieval aviation comes to us via 12th-century historian William of Malmesbury in an account written circa 1125, although William neglected to provide future historians with an exact date for the feat. But William does mention another key episode in Eilmer’s life when the monk was “advanced in years”: Eilmer witnessed Halley’s comet in 1066, commenting, “It is long since I saw you.” Some historians have interpreted this to mean that Eilmer saw Halley’s comet on an earlier fly-by in 989, when he would have been a young boy.\nAssuming Eilmer was at least 5 years old in 989, he would have been born no later than 984. This would make Eilmer in his 80s in 1066, with his attempt at flight—which occurred when he was “in his first youth”—likely falling between 1000 and 1010. However, it’s an estimate that is based on a lot of assumptions, according to James Aitcheson of the University of Leicester, who argues in a paper published in the journal Notes and Queries that Eilmer may have seen a different comet altogether in his youth—the comet of 1018. If so, he would have been born much later, and the date of his flight would have occurred between the 1020s and 1040s.",
+  "published_at": "2026-06-14T16:02:53Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-06-16T03:00:31.380148Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Culture",
+      "Science",
+      "astronomy",
+      "Eilmer of Malmesbury",
+      "Halley's comet",
+      "medieval history",
+      "science history"
+    ]
+  }
+}

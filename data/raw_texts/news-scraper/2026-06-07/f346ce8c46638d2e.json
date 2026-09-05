@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/att-and-verizon-lose-supreme-court-case-over-fines-for-selling-location-data/",
+  "title": "AT&T and Verizon lose Supreme Court case over fines for selling location data",
+  "raw_text": "AT&T and Verizon lost an attempt to overturn fines for selling users’ real-time location data without consent, as the Supreme Court ruled today that the Federal Communications Commission process for issuing financial penalties did not violate the right to a jury trial.\nAT&T convinced the US Court of Appeals for the 5th Circuit to overturn its fine last year, while Verizon lost in the 2nd Circuit. The Supreme Court took up the case to resolve the circuit split and reversed the 5th Circuit decision in today’s ruling, which was 8-1 with Justice Clarence Thomas dissenting.\nAT&T and Verizon were fined a total of $104 million by the FCC in 2024 for violations revealed in 2018. The carriers paid their fines and challenged them in circuit appeals courts, where judges’ panels ruled on the cases. Carriers claimed this system deprived them of the Seventh Amendment right to a jury trial.\nBut in a majority opinion written by Chief Justice John Roberts, the court accepted the FCC argument that carriers could have obtained jury trials if they refused to pay the fines and the government tried to collect. Carriers could either pay the fines and challenge them in circuit appeals courts, or not pay the fines and wait for the government to collect in a process that ultimately would result in a jury trial for each carrier.\n“The FCC’s forfeiture proceedings fit comfortably within” the Supreme Court’s Seventh Amendment precedents, Roberts wrote. “The orders at issue did not settle the carriers’ legal obligations because, stated simply, they did not create an obligation to pay. And the orders did not reflect the ultimate determination of any fact because, before the carriers could have been made to pay, the Government was required to prove its case to a jury.”",
+  "published_at": "2026-06-04T21:25:19Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-07T03:00:31.562804Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "AT&T",
+      "Supreme Court",
+      "verizon"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/political/judge-blocks-trumps-100000-fee-h-1b-visas",
+  "title": "Judge Blocks Trump's $100,000 Fee For H-1B Visas",
+  "raw_text": "President Donald Trump's $100,000 fee for H-1B visas is not legal, a federal judge said on June 8.\nThe fee for visas for specialty foreign workers \"imposes a tax on H-1B petitions without the requisite delegation by Congress,\" U.S. District Judge Leo Sorokin said in a 42-page decision.\nWhile the president is able to restrict noncitizen entry into the United States, Congress has the power to tax, and federal law does not delegate it, the judge said.\nHe also ruled that the fee violated a law called the Administrative Procedure Act because it was issued without allowing the public to comment before it took effect, and ordered officials to vacate the policy in its entirety.\nThe White House did not immediately respond to a request for comment.\nThe ruling came in response to a lawsuit filed by Massachusetts and 19 other states. They challenged the fee, which Trump announced in September as a way to reduce taxes and bring better people into the country.\nA different judge in late 2025 had upheld the fee, finding that Trump had the authority to increase the fee from between $2,000 to $5,000 to the $100,000 level. An appeal is pending in that case.\nThis is a developing story that will be updated.",
+  "published_at": "2026-06-08T19:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-08T21:00:41.562110Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

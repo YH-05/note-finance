@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/mortgage-rates-are-easing-slightly-but-homebuyers-are-retreating.html",
+  "title": "Mortgage rates are easing slightly, but homebuyers are retreating",
+  "raw_text": "Mortgage rates finally eased a bit last week, but it was not enough to light a fire under demand. Total mortgage application volume dropped 2.5% compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index. The week's results include an additional adjustment for the Memorial Day holiday.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, decreased to 6.57% from 6.65%, with points increasing to 0.67 from 0.65, including the origination fee, for loans with a 20% down payment.\n\"The prospect of easing energy prices given the evolving situation in the Middle East brought mortgage rates slightly lower last week,\" said Joel Kan, vice president and deputy chief economist at the MBA. \"The 5-year ARM rate inched up slightly, reflecting a flattening yield curve, as short-term rates are at risk of increasing while longer-term rates have dropped.\"\nApplications for a mortgage to purchase a home declined 3% for the week to the slowest pace since April. Demand was 7% higher than the same week one year ago, when mortgage rates were 35 basis points higher.\nApplications to refinance a home loan fell 2% for the week and were 20% higher than the same week one year ago. Last week's refinance pace was the slowest since last June.\nThere was less demand for adjustable-rate mortgages, or ARMs, as consumers opt for those when rates are rising.\nMortgage rates are essentially flat so far this week, according to a separate survey from Mortgage News Daily.\n\"Unlike the average trading day of late, bonds held inside a very narrow range AND didn't visibly respond to any major Iran war news (and the typical oil price volatility that follows),\" wrote Matthew Graham, chief operating officer at Mortgage News Daily.\nBonds could have a bigger reaction this Friday, with the government's release of the monthly employment report.",
+  "published_at": "2026-06-03T12:29:58Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.207225Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

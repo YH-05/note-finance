@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/chickens-without-eggs-de-extinction-company-creates-artificial-egg/",
+  "title": "Chickens without eggs? De-extinction company creates artificial egg.",
+  "raw_text": "On Tuesday, biotech startup Colossal announced its newest development on the road to its announced goal: reversing the extinction of species, in this case, avian species. The development itself is essentially an artificial eggshell, one that allows almost the entire developmental process to occur without the shell. The company transferred the contents of eggs to their specially designed container within a day or two of laying and were able to have normal chicks walk away from it.\nBeyond its potential utility for Colossal’s intended efforts, the work is personally interesting to me because it may solve a problem I faced in my research days. I’m going to start by describing the research problem that Colossal may have solved, before coming back to what it hopes to use its technology to do—and why the company still has a few key hurdles left to overcome.\nWatching development\nFor part of my career, I studied the development of vertebrates using chickens. While they’re less closely related to us than something like mice, the basics of their development are largely the same. And, unlike mice, they develop outside of their mother’s body. If you’re careful, you can chip away a hole in the egg, perform manipulations on the developing embryo, and then seal it back up with some tape. The chicken embryo will keep developing, allowing you to see the impact of what you’ve done on normal development.\nManipulations include everything from surgically removing key tissues to implanting beads soaked with signaling molecules to injecting DNA into cells to instruct them to make a different set of proteins. Any of these can alter the development of the embryo, telling us things about the factors that are normally required.",
+  "published_at": "2026-05-20T18:38:05Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-22T03:00:31.375089Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Biology",
+      "colossal",
+      "de-extinction",
+      "embryogenesis",
+      "imaging"
+    ]
+  }
+}

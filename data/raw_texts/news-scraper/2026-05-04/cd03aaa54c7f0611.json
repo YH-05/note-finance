@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20165-court-overturns-starlink-ban-in-papua-new-guinea.html",
+  "title": "Court overturns Starlink ban in Papua New Guinea",
+  "raw_text": "The Starlink satellite communications service is expected to be permitted to operate in Papua New Guinea (PNG), more than two years after a ban was imposed on it by the country’s Ombudsman Commission.\nThe PNG National Court ruling has been widely welcomed, not least after a recent natural disaster, Tropical Cyclone Maila, underlined the limitations of conventional communications in the country.\nThe 2024 ruling was reinforced last December, as we reported at the time, when regulator the National Information and Communications Technology Authority (NICTA) announced that Starlink's parent company, SpaceX, had been instructed to cease all services in PNG due to the Ombudsman Commission’s directive.\nAt the time NICTA reminded users that Starlink was not licensed to operate in Papua New Guinea and that there had nevertheless been ongoing importation, supply, installation and use of Starlink terminals across the country over recent months. It added: \"Any person or entity engaging in these activities is in breach of the law and may be subject to enforcement action, including prosecution.\"\nThe Ombudsman Commission blocked Starlink's licensing arrangements in March 2024 over reliability issues, arguing that existing regulations may not be adequate to manage potential risks to public interest and safety. It’s not clear why the Commission took so long to follow up on its ruling, but NICTA apparently took the Commission to court 18 months later.\nIn her National Court ruling last week, Judge Susan Purdon-Sully strongly criticised the Ombudsman Commission for its move to halt Starlink's license process.\nThe ruling allows NICTA to liaise with Starlink to approve its license to operate in PNG.",
+  "published_at": "2026-04-28T11:24:12Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-04T03:01:20.549791Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

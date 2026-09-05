@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/reddits-ceo-fuel-artificial-intelligence.html",
+  "title": "Reddit's CEO calls his company 'the fuel' for artificial intelligence",
+  "raw_text": "Reddit CEO Steve Huffman said his company may be one of the most underappreciated winners of the artificial intelligence boom.\n\"There's no artificial intelligence without actual intelligence,\" he said on \"Mad Money.\" \"The knowledge has to come from somewhere, and Reddit is one of the primary sources for that sort of information that AI's crave, but also that people crave.\"\nThe comments come after Reddit delivered a standout quarter on Thursday evening, sending shares about 9% higher in extended trading. Revenue jumped 69% year over year to $663 million, most of which comes from advertising, and daily active users climbed 17% to 126.8 million. Gross margins exceeded 90%, a level that stands out even among top-performing tech companies.\n\"We're a lightweight company,\" he said. \"We're not building data centers … we're building a consumer product for people.\"\nThat model allows Reddit to benefit from the AI boom without the massive capital outlays required by competitors. The company's capital expenditures were roughly $1 million for the quarter, a fraction of what hyperscalers are investing in compute and data centers. That helped Reddit deliver free cash flow of $311 million in the March quarter, more than doubling from a year ago.\nAt the same time, Reddit's vast archive of user-generated conversations is becoming increasingly valuable to the biggest players in AI. Huffman pointed to partnerships with Google and OpenAI as evidence of that demand.\n\"People want what Reddit has,\" he said, emphasizing how AI systems rely heavily on authentic, real-world data. \"What we've seen over the last couple of years with the rise of AI is that the whole market now is learning that Reddit is the fuel for it.\"\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-04-30T22:48:30Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.510497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

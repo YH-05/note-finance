@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/treasury-yields-rise-as-traders-monitor-factory-data-and-mideast-moves.html",
+  "title": "Treasury yields edge higher as traders monitor factory data and Middle East developments",
+  "raw_text": "U.S. Treasury yields rose on Monday as traders awaited more data on U.S. factory activity and events in the Middle East continued to loom over borrowing costs.\nThe 10-year Treasury yield — the benchmark for U.S. government borrowing — was more than 1 basis point higher in early trade, at 4.3979% by 5:10 a.m. E.T.\nMeanwhile, yields on the 2-year Treasury note, which are typically more sensitive to short-term Federal Reserve rate decisions, rose more than 2 basis points, reaching 3.9107%. Yields on the 30-year note increased by more than 1 basis point, reaching 4.9792%.\nOne basis point equals 0.01%, or 1/100th of 1%, and yields and prices move inversely to one another.\nThe rise in the cost of borrowing came as events in the Middle East returned to the spotlight Monday.\nPresident Donald Trump announced plans for U.S. forces to \"guide\" commercial vessels not involved in the conflict through the vital Strait of Hormuz shipping channel. This could potentially involve a mix of land and sea-based aircraft, missile destroyers and 15,000 troops, in an initiative dubbed \"Project Freedom.\"\nOil edged higher, with prices of West Texas Intermediate advancing 0.9% in early trade to $102.83 a barrel.\nFollowing the announcement, Iran's foreign ministry said in a statement it was ready to \"respond to U.S. threats\" in the waterway.\nU.S. factory order data is expected to show a rebound in demand for manufactured goods during March. Consensus estimates from Trading Economics show a 0.5% increase for the month from February's total of $619.6 billion.\nFactory activity, as measured by the Institute for Supply Management's April manufacturing index, came in at 52.7 on Friday, which was unchanged from March and slightly below economists' estimates of 53.0. ISM data also showed that prices paid by manufacturers hit their highest level since April 2022.\nLater Monday, John C. Williams, president and CEO of the Federal Reserve Bank of New York, will also give a speech on monetary policy.",
+  "published_at": "2026-05-04T09:23:53Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:19:17.198043Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

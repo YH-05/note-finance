@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060234",
+  "title": "今日の注目スケジュール：中RatingDogサービス業PMI、欧ユーロ圏サービス業PMI確報値、欧ユーロ圏生産者物価指数",
+  "raw_text": "【市況】今日の注目スケジュール：中RatingDogサービス業PMI、欧ユーロ圏サービス業PMI確報値、欧ユーロ圏生産者物価指数\n＜国内＞\n株式市場は祝日のため休場(振替休日)\n＜海外＞\n07:45 NZ・失業率(1-3月) 5.4％\n10:45 中・RatingDogサービス業PMI(4月) 52.1\n10:45 中・RatingDog総合PMI(4月) 51.5\n14:00 印・サービス業PMI確定値(4月) 57.9\n14:00 印・総合PMI確定値(4月) 58.3\n17:00 欧・ユーロ圏サービス業PMI確報値(4月) 47.4\n17:00 欧・ユーロ圏総合PMI確報値(4月) 48.6\n18:00 欧・ユーロ圏生産者物価指数(3月) -3.0％\n21:15 米・ADP全米雇用報告(4月) 6.2万人\n22:00 ブ・サービス業PMI(4月) 50.1\n22:00 ブ・総合PMI(4月) 49.9\n注：数値は市場コンセンサス、前回数値\n《CS》\n提供：フィスコ",
+  "published_at": "2026-05-05T21:30:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:00:22.361137Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

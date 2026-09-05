@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.phoronix.com/news/ReactOS-Running-Half-Life",
+  "title": "ReactOS (FOSS \"Windows\") achieves 3D-accelerated Half-Life on real hardware",
+  "raw_text": "ReactOS \"Open-Source Windows\" Reaches The Milestone Of Being Able To Run Half-Life\nReactOS has been in development for 28 years now and today its developers are noting on X the ability to run the Windows version of Half-Life. Some years ago were reports of the Half-Life game at least initializing under ReactOS while given today's X coverage, it seems to be the first time reported of the game successfully running on ReactOS and handling it in-game.\nGranted, these days you can run Half-Life on Linux and it works well on other platforms via Wine, it's fun seeing Half-Life now running on ReactOS at it continues persevering in its quest of Windows binary compatibility.\nReactOS user \"Zombiedeth\" got Half-Life running on a Dell OptiPlex system with a Core i5 2400 Sandy Bridge processor and NVIDIA GeForce 8400GS graphics.\nDetails on X for those interested.",
+  "published_at": "2026-06-13T23:22:05Z",
+  "author": "jeditobe",
+  "collected_at": "2026-06-14T03:01:35.986505Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

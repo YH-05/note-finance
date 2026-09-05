@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/05/google-publishes-exploit-code-threatening-millions-of-chromium-users/",
+  "title": "Google publishes exploit code threatening millions of Chromium users",
+  "raw_text": "Google on Wednesday published exploit code for an unfixed vulnerability in its Chromium browser codebase that threatens millions of people using Chrome, Microsoft Edge, and virtually all other Chromium-based browsers.\nThe proof-of-concept code exploits the Browser Fetch programming interface, a standard that allows long videos and other large files to be downloaded in the background. An attacker can use the exploit to create a connection for monitoring some aspects of a user’s browser usage and as a proxy for viewing sites and launching denial-of-service attacks. Depending on the browser, the connections either reopen or remain open even after it or the device running it has rebooted.\nUnfixed for 29 months (and counting)\nThe unfixed vulnerability can be exploited by any website a user visits. In effect, a compromise amounts to a limited backdoor that makes a device part of a limited botnet. The capabilities are limited to the same things a browser can do, such as visit malicious sites, provide anonymous proxy browsing by others, enable proxied DDoS attacks, and monitor user activity. Nonetheless, the exploit could allow an attacker to wrangle thousands, possibly millions, of devices into a network. Once a separate vulnerability becomes available, the attacker could use it to then compromise all those devices.\n“The dangerous part here is that you can just have a lot of different browsers together that you can in the future run something on that you figure out,” said Lyra Rebane, the independent researcher who discovered the vulnerability and privately reported it to Google in late 2022 in an interview. She said using the exploit code Google prematurely published would be “pretty easy,” although scaling it to wrangle large numbers of devices into a single network would require more work. In the thread of Rebane’s disclosure to Google, two developers said in separate responses that it was a “serious vulnerability.” Its severity was rated S1, the second-highest classification.\nSince its reporting 29 months ago, the vulnerability remained unknown except to Chromium developers. Then on Wednesday morning, it was published to the Chromium bug tracker. Rebane initially assumed the vulnerability was finally fixed. Shortly thereafter, she learned that, in fact, it remained unpatched. While Google removed the post, it remains available on archival sites, along with the exploit code.",
+  "published_at": "2026-05-20T19:10:36Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-20T21:00:31.751297Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "chromium",
+      "exploits",
+      "vulnerabilities"
+    ]
+  }
+}

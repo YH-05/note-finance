@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606040034",
+  "title": "トランプ大統領、フランスＧ７サミットに出席へ",
+  "raw_text": "【注目】トランプ大統領、フランスＧ７サミットに出席へ\nトランプ大統領は、フランスで開催されるＧ７サミット（７カ国首脳会議）に出席することを明らかにした。大統領は自身のＳＮＳへの投稿で「私はフランスで開催されるＧ７に出席する」と述べた。Ｇ７では中東情勢、世界経済、貿易問題、安全保障などが主要議題となる見通し。\n特に米国とイランの対立やホルムズ海峡を巡る問題が各国首脳の協議テーマになるとみられている。\n株探ニュース",
+  "published_at": "2026-06-03T19:44:00Z",
+  "author": null,
+  "collected_at": "2026-06-03T21:00:23.043201Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

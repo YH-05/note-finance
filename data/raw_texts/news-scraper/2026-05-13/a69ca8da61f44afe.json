@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/varda-signs-deal-with-major-us-pharma-firm-to-develop-drugs-in-space/",
+  "title": "Could this be the moment that drug manufacturing takes off in orbit?",
+  "raw_text": "NASA has enabled scientists to study the impact of microgravity on drug development for decades, beginning with the Space Shuttle. This work accelerated in the 2010s, with the completion of the International Space Station and full-time crew members devoted to scientific research.\nThere have been some notable successes during this timeframe, such as the ability to grow a more uniform crystalline form of the cancer drug Keytruda in 2019. This opened up the possibility of administering the drug via injection rather than requiring a patient to spend hours in a clinic setting to receive the drug intravenously.\nNASA subsidized much of this work, typically paying the considerable costs to transport research to the ISS and for astronaut time to conduct research there. There were, however, trade-offs, such as long lead times to get research into space. Nevertheless, it has become clear that there could be some commercial applications for making drugs in space.\nVarda starts cooking\nA private space company, Varda Space Industries, has begun flying small, uncrewed capsules equipped with autonomous bioreactors that spend a few weeks to months in microgravity that can process pharmaceuticals in the absence of gravity. The company launched the first of these vehicles, W-1, in mid-2023. Five other vehicles have launched since then.\nThe pharmaceutical industry appears to be starting to notice. On Wednesday morning, Varda announced a significant new collaboration with United Therapeutics Corporation to explore the use of microgravity to develop improved treatments for rare lung disease. As part of the agreement, Varda and United Therapeutics will use microgravity’s influence on the structure and crystallization properties of therapeutic compounds in order to improve their stability and delivery.\nIn an interview, the president and co-founder of Varda, Delian Asparouhov, said this was an important moment for the orbital economy.\n“This is the first time that a large, publicly traded company is using capital from their own balance sheet, not just from NASA, to build and produce a product in microgravity,” Asparouhov said. “This is the first, and we expect there to be many more. I do think it’s a really good historical moment for the space industry.”",
+  "published_at": "2026-05-13T10:00:28Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-13T15:00:31.125001Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "pharmaceutical",
+      "space",
+      "Varda"
+    ]
+  }
+}

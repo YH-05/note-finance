@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/927736/windows-11-is-getting-a-macos-like-speed-boost",
+  "title": "Windows 11 is getting a macOS-like speed boost",
+  "raw_text": "Microsoft is currently testing a new speed boost feature in Windows 11 that is designed to improve app launch times and make things like the Start menu feel more responsive. The feature, which is reportedly called “Low Latency Profile,” will ramp up CPU frequency in short bursts to improve the speed of menus, flyouts, apps, and more — much like how macOS handles similar tasks.\nWindows 11 is getting a macOS-like speed boost\nMicrosoft is using dynamic CPU scaling to speed up the Start menu, app opening times, and more.\nMicrosoft is using dynamic CPU scaling to speed up the Start menu, app opening times, and more.\nWindows 11 testers have been trying out the new unannounced feature over the past week, and noticing significant speed improvements launching File Explorer or the Start menu, as well as apps like Outlook, the Microsoft Store, and Paint.\nWindows Central reports that this new boost mode can result in up to 40 percent faster app times for Microsoft’s own apps, and up to 70 percent faster for the Start menu and context menus throughout Windows 11. While the early results look promising, some online commentators have criticized Microsoft for using CPU bursts to improve its operating system, drawing the attention of a Microsoft executive.\nScott Hanselman, vice president of technical staff for CoreAI, GitHub, and Windows, defended Microsoft’s speed boost changes to Windows 11 over the weekend, pointing out in a post on X that “your smartphone already does this” and that Microsoft isn’t cheating by boosting CPU clocks temporarily. Microsoft is using a common practice, used by macOS and Linux, to dynamically scale a CPU to prioritize interactive tasks. “Apple does this and y’all love it,” said Hanselman. “Let Windows cook.”\nMicrosoft’s latest speed boost to Windows 11 is part of sweeping changes coming to the operating system to improve performance, reliability, and user experience. Microsoft has also started removing “unnecessary” Copilot buttons from Windows 11, and made Windows Update a lot less annoying.",
+  "published_at": "2026-05-11T11:12:42Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-11T15:00:12.978230Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ]
+  }
+}

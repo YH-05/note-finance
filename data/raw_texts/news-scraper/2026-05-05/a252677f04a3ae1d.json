@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/923252/google-pixel-11-spec-leak-lower-ram",
+  "title": "The Pixel 11 could be the next victim of the RAM shortage",
+  "raw_text": "Google’s next round of Pixel phones could be a downgrade compared to the Pixel 10 lineup due to the ongoing RAM shortage. Leaked specs for the Pixel 11 lineup shared by MysticLeaks include a possible starting configuration with only 8GB of RAM, rather than the current 12GB, as Android Headlines reports.\nThe Pixel 11 could be the next victim of the RAM shortage\nThe base Pixel 11 might start with 8GB of RAM, while the Pro models are reportedly getting a 12GB starting configuration.\nThe base Pixel 11 might start with 8GB of RAM, while the Pro models are reportedly getting a 12GB starting configuration.\nAccording to MysticLeaks, Google may also add a second configuration for the Pixel 11 Pro, Pro XL, and Pro Fold with 12GB of RAM, down from the current 16GB in each model. There will be 16GB configurations available for each, but adding a lower-spec model could mean the 16GB version is getting a price hike. However, the silver lining is that the specs from MysticLeaks also include camera upgrades and brighter displays for the Pro models.\nThe RAM shortage is pushing other phone makers, including Samsung, to raise prices, too. It’s not just phones feeling the RAM squeeze, either; everything from gaming handhelds to Raspberry Pis are experiencing price hikes and spec changes.\nMost Popular\n- Hisense aggressively cuts the price of its RGB LED TV on release day\n- Homebridge 2.0 is here, and it speaks Matter\n- Tesla hits Musk’s threshold for ‘safe unsupervised’ driving\n- Amazon’s trying to turn its massive shipping operation into another AWS\n- The creator of Roomba is back with a furry robot companion",
+  "published_at": "2026-05-04T16:48:21Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-05T03:00:16.853985Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Google",
+      "Google Pixel",
+      "News",
+      "Phones",
+      "Tech"
+    ]
+  }
+}

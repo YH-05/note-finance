@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/trump-administration-cites-national-security-in-stalling-165-wind-farms/",
+  "title": "Trump administration cites national security in stalling 165 wind farms",
+  "raw_text": "The Trump administration has brought US onshore wind development to a halt citing national security concerns, representing a major escalation in the president’s crusade against renewable energy.\nApprovals for about 165 onshore wind projects on private lands are being stalled by the Department of Defense, including wind farms that were awaiting final sign-off, others in the middle of negotiations, and some that typically would not require oversight by the department, according to the American Clean Power Association (ACP) and people close to the matter.\nWind farms require routine approval from the Defense Department to ensure they do not interfere with radar systems. This typically involves the level of risk being assessed and the developer paying an agreed sum for the army to update its radar filter system so it can locate the windmill. Some projects can be deemed not to pose a risk due to their distance from army facilities and flight paths. Normally these assessments can take as little as a few days to complete.\nSince August 2025, developers have faced a mix of setbacks, including not receiving expected communications from DoD, having meetings to discuss the status of their projects canceled without the opportunity to reschedule, and being informed that the department has stopped processing their applications, according to people with knowledge of the situation.\nThe affected projects include 35 that had completed negotiations and are awaiting sign-off from the DoD—first reported by Axios in March.\nMore projects are now facing a shutdown—30 of which had undergone negotiations, received verbal signoffs, and were waiting for written confirmation, about 50 are in the process of negotiations, and 50 that previously would probably have been declared risk-free, according to developers and consultants.",
+  "published_at": "2026-05-04T13:23:22Z",
+  "author": "Martha Muir, Financial Times",
+  "collected_at": "2026-05-04T15:00:30.937348Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "clean energy",
+      "offshore wind",
+      "renewable energy",
+      "renewables"
+    ]
+  }
+}

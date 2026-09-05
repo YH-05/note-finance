@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/password-manager-dashlane-says-hackers-stole-some-customers-password-vaults/",
+  "title": "Password manager Dashlane says hackers stole some customers’ password vaults",
+  "raw_text": "Password manager maker Dashlane says hackers have obtained at least a dozen encrypted vaults used for storing customer passwords during a weekend cyberattack.\nThe company said on its website that hackers brute-forced the company’s two-factor authentication system, granting the hackers access to about 20 customer accounts. By defeating its two-factor mechanism, the hackers were able to download a copy of certain customers’ encrypted vaults, which store their passwords and other sensitive credentials.\nDashlane said on its incident page that there was no evidence of compromise of its own systems, but it has not yet said how the hackers were able to defeat its two-factor protections in order to access customer accounts. Two-factor is a security feature that protects accounts from being accessed with just a stolen username and password, typically by requiring an additional passcode to be sent to the phone of the account holder.\n“The goal of the attack was to brute-force two-factor authentication (2FA) protections to allow the attacker to register new devices on existing user accounts,” said Dashlane. The company said that attackers can use automated software to “rapidly submit every possible numeric combination to the system, hoping to guess the exact sequence before the short-lived [two-factor] security code expires.”\nThe company said it has “taken steps to mitigate the risk of future incidents,” without saying what those were.\nDashlane said it has notified the 20 or so customers whose encrypted vaults were stolen. It’s not yet clear if the specific customers were targeted for a reason, such as because of who they are or what they do for a living.\nSpokespeople for Dashlane did not respond to a request for comment. The company has not said if it knows who targeted its customers, or if the hackers contacted Dashlane with demands, such as a ransom.\nThe stolen vaults are scrambled and cannot be read without the customer’s master password, which is only known by the customer and is not uploaded to Dashlane in plaintext, the company’s website says. But Dashlane said that customers with an easily guessed master password may be at greater risk of having it guessed and their password vaults decrypted.\nData breaches affecting password manager companies are rare but can have lasting consequences.\nIn 2022, LastPass confirmed that customer password vault backups were stolen during a cyberattack. While the vaults were protected with passwords only known to the customer, the password requirements for early customers were far weaker than the later standard, allowing hackers to brute-force and easily guess the passwords of some customers’ vaults. There have been several reports of hackers stealing vast amounts of customers’ crypto, likely by using private keys stored in stolen LastPass vaults that had their master passwords cracked following the breach.\nA year earlier, Australian software house Click Studios warned all of its customers who use its flagship password manager, Passwordstate, to “reset all credentials” after hackers compromised its software update mechanism to plant malware on customer systems.",
+  "published_at": "2026-06-02T15:40:11Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-06-02T21:00:26.837542Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cyberattack",
+      "cybersecurity",
+      "dashlane",
+      "LastPass",
+      "password manager",
+      "two-factor authentication"
+    ]
+  }
+}

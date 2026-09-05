@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/vendor-news/20395-adani-jabil-plan-ai-infrastructure-manufacturing-platform-in-india.html",
+  "title": "Adani, Jabil plan AI infrastructure manufacturing platform in India",
+  "raw_text": "Adani Enterprises and US-based manufacturing company Jabil plan to establish an AI and data centre infrastructure manufacturing platform in India, targeting both domestic demand and global exports.\nThe proposed alliance will combine Jabil's manufacturing and engineering expertise with Adani's infrastructure, energy and data centre assets to build a vertically integrated supply chain for AI-ready data centre hardware.\nThe companies said the platform will manufacture high-density AI racks, servers, storage and networking equipment for hyperscalers, colocation providers and enterprise customers. Production will also extend to supporting infrastructure including power distribution units (PDUs), coolant distribution units (CDUs), transformers, switchgear, busbars and thermal management systems.\nAdani and Jabil said the initiative is aimed at addressing a global AI infrastructure opportunity they estimate will exceed US$3 trillion over the next seven years as demand for AI compute continues to accelerate.\nThe partners are currently working on final operational and commercial agreements.\nThe move comes as India positions itself as a major AI and data centre market, said Adani. Industry forecasts project national data centre capacity could reach between 5GW and 8GW by 2030, driven by cloud adoption, AI workloads and data localisation requirements.\nThe announcement also supports Adani Group's previously disclosed plans to develop 5GW of AI-ready, renewable-powered data centre capacity by 2035.\nAdani Group chairman Gautam Adani said: \"Our alliance with Jabil represents a decisive step in building India's complete AI infrastructure stack - from green power generation to world-class hardware manufacturing. Together, we will ensure India is not merely a consumer in the AI age, but a creator, builder, and exporter of intelligence.\"\nJabil CEO Mike Dastoor said: \"By combining Jabil's more than sixty years of engineering expertise and advanced manufacturing capabilities with Adani's formidable infrastructure and energy platform, we can expect to execute down to the rack level for hyperscalers and enterprises here in India and across the globe.\"\nThe companies said the platform is expected to create thousands of engineering and manufacturing jobs while strengthening India's position as a global hub for AI infrastructure production.",
+  "published_at": "2026-06-16T09:37:03Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-17T03:01:24.678300Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Vendors"
+    ]
+  }
+}

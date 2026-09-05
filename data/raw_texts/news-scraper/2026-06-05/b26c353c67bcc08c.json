@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/after-11-years-at-mars-nasas-maven-spacecraft-went-out-with-a-whisper/",
+  "title": "After 11 years at Mars, NASA's MAVEN spacecraft went out with a whisper",
+  "raw_text": "NASA’s MAVEN spacecraft was in excellent shape when it disappeared behind Mars on December 6 of last year. The routine passage, called an occultation, was supposed to last less than an hour, but ground teams didn’t hear from the spacecraft when it was supposed to regain contact with Earth.\nThe loss of communication triggered contingency plans for engineers to try to restore a link with MAVEN, which orbits Mars more than 200 million miles from Earth. To no avail, they listened for faint signals and uplinked commands in the blind. Hopes of saving the mission faded over time, and NASA officials announced Wednesday that they’re giving up on it.\n“NASA has ceased efforts to search for the MAVEN spacecraft and are beginning activities to decommission the mission,” said Mike Moreau, MAVEN’s project manager at NASA’s Goddard Space Flight Center in Maryland.\nLoss of signal\nIt will take some time for engineers to try to unravel what happened to the Mars Atmosphere and Volatile Evolution (MAVEN) spacecraft, which launched from Earth in 2013 and arrived in orbit around Mars in 2014 to study the interaction between the Martian atmosphere and the solar wind. MAVEN was an unqualified success, lasting 11 years at Mars and far outliving its original prime mission. But the spacecraft’s sudden failure was a surprise. Many of NASA’s planetary exploration missions operate for decades.\nWith the scant information available, investigators may never determine exactly what went wrong with MAVEN. Investigators are combing through data the spacecraft transmitted before Mars blocked the signal, and engineers were able to recover fragments of telemetry from MAVEN after it reemerged from behind the planet.\n“As part of this investigation, the team members at the Jet Propulsion Laboratory were successful in recovering some fragments of telemetry and Doppler shift data from the spacecraft,” Moreau said. “These data were extracted from recorded signals that were recovered during the hours following the loss of signal.”\nGround controllers didn’t see these faint signals in real time. They were recorded as part of a separate science campaign seeking to gather information about the density and dynamics of the upper Martian atmosphere, which can distort radio signals that pass through it.",
+  "published_at": "2026-06-04T16:21:06Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-06-05T03:02:35.613247Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Lockheed Martin",
+      "Mars",
+      "MAVEN",
+      "NASA",
+      "planetary science",
+      "solar system"
+    ]
+  }
+}

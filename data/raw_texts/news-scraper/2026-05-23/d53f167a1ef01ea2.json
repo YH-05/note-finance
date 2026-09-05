@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/information-technology/2026/05/a-hacker-group-is-poisoning-open-source-code-at-an-unprecedented-scale/",
+  "title": "A hacker group is poisoning open source code at an unprecedented scale",
+  "raw_text": "A so-called software supply chain attack, in which hackers corrupt a legitimate piece of software to hide their own malicious code, was once a relatively rare event but one that haunted the cybersecurity world with its insidious threat of turning any innocent application into a dangerous foothold in a victim’s network. Now one group of cybercriminals has turned that occasional nightmare into a near-weekly episode, corrupting hundreds of open source tools, extorting victims for profit, and sowing a new level of distrust in an entire ecosystem used to create the world’s software.\nOn Tuesday night, open source code platform GitHub announced that it had been breached by hackers in one such software supply chain attack: A GitHub developer had installed a “poisoned” extension for VSCode, a plug-in for a commonly used code editor that, like GitHub itself, is owned by Microsoft. As a result, the hackers behind the breach, an increasingly notorious group called TeamPCP, claim to have accessed around 4,000 of GitHub’s code repositories. GitHub’s statement confirmed that it had found at least 3,800 compromised repositories while noting that, based on its findings so far, they all contained GitHub’s own code, not that of customers.\n“We are here today to advertise GitHub’s source code and internal orgs for sale,” TeamPCP wrote on BreachForums, a forum and marketplace for cybercriminals. “Everything for the main platform is there and I very am happy to send samples to interested buyers to verify absolute authenticity.”\nThe GitHub breach is just the latest incident in what has become the longest-running spree of software supply chain attacks ever, with no end in sight. According to cybersecurity firm Socket, which focuses on software supply chains, TeamPCP has, in just the last few months, carried out 20 “waves” of supply chain attacks that have hidden malware in more than 500 distinct pieces of software, or well over a thousand counting all of the various versions of the code that TeamPCP has hijacked.",
+  "published_at": "2026-05-22T10:30:14Z",
+  "author": "Andy Greenberg and Lily Hay Newman, WIRED.com",
+  "collected_at": "2026-05-23T03:00:30.808956Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "GitHub",
+      "malware",
+      "open source",
+      "syndication",
+      "teampcp"
+    ]
+  }
+}

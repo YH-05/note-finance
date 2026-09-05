@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/gravitational-lens-shows-a-galaxy-just-800-million-years-post-big-bang/",
+  "title": "Gravitational lens shows a galaxy just 800 million years post-Big Bang",
+  "raw_text": "For decades, astronomers looking through telescopes like Hubble have been trying to catch a glimpse of the ancient epoch when the Universe’s first generation of stars ignited. But the small galaxies that were the building blocks of the cosmos we know today were too faint to spot, even by the most powerful instruments. Now it seems astronomers finally have two things on their side: the Webb Space Telescope and a bit of luck.\nIn a recent paper in Nature, a team of scientists led by Kimihiko Nakajima, an astronomer at the Kanazawa University, Japan, used the James Webb Space Telescope to observe an ultra-faint galaxy called LAP1-B as it existed roughly 800 million years after the Big Bang. It’s the most chemically primitive galaxy we’ve ever seen.\nThe magnifying glass\nThe LAP1-B is 13 billion light-years away from Earth. To observe an object that faint and distant, even the huge, gold-coated beryllium mirrors of JWST were not enough on their own. We spotted it due to a massive cluster of galaxies called the MACS J046, which warps the spacetime between us and the LAP1-B.\n“The galaxy was strongly magnified through the gravitational lensing effect,” Nakajima said. Specifically, the spacetime warped by the MACS J046 clusters magnifies light traveling from LAP1-B toward Earth by roughly 100-fold.\nBut even with this 100-fold boost in brightness, LAP1-B is so dim that neither the JWST nor Hubble could detect its stellar continuum—the steady background light of its stars. For Nakajima and his colleagues, though, even that worked as a clue. Knowing the distance separating us from the LAP1-B and the sensitivity of telescopes, they calculated that the hard upper limit of the stellar mass of LAP1-B must be equal to 3,300 Suns. That’s a tiny number compared to the roughly 100 billion solar masses in the Milky Way.",
+  "published_at": "2026-05-13T15:53:20Z",
+  "author": "Jacek Krywko",
+  "collected_at": "2026-05-13T21:00:31.230300Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "astronomy",
+      "galaxy evolution",
+      "gravitational lens",
+      "Webb telescope"
+    ]
+  }
+}

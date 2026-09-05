@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/941517/google-phone-scammer-ai-impersonation",
+  "title": "Google’s Phone app will tell you if a scammer is impersonating one of your contacts",
+  "raw_text": "Google is launching a new feature for its Phone app that aims to protect you from AI impersonation scams. Now, when you receive a call from a scammer that appears to be coming from the same number as one of your contacts, Phone by Google will flag the call as suspicious so you can hang up.\nGoogle’s Phone app will tell you if a scammer is impersonating one of your contacts\nThe Phone by Google app will flag suspicious calls so you can hang up.\nThe Phone by Google app will flag suspicious calls so you can hang up.\nIt’s part of Google’s broader June Android drop, which will add support for Apple AirDrop across more devices, including the Samsung Galaxy S25 lineup. Google is also making its Personal Safety app available to kids under 13, widely rolling out support for its AI-powered clothing try-on feature in Photos, and bringing the ability to find items in an outfit with Circle to Search to more Android users.\nIn a post explaining the Phone app update, Google describes impersonation scams as a growing threat, with the FBI reporting that Americans lost over $893 million to scams using AI in 2025. To carry out the attack, scammers spoof one of your contacts’ phone numbers and then use AI-powered tech to make their voice sound like a friend, family member, or authority figure. The Phone by Google app will display a notification if you receive one of these fake calls, saying “Someone may be pretending to call from your contact’s number,” along with the option to end the call.\nGoogle is turning on this feature by default for users with Android 12 and later, starting with Pixel phones. This feature only works if you and a trusted contact both use Phone by Google, as a contact’s device will send a “silent confirmation signal” that verifies the call is actually coming from your friend or family member. If a scammer tries to spoof your contact’s number, “that initial confirmation signal will be missing,” according to Google. The company notes that it built this feature atop end-to-end encrypted rich communication services (RCS) technology, allowing other apps to adopt it.\nMost Popular\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet\n- Gemini’s new AI agent is about as good as Google’s demo\n- These are the first Nvidia RTX Spark laptops\n- This could be Windows’ M1 moment — but expect it to cost a ton\n- This is the Microsoft Surface Laptop Ultra with Nvidia RTX Spark",
+  "published_at": "2026-06-02T18:00:00Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-02T21:00:16.735811Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Android",
+      "Google",
+      "Google Pixel",
+      "Tech"
+    ]
+  }
+}

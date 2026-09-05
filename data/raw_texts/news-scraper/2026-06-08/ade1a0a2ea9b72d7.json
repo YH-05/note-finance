@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/intel-jumps-report-google-placed-3-million-tpu-foundry-order",
+  "title": "Intel Jumps On Report Google Placed 3 Million TPU Foundry Order",
+  "raw_text": "After last week's sharp sell-off in chip stocks, the latest attempt to keep the AI bubble inflated comes from a report by The Information, which says Google has placed an order with Intel to manufacture more than 3 million Tensor Processing Units in 2028.\nGoogle's TPU order with Intel is a big win for the struggling chip foundry as it tries to rebuild its empire in advanced chip production and compete with Taiwan Semiconductor Manufacturing Company (TSMC).\nThe Information's Qianer Liu writes that TSMC's capacity constraints are turning into a boon for Intel as a backup manufacturer.\nShe noted that several major AI chip designers, including Nvidia, are turning to Intel as a potential backup manufacturer, but no orders from CEO Jensen Huang have been placed yet, as there is a testing phase to determine whether Intel's technology can be used to produce advanced AI chips.\nThe report from The Information sent Intel shares soaring in premarket trading, up nearly 12%. Shares had plunged into a bear market over the last month and were down about 9.5% last week.\nShares of the VanEck Semiconductor ETF (SMH) were up nearly 5% in premarket trading. The Philadelphia Stock Exchange Semiconductor Index plunged 10% on Friday, the biggest one-day drop since March 2020.\nAmong other notable movers: Nvidia +2.4%, AMD +2.8%, Micron +5.7%, Intel +2.5%, ARM +1.3%, U.S.-listed shares of TSMC +3.2%, Rambus +5.6%, Western Digital +4.3%, Marvell +8.7%, Microchip +2.9%, SanDisk +4.2%, Super Micro +5.8%, and Dell +1.5%.",
+  "published_at": "2026-06-08T13:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-08T15:00:40.896064Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

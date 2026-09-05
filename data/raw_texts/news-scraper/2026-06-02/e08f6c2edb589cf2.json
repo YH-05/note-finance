@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/trump-proposes-25-tariff-on-brazil.html",
+  "title": "Trump administration proposes 25% tariff on Brazilian goods over unfair trade practices",
+  "raw_text": "The Office of the United States Trade Representative has proposed 25% tariffs on Brazilian goods under Section 301, determining that the South American nation had engaged in practices that \"are unreasonable and burden or restrict U.S. commerce.\"\nSome of these practices also include anti-corruption enforcement, intellectual property protection, ethanol market access, and illegal deforestation, according to the release from the U.S. Trade Representative.\nU.S Trade Representative Jamieson Greer said that the investigation under Section 301 was launched at the direction of U.S. President Donald Trump.\nWhile Trump has had \"several constructive meetings\" with Brazilian counterpart Luiz Inácio Lula da Silva, the two sides continue to have substantial differences in resolving the issues identified in this investigation, Greer said.\nThe USTR will hold a hearing about the proposed action on July 6.\nSection 301 is designed to address unfair foreign practices affecting U.S. commerce, and allows the U.S. president to impose tariffs if an investigation finds that the acts are unreasonable or discriminatory.\nBack in July 2025, Brazil was hit with 50% tariff by Trump, partly in retaliation for the ongoing prosecution of the country's former President Jair Bolsonaro.\nHowever, those duties were struck down by the U.S. Supreme Court in February, leaving Washington able to only impose a 10% global tariff on exports to the U.S.\nSeparately, the White House announced an adjustment to tariffs on certain steel, aluminum and copper imports. Levies on agricultural equipment, like combines and harvesters will be dropped to 15% from 25%, and the scope of equipment qualifying for the 15% tariff will also be expanded.\nCapital equipment that include at least 85% of U.S. steel and aluminum by weight will also qualify for a 10% duty rate, down from the current 95%.",
+  "published_at": "2026-06-02T04:55:24Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.568724Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

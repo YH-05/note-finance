@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/01/hackers-hijacked-instagram-accounts-by-tricking-meta-ai-support-chatbot-into-granting-access/",
+  "title": "Hackers hijacked Instagram accounts by tricking Meta AI support chatbot into granting access",
+  "raw_text": "Instagram has resolved a security issue that allowed several users’ accounts to get hacked. The attack appeared to rely on tricking Meta’s own AI-powered support chatbot into granting access to a victim’s account.\nOver the weekend, several users on Reddit claimed that their Instagram accounts had been compromised, and a number of users on X warned of similar account hijackings. The compromised accounts include the Instagram handle for the Obama-era White House, which appears to have been inactive since 2017; and the account of the U.S. Space Force’s chief master sergeant John Bentivegna.\nSecurity researcher Jane Wong said her Instagram account was also taken over.\n“The password got changed without my knowledge and I was getting different password reset attempts throughout yesterday,” said Wong. “Quite concerning.”\nA video posted on X showed the step-by-step process to hack someone’s Instagram account. The hacker allegedly used a VPN to spoof the targets’ presumed location to avoid triggering Instagram’s automated account protections. Then, the hacker opened a chat with Meta AI Support Assistant and asked the bot to add a new email address to the target’s account. The chatbot can be seen sending a verification code to the email address provided by the hacker; the hacker then shares the verification code with the chatbot, which prompts the chatbot to show a button to “Reset Password.” The hacker enters a new password and takes over the victim’s account.\nContact Us\nDo you have more information about these Instagram hacks? Or other flaws affecting Instagram? We’d love to hear from you. From a non-work device and network, you can contact Lorenzo Franceschi-Bicchierai securely on Signal at +1 917 257 1382, or via Telegram and Keybase @lorenzofb, or email.TechCrunch was able to verify that the hacker’s public email mailbox, which was displayed in the video, effectively received the verification code.\nThe attack relied on the fact that at no point the hacker had to take over the legitimate email address linked to the victims’ Instagram account.\nOn Monday, Instagram spokesperson Andy Stone said in a reply to Wong’s post and others that the issue was now fixed. It’s unclear how many Instagram users had their accounts improperly accessed.\nMeta did not immediately respond to TechCrunch’s request for comment.",
+  "published_at": "2026-06-01T18:34:32Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-06-02T15:00:21.730781Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "AI",
+      "cybercrime",
+      "cybersecurity",
+      "hackers",
+      "hacking",
+      "Instagram",
+      "Meta"
+    ]
+  }
+}

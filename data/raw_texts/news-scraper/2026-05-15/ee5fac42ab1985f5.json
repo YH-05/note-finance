@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/casimir-force-co-opted-to-generate-free-energy-midichlorians-not-included/",
+  "title": "Casimir force co-opted to generate free energy, midichlorians not included",
+  "raw_text": "This week, a company called Casimir Inc. emerged from “stealth mode” to announce that it had raised significant funding from venture capitalists willing to roll the dice on free energy. That’s right: a startup has gotten serious backing to develop sources of perpetual free energy. The people behind this fantastic new energy generator also brought us the wildly successful WTF thruster EM-drive that could supposedly directly convert electricity into a propulsive force.\n(Its one practical application was in the show Salvation, where it was treated with the same detailed attention to physical laws as Galaxy Quest’s Omega-13.)\nWith that success, who are we to be skeptical?\nUse the (Casimir) Force, Luke\nCasimir Inc. is convinced it can squeeze energy from the vacuum via the Casimir force (hence the subtle reference in the name). The Casimir force is a real thing, arising from the fact that a vacuum is not actually nothing. Instead, it is filled with a froth of virtual particles becoming real in pairs, waving to us, annihilating each other, and sinking back into the soup of virtual particles. The Casimir force emerges when we create an imbalance in the spatial distribution of these virtual particles, leading to a pressure as the Universe seeks to equalize the distribution.\nTo get to the heart of the Casimir force, we need to talk about modes—one of my favorite concepts (and my chosen instrument of torture for undergraduate students). Put simply, a mode describes how a photon can spread out and occupy a space. The larger the space, the more ways a photon can occupy that space.\nThe Universe is big, so it has an enormous number of modes. But if you create a confined space within the Universe, such as the gap between two closely spaced metal plates, there are only a few modes available, and they are less likely to be occupied by a particle. Between the plates, we have no particles; outside the plates, we have particles. This excess of particles, as they bounce off the plates, drives them together.",
+  "published_at": "2026-05-15T15:07:14Z",
+  "author": "Chris Lee",
+  "collected_at": "2026-05-15T21:00:30.410236Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Casimir effect",
+      "electronics",
+      "Physics"
+    ]
+  }
+}

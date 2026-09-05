@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/the-first-complex-cells-had-genes-from-a-complex-mix-of-species/",
+  "title": "The first complex cells had genes from a complex mix of species",
+  "raw_text": "We tend to view ourselves and the complex cells that build us as a distinct branch of the tree of life from the compact, seemingly featureless cells of bacteria and archaea. But we’ve found that our genome is actually a hybrid, a mish-mash of genes from bacteria and archaea, along with some that have evolved in our own lineage.\nScientists gradually settled on a simple explanation for this: the first complex cells were the product of a fusion between archaeal cells and bacteria, with the bacteria ultimately evolving into the mitochondria, a chemical-power-generating structure that still retains a bit of its own genome. Over time, many of the other bacterial genes were transferred to the nucleus of what was becoming what we now call a eukaryote, intermingling with the archaeal genes there.\nBut a new study has taken a careful look at some of the genes shared by all eukaryotes and comes to the conclusion that the reality is a little more complicated and that there were several waves of gene transfers from bacteria. The big picture of a merger between bacteria and archaea is still right, but it was only part of a picture where gene transfers among species were commonplace.\nClouding the big picture\nThe road to the current picture was a complicated one. For starters, it took ages for anyone to even recognize that archaea were a distinct lineage. And the big advocate for mitochondria being the product of bacteria taking up residence in a different cell was laughed at for a number of years before her ideas became widely accepted, after which she started arguing that every complex structure inside eukaryotic cells had come about through similar processes. (There’s no evidence this is the case.)",
+  "published_at": "2026-06-11T12:44:12Z",
+  "author": "John Timmer",
+  "collected_at": "2026-06-11T15:00:26.211598Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Biology",
+      "eukaryotes",
+      "evolution",
+      "genes",
+      "Genetics",
+      "Genomics"
+    ]
+  }
+}

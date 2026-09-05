@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/trump-student-loan-autopay-interest-rate-discount.html",
+  "title": "Trump administration temporarily cuts student loan interest rates for borrowers on autopay",
+  "raw_text": "The Trump administration announced on Thursday that it will offer federal student loan borrowers who sign up for autopay a 1-percentage-point reduction on their interest rate, starting July 1.\nBorrowers on autopay currently have access to a 0.25-percentage-point discount.\nFederal student loan holders who aren't already enrolled in autopay have until Sept. 30 to do so, if they want to benefit from the lower interest rate. The discount will last through June 30, 2028.\n\"The Trump Administration is making student loan repayment easier than ever, and borrowers should not wait to take advantage of this temporary interest rate reduction to stay on track for key student loan benefits,\" Under Secretary of Education Nicholas Kent said in a statement.\nOver 42 million Americans hold federal student loans, and the outstanding debt exceeds $1.6 trillion, according to the Congressional Research Service.\nThe announcement comes as tens of millions of borrowers brace for a massive overhaul of the federal student loan system this summer, due to changes from President Donald Trump's \"one big beautiful bill.\" The law narrows borrowers' affordable repayment plans and other relief measures.\nOnly 40% of student loan borrowers in active repayment are enrolled in autopay today, down from over 80% before the Covid pandemic, according to the U.S. Department of Education.\nConsumer advocates usually recommend that federal student loan holders seize the opportunity for a lower interest rate by signing up for automatic payments. Doing so can also help you avoid missing a payment.\nBut some loan holders have run into problems with autopay.\nFor example, CNBC wrote in 2023 about a woman who was supposed to have a $0 student loan payment under the plan she was enrolled in but was charged $2,074 one month. The Consumer Financial Protection Bureau has reported on similar errors.\nThe interest rate discount is unlikely save borrowers a significant sum, said higher education expert Mark Kantrowitz.\n\"The financial benefit is minimal,\" Kantrowitz said. For instance, a $10,000 student loan with a 6.5% interest rate, cut to 5.5%, would save a borrower around $8 a month, he calculated.\n\"Regardless, borrowers should sign up for autopay, as they are less likely to be late with a payment,\" he added.",
+  "published_at": "2026-06-18T20:08:16Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:30:35.253304Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/personal-finance/late-spirng-buyer-rush-us-pending-home-sales-just-surged-most-almost-2-years",
+  "title": "\"Late Spring Buyer Rush\": US Pending Home Sales Just Surged By The Most In Almost 2 Years",
+  "raw_text": "Pending home sales in the US were expected to rise for the fourth straight month in May and they did with a huge beat (+3.8% MoM vs +0.9% MoM exp - above the highest analysts estimate), which was slightly offset by a downward revision for April (from +1.4% to +0.3%).\nThat is the best monthly improvement in pending home sales since Sept 2024 and that lifted sales by just over 2% YoY.\n“A late spring buyer rush - even with mortgage rates not budging - is an indication of pent-up housing demand and consumers’ acceptance of above-6% mortgage rates as the new normal,” NAR Chief Economist Lawrence Yun said in a release.\nThe Pending Home Sales Index is now at its highest since Nov 2025, after bouncing back from record lows in January...\nThere has been a notable decoupling between rates and pending sales with the recent rise in rates coinciding with a rise in sales (but of course, sales are lagged relative to rates, by typically a month or more)...\nPending sales climbed in all US regions, with the Northeast leading with an 8.7% increase over the month. Yun noted the Northeast is picking up following a period of low inventory and rising home prices.\nAs a reminder, because houses typically go under contract a month or two before they’re sold, the pending home sales data tend to be a leading indicator of closings that are captured in the monthly previously owned home sales reports.",
+  "published_at": "2026-06-17T14:07:41Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-17T21:00:43.306144Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

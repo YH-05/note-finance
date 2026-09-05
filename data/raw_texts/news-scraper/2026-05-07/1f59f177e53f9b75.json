@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/925923/ploopy-bean-open-source-mouse-pointing-stick-qmk",
+  "title": "Ploopy&#8217;s new mouse makes the ThinkPad&#8217;s iconic TrackPoint portable",
+  "raw_text": "Ploopy has announced another open source mouse alternative that skips touchpads and trackballs. While the new Ploopy Bean looks like a tiny travel-friendly mouse, you don’t need to move it around. Instead, surrounded by four buttons is a red pointing stick similar to the TrackPoint that IBM included on its ThinkPad laptops long before Lenovo took over the brand.\nPloopy’s new mouse makes the ThinkPad’s iconic TrackPoint portable\nThe Bean is a travel-friendly mouse you don’t need to move around.\nThe Bean is a travel-friendly mouse you don’t need to move around.\nThe Canadian company only shares pricing in its local currency but the Bean is available for preorder now through Ploopy’s website for $69.99, or around US $51. Beneath a pre-assembled 3D-printed enclosure that lets you print your own replacement parts is a highly-sensitive Texas Instruments magnetic sensor powering the Bean’s pointing stick capable of detecting movements as small as 3 microns. The stick also offers more physical movement than the ones found in the middle of laptop keyboards, up to 11mm in all directions.\nThe Bean’s four buttons use Omron D2LS-21 switches which you’ll also find in many Logitech mice. The buttons are also completely customizable thanks to the Bean coming preloaded with Ploopy’s version of the QMK firmware. Using the VIA online web tool, you can program the buttons to trigger macros or combinations of keyboard keys with one press. The only downside to the Bean is that it’s not wireless, so you’ll need to pair it with a USB-C cable to connect to a laptop or tablet.",
+  "published_at": "2026-05-07T13:59:17Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-07T15:00:14.423194Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

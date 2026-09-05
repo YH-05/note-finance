@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20323-national-telecom-to-shut-off-satellite-internet-service-on-thaicom-4-on-june-30.html",
+  "title": "National Telecom to shut off satellite internet service on Thaicom 4 on June 30",
+  "raw_text": "Thailand’s state-owned National Telecom (NT) says it will stop offering satellite internet service via Thaicom 4 at the end of this month as Thaicom continues preparations to retire the 21-year-old satellite.\nAccording to a report published by The Nation newspaper on Thursday, NT said in a notice issued through its NT Satellite channel that it will terminate the service at 11.59pm on June 30, 2026.\nNT will continue offering satellite internet services through nexConnect, its LEO satellite offering launched last year in partnership with Eutelsat OneWeb, as well as VSAT services via Globalsat.\nThaicom 4 – which began life in 2005 as IPSTAR 1 – is expected to drift out of its geostationary orbital position at 119.5 degrees East after July 31.\nThaicom’s subsidiary Space Tech Innovation Limited (STI) contracted satellite startup Astranis in March 2024 to supply Thaicom 9 as a replacement for Thaicom 4. However, media reports in April said that Astranis has delayed delivery after discovering \"manufacturing issues in the same production batch\". Astranis has yet to provide an updated launch schedule, but Thaicom told the NBTC it is unlikely to happen until at least 2027.\nIn April, Thaicom received regulatory clearance from the National Broadcasting and Telecommunications Commission (NBTC) to temporarily lease capacity from KT Sat as a stopgap to keep Thaicom 4 customers connected while it awaits delivery of Thaicom 9.",
+  "published_at": "2026-06-01T04:45:04Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-07T03:04:10.368974Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

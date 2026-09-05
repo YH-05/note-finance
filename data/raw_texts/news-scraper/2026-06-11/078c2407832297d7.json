@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/palantir-karp-enterprise-ai.html",
+  "title": "Palantir's Karp says businesses are 'unhappy' with the frontier AI labs",
+  "raw_text": "Palantir CEO Alex Karp said the artificial intelligence software company's enterprise customers are \"unhappy\" with how the frontier labs are operating.\n\"It's not just the man and woman on the street that is unhappy with the frontier labs, it's in private, every single enterprise we deal with,\" he told CNBC's Sara Eisen on Wednesday.\nMany customers, he said, believe these companies don't understand their businesses and only care about \"tokenmaxxing,\" or burning through AI tokens to signal productivity.\nAccelerating costs are raising alarm on Wall Street and fueling efficiency concerns as businesses funnel more AI into workloads and model costs rise.\n\"It is not that large language models aren't crucial for the world,\" Karp said. \"It's just the implementation is where the value is, certainly in the next seven years.\"\nKarp's comments come as two of the leading large language model companies, Anthropic and OpenAI, take steps to go public. The Sam Altman-led ChatGPT maker said Monday it confidentially filed for an initial public offering, a week after Anthropic.\nHe told CNBC that most of Anthropic's public projects are \"running on Palantir.\"\nWhile he often disagrees with CEO Dario Amodei, Karp said the co-founder is \"a very, very important person\" who is guiding the \"leading frontier model company.\"\nIn recent years, Karp has made headlines for his outspoken political views and recently aligned himself with President Donald Trump's administration, after previously donating to campaigns of former Vice President Kamala Harris and President Joe Biden.\nIn October, Palantir communications chief Lisa Gordon called the company's political shift \"concerning.\"\nTrump has also praised Palantir on Truth Social with the company's ticker symbol and invested in its stock. The company donated to last year's parade for the U.S. Army's 250th birthday. Palantir is also among the list of donors to Trump's White House ballroom project, along with other tech giants.\nSome of Karp's strong political views, including his support of Israel, have led employees to leave Palantir, he told CNBC in 2024, months after Palestinian militant group Hamas killed about 1,200 people.\nKarp insisted on Wednesday that he is a \"card-carrying progressive\" and wants poor people to have a better life.\nHe also expressed frustration over the politicization of AI, believing the tech will drive the most important political decisions in the U.S.\n\"You can't do a blue-red debate,\" he said. \"This is a massive revolution and there's opportunities only America has, and there are dangers in this revolution.\"",
+  "published_at": "2026-06-10T17:01:08Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.344950Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

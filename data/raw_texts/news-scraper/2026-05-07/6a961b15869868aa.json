@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/alphabet-stands-to-gain-from-robust-google-cloud-tpu-growth-mizuho-says.html",
+  "title": "Alphabet stands to gain from robust Google Cloud, TPU growth, Mizuho says",
+  "raw_text": "Google-owner Alphabet is poised to get a big boost from its cloud and chip businesses, whose profits some analysts continue to underestimate, according to Mizuho Financial. The investment bank reiterated an outperform rating on the YouTube parent but hiked its 12-month price target on the stock to $460 from $420, implying 18% upside from Tuesday's close. \"Consensus estimates continue to significantly under-model Google Cloud revenue and operating income potential over the next two years,\" analyst Lloyd Walmsley said Wednesday in a note to clients. \"Our analysis of the latest cloud backlog data, combined with hardware sales estimates from our supply chain team … points to Cloud segment revenue and [operating income] significantly ahead of Street estimates.\" Mizuho forecasts Google Cloud revenue will grow 70% year-over-year by the end of 2026, topping analysts' consensus estimate of a 58% increase. Walmsley said Google's hardware sales, including its tensor processing units (TPUs) for artificial intelligence-linked applications, can \"generate at least the margins of the traditional compute rental business.\" Mizuho's optimism matches the consensus on Wall Street, where 53 of 61 analysts covering Alphabet have a buy or strong buy rating, LSEG data shows. Alphabet shares have climbed more than 29% in the past month.",
+  "published_at": "2026-05-06T12:15:57Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.329354Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

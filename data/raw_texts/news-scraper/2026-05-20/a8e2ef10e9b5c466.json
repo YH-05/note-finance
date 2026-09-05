@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/the-internet-cant-stop-watching-figure-ais-humanoid-robots-handling-packages/",
+  "title": "The Internet can't stop watching Figure AI's humanoid robots handling packages",
+  "raw_text": "The robotics startup Figure AI has been livestreaming humanoid robots placing thousands of packages onto a conveyor belt for nearly a week—a spectacle that included a robot competing against a human intern at one point.\nThe promotional robot demo has become a viral sensation among tech enthusiasts, spurring YouTube commenters to name the robots and the company to rapidly roll out related robot merchandise in response. Users on X have described the livestream in glowing terms, such as “the greatest product demo since Steve Jobs’ ‘one more thing.’” But despite such sentiments, it’s worth bearing in mind that even the most impressive robot demos represent narrow windows for understanding real-world robot capabilities.\nFigure’s event began on May 13 as a planned eight-hour robot demonstration featuring the company’s latest Figure 03 robots. The chosen robotic task involved inspecting the bar codes on various small packages—including cardboard boxes and soft padded envelopes or bags—and then placing the packages on a conveyor belt with the bar codes facing downward. The demo would feature the robots performing the task autonomously without any human intervention, according to Figure CEO Brett Adcock.\nBut Adcock initially played down expectations by noting that the Figure team was aiming for the robots to work for eight hours straight, whereas a previous Figure demo had lasted just one hour. “High odds something breaks,” Adcock posted on X.\nThe robots rely on the company’s Helix 02 neural network system that supposedly enables full-body control and “long horizon autonomy” to direct the robot’s actions for various tasks. Figure’s website describes the robots’ whole-body controller system as having been trained on more than 1,000 hours of human motion data, along with spending time training in simulation across more than 200,000 parallel environments.",
+  "published_at": "2026-05-20T11:00:34Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-20T15:00:26.085133Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Figure AI",
+      "humanoid robots",
+      "Robotics",
+      "robots"
+    ]
+  }
+}

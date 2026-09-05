@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/17/fed-governor-waller-says-iran-war-and-labor-market-risks-are-keeping-central-bank-on-hold.html",
+  "title": "Fed Governor Waller says Iran war and labor market risks are keeping central bank on hold",
+  "raw_text": "Federal Reserve Governor Christopher Waller on Friday said current economic conditions are complicating the approach to interest rates, with policymakers facing a potentially long-lasting inflation shock and a labor market with no job growth that nonetheless appears stable.\nAgainst that backdrop, Waller said the Fed could have to stay on hold for a prolonged period until the economic direction becomes clearer.\n\"High inflation and a weak labor market would be very complicated for a policymaker,\" the central banker said for a speech in Alabama. \"If I face this situation, I'll have to balance the risks to the two sides of the Fed's dual mandate to determine the appropriate path of policy, and that may mean maintaining the policy rate at the current target range if the risks to inflation outweigh those to the labor market.\"\nThe speech comes with markets expecting the Fed to stay on hold this year amid the cloudy economic outlook.\nFor Waller, the address marked a departure from his previous assessment of the labor market. In recent months he has expressed concern about the low hiring level, but said Friday that evidence is building that the break-even rate — where the pace of hiring sustains the unemployment rate — may be close to zero.\nWaller had been a supporter of cutting interest rates, but voted in March to hold the benchmark federal funds level in a range between 3.5%-3.75%.\nHowever, he said he still has concern about the labor market.\n\"My sense is that employers are walking a tightrope between their earlier challenges in finding qualified workers and where they think the economy is going, leaving them vulnerable to some economic shock that could tip them over and lead to significant job reductions,\" he said.\nAs for inflation — the other side of the Fed's dual mandate — Waller said he is less sanguine than other policymakers and forecasters who see the Iran war's impact as temporary.\n\"Beyond the length of these disruptions, with this economic shock coming on the heels of the boost to prices from import tariffs, I believe there is the possibility that this series of price shocks may lead to a more lasting increase in inflation, as we saw with the series of shocks during the pandemic,\" he said.",
+  "published_at": "2026-04-17T19:00:13Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.556311Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

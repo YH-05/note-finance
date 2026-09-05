@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/science/935229/spacex-anthropic-ipo-ai-capacity-deal-colossus",
+  "title": "Anthropic is paying $15 billion a year for access to Elon Musk’s data centers",
+  "raw_text": "Earlier this month, SpaceX and Anthropic announced a new compute partnership that provides access to the rocket company’s Colossus data centers in Memphis, TN. Now, with the release of SpaceX’s IPO filing, we have more details about that deal, including how much Anthropic is paying to Elon Musk’s company.\nAnthropic is paying $15 billion a year for access to Elon Musk’s data centers\nThe financial details were included in SpaceX’s recently released IPO filing. It includes a clause in which either company can terminate the deal within 90 days.\nThe financial details were included in SpaceX’s recently released IPO filing. It includes a clause in which either company can terminate the deal within 90 days.\nIn its S-1 filing, SpaceX said that Anthropic agreed to pay $1.25 billion per month through May 2029 for access to SpaceX’s AI training centers at Colossus I and Colossus II. That’s $15 billion annually, or nearly double the $18.7 billion in revenue that SpaceX reported in all of 2025.\nThe agreement includes a clause in which either company can terminate the deal within 90 days. And Anthropic’s fees will be reduced during the capacity ramp-up this month and next.\nThe exit clause was likely necessary based on the fast-moving nature of the AI industry. In some sense, Anthropic’s Claude competes with X’s Grok. And it’s a sign of how desperate AI companies like Anthropic are for compute capacity, especially as the data center build out across the country runs into serious local opposition.\nIn a post on X, Musk said that SpaceX stands ready to offer similar deals to other AI companies that want to access the data centers. SpaceX is “offering AI compute as a service at significant scale,” he said.\nSpaceX has been spending enormous amounts of money on AI since the company merged with Elon Musk’s xAI earlier this year. According to the filing, the rocket company spent $12.7 billion in capital expenditures on AI in 2025, or about 61 percent of the total spend. It spent $7.7 billion in the first quarter of 2026, compared to just $1 billion on its space division. SpaceX’s AI division lost $6.3 billion in operations on $3.2 billion in revenue in 2025, and lost $2.5 billion on $818 million in revenue in the first quarter of 2026.\nMeanwhile, Anthropic is cruising toward its first quarterly operating profit, with sales revenue expected reach at least $10.9 billion, more than double its $4.8 billion in revenue for the just-ended March quarter, Reuters reports.",
+  "published_at": "2026-05-21T13:35:52Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-05-21T15:00:16.873657Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Business",
+      "Elon Musk",
+      "News",
+      "Science",
+      "Space",
+      "SpaceX",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141383",
+  "title": "東証投資部門別売買動向：５月第１週、外国人・現物は１兆２３５１億円と６週連続買い越し",
+  "raw_text": "【市況】東証投資部門別売買動向：５月第１週、外国人・現物は１兆２３５１億円と６週連続買い越し\n現物での個人投資家は４９７８億９１７３万円と４週ぶりの売り越し。信託銀行は５２１億２３３０万円と２週ぶりに売り越した。事業法人は７５２億４１０１万円と６週ぶりに売り越した。この週の日経平均株価は終値ベースで３２００円５３銭（５．４％）上昇している。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-14T08:56:00Z",
+  "author": null,
+  "collected_at": "2026-05-14T09:00:22.103482Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

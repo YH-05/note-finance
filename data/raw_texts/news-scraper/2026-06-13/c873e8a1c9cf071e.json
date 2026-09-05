@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://economist.com/science-and-technology/2026/06/12/treating-pancreatic-tumours-may-have-revealed-cancers-master-switch",
+  "title": "Treating pancreatic tumours may have revealed cancer's master switch",
+  "raw_text": "Treating pancreatic tumours may have revealed cancer’s master switch\nA promising drug could be the first of an entirely new class of treatments\nScientists are not usually an excitable bunch. So when many thousands of them recently gave a spontaneous standing ovation (with cheering) in the middle of a lecture, it meant something special happened. At a conference in Chicago at the end of May oncologists went wild over the results of a drug called daraxonrasib, which treats pancreatic cancer. The drug almost doubled median survival times from 6.7 months to 13.2 months. This victory over one of the most challenging cancers was an emotional moment for some.",
+  "published_at": "2026-06-13T13:34:00Z",
+  "author": "andsoitis",
+  "collected_at": "2026-06-13T21:00:52.518259Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

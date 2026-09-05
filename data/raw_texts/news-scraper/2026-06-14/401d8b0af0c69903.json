@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/bidding-war-erupts-worlds-oldest-bank-intesa-gatecrashes-bpm-bid.html",
+  "title": "Bidding war erupts for world’s oldest bank as Italy’s Intesa gatecrashes BPM offer",
+  "raw_text": "A bidding war over Italy's Monte dei Paschi di Siena has erupted between rivals Intesa Sanpaolo and Banco BPM, with the two lenders vie for control of the world's oldest bank.\nIntesa on Monday announced an unsolicited offer of 30.6 billion euros ($35.3 billion), hoping to usurp its rival and create Europe's second-biggest bank by market capitalization.\nIn a statement, its offer outlined a premium of 12.5% versus MPS's closing share price on Friday. Monte dei Paschi di Siena is valued at 27.4 billion euros.\nIntesa's advance comes as a direct counter to rival BPM Banco's announcement on Sunday that its board had unanimously approved a move to express interest to MPS in discussing a \"merger of equals.\"\nThe bank gave scant details on deal structure, saying only that it would give both groups equal weight in the combined entity.\nMPS, which was on the receiving end of a state bailout in 2017, was re-privatized in 2023. It has since emerged as a target for further consolidation in the Italian banking sector after buying Mediobanca last year, a deal that saw it become insurer Generali's largest investor.\nFrance's Credit Agricole, BPM Banco's main shareholder, told CNBC on Monday that it was \"interested in analyzing value creation opportunities which can strengthen BPM\", in a show of support for the potential merger.\nShares in Intesa and BPM Banco fell 4% and 1.1% respectively, while MPS shares rose 0.9% in early trade on Monday.",
+  "published_at": "2026-06-08T08:38:16Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.222443Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

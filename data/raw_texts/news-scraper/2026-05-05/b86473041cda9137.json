@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/open-ai-executive-leaves-thrive-capital.html",
+  "title": "OpenAI sales leader leaves for role at Thrive Capital",
+  "raw_text": "OpenAI sales leader James Dyett said on Monday that he's leaving his role, the latest in a string of high-profile departures at the artificial intelligence company.\nDyett joined OpenAI in 2023, right as the company underwent a period of explosive growth following the launch of its ChatGPT chatbot. His LinkedIn profile has his title as \"Head of Sales,\" but the company said he was a \"senior sales leader.\"\nOpenAI is now valued at more than $850 billion by private investors, and Dyett led its enterprise sales and its application programming interface (API) sales at different points during his tenure.\n\"The timing feels right,\" Dyett wrote in a post on X on Monday. \"I'm drawn back to the early stages of company building, and OpenAI is in a strong place.\"\nDyett's departure comes after a number of executive leadership shakeups at OpenAI in recent months.\nFidji Simo, OpenAI's product and business chief, announced last month that she would take medical leave because of a worsening neuroimmune condition. Kate Rouch, OpenAI's marketing chief, also decided to step down to focus on her cancer recovery, and Brad Lightcap, OpenAI's operating chief, transitioned to a new role focused on \"special projects.\"\nWeeks later, Bill Peebles, who led OpenAI's defunct short-form video app Sora, and Kevin Weil, the vice president of OpenAI for Science, announced they had departed from their respective roles.\nDyett said he is moving to a new role at the venture capital firm Thrive Capital, where he will serve as an Operator in Residence. Thrive is one of OpenAI's longterm backers, and the firm's founder, Joshua Kushner, has a close relationship with OpenAI CEO Sam Altman.\n\"I've been fortunate to work at Thrive-backed companies over the past decade—first Stripe, then OpenAI—and have experienced firsthand their commitment to their companies,\" he wrote. \"I'm excited to pay that forward to founders across the portfolio and stay close to building.\"",
+  "published_at": "2026-05-04T22:54:54Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.323591Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

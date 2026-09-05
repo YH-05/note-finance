@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/microsoft-surface-laptop-ultra-will-be-among-the-first-nvidia-rtx-spark-arm-pcs/",
+  "title": "Microsoft's Surface Laptop Ultra looks like its first true MacBook Pro competitor",
+  "raw_text": "Dell, Asus, Lenovo, HP, MSI, Acer, and Gigabyte are among the PC makers that are designing systems around Nvidia’s RTX Spark, Nvidia’s new Arm-based chip for Windows PCs. But the flagship RTX Spark PC may be from the same company that makes Windows: the new Microsoft Surface Laptop Ultra is a high-end RTX Spark system that will offer up to 128GB of unified memory for “creators, developers, and AI builders.”\nMicrosoft says the Laptop Ultra will be available “later this year” but didn’t discuss any specific pricing or configuration options.\nThe Laptop Ultra will slot in above the regular Qualcomm Snapdragon-based Surface Laptops in Microsoft’s lineup. Microsoft has made high-end Surface devices with more powerful CPUs and GPUs before, but to date, they’ve also come with convertible designs that may have limited their appeal. The first was the old Surface Book, with its fully detachable screen and bendy-straw hinge that didn’t close all the way; the second was the Surface Laptop Studio, with its chunky design and sliding screen. The Laptop Ultra is Microsoft’s first attempt to follow the MacBook Pro formula: it’s like the other Surface Laptops, just with more power.\nMicrosoft says the Laptop Ultra will include USB-A, USB-C, and HDMI ports, as well as an SD card slot and headphone jack. It’s said to include a haptic trackpad that’s “the largest we’ve ever put on a Surface.” A 15-inch PixelSense display offers up to 2,000 nits of peak brightness.",
+  "published_at": "2026-06-01T20:13:09Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-02T15:00:26.368104Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "microsoft",
+      "microsoft surface laptop ultra",
+      "Surface",
+      "surface laptop"
+    ]
+  }
+}

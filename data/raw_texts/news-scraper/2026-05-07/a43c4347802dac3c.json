@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/googles-9-99-per-month-ai-health-coach-launches-may-19/",
+  "title": "Google’s $9.99-per-month AI health coach launches May 19",
+  "raw_text": "Alongside taking the wraps off the new Fitbit Air, a Whoop-esque fitness band, Google on Thursday said it is also rebranding its Fitbit app as Google Health and launching an AI-powered health coach as a subscription service.\nThe Health app will become a central part of Google’s fitness strategy, capitalizing on its 2021 acquisition of Fitbit, which saw the tech giant delving into fitness wearables to supplement its more general-purpose Android smartwatches.\nLeveraging Google’s Gemini AI, the new Google Health Coach will offer personalized insights to users, acting as a combination fitness coach, sleep expert, and health and wellness advisor. The service has been in public preview since last year and has been undergoing improvements based on user feedback, the company said.\nGoogle says the Health app will be globally available on May 19, as part of the Google Health Premium subscription — the same day the new Fitbit Air goes on sale. The AI fitness coaching service will come bundled with the Google Health Premium subscription (previously Fitbit Premium), which costs $9.99 per month or $99 per year. Google AI Pro and Ultra subscribers will have access to Google Health Premium at no extra cost.\nGoogle notes the health coach service is customized for the user via an onboarding process, in which you’ll mention your health goals, your daily routine, what sort of exercise equipment you have access to, any injuries the coach should be aware of, and other lifestyle factors. The coach will then use these details to create personalized guidance and insights.\nUsers can also communicate with the coach using natural language to customize and update their personal details or goals at any time. They can also log workouts, meals, and health records by dictating to it, or by uploading photos or files.\nThe coach will be accessible from the Today tab of the Google Health app. The company notes any insights the coach provides won’t be just a summary, but would combine information from multiple sources, like fitness and sleep metrics, environment, nutrition, cycle tracking, and U.S. medical records (if access is provided). Google said the cycle tracking, nutrition, and mental well-being features have all been redesigned for the health coach as well.\nThe AI-powered coach is being infused into other areas of the Google Health app as well, including the Fitness tab’s workout suggestions and guidance, the Sleep tab’s sleep tracking, and the Health tab’s summary of your metrics.\nGoogle’s health coach will be available first for select Fitbit and Pixel Watch users, and support for other devices is coming soon, the company says. However, anyone can download the Google Health app to get started. People without a Fitbit or Google Pixel Watch will be notified when the coach is ready for them, but Google didn’t say when that would be.",
+  "published_at": "2026-05-07T15:35:38Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-05-07T21:00:27.106134Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Hardware",
+      "ai health coach",
+      "fitbit",
+      "google health",
+      "google health coach",
+      "wearables"
+    ]
+  }
+}

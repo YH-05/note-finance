@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040082",
+  "title": "３月の米耐久財受注改定値、前月比０．８％上昇",
+  "raw_text": "【経済】３月の米耐久財受注改定値、前月比０．８％上昇\n結果 0.8％\n予想 0.8％ 速報 0.8％（前月比）\n結果 0.9％\n予想 0.9％ 速報 0.9％（除輸送・前月比）\n＊米製造業受注（3月）\n結果 1.5％\n予想 0.6％ 前回 0.3％（0.0％から修正）（前月比）\n株探ニュース",
+  "published_at": "2026-05-04T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:00:21.855841Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

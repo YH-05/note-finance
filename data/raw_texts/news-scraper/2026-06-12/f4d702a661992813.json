@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/12/kenneth-leech-pleads-guilty-to-obstructing-cherry-picking-probe.html",
+  "title": "Former star U.S. bond manager Kenneth Leech pleads guilty to obstructing 'cherry-picking' probe",
+  "raw_text": "Kenneth Leech, a former star bond manager at Western Asset Management Co, pleaded guilty on Friday to obstructing a probe into alleged \"cherry-picking,\" the assigning of profitable trades to favored investors and losing trades to other investors.\nLeech admitted to one count of obstructing a U.S. Securities and Exchange Commission proceeding, averting a scheduled Monday trial in Manhattan federal court.\nThe former co-chief investment officer of Wamco, as his former employer is known, had faced four fraud charges for allegedly orchestrating a more than $600 million cherry-picking scheme from January 2021 to October 2023. Those charges will be dropped.\nProsecutors accused Leech of lying during sworn SEC testimony in March 2024, when he answered yes when asked if he had \"an allocation in mind\" when placing trades.\nLeech, 72, could face six to 12 months in prison under recommended federal sentencing guidelines, much less than if he were convicted of fraud.\nHis lawyers declined to comment. A spokesperson for U.S. Attorney Jay Clayton in Manhattan had no immediate comment.\nWamco agreed on June 5 to pay a $100 million civil penalty to resolve SEC civil charges it failed to properly supervise Leech.\nThe asset manager did not admit wrongdoing.\nWamco is part of Franklin Resources, whose brands include Franklin Templeton.\nAuthorities said Leech waited to see how trades performed on their first day before retroactively allocating them to clients to boost Wamco revenue and his own compensation.\nLeech allegedly steered trades that performed well to \"Macro Opportunities\" portfolios that he said reflected his best ideas, and worse trades to \"Core\" and \"Core Plus\" portfolios.\nProsecutors said Leech became particularly focused on supporting Macro Opportunities portfolios after they lost money on Russian debt in 2022 and Credit Suisse debt in 2023.\nLeech was indicted in November 2024, three months after Wamco put him on leave. His sentencing is expected in September.\nWamco suffered large outflows after probes into Leech became public.\nIt ended March with $228.9 billion of assets under management, down 40% from June 2024.\nFranklin, based in San Mateo, California, ended March with $1.68 trillion of assets under management.",
+  "published_at": "2026-06-12T17:10:18Z",
+  "author": null,
+  "collected_at": "2026-06-12T21:38:17.319313Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

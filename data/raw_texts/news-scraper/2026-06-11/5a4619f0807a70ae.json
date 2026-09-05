@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/brent-wti-oil-prices-us-launches-fresh-strikes-on-iran-.html",
+  "title": "Oil jumps as U.S. fresh strikes on Iran raise worries of extended disruption to energy flows",
+  "raw_text": "Oil prices jumped Thursday after the U.S. launched a fresh round of military strikes against Iran, stoking worries that the Iran war could drag on, disrupting energy supplies for longer.\nU.S. crude oil futures for July rose 2.94% to $92.68 per barrel. Brent futures, the international benchmark, for August delivery gained 2.52% to $95.45 per barrel.\nIn a post on X, the U.S. Central Command said American forces had started \"launching additional self-defense strikes today at 5:15 p.m. ET against multiple targets in Iran at the Commander in Chief's direction.\" The military said the operation was carried out \"in response to Iran's unwarranted and continued aggression.\"\nIranian state media, meanwhile, reported that Tehran had carried out missile and drone attacks against U.S. vessels operating in the Strait of Hormuz.\nThe latest strikes followed comments from U.S. President Donald Trump earlier in the day warning that Washington would intensify its military response against Iran, as he continued to push Tehran toward reaching a deal with the United States.\nDespite a fresh escalation in the U.S.-Iran conflict, Rystad Energy said Thursday that the oil market was better-positioned to absorb disruptions than in past crises, citing record U.S. crude exports, softer Chinese demand and alternative export routes that reduce reliance on the Strait of Hormuz.\nThe consultancy's senior vice president Jorge Leon, however, warned that the chances of a near-term diplomatic breakthrough have diminished, leaving oil prices vulnerable to sharp swings as investors assess whether the latest hostilities will remain contained or evolve into a more prolonged conflict.",
+  "published_at": "2026-06-11T00:28:27Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.333964Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

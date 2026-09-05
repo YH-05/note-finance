@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/honda-recalls-over-880000-cars-due-to-issues-with-the-rear-suspension-parts.html",
+  "title": "Honda recalls more than 880,000 cars due to a problem with rear suspension components",
+  "raw_text": "Honda is recalling more than 800,000 vehicles because rear suspension components may fail and cause drivers to lose control, increasing the chances of a crash or injury.\nAmerican Honda Motor Co. said the recall covers certain 2016-2022 Honda Pilot, 2017-2023 Ridgeline, 2019-2023 Passport and 2014-2020 Acura MDX vehicles. The recall includes 880,514 vehicles that were sold in Connecticut, Delaware, District of Columbia, Illinois, Indiana, Iowa, Kentucky, Maine, Maryland, Massachusetts, Michigan, Minnesota, Missouri, New Hampshire, New Jersey, New York, Ohio, Pennsylvania, Rhode Island, Vermont, Virginia, West Virginia, or Wisconsin.\nThe problem centers around the rear subframe, which can corrode at suspension mounting points and cause the rear suspension to fail. Honda estimates that just 1% of the vehicles listed have the defect.\nHonda has had no warranty claims and no reports of an injury or death related to the problem.\nAs a remedy, Honda and Acura dealers will inspect the rear subframe and install a reinforcement kit if necessary, or repair or replace the rear subframe components at no cost to vehicle owners.\nOwner notification letters are expected to be mailed July 7.\nThe National Highway Traffic Safety Administration's campaign number for the recall is 26V367000. Honda's numbers for this recall are AOU and AOT. Vehicle Identification Numbers applicable to this recall will be searchable on NHTSA.gov beginning June 10.\nOwners may contact Honda's customer service at 1-888-234-2138.",
+  "published_at": "2026-06-10T13:46:04Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.372107Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

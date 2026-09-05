@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/12/robinhood-sees-record-breaking-traffic-after-spacex-stock-debuts/",
+  "title": "Robinhood sees ‘record-breaking’ traffic after SpaceX stock debuts",
+  "raw_text": "Robinhood said it has seen “record-breaking” traffic on its trading platform Friday in the hours after SpaceX’s historic public markets debut.\nThe company shared in a post on X that “some customers experienced latency and intermittent issues” with trading but that the platform quickly recovered.\nSpaceX’s shares started trading on the Nasdaq stock exchange at around 11:47 a.m. ET. Those shares immediately started trading up around 11%, pushing the company’s valuation past $2 trillion — and making Elon Musk the world’s first trillionaire. In just one hour, around 263 million shares have traded, according to Nasdaq, representing around $42 billion worth of SpaceX stock changing hands.\nSpaceX only made about 4% of its shares available for trading in the IPO, putting it in a position for wild swings in its stock price as it begins life as a public company.",
+  "published_at": "2026-06-12T17:05:06Z",
+  "author": "Sean O'Kane",
+  "collected_at": "2026-06-12T21:00:27.009490Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "In Brief",
+      "Robinhood",
+      "SpaceX"
+    ]
+  }
+}

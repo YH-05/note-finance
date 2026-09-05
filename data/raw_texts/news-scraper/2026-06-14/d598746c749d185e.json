@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/northeast-heat-wave-arrives-world-cup-matches-get-underway",
+  "title": "Northeast Heat Wave Arrives As World Cup Matches Get Underway",
+  "raw_text": "As the World Cup starts, a prolonged spell of summer heat is expected to grip New York and much of the Northeast through the end of the week and into the weekend.\nDaytime temperatures are forecast to reach the 90s across several major cities, while high humidity will make conditions feel even hotter, according to Bloomberg.\nForecasters expect the most intense heat on Thursday and Friday, when heat alerts will be in place across large parts of the region. Multiple cities along the East Coast could see daily temperature records challenged or broken as the unusually warm air mass spreads across the area.\nThe timing coincides with the start of several FIFA World Cup matches in the Northeast, including games scheduled in New Jersey, Massachusetts, and Pennsylvania. While temperatures are expected to ease somewhat after sunset, spectators and athletes may still face hot and uncomfortable conditions during evening events.\nBloomberg writes that the heat is also expected to drive up electricity consumption as households and businesses rely more heavily on air conditioning. Transportation networks could experience disruptions as well, since extreme temperatures can affect rail infrastructure and overhead power systems, leading to slower train service.\nElsewhere, a separate weather system is creating risks across parts of the Midwest. Forecasters have warned that strong thunderstorms could bring damaging winds, large hail, isolated tornadoes, and localized power outages, potentially affecting travel and other infrastructure.",
+  "published_at": "2026-06-13T15:05:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-14T03:01:32.625600Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/meta-stock-sinks-on-report-company-could-raise-tens-of-billions-for-ai.html",
+  "title": "Meta's stock sinks on report company could raise tens of billions of dollars to fund AI push",
+  "raw_text": "Meta shares dropped more than 5% on Friday after the Financial Times reported that the company could potentially raise tens of billions of dollars in a stock offering to fund its artificial intelligence investments.\nThe social media company is pondering the potential stock sale, the FT reported, after rival Alphabet said this week that it plans to raise $85 billion from selling equity, increasing that number from $80 billion. Alphabet has been on a tear over the past year, but the stock is down for a fourth straight week as investors worry about excessive AI spending.\nMeta hasn't hired banks and may not issue new stock, the FT noted.\nA Meta spokesperson called the report \"pure speculation.\"\n\"We've been clear that huge opportunities lie ahead in AI, and we'll continue focusing on raising capital in the most flexible ways to support that,\" the spokesperson said in an email.\nLike other tech giants, Meta and Alphabet are pouring record sums into capital expenditures as they race to build out AI infrastructure to meet what they see as insatiable demand.\nIn April, Meta raised its 2026 capex guidance to as high as $145 billion from a previous forecast of up to $135 billion. Alphabet said that month that it was hiking the top end of its capex guidance by $5 billion to $190 billion.\nWall Street has been treating the two companies very differently over the past year, largely because Alphabet has a prospering cloud business that helps justify its hefty spending. Alphabet's stock is up more than 115% in the last 12 months, topping all of its megacap peers, while Meta's stock is down 13%, the worst performer in the bunch.",
+  "published_at": "2026-06-05T20:22:44Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.618308Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

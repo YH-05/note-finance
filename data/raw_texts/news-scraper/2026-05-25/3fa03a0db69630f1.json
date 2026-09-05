@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605251050",
+  "title": "明日の経済スケジュール ─ 白物家電出荷額など",
+  "raw_text": "【経済】明日の経済スケジュール ─ 白物家電出荷額など\n5月26日(火)\n先勝・月齢9.3\n「8勝2敗」(過去10年の日経平均の陰陽星取)\n【国内】\n□4月白物家電出荷額(10:00)\n□3月景気動向指数[改定値](14:00)\n□5月月例経済報告\n□フィリピンのマルコス大統領が訪日、高市首相と首脳会談(～29日)\n【海外】\n□トルコ市場は短縮取引\n□米国3月S&Pケースシラー住宅価格(22:00)\n□米国3月FHFA住宅価格指数(22:00)\n★米国5月コンファレンスボード消費者信頼感指数(23:00)\n□米国2年国債入札\n【海外決算】\n[中]シャオミ\n株探ニュース",
+  "published_at": "2026-05-25T11:05:00Z",
+  "author": null,
+  "collected_at": "2026-05-25T15:00:22.413217Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

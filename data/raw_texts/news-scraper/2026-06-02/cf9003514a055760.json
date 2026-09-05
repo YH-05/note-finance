@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/tesla-posts-strong-registration-growth-across-europe-may",
+  "title": "Tesla Posts Strong Registration Growth Across Europe In May",
+  "raw_text": "Tesla showed signs of regaining momentum in Europe during May, posting strong registration growth across several major markets, according to Reuters. New registrations climbed to 1,750 vehicles in Denmark (+136%), 1,690 in Spain (+113%), and 858 in Sweden (+71%), based on data released by local industry groups.\nReuters writes that the trend extended across the region. Norway recorded 3,345 Tesla registrations, up 29% from a year earlier, while France saw registrations rise to 5,446 vehicles—more than seven times last year's level.\nThe gains come as demand for electrified vehicles continues to strengthen across Europe. Battery-electric, plug-in hybrid, and hybrid vehicles represented more than two-thirds of all new registrations in April, with total electrified vehicle registrations increasing roughly 21%, according to ACEA.\nIndustry observers note that Tesla is benefiting from the overall expansion of the EV market, particularly in Scandinavia, while countries such as Spain are beginning to catch up in adoption. Consumer incentives, emissions-focused policies, and elevated fuel prices are also helping accelerate the shift toward electric mobility.\nThe recent improvement follows a difficult period for Tesla in Europe. The company lost a significant share of the regional market in 2025 as competition intensified—especially from Chinese manufacturers—while a limited refresh cycle and controversy surrounding CEO Elon Musk also weighed on demand. Registration figures from Germany and the UK, Europe's largest auto markets, are still to come.",
+  "published_at": "2026-06-02T09:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-02T15:00:37.663720Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

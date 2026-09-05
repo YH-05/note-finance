@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/18/white-house-adds-generic-drugs-to-direct-to-consumer-trumprx-site.html",
+  "title": "White House adds generic drugs to direct-to-consumer TrumpRx site",
+  "raw_text": "The Trump administration on Monday said it is adding generic medications to its direct-to-consumer drug sales website, TrumpRx, in a bid to expand a platform that is key to his administration's efforts to lower prescription drug costs in the U.S.\nThe administration is adding more than 600 generic drugs to the site, President Donald Trump said at an event on Monday. The administration also incorporated new tools on the platform, including one that connects patients with the pharmacy in their neighborhood with the lowest prices or give them an option for home delivery of their prescriptions.\nHe said the administration is partnering with certain industry players that have been selling medications directly to consumers for transparent prices, including Mark Cuban's Cost Plus Drug Co., Amazon Pharmacy and GoodRx. Cuban and executives from other partners were present at the event on Monday.\n\"By incorporating this massive catalog of low-cost generics at TrumpRx.gov, consumers will now have one source to ensure that they're getting the lowest possible cost on their prescription, so they have a real option now, today,\" Trump said.\nUntil Monday, TrumpRx offered select branded products from manufacturers that struck landmark deals with the administration to voluntarily lower the prices of certain medicines for Americans. That includes blockbuster obesity drugs from Eli Lilly and Novo Nordisk, which have been listed on the site since it launched in February.\nTrump on Monday claimed the platform has been visited more than 10 million times and has saved Americans more than $400 million already.\nBut it's still unclear if all patients — particularly those with insurance coverage — will see more cost savings from using that site to buy their medicines than they would through existing methods.\nTrumpRx targets people who are willing to pay with cash and forgo insurance, which suggests that patients without or with limited coverage may benefit the most. The site also does not sell drugs directly to American patients, but acts as a central hub that points them to drugmakers that are offering discounts on certain products on their own direct-to-consumer sites, or gives them discount coupons to take to pharmacies.",
+  "published_at": "2026-05-18T22:53:40Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.501804Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

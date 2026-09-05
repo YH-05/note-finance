@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040020",
+  "title": "東京為替：ドル・円は変わらず、原油相場は底堅い",
+  "raw_text": "【通貨】東京為替：ドル・円は変わらず、原油相場は底堅い\n4日午後の東京市場でドル・円は156円80銭付近と、ほぼ変わらずの値動きが続く。NY原油先物(WTI)は1バレル＝100ドル台から101ドル台に小幅上昇し、ドル買いに振れやすい。ただ、日本の為替介入への警戒感は根強く、上値では円売りが抑制されているもよう。\nここまでの取引レンジは、ドル・円は155円72銭から157円19銭、ユ-ロ・円は182円81銭から184円35銭、ユ-ロ・ドルは1.1720ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-04T06:32:15Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.718951Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

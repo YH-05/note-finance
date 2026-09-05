@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/one-day-after-discovery-meta-pulls-facial-recognition-code-from-its-smart-glasses/",
+  "title": "One day after discovery, Meta pulls facial recognition code from its smart glasses",
+  "raw_text": "One day after WIRED revealed that Meta had quietly embedded an unreleased face-recognition system into an app installed on more than 50 million phones, the company removed it, according to a WIRED analysis of the latest version’s code.\nThe most recent version of Meta AI, a companion app for its line of smart glasses, strips out the unactivated software components that powered the system Meta internally called NameTag. The version published the day of WIRED’s report included several code libraries explicitly named for face recognition. Friday’s release includes none of them.\nAndy Stone, Meta’s vice president of communications, told WIRED on Monday that the feature is purely exploratory, adding: “No final decision has been made on what to do here, if anything.”\nOn Thursday, WIRED reported that Meta had quietly integrated substantial portions of the NameTag system into the Meta AI app. Though never publicly enabled, the feature was designed to convert faces captured by the glasses into unique biometric signatures, commonly known as faceprints, and compare them against a database of faceprints stored on the user’s device. WIRED also found that faces the system failed to recognize were cropped, indexed, and stored locally for future processing.\nNameTag first surfaced in February, when The New York Times, citing internal Meta documents, reported that the company was developing face recognition for its smart glasses and weighing a launch as soon as this year. One memo reportedly described releasing it during a “dynamic political environment,” when privacy and civil liberties advocates would be distracted. Last week, WIRED reported that much of NameTag’s machinery was already built into the Meta AI app, downloaded by millions of users, as early as January, even as Meta publicly said it had made no final decision about face recognition.\nAfter WIRED’s report, Stone dismissed the findings, writing that the company couldn’t answer questions about how the system would work because “the feature does not exist.” Andrew Bosworth, Meta’s chief technology officer, called the reporting “incredibly misleading” and “absolutely dishonest.”\nMeta declined to answer 10 questions WIRED posed before publishing on Thursday, including whether it had already created the database of face profiles NameTag uses, how long the app retains photographs and biometric data of unrecognized people stored on a user’s device, and whether that data would ever be sent back to Meta’s servers.",
+  "published_at": "2026-06-09T16:31:10Z",
+  "author": "Dhruv Mehrotra and Dell Cameron, wired.com",
+  "collected_at": "2026-06-09T21:00:33.566270Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "facial recognition",
+      "meta",
+      "Meta AI",
+      "smart glasses",
+      "Smartglasses",
+      "syndication"
+    ]
+  }
+}

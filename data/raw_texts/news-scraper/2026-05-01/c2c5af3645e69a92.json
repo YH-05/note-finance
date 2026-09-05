@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/04/abc-can-beat-trump-fccs-license-threat-if-owner-disney-is-willing-to-fight/",
+  "title": "ABC can beat Trump FCC's license threat if owner Disney is willing to fight",
+  "raw_text": "Disney will have the law on its side in its fight against the unusual broadcast license review ordered yesterday by the Federal Communications Commission, legal experts say.\nIn 1996, Congress made it a lot harder for the FCC to take away a broadcast license, even when it’s up for renewal. “Since the NAB [National Association of Broadcasters] got an amendment in the 1996 Telecommunications Act, denying renewal to a broadcaster faces an almost insurmountable burden,” Andrew Jay Schwartzman, senior counselor of the Benton Institute for Broadband & Society, told Ars this week.\nThe Telecommunications Act of 1996 was a major update to the Communications Act, the 1934 law that established the FCC and provides the agency with its legal authority.\n“Although the FCC generally acts under the ‘public interest’ standard when granting and regulating licenses, the Act imposes more limits on FCC actions that would cancel licenses or deny their renewal or transfer,” Northwestern University law professor James Speta wrote last year in the Yale Journal on Regulation. The Yale Journal article was written in response to previous threats to ABC issued by Trump and Carr.\nThe key change in 1996 was that “Congress eliminated the former process of comparative renewal hearings, under which broadcasters would have to show that their offerings are the best among any others seeking to take over the license,” Speta wrote. “The Act also generally requires that, before a license can be revoked, the FCC establish, on the basis of evidence, that the licensee has engaged in ‘willful or repeated’ violations of the Act, FCC rules, or its license.”\nEarly renewal is rarely used tactic\nAs previously reported, the FCC yesterday issued an order instructing ABC owner Disney to file early license renewal applications for all of its licensed TV stations by May 28. The FCC order came one day after President Trump and the first lady called on ABC to fire Jimmy Kimmel over a recent joke saying that Melania Trump looked like an “expectant widow.” Kimmel made the joke during a skit in which he pretended to deliver a roast at the White House Correspondents’ dinner.",
+  "published_at": "2026-04-29T19:14:44Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-01T15:00:30.621413Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "ABC",
+      "Disney",
+      "FCC",
+      "jimmy kimmel",
+      "Trump"
+    ]
+  }
+}

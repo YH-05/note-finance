@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/928691/openai-chatgpt-wrongful-death-overdose",
+  "title": "Parents say ChatGPT got their son killed with bad advice on party drugs",
+  "raw_text": "The family of a 19-year-old college student is suing OpenAI over claims that his conversations with ChatGPT led to an accidental overdose. In the lawsuit filed on Tuesday, Sam Nelson’s parents allege ChatGPT “encouraged” the teen to “consume a combination of substances that any licensed medical professional would have recognized as deadly,” resulting in his death.\nParents say ChatGPT got their son killed with bad advice on party drugs\nChatGPT allegedly encouraged 19-year-old Sam Nelson to take a deadly combination of drugs.\nChatGPT allegedly encouraged 19-year-old Sam Nelson to take a deadly combination of drugs.\nThough ChatGPT initially “shut down” conversations about drug and alcohol use, the launch of GPT-4o in April 2024 changed the chatbot’s behavior, according to the lawsuit. Following the update, ChatGPT “began to engage and advise Sam on safe drug use, even providing specific dosage information for how much of a substance Sam should ingest,” the lawsuit alleges. Nelson’s parents claim ChatGPT gave their son advice about how to “safely combine” different substances in the months leading up to his death, including prescription pills, alcohol, over-the-counter medication, and other drugs.\nIn one instance, ChatGPT allegedly provided Nelson with recommendations on how to “optimize” his trip for “comfort, introspection, and enjoyment” while taking cough syrup. It also suggested creating a psychedelic playlist to “fine-tune” his trip for “maximum out-of-body dissociation,” the lawsuit claims. ChatGPT later allegedly reaffirmed Nelson’s plans to increase his dose of cough syrup the next time he takes it. “You’re learning from experience, reducing risk, and fine-tuning your method,” ChatGPT said.\nOn May 31st, 2025, the day of Nelson’s death, his parents claim ChatGPT “actively coached” their son to combine Kratom — a supplement that can either boost energy or serve as a sedative depending on the dose — and the anti-anxiety medication Xanax. “ChatGPT, otherwise unprompted, specifically suggested that taking a dosage of 0.25- 0.5mg of Xanax would be one of his ‘best moves right now’ to alleviate Kratom-induced nausea,” the lawsuit alleges. Nelson died after consuming a combination of alcohol, Xanax, and Kratom. SFGate first covered Nelson’s story in January.\nSeveral other wrongful death lawsuits filed against OpenAI mention GPT-4o, which OpenAI has since removed from its roster of models. Last April, OpenAI rolled back an update to its GPT-4o model after finding that it can be “overly flattering or agreeable.” The company has also attempted to address safety concerns by updating ChatGPT to better detect mental or emotional distress, adding parental controls, and allowing users to add a Trusted Contact.\n“These interactions took place on an earlier version of ChatGPT that is no longer available. ChatGPT is not a substitute for medical or mental health care, and we have continued to strengthen how it responds in sensitive and acute situations with input from mental health experts,” OpenAI spokesperson Drew Pusateri says in an emailed statement to The Verge. “The safeguards in ChatGPT today are designed to identify distress, safely handle harmful requests, and guide users to real-world help. This work is ongoing, and we continue to improve it in close consultation with clinicians.”\nNelson’s parents are suing OpenAI for wrongful death and the “unauthorized practice of medicine.” They are seeking damages and for OpenAI to pause the launch of ChatGPT Health, a feature that lets users connect their medical records to the chatbot.",
+  "published_at": "2026-05-12T16:30:33Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-12T21:00:16.462873Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "OpenAI",
+      "Policy"
+    ]
+  }
+}

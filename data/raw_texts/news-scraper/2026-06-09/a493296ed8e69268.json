@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/school-shooting-survivor-sues-ai-gun-detection-firm-after-system-failed-to-spot-weapon/",
+  "title": "School shooting survivor sues AI gun detection firm after system failed to spot weapon",
+  "raw_text": "The injured teenage survivor of a January 2025 shooting at a Nashville, Tennessee high school recently sued the manufacturer of an “AI gun detection” system that failed to detect the handgun that left two dead, including the shooter.\nAccording to the lawsuit, which was filed in Davidson County court last month, the security company Omnilert either knew or should have known that there were “significant operational limitations in its gun detection system that could result in detection failures during actual emergencies, including limitations based on camera placement, proximity of the weapon to camera sensors, camera angle, lighting, and weapon visibility.”\nOmnilert cofounder Ara Bagdasarian declined Ars’ invitation to answer questions about the lawsuit. System Integrations, the other defendant in the case, which resold the Omnilert system, also did not respond to Ars’ request for comment.\nIn 2023, the Metropolitan Nashville Public Schools (MNPS) Board approved a contract worth over $1 million to install an AI detection layer on top of its district-wide network of cameras and related security infrastructure.\nMNPS spokesperson Sean Braisted said in a press conference following the January 2025 shooting that due to where the shooter was in relation to the cameras, the imagery “wasn’t close enough to get an accurate read and to activate that alarm.”\nThe lawsuit frequently cites from marketing copy on Omnilert’s own website (as preserved on the Internet Archive just days before the shooting), alleging that the company oversold its capabilities:\nOmnilert further represented that AI-powered visual gun detection “could have mitigated or prevented tragedy at Marjory Stoneman Douglas High School” by identifying threats earlier—invoking one of the nation’s most devastating school shootings to convey that its product would prevent similar tragedies…\nOmnilert made no mention of false alarms, false positives, or detection limitations of any kind on its pre-shooting commercial website.\nUsing a specific set of situational conditions under which the detection system is effective is questionable, Chris Smith, one of the plaintiff’s attorneys, told Ars.",
+  "published_at": "2026-06-07T11:08:30Z",
+  "author": "Cyrus Farivar",
+  "collected_at": "2026-06-09T03:00:31.910213Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "gun",
+      "schools"
+    ]
+  }
+}

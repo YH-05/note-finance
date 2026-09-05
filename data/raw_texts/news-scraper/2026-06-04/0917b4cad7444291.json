@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/mathematicians-warn-of-ai-threats-to-profession-as-industry-encroaches/",
+  "title": "Mathematicians warn of AI threats to profession as industry encroaches",
+  "raw_text": "Mathematicians warned against rising tech industry influence in a declaration describing the many challenges that AI poses to mathematics research. The timing of the declaration comes two weeks after OpenAI publicized one of its AI models as having disproved an 80-year-old mathematical conjecture in geometry.\nThe declaration was developed by a working group of 16 researchers over eight months following a conference held at Leiden University in the Netherlands in September 2025. Published on June 2, 2026, the resulting Leiden Declaration on Artificial Intelligence and Mathematics has been endorsed by the International Mathematical Union—the international non-governmental organization that hosts conferences and oversees the most prestigious prizes in mathematics such as the Fields Medal.\n“Mathematicians should find it quite striking that tech companies are suddenly interested in their work,” said Kevin Buzzard, a mathematician at Imperial College London, in a statement. “The Leiden Declaration is a well-thought-through response to what is currently happening, as AI continues to disrupt this space.”\nThe Leiden Declaration, which has already drawn hundreds of signatories, warns that recent AI developments are threatening “characteristic values” of mathematical research, “often in ways that disproportionately affect students and early-career mathematicians, and hence the long term future of the discipline.”\nFirst, it points out how AI models can “produce plausible but unreliable (or even incorrect) arguments which are difficult to distinguish from correct mathematical proofs.” Such developments put reviewers under increasing pressure and are “jeopardizing our ability to implement traditional standards for the correctness, transparency, and independent verifiability of proof,” the declaration warns.\n“Inaccurate AI-generated drafts are cheap to produce, and there is a risk of cluttering the literature with claimed results that are simply wrong,” said Leslie Ann Goldberg, head of computer science at the University of Oxford, in a statement. “Once that happens, the errors are likely to propagate as new results are built on faulty foundations.”",
+  "published_at": "2026-06-02T18:19:06Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-06-04T03:00:31.492215Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "AI companies",
+      "ai industry",
+      "Artificial Intelligence",
+      "International mathematical union",
+      "math",
+      "mathematics",
+      "openai",
+      "Tech industry"
+    ]
+  }
+}

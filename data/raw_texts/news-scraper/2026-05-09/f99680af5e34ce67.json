@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605090152",
+  "title": "レーティング週報【格上げ↑】　(5月7日－8日)",
+  "raw_text": "●5月7日－8日に調査機関が投資判断を引き上げた銘柄をまとめました\n銘柄 機関 格付 目標株価 日付\nリクルート <\n6098> ＵＢＳ 中立→買い 8280→9800 5/7\n牧野フ <\n6135> ＵＢＳ 中立→買い 12300→16200 5/7\n日立 <\n6501> 水戸 Ｂ＋→Ａ 6500→6300 5/7\n株探ニュース",
+  "published_at": "2026-05-08T23:40:04Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:01:16.969039Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "特集",
+    "tags": []
+  }
+}

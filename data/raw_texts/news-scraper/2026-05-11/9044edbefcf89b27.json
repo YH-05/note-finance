@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/927503/venmo-app-redesign-privacy-posts",
+  "title": "Venmo finally takes privacy seriously",
+  "raw_text": "Venmo is starting to test a big redesign of its app, and as part of the changes, it will be implementing a major new privacy measure: the onboarding process for new users will set their posts to only be viewable by their friends by default instead of being public.\nVenmo finally takes privacy seriously\nAs part of a big app redesign, Venmo will change default settings for new users so that posts will be visible only to friends by default.\nAs part of a big app redesign, Venmo will change default settings for new users so that posts will be visible only to friends by default.\nIt’s a notable update for a platform that has struggled with privacy in the past. In 2021, BuzzFeed News tracked down President Joe Biden’s Venmo account and the accounts of people in his inner circle because Venmo, at the time, had no way to keep your Venmo contacts private. It fixed that soon after.\nAs part of the redesign, if you’re a new user and you do want your posts to be public (or private just to you), you’ll be able to set that as part of the new onboarding flow. You can also change your preference in settings after the fact; an updated screen for sending money will also show if that post is private, visible just to friends, or is visible publicly before you make the transaction.\nThe changes are in service of getting users “more visibility and control over what they share because for us it’s critical that they actually have trust in the Venmo experience,” Alexis Sowa, the SVP and GM of Venmo, tells The Verge.\nVenmo’s redesign is going to roll out in stages, starting first with a new look for the feed that will roll out gradually on iOS and Android over the coming weeks. Down the line, Venmo will introduce three new “surfaces” in the app: Send, where you can see your closest friends and find features like groups, gifting, and scheduled payments; Money, where you can manage things like crypto and link Venmo to apps and websites; and Rewards, where you can find offers and track cash back from Venmo’s rewards program.\nThe company says that the new onboarding process will roll out with the redesigned feed in the coming weeks.\nMuch of the redesign is also about setting up Venmo for the future, according to Sowa. Venmo has been known more as “the place where you split a bill after a real-life shared experience happened,” she says. “Going forward we’re really excited to embrace and address a broader set of consumer needs, whether it’s sending money, spending money, saving, borrowing, investing. You could imagine a world where we play a much more prominent role in all of those areas of a consumer’s life.”\nUpdate, May 11th: Updated story with the timeline of the new onboarding process.",
+  "published_at": "2026-05-11T12:00:00Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-11T15:00:12.978080Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

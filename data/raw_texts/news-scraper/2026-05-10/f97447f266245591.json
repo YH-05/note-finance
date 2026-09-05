@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605100064",
+  "title": "明日の経済スケジュール ─ 車名別新車販売など",
+  "raw_text": "【経済】明日の経済スケジュール ─ 車名別新車販売など\n5月11日(月)\n先負・月齢23.6\n「8勝2敗」(過去10年の日経平均の陰陽星取)\n【国内】\n□4月車名別新車販売(11:00)\n★ベッセント米財務長官が訪日(～13日)\n【国内企業】\n○久光製薬 <\n4530> [東証Ｐ・名証Ｐ・福証]：上場廃止\n【海外】\n★中国4月消費者物価指数(10:30)\n★中国4月生産者物価指数(10:30)\n□米国4月中古住宅販売件数(23:00)\n□EU外相理事会\n□米国3年国債入札\n【海外決算】\n[米]コンステレーション・エナジー<\nCEG>、フォックス<\nFOX>\n株探ニュース",
+  "published_at": "2026-05-10T11:05:00Z",
+  "author": null,
+  "collected_at": "2026-05-10T15:04:16.742962Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

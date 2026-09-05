@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930318/android-contextual-suggestions-google-ai-feature-rollout",
+  "title": "Android’s latest AI feature predicts what you’ll do next",
+  "raw_text": "Google is rolling out a new AI-powered “contextual suggestions” feature to Android users that recommends actions based on your daily habits, Android Authority reports. The feature is designed to predict your next action based on your location and habits — such as allowing music streaming apps to suggest your usual playlist when you arrive at the gym for your regular workout.\nAndroid’s latest AI feature predicts what you’ll do next\n‘Contextual suggestions’ will recommend actions based on your daily habits.\n‘Contextual suggestions’ will recommend actions based on your daily habits.\nContextual suggestions were previously available in the Play Services beta, but now Google seems to have expanded it to the stable channel. While Google hasn’t announced that the feature has officially launched, some reporters at Android Authority and 9to5Google are seeing that it’s available on Pixel 10 series devices running Android 16 and appears to be enabled by default.\nWe don’t know what the notifications themselves will look like. Screenshots of the settings interface shared by the publications show that users can manage what data is accessed by the feature, such as disabling its ability to use your device location. The privacy section of the contextual suggestions settings says that the feature works “in an encrypted space on your device,” and that your data isn’t shared with Google, apps, or third-party services.\n“In this space, AI learns from the data and makes predictions about what might be helpful to you,” Google says in the feature description. “For example, if you often cast sports games to your living room TV on Saturdays, your device can suggest casting at the right time.”\nAs Android Authority notes, the feature shares some similarities with the Magic Cue feature that launched with Google’s Pixel 10 series, which proactively suggests contextual information such as addresses and contact information that you might want to paste into apps and conversations. Google hasn’t mentioned if contextual suggestions will be more broadly available on non-Pixel Android phones, but a support page says the feature requires Android 14 or up to support audio and video casting.\nWe have reached out to Google to clarify the launch timeline and regional/device support. For now, you can check if contextual suggestions are available on your own Android phone by heading to Settings > Google Services > All services > Other.",
+  "published_at": "2026-05-14T10:37:03Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-14T15:00:16.289426Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

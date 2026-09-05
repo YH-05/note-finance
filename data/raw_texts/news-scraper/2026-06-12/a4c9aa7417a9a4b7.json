@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/11/waymo-launches-a-loyalty-program-with-10-cash-back-and-free-cancellations/",
+  "title": "Waymo launches a loyalty program with 10% cash back and free cancellations",
+  "raw_text": "Waymo is launching a loyalty program called Waymo Premier, which will offer frequent robotaxi riders a number of perks in exchange for $29.99 per month.\nPremier members will be able to skip the virtual line and earn 10% cash back on every trip (and “even more during busy times,” according to Waymo). They’ll also get five free ride cancellations every month, and Waymo says Premier members will even be able to hail a robotaxi in cities where the service still has a waitlist.\nWaymo Premier will not be available to riders in Austin or Atlanta, the company told TechCrunch, because its robotaxis are only available via the Uber app in those cities.\nThe loyalty program is launching as Waymo ramps up its expansion in the U.S., and prepares for an international launch later this year. Waymo is also starting to roll out its newest vehicle, the Zeekr-built van that it calls “Ojai,” in Los Angeles, Phoenix, and San Francisco.\nThe Premier program could also be the start of a new line of business for Waymo as it scales.\nThe company’s biggest partner, Uber, has built a sizable revenue-generator with its own program, Uber One. The ride-hail giant said in May that more than 50 million people now pay $9.99 per month (or $96 per year) for a membership. In exchange, Uber offers perks like 10% off of Uber Eats orders or hotel bookings, waived delivery fees, and other third-party discounts and promotions.\nLoyalty programs are an even bigger business for airlines. The four biggest U.S. airlines would have each operated at a loss in 2024 if not for their money-printing memberships. The airlines have also shown how loyalty programs can provide value beyond the revenue they generate: During the pandemic, many of them used the programs as collateral to back emergency loans from the federal government.\nWaymo said it arrived at the $29.99 monthly price and accompanying perks after considering “direct feedback from our riders on what they want out of a membership.” While it may be three times the cost of Uber One, rider data has shown that people are willing to pay more for Waymo robotaxis than for traditional ride-hail options.",
+  "published_at": "2026-06-11T16:00:23Z",
+  "author": "Sean O'Kane",
+  "collected_at": "2026-06-12T03:00:26.950819Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "loyalty programs",
+      "robotaxis",
+      "Waymo"
+    ]
+  }
+}

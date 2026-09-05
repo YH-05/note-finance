@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://garrit.xyz/posts/2026-06-13-pac-man-but-you-re-the-ghost",
+  "title": "Pac-Man, but you're the ghost",
+  "raw_text": "Pac-Man, but you're the ghost\nI always felt a little bad for the ghosts in Pac-Man. They patrol the maze, they corner the guy, and then he eats a glowing pellet and suddenly they're the ones running for their lives. So I built a small game where you finally get to play the other side.\nPac-Man has its own AI, and your job is to catch him before he clears the maze. The twist is the same one that always ruined my day as a ghost: if he eats a power pellet, the tables flip and he hunts you for a few seconds. Then you run.\nYou can play the game here. Have fun!",
+  "published_at": "2026-06-14T04:18:45Z",
+  "author": "mindracer",
+  "collected_at": "2026-06-14T15:00:44.327820Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

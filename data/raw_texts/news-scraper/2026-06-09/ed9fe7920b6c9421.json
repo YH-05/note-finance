@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/marvell-sp500-index-addition.html",
+  "title": "Marvell Technology jumps 10% after news it will join the S&P 500 index",
+  "raw_text": "Marvell Technology rose on Monday after it was announced that the AI chipmaker would be joining the benchmark S&P 500 index.\nThe semiconductor company, which trades on the Nasdaq, will join the broad-market index on June 22 and will sit alongside the 500 leading companies in the U.S., S&P Global said in a press release on Friday. Marvell was last seen up 10.4% just after the opening bell and is up 210% year-to-date.\nElectronic manufacturing company Flex is also on the list of firms joining the S&P 500 later this month, while Pool Corp and The Campbell's Company will be removed from the index.\nMarvell, which has a market cap of $230 billion, specializes in designing high-performance chips used in global data infrastructure such as cloud computing, AI, enterprise networking, 5G carrier networks and automotive systems.\nThe company is headquartered in Santa Clara, California and was founded in 1995.\nNvidia's CEO Jensen Huang touted the firm as the \"next trillion-dollar company,\" while on stage with Marvell's CEO Matthew Murphy at Computex Week in Taipei last week. The company surged 32.5% the following day, June 2, its biggest one-day gain ever.\nNvidia announced a $2 billion investment in Marvell in March. Huang said the partnership will make it easier for customers to build on its AI infrastructure system.\nIn its first-quarter earnings for 2026, Marvell beat analyst estimates and posted $2.4 billion in revenue, while projecting additional revenue growth through the year on strength in its data center operations.",
+  "published_at": "2026-06-08T13:34:10Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.177412Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

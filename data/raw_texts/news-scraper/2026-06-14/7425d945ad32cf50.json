@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/kalshi-perpetual-futures-trading-perps-crosses-1-billion-in-volume-within-a-week-of-launch.html",
+  "title": "Kalshi trading in 'perps' crosses $1 billion in volume within a week of launch",
+  "raw_text": "Prediction market platform Kalshi's perpetual futures have already crossed $1 billion in trading volume within a week of their launch last week, the company shared exclusively with CNBC.\nThe company officially launched trading on crypto perpetual futures, or \"perps,\" on Wednesday, and in the first 24 hours saw more than $100 million in volume. Volumes are notional, which means leverage traders take in their contracts is included in that figure.\nPerps are futures contracts with no expiration date that allow traders to speculate on a price without owning the underlying asset. Contracts track the price of an asset continuously, with funding payments keeping the perpetual contract price aligned with the market.\nThe asset class has over $90 trillion in annual global volume, according to Bank of America, but before Kalshi there wasn't a way to trade the contracts in the U.S.\n(Kalshi CEO Tarek Mansour will make an appearance on CNBC's \"Fast Money\" on Tuesday at 5 p.m. ET.)\nKalshi received regulatory approval from the Commodity Futures Trading Commission on May 29 to be the first company in the U.S. to offer perp contracts. Coinbase on the same day also received approval from regulators to offer its U.S. traders access to global perp contracts through an affiliate.\nPent up domestic demand has been reflected on Kalshi since the launch. A spokesperson said that at one point the waitlist to access perps on the platform had more than 1 million people on it, and that it's the fastest growing product in the company's history. It took Kalshi 40 months to see $1 billion in trading volumes across its event contracts.\nPerpetuals marked the company's biggest product launch since it first launched its prediction markets.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-10T16:43:41Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.211520Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20211-kyivstar-to-resell-starlink-broadband-services-to-enterprises-in-ukraine.html",
+  "title": "Kyivstar to resell Starlink broadband services to enterprises in Ukraine",
+  "raw_text": "Veon’s Ukrainian telco Kyivstar announced on Wednesday it has expanded its collaboration with LEO satellite player Starlink with a new agreement to resell Starlink's broadband services and hardware for businesses and public sector institutions.\nThe deal enables Ukrainian businesses, as well as public schools, universities, hospitals, and community clinics, to purchase Starlink Kits and high-speed internet services from Starlink directly through Kyivstar using local currency.\nKyivstar CEO Oleksandr Komarov said that adding Starlink to its portfolio enables it to offer businesses a fully integrated, multi-layer connectivity stack, which promises to close coverage gaps in remote or infrastructure-constrained environments where reliable high-speed internet is both scarce and commercially valuable.\n“This strengthens the resilience and efficiency of Ukrainian companies,” he said in a statement. “In addition, we plan to develop joint offerings that combine Starlink’s satellite services with Kyivstar’s core telecom services, providing businesses comprehensive solutions backed by high reliability and support.”\nThe deal builds on Kyivstar’s existing cooperation with Starlink Mobile to provide direct-to-cell (D2C) satellite connectivity for Kyivstar’s 4G customers. Kyivstar commercially launched that service at the end of November 2025.\n“With combined Starlink and terrestrial network services available, Kyivstar is creating differentiated offerings that enhance business resilience and operational continuity, which are strategic priorities that drive long-term value for all stakeholders,” said Veon CEO Kaan Terzioglu.\nVeon also aims to launch Starlink Mobile in Bangladesh and Kazakhstan via its operators Banglalink and Beeline Kazakhstan.",
+  "published_at": "2026-05-07T04:20:32Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-08T03:01:18.583059Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

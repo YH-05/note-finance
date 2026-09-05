@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605111305",
+  "title": "イラン、ホルムズ海峡に深海航行型潜水艦を配備",
+  "raw_text": "【注目】イラン、ホルムズ海峡に深海航行型潜水艦を配備\nタスニム通信によると、イランのガディール級潜水艦はペルシャ湾向けに特化して設計された深海航行型、または海底運用型の潜水艦で、同海峡の「見えない守護者」として機能し、「高い作戦能力」を備えるとしている。\n全長２９メートル、排水量は１１５トンの同潜水艦は、海底に潜んでレーダーに探知されにくいとされ、対艦巡航ミサイルの発射能力も持つという。\n株探ニュース",
+  "published_at": "2026-05-11T13:37:00Z",
+  "author": null,
+  "collected_at": "2026-05-11T15:00:18.508151Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

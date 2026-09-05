@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260424b.htm",
+  "title": "Federal Reserve Board announces approval of application by Banco de Credito del Peru",
+  "raw_text": "April 24, 2026\nFederal Reserve Board announces approval of application by Banco de Credito del Peru\nFor release at 4:00 p.m. EDT\nThe Federal Reserve Board on Friday announced its approval of the application by Banco de Credito del Peru, of Lima, Peru, to establish a state-licensed branch in Coral Gables, Florida.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-04-24T20:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:02:27.816115Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

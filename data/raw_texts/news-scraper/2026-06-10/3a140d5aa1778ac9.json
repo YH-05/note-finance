@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/investors-are-fleeing-tech-stocks-in-record-numbers.html",
+  "title": "Investors are fleeing tech stocks in record numbers",
+  "raw_text": "Investors sold $10.8 billion in tech stocks last week – the biggest amount ever tracked for selling in the sector by Bank of America going back to when the firm started collecting the data in 2008. On a relative basis, the selling was intense as well. Outflows as a percentage of the S & P 500 tech sector's market capitalization were the most since 2014. Bank of America clients sold a record $14.2 billion in single stocks overall last week. Stock buybacks from corporate clients, as a share of market cap, hit their lowest level since late 2023, with the slowdown most pronounced in tech. The huge amount of selling could suggest the current pullback in chip stocks that started last week was not a simple profit-taking event and could last longer than investors currently expect. The iShares Semiconductor ETF (SOXX) dropped 10.4% on Friday for its biggest plunge since the onset of the pandemic in 2020. After a rebound Monday, chip stocks closed lower Tuesday and again Wednesday in early trading. The weakness comes ahead of the initial public offering for SpaceX, which is set to debut on the Nasdaq on Friday. Analysts have noted that retail investors could be causing some of the weakness in chips by freeing up dry powder in preparation for the blockbuster IPO – though Bank of America noted that last week's sell-off was driven by big institutional money. Along with the SpaceX theory, some traders believe it is just profit-taking in the space. There was also some speculation on Tuesday that a pause in construction for a data center in Wyoming may be a signal that overall demand for AI capacity may be tapering. \"I don't want it to be overemphasized in terms of what was driving it,\" Chase Lochmiller, CEO of neocloud Crusoe, told CNBC about the pause on Tuesday. \"It was really a customer-driven pause for some site-related issues that … caused that to unfold.\" And then there's the possibility that it might be the end of the run for the AI stock run, which is feared to be a bubble – though there is no consensus on how big that bubble is. Regardless, one technical analyst sees further weakness for chip stocks and the SOXX ETF in the short term. \"We continue to see further momentum unwind here with risk to the 50 [day moving average], or [about] 14% downside,\" Jonathan Krinsky wrote in a Tuesday note for BTIG.",
+  "published_at": "2026-06-10T13:36:35Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.372452Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

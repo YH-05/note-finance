@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.404media.co/a-farmer-donated-land-to-turn-into-a-park-the-city-is-building-a-massive-data-center-instead/",
+  "title": "A Farmer Donated Land to Turn into a Park. The City Is Building a Data Center",
+  "raw_text": "Almost 30 years ago a farming family deeded land to the City of Taylor, Texas, on the condition the city use it for a public park. For the nominal fee of $10, the farmers granted the 87 acres to a public trust in 1999. Taylor sold it to Blueprint, a data center developer, for $10 million in 2025. Now the land that was supposed to belong to the community will become a 135,000 square foot data center.\nPamela Griffin and her family have owned homes near that land for generations. Griffin and her brothers and sisters played baseball on it, camped out on it, and then watched as their children and their children’s children did the same. Now a data center will be there, just 500 feet from Griffin’s home, nestled between a power substation and the nearby railroad tracks.",
+  "published_at": "2026-06-08T15:14:29Z",
+  "author": "greedo",
+  "collected_at": "2026-06-09T03:00:56.070133Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

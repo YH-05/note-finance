@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/12/as-investors-flock-to-spacex-one-trader-eyes-a-sleepy-stealth-play.html",
+  "title": "As investors flock to SpaceX, one trader eyes a sleepy 'stealth' play",
+  "raw_text": "Is there anything flashier than the SpaceX IPO?\nSure, who doesn't like going to the moon and beyond? But if you're looking for something a little more terrestrial, there's one stock that investors are overlooking. Textron is exactly that: a stealth play with solid technicals, fundamentals, and trading at a material discount to its defense peers.\nDespite broader economic headwinds, Textron's revenues and earnings have grown consistently. The maker of Bell Helicopters, Cessna jets, and even golf carts reporter a first quarter that beat consensus by more than 11%, and the shares rallied on the print — yet the stock now trades slightly cheaper than it did before the report, even as the S&P has marched higher. Despite demonstrable operational momentum, the street continues to price TXT like a broken business. Trading at just 13.7x forward earnings, it's well below the five-year historical average of 18x.\nWhy the deep discount? The market is suffering from a bad case of risk-mispricing. Yes, Congress faces ballooning debt pressures, which contribute to the perceived risks to aviation fleet programs across Textron, Embraer, and Bombardier. But geopolitical demand drivers for defense spending haven't subsided. Textron is actively shedding its lower-margin Industrial segment to become a pure-play aerospace and defense powerhouse — unlocking a $19 billion backlog in the process.\nThe chart isn't exhilarating, but TXT continues to trundle along above the 150-day moving average, all while generating respectable free cash flow (FY2027 FCF yield is expected to be around 4.65%).\nTo capture the potential upside while acknowledging that 1) the broader market is a bit expensive and 2) implied volatility (how options traders view option prices) is slightly elevated, I'd express this view with a risk-defined bullish bet rather than buying the stock.\nOne can buy the Sep 95/110 call spread for about $4.65 as of today's mid-market prices.\n- Buy the Sept. $95/$110 call spread for $4.65\n- Max loss $465\n- Max gain $1035\n- Skill level: Intermediate\nSelling the $110 call against the long $95 strike lowers the purchase price and reduces the impact of time decay — (aka \"theta\"). Defined risk, lower cost basis...a strategy that doesn't need the move to happen tomorrow, thus providing some time for the street to re-rate the stock.\nMy guess is the market will eventually notice Textron, but by using a spread, I've defined the risk of my bullish bet in case it doesn't.",
+  "published_at": "2026-06-12T17:33:56Z",
+  "author": null,
+  "collected_at": "2026-06-12T21:38:17.318541Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

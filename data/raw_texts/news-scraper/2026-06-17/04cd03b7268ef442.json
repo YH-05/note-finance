@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606171400",
+  "title": "ダウ平均は小動きで始まる　ナスダックは反発＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は小動きで始まる ナスダックは反発＝米国株オープン\nダウ平均 52009.09（+9.42 +0.02%）\nナスダック 26493.17（+116.83 +0.44%）\nCME日経平均先物 70345（大証終比：+295 +0.42%）\n株探ニュース",
+  "published_at": "2026-06-17T13:32:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T15:00:17.053516Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/",
+  "title": "OpenAI frontier models and Codex are now available on AWS",
+  "raw_text": "OpenAI frontier models and Codex are now available on AWS\nHelping enterprises bring AI into production through their existing security, governance, and deployment workflows.\nToday, OpenAI frontier models and Codex are generally available on AWS, opening a new path for millions of AWS customers to build with OpenAI through the platform they already use to run their business.\nFor enterprises, this removes one of the biggest barriers to AI adoption: getting frontier AI into production through existing security, compliance, procurement, billing, and governance workflows. Customers can now bring OpenAI capabilities into AWS environments with the controls their teams already trust, helping them move faster from evaluation to real deployment.\nOpenAI on AWS gives enterprises access to OpenAI frontier capabilities, a familiar AWS operating model, and a faster path to production. They are available in two ways:\nOpenAI models on Amazon Bedrock(opens in a new window) allows teams to build AI applications using AWS-native security and governance controls.\nCodex on Amazon Bedrock(opens in a new window) brings OpenAI’s leading software engineering agent - used by more than 5 million people every week - into AWS, helping teams write, review, debug, and modernize code in the environments where they already build and ship.\nTogether, these offerings help customers adopt OpenAI with less friction and ship with the best models available right in AWS, in both Commercial and GovCloud regions.\nAs customers begin using these capabilities, the AWS path helps reduce friction around procurement, security review, and production readiness. By making OpenAI capabilities available within familiar AWS environments, organizations can spend less time navigating operational barriers and more time building.\nOpenAI on AWS is the start of a broader path for customers to bring frontier AI into the environments where they already build, govern, and ship. We’ll continue expanding the OpenAI capabilities available through AWS so teams can move from evaluation to production with less friction and more confidence.\nThat includes future availability for Daybreak, OpenAI’s vision for changing how software is built and defended. Daybreak, which includes cyber models and Codex Security, is designed to help cyber defenders see risk earlier, act sooner, and make software more resilient by design by bringing secure code review, threat modeling, patch validation, dependency risk analysis, detection, and remediation guidance into the everyday development loop.\nAs specialized capabilities like Daybreak become available to customers, AWS can provide an important path for security teams to adopt them using the security, governance, procurement, and operational frameworks they already use.\nTogether, OpenAI and AWS can help more organizations put advanced AI to work in production.",
+  "published_at": "2026-06-01T21:50:02Z",
+  "author": "typpo",
+  "collected_at": "2026-06-02T15:00:41.658960Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

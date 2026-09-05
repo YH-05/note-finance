@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050190",
+  "title": "欧州株　英ＦＴ指数は０．９５％安、独ＤＡＸ指数は０．１％高で取引開始",
+  "raw_text": "欧州株 英ＦＴ指数は０．９５％安、独ＤＡＸ指数は０．１％高で取引開始\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-05T07:14:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T09:00:51.874951Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

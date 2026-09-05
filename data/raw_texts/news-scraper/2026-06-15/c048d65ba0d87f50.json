@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/nvidia-plans-to-raise-about-20-billion-first-debt-sale-in-ai-boom.html",
+  "title": "Nvidia plans to raise at least $20 billion in first debt sale since start of AI boom",
+  "raw_text": "Nvidia is aiming to raise at least $20 billion in debt, according to sources with knowledge of the matter, in the chipmaker's first bond sale since the start of the AI boom.\nIn a filing with the SEC on Monday, Nvidia disclosed plans for the capital raise but didn't include the dollar amount. Earlier this year, the chipmaker said it could raise up to $25 billion through issuance of unsecured commercial paper notes. The debt sale could end up closer to $25 billion, said the sources, who asked not to be named because the numbers aren't public.\nNvidia shares rose 3,5% on Monday and are up about 14% this year.\nThe chipmaker is the latest tech company tied to the artificial intelligence trade to tap the capital markets. Alphabet announced plans earlier this month to raise $85 billion in equity-related offerings after securing more than $55 billion in fresh debt since November. And last week, Super Micro announced $7 billion in equity-related financing deals to help to cover the cost of hardware component purchases.\nAmazon, meanwhile, raised roughly $54 billion in debt earlier this year in U.S. and European bond sales, and announced plans last week to raise about $10 billion in a Canadian debt sale\nNvidia has about $7.5 billion in long-term debt and another $1 billion in short-term debt. In its last debt raise in 2021, Nvidia brought in $5 billion, with notes maturing as late as 2031. But Nvidia was a much smaller company then, generating revenue in fiscal 2022 of about $27 billion, compared to sales of $216 billion in fiscal 2026.\nThe launch of OpenAI's ChatGPT in late 2022 was a major catalyst for Nvidia's historic rate of growth that followed, as AI model companies and hyperscalers started gobbling up as many of the company's graphics processing units as they could.\nAn Nvidia spokesperson said that the company intends to use the proceeds from the offering for general corporate purposes, including repayment and refinancing of existing debt.\nNvidia announced an aggressive capital return program in May, when it raised its dividend from a penny a share to 25 cents and said it planned to repurchase $80 billion in shares. Nvidia generated $49 billion in free cash flow in the latest quarter, up from $35 billion in the same period a year earlier, and reiterated plans in its latest earnings call to \"return roughly 50% of free cash flow to shareholders this year.\"",
+  "published_at": "2026-06-15T20:11:07Z",
+  "author": null,
+  "collected_at": "2026-06-15T21:21:37.785745Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

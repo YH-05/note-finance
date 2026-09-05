@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605121706",
+  "title": "シカゴ連銀総裁、４月ＣＰＩは予想より悪かった",
+  "raw_text": "【注目】シカゴ連銀総裁、４月ＣＰＩは予想より悪かった\n・４月ＣＰＩは予想より悪かったと指摘。\n・４月ＣＰＩで最も深刻なのはサービス部門のインフレ。\n・わが国にはインフレ問題が存在する。\n株探ニュース",
+  "published_at": "2026-05-12T13:27:00Z",
+  "author": null,
+  "collected_at": "2026-05-12T15:00:22.003261Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

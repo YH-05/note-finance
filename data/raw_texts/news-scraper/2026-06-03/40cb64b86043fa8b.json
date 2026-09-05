@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/planet-fitness-stock.html",
+  "title": "Planet Fitness stock plunges 30% after company slashes guidance, cancels planned price hikes",
+  "raw_text": "Shares of Planet Fitness plunged more than 30% Thursday after the company reported a drag on sign-ups and trimmed its guidance.\nThe stock was having its worst day ever, as of midday trading.\nEven though the fitness company saw 21.9% revenue growth in its first fiscal quarter and same-club sales increased by 3.5%, CEO Colleen Keating said the company saw a \"slower than expected start from a net member growth perspective.\"\n\"As a result, we are sharpening our marketing to prioritize capturing demand and driving net member growth,\" Keating said in a statement. \"Additionally, we are pausing the planned national Black Card price increase pending a broader pricing review.\"\nThe first fiscal quarter is usually the company's peak sign-up period. Keating said \"internal and external headwinds\" dealt a blow to the company's performance.\nPlanet Fitness cut its revenue growth projection to 7% from a previous estimate of 9%. It also now expects same-club sales of just 1%, compared with previous expectations of 4% to 5%, and adjusted net income to decrease 2%, compared with a previous expected increase of between 4% and 5%.\nOn a call with analysts Thursday, Keating said four factors affected the company's first-quarter performance: a lack of resonance from marketing, competition in some markets, bad weather conditions and macroeconomic pressures.\n\"We are making immediate and near-term adjustments to broaden our reach and ensure our messaging is both visible and resonates with the fitness beginner and more casual gym-goer,\" Keating said on the call.\nKeating also reaffirmed the company's confidence in its strategy to return to long-term growth. She said Planet Fitness is focusing this year on driving member acquisition and reinforcing affordability.\n\"Looking at data from Q4 of last year and Q1 of this year, we saw that our messaging and targeting was successful in driving increased penetration with the fitness-minded consumer, yet we may have pivoted too far,\" she said.",
+  "published_at": "2026-05-07T19:28:02Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.186597Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/medical/how-contagious-ebola",
+  "title": "How Contagious Is Ebola?",
+  "raw_text": "More than 200 people are suspected to have died in Ebola outbreaks in the Democratic Republic of the Congo and Uganda, according to the latest figures published by the Centers for Disease Control and Prevention on May 29.\nThe vast majority of these are in the DRC.\nWith no vaccine available for this strain, the World Health Organization declared a public health emergency of international concern on May 17.\nAs Statista's Anna Fleck details below, Ebola is a severe and often fatal disease which is spread through direct contact with blood, secretions or other bodily fluids of infected individuals or through contact with contaminated surfaces.\nThere are six strains of Ebola, four of which are known to cause disease in humans, with varying fatality rates.\nThe Zaire ebolavirus, commonly known as just the Ebola disease, is the most lethal strain, with historical case fatality rates reaching up to 90 percent among those who have not been treated.\nThe Bundibugyo strain of the ebolavirus is currently causing outbreaks in the Democratic Republic of the Congo and Uganda.\nWhile the Zaire ebolavirus' basic R₀ value, which is the measure for counting how easily disease spreads, is lower than several other diseases, transmission through close contact makes it highly dangerous in healthcare settings.\nAccording to data published by Encyclopædia Britannica, the average number of people infected by an individual with the Ebola disease is 1.5 to 2.5.\nYou will find more infographics at Statista\nBy contrast, the Omicron variant of Covid-19 had a basic R₀ value of spreading to eight to 10 people from every infected individual.\nMeasles is even more contagious, with a value ranging from 12 to 18.\nIt is spread by droplets released into the air by coughing and sneezing, with the virus able to remain in the air for up to two hours.",
+  "published_at": "2026-06-02T06:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-02T15:00:37.664551Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

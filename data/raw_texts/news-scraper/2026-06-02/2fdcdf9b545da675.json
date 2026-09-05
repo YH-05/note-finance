@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/blue-origin-plans-to-launch-new-glenn-again-this-year-after-explosion/",
+  "title": "Blue Origin plans to launch New Glenn again this year after explosion",
+  "raw_text": "Blue Origin is planning to fly its New Glenn rocket again in 2026 despite last week’s massive explosion, according to CEO Dave Limp.\nLimp said Monday that more of the launchpad’s infrastructure was in “good shape” than expected following the explosion, which happened during testing at the company’s site in Cape Canaveral, Florida. Limp also said that another previously flown New Glenn rocket booster that was at the launch complex, along with three of the rocket’s upper stages, “also look good.”\n“We will fly again before the end of this year,” he said.\nIt’s an aggressive timeline for returning to flight after what was the largest and most visible failure of the company’s history. Many people in the space industry assumed it would take Blue Origin at least until 2027 before New Glenn would launch again, especially because it seemed like there was a lot of damage to the launchpad — the only one Blue Origin has at the moment that can support New Glenn.\nBlue Origin has also not yet said what caused the explosion.\nThe company now finds itself in a unique strategic position. While SpaceX recovered in a matter of months after one of its Falcon 9 rockets blew up on a launchpad in 2016, that quick turnaround was due to the fact that it had a second pad nearly ready at the time of the mishap. Blue Origin is building a second launchpad at Cape Canaveral, but that project is in very early stages.\nNASA is relying on Blue Origin’s New Glenn rocket for its planned series of Artemis missions to the moon. Jeff Bezos’ spaceflight company had completely shifted focus to this program in order to support those missions, announcing in January that it was pausing space tourism flights on the much smaller New Shepard rocket for at least two years.\nNew Glenn’s first launch took place in January 2025, after spending many years in development — and suffering a number of delays. That inaugural launch was largely successful, with the upper stage reaching orbit on its first attempt, but the booster stage exploded on its way back to Earth. The second New Glenn launch, in November, saw Blue Origin put a pair of Mars-bound spacecraft into space and land its first booster stage on a drone ship. The company flew that booster stage again in April on New Glenn’s third mission, but the upper stage suffered a failure and the customer payload — an AST SpaceMobile satellite — was lost.\nBlue Origin was preparing to launch a batch of satellites for Bezos’ other company, Amazon, on the fourth launch. The spaceflight company had not put those satellites on board yet, so they weren’t destroyed in the explosion.\nWhile there was some speculation that Blue Origin might proceed directly to the larger and more powerful New Glenn variant when it returned to flight, Limp shot down that idea on Monday. The company will, however, change how it carries its rockets to the launchpad, and how it stands them up. Previously, Blue Origin used what it called a “transporter-erector,” which could handle both tasks. Limp didn’t specify what Blue Origin’s new solution will look like.",
+  "published_at": "2026-06-02T13:25:59Z",
+  "author": "Sean O'Kane",
+  "collected_at": "2026-06-02T15:00:21.728575Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "Blue Origin",
+      "explosion",
+      "new glenn"
+    ]
+  }
+}

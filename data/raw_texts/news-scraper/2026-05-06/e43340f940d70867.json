@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/technology/apple-shares-jump-report-next-ios-will-allow-users-choose-rival-ai-models",
+  "title": "Apple Shares Jump On Report Next iOS Will Allow Users To Choose Rival AI Models",
+  "raw_text": "Having appeared to be behind the game on its AI offerings for months, Apple will reportedly allow users choose from a range of outside artificial intelligence services to power features across its software, building on a strategy to turn its devices into a comprehensive AI platform.\nBloomberg reports that, according to people with knowledge of the matter, Users will be able to select from multiple third-party AI models for tasks like generating and editing text and images, according to people with knowledge of the matter.\nThe change is slated for iOS 27, iPadOS 27 and macOS 27 this fall, said the people, who asked not to be identified because the plans are private.\nThe iOS update will let users choose from AI model providers that opt in by adding support through their App Store apps. So far, Apple has been testing integrations internally with at least Alphabet Inc.’s Google and Anthropic PBC, according to the people with knowledge of the matter.\nInside iOS 27, Apple refers to the capability as “Extensions.”\nIt lets users select which AI services they want to power Apple Intelligence features via the Settings app.\nApple shares extended gains on the report...\nBloomberg adds that the Apple Intelligence platform, introduced in 2024, currently offers ChatGPT as the only third-party option in features like Siri, Writing Tools and Image Playground.\nIt’s all part of Apple’s bid to gain an edge in the artificial intelligence market - with a twist.\nRather than building the best AI software and services itself, the company is looking to make it easy for customers to find a wide range of options on its devices.\nCertainly seems a lot cheaper than dropping all that unprecented CapEx on the data centers and building their own (though at what 'other' cost to the platform)?",
+  "published_at": "2026-05-05T17:30:23Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T03:00:41.235049Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

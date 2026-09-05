@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/06/u-s-iran-closing-in-on-memo-to-end-war-report.html",
+  "title": "U.S., Iran closing in on memo to end war: Report",
+  "raw_text": "CNBC's Dan Murphy reports on the latest news.",
+  "published_at": "2026-05-06T10:50:59Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.330125Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

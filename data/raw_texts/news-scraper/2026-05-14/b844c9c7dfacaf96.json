@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/information-technology/2026/05/cisco-announces-record-revenue-and-4000-layoffs-in-the-same-day/",
+  "title": "Cisco announces record revenue and 4,000 layoffs in the same day",
+  "raw_text": "Following a quarter in which his company delivered record revenue, Cisco CEO Chuck Robbins announced that the company’s latest round of layoffs begins today.\nIn a blog post yesterday, Robbins was quick to boast that Cisco’s fiscal Q3 2026 earnings saw revenue increase 12 percent year-over-year to $15.8 billion. He told employees that he and the rest of Cisco’s executive leadership team “could not be prouder of the growth you have all delivered for Cisco.”\nBut that pride could apparently not save the company’s successful employees from unemployment.\n“We are making changes today that will result in the reduction of our overall workforce in Q4 by fewer than 4,000 jobs, representing less than 5 percent of our total employee base,” he wrote. “Most notifications will begin on May 14 and continue globally in alignment with applicable local laws and regulations.”\nAs with many layoffs at tech companies recently, Cisco’s job losses are attributed to the growth of AI. Robbins’ blog noted that companies that “will win in the AI era” need to demonstrate the “focus, urgency, and the discipline to continuously shift investment toward the areas where demand and long-term value creation are strongest.”\n“This means making hard decisions—about where we invest, how we’re organized, and how our cost structure reflects the opportunity in front of us,” Cisco’s chief said.\nCisco plans to turn the layoffs into investments in “silicon, optics, security, and in our employees’ use of AI across the company,” according to Robbins.\nIn its earnings report released on Wednesday, Cisco said it sold $5.3 billion in AI infrastructure from hyperscalers so far this fiscal year. It is now expecting orders for the fiscal year to reach $9 billion, up from $5 billion, and revenue to reach $4 billion instead of $3 billion.",
+  "published_at": "2026-05-14T16:47:43Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-14T21:00:30.994734Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "AI and jobs",
+      "Cisco",
+      "layoffs"
+    ]
+  }
+}

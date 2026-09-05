@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/roblox-rblx-stock-child-safety-earnings.html",
+  "title": "Roblox shares plummet 18% as child safety measures weigh on bookings",
+  "raw_text": "Roblox shares plummeted 18% on Friday after the company reported first-quarter earnings as its new child safety measures weighed on bookings.\n\"Part of what we're rolling out with age check, we believe, is the real, right long-term way to build this platform,\" CEO David Baszucki said Friday on CNBC's \"Squawk Box.\"\nIn a letter to shareholders, the gaming company wrote that its new age-check feature \"restricted on-platform communication for non-age checked users, diluted communication for age-checked users, and slowed new user acquisition,\" causing greater-than-expected headwinds.\nIn January, the company restricted its chat feature to users who completed its age-check verification. According to the company, 73% of age-checked daily active users on Roblox were under 18, with 35% under 13 as of Jan. 31.\nTo account for the slowed growth, Roblox slashed its full-year 2026 guidance.\nThe company updated its full-year 2026 bookings to fall between $7.33 billion and $7.6 billion. It forecasted 2026 bookings to be almost $1 billion higher last quarter, falling between $8.28 billion and $8.55 billion.\n\"While our aggressive push to enhance safety lowers our expectations for topline growth in 2026, it makes our platform fundamentally better and amplifies the long-term growth potential of Roblox through more effective content targeting, tailored communication experiences, and improved community sentiment,\" the company wrote in its letter to shareholders.\nRoblox's first-quarter results beat Wall Street's estimates, with a loss of 35 cents per share beating the estimated loss of 41 cents per share. It reported $1.73 billion in revenue for the quarter, narrowly beating analysts' estimates of $1.72 billion.\nRoblox is facing over 140 lawsuits in U.S. Federal Court accusing the company of failing to protect children from sexual exploitation, according to Reuters. Last month, the company reached settlements with Alabama and West Virginia, agreeing to pay out a combined $23.2 million.\nThe company announced new account types for younger age groups last month, as well as expanded parental controls.",
+  "published_at": "2026-05-01T20:01:24Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.494825Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

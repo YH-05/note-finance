@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/goldman-sachs-thinks-this-medtech-stock-could-double.html",
+  "title": "This medtech stock began trading less than a month ago. Goldman Sachs thinks it could double",
+  "raw_text": "Mobia Medical could more than double as it makes inroads in an underserved corner of the stroke recovery market, according to Goldman Sachs. The investment bank initiated coverage of the neurostimulation therapy developer with a buy rating. It also put a $31 price target on shares, implying 130% upside from Monday's close. \"Based on the company's innovative neuro-stimulation technology, large market opportunity, performance of prior market creation [small- and mid-capitalization] MedTech comps, and … projected revenue trajectory, we view the stock emerging as a differentiated growth asset,\" analyst David Roman said in a note to clients. Mobia went public on the Nasdaq on May 8, pricing its stock at $15. Goldman Sachs served as an underwriter of the IPO, alongside Bank of America Securities and JPMorgan. Shares closed at $13.50 on Monday, though they rallied 9% Tuesday on the back of Goldman's bullish call. MOBI 1M mountain Mobia Medical stock is up roughly 15% since its public market debut in early May. Mobia has developed an implantable vagus nerve stimulation system called Vivistim that, when paired with rehabilitation therapy, promotes chronic stroke recovery. Vivistim could serve roughly 1 million patients in the U.S., capturing a considerable part of the stroke market, per Goldman Sachs. \"We expect significant penetration given the (1) high unmet need; (2) limited alternative or competitive therapies; and (3) highly motivated patient base,\" Roman wrote. Each year, roughly 800,000 strokes occur in the U.S., and that figure is likely to grow as the American population continues to age, according to the analyst. In addition, more than half of stroke sufferers have mobility limitations or other vital function issues.",
+  "published_at": "2026-06-02T11:46:46Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.565726Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

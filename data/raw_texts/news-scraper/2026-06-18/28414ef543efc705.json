@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/congress-reaches-deal-housing-bill-cbdc-ban-until-2030",
+  "title": "Congress Reaches Deal On Housing Bill With CBDC Ban Until 2030",
+  "raw_text": "Authored by Jesse Coghlan via Cointelegraph, reviewed by Felix Ng.\nThe US House and Senate have reached a deal to move forward with a housing bill that includes a ban on the Federal Reserve creating a central bank digital currency (CBDC) until 2030.\nA bipartisan group of House and Senate leaders released an updated version of the 21st Century Road to Housing Act on Tuesday, which aims to address housing affordability and bans institutional investors from buying existing single-family homes to rent out.\nThe bill has included a CBDC ban since the Senate passed it in March. The House also passed its version of the bill with strong support in May, but the House and Senate disagreed on some aspects. The Senate has now added further amendments that will be put before the House for a final vote.\nThe bill is likely to pass quickly and would hand a win to Republicans who have tried to pass a CBDC ban for years, as earlier standalone bills had stalled in Congress. Crypto advocates have long criticized CBDCs, which they see as an attempt by governments to repurpose crypto technology to a centrally-controlled asset.\nThe deal also means Congress can focus on passing other legislation before the August recess and the November midterm elections, in particular, the crypto-regulating CLARITY Act that many lawmakers have been pushing to advance.\nHouse Republican leaders plan to put the bill up for a vote after the House returns from recess on June 23, two people familiar with the plan told Politico.\nThe housing bill includes language that says the Federal Reserve may not, directly or indirectly, “issue or create a central bank digital currency or any digital asset that is substantially similar to a central bank digital currency.”\nIt adds the clause will expire on Dec. 31, 2030, and creates a carveout for crypto stablecoins, or “dollar-denominated currency that is open, permissionless, and private.”\nThe clause revives much of the language from Republican Representative Tom Emmer’s Anti-CBDC Surveillance State Act, which was introduced in June 2025, passed by the House the next month, but was never picked up in the Senate.\nUS President Donald Trump signed an executive order in January 2025 banning federal agencies from all work related to CBDCs, saying they threatened “the stability of the financial system, individual privacy, and the sovereignty of the United States.”",
+  "published_at": "2026-06-18T12:05:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-18T15:00:36.601716Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

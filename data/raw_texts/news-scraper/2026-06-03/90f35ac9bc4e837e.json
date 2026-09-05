@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://simonwillison.net/2026/Jun/3/uber-caps-usage/",
+  "title": "Uber's $1,500/month AI limit is a useful signal for AI tool pricing",
+  "raw_text": "<p>Article URL: <a href=\"https://simonwillison.net/2026/Jun/3/uber-caps-usage/\">https://simonwillison.net/2026/Jun/3/uber-caps-usage/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48383056\">https://news.ycombinator.com/item?id=48383056</a></p>\n<p>Points: 219</p>\n<p># Comments: 273</p>",
+  "published_at": "2026-06-03T12:25:14Z",
+  "author": "pdyc",
+  "collected_at": "2026-06-03T21:00:47.601376Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

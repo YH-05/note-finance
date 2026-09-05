@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://jp.reuters.com/opinion/U2PC3FNKH5NLZKDQVFWRQF5HEU-2026-05-05/",
+  "title": "コインベース、世界で約14％人員削減　ＡＩ対応で事業再編",
+  "raw_text": "［５日 ロイター］ - 暗号資産（仮想通貨）交換所大手コインベース(COIN.O)は５日、全世界の従業員の約１４％に当たる約７００人の人員削減を行うと発表した。コスト削減と人工知能（ＡＩ）時代に向けた事業再編計画の一環という。\nコインベースは、デジタル資産の相場下落を受けた取引量減少に直面している。\n人員削減は２６年第２・四半期にほぼ完了する予定で、関連費用として、約５０００万─６０００万ドルを見込んでいる。\n私たちの行動規範：トムソン・ロイター「信頼の原則」",
+  "published_at": "2026-05-06T03:00:06.498979Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:00:33.648964Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "reuters_jp",
+    "category": "business",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/stock-market-today-live-updates.html",
+  "title": "Stock futures fall as investors assess fragile Iran-Israel ceasefire: Live updates",
+  "raw_text": "S&P 500 futures fell Monday night as investors weighed a fragile ceasefire between Iran and Israel.\nFutures tied to the broad market index were down about 0.2%, while the Nasdaq 100 futures slid 0.35%. Dow Jones Industrial Average futures fell by 148 points, or 0.29%.\nIran on Monday halted military strikes against Israel, but warned it would resume attacks if Israeli forces continue operations in Lebanon, Tehran's foreign ministry told CNBC on Monday. Hours later, Israeli Prime Minister Benjamin Netanyahu said the conflict with Iran and Hezbollah was \"not yet over.\"\nIn Asia, Japan's Nikkei 225 opened over 1% higher on Tuesday, while South Korea's Kospi rebounded from Monday's slump to jump 4%. Hong Kong Hang Seng index fell 0.53%, while the mainland's CSI 300 was up 0.57%. Australia's benchmark S&P/ASX 200 was down 1.33%.\nChip stocks led the S&P 500 higher in regular trading Monday, with the index rising 0.3%. The tech-dominant Nasdaq Composite climbed 0.86%. Both averages clawed back some of their losses from last week's tech rout. The blue-chip Dow, on the other hand, bucked the trend to shed 80.77 points, or 0.16%.\nAlthough the artificial intelligence and chip trade has been the primary market driver on Monday and in other recent sessions, Brian Kersmanc, portfolio manager at GQG Partners, offered some skepticism over the trend's longevity.\n\"What the issue is on a longer-term basis is sustainability,\" Kersmanc said on CNBC's \"Closing Bell: Overtime\" on Monday afternoon. \"So, how much further does this sustain on a longer-term basis?\"\n\"At the end of the day, a lot of these chip names are commodities,\" the portfolio manager added. \"And if you look at it in terms of a commodity, when you have a rapid price increase that you had — in some areas of memory, you had a 15x price increase over the course of last year or so — if I were to recontextualize that … a 15x increase in energy, go from $60 a barrel to $900 a barrel, how many energy stocks would people be buying right now?\"\nThe fragile ceasefire between the U.S. and Iran was called into question over the weekend, following a reported missile attack from Iran. In response, Israel carried out a \"large-scale strike on strategic defense systems\" on Monday, according to the Israel Defense Forces' X account.\nHowever, that same day President Donald Trump said in a Truth Social post that Israel and Iran \"are looking to do an immediate ceasefire.\" Later on Monday, Tehran's Ministry of Foreign Affairs told CNBC that while Iran's military has stopped its strikes against Israel, hostilities would resume if Israel continued to attack Lebanon.\nUnited Natural Foods, J.M. Smucker, Designer Brands and Lands' End will report earnings before Tuesday's opening bell. Traders will also watch out for April's wholesale inventories and May's existing home sales and NFIB small business index readings.",
+  "published_at": "2026-06-09T02:13:37Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.162128Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

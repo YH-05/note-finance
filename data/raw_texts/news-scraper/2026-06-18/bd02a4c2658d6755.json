@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/japan-trade-data-may-exports-imports.html",
+  "title": "Japan May exports grow at fastest pace in over three years, beating estimates, as chip demand soars",
+  "raw_text": "Japan's exports in May grew at their fastest pace since November 2022, rising 17% year on year, driven by robust demand for cars and semiconductors.\nGrowth was higher than the 16.2% expected by economists polled by Reuters, and up from the 14.8% in April.\nWhile export value rose, volumes barely shifted, recording just a 0.5% increase, signaling that much of the gains in value were likely due to price and foreign exchange-related impact as the yen stays weak.\nThe surge in exports was powered by a 17.9% year-on-year jump in shipments to China and a 12.5% surge in exports to the U.S. Beijing is Tokyo's largest trading partner, while Washington is its second-largest.\nExports to the Middle East took a hit due to the U.S.-Iran war, falling 32%.\nThe country's exports of semiconductors surged 61.2% in May from a year earlier in terms of value, powered by booming demand for artificial intelligence technology, while shipments of cars jumped 16.4%, according to the official data.\nExports remain one of Japan's main economic drivers, with its economy growing 0.5% sequentially in the first quarter and at 1.8% on an annualized basis. However, this growth engine may soon slow, according to Norihiro Yamaguchi, lead Japan economist at Oxford Economics.\nYamaguchi expects gains to ease gradually, saying that while robust tech-related demand amid the AI boom will be supportive in the near term, sluggish global growth overall will limit broader demand for Japanese goods, particularly non-AI capital goods.\nJapan's imports rose 12.5% year on year in May, the highest growth since January 2025, but missing Reuters poll estimates of 12.8%. Petroleum imports dropped 28.5% year on year, hit by the Middle East conflict.\nThe economic data comes after the Bank of Japan raised its policy rate on Tuesday by 25 basis points to the highest in over 30 years at 1%, as the country sees rising inflation and as the yen stays weak.\nA weak yen is likely to boost exports but also causes domestic worries by pushing up imported inflation and weakening purchasing power.\nJapan's benchmark Nikkei 225 index was down 0.5%, while the yen was little changed following the data release, trading at 160.4 against the U.S. dollar.\nThe Reuters Tankan survey — which measures business sentiment among large Japanese manufacturers and is closely watched by the central bank — climbed to +13 in June, the highest in three months, from +8 in May. The non-manufacturing index rose to +32. A positive figure indicates that optimists outnumber pessimists.",
+  "published_at": "2026-06-17T02:42:06Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.800544Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

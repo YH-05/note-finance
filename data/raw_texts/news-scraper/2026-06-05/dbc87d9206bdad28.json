@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/943445/cyberdeck-tiktok",
+  "title": "Cyberdecks used to look like little laptops, but now they&#8217;re getting more personal",
+  "raw_text": "DIYer and TikTok user Annike Tan, who goes by @ubeboobey, can carry her cyberdeck around without anyone noticing because it doesn’t look like a computer at all. Tan, who has been featured in The Cut and Wired, went viral earlier this year with a mermaid-themed cyberdeck she made inside an old purse. She has since upgraded it and built an MP3 player and a solar-powered cyberdeck.\nCyberdecks used to look like little laptops, but now they’re getting more personal\nThey don’t make cyberdecks like they used to.\nThey don’t make cyberdecks like they used to.\nTan and countless other DIYers are attracting millions of views showing off the personal computers they’ve built inside purses, jewelry boxes, toys, and old tech, hiding Raspberry Pi boards inside art projects.\nCyberdecks, but make it fashion\nThe colorful, quirky builds popping up across social media are a drastic shift away from the typical look the cyberdecks we’ve featured have had, which often consisted of a 3D-printed chassis or a rugged box like a Pelican case, usually with a cyberpunk-style design.\nInside, these homemade devices are essentially mini Linux computers for specific tasks, usually done offline, like reading, journaling, or listening to music. But now, a cyberdeck doesn’t have to look like a computer at all.\nThis new movement emphasizes using recycled or thrifted parts and leans more into the artistic side of making a cyberdeck. One TikTok user who goes by @diypagancrafts created a cyberdeck out of a retro TV-themed purse with the screen on the outside and the Raspberry Pi, keyboard, and a game controller stored inside. Almost anything with enough space for a single-board computer and a screen can be a cyberdeck — a Dunkin’ Donuts munchkin box, a Pokeball, an Altoids tin, a plastic box stuffed with fake moss and flowers.",
+  "published_at": "2026-06-04T20:07:31Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-05T03:02:19.165503Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Creators",
+      "Gadgets",
+      "News",
+      "Social Media",
+      "Tech",
+      "TikTok"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/08/airbnb-says-ai-now-writes-60-of-its-new-code/",
+  "title": "Airbnb says AI now writes 60% of its new code",
+  "raw_text": "A large part of Airbnb’s Q1 2026 earnings call was dedicated to talking about how the company is using AI tools for coding, customer support, and search. Notably, the company claimed that 60% of the code its engineers produced in the quarter was written by AI — echoing comments by other Google, Microsoft, and Spotify, which have all talked about AI accelerating their programming.\nAirbnb CEO Brian Chesky noted that the company finds AI particularly helpful for building tools for its API partners who manage their properties using different software.\n“API partners say they want to be better hosts and need better tools. AI gives huge leverage — where you might have needed a team of 20 engineers before, an engineer can now spin up agents to do a lot of work under supervision. Adopting AI tools gives us leverage to build more software for API partners, accelerating work we previously did not have resources for,” Chesky said.\nAirbnb has been slowly expanding its use of AI for customer support over the past year, and Chesky said on Thursday that its customer support AI bot now handles 40% of issues without escalating to a human agent, up from about 33% earlier this year. The travel company has also been experimenting with using AI to power its search function.\nHowever, Chesky acknowledged the difficulty of truly employing AI tools in the travel or e-commerce spaces, pointing to weaknesses in the chatbot user interface.\n“I do not think anyone has figured out AI for travel or e-commerce yet […] The design of a chatbot, as currently constructed, does not work for travel or e-commerce. There are four problems: too much text (most of e-commerce is photo-forward); no direct manipulation (you have to type everything rather than adjust sliders); poor comparison (you can get lost trying to compare thousands of options in a thread); and most bookings are multiplayer, while chatbots are primarily single-player, and not map-native.\nAirbnb said net income rose 3.9% to $160 million in the first quarter, while revenue increased 18% to $2.7 billion, compared to a year earlier. Nights booked went up 9% to 156.2 million in the period. The company said its new “Reserve now, pay later” feature drew almost 20% of its gross booking value in the quarter.",
+  "published_at": "2026-05-08T12:49:16Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-05-08T15:00:27.469485Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Commerce",
+      "Real estate",
+      "ai coding",
+      "Airbnb",
+      "travel tech"
+    ]
+  }
+}

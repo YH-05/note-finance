@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=48504034",
+  "title": "Tell HN: Meta is down",
+  "raw_text": "I remember that time when FB went down and engineers couldn't even enter the building to fix it.\n\"Sheera Frenkel, a tech reporter for the New York Times, told the BBC part of the reason it took so long to fix was because \"the people trying to figure out what this problem was couldn't even physically get into the building\" to work out what had gone wrong.\"\nI don't understand why \"break the door down\" wouldn't be the most immediate course of action by a senior engineer in that situation. I'll get my tools.\n\"I'll just do this small release on a Friday before heading out\" - thought a software engineer before AI-slopification period. Today it was probably some AI agent which fixed all of the performance issues by deleting everything.\nNot sure if that's better or worse than the time in 2021 when they had some sort of glitch that brought down their systems and locked people out of their data centers.\nThe market thinks this company is worth over a trillion dollars. Remember that.\nOh I always assumed that their UI/UX and general apps are trash because people today basically must use them and I assumed that the money making part of the ecosystem would be flawless.\nNow that I'm saying that, people also don't have any other chance when placing ads.\nI do not understand how can someone with so much money produce such a low quality products. You can't spend it all on metaverse.\nMy Facebook won’t let me log in say check internet and query error, messenger same, dow detector giving me 404 error code. Mere & Facebook saying no problems there end which is bull obviously. Is this a cyber attack?\nI just tried again and I can load the home pages for both sites without issues from Ohio in a private Safari window. Don't have a way to upload a screenshot.\nCould you imagine? I know it won't happen but what if we get a statement that they suffered a catastrophic data loss and full service couldn't be restored for a week or something. It would be a modern miracle.\nWasn't there a multi-day outage some number of years ago? Or at least an entire day, or something like that. People were acting like it was the end of the world. I vaguely remember something like that happening, many moons ago...\nthere was. I think it was something with a key at a data center and a DNS config. You would think after that people would have learned to have their own website and POSSE everything outwards, but businesses in particular still think a Facebook/Meta presence is good enough.",
+  "published_at": "2026-06-12T13:49:14Z",
+  "author": "reportinglurker",
+  "collected_at": "2026-06-12T21:00:54.732480Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

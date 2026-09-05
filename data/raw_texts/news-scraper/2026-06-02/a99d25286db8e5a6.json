@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/slate-says-its-electric-pickup-will-never-track-you/",
+  "title": "Slate Auto gets serious about privacy for its bare-bones EV pickup",
+  "raw_text": "Slate Auto may be one of the most interesting companies in the American automotive industry right now. Based in Warsaw, Indiana, the startup is taking a completely different approach to building an electric pickup truck. Forget Ford’s clean-sheet “skunk works” story; the Slate Truck’s design has been stripped down to just 600 parts and components. That minimalism includes the interior, where you’ll find two seats and manually wound windows, but no infotainment system. If you’re one of Ars’ many readers who want an electric car that won’t track you, Slate might have what you’re looking for.\nIt’s not an entirely analog experience, though; a Slate smartphone app can manage settings, change drive mode, and provide range and charging info. But only when connected locally to the car—there’s no embedded modem, so forget about remote access. And the company says that while it may use data from the app to improve its products, it won’t sell that data.\nThat’s according to a new report from SAE International’s (and sometime Ars contributor) Roberto Baldwin. “We are building it around ownership value,” Slate said. “We collect data to make ownership better, not to turn the owner into the product. The app will collect data only when it directly contributes to enabling or improving a customer experience. Privacy is paramount. For Slate, privacy is not a compliance footnote. It is part of the product experience.”\n“Customers should understand what is being shared, why it matters, and how it helps them own the vehicle with more confidence,” the company said. “That may include data needed to support account setup, device-to-vehicle connection, diagnostics, maintenance guidance, service support, charging context, OTA update status, customer support, and product improvement. Slate is being intentional about what the app can do and what data it collects. We would rather be precise and trusted than overpromise connected features or collect data without a clear customer benefit.”",
+  "published_at": "2026-06-02T14:49:05Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-02T21:04:33.536794Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "EV truck",
+      "Slate Auto"
+    ]
+  }
+}

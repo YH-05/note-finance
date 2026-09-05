@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/949005/jeff-bezos-prometheus-artificial-general-engineer",
+  "title": "Jeff Bezos’ AI startup aims to build an ‘artificial general engineer’",
+  "raw_text": "Amazon founder Jeff Bezos says his new AI startup will work toward developing an “artificial general engineer,” according to reports from The New York Times and CNBC. The startup, called Prometheus, aims to develop AI-powered engineering tools to aid in the design of physical products.\nJeff Bezos’ AI startup aims to build an ‘artificial general engineer’\nPrometheus will develop AI-powered engineering tools for robotics, drug design, manufacturing, and more.\nPrometheus will develop AI-powered engineering tools for robotics, drug design, manufacturing, and more.\nThe NYT first reported on Prometheus last November, but now Bezos is sharing more information about the startup after a $12 billion funding round, putting the company at a $41 billion valuation. Bezos serves as co-CEO of Prometheus alongside Vik Bajaj, who co-founded Alphabet’s health-focused research group, Verily. The startup currently has around 150 employees.\nThe tools Prometheus intends to build could help develop physical products across several industries, including robotics, drug design, and manufacturing, the NYT reports. “Blue Origin is a perfect example of a company that could benefit from the tools that Prometheus is building,” Bezos tells the NYT. “Any company that is building sophisticated devices — like rocket engines — would benefit greatly from this kind of technology.”",
+  "published_at": "2026-06-12T14:03:39Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-12T15:00:11.506632Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "Tech"
+    ]
+  }
+}

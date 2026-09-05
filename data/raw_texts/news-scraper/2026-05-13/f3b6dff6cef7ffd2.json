@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/altman-forced-to-confront-claims-at-openai-trial-that-hes-a-prolific-liar/",
+  "title": "Altman forced to confront claims at OpenAI trial that he's a prolific liar",
+  "raw_text": "Elon Musk and Sam Altman had very different experiences while testifying at a trial that will determine OpenAI’s future, including who runs it, where its research funding comes from, and who can profit from its boldest new technologies.\nMusk—who filed the lawsuit alleging that OpenAI under its current leadership has abandoned its nonprofit mission to build AI that benefits humanity and instead serves to enrich people like Altman—spent three grueling days on the stand. At times, he lost his temper, as OpenAI’s lawyer, William Savitt, tried to poke holes in Musk’s claims that OpenAI executives teamed up with Microsoft to “steal a charity” after duping Musk into donating $38 million in early funding.\nOn Tuesday, Altman did not face such a grilling from Musk’s lawyer, Steven Molo. Instead, Altman appeared jittery at first but steeled his nerves rather quickly. He hopped off the stand after about four hours of rather calmly discussing evidence that he’s hoping shows that Musk’s claims about OpenAI’s for-profit restructuring are disingenuous. Since Musk filed the lawsuit, Altman has insisted that Musk is only after revenge, supposedly stemming from his jealousy that he was not picked as OpenAI’s CEO and that his rival company, xAI, now lags behind.\nBut while the billionaires notoriously no longer see eye to eye, Altman revealed at the trial that he had a rather Muskian moment after OpenAI’s board temporarily ousted him as CEO in 2023.\nAltman explained that he snapped after losing control of OpenAI, where he’s currently CEO of both the for-profit and nonprofit. He claimed that he seriously entertained walking away from OpenAI forever and taking Microsoft’s offer to instead spearhead an AI research wing of the tech giant, where he could get rich.",
+  "published_at": "2026-05-13T17:48:05Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-13T21:00:31.229541Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "agi",
+      "artificial general intelligence",
+      "Artificial Intelligence",
+      "Elon Musk",
+      "openai",
+      "sam altman",
+      "xAI"
+    ]
+  }
+}

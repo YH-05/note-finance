@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/here-are-jpmorgans-favorite-stocks-heading-into-june.html",
+  "title": "Here are JPMorgan's favorite stocks heading into June",
+  "raw_text": "JPMorgan updated its list of top ideas from its own analysts for the month of June. May ended on a strong note with U.S. stocks closing at a record high , led by technology companies. All three major indexes — the S & P 500 , Nasdaq Composite and the Dow Jones Industrial Average — advanced, with Nasdaq climbing more than 8% in the month. The S & P 500 surged 5% while the Dow rose 3%. Each month, analysts at JPMorgan gather their top picks across different investment strategies: growth, income, value and shorts. The investment ideas are tailored to these specific strategies and could differ from the investment bank's fundamental ratings. This month the bank added Viasat , a global communications provider of high-speed satellite broadband. Here are 10 of the stocks JPMorgan is recommending this month: Eli Lilly made a new push in May, returning to vaccines and infectious disease treatment. At the same time, CVS Health said it would restore coverage in its drug plans to the blockbuster weight loss injection Zepbound, helping to solidify Lilly's dominance over Novo Nordisk . In the face of a market capitalization above $1 trillion and seven acquisitions, announced or closed, in the last three months, Wall Street analysts remain bullish on Lilly. The Indianapolis-based drugmaker closed at an all-time high last Thursday, and recently traded about 73% above last August's 52-week low of about $624, according to FactSet data. Viasat was a new addition to JPMorgan's monthly recommendations. The global satellite communications provider, a rival to SpaceX's Starlink service, has soared more than 730% in the past year but saw its shares drop 16% in the past two days after filing a shelf registration Friday with the Securities and Exchange Commission to sell stock or debt. Needham on Friday reiterated a buy rating on Viasat and raised its price target to $90 from $58. Roughly 70% of Viasat's revenue comes from communication services and the remaining 30% from its defense and advanced technologies businesses, according to FactSet data. On Monday, Carlsbad, California-based Viasat won a contract with Lockheed-Martin to support NOAA Next-Generation aircraft with its hybrid satellite communications platform.",
+  "published_at": "2026-06-02T16:11:15Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.117732Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

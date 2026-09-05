@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932364/google-ai-studio-native-android-apps-vibe-code-google-io-2026",
+  "title": "Google can now vibe-code you an Android app",
+  "raw_text": "Google is announcing a major upgrade to one of its vibe coding platforms: Beginning today, you can now use AI Studio to build native Android apps.\nGoogle can now vibe-code you an Android app\nBut Google is carefully suggesting that the apps might be best as more limited experiences.\nBut Google is carefully suggesting that the apps might be best as more limited experiences.\nWith Google AI Studio, you can prompt your idea for an app and preview it with an embedded emulator of Android. When you want to try it out on an actual phone, you can connect an Android device to your computer and install it. In the future, you’ll also be able to invite app testers from AI Studio.\nIt sounds like you won’t be able to whip up just any old app of your dreams, though; in a blog post, Google says that this “initial release” of the functionality is focused on “personal utility” apps like habit trackers and study quizzes, “hardware-enabled experiences” like apps that use your phone’s camera or GPS, and “AI-powered experiences” that rely on Gemini’s API.\nAnd while this new feature might make it easier to create an app, if you want to publish your app on Google Play, it will need to meet Google’s rules. “App quality continues to be a top priority to Google Play and we will not be changing any of our review processes and standards,” spokesperson Mia Carter tells The Verge. “AI Studio simply lowers the barrier to entry for creating high quality Android apps. Apps created with AI Studio will still need to meet these strict quality and review standards on Google Play.”\nAt I/O, Google is making other developer- and app discovery-focused announcements as well. The company is launching a 1.0 version of its command-line interface for building Android apps. Google is going to start showing apps as recommendations to Gemini queries in the “coming weeks” and will surface movies and TV shows beginning “later this year.” And in Google Play, Google is rolling out a short-form video feed of “Play Shorts” about apps to users in the US and “select developers.”",
+  "published_at": "2026-05-19T17:45:00Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-19T21:00:19.855965Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

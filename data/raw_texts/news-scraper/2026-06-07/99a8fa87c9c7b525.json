@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20342-stt-gdc-secures-an-extra-us-500m-in-financing-for-jakarta-campus.html",
+  "title": "STT GDC secures an extra US$500m in financing for Jakarta campus",
+  "raw_text": "ST Telemedia Global Data Centres (STT GDC) said on Wednesday it has secured IDR8.8 trillion (around US$500 million) in additional financing for its Jakarta data centre campus, to include its upcoming STT Jakarta 3 facility.\nSTT GDC secured the funds via an upsized dual-currency facility that includes the company’s first green term loan tranche in Indonesia. The financing was arranged by OCBC NISP, HSBC Indonesia and Negara Indonesia. OCBC and OCBC NISP also acted as coordinating banks, sole green coordinator and facility agent.\nSTT GDC said the dual-currency structure (which comprises USD and IDR components) enhances funding flexibility and supports efficient deployment across the development lifecycle of the campus. The facility also incorporates features that provide capacity for future expansion, which enables the firm to scale in line with customer demand without requiring structural renegotiation.\nMeanwhile, the green tranche will be deployed to support the construction of STT Jakarta 3 in Cikarang, Bekasi, which forms part of the broader STT Jakarta campus that’s designed to support more than 360MW in IT load capacity at full buildout.\nSTT Jakarta 3 supports both liquid and air-cooling architectures, which STT GDC said will enable next-generation cloud and AI workloads at higher densities. The data centre is targeting a power usage effectiveness (PUE) of 1.30 and LEED Gold certification, and will deploy an ultra-low global warming potential (GWP) cooling system.\nThe extended funding builds on STT GDC Indonesia’s existing secured term loan, revolving credit and trade facilities, said STT GDC group CFP Nelson Lim.\n“This transaction marks the next evolution of our Indonesia financing platform, enabling us to support continued expansion of the STT Jakarta campus while introducing our first green loan tranche in the market,” Lim said in a statement.\nSTT GDC Indonesia officially launched STT Jakarta 1 in July 2023. The data centre supports up to 19.5 MW of IT capacity.\nSTT GDC was acquired by global investment firm KKR and Singtel this past February for a total consideration of approximately US$5.1 billion.",
+  "published_at": "2026-06-04T03:28:41Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-07T03:04:10.366508Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

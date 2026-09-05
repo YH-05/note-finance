@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/20/rising-mortgage-rates-cause-surge-in-demand-for-riskier-loans.html",
+  "title": "Rising mortgage rates cause surge in demand for riskier loans",
+  "raw_text": "Mortgage rates continued to climb higher last week, dampening demand for loans from both current homeowners and potential homebuyers. They also pushed consumers to riskier loans that offer lower rates.\nTotal mortgage application volume dropped 2.3% from the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe weekly average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, increased last week to 6.56% from 6.46%, with points decreasing to 0.60 from 0.63, including the origination fee, for loans with a 20% down payment. That is the highest rate in seven weeks.\n\"Ongoing concerns around inflation from higher fuel costs combined with rising concerns over global public debt pushed Treasury yields higher in the U.S. and abroad last week,\" said Joel Kan, an MBA economist, in a release.\nThe adjustable-rate mortgage, or ARM, share of total applications rose to nearly 10%, the highest since October 2025. ARMs are considered riskier because their rates reset after a fixed period. The average rate on a five-year ARM last week was 5.76%.\nApplications for a mortgage to purchase a home fell 4% for the week and were just 8% higher than the same week one year ago. Last year at this time, mortgage rates were closer to 7%.\nApplications to refinance a home loan fell 0.1% from the previous week and were 35% higher than the same week one year ago.\n\"Overall applications were down to the lowest level in five weeks as purchase borrowers pulled back across conventional and government loan types,\" added Kan.\nMortgage rates continued to rise this week, hitting the highest level since last July, according to a separate survey from Mortgage News Daily.",
+  "published_at": "2026-05-20T11:33:04Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.176390Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

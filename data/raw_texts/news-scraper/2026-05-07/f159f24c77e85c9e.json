@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605080143",
+  "title": "[MNST] モンスタービバレッジ　1Q増収増益　売上高27％増23.5億ドル、営業益28％増7.29億ドル、EPS0.58ドル",
+  "raw_text": "モンスター・ビバレッジ<\nMNST>の2026年度第1四半期（1-3月）の業績は増収、営業増益だった。\n米現地5月7日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比26.9％増の23億5329万ドルとなった。営業利益は28.1％増の7億2995万ドル。営業利益率は31.0％へ向上した。前年同期は30.7％だった。1株利益（EPS・希薄化後）は0.58ドル（前年同期0.45ドル）。\nモンスター・ビバレッジ<\nMNST>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-07T20:40:07Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:00:22.420884Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260618a.htm",
+  "title": "Federal Reserve Board requests comment on proposal to require certain payment stablecoin issuers to maintain an effective customer identification program",
+  "raw_text": "June 18, 2026\nFederal Reserve Board requests comment on proposal to require certain payment stablecoin issuers to maintain an effective customer identification program\nFor release at 9:00 a.m. EDT\nThe Federal Reserve Board on Thursday requested comment on a proposal to require certain payment stablecoin issuers to maintain an effective customer identification program. The proposal would introduce requirements for these stablecoin issuers that are comparable to customer identification program requirements for banks and credit unions. The proposal is being issued jointly with four other agencies.\nComments on the proposal are due 60 days after publication in the Federal Register.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-06-18T13:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:00:25.963125Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20219-new-retn-backbone-links-balkans-to-moldova-and-ukraine-via-romania.html",
+  "title": "New RETN backbone links Balkans to Moldova and Ukraine via Romania",
+  "raw_text": "International network services provider RETN announced on Thursday it has launched a new end-to-end backbone route through Romania that links the Balkans to Moldova and Ukraine.\nThe route links the Romanian cities of Drobeta, Bucharest and Iași to Chișinău in Moldova as a single continuous backbone path that connects with RETN’s existing Balkans corridor linking Budapest, Timișoara and Sofia.\nRETN said this not only provides a new physical connectivity option across Romania into Moldova, but also creates an alternative to established regional IP transit corridors in Eastern Europe.\nRETN added that the new backbone enables alternative routing to Ukraine via Moldova and into the Balkans via Bulgaria, providing additional options for regional and international traffic flows.\nThe route forms part of RETN’s broader strategy to strengthen its optical network across Central and Eastern Europe, said business development director Olena Lutsenko.\n“Bucharest and Iași are rapidly developing hubs for business, education and technology, and demand for resilient, high-capacity infrastructure is rising fast,” Lutsenko said. “By delivering a direct route from Timișoara to Bucharest and onward to Chișinău, we are enabling faster, more scalable access to the region from the Balkans, Ukraine and Central and Eastern Europe in general – for operators, ISPs, enterprises and international customers.”\nLutsenko added that the expansion comes at a time of rapid fibre growth and infrastructure modernisation across Romania and Eastern Europe.\nAccording to the National Authority for Management and Regulation in Communications of Romania (ANCOM), Romania is among the region’s fibre leaders, with 6.9 million fixed broadband connections in mid‑2025 – 37% of which are gigabit-capable – and fixed broadband average traffic per capita on the rise.",
+  "published_at": "2026-05-08T06:30:34Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-14T03:01:17.748942Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

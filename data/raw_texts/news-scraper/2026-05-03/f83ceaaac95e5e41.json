@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/veeva-systems-will-join-sp-500-index-replacing-coterra-energy.html",
+  "title": "Veeva Systems to join S&P 500 index, replacing Coterra Energy",
+  "raw_text": "Veeva Systems, which sells cloud software to life sciences companies and drugmakers, is joining the S&P 500, becoming the latest tech company to get added to the benchmark.\nThe stock jumped almost 10% in extended trading after the announcement on Thursday from S&P Dow Jones Indices. Veeva will enter the index before trading starts on May 7, replacing Coterra Energy, which is being acquired by Devon Energy.\nCompanies often see their stocks climb when they're added to major indexes because fund managers who trace the benchmarks have to buy shares to match the changes.\nAppLovin, Datadog, DoorDash and Robinhood are among the technology companies that joined the S&P 500 last year.\nWhile Veeva rallied on Thursday's announcement, the stock is getting hammered this year, alongside its fellow cloud software vendors, as investors worry that artificial intelligence will disrupt their businesses. Veeva is down 30% in 2026 as of the close on Thursday, while the S&P 500 is up 5% over that stretch.\nVeeva was founded by Peter Gassner and Matt Wallach in 2007, and went public on the New York Stock Exchange in 2013, Gassner has been CEO since the beginning.\nIn March, Veeva reported a $244 million quarterly profit on about $836 million in revenue, which grew nearly 16% from a year earlier. Competitors include Amazon, Iqvia, Microsoft, Oracle and Salesforce.",
+  "published_at": "2026-04-30T22:40:57Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.510696Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

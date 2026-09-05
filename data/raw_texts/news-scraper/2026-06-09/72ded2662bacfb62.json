@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/09/apples-foldable-iphone-could-be-just-around-the-corner/",
+  "title": "Apple’s foldable iPhone could be just around the corner",
+  "raw_text": "Apple’s long-awaited foldable iPhone may be on track for a fall release, according to hidden files that researcher @M1Astra found in the iOS 27 developer beta. This could mean that when Apple unveils its newest hardware in September, we might finally see its take on the foldable.\nEven though Apple has no foldable phones yet, the iOS 27 code includes references to “foldState,” “mechanicalAngleDegrees,” “angleDegrees,” and “MGGetLogicalDeviceDisplayCount.” This suggests that the software can interpret if the phone is folded out, to what degree it’s been opened, and how many displays the device is using. The implication is that a possible foldable device would run iOS 27, which was unveiled at Monday’s WWDC keynote.\nWhile Samsung and Huawei (which is banned in the U.S.) have been making foldable phones for over five years, Apple’s first attempt will have high expectations to meet. For consumers, the thickness of foldable devices is important — the allure of a second screen may not be as compelling as the ease of sliding a phone into the pocket of your jeans (especially if you wear women’s clothing, which seems to be created with the idea that women do not carry stuff).\nBut Apple has made its fair share of progress in condensing the iPhone to as small a device as possible. Last year, Apple unveiled its iPhone Air, which is only 5.6 millimeters deep (about the thickness of four dimes stacked). As a foldable, two iPhone Air screens would be about 11.2 millimeters deep, which is thinner than any Samsung foldable other than its newest two-screen model, the Galaxy Z Fold7.",
+  "published_at": "2026-06-09T16:22:56Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-06-09T21:00:27.994718Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Hardware",
+      "Apple",
+      "In Brief",
+      "iOS 27",
+      "wwdc",
+      "WWDC 2026"
+    ]
+  }
+}

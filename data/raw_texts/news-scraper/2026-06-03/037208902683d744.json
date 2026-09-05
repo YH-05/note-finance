@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/03/06/gender-gap-in-ai-revealed-in-cnbc-surveymonkey-women-at-work-survey.html",
+  "title": "AI's got a gender gap: Women are more skeptical",
+  "raw_text": "The artificial intelligence craze faces a significant gender gap, with more men showing enthusiasm about the technology, and women expressing greater skepticism. That's according to CNBC's 5th annual SurveyMonkey Women at Work survey.\nSome 69% of men polled say that AI is a \"valuable assistant and collaborator,\" while just 61% of women agreed with that statement. Half of women in the survey view AI with suspicion and say that \"using AI at work feels like cheating.\" Only 43% of men agree.\nThe survey, conducted from Feb. 10 through Feb. 16, with participation from 6,330 people, landed just over three years after the generative AI boom took off with the launch of OpenAI's ChatGPT. Since then, chatbots have spread rapidly and were followed by other services like AI-generated photo and video services, coding agents and all sorts of tools that now make it easy to create apps with just a few text prompts and mouse clicks.\nWall Street is betting that AI will displace much of the enterprise software stack, which explains why software stocks have taken a beating over the past year.\nWithin the workplace, men use AI more frequently than women. Almost two-thirds (64%) of women say they never use AI at work, compared to 55% of men. And when it comes to AI power users, they're also more likely to be men, with 14% saying they use AI \"multiple times a day,\" compared to 9% for women.\nIt's a constant topic now for company executives. JPMorgan Chase CEO Jamie Dimon has called AI \"critical to our company's future success,\" and he said at the bank's 2026 investor day that nearly two-thirds of the company now uses an internal large language model. Dimon said AI will eliminate jobs, so companies are better off retraining people.\nNotably, while men are more likely to use AI, they still say they need to work more at it. Some 59% of men in the survey say they need more training on how to use AI at work, and 39% express a fear of missing out (FOMO) if they don't embrace it, compared to 35% of women. And 42% of women \"strongly disagree\" with the idea that failing to embrace AI will result in them missing out at work, with the sentiment at 36% for men.\nWhat happens if women don't jump into AI training at the same pace as men? LeanIn.Org founder and former Meta operating chief Sheryl Sandberg addressed this question in an interview in December.\n\"We know that AI is going to be challenging for jobs, and it's going to be the most challenging for the people that don't know how to use those tools,\" Sandberg said.\nIf more men than women use AI, especially early in their careers, that could broaden gender gaps at a time when women miss out on the first promotion to a manager level position. That has ripple effects for the rest of their careers.\n\"We are going to see disproportionate impacts,\" Sandberg said, \"and that would be a real shame for our companies [and] bad for our economy.\"\n— CNBC's Nick Wells contributed to this report.",
+  "published_at": "2026-03-06T19:24:03Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.193229Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "media",
+    "tags": []
+  }
+}

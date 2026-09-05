@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/922180/trump-mobile-t1-phone-ptcrb-certification-t-mobile",
+  "title": "We just got a new reason to believe the Trump phone is real(ish)",
+  "raw_text": "Where’s the Trump phone? We’re going to keep talking about it every week. We’ve reached out, as usual, to ask about the Trump phone’s whereabouts. This time we’ve discovered a little more evidence that the phone is on its way to a release.\nWe just got a new reason to believe the Trump phone is real(ish)\nThe T1 phone just picked up a second certification.\nThe T1 phone just picked up a second certification.\nTrump Mobile’s T1 Phone has just passed another milestone on its slow road to release. The phone has received the little-known PTCRB certification, a first step toward being certified to work on major networks and be issued with IMEI numbers.\nYou probably haven’t heard of PTCRB certification — I hadn’t until recently. It doesn’t come up very often. It’s the North American certification process for smartphones, tablets, and IoT devices, administered by the CTIA trade association. So far, so dull — but it’s essentially a requirement for any phone launching in the US.\nSo the fact that the Trump phone has received the certification is another small sign that there might be a real phone at the end of all this. Or at least, I think it’s been certified.\nWhat’s actually been certified by the PTCRB is the SGG-06, a smartphone from Smart Gadgets Global, LLC, with support for 5G, 4G, 3G, and 2G networks. It received its certification on March 9th, just over a month ago.\nRegular readers may recognize that name. A month ago I reported that a phone with that same model number, from that same company, had received FCC authorization in January. It was listed with the FCC under the trade name “T1,” and Smart Gadgets Global’s CEO is one Eric Thomas, one of the Trump Mobile executives I spoke to in February.\nThomas had actually mentioned PTCRB certification when I interviewed him, explaining that the phone was going through the process on its way to certification with T-Mobile.\n“There’s probably 30 different tests that have to be done for a new phone, as much as putting the phone in a vehicle and driving it around the roads to test it from tower to tower. All those things have been completed,” Thomas said. “Some of the internal components in that testing, what’s called PTCRB, that’s what’s going through the process right now. We’ve gone through that as of today. We’re pretty much wrapped up with that and then it’s going through the debugging, the fixes, and then the retesting.”\nThomas and I spoke on February 6th, at which point he told me they were aiming to complete the PTCRB tests by the end of the month, “and then after that everything goes to T-Mobile for their sign off.”\nIf the PTCRB certification was issued in early March — not long after Thomas had guessed — then the ball is presumably now in T-Mobile’s court. I’ve asked them repeatedly, but so far the network has refused to confirm whether the T1 Phone is undergoing its certification process. After a few polite replies, the T-Mobile press office has somewhat curtly asked me to stop emailing them and contact Trump Mobile instead.\nIn theory, T-Mobile is just the start. Thomas previously told me that the company was certifying with one network at a time to avoid repetition in the testing. Once the T1 was certified with T-Mobile it could send that certification to Verizon and AT&T, instead of running every test again. I’ve contacted those two networks for good measure, but hadn’t received a reply at the time of publication.\nBetween FCC authorization and PTCRB certification, it is beginning to look like there might really be a T1 Phone that’s been manufactured and is on track for release. Will it look like the latest renders of the phone? Will it match the new spec sheet? Will it be at all a good value, or just a cheap piece of Android hardware with a spray of gold paint? Those we’ll have to wait to find out. For now, it’s time to tentatively move the Trumpometer back up a notch toward reality.\nGot inside information on Trump Mobile or the Trump phone? Reach out securely from a personal device to tips@theverge.com, or see our How to Tip Us page.",
+  "published_at": "2026-05-01T16:28:39Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-05-01T21:00:16.719414Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Mobile",
+      "News",
+      "Phones",
+      "Policy",
+      "Politics",
+      "Tech"
+    ]
+  }
+}

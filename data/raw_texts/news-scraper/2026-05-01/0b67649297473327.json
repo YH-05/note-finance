@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605011474",
+  "title": "米・4月ISM製造業景況指数",
+  "raw_text": "[経済指標]・米・4月ISM製造業景況指数：52.7（予想：53.2、3月：52.7）\n《KY》\n提供：フィスコ",
+  "published_at": "2026-05-01T14:15:17Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:00:22.185163Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

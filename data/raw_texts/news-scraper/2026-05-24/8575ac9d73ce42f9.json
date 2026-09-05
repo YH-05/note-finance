@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/ai-put-synthetic-quotes-in-his-book-but-this-author-wants-to-keep-using-it/",
+  "title": "AI put \"synthetic quotes\" in his book. But this author wants to keep using it.",
+  "raw_text": "Journalist and author Steven Rosenbaum has more reasons than most to distrust AI.\nHis new book, The Future of Truth: How AI Reshapes Reality, is all about “how Truth is being bent, blurred, and synthesized” thanks to the “pressure of fast-moving, profit-driven AI.” Yet a New York Times investigation this week found what Rosenbaum now acknowledges are “a handful of improperly attributed or synthetic quotes” linked to his use of AI tools while researching the book.\nThese quotes include one that tech reporter Kara Swisher told the Times she “never said” and another that Northeastern University professor Lisa Feldman Barrett said “don’t appear in [my] book, and they are also wrong.” Rosenbaum is now working with editors on what he says is a full “citation audit” that will correct future editions.\nSpeaking to Ars in the wake of the controversy, Rosenbaum says he “learned a lesson” and is “going to be much more suspicious” and “reticent to trust” AI outputs going forward.\nBut he also can’t tear himself away from the tools. Rather amazingly, Rosenbaum is not interested in going back to the AI-free research process he used to write previous books.\n“The idea of taking X years off [from AI] while it sorts itself out, and going back to, like, Microsoft Word … it’s just not in my nature,” he told Ars. “[AI] is magical. Because it connects, it knits together ideas and gives you pathways to think about things that you’re not going to come up with on your own.”\nIt’s also magical in another way: Like J.R.R. Tolkien’s One Ring, AI convinces many of those who use it that they can control its power properly. But can they?",
+  "published_at": "2026-05-22T14:05:56Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-24T03:00:30.718476Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "addiction",
+      "author",
+      "ChatGPT",
+      "Claude",
+      "intoxication",
+      "truth"
+    ]
+  }
+}

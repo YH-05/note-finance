@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/a-classic-strategy-that-could-yield-big-dividends.html",
+  "title": "A classic strategy that could yield big dividends",
+  "raw_text": "Wednesday is garbage day where I live, and because of how recycling works here, we have four separate bins. One for solid waste, one for \"containers\" - bottles and cans, one for compost (grass clippings basically), and one for paper. These last two are the largest, but even so, somehow the one for paper is never big enough. We get everything delivered now, and everything delivered comes in a box. Sure enough today, no matter how much I folded and stuffed, a lot of the cardboard ended up next to the paper bin when there was no more room in it... which got me thinking.\nPackaging Corp of America (PKG) is an old-school, brick-and-mortar industrial business. They make corrugated boxes, containerboard, and shipping materials. Perhaps it sounds unsexy, like a relic of the past (the company's origins are more than a century old), but consider how the world actually works right now.\nWe live in a new age dominated by digital commerce. Every single click on a mobile app, every online shopping binge, and every supply chain shipment fundamentally relies on one thing: a box. Tech may create the order, but old industrials package it up. It's the eyesore sitting on my curb right now.\nThe stock is up a relatively modest 9% in 2026, but management just boosted the annual dividend by 20% to $6.00 per share, and the street consensus is the company earns 12.30 in adjusted EPS next year - roughly 18% growth YoY. With the stock trading around $225, you get a solid yield. But in a choppy, sideways macro environment, why just sit there and collect a standard payout? You can supercharge this old-economy horse using a classic, straightforward (dare I say \"box stock\") buy-write strategy.\nWe actually have a \"double distribution\" fund. Here's an example of how you can manufacture a \"double dividend.\"\nHere is the play:\n- The Stock: Buy shares of Packaging Corp of America (PKG) at the current market price of around $225.\n- The Option: Simultaneously sell (write) the July $250 Call against your shares.\n- The Premium: Target a sale price of $2.25 per contract.\n- Skill level: Beginner\nBy collecting that $2.25 option premium, you are pocketing an immediate cash yield equal to roughly 1% of the stock price in roughly 6 weeks.\nThink about the math here. You capture the underlying stock, you position yourself for the newly increased $1.50 quarterly dividend payout, and you layer on an additional $2.25 in pure options income. If the stock trades flat or pushes moderately higher, that premium is yours to keep, effectively letting you double up on the income this name generates. Buy writing is also a great introductory strategy for anyone looking to make their first options trade.\nIf the market catches fire and PKG blasts past $250 by July expiration? You get called away. But guess what? You just locked in an 11% capital gain from equity appreciation, alongside your premium and dividend, in which case we can recycle another options strategy to write our way back into the name.",
+  "published_at": "2026-06-03T17:41:30Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.688021Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

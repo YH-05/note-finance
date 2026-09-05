@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20198-onatel-lands-us-5-9m-contract-with-pafen-burundi-for-rural-4g.html",
+  "title": "Onatel lands US$5.9m contract with PAFEN Burundi for rural 4G",
+  "raw_text": "Burundi’s state-owned telco Onatel has signed a US$5.9 million contract with PAFEN Burundi to deploy 4G in underserved rural communities.\nThe 18-month contract – signed on Thursday under the oversight of the Ministry of Finance, Budget and Digital Economy – calls for Onatel to provide 92 rural communities that have no mobile service with 4G internet connectivity. The project is expected to benefit over 372,000 people living in those areas, as well as schools and health facilities.\nPAFEN (Projet d'Appui aux Fondations de l'Economie Numérique) was created by the Burundi government in 2024 with US$92 million in financing from the World Bank. PAFEN is tasked with closing the digital divide, improving access to digital services in the public sector, and establishing a robust legal framework for data protection.\nIn a LinkedIn post on Thursday, PAFEN said the contract “marks an important step towards more inclusive connectivity and illustrates the collective will to build a digital ecosystem accessible to all regardless of geographical distinctions.”\nThe deal with Onatel comes two months after rival telco Lumitel Burundi signed a US$10 million deal with the government in March under the PAFEN framework to provide 4G coverage in rural areas. The Ecofin news agency reports that the Onatel and Lumitel deals are part of a broader plan to connect 178 rural communities.\nAccording to Datareportal, citing figures from Kepios, Burundi’s internet penetration rate was 11.1% as of October 2025.",
+  "published_at": "2026-05-05T02:40:51Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-11T03:01:18.878447Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

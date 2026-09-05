@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/personal-finance/us-new-home-sales-soar-2nd-straight-month-prices-plunged-march",
+  "title": "US New Home Sales Soar For 2nd Straight Month As Prices Plunged In March",
+  "raw_text": "After collapsing in January (-17.6% MoM - worst since July 2013 amid weather disruptions), US New Home Sales have risen strongly for two straight months - up 8.9% MoM in February and up 7.4% MoM in March...\nSource: Bloomberg\nThis lifted new home sales by 3.3% YoY, but the total SAAR remains below Dec 2025 levels...\nSource: Bloomberg\nNew home sales have really gone nowhere in three years.\nMedian new home prices plunged in March from $407k to $387.4k - its lowest since July 2021.\nThat is the biggest gap between median and average prices on record...\nImplying a relatively small number of large/high value sales (outliers or a long right tail) are dragging the mean upward, while most of the sales cluster on the lower side as the supply of new homes also plunged.\nMortgage rates are higher in the last month but had fallen notably during the reporting period for today's data...\nBy region, sales in the South, the nation’s biggest home-selling region, increased 11.1%, while purchases in the Northeast rebounded sharply.\nMarch contract signings fell in the Midwest and West.\nHomebuilders, who have been using a combination of incentives and price cuts, saw a pickup in prospective-buyer traffic in March after severe winter weather limited buyer demand early this year.\nSo it appears the market is doing Trump's job for him (despite rising rates) as price-drops improve affordability (which is shaping up to be a key issue in the midterm elections in November.",
+  "published_at": "2026-05-05T14:30:15Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-05T21:00:41.815739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

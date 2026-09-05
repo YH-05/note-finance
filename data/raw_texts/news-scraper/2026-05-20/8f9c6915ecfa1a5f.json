@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/moose-proof-and-megacasting-ars-drives-the-new-volvo-ex60/",
+  "title": "Moose-proof and megacasting: Ars drives the new Volvo EX60",
+  "raw_text": "BARCELONA, Spain—Volvo unveiled its new all-electric EX60 in January with a slew of distinctions. The EX60 is the first model on the company’s all-EV SPA3 platform, a scalable base upon which Volvo plans to build a range of other vehicles.\nWith up to 400 miles (643 km) of range and faster charging than any other Volvo vehicle, this EV carries a lot of hopes and dreams. Volvo says it completely changed how it builds cars for the EX60, refining every stage of production. Part of the building process is called megacasting, a technique that converts molten aluminum into one lightweight piece. The model also boasts 800 V charging and cell-to-body integration, a structural load-bearing battery design that integrates battery cells directly into the vehicle’s floor and walls.\nWhile the market may seem wishy-washy on EVs right now, at least in the United States, most automakers with EVs already in the works are plowing forward. Volvo launched the compact EX30 at the end of 2023 and discontinued it this year due to shifting conditions and tariffs, but the three-row EX90 continues the lineup alongside the new EX60. Priced at $59,795 for the entry-level P6 Plus, the 2027 EX60 ranges up to $68,745 for the P10 AWD Ultra, which is more powerful and has a longer range. Volvo says the P12, which will have even more power and range, is on the horizon.\nBut let’s talk about the most interesting piece: Volvo moose-proofed this EV.\nMoose-proof structure\nSweden’s largest land mammal is the mighty moose. According to the Alaska Department of Fish and Game, Sweden does not have the most moose globally, but it does have the highest density in the world. Overall, moose density in Scandinavia is about 3.5 times greater than in Alaska.\nVolvo knows from experience that moose are serious traffic hazards, especially at dusk and dawn. These half-ton animals are such a danger to drivers that Volvo moose-tests every one of its models with a life-size rubber moose crash test dummy that weighs nearly 800 pounds. Yep, it’s true: Volvo ensures every car is as prepared as possible in case of a head-on collision with a massive moose.",
+  "published_at": "2026-05-20T07:00:57Z",
+  "author": "Kristin Shaw",
+  "collected_at": "2026-05-20T09:00:32.294990Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "car review",
+      "First drive",
+      "Volvo EX60"
+    ]
+  }
+}

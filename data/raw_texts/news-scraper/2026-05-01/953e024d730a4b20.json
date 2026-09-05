@@ -1,0 +1,29 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/922113/pentagon-ai-classified-openai-google-nvidia",
+  "title": "Pentagon strikes classified AI deals with OpenAI, Google, and Nvidia — but not Anthropic",
+  "raw_text": "The Pentagon has struck deals with OpenAI, Google, Microsoft, Amazon, Nvidia, Elon Musk’s xAI, and the startup Reflection, allowing the agency to use their AI tools in classified settings, according to an announcement on Friday. At the same time, the Defense Department has left out Anthropic — which it previously used for classified information — after declaring it a supply-chain risk.\nPentagon strikes classified AI deals with OpenAI, Google, and Nvidia — but not Anthropic\nThe flurry of deals leaves out Anthropic, which the department previously used for handling classified information.\nThe flurry of deals leaves out Anthropic, which the department previously used for handling classified information.\nThis builds upon deals with OpenAI and xAI, which have already reached agreements with the Pentagon for the “lawful” use of their AI systems. A report from The Information suggests Google has struck a similar agreement. As noted by The Wall Street Journal, Microsoft and Amazon already have “deep relationships with the Pentagon,” while contracts with Nvidia and Reflection are new.\nAnd while Anthropic had a $200 million deal to handle classified materials for the Pentagon, it refused to loosen “red lines” around mass domestic surveillance and fully autonomous weapons for the agency, leading to a dispute that banned the AI startup’s products from the federal government. Anthropic sued the federal government in response and won a temporary injunction.\nEmil Michael, the Defense Department’s chief technology officer, told CNBC on Friday that Anthropic is still a supply chain risk, but called its powerful security model, Mythos, a “separate national security moment,” adding that “we have to make sure that our networks are hardened up, because that model has capabilities that are particular to finding cyber vulnerabilities and patching them.”\nIn its announcement, the Pentagon says the agreements with the seven AI companies will allow for the “lawful operational use” of their systems, “establishing the United States military as an AI-first fighting force.”",
+  "published_at": "2026-05-01T14:09:56Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-01T15:00:16.309578Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Amazon",
+      "Google",
+      "Microsoft",
+      "News",
+      "Nvidia",
+      "OpenAI",
+      "Policy",
+      "Politics",
+      "Tech",
+      "xAI"
+    ]
+  }
+}

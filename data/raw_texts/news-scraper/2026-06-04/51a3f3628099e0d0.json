@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/amazon-owned-ring-should-pay-americans-for-scanning-their-faces-lawsuit-says/",
+  "title": "Amazon-owned Ring should pay Americans for scanning their faces, lawsuit says",
+  "raw_text": "A lawsuit against Amazon is seeking financial damages for millions of Americans whose faces may have been recorded by Ring cameras since the Familiar Faces feature was rolled out late last year.\nPlaintiff Charles Sigwalt yesterday filed a class action suit that aims to represent all people in the US “who had their facial recognition data collected, retained, and otherwise used by the Familiar Faces feature created and implemented by Defendant.” The lawsuit will seek “far” more than $5 million, but the $5 million figure was given in the complaint because US district courts have jurisdiction for civil actions seeking at least that amount.\n“Here, there are millions of Americans who have walked by Ring cameras which have activated the Familiar Faces feature… the damages in this action far exceed $5,000,000.00 when calculating the statutory damages that may be owed to each Class member in addition to the actual damages caused by the aggregate loss of value of biometric information,” the lawsuit said.\nRing’s Familiar Faces feature is designed to identify people who appear at one’s door and provide alerts to the owner of the camera. Amazon says Familiar Faces is not enabled by default but that owners of Ring cameras can turn it on. Ring camera users can create a “personal directory of up to 50 familiar faces” so they can be alerted when one comes to the door.\nSigwalt lives in Virginia and filed the suit in US District Court for the Western District of Washington, where Amazon is headquartered. He proposes a nationwide class of all people in the US whose faces were scanned and a subclass for Virginia residents.\n“Familiar Faces uses facial recognition technology to scan the face of all guests and passersby before categorizing who they are using artificial intelligence,” the lawsuit said. “AI then collects a ‘face print’ of the respective person and translates it into a unique patchwork of numbers that allows Ring to re-identify who that person is each time Familiar Faces deploys facial recognition on them.”",
+  "published_at": "2026-06-02T20:17:41Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-04T03:00:31.491484Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Amazon",
+      "facial recognition",
+      "familiar faces",
+      "ring"
+    ]
+  }
+}

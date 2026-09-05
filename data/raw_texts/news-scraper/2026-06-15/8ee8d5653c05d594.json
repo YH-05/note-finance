@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606151360",
+  "title": "エヌビディア、社債発行で２００億ドル超の調達目指すと伝わる＝米国株個別",
+  "raw_text": "（NY時間10:11）（日本時間23:11）\nエヌビディア<\nNVDA> 209.05（+3.86 +1.88%）\nエヌビディア<\nNVDA>は、２０２１年以来となる社債発行で少なくとも２００億ドル（約３兆２０００億円）の調達を目指している。ブルームバーグが関係者の話として伝えた。\n償還期限２年から３０年の７本立てで社債の募集を行っているという。３０年債の仮条件は、米３０年債利回りに約０．９％ポイント上乗せした水準だと述べている。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-15T14:13:00Z",
+  "author": null,
+  "collected_at": "2026-06-15T15:00:17.158829Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

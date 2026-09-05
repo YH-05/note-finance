@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/amd-extends-socket-am5-support-through-at-least-2029-am4-refuses-to-die/",
+  "title": "AMD extends Socket AM5 support through at least 2029; AM4 refuses to die",
+  "raw_text": "One of the benefits of building an AMD PC is that the company has historically supported its processor sockets for longer than Intel does, allowing the same motherboard (and RAM kit, if you want) to power your PC through multiple CPU upgrades. Today at Computex, AMD announced chips for the current AM5 socket and the improbably-still-around AM4 socket that will help extend their lives a little further, a nod to just how expensive it has become to build a new PC or perform a major upgrade these days.\nThe first of these announcements is something we knew about already: the relaunch of 2022’s Ryzen 7 5800X3D, the first of AMD’s commercially available 3D V-Cache processors. Dubbed a “10th Anniversary Edition” in reference to how long Socket AM4 has been around, the re-released chip is slower than regular 8-core Ryzen 5000-series CPUs in general productivity tasks but comes with 64MB of extra L3 cache that disproportionately benefits games. If you’re trying to use a high-end GPU with an AM4 motherboard, it could help keep your CPU from being a performance bottleneck. The 5800X3D (re-)releases on June 25 for a suggested retail price of $349, which is less than it currently costs to buy secondhand.\nAs for the current AM5 socket, AMD officially announced that it was extending its support to at least 2029—it was originally planned to last until 2025, then until “2027+,” so that means between two and four years of additional support, depending on how you’re counting.",
+  "published_at": "2026-06-01T17:02:22Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-02T15:00:26.369175Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Tech",
+      "5800x3d",
+      "AMD",
+      "AMD Ryzen",
+      "Ryzen",
+      "socket AM4",
+      "socket am5"
+    ]
+  }
+}

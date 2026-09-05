@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/uber-to-put-500-data-collection-vehicles-on-the-road-this-year/",
+  "title": "Uber to put 500 data-collection vehicles on the road this year",
+  "raw_text": "Uber revealed on Wednesday a prototype car that it plans to use to scoop up real-world driving data for its growing roster of autonomous vehicle partners, including Avride, Waymo, and WeRide.\nThe vehicle is not some radical design. Rather, it’s a Hyundai Ioniq 5 fitted with an incredible number of sensors on the top and sides, as the company first told TechCrunch back in January. The sensor-laden vehicle may not look particularly groundbreaking, but it does mark a few milestones for the company.\nThis is the first vehicle Uber has assembled itself (with help from a partner) since the company sold its autonomous vehicle division to Aurora in 2020. It also represents progress on Uber’s new AV Labs division, which launched earlier this year to use sensor-equipped Uber cars to collect and then share data with its 30-and-counting autonomous vehicle technology partners.\nUber said Wednesday that it plans to roll out 500 of these kitted-out Hyundai EVs globally this year. That fleet will be able to collect “2 million miles per month of high-fidelity data” for robotaxis. Uber expects 50 of these vehicles to be on the road by the summer.\nThe Ioniqs are fitted with 14 cameras, eight solid-state lidar sensors, and nine radars through a partnership with Roush Performance, which will handle the vehicle retrofits. All of that data will be routed through Nvidia’s Dual Drive Thor autonomous vehicle computer. Uber appears open to changing that sensor suite, noting that it will continue to update it as its partners’ needs evolve.\nThis isn’t just a transfer of raw data, however. Uber said its aim is to develop the world’s most geographically diverse set of training data specifically geared towards autonomous driving. If successful, this dataset will give its AV partners a 360-degree, time synchronized stitched view that can be used to train self-driving software.\nThe company already has a head start. Uber told TechCrunch it has collected data from thousands of vehicles equipped with outward-facing cameras in dozens of cities that are operated by its fleet partners. Uber has also captured data from hundreds of Lucid Air vehicles used by its fleet partners in the U.S. and Europe over the past two years.\nUber’s AV Labs division is analyzing these two tranches of data and is preparing to collect even more with its modified Ioniq 5 vehicles, which will be used by its fleet partners.\nThe AV Labs division is one component of Uber’s broader ambitions for autonomous vehicles. The company launched in February a division called Uber Autonomous Solutions that is designed to handle the day-to-day operations at a robotaxi, self-driving truck, or sidewalk delivery robot business.",
+  "published_at": "2026-06-03T20:08:28Z",
+  "author": "Sean O'Kane, Kirsten Korosec",
+  "collected_at": "2026-06-04T03:00:27.432536Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "autonomous vehicles",
+      "AV Labs",
+      "avs",
+      "Exclusive",
+      "self driving cars",
+      "Uber"
+    ]
+  }
+}

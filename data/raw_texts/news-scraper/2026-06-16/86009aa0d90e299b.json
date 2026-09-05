@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606161191",
+  "title": "明日の為替相場見通し＝１６０円台前半の往来継続も",
+  "raw_text": "【通貨】明日の為替相場見通し＝１６０円台前半の往来継続も\n日銀は１６日まで開いた金融政策決定会合で０．２５％の追加利上げを決定した。利上げは予想通りであり、結果発表後は材料出尽くし感からややドル買い・円売りが強まった。今晩は目立った経済指標の発表は予定されていないが、明晩には米連邦公開市場委員会（ＦＯＭＣ）の結果が発表されることから、依然として様子見姿勢からの一進一退が続く展開が見込まれる。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-16T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T09:00:22.039446Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

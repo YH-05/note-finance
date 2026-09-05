@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20390-somalia-works-towards-ipv6-transition.html",
+  "title": "Somalia works towards IPv6 transition",
+  "raw_text": "Somalia is reportedly moving ahead with its structural transition to the new generation of internet addresses (IPv6), a change necessary to build the capacity of the country's digital infrastructure and anticipate the future growth of online applications.\nThe country’s National Communications Authority (NCA) and its National IPv6 Centre advanced this agenda last week by hosting a specialised technical workshop. This strategic meeting brought together internet service providers (ISPs), academic institutions, telecommunications experts and diverse digital sector stakeholders.\nAccording to the national news agency, this collaborative gathering provided a vital platform to raise institutional awareness about IPv6 adoption.\nSpecifically, as the Ecofin agency reports, the workshop strengthened technical collaboration among key stakeholders, supported the national digital transformation roadmap, deployed next-generation internet technologies, and upgraded existing network infrastructures.\nPrior to this event, Somalia had in fact adopted a dedicated national IPv6 strategy in February 2025 to create a unified implementation framework. This policy framework enabled the successful creation of the National IPv6 Centre inside Jamhuriya University in Mogadishu, a research hub that serves as a specialised centre for research and training to prepare a new generation of experts in IPv6 deployment and network management.\nIt’s arguably not a moment too soon for this transition to take place, though there doesn’t appear to be a timetable yet. Launched originally in 1981, IPv4 provides a maximum capacity of approximately 4.3 billion unique IP addresses. It reached its maximum allocation limits in 2011 despite its continued widespread use across Africa.\nIndeed, as we reported at the time, in June 2025 the African Telecommunications Union (ATU) secured a grant to accelerate Africa’s transition from IPv4 to IPv6.\nIPv6 can generate an estimated 340 trillion trillion unique addresses, offering a long-term solution to support digital expansion in areas such as IoT devices.",
+  "published_at": "2026-06-15T14:14:52Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-16T03:01:22.935812Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

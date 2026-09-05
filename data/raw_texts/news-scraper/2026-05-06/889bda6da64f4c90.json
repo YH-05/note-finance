@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/22/life-sciences-lab-real-estate-rebound.html",
+  "title": "Life sciences lab real estate is clawing back from disaster. Here’s what that means for investors",
+  "raw_text": "Key Points\n- Life science laboratories saw a massive drop in demand last year after the National Institutes of Health was forced to cancel billions of dollars in research grants.\n- Major markets like Boston and the Bay Area had vacancy rates in the life sciences sector of over 30%, according to JLL.\n- The sector is beginning to stabilize, though, with venture capital investment strong at the end of last year and the amount of space under construction falling.",
+  "published_at": "2026-04-22T16:46:26Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.731543Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

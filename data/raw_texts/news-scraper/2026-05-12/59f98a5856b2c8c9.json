@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/drop-database-what-not-to-do-after-losing-an-it-job/",
+  "title": "Twin brothers wipe 96 gov't databases minutes after being fired",
+  "raw_text": "In the US, fired and laid-off workers often have their digital credentials deactivated before they learn about the loss of their jobs; indeed, the inability to log in to a corporate system may be the first an employee knows of the situation.\nAlthough not a generous or humane approach to staff reduction, it does follow from the simple fact that a fired employee with access to company systems is a security risk.\nJust ask the Akhter twin brothers, accused of wiping out 96 databases hosting US government information in the minutes after both were fired last year from their shared employer.\nDROP DATABASE\nMuneeb and Sohaib Akhter, now both 34, had been in trouble before. Back in 2015, the brothers pled guilty in Virginia to a scheme involving wire fraud and computers. Muneeb was sentenced to three years in prison, while Sohaib got two.\nAfter their stints in jail, the brothers worked their way back into the tech world. In 2023, Muneeb got a job with a Washington, DC, firm that sold software and services to 45 federal clients; Sohaib got a job at the same company a year later.\nAccording to the government, however, the two couldn’t stay out of trouble. For instance:\nOn Feb. 1, 2025, Muneeb Akhter asked Sohaib Akhter for the plaintext password of an individual who submitted a complaint to the Equal Employment Opportunity Commission’s Public Portal, which was maintained by the Akhters’ employer. Sohaib Akhter conducted a database query on the EEOC database and then provided the password to Muneeb Akhter. That password was subsequently used to access that individual’s email account without authorization.\nThis was not a one-off. Muneeb had been assembling usernames and passwords—5,400 of them taken from his own company’s network data. He then built custom Python scripts to try these logins against common websites; for instance, his “marriott_checker.py” application tested the logins against Marriott’s hotel chains. Muneeb managed to log in successfully hundreds of times, including to DocuSign and airline accounts. Sometimes, if victims had airline miles stored, Muneeb would book travel for himself.",
+  "published_at": "2026-05-12T19:12:07Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-12T21:00:31.170648Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "crime",
+      "databases",
+      "hacking",
+      "security"
+    ]
+  }
+}

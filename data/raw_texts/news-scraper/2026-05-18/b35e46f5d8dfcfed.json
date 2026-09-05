@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932312/linus-torvalds-linux-ai-security-bugs",
+  "title": "Linus Torvalds says Linux security list is becoming ‘unmanageable’ due to AI bug reports",
+  "raw_text": "Linux founder Linus Torvalds said in his most recent state of the kernel post that “the continued flood of AI reports has basically made the security list almost entirely unmanageable, with enormous duplication due to different people finding the same things with the same tools,” as The Register reports.\nLinus Torvalds says Linux security list is becoming ‘unmanageable’ due to AI bug reports\nReports without fixes, and people finding the ‘same things with the same tools,’ are causing a logjam.\nReports without fixes, and people finding the ‘same things with the same tools,’ are causing a logjam.\nThat probably doesn’t apply to stuff like the “Copy Fail” exploit, which was detected with help from AI and affected nearly every Linux distro.\n“The documentation may be a bit less blunt than I am,” Torvalds said. “So just to make it really clear: if you found a bug using AI tools, the chances are somebody else found it too.” He called the duplicate bug reports “entirely pointless churn,” stating:\nWe’re making it clear that AI detected bugs are pretty much by definition not secret, and treating them on some private list is a waste of time for everybody involved - and only makes that duplication worse because the reporters can’t even see each other’s reports.\nAI tools are great, but only if they actually help, rather than cause unnecessary pain and pointless make-believe work. Feel free to use them, but use them in a way that is productive and makes for a better experience.\nTorvalds went on to add, “If you actually want to add value, read the documentation, create a patch too, and add some real value on top of what the AI did. Don’t be the drive-by ‘send a random report with no real understanding’ kind of person.” GitHub senior product security engineer Jarom Brown similarly responded to a wave of AI bug reports recently, saying that while GitHub has “no problem” with AI tools in general, AI-assisted bug reports need to be validated to be useful.\nAn AI-assisted finding that’s been verified, reproduced, and submitted with a working proof of concept is a great submission. An unvalidated output submitted as-is without reproduction or demonstrated impact is not… If you’ve been prioritizing volume, we’d encourage a shift toward depth. One well-researched, validated finding is worth more than 10 speculative ones, both in bounty payout and reputation. The researchers who earn the most from our program are the ones who go deep.",
+  "published_at": "2026-05-18T14:21:10Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-18T15:00:16.268145Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Linux",
+      "News",
+      "Security",
+      "Tech"
+    ]
+  }
+}

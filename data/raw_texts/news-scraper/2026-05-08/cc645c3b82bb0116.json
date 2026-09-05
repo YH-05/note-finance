@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/",
+  "title": "OpenAI launches new voice intelligence features in its API",
+  "raw_text": "OpenAI said Thursday that its API will now include a number of new voice intelligence features designed to help developers create apps that can talk, transcribe, and translate conversations with users.\nThe company’s new GPT‑Realtime‑2 is another voice model, built to create a realistic vocal simulation that can converse with users. However, unlike its predecessor (GPT-Realtime-1.5) this one is built with GPT‑5‑class reasoning that OpenAI says was created to deal with more complicated requests from users.\nThe company is also launching GPT‑Realtime‑Translate, which, just as it sounds, is designed to provide real-time translation services that “keep pace” with the user, conversationally. The feature includes more than 70 input languages (that is, the languages that it can comprehend) and 13 output languages (the languages it relays to the speaker).\nFinally, the company has also launched a new transcription capability, GPT-Realtime-Whisper, which gives users live speech-to-text capabilities that are captured as interactions occur.\n“Together, the models we are launching move real-time audio from simple call-and-response toward voice interfaces that can actually do work: listen, reason, translate, transcribe, and take action as a conversation unfolds,” the company said.\nWho will these updates be good for? Companies that want to expand customer service capabilities are an obvious target. However, OpenAI also notes that its new features will assist with a wide array of areas, including education, media, events, and creator platforms, among others.\nAs useful as these tools seem from an enterprise perspective, it also seems plausible that they could be misused. The company said it has built guardrails to stop its new features from being abused to create spam, fraud, or other forms of online abuse. Certain triggers have been embedded in the system so that “conversations can be halted if they are detected as violating our harmful content guidelines,” OpenAI said.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nAll of the new voice models are included in OpenAI’s Realtime API. Translate and Whisper are billed by the minute, while GPT-Realtime-2 is billed by token consumption.",
+  "published_at": "2026-05-07T22:24:50Z",
+  "author": "Lucas Ropek",
+  "collected_at": "2026-05-08T03:00:26.764030Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "gpt"
+    ]
+  }
+}

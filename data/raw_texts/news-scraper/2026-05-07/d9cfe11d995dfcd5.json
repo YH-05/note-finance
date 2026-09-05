@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605071447",
+  "title": "７日香港・ハンセン指数＝終値２６６２６．２８（＋４１２．５０）",
+  "raw_text": "７日の香港・ハンセン指数の終値は前営業日比４１２．５０ポイント高の２６６２６．２８と続伸した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-07T08:31:00Z",
+  "author": null,
+  "collected_at": "2026-05-07T09:00:21.765678Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

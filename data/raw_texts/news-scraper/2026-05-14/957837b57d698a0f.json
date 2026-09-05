@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20238-georgian-operator-to-roll-out-small-cells-with-mavenir.html",
+  "title": "Georgian operator to roll out small cells with Mavenir",
+  "raw_text": "MagtiCom, the largest telecommunications provider in Georgia, has selected cloud-native software company Mavenir as its strategic small cell technology partner for a nationwide small cell deployment project.\nMavenir says it will be supplying its full range of 4G and 5G small cell technology, spanning hardware, software, management and orchestration solutions.\nMagtiCom confirmed Mavenir as its preferred small cell technology partner following a successful trial earlier this year. The countrywide deployment is expected to commence during Q2 2026, starting with beta testing for priority residential, small office and enterprise customers ahead of full roll-out later this year.\nMagtiCom offers a range of services that includes mobile telephony, fibre-optic internet, IPTV, and VoIP to more than three million customers.\nVasil Melikidze, Chief Technology Officer for MagtiCom, says the partnership enables it “to expertly extend capacity, boost indoor coverage, and support the growing demand for high-speed mobile data”, adding: “This strategic collaboration will enhance the digital experience for our customers and reinforces MagtiCom’s role in driving Georgia’s next chapter of mobile innovation.”\nMavenir says its small cell portfolio comprises fully cloud-native solutions that delivers 4G and 5G coverage across indoor, outdoor, enterprise, rural and private network environments. It adds that its range of software-upgradable small cells is designed to boost capacity and coverage while supporting advanced use cases in sectors including Industry 4.0, healthcare, retail, aviation, maritime and first responder communications.",
+  "published_at": "2026-05-12T15:10:03Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-14T03:01:17.746153Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

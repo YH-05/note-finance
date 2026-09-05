@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20241-psns-nusantara-lima-broadband-satellite-lights-up-160-gbps-over-sea.html",
+  "title": "PSN’s Nusantara Lima broadband satellite lights up 160 Gbps over SEA",
+  "raw_text": "Pasifik Satelit Nusantara (PSN) announced Monday that its long-awaited Nusantara Lima (N5) broadband satellite is now live and ready to connect underserved and unconnected regions across Indonesia, as well as the Philippines and Malaysia.\nThe Nusantara Lima satellite – which has been in the pipeline since 2022 and was finally launched in September last year – was built on the Boeing 702MP platform and carries a payload of 101 Ka-band spot beams covering all of Indonesia.\nAccording to PSN’s web site, it has established seven ground stations in Aceh, Bengkulu, Banjarmasin, Cikarang, Gresik, Kupang, and Tarakan to support Nusantara Lima’s operations.\nWhile the satellite is designed to provide supplemental coverage for PSN’s SATRIA-1 satellite, which began operations in 2024, the satellite operator said it will also play a “crucial role” in providing connectivity to Indonesia’s \"frontier, outermost, and underdeveloped\" (a.k.a. 3T) regions.\nAccording to the government’s Antara news agency, PSN president director Adi Rahman Adiwoso said the satellite is also set to support national connectivity in the Philippines, while PSN is currently exploring its potential use in Malaysia.\nPSN has already allocated some of Nusantara Lima’s capacity for use in both countries, which each getting access to 20 Gbps, the report said.\n“This proves that our neighbouring countries prioritize connectivity independence amid current dynamics of global politics,” Adiwoso said at an inauguration ceremony on Monday, during which he also described Nusantara Lima as “an important symbol for our nation in maintaining our own national independence.”",
+  "published_at": "2026-05-13T05:12:32Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-19T03:01:21.885879Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

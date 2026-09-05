@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606180040",
+  "title": "ＦＯＭＣ委員の金利見通し　中央値は３．７５％　年内１回の利下げ予想",
+  "raw_text": "【注目】ＦＯＭＣ委員の金利見通し 中央値は３．７５％ 年内１回の利下げ予想\n2026年末\n4.375％ 1人\n4.125％ 5人\n3.875％ 3人\n3.625％ 8人\n3.375％ 1人\n中央値は3.75％\n株探ニュース",
+  "published_at": "2026-06-17T18:29:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T21:00:22.637535Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

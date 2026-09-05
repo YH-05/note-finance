@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606091161",
+  "title": "明日の為替相場見通し＝１６０円前半のもみ合い継続か",
+  "raw_text": "【通貨】明日の為替相場見通し＝１６０円前半のもみ合い継続か\nこの日は、イランとイスラエルが互いに攻撃を停止したと発表。これを受け、原油相場は時間外取引で軟化し、ドルの上値は押さえられた。ただ、米利上げ観測も浮上するなか、下値では買いが入り一進一退状態が続いた。今晩は米５月中古住宅販売件数が発表されるが、市場への影響は限られそうだ。１０日に米５月消費者物価指数（ＣＰＩ）が予定されているだけに、様子見姿勢は続くことが見込まれる。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-09T08:29:00Z",
+  "author": null,
+  "collected_at": "2026-06-09T09:00:21.996297Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

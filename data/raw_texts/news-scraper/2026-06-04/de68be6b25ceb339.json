@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/ultrahuman-says-hackers-accessed-customers-wellness-data-via-internal-tool/",
+  "title": "Ultrahuman says hackers accessed customers’ wellness data via internal tool",
+  "raw_text": "Wearable health tech startup Ultrahuman said hackers gained unauthorized access to customers’ wellness data after stealing an employee’s credentials through malware.\nOn Wednesday, the India-based startup informed affected customers of the incident via email, stating that the breach occurred on March 27 and involved a system used for internal analytics. The company said it detected the intrusion promptly, took the affected system offline, and revoked all access.\nFounded in 2019, Ultrahuman sells smart rings and metabolic health-tracking devices that enable users to monitor metrics such as sleep, activity, and recovery. The startup is best known for its Ring Air, which competes with the Oura Ring, and recently introduced the Ring Pro with upgraded sensors and battery life.\nConfirming the incident, Ultrahuman told TechCrunch that the attackers gained access using credentials stolen from an employee’s malware-infected laptop, resulting in wellness data belonging to about 0.1% of users being accessed.\nBased on the company’s previously reported figure of roughly 700,000 monthly active users, that would equate to at least 700 customers who had their health data accessed. Ultrahuman did not dispute this figure but declined to disclose the exact number of customers affected. The company said no passwords, payment information, production systems, or Ultrahuman Ring devices were compromised.\n“Our security alerting systems detected the incident within hours, and we closed the vulnerability swiftly,” Ultrahuman CEO Mohit Kumar said in a statement to TechCrunch.\nKumar added that the startup was notifying regulators and had delayed informing affected users while it audited the full scope of the incident and determined what data had been affected.\nUltrahuman declined to share any details on whether it received any communication from the hackers responsible for the incident and didn’t say what exactly constitutes “wellness data.” The breach highlights how wellness tracker startups, like Ultrahuman and Oura, store users’ data on their servers in a way that allows their employees — as well as governments and malicious hackers — to access customers’ health data.\nThe startup said in an FAQ published on its website that the threat actor obtained “read-only” access to the affected system. However, the company declined to confirm whether its investigation had determined if any customer data was exfiltrated.\nUltrahuman counts Nexus Venture Partners, Steadview Capital, and Blume Ventures among its investors. The startup has raised around $103 million to date, per Tracxn.",
+  "published_at": "2026-06-03T17:30:52Z",
+  "author": "Jagmeet Singh",
+  "collected_at": "2026-06-04T03:00:27.434213Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Hardware",
+      "Security",
+      "hackers",
+      "ultrahuman"
+    ]
+  }
+}

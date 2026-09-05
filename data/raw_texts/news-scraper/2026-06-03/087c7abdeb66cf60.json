@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/broadcom-earnings-could-breathe-new-life-into-the-chip-rally.html",
+  "title": "Broadcom earnings could breathe new life into the chip rally",
+  "raw_text": "Some of the top chipmakers paused their spectacular rally on Wednesday, but analysts are expecting big things from Broadcom , which reports earnings after the close. Hyperscalers rely heavily on Broadcom's application-specific integrated circuits, or ASICs, and the company has deals with frontier software companies Anthropic and OpenAI, so signs of strong demand could translate to the chipmaking sector as a whole. Broadcom is expected to hit second-quarter earnings per share of $2.40 and revenue of $22.13 billion, according to FactSet, but analysts think estimates are surmountable. \"Street estimates look very beatable over the next few quarters with AVGO likely guiding revenue well ahead of Street ~$22B,\" UBS analyst Timothy Arcuri wrote in a May 18 earnings preview. Arcuri has a buy rating on the stock with an improved price target of $490. Shares of Broadcom have been on a tear, up 40% in 2026 and besting chip giant Nvidia, which is only up about 15% this year. The CNBC Magnificent 7 index is toting a 2026 gain just shy of 4%. Broadcom shares are also poised to move as much as 8% after results, based on options activity. AVGO YTD mountain Broadcom in 2026 Broadcom stock was up about 1% at $487 per share Wednesday afternoon. Nvidia was down a little over 3% and Micron shares were flat while the PHLX Semiconductor index was up almost 2%. AI revenues for Broadcom in 2027 are expected to be between $150 billion and $200 billion, with around $105 billion for ASIC, according to a Wednesday sales note from Morgan Stanley. Analysts are keeping an eye specifically on Broadcom's business with Alphabet and Anthropic. The company inked a deal with Alphabet in April to help build its custom AI chips , such as tensor processing units, or TPUs, and another deal with Anthropic to provide access to computing power. Broadcom's revenues from these two deals will be closely correlated, UBS's Arcuri said, reflecting the high level of mutual investment that has characterized the AI buildout so far. \"We now expect AVGO's Anthropic revenues per gigawatt to track closely to the TPU revenues per gigawatt,\" he wrote. Wells Fargo is \"bullish semis and bullish the TPU-related supply chain in particular (AVGO, MRVL, CLS, TTMI, LITE, COHR, etc.,\" according to a Tuesday sales commentary. CLSA analyst Bhavtosh Vajpayee warned in a Tuesday note about a \"volatile summer\" for AI-related stocks amid an ongoing shortage of memory components and recommended a \"retreat\" into some of the bigger AI names, Broadcom among them. \"AI optimists are smug amid a worsening supply crunch, but unintended consequences loom,\" he wrote. \"AI's flagship stocks — TSMC, NVDA, AVGO, as well as memory names, and AMD/MRVL — appear better placed than the long tail of newly minted AI-theme beneficiaries.\"",
+  "published_at": "2026-06-03T19:11:29Z",
+  "author": null,
+  "collected_at": "2026-06-03T21:19:03.450878Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

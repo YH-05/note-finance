@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/waymo-nhtsa-voluntary-recall-robotaxis-entered-freeway-construction-zones.html",
+  "title": "Waymo recalls about 3,900 robotaxis after some drove into 'freeway construction zones'",
+  "raw_text": "Waymo is recalling almost 3,900 robotaxis in the U.S. to fix software issues after some cars drove into freeway construction zones, according to notices filed with the National Highway Traffic Safety Administration.\nThe voluntary recall, the Alphabet-owned company's second in just over a month, followed 13 known incidents where Waymo robotaxis drove into construction zones on freeways in Phoenix, or entered freeway lanes with active construction in the San Francisco area, the filings published Thursday said.\nWaymo's notice applies to vehicles that use the company's fifth-generation automated driving systems, according to a letter posted to the regulator's website. The letter noted that, \"Driving through a closed construction zone increases the risk of a crash.\"\n\"We identified an area of improvement regarding performance around freeway construction zones,\" Waymo said in an emailed statement. \"We voluntarily restricted freeway operations last month while making improvements, proactively notified state and federal regulators, and decided to file a voluntary software recall with NHTSA. We continue to safely serve riders on surface streets in all the cities where we operate.\"\nWaymo said it's developing a \"remedy\" for the issue and, in the meantime, has limited robotaxi availability for use on freeways. Waymo had been serving public riders on freeways in San Francisco, Los Angeles, Phoenix, and Miami.\nWaymo has experienced issues with its vehicles' failure to yield to school buses in Austin, Texas, and other locations, and for performance during widespread power outages in San Francisco in December, when they halted in traffic, causing chaos and gridlock.\nThe company implemented another voluntary recall in May after some of its robotaxis had driven into flooded zones or standing water.\nThe NHTSA Safety Board also initiated a probe of Waymo after a January incident in which a robotaxi illegally passed a stopped school bus.\nWaymo now operates a commercial robotaxi service in 11 U.S. markets, and is available to select riders in a few cities. Waymo is planning its first international expansions to London and Tokyo this year. Earlier this month, the company announced a new $29.99 a month subscription tier for avid users in cities where demand is high.\nGrayson Brulte, a co-founder of AUTNMY AI, which tracks autonomous driving, applauded the company's \"proactive decision.\"\n\"However, until the freeway patch is deployed and validated, we believe Waymo's expansion velocity is fundamentally constrained,\" he said.\n-- CNBC's Jennifer Elias contributed reporting.",
+  "published_at": "2026-06-18T20:21:21Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:30:35.251940Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

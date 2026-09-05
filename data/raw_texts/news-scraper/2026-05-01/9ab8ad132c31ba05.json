@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/04/30/after-dissing-anthropic-for-limiting-mythos-openai-restricts-access-to-cyber-too/",
+  "title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
+  "raw_text": "After Sam Altman trash-talked Anthropic for gatekeeping its cybersecurity tool Mythos by only releasing it to select users, he confirmed that OpenAI would be doing the same with its competing tool, Cyber.\nAltman said in a post on X on Thursday that OpenAI will begin rolling out GPT-5.5 Cyber “to critical cyber defenders” in the next few days. OpenAI has an application on its website where people submit information about their credentials and planned use in order to gain access.\nThis version of Cyber can perform such tasks as penetration testing, vulnerability identification (and exploitation), and malware reverse engineering, the application implies. It’s intended to be a toolkit to help a company find security holes and test defenses. The fear is that the kit could be misused by the bad guys.\nWhen Anthropic similarly restricted access to Mythos, Altman called the tactic fear-based marketing. Some critics also thought so, saying Anthropic’s rhetoric was overblown. Ironically, an unauthorized group reportedly managed to gain access to Mythos anyway.\nOpenAI says it’s working to make Cyber more widely available by consulting with the U.S. government and identifying more users with legit cybersecurity credentials.\nA spokesperson tells TechCrunch that the company’s system for verifying those with legit cybersecurity credentials, which it calls Trusted Access for Cyber (TAC) has scaled “to thousands of verified defenders and hundreds of teams responsible for protecting critical software.” Those folks can use the latest model, GPT 5.5 for “cybersecurity tasks” with less “friction” from safeguards.\nThe TAC permissions program is tiered, the spokesperson said: “Critical defenders with legitimate defensive use cases can apply to access dedicated more cyber-permissive models like GPT 5.4-Cyber, and the forthcoming GPT 5.5-Cyber, through the program.”\nNote: This story was updated to include a statement from OpenAI.",
+  "published_at": "2026-04-30T19:27:41Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-05-01T15:00:26.765124Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Security",
+      "TC",
+      "Anthropic",
+      "cyber",
+      "In Brief",
+      "Mythos",
+      "OpenAI"
+    ]
+  }
+}

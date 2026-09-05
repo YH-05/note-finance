@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606130033",
+  "title": "修正：スペースＸ、１７６ドルまで上昇＝米国株個別",
+  "raw_text": "（NY時間13:10）（日本時間02:10）\nスペースＸ<\nSPCX> 175.98（+40.98 +30.35%）\nその後、スペースＸ<\nSPCX>は買いが優勢となっており、１７６ドル付近まで上昇。初値は１５０ドルで始まった。気配の段階では朝方に一旦１７５ドルまで上昇していたものの、結局１５０ドルまで低下して取引が始まっていた。取引開始後にその下げを取り戻す展開となっている。\n１８０ドルを超えるのではとの声も事前に出ていただけに、初値は期待ほどではなかった印象もあったが、その後に値ごろ感と見る投資家からの買いを集めている模様。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-12T17:12:00Z",
+  "author": null,
+  "collected_at": "2026-06-12T21:00:22.338772Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

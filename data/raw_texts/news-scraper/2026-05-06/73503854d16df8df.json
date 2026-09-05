@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/corning-shares-erupt-nvidia-deal-supercharge-fiber-optics-out-10x",
+  "title": "Corning Shares Erupt On Nvidia Deal To Supercharge Fiber Optics Output By 10x",
+  "raw_text": "U.S.-based glass company Corning soared in premarket trading in New York after announcing a new mega deal with Nvidia to expand manufacturing capacity for fiber optic production used in AI data centers.\n\"Corning will increase its U.S.-based optical connectivity manufacturing capacity by 10x and expand its U.S. fiber production capacity by more than 50% to meet the accelerating demand driven by AI factory buildouts,\" Nvidia wrote in a press release.\nThe expansion includes three new manufacturing plants in North Carolina and Texas and is expected to create more than 3,000 high-paying U.S. jobs.\nIn a filing, Corning disclosed that Nvidia is making a $500 million equity-linked investment.\nUnder the deal, Corning issued Nvidia two warrants:\nTraditional warrant: Nvidia can buy up to 15 million Corning shares at $180 per share.\nPre-funded warrant: Nvidia can buy up to 3 million Corning shares at a nominal exercise price of $0.0001 per share.\nBoth warrants are exercisable immediately and expire within three years, unless earlier triggered by the termination of the partnership agreement or a major M&A transaction.\nNvidia noted, \"Corning's expanded capacity will supply the optical connectivity hyperscale data centers use to deploy NVIDIA-accelerated computing at scale.\"\nIn premarket trading, Nvidia shares are up 2.4%, while Corning shares are ripping higher, up 20%.\nThe Corning-Nvidia deal to expand fiber-optic production to supply data centers comes as hyperscalers are set to spend $700 billion this year alone on data center buildouts.\nUBS trader Robert Ruple told clients last week that \"there was a mixed bag of hyperscaler prints that leaned generally constructive and nothing he would call out that really shifts the narrative. Most critical was that Microsoft, Alphabet, and META all lifted capex forecasts, which should be enough to keep the AI thesis in play.\" Read the full note here.\nHowever, we must point out: \"Banks Are Choking\": The AI Debt Bubble Has Started To Burst ...",
+  "published_at": "2026-05-06T12:30:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T15:00:40.903738Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

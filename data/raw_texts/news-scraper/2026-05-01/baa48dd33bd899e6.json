@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/technology/meta-buys-robot-brain-startup-zuck-wants-humanoids-homes",
+  "title": "Meta Buys Robot Brain Startup As Zuck Wants Humanoids In Homes",
+  "raw_text": "After the Oculus and Metaverse bets turned into costly disappointments for Mark Zuckerberg's Meta Platforms, the tech giant's pivot to real-world humanoid robotics appears to be gaining momentum, with news Friday afternoon that it is acquiring Assured Robot Intelligence.\nBloomberg reports that Meta has closed the acquisition of the humanoid robotics startup, which develops AI models to help robots understand, predict, and adapt to human behavior in complex environments.\nWhat Meta has acquired appears to be a \"robot brain\" designed to give Zuckerberg's humanoid robots better control, self-learning capabilities, and whole-body movement, enabling them to operate around people and perform physical tasks. Eventually, Zuckerberg wants these bots in your home.\nUnder the deal, co-founders Lerrel Pinto and Xiaolong Wang will join Meta Superintelligence Labs and work with the Meta Robotics Studio.\nThere is no information about the robot brains on ARI's website. Using the commercial risk intelligence firm Sayari, we can see the founders and directors of the startup.\nMore interestingly, trade data shows that ARI imported \"8529.90 - Parts for TVs & Radios\" from India.\nHopefully, Zuck can end his cold streak of failures with humanoid robots.",
+  "published_at": "2026-05-01T19:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-01T21:00:42.448657Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

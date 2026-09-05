@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/risky-leveraged-etfs-may-have-given-the-market-a-boost-in-april.html",
+  "title": "Risky leveraged ETFs may have given the market a boost in April. Why that's not a good thing",
+  "raw_text": "Stocks soared to new heights in April, and leveraged exchange-traded funds may have added fuel to that fire. As the S & P 500 saw its best monthly performance in more than five years last month, flows into mutual funds and ETFs held steady at roughly $90 billion, according to JPMorgan. However, when incorporating a $100 billion rebalancing flow from leveraged ETFs, the net flow from global equity funds totaled a new record of $190 billion, the firm added. That popularity may have given momentum to the bull market's comeback. \"The $100bn estimated rebalancing flow by leveraged equity ETFs during April was the highest monthly rebalancing flow on record and given this flow tends to reverberate at the end of the day in a price insensitive manner, it has certainly acted as a strong amplification force for the equity market during April,\" wrote a team of global markets strategists headed by Nikolaos Panigirtzoglou in a note this week. Leveraged ETFs aim to magnify returns, multiplying the underlying asset's daily performance. However, these funds can also amplify losses if the asset they're pegged to sells off. With the funds' popularity offering a boost, leveraged ETFs can work to the downside if things start to turn for the worse in the market. Some of the more popular ones seen last month may not exactly be favorable for long-term investors given their high risk, daily resets and high fees. Below are the top 10 leveraged ETFs seen in April, based on average volume through the month, per FactSet.",
+  "published_at": "2026-05-07T16:36:46Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.576861Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

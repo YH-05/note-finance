@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20275-airtel-launches-5g-sa-network-slicing-for-postpaid-customers.html",
+  "title": "Airtel launches 5G SA network slicing for postpaid customers",
+  "raw_text": "Indian telco Bharti Airtel launched its 5G network slicing service for postpaid customers on Tuesday, making it the first such service in India.\nThe service, dubbed Priority Postpaid, leverages Airtel’s upgrade to 5G Standalone (SA) technology, which enables the telco to intelligently and dynamically segment network capacity to offer targeted, dedicated bandwidth.\nAirtel said the Priority Postpaid service is specially built for customers who depend on uninterrupted connectivity for work, entertainment or online collaboration.\nThe service is available for customers on all postpaid plans, although they will need a 5G-SA compatible phone to use the service. Airtel has assembled different packages for individual and family plans, with higher tiers bundling in more bandwidth-hungry services like Airtel Xstream Play, Jio Hotstar, Amazon Prime, Apple Music, Apple TV and Netflix.\n“Priority Postpaid […] provides a superior, more reliable, and dependable experience to our customers – whether they are attending a client call in traffic, or streaming at a packed concert, or booking a cab in a crowded market,” said Airtel India MD and CEO Shashwat Sharma in a statement.\nAirtel’s 5G network slicing service launch comes after the Telecom Regulatory Authority of India (TRAI) said earlier this year it would monitor such services to ensure they don’t violate its regulations on net neutrality.\nReliance Jio – which has been trialling network slicing since 2024 – is also making plans to launch commercial slicing services this year.",
+  "published_at": "2026-05-20T03:34:27Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-26T03:01:25.906306Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

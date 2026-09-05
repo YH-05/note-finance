@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606031233",
+  "title": "５月の米非製造業ＰＭＩ確報値は５０．７",
+  "raw_text": "【経済】５月の米非製造業ＰＭＩ確報値は５０．７\n結果 50.7\n予想 51.0 速報 50.9\n＊米コンポジッPMI（5月確報）22:45\n結果 51.5\n予想 51.7 速報 51.7\n株探ニュース",
+  "published_at": "2026-06-03T13:48:00Z",
+  "author": null,
+  "collected_at": "2026-06-03T15:00:22.463464Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

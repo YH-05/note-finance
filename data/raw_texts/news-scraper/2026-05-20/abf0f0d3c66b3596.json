@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/podcast/934202/we-react-to-google-i-o-2026",
+  "title": "We react to Google I/O 2026",
+  "raw_text": "What better way to unwind from a two-hour keynote presentation than to pore over the weirdest and wildest details, from a Gmail bot you can converse with to DeepMind’s leader saying the singularity is near. The Vergecast went live right after the show, with senior AI reporter Hayden Field joining me to discuss the highlights.\nWe react to Google I/O 2026\nHayden and Jake discuss Spark, Antigravity, Omni, Pics, vibe coding, the new Google Search, and the singularity.\nHayden and Jake discuss Spark, Antigravity, Omni, Pics, vibe coding, the new Google Search, and the singularity.\nFirst up, we talk about the buzzword of the show: agents, which seem to be Google’s new answer to making AI useful. Google has a new service called Spark that sounds a lot like a Gemini-flavored OpenClaw, upgrades to its Antigravity platform, and a bunch of agents that will shop for you and track search topics. We also go over Google’s model updates, as well as its shift to world models with Gemini Omni, a theoretically ambitious new family that is off to a very focused start.\nThen, we discuss how Google Search is evolving — or put more plainly, being stuffed with AI features that turn Google into your final destination when browsing the web. We also talk vibe-coding Android apps in Google AI Studio, the new Google Pics app, and Google’s expansion of access to content authentication tools so that people can learn what is and isn’t real.\nWe wrap up discussing Demis Hassabis’ proclamation that AGI and the singularity is near, which got surprisingly little stage time (one sentence) for such a bold statement. And finally, Hayden takes us through her thoughts on the Musk v. Altman trial, which wrapped up earlier this week.\nThanks to everyone who tuned in to the livestream — we’re going to keep them coming. In the meantime, you can always reach us at the Vergecast Hotline (866-VERGE11) or send us an email at vergecast@theverge.com.",
+  "published_at": "2026-05-19T21:48:26Z",
+  "author": "Jacob Kastrenakes",
+  "collected_at": "2026-05-20T03:02:06.835555Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Google",
+      "Google I/O 2026",
+      "Podcasts",
+      "Tech",
+      "Vergecast"
+    ]
+  }
+}

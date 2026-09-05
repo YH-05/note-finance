@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/science/946608/donut-labs-debunk-solid-state-battery",
+  "title": "Donut Lab’s solid-state battery claim debunked by Ziroth",
+  "raw_text": "Donut Lab’s solid-state battery claims have been thoroughly debunked by Ryan Inis Hughes on his popular Ziroth YouTube channel. According to Hughes, Donut Lab has engaged in deliberate, calculated deception by claiming to have a solid-state battery ready for mass production. In reality, it’s nothing more than a standard lithium-ion design.\nDonut Lab’s solid-state battery claim debunked by Ziroth\nAn investigation from Ryan Inis Hughes exposes the ‘miracle.’\nAn investigation from Ryan Inis Hughes exposes the ‘miracle.’\nHughes’ investigation got an assist from whistleblower Lauri Peltola, the former Chief Commercial Officer (CCO) of Nordic Nano Group — the company supposedly partnered with Donut Lab to manufacture the batteries. Hughes says he also turned to “over 20 independent battery experts,” including Julian Zahnow from the Fraunhofer Research Institute, who analyzed the specific voltage curves, cell expansion data, and electrochemical signatures to demonstrate that the “miracle solid-state” battery behaved exactly like a standard lithium-ion (NMC) battery cell.\nIt’s clear that Donut Lab’s CEO Marko Lehtimäki engaged in “authority laundering” by paying Finland’s highly reputable VTT Technical Research Centre to run certain tests — and only those tests — to create the illusion of legitimacy. As Electrek notes, VTT never directly addressed the two claims that mattered: the 400Wh/kg energy density and the 100,000-cycle life.\nHughes also digs into the convoluted network of shell companies that Lehtimäki uses to obscure the inner workings on Donut Lab and the origins of its technology. Hughes also breaks down Lehtimäki’s financial dealings and fundraising techniques that could constitute fraudulent misconduct. The intriguing and deeply researched 45-minute video is worth a complete watch. And, as always, be sure to like and subscribe — Hughes is legit.\nWhat happens next for Lehtimäki, Donut Lab, and its vulnerable retail investors is unclear. But one maxim remains unbeaten: if it sounds too good to be true, it probably is.",
+  "published_at": "2026-06-09T08:40:51Z",
+  "author": "Thomas Ricker",
+  "collected_at": "2026-06-09T09:00:16.235384Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Energy",
+      "News",
+      "Science",
+      "Transportation"
+    ]
+  }
+}

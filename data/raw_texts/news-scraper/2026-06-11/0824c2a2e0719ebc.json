@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606120059",
+  "title": "スペースＸ、ＩＰＯ価格を１株１３５ドルに決定＝米国株個別",
+  "raw_text": "【材料】スペースＸ、ＩＰＯ価格を１株１３５ドルに決定＝米国株個別\n今回はマスク氏の意向で個人投資家の応募も受けつけ、個人投資家からは１０００億ドル超の応募があったとのニュースも流れていた。\n明日、ナスダックに上場し「ＳＰＣＸ」のティッカーで取引開始される予定。注目を一身に集めそうだ。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-11T19:35:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:00:21.487102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

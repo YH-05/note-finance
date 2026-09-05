@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606030552",
+  "title": "東京為替：ドル・円は動意薄、日本株にらみ",
+  "raw_text": "【通貨】東京為替：ドル・円は動意薄、日本株にらみ\n3日午前の東京市場でドル・円は動意が薄く、159円80銭台でのもみ合い。中東情勢の不透明感で原油相場は底堅く推移し、ドルは引き続き売りづらい。一方、日経平均株価は前日比1700円超高の68400円台に浮上し、日本株高を好感した円売りがドルをサポート。\nここまでの取引レンジは、ドル・円は159円81銭から159円99銭、ユ-ロ・円は185円90銭から186円00銭、ユ-ロ・ドルは1.1620ドルから1.1633ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-06-03T02:56:48Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:00:21.971592Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

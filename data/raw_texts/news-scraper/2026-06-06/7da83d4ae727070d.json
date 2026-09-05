@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://twitter.com/eastdakota/status/2062860530360959273",
+  "title": "Three of our worst VC stories",
+  "raw_text": "Something went wrong, but don’t fret — let’s give it another shot.\nSome privacy related extensions may cause issues on x.com. Please disable them and try again.",
+  "published_at": "2026-06-05T19:08:12Z",
+  "author": "orgonon",
+  "collected_at": "2026-06-06T09:00:48.158118Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

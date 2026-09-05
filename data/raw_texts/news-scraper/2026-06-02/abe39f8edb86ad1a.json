@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/941146/liv-2-dot-0-smart-mosquito-repellent-system-thermacell",
+  "title": "Thermacell&#8217;s latest smart mosquito system is bigger and more expensive",
+  "raw_text": "Thermacell has launched Liv 2.0, the next generation of its Wi-Fi-connected smart mosquito protection system. It features new hardware and can cover a larger area, and Thermacell says its formula can now deter no-see-ums. But it’s also more expensive and requires professional installation.\nThermacell’s latest smart mosquito system is bigger and more expensive\nLiv 2.0 starts at $1,700 and can be expanded to cover 3,000 square feet – for a price. It also tackles no-see-ums.\nLiv 2.0 starts at $1,700 and can be expanded to cover 3,000 square feet – for a price. It also tackles no-see-ums.\nLiv 2.0 uses the same setup as the original Liv — a central hub with a wired repeller system containing its metofluthrin-based repellent — but it features entirely new hardware. Pricing starts at about $1,746 for a system with three repellers, a six-pack of repellent refills, and coverage of up to 900 square feet. That’s twice as much as the original, which started at $699 and covered about 945 square feet.\nIf you have a larger area to cover, Liv 2.0 costs $2,150 for a four-repeller system going up to $4,900 for a 10-repeller system. Thermacell says the largest 10-repeller setup, which covers 3,000 square feet, is designed for commercial use, such as restaurants with outdoor spaces. The price doesn’t include installation costs. You can still buy the original Liv system off the shelf and install it yourself, but it now starts at $1,500.\nThe Liv system uses repellers fitted with replaceable repellent capsules. These heat up, creating a 20-foot zone of protection. When chained together, this zone expands — up to 3,000 square feet. There are no sprays or smoke and only a faint hint of scent; the repellent is EPA-registered, and the company says it’s safe for pets and children. When I reviewed the original system, the repellent was very effective at keeping the biting bugs at bay — but it wasn’t large enough to cover my entire quarter-acre yard, and it still isn’t.\nUpgrades with Liv 2.0 include a new hub, redesigned repellers that improve release rates, and the repellent is now rated to deter no-see-ums. There is also a new branching system that allows for more flexible placement. Adam Goess of Thermacell says the company has also re-architected the system’s cloud connectivity and that these improvements, combined with rising global component costs for an IoT product, contributed to the significant price increase.\nThe big difference between Liv and Thermacell’s battery- and butane-powered repeller solutions is that Liv hooks directly into your home’s power and covers a larger area than standalone devices, giving you broader, more controlled protection. Thanks to Wi-Fi connectivity, the system can be controlled from inside your house. With the Liv+ app, you can turn it on or off, set a schedule or timer, set up voice control with Amazon Alexa and Google Home, and get push notifications to remind you to turn it off to save repellent (it can also be set to automatically shut down). There’s no subscription required, and Goess says Thermacell is committed to never putting the app behind a paywall.\nLiv 2.0 is available now through Thermacell professional installers. It’s a very expensive solution to a very annoying problem, though Thermacell argues the cost is comparable to hiring a company to spray your yard for a season. If you’re considering it, consider getting enough repellers to cover your entire yard. In my experience, once you step outside the zone, the bugs quickly return.",
+  "published_at": "2026-06-02T13:00:00Z",
+  "author": "Jennifer Pattison Tuohy",
+  "collected_at": "2026-06-02T15:00:11.752908Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

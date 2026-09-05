@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/928342/openai-daybreak-security-ai",
+  "title": "OpenAI just released its answer to Claude Mythos",
+  "raw_text": "OpenAI is launching Daybreak, an AI initiative focused on detecting and patching vulnerabilities before attackers find them. Daybreak uses the Codex Security AI agent that launched in March to create a threat model based on an organization’s code and focus on possible attack paths, validate likely vulnerabilities, and then automate the detection of the higher risk ones.\nOpenAI just released its answer to Claude Mythos\nOpenAI’s Daybreak combines GPT-5.5-Cyber and Codex Security.\nOpenAI’s Daybreak combines GPT-5.5-Cyber and Codex Security.\nIts launch comes just over a month after rival Anthropic announced Claude Mythos, a security-focused AI model it claimed was too dangerous to publicly release and only shared privately as a part of its own initiative, dubbed Project Glasswing. Still, that didn’t stop at least a few unauthorized parties from getting access.\nHowever, OpenAI has so far lacked a similar security product. Like Glasswing, Daybreak isn’t built on just one AI model — OpenAI says “Daybreak brings together the most capable OpenAI models, Codex, and our security partners.”\nDaybreak also involves specialized cyber models, including GPT-5.5 with Trusted Access for Cyber and GPT-5.5-Cyber, which began rolling out last week. OpenAI also says it’s working with its “industry and government partners” while it prepares to “deploy increasingly more cyber-capable models.”",
+  "published_at": "2026-05-11T23:05:01Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-12T03:00:16.886416Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "News",
+      "OpenAI",
+      "Security",
+      "Tech"
+    ]
+  }
+}

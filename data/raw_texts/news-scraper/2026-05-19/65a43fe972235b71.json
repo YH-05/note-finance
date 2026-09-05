@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605200057",
+  "title": "本日注視すべき【増資・売り出し】銘柄　(19日大引け後 発表分)",
+  "raw_text": "アストロＨＤ ＜日足＞ 「株探」多機能チャートより\n〇アストロＨＤ <\n186A> [東証Ｇ]\nヒューリック <\n3003> など2先を割当先とする252万3473万株の第三者割当増資を実施する。発行価格は1704円。\n○モイ <\n5031> [東証Ｇ]\nＳＢＩホールディングス <\n8473> を割当先とする335万1000株の第三者割当増資を実施する。発行価格は275円。\n[2026年5月20日]\n株探ニュース",
+  "published_at": "2026-05-19T20:50:00Z",
+  "author": null,
+  "collected_at": "2026-05-19T21:00:25.340710Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/aws-outage-data-center-fanduel-coinbase.html",
+  "title": "AWS data center outage hits trading on FanDuel, Coinbase — recovery to take hours",
+  "raw_text": "Amazon Web Services, a leading cloud provider, started reporting operational issues on Thursday that affected trading on platforms including Coinbase and FanDuel.\n\"Full recovery is still expected to take several hours,\" AWS wrote in its latest update at 3:29 p.m. ET on Friday, adding that \"efforts are slower than we had previously anticipated.\"\nAccording to AWS, the outage was tied to overheating at a data center in its main US-East-1 region hosted in northern Virginia. AWS said issues were in a \"single Availability Zone\" in the region.\n\"We are actively working to bring additional cooling system capacity online, which will enable us to recover the remaining affected hardware in the impacted zone,\" AWS said in its 9:51 a.m. ET update.\nAWS said it's working to resolve impaired EC2 instances, which provide virtual server capacity.\nThe AWS health dashboard first posted at 8:25 p.m. ET Thursday that it was \"investigating instance impairments.\"\nAWS had no additional comment.\nAt 9:00 p.m. ET Thursday, sports-betting app FanDuel posted on X that its team was \"aware and investigating the current technical difficulties prohibiting users from accessing our platform.\"\nThe company posted an update two hours later that the issue was tied to a broader AWS outage, with gamblers complaining about lost bets from being unable to cash out on the platform.\nCryptocurrency trading platform Coinbase also posted on X Friday that failures in multiple AWS zones \"caused an extended outage of core trading services.\" The platform wrote in its post that the primary issue has been fully resolved.\nAWS accounts for about a third of the market for cloud infrastructure technology, providing services for millions of companies.",
+  "published_at": "2026-05-08T19:51:01Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.661755Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

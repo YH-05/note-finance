@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/crowdstrike-crwd-q1-2027-earnings.html",
+  "title": "CrowdStrike narrowly beats estimates on AI tailwinds, but stock falls 10%",
+  "raw_text": "CrowdStrike narrowly beat Wall Street's fiscal first-quarter estimates after the bell on Wednesday, but shares slid 10% following the report.\nHere's how the company did versus LSEG estimates:\n- Earnings per share: $1.10 adjusted vs. $1.07 expected\n- Revenue: $1.39 billion vs. $1.36 billion estimate\nThe cybersecurity company said revenue grew 26% from a year ago. Net income totaled about $27.8 million, or 11 cents per share. That's up from a net loss of $104.3 million, a loss of 42 cents per share, last year.\nCrowdStrike also announced a four-for-one stock split effective in July. Shares closed at $747.61 on Wednesday.\nCEO George Kurtz said the company is benefiting from an \"AI inflection point\" fueled by rising customer platform adoption.\n\"In Q1, the worlds of cybersecurity and frontier AI collided: this was the Mythos moment,\" he said in a press release. \"CrowdStrike is AI security infrastructure, critical to successful AI adoption.\"\nCrowdStrike is among a wave of cybersecurity companies profiting from skyrocketing demand for cyber tools as advanced models such as Anthropic's Mythos threaten to accelerate the pace of cyberattacks.\nThe sector has also managed to shake off recent AI disruption concerns that rattled software names earlier this year. CrowdStrike is up about 60% this year.\nKurtz told analysts on a Wednesday earnings call that AI detection and response, or AIDR, is emerging as a new growth vector for CrowdStrike. He said its second-quarter pipeline had already exceeded $50 million.\n\"Think of CrowdStrike as the picks and shovels of the world's largest technology gold rush of all time,\" he said.\nCrowdStrike is an early tester of Anthropic's Mythos through Project Glasswing. The AI lab gave select companies early access to the model, amid fears that hackers could use it to devastating effect if released globally.\nTo meet the rise of agentic AI, CrowdStrike and its competitors have also been on a massive acquisition spree, scaling AI capabilities as customers reconsider their cybersecurity strategies.\nIts latest push included a $740 million deal for identity security startup SGNL and AI security startup Pangea.\nCrowdStrike expects revenue of about $1.44 billion in the current quarter, which was roughly in line with a $1.43 billion estimate from LSEG. The company also lifted its fiscal 2027 net new annual recurring revenue growth forecast to between $6.53 billion and $6.56 billion.",
+  "published_at": "2026-06-03T21:34:25Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.628113Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

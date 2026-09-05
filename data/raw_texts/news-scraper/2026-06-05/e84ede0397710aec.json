@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606050760",
+  "title": "外為：1ドル159円97銭前後と小幅なドル高・円安で推移",
+  "raw_text": "米ドル／円 ＜５分足＞ 「株探」多機能チャートより\n5日の外国為替市場の\nドル円相場は午後0時時点で1ドル＝159円97銭前後と、前日午後5時時点に比べ8銭の小幅なドル高・円安。\nユーロ円は1ユーロ＝185円79銭前後と24銭のユーロ高・円安で推移している。\n株探ニュース",
+  "published_at": "2026-06-05T03:01:01Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:02:24.838528Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

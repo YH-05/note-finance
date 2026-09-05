@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/japan-softbank-tech-shares-nikkei-to-record-high.html",
+  "title": "SoftBank shares surge over 16% as Japan tech stock-fueled rally lifts Nikkei 225 to record highs",
+  "raw_text": "Shares in Japanese tech-focused investment giant SoftBank Group soared 16.5% Thursday, amid a broader tech-fueled rally that saw Japan's Nikkei 225 surge to record highs.\nJapanese markets reopened after an extended holiday and investors rushed to catch up with a global artificial intelligence-fueled rally, sending Japanese tech names higher.\nWhile SoftBank is on course to record its best day since 2020, if gains hold, chip-testing equipment maker Advantest rose nearly 7.8%, while semiconductor equipment supplier Tokyo Electron surged 9.2%. Chip solutions provider Renesas Electronics jumped 13.8%.\nThe rally came after Wall Street's tech-heavy Nasdaq Composite hit another record overnight, with U.S. artificial intelligence-linked stocks surging. Chipmaker Advanced Micro Devices Inc. rose 18.6%, Arm Holdings advanced 13% and server maker Super Micro Computer Inc. soared 24.5%.\n\"Japan was shut for the back end of Golden Week while global risk assets ripped, so today's move is the Nikkei pricing in three sessions in one,\" said Global X ETFs' investment strategist Billy Leung.\n\"SPX hit a fresh record and Nasdaq made another all-time high while Tokyo was closed, led by semis and AI names,\" Leung said, adding that Advantest and Tokyo Electron are \"the most liquid Japanese expressions of that AI semi trade.\"\nHe added that easing geopolitical concerns also helped sentiment, with oil prices falling on signs of de-escalation between the U.S. and Iran.\nSoftBank's gains were amplified by its close ties to Arm and artificial intelligence firm OpenAI. \"SoftBank is effectively the listed proxy for OpenAI and Arm,\" Leung said.\nThe move also reflected growing investor optimism around data center infrastructure demand tied to AI inference and agentic AI systems.\nRolf Bulk, head of semiconductor and infrastructure at The Futurum Group, said the rally reflects growing optimism around the long-term demand outlook for AI infrastructure.\n\"I think it's partly a continuation rally on the back of the strong AI-related share performance in the U.S. yesterday, as well as a reaction to AMD's quarterly report, which has strong read-across for Arm,\" Bulk said.\n\"CPUs are important for AI inference workloads; they handle for instance agent sandboxes, orchestration servers, database and API layers. With inference and agentic AI demand increasing, datacenter CPUs have become one of the key bottlenecks in the AI infrastructure build-out.\"\nBulk pointed to AMD's latest forecast that the total addressable market for datacenter CPUs could reach $120 billion by 2030, growing more than 35% annually.",
+  "published_at": "2026-05-07T02:50:51Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.305407Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

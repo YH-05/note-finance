@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947574/att-unlimited-day-pass-ipad-data-plan",
+  "title": "AT&#038;T is launching $3 ‘unlimited’ day passes for iPads",
+  "raw_text": "AT&T has introduced a new “Unlimited Day Pass” cellular data offer for iPad users who need brief connectivity instead of signing up for a long-term plan. The day pass is available for $3 in the US starting today, providing 24 hours of unlimited data, with no contracts, subscriptions, or credit checks required.\nAT&T is launching $3 ‘unlimited’ day passes for iPads\nYou don’t have to be an AT&T customer, but it’s only available for eSIM supported iPad models.\nThis offer is available to anyone, including non-AT&T customers, with the 24-hour data activation beginning shortly after purchase. The first day pass is free as part of an introductory deal. There are no caps on speed or data mentioned in AT&T’s announcement, but the company says it may “temporarily slow data speeds if the network is busy.”\nThe day passes are designed to help users quickly get online when local Wi-Fi isn’t available and to provide on-the-go connectivity when traveling or working remotely. Eligible iPads must have eSIM capabilities. A full list of supported models can be found below, with more information available on AT&T’s website.\n“Our goal with any product is to make it simple for people to connect wherever they are, across the devices they use most,” AT&T consumer product head Josh Goodell said in the announcement. “There is no long-term commitment — just the connectivity you need, when and where you need it.”\nWhile the day passes are only currently available for iPads, AT&T says it will also support other 5G-enabled devices “in the near future,” including Android tablets, smartwatches, laptops, and drones. The company is also planning to launch multiday options, “such as weekend and week-long passes.”",
+  "published_at": "2026-06-10T14:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-10T15:00:11.390753Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "AT&T",
+      "iPad",
+      "Mobile",
+      "News",
+      "Tech"
+    ]
+  }
+}

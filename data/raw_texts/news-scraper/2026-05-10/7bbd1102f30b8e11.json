@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/streaming/927327/amazon-prime-video-vertical-video-feed",
+  "title": "Amazon is adding a vertical video feed to Prime Video",
+  "raw_text": "Amazon Prime Video is joining Netflix and Disney Plus in adding a vertical feed of videos to its streaming app. The new “Clips” feed will offer a stream of short-form videos from shows and movies, with options to jump into the full title, rent, or buy it.\nAmazon is adding a vertical video feed to Prime Video\nThe new ‘Clips’ feed will show snippets from Prime Video’s shows and movies.\nThe new ‘Clips’ feed will show snippets from Prime Video’s shows and movies.\nPrime Video previously offered a TikTok-style feed with NBA game highlights, but now you can see snippets from titles offered on the platform by scrolling down to the Clips carousel on the app’s homepage. “Every time you visit the experience, you’ll see something new based on your viewing history,” Prime Video says.\nYou can also add shows and movies to your watchlist from the Clips feed and share them with a friend over text, email, or on social media. Your recipient will need the Prime Video app in order to view the clip. Clips is rolling out to “select” customers in the US on iOS, Android, and Fire tablets ahead of a broader rollout this summer.",
+  "published_at": "2026-05-08T20:19:57Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-10T03:00:46.656186Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Entertainment",
+      "News",
+      "Streaming",
+      "Tech"
+    ]
+  }
+}

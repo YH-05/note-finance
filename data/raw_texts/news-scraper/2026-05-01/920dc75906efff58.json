@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/04/blue-origin-certainly-has-ambitious-launch-targets-for-new-glenn/",
+  "title": "Blue Origin certainly has ambitious launch targets for New Glenn",
+  "raw_text": "Earlier this week, Blue Origin posted a job opportunity for a “senior manager” to oversee tank fabrication for “Quattro,” and the description contained some intriguing information.\n“As part of a hardworking team of specialists, technicians, and engineers you will be the Senior Manager of Gen 2.0 Tank Fabrication, and will own the production execution of the most structurally complex and schedule-critical subsystem on the vehicle—the propellant tank,” the job posting states.\nQuattro is the company’s nickname for a more powerful upper stage for the New Glenn rocket, which will feature four BE-3U engines instead of the two currently powering the booster. Blue Origin revealed plans for this more powerful variant of New Glenn, 9×4 (nine first stage engines, and four upper stage engines), last November.\nIt is possible this rocket, significantly larger than the 7×2 variant currently flying and necessary for the company’s lunar ambitions as part of NASA’s Artemis program, could make its debut next year.\nGet ready to ramp production\nThere is some additional information in the posting that underscores the ambition Blue Origin is chasing with its New Glenn vehicle, which has launched three times since its initial flight in January 2025.\nThe job responsibilities include executing a “rate ramp”—which is to say, a production rate—of 12 per year currently to 60 per year by the third quarter of 2028, followed by a production rate of 100 second stages annually by 2029. A company official told Ars that these production targets are accurate.",
+  "published_at": "2026-04-30T19:12:26Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-01T15:00:30.619937Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "9x4",
+      "blue origin",
+      "new glenn",
+      "space"
+    ]
+  }
+}

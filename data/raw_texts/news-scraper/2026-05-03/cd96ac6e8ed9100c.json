@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/us-treasury-yields-investors-gdp-inflation-iran-war.html",
+  "title": "Treasury yields are little changed after ISM data comes in below expectations",
+  "raw_text": "Treasury yields were little changed Friday after data on U.S. factory activity showed an expansion in April that was slightly below expectations.\nThe yield on the 10-year U.S. Treasury note — the key benchmark for mortgage lending and auto loans — fell 1 basis point to 4.38%. The 2-year Treasury note yield, which more closely tracks short-term Federal Reserve interest rate policy, rose less than 1 basis point to 3.888%.\nOne basis point is equal to 0.01%, and yields and prices move in opposite directions.\nOn Friday, the Institute for Supply Management April manufacturing index totaled 52.7, unchanged from March and slightly below the 53.0 that economists polled by Dow Jones had expected.\nThe prices paid component of the index surged to the highest level since April 2022 as companies experienced higher energy costs in the wake of the Iran war, as well as elevated tariff charges.\n\"Net, net, the ISM manufacturing index is holding onto its 2026 expansion trend which is a good thing for the economic outlook,\" said Chris Rupkey, chief economist at FWDBONDS. \"The only troubling finding being that inflation is rearing it ugly head in a way that has not been seen since 2022.\"\nThe personal consumption expenditures price index, the Federal Reserve's preferred measure of inflation in the economy, rose 0.7% in March, the Commerce Department said Thursday. That put the annual inflation rate in line with Wall Street forecasts at 3.5%, but far above the Federal Reserve's 2% target.\nCore PCE, which excludes volatile food and energy prices, was below the headline readings, increasing 0.3% in March versus February and 3.2% against the same period a year ago.\nThe Commerce Department on Thursday also reported that first-quarter gross domestic product grew at a 2% seasonally adjusted annual pace in the first quarter, up from 0.5% in the fourth quarter of 2025 but lower than Wall Street economists' consensus estimate calling for 2.2%.\nEarlier this week, the Fed voted to keep the benchmark federal funds rate on hold between 3.50% to 3.75%.\n— CNBC's Jeff Cox and Lim Hui Jie also contributed to this report.",
+  "published_at": "2026-05-01T20:02:08Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.494558Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

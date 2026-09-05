@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/60-consumer-ecosystems/20183-gln-launches-qr-payment-service-in-vietnam.html",
+  "title": "GLN launches QR payment service in Vietnam",
+  "raw_text": "GLN International, a cross-border payment infrastructure provider in Asia and a subsidiary of Korea’s Hana Bank under Hana Financial Group, says it has launched a nationwide QR payment service in Vietnam in partnership with local payment processor NAPAS.\nThe launch connects GLN directly to Vietnam’s national QR payment infrastructure.\nThis initiative forms part of Hana Financial Group’s cross-border payments programme. Hana Bank is participating as the only Korean financial institution designated as a settlement bank, following approval from the State Bank of Vietnam (SBV).\nVietnam’s national QR payment rails are based on the VietQR Global system operated by NAPAS. The system links banks and merchants nationwide. Through the integration, GLN enables users of partner banking and fintech applications to pay via the national QR network, widening acceptance for supported apps.\nThe partnership also includes inbound payment use cases. Under this model, Vietnamese users will be able to make QR payments in Korea through domestic applications.\nGLN says the service is available across a number of tourist destinations and is designed for use at everyday merchants.\nPayments can be made through GLN-connected partner apps including Toss, PurpleGLN, Hana OneQ, Hana Money, and Hana Card. The company expects the service to extend to additional platforms, including Naver Pay and the KB Banking App.\nThe company has also announced the expansion of its overseas QR cash withdrawal service channels across Japan, Vietnamas and Laos.\nTravelers to Vietnam and Laos can also access the QR cash withdrawal service through six GLN-connected apps. Withdrawals are available via BIDV ATMs in Vietnam and BCEL ATMs in Laos.\nGLN International provides QR payment and QR cash withdrawal services across 14 countries, including Vietnam, China, Thailand, the Philippines, Laos, and Japan, connecting users to more than 200 million QR merchants worldwide.",
+  "published_at": "2026-04-30T12:54:31Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-05T03:01:21.282666Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Consumer Ecosystems"
+    ]
+  }
+}

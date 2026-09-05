@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606031084",
+  "title": "明日の為替相場見通し＝１６０円意識し神経質な値動きも",
+  "raw_text": "【通貨】明日の為替相場見通し＝１６０円意識し神経質な値動きも\nこの日は、一時１６０円ちょうど近辺と４月３０日以来、約１カ月ぶりのドル高・円安水準をつけた。イラン情勢の不透明感が強まるなか原油価格が上昇し、「有事のドル買い」が膨らんだ。ただ、１６０円近辺では政府・日銀の為替介入も警戒されるだけに、ここからの一段の円安水準に向けては神経質な値動きも予想される。今晩は、米５月ＡＤＰ雇用統計や米５月ＩＳＭ非製造業景況指数、米地区連銀経済報告（ベージュブック）などの発表が予定されている。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-03T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-06-03T09:00:22.358244Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.submission.directory/",
+  "title": "A website that lists websites to submit your website to",
+  "raw_text": "<p>Article URL: <a href=\"https://www.submission.directory/\">https://www.submission.directory/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48586631\">https://news.ycombinator.com/item?id=48586631</a></p>\n<p>Points: 348</p>\n<p># Comments: 80</p>",
+  "published_at": "2026-06-18T15:12:43Z",
+  "author": "azeemkafridi",
+  "collected_at": "2026-06-18T21:06:15.934588Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

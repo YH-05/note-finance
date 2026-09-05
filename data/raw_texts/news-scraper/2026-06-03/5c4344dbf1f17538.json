@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942547/amazon-search-bar-ai-images",
+  "title": "Amazon&#8217;s search bar will invent AI-generated products you can&#8217;t buy",
+  "raw_text": "Amazon’s updated search bar will now show you AI-generated images of products as you describe them. For now, the in-app feature only surfaces AI images of clothing and home goods, allowing you to tap on the image that best matches what you’re looking for and search for similar-looking items.\nAmazon’s search bar will invent AI-generated products you can’t buy\nYou’ll see made-up clothing items and home goods as you describe them.\nYou’ll see made-up clothing items and home goods as you describe them.\nIn a blog post, Amazon positions the feature as a way to help you search for items if you can’t remember the name of a specific texture or style, like describing a “shirt with a draped collar” if you can’t think of “cowl neck.” The feature seems like it might come in handy in these kinds of scenarios, but it doesn’t really add much if you’re just searching for something simple, like a “blue t-shirt.”\nGoogle launched a similar feature in AI Mode last year, which generates images of fake outfits and decorations to help you find real-life lookalike products. Meanwhile, online retailers are teaming up with Gemini and ChatGPT as AI becomes even more embedded in shopping.\nAmazon isn’t using AI to generate fake products for its other “shop by style” feature, though. This feature will show AI-generated collages with the clothing item you’re searching for.\nIf you’re looking for denim shorts, for example, Amazon will show a carousel of suggested outfits with denim shorts. Though the outfits are AI-generated, the clothing in them isn’t, which means you can purchase the pictured items. These features are coming to Amazon’s app on Android and iOS.",
+  "published_at": "2026-06-03T16:07:31Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-03T21:00:17.341462Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Amazon",
+      "Apps",
+      "News",
+      "Tech"
+    ]
+  }
+}

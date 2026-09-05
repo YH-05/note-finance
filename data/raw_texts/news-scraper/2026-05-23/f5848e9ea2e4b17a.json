@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/soaring-solar-and-a-surge-in-hydro-push-more-coal-off-the-us-grid/",
+  "title": "Soaring solar and a surge in hydro push more coal off the US grid",
+  "raw_text": "Last year, the first few months of data from the US grid suggested that fears of a data-center-driven surge in demand were becoming a reality. Demand had risen by about 3 percent, triggering a surge in coal, interrupting what had been a long downward trend. But over the course of the year, both trends slowed considerably.\nA year later, all of that seems to be in the past, as the US has returned to its normal pattern: slow growth, with renewables pushing coal off the grid. The one oddity is that hydroelectric production has surged without a corresponding increase in capacity, likely due to unusually warm weather in the western US causing the snowpack to melt early. That may have consequences later in the year.\nPushing fossil fuels out\nOverall demand in the US grew by only 1.5 percent in the first quarter of 2026 compared to the same period the year before. Often, changes in demand during this part of the year are driven by weather-related heating demand. But the US had an unusual combination set of weather conditions to start 2026, with the western half baking in unseasonal warm temperatures, while the eastern half suffered a deep freeze. So we’ll probably need data from more of the year before we read too much into the small rise in demand we’ve seen so far.\nAs has been the case for a while now, the biggest trend on the US grid was the growth of solar. Compared to the same quarter the year earlier, solar was up by 24 percent. On its own, that was enough to offset 80 percent of the rising demand. Overall, the output of the major renewables (wind, solar, and hydro) grew by 11 percent compared to the same period the year prior, or about 1.8 times the growth in demand.\nGiven that renewable growth greatly exceeded demand, there was nowhere to go for fossil fuels but down. Overall, they saw a drop of about 3 percent year-over-year, with an absolute change similar in magnitude (if not sign) to the growth in demand. But natural gas use actually grew slightly in the first quarter, which meant coal took an even greater hit, with its use dropping by over 10 percent. That may change as the Persian Gulf conflict drives global natural gas prices higher, but it was not yet a major factor in this data.",
+  "published_at": "2026-05-22T17:22:42Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-23T03:00:30.805982Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "coal",
+      "Energy",
+      "gas",
+      "green",
+      "hydro",
+      "nuclear",
+      "renewable energy",
+      "solar",
+      "Wind"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+  "title": "Meta buys robotics startup to bolster its humanoid AI ambitions",
+  "raw_text": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said.\n“We acquired Assured Robot Intelligence, a company at the frontier of robotic intelligence designed to enable robots to understand, predict, and adapt to human behaviors in complex and dynamic environments,” a Meta spokesperson told TechCrunch in an emailed statement.\nARI’s team, including its co-founders, will join Meta’s AI unit, the Superintelligence Labs research division. ARI had raised an undisclosed seed round from AI seed firm AIX Ventures.\nThe startup was building foundation models for humanoid robots to perform all types of physical labor such as household chores. Co-founder Xiaolong Wang was previously a researcher at Nvidia, and an associate professor at UC San Diego, with a list of prestigious awards to his name. Co-founder Lerrel Pinto, who previously taught at NYU and co-founded the kid-size humanoid startup Fauna Robotics before Amazon snapped it up last month, has also won a string of prestigious awards.\nARI will help Meta with its humanoid ambitions. “This team, led by Lerrel Pinto and Xiaolong Wang, will bring a deep expertise in how we can design our models and frontier capabilities for robot control and self-learning to whole-body humanoid control.”\nMeta researchers have been working on humanoid robotics tech for years. A leaked memo from a year ago discussed Meta’s ambitions to build such a robot, including AI models and hardware, aimed at consumers.\nEven if Meta never releases a consumer humanoid product, many AI experts these days believe that the path to artificial general intelligence (AGI) — the theoretical point at which AI reaches or surpasses human-level intelligence across all domains — will require training AI models in the physical world, where robots learn through direct interaction rather than data alone.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nThe ARI and Fauna deals reflect a broader industry sprint — one where forecasts vary wildly, from Goldman Sachs’ projection of $38 billion by 2035 to Morgan Stanley’s estimate of $5 trillion by 2050 — a spread that reflects both the enormous potential and the uncertainty around tech that’s still finding its footing.",
+  "published_at": "2026-05-01T22:13:27Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-05-03T03:00:27.270857Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "TC",
+      "humanoid robots",
+      "Mergers and Acquisitions",
+      "Meta"
+    ]
+  }
+}

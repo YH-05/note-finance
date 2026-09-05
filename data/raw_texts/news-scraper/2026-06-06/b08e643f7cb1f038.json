@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20328-sea-h2x-cable-linking-china-and-southeast-asia-is-ready-for-service.html",
+  "title": "SEA-H2X cable linking China and Southeast Asia is ready for service",
+  "raw_text": "Chinese subsea cable firm HMN Tech has announced that the South East Asia Hainan–Hong Kong Express Cable System (SEA-H2X) connecting China to Southeast Asia is now ready for service.\nThe 6,000-km SEA-H2X subsea cable – which is owned by China Mobile International, China Unicom Global and Converge ICT – runs from China’s Hainan Province and Hong Kong to the Philippines, Thailand and Singapore. It’s also designed to support extensions to Vietnam, Cambodia, Indonesia, East Malaysia and the Malaysian peninsula.\nA landing station in Sarawak was planned early on when Malaysian operator PPTEL (who later rebranded as Irix) joined the consortium, but Irix eventually dropped out of the project last year.\nHMN said in a statement on Thursday that it deployed its 39.5-nm bandwidth repeaters and ultra-low-loss optical fibres in the system, delivering a system capacity of over 200 Tbps designed to support the growing requirements of AI, cloud computing, and international data centres across Southeast Asia with higher capacity and lower latency.\nHMN said it also installed branching units that feature top-tier fibre switch and power switch capabilities. HMN said its 18 kV hot switch function significantly enhances the efficiency and reliability of long-distance network operations and maintenance.\nThe system is built on an open cable architecture, which means consortium members are free to share spectrum and choose their own vendors to supply terminal transmission equipment.\n“By delivering unparalleled capacity and robust network resilience, this critical artery will accelerate the region's digital transformation and serve as a cornerstone for the evolving global digital economy,” said HMN Tech EVP Ma Yanfeng in a statement.\nSEA-H2X has been in the works since at least 2022, and was initially scheduled to be ready for service in 2024. The RFS date was pushed back several times since then. Converge IT CEO Dennis Anthony H. Uy said in April 2024 the RFS date was likely to be delayed to the first quarter of 2025 because of obstacles like bad weather and obtaining permits.",
+  "published_at": "2026-06-02T04:04:26Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-06T03:02:07.360579Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

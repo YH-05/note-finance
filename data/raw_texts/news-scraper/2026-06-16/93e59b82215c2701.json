@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20396-mumbai-metro-mobile-connectivity-dispute-may-be-over.html",
+  "title": "Mumbai Metro mobile connectivity dispute may be over",
+  "raw_text": "There are signs that some mobile connectivity is now available on Mumbai Metro 3’s relatively new underground Aqua Line, after a number of delays.\nAs India’s Economic Times reports, there has been a long-running standoff between the Mumbai Metro Rail Corporation (MMRC) and operators over providing cellular services inside tunnels and stations.\nThe deadlock, which has apparently continued for many months, was over the deployment of in-building solutions (IBS) infrastructure for the 33.5 kilometre underground corridor, which was fully inaugurated in late 2025.\nIndeed, at one point MMRC’s tender to appoint a neutral telecom infrastructure provider failed to attract any bidders.\nIt seems that MMRC has long maintained that due to severe space constraints within tunnels and stations, only one telecom infrastructure provider can be accommodated, which would act as a neutral host for all telecom operators and operate a competitive bidding system. The neutral host provider turned out to be ACES. We reported the award of the ACES contract in October 2025.\nBut there was strong opposition from telecom operators to MMRC's pricing plans – apparently described by operators Reliance Jio, Bharti Airtel and Vodafone Idea as \"exorbitant\" – and its proposed tender structure.\nMMRC eventually decided to terminate its earlier IBS contract with ACES and float a fresh tender. This didn’t do the trick – and some reports suggest ACES was very unhappy with the decision.\nIn the event, the operators indicated that no telecom company would issue so-called comfort letters to any IBS vendor under the current terms, effectively discouraging participation unless the pricing framework was rationalised.\nThe operators then offered to acquire the already installed ACES infrastructure instead of rebuilding networks, to avoid duplication of costs and speed up deployment. The companies have backed a shared network model. Reliance Jio also wanted right-of-way permissions to roll out common telecom infrastructure; this was supported by other operators.\nIt’s not entirely clear why or how MMRC has changed its stance, or indeed why the contract with ACES was shelved, but MMRC has now apparently issued a Letter of Acceptance to the operators, paving the way for the deployment of the required infrastructure and ending the stalemate. The agreement provides a framework for operators to install and operate mobile network equipment across stations and tunnels.\nThe Economic Times reports that a senior MMRC official has said that work to operationalise mobile services has commenced. The rollout will be carried out in phases. It’s not clear, however, when all operators will be able to provide their services to their customers on the Aqua Line.",
+  "published_at": "2026-06-16T12:08:11Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-16T15:01:23.212884Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

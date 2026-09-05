@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/bears-step-up-bets-against-high-yield-sector-shaking-up-bond-traders.html",
+  "title": "Bears step up bets against high-yield sector, shaking up bond traders",
+  "raw_text": "While many traders focused on government bonds in the wake of new Federal Reserve Chairman Kevin Warsh's first meeting, it was another corner of the debt markets that caught the eye of options traders.\nThe iShares iBoxx High Yield Corporate Bond ETF (HYG) saw elevated put volume on Thursday.\nOne eyebrow-raising trade saw an investor pay $1.3 million to buy 20,000 of the Jan. 27 75-strike puts. Put volume was five times that of calls, and of the 226,000 HYG options that have traded Thursday, 190,000 of them were puts, according to ThinkorSwim data.\nIt's unclear the exact catalyst for the bearish action, but some market participants pointed to the Fed regime change as one reason.\n\"For the previous 20 years, bond traders had been given a script to follow,\" said Zed Francis, chief investment officer and co-founder at Chicago-based Convexitas. \"They were just told they're going to have to do their homework again. That might cause a buyer's strike for a bit.\"\nAnother reason could be the continued sell-off in crude oil prices after the U.S. and Iran agreed to a peace deal. Crude prices touched their lowest levels since March on Thursday. According to iShares, more than 11% of the HYG ETF is invested in the energy sector.\nThe most popular strike by volume in HYG is the 77-strike put expiring Aug. 21, where 40,000 contracts traded hands Thursday. At 39 cents per contract, or $39 a trade, buyers need HYG to drop another 4% to break even.",
+  "published_at": "2026-06-18T19:29:16Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:30:35.254527Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

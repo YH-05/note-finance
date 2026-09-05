@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/google-and-meta-denied-new-trial-in-youth-social-media-addiction-case.html",
+  "title": "Google and Meta denied new trial in youth social media addiction case",
+  "raw_text": "A California state court judge has denied motions by Meta Platforms and Google's YouTube seeking a new trial after a jury found the companies liable for designing social media platforms that are harmful to young people.\nLos Angeles Superior Court Judge Carolyn Kuhl ruled on the motions on Tuesday, according to court documents. The companies had sought a new trial in a lawsuit filed by a woman who said she became addicted to Google's YouTube and Meta's Instagram at a young age because of their attention-grabbing design. A jury found the companies negligent and imposed $6 million in damages.\nKuhl rejected the companies' argument that they are shielded from the claims by Section 230 of the Communications Decency Act, a federal law that generally protects online platforms from liability over user-generated content. Kuhl said the law does not address the companies' design choices and the jury was repeatedly instructed not to consider content.\n\"There was substantial evidence that Plaintiff was harmed by the design features of Instagram, regardless of any of the content found on that platform,\" Kuhl wrote.\nIn a statement, a spokesperson for Meta said the company disagreed with the ruling.\n\"The plaintiffs' legal theory attempts to improperly circumvent Section 230 and the First Amendment, and we expect this ruling to be overturned on appeal,\" the spokesperson said.\nJosé Castañeda, a spokesperson for Google, said in a statement that the company plans to appeal.\nMark Lanier, an attorney for the plaintiff, said no one was surprised by the ruling.\n\"The evidence of fault was mountain high,\" Lanier said.",
+  "published_at": "2026-06-10T18:25:06Z",
+  "author": null,
+  "collected_at": "2026-06-10T21:46:29.182477Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

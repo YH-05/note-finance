@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/stellar-10y-auction-stops-through-thanks-surge-foreign-demand",
+  "title": "Stellar 10Y Auction Stops Through Thanks To Surge In Foreign Demand",
+  "raw_text": "After yesterday's mediocre 3Y auction, moments ago the Treasury held a stellar 10Y reopening (of cusip QQ7).\nThe sale of $39 billion in 9 Year-11 Month paper priced at a high yield of 4.538%, up from 4.468% last month, and 0.1bp through the 4.539% When Issued. This was the first stop through following 4 sequential tails for the tenor.\nThe bid to cover rose from 2.402 to 2.565, well above the six-auction average and the highest since Sept 25.\nInternals were impressive: indirects surged to 78.21% from 63.95%, which was one of the 5 highest on record; the last time we saw such feverish foreign demand was in Sept 25.\nAnd with Directs sliding to just 9.5%, the lowest since January, Dealers were left with 12.32%, far below the 21.39 recent average.\nOverall, this was a stellar 10Y auction, a big improvement to yesterday's 3Y (which wasn't bad), and a sign from the bond market at least that today's CPI was nothing to be concerned about.",
+  "published_at": "2026-06-10T17:32:03Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-10T21:00:42.801336Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

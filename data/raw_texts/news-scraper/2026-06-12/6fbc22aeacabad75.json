@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20343-mtn-zambia-deploys-huaweis-5-band-indoor-5g-solution-in-mulungushi-center.html",
+  "title": "MTN Zambia deploys Huawei’s 5-band indoor 5G solution in Mulungushi Center",
+  "raw_text": "Huawei announced on Wednesday that MTN Zambia has commercially deployed the vendor’s five-band LampSite indoor 5G solution in the Mulungushi International Conference Center in Lusaka.\nThe solution combines 1.8 GHz, 2.1 GHz, 2.3 GHz, TDD 2.6 GHz, and 3.5 GHz in a single box and supports multi-band coordination for peak speeds of 1 Gbps. The deployment enables MTN to support 2G, 3G, 4G and 5G connections on the same system.\nAccoding to Huawei, the Mulungushi Center was in need of a better indoor coverage solution to support its summits, exhibitions, and business events, where people are more likely to use bandwidth-intensive mobile apps like HD video, livestreaming, and cloud services.\nOutdoor 3.5 GHz macro base stations can’t provide strong 5G signals inside the venue, while the Mulungushi Center’s distributed antenna system (DAS) couldn’t support multi-band connectivity. Expanding the DAS to support more bands would increase equipment complexity, deployment time and O&M costs.\nBy contrast, LampSite’s optical, multi-band architecture simplified deployment and reduced headends by up to 50% to cover the same area, significantly reducing capex and construction time, while its energy-saving feature also helps the venue save on opex, Huawei said.\n“Our 5-in-1 LampSite deployment at Mulungushi enables us to deliver consistent indoor and outdoor experiences,” said MTN Zambia CTO Thomas Ngoma in a statement. “With this deployment, we will be better positioned to provide fast, seamless, and reliable connectivity for indoor HD video calling, online interactions, and AR/XR applications.”\nDr. Philip Song, president of Huawei’s small cell product line, said the Mulungushi Center deployment marks the first commercial deployment of its five-band LampSite solution in the world.\n“We will deepen our collaboration with MTN Zambia to replicate the multi-band solution and 4T in more areas like airports, central business districts, and transportation hubs,” Song added.\nMTN Zambia launched the country’s first 5G network in January 2022.",
+  "published_at": "2026-06-04T03:57:50Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-12T03:01:22.404571Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

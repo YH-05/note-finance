@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20355-ambitious-comms-initiatives-announced-in-west-and-north-africa.html",
+  "title": "Ambitious comms initiatives announced in West and North Africa",
+  "raw_text": "A number of important initiatives have been announced in recent days aimed at enhancing digital connectivity in West and North Africa.\nin Liberia, President Boakai has overseen the signing of US$125 million in World Bank financing agreements for digital connectivity, renewable energy and road infrastructure\nThe agreements cover three key initiatives: the Western Africa Regional Digital Integration Programme (WARDIP 2), the Regional Emergency Solar Power Intervention Project (RESPITE) Additional Financing, and the Southeastern Corridor Road Asset Management Project (SECRAMP) Second Additional Financing.\nUnder the agreements, Liberia will receive US$50 million through WARDIP 2 to expand broadband access and digital connectivity; strengthen cybersecurity and digital governance; promote digital entrepreneurship and innovation; support e-commerce and digital payment systems; and advance the development of a single digital market in West Africa.\nAn additional US$57 million has been approved for the RESPITE Project to support the expansion of renewable energy infrastructure. The financing package also includes US$18 million in second additional financing for SECRAMP to facilitate the completion of ongoing works along the strategic 100-kilometre Ganta–Tappita corridor.\nThe three projects align with the government’s ARREST Agenda for Inclusive Development and represent strategic investments that will strengthen infrastructure, expand access to clean energy, accelerate digital transformation and promote inclusive economic growth across the country.\nFurther north, the recent fourth session of the Algeria–Tunisia Joint Technical Committee for Cooperation concluded with a set of priority projects and recommendations, notable among which were an agreement to develop and upgrade the existing terrestrial link between the two countries and study the possibility of deploying a new shared submarine cable toward Italy. This follows hard on the heels of last week’s news that the France-to-Tunisia route of the Medusa Submarine Cable System is now operational.\nThe two countries also agreed to explore mechanisms for preferential mobile roaming tariffs and to develop IoT solutions based on satellite technology and established a joint working group to coordinate mobile networks and reduce radio interference in border areas.\nBoth sets of initiatives could be transformative for the countries involved, although detailed plans and timetables are not yet available.",
+  "published_at": "2026-06-08T14:49:42Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-14T03:02:02.682798Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

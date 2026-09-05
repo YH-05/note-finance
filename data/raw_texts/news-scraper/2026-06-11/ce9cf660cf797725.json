@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/947974/waymo-premier-monthly-membership-perks-priority-cash-back",
+  "title": "Waymo introduces $30-a-month premium tier for riders who want faster pickups",
+  "raw_text": "Uber One, meet Waymo Premier.\nWaymo introduces $30-a-month premium tier for riders who want faster pickups\nWaymo Premier offers a number of perks, including priority pickups and 10 percent cash back on every trip.\nWaymo Premier offers a number of perks, including priority pickups and 10 percent cash back on every trip.\nThe robotaxi operator announced a new $29.99-a-month premium tier for riders who want a more elevated and exclusive autonomous experience. The invite-only membership service is aimed at Waymo customers who use the service most frequently, offering them a number of perks, including priority pickups, 10 percent cash back on every trip, early robotaxi access in new cities, and up to five free cancellations a month.\nWaymo Premier will be initially offered to select riders in San Francisco, Los Angeles, and Phoenix, the company said. The program will scale to new cities as Waymo continues to expand; the company has said it expects to be operating in 20 cities by the end of 2026. Waymo Premier members will be able to use their benefits in any of the 10 cities in which Waymo currently operates.\nWaymo has been surveying its current users about a potential subscription service. The Driverless Digest’s Harry Campbell got ahold of a survey asking about a potential Waymo membership program, with potential perks such as cash back and discounts for future robotaxi rides. The company asked about monthly plans costing between $9.99 and $29.99. Sounds like they settled on the latter.\nAs Campbell noted, with a small but ardent customer base, it makes sense that Waymo would try to lock in the loyalty of its fans, especially as it looks to grow to new markets. Still, it’s hard not to wonder whether the company is jumping the gun by introducing a membership program while operating in only 10 cities. And unlike Uber, Waymo doesn’t have a food delivery business with which to whet appetites.\nTo be sure, Waymo has always been somewhat of a premium ridehail experience. The cars are posh Jaguar SUVs, soon to be supplemented by Zeekr-made minivans. In addition to the luxury of an empty car, the company’s fares have traditionally been about 30–40 percent more expensive than human-powered services like Uber and Lyft. In recent months, Waymo has dropped its prices, so now it’s about 12—13 percent more expensive than human ridehailing, according to a recent analysis by Obi, a company that aggregates real-time pricing and pickup times for multiple ridehailing services.\nWaymo’s own executives frame it that way as well. “When you talk about the economics, we are a premium service,” co-CEO Tekedra Mawakana told Bloomberg in 2024. “People are paying for the consistency and the safety of the Waymo driver and the Waymo service.”\nIt may be a bit early in its history to be offering a premium tier, but Waymo clearly has its sights set on mainstream success. It also needs to identify additional sources of revenue as its expansion costs continue to grow. Earlier this year, the company raised $16 billion in a funding round led by Dragoneer Investment Group, a “crossover” firm known for investing in late-stage tech companies before they go public. Waymo Premier is sure to signal to investors that the company is serious about targeting its most loyal customers.\nMost Popular\n- iFixit Trump phone teardown confirms it’s an HTC dupe\n- Xbox warns of a ‘reset’ as it prepares for layoffs\n- Nearly a million passports and photo IDs were left unprotected on the public internet\n- Microsoft restricts Claude Fable for employees over data retention concerns\n- Apple’s new Siri AI knows when to shut up",
+  "published_at": "2026-06-11T16:00:00Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-06-11T21:00:15.813312Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Transportation",
+      "Waymo"
+    ]
+  }
+}

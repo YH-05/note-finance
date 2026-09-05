@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/silicon-valley-bets-on-floating-ai-data-centers-powered-by-ocean-waves/",
+  "title": "Silicon Valley bets $200M on AI data centers floating in the ocean",
+  "raw_text": "Silicon Valley investors such as Palantir co-founder Peter Thiel have bet hundreds of millions of dollars on deploying AI data centers powered by waves in the middle of the world’s oceans—a move that coincides with tech companies facing mounting challenges in building AI data center projects on land.\nThe latest investment round of $140 million is intended to help the company Panthalassa complete a pilot manufacturing facility near Portland, Oregon, and speed up deployments of wave-riding “nodes” designed to generate electrical power, according to a May 4 press release. Instead of sending renewable energy to a land-based data center, the floating nodes would directly power onboard AI chips and transmit inference tokens representing the AI models’ outputs to customers worldwide via satellite link.\n“Panthalassa’s idea transforms an energy transmission problem into a data transmission problem,” Benjamin Lee, a computer architect and engineer at the University of Pennsylvania, told Ars. “Performing AI computation on the ocean would require transferring models to the ocean-based nodes and then responding to prompts and queries.”\nEach node resembles a huge steel sphere bobbing on the water with a tube-like structure extending vertically down beneath the surface. The wave motions drive water upward through the tube into a pressurized reservoir, where it can be released to spin a turbine generator that produces renewable energy for the AI chips on board.\nPanthalassa claims the node’s AI chips would also get cooled using the surrounding water, which could offer another advantage over traditional data centers. “Ocean-based compute might offer a massive cooling advantage because the ambient temperature is so low,” Lee said. “Land-based data centers use a lot of electricity and fresh water for cooling.”",
+  "published_at": "2026-05-05T21:41:32Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-06T03:00:31.372633Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ai data centers",
+      "data centers",
+      "ocean waves",
+      "renewable energy",
+      "Renewable power"
+    ]
+  }
+}

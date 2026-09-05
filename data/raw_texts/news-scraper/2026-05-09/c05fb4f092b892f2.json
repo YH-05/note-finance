@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20215-indias-cleanmax-announces-renewables-deals-with-big-telecom-names.html",
+  "title": "India’s CleanMax announces renewables deals with big telecom names",
+  "raw_text": "Indian commercial and industrial renewable energy company CleanMax has announced two deals relevant to the telecom market recently. One is with Iron Mountain Data Centres. The other is with Apple.\nIron Mountain says it has signed a long-term partnership with CleanMax Enviro Energy Solutions to supply solar and wind energy to the grid for its Mumbai, Pune and Bengaluru data centres.\nThe hybrid project, developed under a group captive model, will supply 32 million kWh of clean power annually for Iron Mountain’s data centres, increasing the renewable energy share of these facilities to up to 75%.\nThe companies say that this partnership supports Iron Mountain’s system called Green Power Pass. This allows customers to take direct credit for the green energy procured for their infrastructure.\nThe development comes against the backdrop of surging power demands of artificial intelligence data centres in India.\nIndia’s Economic Times news service quotes Rajesh Tapadia, CEO, Iron Mountain Data Centres, India, as saying: “By focusing on hybrid renewable sources across Maharashtra and Karnataka, we are securing a sustainable and stable clean power supply while providing our customers with verifiable green power”.\nCleanMax has also announced a deal with iPhone maker Apple. The two companies intend to jointly invest INR1 billion (about US$10.6 million) to accelerate decarbonisation within India’s commercial and industrial sector through renewable energy development.\nIt’s not yet clear which specific industries the two companies will focus on or how Apple in particular will apply its skills, albeit the move is described as supporting Apple’s broader carbon neutrality goals.",
+  "published_at": "2026-05-07T13:23:40Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-09T03:02:24.064755Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

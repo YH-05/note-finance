@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/",
+  "title": "Google will pay SpaceX $920M per month for compute",
+  "raw_text": "SpaceX has lined up another compute deal ahead of its historic IPO, this time with Google. The company announced the deal in a regulatory filing on Friday.\nUnder the terms of the deal, Google will pay SpaceX $920 million per month from October 2026 through June 2029 for access to “approximately 110,000 NVIDIA GPUs, CPUs, memory, and other related components.”\nThe deal is similar in length and scope to the one SpaceX announced with Anthropic in late May. As part of that deal, Anthropic agreed to pay SpaceX $1.25 billion per month through 2029 to rent all the available compute from its Colossus 1 data center near Memphis, Tennessee, that xAI — now part of SpaceX — originally built for its own artificial intelligence efforts.\nGoogle’s deal appears to be paying for roughly half the amount of compute that Anthropic has access to at Colossus 1. SpaceX didn’t say which specific data center Google would be using. CEO Elon Musk has previously suggested his company would reserve the Colossus 2 data center for xAI.\nAnthropic was significantly limited in its compute capacity prior to its deal with SpaceX, raising usage limits on the same day the deal was announced. Google is in a very different position, with some estimates naming it as the world’s largest single owner of AI compute.\nIn a statement, a Google representative described the deal as a result of unexpected demand for its recently launched AI products. “Google Cloud and SpaceX are long-time partners,” Google said in a statement. “This is a short-term, timely agreement to ensure we have bridge capacity to meet surging customer demand for our agent platform, Gemini Enterprise, which has been even higher than we expected.”\nBut its parent company Alphabet is on a spending spree. Alphabet has already committed to more than $180 billion in capital expenditures this year and has said it expects that to “significantly increase” in 2027. To help with that, Alphabet recently announced an $80 billion equity sale.\nAlso like the Anthropic deal, the agreement with Google includes a cancellation clause. Both SpaceX and Google have the option to terminate the agreement with 90 days’ notice after December 31, 2026. Google’s access to the data center will ramp up “through September at a reduced fee,” according to the filing.\n“If we fail to deliver access to the committed amount of GPUs by September 30, 2026, then following a one-month grace period, Google may immediately terminate the agreement or accept the number of GPUs provided” with a reduction in the monthly fees, it reads.\nSpaceX announced the deal just one week before the company’s stock is expected to start trading on the Nasdaq exchange. Paperwork filed with the Securities and Exchange Commission shows the company is aiming to raise around $75 billion at a valuation of around $1.75 trillion — making it the largest in history.\nGoogle is a longtime investor in SpaceX. Its stake in Musk’s company is expected to be worth more than $100 billion after the IPO. The companies are also reportedly in talks to try to build orbital data centers — a major component of SpaceX’s future plans post-IPO.",
+  "published_at": "2026-06-05T18:57:20Z",
+  "author": "Sean O'Kane",
+  "collected_at": "2026-06-06T03:00:27.065281Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "AI compute",
+      "Alphabet",
+      "Google",
+      "SpaceX"
+    ]
+  }
+}

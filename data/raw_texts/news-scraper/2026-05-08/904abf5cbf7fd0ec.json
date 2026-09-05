@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081460",
+  "title": "ＡＫＩＢＡ、２６年３月期営業益が上振れして着地　３期ぶりに過去最高益更新へ",
+  "raw_text": "【材料】ＡＫＩＢＡ、２６年３月期営業益が上振れして着地 ３期ぶりに過去最高益更新へ\nメモリ・ＰＣ関連デバイス・ＩｏＴ事業及びＨＰＣ事業は第４四半期（１～３月）も好調が続き、前回予想で一部保守的に織り込んでいた需給ひっ迫による仕入れの影響も概ね順調に推移。通信建設テック事業も１～３月の業績が想定を超えた。そのほか、為替相場の変動を受け為替差益１億１３００万円を計上した。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-08T08:28:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T09:00:22.250317Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

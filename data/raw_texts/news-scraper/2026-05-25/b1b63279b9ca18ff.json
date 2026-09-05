@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/entertainment/936829/record-club-letterboxd-for-music-nerds",
+  "title": "Record Club is trying to be Letterboxd for music nerds",
+  "raw_text": "There isn’t really a solid equivalent to Goodreads or Letterboxd for music lovers, but Record Club is aiming to change that. Yes, we have Rate Your Music, but its interface is crowded, and it feels more geared towards longer-form reviews than cataloging your listening habits and connecting with other fans. Record Club is clean and modern, with a streamlined interface that’s quite similar to Letterboxd.\nRecord Club is trying to be Letterboxd for music nerds\nTrack your listening habits and tell your friends about your favorite records.\nTrack your listening habits and tell your friends about your favorite records.\nThe basic features you’d expect from such a site are all there. You can rate and review records or mark them as listened to. You can also see what your friends are listening to and see what albums are trending with other users. There’s a spot on your profile to list your five favorite albums, plus five records you have in heavy rotation. You can also create custom lists (ranked or unranked) and share them — handy for tracking your top albums of the year, or putting together genre-specific crash courses. You can also add records to your queue, so you can keep track of albums you want to listen to, but haven’t gotten around to yet. (I’ll probably be making extensive use of that.)\nYou can follow your favorite artists as well as entire record labels. That makes it easy to stay on top of new artists on labels like 4AD, AD 93, Fire Talk, and Warp. Record Club pulls all of its data from the open-source music encyclopedia MusicBrainz. If you sign up, give me a follow, and see what I’m spinning on repeat this week.",
+  "published_at": "2026-05-23T22:41:11Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-05-25T03:00:17.101161Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Culture",
+      "Entertainment",
+      "Internet Culture",
+      "Music",
+      "News"
+    ]
+  }
+}

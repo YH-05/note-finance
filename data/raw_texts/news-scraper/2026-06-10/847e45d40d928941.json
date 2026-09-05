@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/07/south-korea-nominates-han-seongsook-to-be-next-prime-minister.html",
+  "title": "South Korea nominates Han as country's first female prime minister in two decades",
+  "raw_text": "South Korean President Lee Jae Myung has chosen Han Seongsook, the country's minister for small and midsize businesses and startups, to be prime minister, the presidential office said on Sunday.\nIf approved by parliament, Han would become South Korea's first female prime minister in 20 years.\nHan, who previously served as chief executive of South Korean internet giant Naver, is expected to lead the country's AI transformation, South Korea's presidential chief of staff, Kang Hoon-sik, said at a press briefing.\n\"Han will be able to transform South Korea's economic growth — driven by the semiconductor boom and rising exports — into inclusive growth that reaches everyone, including small and medium-sized enterprises,\" Kang said.\nThe role of prime minister is largely ceremonial and administrative under South Korea's presidential system.",
+  "published_at": "2026-06-07T11:04:41Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.456776Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "politics",
+    "tags": []
+  }
+}

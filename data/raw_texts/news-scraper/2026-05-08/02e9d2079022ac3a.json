@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20200-vnpt-kddi-partner-on-youth-focused-mobile-brand-in-vietnam.html",
+  "title": "VNPT, KDDI partner on youth-focused mobile brand in Vietnam",
+  "raw_text": "Vietnam Posts and Telecommunications Group (VNPT) and Japan’s KDDI have partnered to launch a new mobile service targeting young, digitally native users in Vietnam.\nThe companies signed a business cooperation agreement in March, with the sub-brand expected to launch in 2026.\nThe offering will draw on KDDI’s operational experience from its Povo brand in Japan, which targets a similar demographic. The service is designed as a digital-first platform, enabling users to manage top-ups, plans and upgrades online.\nVNPT will provide its telecoms infrastructure, retail footprint and brand presence to support the rollout.\nVietnam’s population of around 100 million, alongside rapid smartphone adoption, is expected to underpin demand for the new service.",
+  "published_at": "2026-05-05T12:33:38Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-08T03:01:18.584666Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

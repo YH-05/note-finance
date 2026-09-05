@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/global-tech-sell-off-euopean-markets.html",
+  "title": "Global tech sell-off spreads to Europe as shares fall",
+  "raw_text": "European stocks followed global peers lower on Friday as investors monitor a global sell-off in chipmaking tech names.\nShortly after the opening bell, the pan-European Stoxx 600 index opened down 0.2%. London's FTSE 100 began the day 0.2% lower, while Germany's Dax fell 0.3% and France's Cac 40 opened flat.\nA sell-off in tech stocks gripped U.S. and Asian markets overnight, which has spread to Europe in morning trade. The Stoxx 600 technology index opened down 2%, with semiconductor names Infineon Technology and ASML falling 4% and 2.5%, respectively.\nThe moves lower came after a downbeat earnings report from Broadcom sparked a rotation out of artificial intelligence-linked names into more defensive sectors.\nWeakness was particularly pronounced in South Korea's chip-heavy market. The Kospi was last down 4.3%, with heavyweights Samsung Electronics and SK Hynix dropping 4.3% and 7.6%, respectively.\nIn the U.S., the Dow Jones Industrial Average rallied to a fresh all-time high on Thursday, while the tech-heavy Nasdaq Composite underperformed.\nThe 30-stock Dow jumped 874.86 points, or 1.73%, for a record close of 51,561.93. The Nasdaq lost 0.09% and ended at 26,830.96, while the S&P 500 rose 0.41% to 7,584.31.\nIn Europe, Nokia shares finished more than 6% lower as part of the unwind in tech stocks, following several consecutive days of outsized gains for the sector.\nOn Thursday, President Donald Trump said that he would be \"honored\" to meet Ayatollah Mojtaba Khamenei, Iran's Supreme Leader, \"if it was to make a deal.\" The U.S.-Iran war has dragged on into its fourth month as the conflict remains locked in a fragile ceasefire.",
+  "published_at": "2026-06-05T07:24:34Z",
+  "author": null,
+  "collected_at": "2026-06-05T09:18:22.106049Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

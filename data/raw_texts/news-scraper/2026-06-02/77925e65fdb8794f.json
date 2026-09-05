@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/google-rolls-out-fake-call-detection-to-protect-against-ai-deepfake-impersonation-scams/",
+  "title": "Google rolls out fake call detection to protect against AI deepfake impersonation scams",
+  "raw_text": "Google announced on Tuesday that Android is launching fake call detection to protect against AI deepfake impersonation scams. The feature is rolling out globally in Phone by Google to Android 12+ devices this month, starting with Pixel devices.\nAs people increasingly refuse to answer calls from unknown numbers, scammers are shifting their tactics by spoofing trusted phone numbers and using AI deepfake technology to sound like authority figures, family members, or employers.\nFor example, a person may receive a phone call showing the caller ID “Mom,” and the voice may sound exactly like her, but the caller is actually a scammer using AI tools to impersonate her and request money for a fake emergency.\nThe new feature is on by default and works automatically behind the scenes.\nGoogle explains that the new feature works kind of like a “digital handshake between devices.” When a contact calls you, and you’re both using Phone by Google, their phone sends a silent confirmation signal to your device to verify the call is legitimate and actually coming from their phone.\n“If a scammer tries to impersonate your trusted contact, that initial confirmation signal will be missing,” Google explained in a blog post. “Your device will instantly notice this and ping your contact’s actual device to double-check. If their real device says, ‘I’m not making a call right now,’ you’ll get a warning on your screen advising you to hang up immediately.”\nThe tech giant notes that it built this feature on top of Rich Communication Services (RCS), making it possible for other apps and companies to adopt the technology.\nThe launch of fake call detection was announced alongside other updates from Android, including a new Google Photos feature that lets users mix and match outfits and try them on virtually. The new “wardrobe” feature catalogs the clothes you’re wearing in your photo library by turning them into snapshots you can browse on your phone. The feature is rolling out next week to eligible users in the U.S., India, and Brazil with Android 10+.\nAdditionally, Google Play Books is getting a new “Catch me up” feature that lets users jump back into a story with a recap. Users can also highlight a passage to ask questions. These features are rolling out today for select English titles.\nGoogle is also making it possible to search entire outfits with its “Circle to Search” feature. Now the feature will be able to find every item in an outfit at once, getting rid of the need to search piece by piece. This update is now available on all Android 14+ devices that have Circle to Search.",
+  "published_at": "2026-06-02T18:00:00Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-06-02T21:00:26.836041Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Android",
+      "deepfakes",
+      "Google"
+    ]
+  }
+}

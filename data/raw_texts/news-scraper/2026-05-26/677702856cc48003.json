@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20289-beyon-signs-kuwait-fixed-network-deal.html",
+  "title": "Beyon signs Kuwait fixed network deal",
+  "raw_text": "Bahrain-headquartered global technology group Beyon has announced the signing of a public private partnership (PPP) commitment agreement with the Ministry of Communications in Kuwait and the Kuwait Authority for Partnership Projects (KAPP).\nThe agreement formalises Beyon's selection (announced earlier this year) as the winning investor for the Fixed Telecommunications Network Development Project in Kuwait, a project considered one of the largest digital infrastructure initiatives in that country, with expected investments exceeding KWD825 million (about US$2.673 billion) over a 50-year partnership term.\nThe project aims to develop, design, finance, build, operate and maintain a fixed telecommunications network through a modern operating model based on the establishment of a specialised company to manage and operate wholesale infrastructure in line with international standards.\nThis presumably means comprehensive upgrades to the existing network. Indeed, Beyon explains that the project will involve a comprehensive re-engineering of Kuwait’s national telecommunications network, including the development of the last-mile access network, modernisation of transport and backhaul networks, development of next generation network (NGN) systems, and the gradual decommissioning of the legacy copper network, paving the way for a more efficient, reliable, and sustainable digital infrastructure.\nAs Eng. Mishal Al-Zaid, Acting Undersecretary of the Ministry of Communications, explains, the project represents a comprehensive re-engineering of Kuwait’s fixed telecommunications network and transitioning it toward a modern operating model based on an independent and professional infrastructure capable of supporting the requirements of digital growth over the coming decades.\nThe project also includes a commitment by the project company to provide high-speed fibre connectivity to 90% of plots within the first five years of the project, supported by technical capabilities enabling symmetrical speeds of up to 10Gbps. This will enhance Kuwait’s ability to support cloud services, artificial intelligence technologies, smart cities and advanced digital government services.\nThe project will be financed and developed by the project company and therefore, the partners say, will not impose a financial burden on the State of Kuwait.",
+  "published_at": "2026-05-24T22:01:24Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-26T03:01:25.904075Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20272-everbridge-to-boost-estonias-public-warning-capabilities.html",
+  "title": "Everbridge to boost Estonia’s public warning capabilities",
+  "raw_text": "Critical event management company Everbridge has announced the next phase of Estonia’s nationwide public warning modernisation initiative, adding end-to-end cell broadcast capabilities across government agencies and all three mobile network operators in the country.\nThe project represents the first planned deployment of a new microservices-based cell broadcast platform from Everbridge, designed to support scalable and resilient national public warning operations.\nThe enhancement includes hybrid functionality combining location-based SMS (LB-SMS) and cell croadcast technologies to support faster, more targeted emergency communications during critical events.\nAs Everbridge explains, cell broadcast technology enables authorities to send geographically targeted emergency alerts directly to mobile phones within seconds, even during periods of heavy network congestion. Unlike traditional SMS messaging, cell broadcast messages appear prominently on devices without requiring users to subscribe to a service or install a mobile application.\nMargo Klaos, Director General of the Estonian Rescue Board explains: “This technology was specifically designed to inform about threats: natural disasters, large-scale industrial accidents or military attacks. It can deliver threat information to smartphones in seconds, it works even in congested mobile networks, and the notification is designed to appear on the screen as a pop-up window in front of all other applications.”\nMark Reeves, Senior Vice President of International Sales at Everbridge, adds: “This enhancement combines advanced cell broadcast technology with a new microservices-based architecture designed to help deliver faster, more resilient and more flexible emergency communications nationwide.”\nEverbridge says it supports governments and mobile operators around the world in delivering fast, reliable public warnings during severe weather events, natural disasters, civil emergencies, and other critical incidents.\nThe enhancement is part of Estonia’s broader EE-ALARM initiative to modernise nationwide public warning capabilities.",
+  "published_at": "2026-05-19T15:16:23Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-19T21:01:23.329573Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

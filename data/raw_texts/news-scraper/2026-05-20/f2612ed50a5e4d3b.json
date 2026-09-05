@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605201181",
+  "title": "原油が急速に下げ幅拡大　株高・ドル安、米国債利回り低下の動きも＝速報",
+  "raw_text": "【注目】原油が急速に下げ幅拡大 株高・ドル安、米国債利回り低下の動きも＝速報\nNY原油先物7 月限（WTI）\n1バレル＝99.68（-4.47 -4.29%）\nNY株式20日（NY時間10:33）（日本時間23:33）\nダウ平均 49720.06（+356.18 +0.72%）\nナスダック 26131.73（+261.02 +1.01%）\nCME日経平均先物 60910（大証終比：+1210 +1.99%）\n米国債利回り\n2年債 4.070（-0.048）\n10年債 4.619（-0.047）\n30年債 5.148（-0.033）\n期待インフレ率 2.477（-0.023）\n※期待インフレ率は10年債で算出\nUSD/JPY 158.92 EUR/USD 1.1619 GBP/USD 1.3427\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-20T14:33:00Z",
+  "author": null,
+  "collected_at": "2026-05-20T15:00:18.493492Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

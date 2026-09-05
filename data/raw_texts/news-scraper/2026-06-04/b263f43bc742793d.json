@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606050045",
+  "title": "[LULU] ルルレモン　1Q増収減益　売上高4％増24.7億ドル、営業益37％減2.76億ドル、EPS1.69ドル",
+  "raw_text": "ルルレモン・アスレティカ<\nLULU>の2026年度第1四半期（2月2日-5月3日）の業績は増収、営業減益だった。\n米現地6月4日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比4.3％増の24億7160万ドルとなった。営業利益は36.9％減の2億7694万ドル。営業利益率は11.2％へ低下した。前年同期は18.5％だった。1株利益（EPS・希薄化後）は1.69ドル（前年同期2.60ドル）。\nルルレモン・アスレティカ<\nLULU>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-06-04T20:14:13Z",
+  "author": null,
+  "collected_at": "2026-06-04T21:00:22.331170Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

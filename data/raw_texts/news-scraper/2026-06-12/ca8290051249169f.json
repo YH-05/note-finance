@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html",
+  "title": "OpenAI mulls slashing prices as it competes with Anthropic for users: WSJ",
+  "raw_text": "OpenAI is mulling sharp price cuts to its artificial intelligence offerings, as it looks to woo consumers away from rival Anthropic, the Wall Street Journal reported Wednesday evening stateside, citing sources familiar with the matter.\n\"The company is weighing significant cuts to what it charges for tokens, the unit of measurement artificial-intelligence firms use to bill for their products,\" the report said, adding that it was \"in anticipation of similar cuts the company expects at Anthropic,\" according to sources.\nThe ChatGPT producer, which did not immediately respond to CNBC's requests for comment, currently charges consumers in tiered subscriptions of $8, $20 and $100 and above each month for access to its flagship GPT-5.5 models.\nAnthropic conversely charges users $17 each month with an annual subscription to Claude Pro, and $100 and above monthly for a subscription to Claude Max.\nThe report on possible price cuts come as competition has been ramping up between the two companies.\nOpenAI on Monday confidentially filed for an initial public offering with the U.S. Securities and Exchange Commission, close on the heels of an IPO filing from Anthropic.\nAnthropic closed its Series H funding round on May 28 at a $965 billion valuation, slightly edging out OpenAI, which was valued at $852 billion in March.\nChatGPT became the first app to reach 1 billion monthly app users in May — roughly three years after its November 2022 launch — surpassing the previous record set by Google Maps, which took around five years after launch to reach the same milestone, according to estimates from market intelligence firm Sensor Tower.\nRead the full WSJ report here.",
+  "published_at": "2026-06-11T14:43:27Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.770399Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

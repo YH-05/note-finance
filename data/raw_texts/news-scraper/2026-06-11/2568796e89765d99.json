@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/cnbc-sport-world-cup-major-league-soccer.html",
+  "title": "CNBC Sport: The plan for this year's World Cup to revolutionize Major League Soccer",
+  "raw_text": "Key Points\n- The FIFA World Cup begins Thursday in Mexico City.\n- Major League Soccer is banking on this year's World Cup to alter the trajectory of the league, beginning with a schedule change that takes place next season.\n- MLS Commissioner Don Garber told CNBC Sport that a strong U.S. team performance isn't essential for the World Cup to be a success for his league because of the changes already being put in place.",
+  "published_at": "2026-06-11T18:02:09Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:20:26.995912Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

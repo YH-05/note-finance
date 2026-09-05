@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/binance-says-it-considers-its-eu-license-compliant-amid-reports-potential-rejection",
+  "title": "Binance Says It Considers Its EU License Compliant Amid Reports Of Potential Rejection",
+  "raw_text": "Cryptocurrency exchange Binance, whose application under the European Union’s Markets in Crypto Assets (MiCA) framework is under consideration, has generally deferred responding to a report that the company’s licensed activities in the region could be at risk.\nIn a Tuesday blog post, Binance said that Greece's Hellenic Capital Market Commission (HCMC), one of the regulators responsible for overseeing MiCA, had completed its review of the crypto exchange’s application and “considered it compliant with MiCA requirements,” subject to review at the European Securities and Markets Authority (ESMA). The post came just a few hours after Reuters reported that EU regulators were preparing to reject Binance’s licensing bid, potentially cutting off the exchange’s ability to offer services to residents.\n“Binance serves more users in Europe than any other crypto exchange, and any delay or distortion in our MiCA path has consequences beyond Binance,” said the company. “It risks weakening liquidity, reducing competition and user choice, and pushing activity, jobs, investment, and tax revenue outside the EU.”\nSource: Binance\nUnder the MiCA framework, companies operating in the EU only have until the end of June to gain approval to offer services to residents. Should Binance’s application with HCMC be rejected, the exchange would likely be unable to legally operate in the EU starting on July 1.\nA Binance spokesperson told Cointelegraph that the company expected that ESMA “intended to progress the licence and move to authorise at an upcoming board meeting.” The company did not immediately respond to an additional request for clarification on the Reuters report, but added in the blog post it would update users by June 30, the deadline for the MiCA application.\nThe crypto exchange applied for its MiCA licensing in Greece under HCMC in January. Several regulators, including those in Germany and the Netherlands, have already approved licenses for crypto companies seeking to be compliant under MiCA with the deadline approaching in a matter of weeks.\nBinance still under scrutiny by US authorities\nIn 2023, Binance reached an agreement with US authorities in which then-CEO Changpeng Zhao stepped down and pleaded guilty to one felony charge, and the company agreed to a $4.3 billion settlement with the US Treasury Department and Department of Justice and to follow a monitoring program. Amid the US-Israel war with Iran and reports that the exchange facilitated $1 billion to sanctioned entities, US lawmakers have been pressing for answers regarding Binance’s compliance.",
+  "published_at": "2026-06-17T10:30:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-17T15:00:37.363610Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/treasury-yields-edge-higher-as-traders-await-economic-data.html",
+  "title": "Treasury yields edge higher as traders monitor Iran war latest and await economic data",
+  "raw_text": "U.S. Treasury yields edged higher on Wednesday as traders await a fresh batch of domestic economic data, while events in the Middle East also continue to weigh on market sentiment.\nYields on the 10-year Treasury note — the main benchmark for mortgages, auto loans and credit card debt — were more than 2 basis points higher at 4.4768% early Wednesday.\nThe yield on the 2-year Treasury note, which typically reacts in line with short-term Federal Reserve interest rate decisions, was almost 2 basis points higher at 4.0700%.\nThe 30-year Treasury yield, which traditionally moves on geopolitical events, was up 1 basis point at 4.9836%.\nOne basis point equals 0.01%, or 1/100th of 1%, and yields and prices move inversely to one another.\nThe rise in bond yields comes after borrowing costs fell during Tuesday's session.\nInvestors continue to grapple with the increasingly uncertain direction of the Middle East peace negotiations after U.S. and Iranian forces once again exchanged missile fire overnight, further threatening the already fragile ceasefire.\nEnergy prices ticked higher in early trade, with U.S. West Texas Intermediate futures up 2.3% at $95.94 a barrel, while international price benchmark Brent crude rose 2.1% to $98.05.\nOn the domestic data front, traders are awaiting the Institute for Supply Management's latest services PMI print for May. The ISM services index dipped from 54 in March to 53.6 in April.\nIt comes after new employment data published by the Bureau of Labor Statistics last week showed that job openings rose by 731,000 in April to reach 7.618 million, the highest level since November 2024.\nThe Mortgage Bankers Association will later release its weekly average 30-year fixed rate for conforming loans of $806,500 or less. Mortgage rates have been ticking higher in recent weeks, rising to 6.65% in the week ending May 22 from 6.56% the previous week.",
+  "published_at": "2026-06-03T08:37:16Z",
+  "author": null,
+  "collected_at": "2026-06-03T09:18:44.995614Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

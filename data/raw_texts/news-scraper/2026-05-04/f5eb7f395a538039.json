@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20175-iran-says-it-will-allow-businesses-to-access-the-internet.html",
+  "title": "Iran says it will allow businesses to access the internet",
+  "raw_text": "Iran's Supreme National Security Council has reportedly approved a temporary scheme for businesses to access the global internet with fewer restrictions. The authorities had imposed a blackout since the start of the war against the US and Israel.\nMost Iranians have been unable to access the worldwide web for the last 60 days according to NetBlocks. Indeed, the global internet monitor says: “As the shutdown continues in its third month, Iran's digital environment is more tightly controlled than ever with all communication channels restricted and monitored.”\nAccording to Reuters, only a few citizens have access to expensive and advanced virtual private networks (VPNs) that circumvent the restrictions. It adds that the government spokesperson did not say when the new measures had been – or will be – introduced.\nAnd of course, this blackout is not just about the ongoing war. In normal times, access to the global internet remains heavily restricted via censorship of many websites, while authorities are increasingly relying on an intranet to provide connected services without relying on the worldwide web.\nThere was an internet blackout from 8 January in response to nationwide anti-government protests; the blackout largely ended in February. It was reimposed following the start of US and Israeli strikes against Iran on 28 February.\nWhether the new measures can balance security with adequate stable internet access for work and daily life for the country’s citizens remains to be seen.\nReuters says internet outages in Iran are inflicting heavy economic damage and threatening incomes and jobs for many workers, particularly freelancers and small businesses reliant on online activity.",
+  "published_at": "2026-04-29T12:38:27Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-04T03:01:20.548765Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

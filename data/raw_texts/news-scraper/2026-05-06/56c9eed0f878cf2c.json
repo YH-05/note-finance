@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/iso-new-england-trims-10-year-forecast-based-electrification-outlook",
+  "title": "ISO New England Trims 10-Year Forecast Based On Electrification Outlook",
+  "raw_text": "By Robert Walton of UtilityDive\nElectricity consumption in New England will grow about 9% over the next decade, driven by electrification of buildings and vehicles, the region’s independent system operator said in an annual report published Friday. While significant, the rise in consumption is lower than its forecast in the two previous reports, reflecting changes in “government policy,” ISO New England said.\nThe “2026-2035 Forecast Report of Capacity, Energy, Loads, and Transmission,” or CELT report, estimates annual consumption will rise from 116,679 GWh this year to 127,660 GWh in 2035, an increase of about 0.9% annually.\nIn 2024, the ISO said it anticipated a 17% rise in annual energy use by 2033. In 2025, it reduced its 10-year outlook to an 11% rise by 2034.\nThe energy forecast “reflects more conservative assumptions around future adoption of electric vehicles and heat pumps in light of government policy changes,” the ISO said in a blog post.\nNew England’s net annual energy use has trended downward since 2005, “mainly due to more efficient heating and cooling systems, appliances, and lighting,” as well as growth in behind-the-meter solar, the grid operator said. Now, it predicts “that trend will reverse over the next decade.”\n“Steady growth in net annual energy use is expected as state policy goals for carbon emissions reductions continue to incentivize electrification of heating systems and transportation in the region,” the ISO said.\nNotably, the ISO said sustained load growth means it will soon be a dual-peaking system.\nWhile New England has typically seen electricity demand peak during the hot summer months, the addition of electric heating load means that by 2035, the ISO expects winter and summer peaks to be roughly the same, around 26.5 GW. ISO New England’s all-time peak of 28.1 GW was set in summer 2006.\nThe grid operator anticipates peak demand of 25.2 GW this summer and 20.5 GW this upcoming winter season.\nHeating electrification is projected to contribute 5,533 MW to the winter peak in 2035/2036, ISO said, while transportation electrification is forecast to contribute 1,509 MW. In the ISO’s previous CELT report, it estimated electric vehicles would account for 1,764 MW of the winter peak in 2034/2035, while heating electrification was is expected to account for 4,765 MW that season.\nThe ISO said it revised its EV adoption forecast down to account for the removal of federal incentives and revisions to state policies and expectations for each vehicle class. Its heat pump forecast was similarly adjusted to account for expiring federal tax credits.\nBehind-the-meter solar is forecast to have a growing impact on winter peak demand, reducing it by an expected 316 MW in 2035/2036, the ISO said in its latest report.",
+  "published_at": "2026-05-05T21:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T03:00:41.230947Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

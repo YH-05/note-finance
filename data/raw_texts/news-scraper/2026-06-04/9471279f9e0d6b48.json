@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606041247",
+  "title": "ランブル、時間外で１５％高＝米国株個別",
+  "raw_text": "（NY時間09:18）（日本時間22:18）時間外\nランブル<\nRUM> 9.59（+1.26 +15.18%）\n動画プラットフォームのランブル<\nRUM>が時間外で大幅高。取引開始前に、顧客と総額２億７０００万ドル規模の複数年契約を締結したと発表した。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-04T13:20:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:00:17.679717Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

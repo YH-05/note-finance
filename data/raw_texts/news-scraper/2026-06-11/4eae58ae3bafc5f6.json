@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/political/usps-proposes-halting-mail-ballot-delivery-states-refuse-voter-roll-verification",
+  "title": "USPS Proposes Halting Mail Ballot Delivery To States That Refuse Voter Roll Verification",
+  "raw_text": "The US Postal Service (USPS) has proposed a new rule requiring states to share voter information related to mail-in and absentee voting. The proposal follows a March executive order from Trump aimed at tightening regulations governing mail-in voting in federal elections.\nTrump has made election integrity a central focus of his second administration, issuing executive orders designed to require proof of citizenship for voters and combat mail-in voting fraud. The administration has argued that stronger verification measures are necessary to restore confidence in elections and safeguard the voting process.\nSeveral of those initiatives have faced legal challenges. Courts have blocked certain provisions, including proof-of-citizenship requirements, while appeals remain pending. Democratic-led states have also filed lawsuits challenging the administration’s mail-in voting policies.\nAs litigation continues, the Postal Service has moved forward with a proposal directing states and the USPS to coordinate on identifying eligible mail-in and absentee voters.\nUnder the proposed rule, states would submit lists of voters requesting mail-in ballots, along with personalized barcodes assigned to each ballot.\nThe Postal Service would then return a finalized “Mail-In and Absentee Participation List” to each state’s chief election official. The list would contain the names of approved voters and the corresponding ballot barcodes associated with each voter.\nUnder the proposal, only voters included on the final participation list would be eligible to receive mail-in or absentee ballots.\nThe USPS said the new system would help improve transparency and provide election officials and law enforcement with additional tools to verify election procedures.\n“This provision will help determine adherence to federal law and facilitate law enforcement efforts,” the proposal states.\n“For example, the provided lists will evidence how many ballots have been mailed, and allow law enforcement officials to compare the total number of mailed ballots to the total number of received ballots to detect potential issues meriting further investigation.”\nElection integrity supporters argue that the process would create a clearer chain of custody for mailed ballots and help identify irregularities that might otherwise go undetected.\nThe Postal Service issued the proposal May 29, one day after Trump-appointed US District Judge Carl J. Nichols denied a request from Democratic plaintiffs seeking to block the administration’s mail-in voting executive order.\nNichols ruled that the challengers failed to sufficiently demonstrate that the order would cause “imminent and irreparable harm.”\nThe plaintiffs have appealed that decision, and the Postal Service proposal remains subject to ongoing legal uncertainty while the broader litigation proceeds.",
+  "published_at": "2026-06-11T15:00:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-11T21:00:42.096432Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

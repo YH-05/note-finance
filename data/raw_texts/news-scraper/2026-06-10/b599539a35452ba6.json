@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/china-unveils-nuclear-powered-floating-hub-green-shipping",
+  "title": "China Unveils Nuclear-Powered Floating Hub For Green Shipping",
+  "raw_text": "China has proposed a large offshore logistics platform powered by nuclear energy that would function as both a cargo transfer hub and a refuelling/charging centre for ships, according to the South China Morning Post.\nThe concept, unveiled by Jiangnan Shipyard, combines port infrastructure, energy generation, and cargo handling into a single floating facility aimed at reducing emissions in maritime transport.\nThe project was presented at the Posidonia International Shipping Exhibition in Greece.\nThe SCMP writes that the platform would rely on a molten salt reactor as its primary energy source, supplemented by renewable technologies including solar and wind power. It would also feature systems for hydrogen production, synthetic green fuels, and electricity distribution. According to the company, the facility could generate clean power and fuels such as ammonia for both terminal operations and electric support vessels.\nJiangnan argues that molten salt reactor technology offers significant safety benefits because it is resistant to conventional meltdown scenarios and the coolant solidifies quickly if released, limiting the potential impact of leaks.\nDesigned to support international shipping lanes, coastal transport links, and cargo transshipment, the floating hub could also be replicated at other strategic ports thanks to its modular design.\nThe proposal builds on Jiangnan’s ongoing work in nuclear-powered shipping. In 2024, the company revealed plans for a large container vessel powered by a thorium-based molten salt reactor. Meanwhile, Chinese scientists have continued advancing the technology, recently demonstrating a successful conversion of thorium into uranium fuel within a molten salt reactor system. Thorium is widely viewed as a more abundant alternative to conventional uranium fuel.",
+  "published_at": "2026-06-10T02:10:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-10T09:00:40.965564Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

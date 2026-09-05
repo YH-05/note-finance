@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/15/inflation-rate-projected-to-hit-6percent-in-the-second-quarter-top-economic-forecasters-say.html",
+  "title": "Inflation rate projected to hit 6% in the second quarter, top economic forecasters say",
+  "raw_text": "The recent surge in inflation is likely to get worse over the next several months, according to a survey Friday from the nation's top economists.\nConsumer price inflation is projected to hit 6% for the second quarter, according to the Survey of Professional Forecasters, a blue-ribbon group that is polled each quarter by the Federal Reserve Bank of Philadelphia.\nIn the most recent forecast three months ago, the panel put the expected consumer price index gain at just 2.7%. However, that was just before the U.S. and Israel launched attacks against Iran, hostilities that have sent energy prices soaring while pushing inflation data well past the 2% mark the Fed targets.\nFor the full year, the panel put the CPI rate at 3.5% for the all-items number and 2.9% for core, which excludes volatile food and energy prices. That's up from estimates of 2.6% for both in the prior survey.\nElevated inflation levels are expected to persist into the third quarter, with headline CPI projected at 3% and core at 2.9%. Both levels are expected to ease by the end of the year, with the fourth quarter at 2.5% and 2.7%, respectively.\nStill, the panel doesn't see the Fed hitting its goal well into the future. The 10-year projected annual average is at 2.4%, which the survey notes would be equivalent to 2.22% by the Fed's preferred standard, the personal consumption expenditures price index, a Commerce Department measure.\nThe PCE inflation rates also are expected to hold well above the Fed's comfort zone, though at not as high a level as the consumer price index, a Bureau of Labor Statistics compilation.\nHeadline PCE inflation is projected at 4.5% for the second quarter with core at 3.4%, compared with prior estimates of 2.7%.\nThe survey follows a slew of inflation data showing that prices paid both at the consumer and wholesale levels hit multiyear highs in April. Headline CPI showed inflation at a 3.8% rate, the highest in nearly three years, while the producer price annual inflation rate of 6% was the peak since December 2022.\nAll of the data comes as Kevin Warsh is set to assume the role of Fed chair. Though Warsh has indicated he would like to see lower interest rates, that is going to be difficult to accomplish with inflation data so high and the general sentiment among his fellow policymakers to keep rates steady with an open mind toward possible rate hikes if inflation worsens.\nElsewhere in the survey, forecasters lowered their outlook for growth in coming quarters. They expect gross domestic product to rise at a 2.1% annualized rate in the second quarter and 2.2% for the full year, the latter down 0.3 percentage point from the prior estimate. Growth is projected to slow further to 1.9% in 2027 before bouncing back above 2% in subsequent years.\nThe unemployment rate this year is expected to settle around 4.5%, or 0.2 percentage point higher than the current level.",
+  "published_at": "2026-05-18T16:11:13Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.832817Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

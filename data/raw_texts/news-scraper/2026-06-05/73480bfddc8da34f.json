@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/943233/google-search-profiles-custom-page",
+  "title": "Google is letting social media stars customize their search result page",
+  "raw_text": "Google now lets big creators and publishers in the US claim dedicated profiles in Search to highlight things like videos, articles, and their other profiles online. But this feature won’t be available to most people or organizations; Google is limiting it to people with at least 100,000 YouTube subscribers, 100,000 followers on Instagram or X, or 300,000 followers on TikTok. You’ll need to meet the minimum on one of those platforms and be at least 18 years old to make a Search profile.\nGoogle is letting social media stars customize their search result page\nBig creators and publishers can claim dedicated Search profiles that let them highlight everything they do online.\nBig creators and publishers can claim dedicated Search profiles that let them highlight everything they do online.\nIn demo videos, Google shows how a Search profile can feature links to websites and other platforms, a short summary of the person or brand, pinned media from places like TikTok and Instagram, and a feed aggregating posts from multiple platforms. We’ve already made a profile for The Verge — check it out and follow us!\nGoogle already has knowledge panels that pop up for notable people and publications, but these new profiles offer those people and publications more control over what’s shown. They also offer an alternative to dedicated link-in-bio services like Linktree that creators already use to aggregate their various online presences into one place.",
+  "published_at": "2026-06-04T18:32:23Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-06-05T03:02:19.165851Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Creators",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

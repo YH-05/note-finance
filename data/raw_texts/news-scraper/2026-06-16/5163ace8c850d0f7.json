@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606161154",
+  "title": "レーティング日報【2段階格上げ↑】　(6月16日)",
+  "raw_text": "●6月16日に調査機関が投資判断を2段階引き上げた銘柄をまとめました\n銘柄 機関 格付 目標株価 日付\nきんでん <\n1944> 大和 ３→１ 10200 6/16\n株探ニュース",
+  "published_at": "2026-06-16T08:00:36Z",
+  "author": null,
+  "collected_at": "2026-06-16T09:00:22.041176Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "特集",
+    "tags": []
+  }
+}

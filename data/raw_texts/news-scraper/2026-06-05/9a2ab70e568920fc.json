@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514b.htm",
+  "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+  "raw_text": "May 14, 2026\nStephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in\nFor release at 2:00 p.m. EDT\nStephen I. Miran submitted his resignation Thursday as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in. He has been a member of the Board since September 16, 2025, when he took office to fill an unexpired term ending January 31, 2026.\nPrior to his appointment to the Board, Dr. Miran served as chairman of the Council of Economic Advisers under President Donald J. Trump. He previously worked as a senior strategist at Hudson Bay Capital Management and a senior fellow at the Manhattan Institute for Policy Research. From 2020 to 2021, Dr. Miran served as senior adviser for economic policy at the U.S. Department of the Treasury. He worked in financial markets for a decade before joining the Treasury.\nDr. Miran received a B.A. in economics, philosophy, and mathematics from Boston University. He earned a Ph.D. in economics from Harvard University.\nA copy of his resignation letter is attached.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-14T18:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:02:34.369749Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

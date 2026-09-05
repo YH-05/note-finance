@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/amazon-stuck-with-months-of-repairs-after-drone-strikes-on-data-centers/",
+  "title": "Amazon stuck with months of repairs after drone strikes on data centers",
+  "raw_text": "Amazon’s cloud customers will need to wait several more months before the US tech company can repair war-damaged data centers and restore normal operations in the Middle East. The announcement comes two months after Iranian drone strikes targeted three Amazon data centers in the United Arab Emirates and Bahrain—meaning that full recovery from the cloud disruption could take nearly half a year in all.\nThe Amazon Web Services (AWS) dashboard posted an April 30 update describing how its UAE and Bahrain cloud regions “suffered damage as a result of the conflict in the Middle East” and are unable to support customer applications. The update also said that “relevant billing operations are currently suspended while we restore normal operations” in a process that “is expected to take several months.”\nThat wording suggests Amazon will continue to avoid billing AWS customers in the affected regions—ME-CENTRAL-1 and ME-SOUTH-1—after it initially waived all usage-related charges for March 2026 at an estimated cost of $150 million.\nAWS also “strongly” recommended that customers migrate resources to other cloud regions and rely on remote backups to restore any “inaccessible resources.” Some customers, such as the Dubai-based super app Careem—which offers ride-hailing, household services, and food and grocery delivery—were able to get back online quickly after doing an overnight migration to other data center servers.",
+  "published_at": "2026-05-01T17:09:59Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-05T03:00:31.299102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "ai data centers",
+      "Amazon",
+      "AWS",
+      "aws outage",
+      "cloud",
+      "data centers",
+      "drones",
+      "USA-Iran War"
+    ]
+  }
+}

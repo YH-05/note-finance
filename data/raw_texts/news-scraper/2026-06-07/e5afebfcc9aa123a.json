@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-cloud-virtualization/20327-partnership-to-drive-private-cloud-service-offer-at-togolese-data-centre.html",
+  "title": "Partnership to drive private cloud service offer at Togolese data centre",
+  "raw_text": "ST Digital and Togo’s Société d'Infrastructures Numériques (Digital Infrastructure Company or SIN) have announced a memorandum of understanding (MoU) formalising a strategic partnership for a private cloud service offer at the Lomé Data Centre.\nSIN is a state-owned company wholly owned by the Togolese Republic, operator of the Lomé Data Centre (LDC), Tier 3 certified infrastructure with an SLA of 99.982%. ST Digital is an operator of sovereign cloud services, sovereign artificial intelligence and digital solutions, with expertise in software engineering in West Africa.\nThe partners suggest that, beyond a simple commercial agreement, this agreement reflects a national ambition: to ensure that company data is hosted, processed and secured on national territory, in strict compliance with Togolese legislation on the protection of personal data.\nThe aim is also to position the Lomé Data Centre as a sovereign digital hub, by strengthening the local ecosystem with world-class cloud and artificial intelligence services, accessible at preferential rates and exploited by local skills.\nKey commitments and deliverables of the MoU include deployment of a catalogue of private cloud services – backed by the LDC infrastructure – marketed to companies and regional organisations, along with the launch of continuous training and skills transfer programmes dedicated to data centre and cloud professions, for the benefit of Togolese engineers.\nThis move is also, inevitably, a response to the issue of data sovereignty and the limitations, as many states now see it, of hosting data abroad.\nAs Justine Adebiyi, Managing Director, ST Digital, explains: \"Digital sovereignty is not decreed, it is built. By partnering with the SIN, ST Digital is committed to supporting Togo in the implementation of its digital transformation strategy, a reference model in West Africa, a territory where data is controlled, where local engineers are at the heart of innovation, and where companies access world-class cloud and AI services, without compromising on trust or compliance.”",
+  "published_at": "2026-06-01T14:22:36Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-07T03:04:10.368518Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cloud & Virtualisation"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605090009",
+  "title": "欧州株式8日終値　総じてマイナス圏",
+  "raw_text": "欧州株式8日終値 総じてマイナス圏\n英FT100 10233.07（-43.88 -0.43%）\n独DAX 24338.63（-324.98 -1.32%）\n仏CAC40 8112.57（-89.51 -1.09%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-08T16:27:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T21:00:22.730515Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

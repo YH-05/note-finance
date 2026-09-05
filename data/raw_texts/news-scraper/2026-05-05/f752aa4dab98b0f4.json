@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/24/fda-psychedelic-drug-research-trump.html",
+  "title": "FDA fast-tracks psychedelic drug research following Trump executive order",
+  "raw_text": "The U.S. Food and Drug Administration on Friday announced a series of measures aimed at accelerating the development of psychedelic treatments for serious mental illness.\nThat comes after President Donald Trump signed an executive order on Saturday directing federal health agencies to expand access to emerging therapies.\nThe move marks a significant shift toward supporting psychedelic-based medicines for conditions such as treatment-resistant depression, post-traumatic stress disorder and other substance use disorders, the FDA said.\n\"Under President Trump's leadership, we are accelerating the research, approval and responsible access to promising mental health treatments,\" Robert F. Kennedy Jr., secretary of the U.S. Department of Health and Human Services, said in the release. \"The FDA will prioritize therapies with Breakthrough Therapy designation, where early evidence shows meaningful improvement.\"\nAs part of the announcement, the FDA said it would issue national priority vouchers to companies studying psilocybin for depression and methylone for PTSD.\nThe agency also cleared an early-stage clinical trial for noribogaine hydrochloride, a derivative of ibogaine, as a potential treatment for alcohol use disorder. This is the first time a compound like it has been authorized for study in the U.S. and for human trial.\n\"These medications have the potential to address the nation's mental health crisis,\" FDA Commissioner Marty Makary said in the announcement. \"It is critical that their development is grounded in sound science and rigorous clinical evidence.\"\nThe FDA said allowing these studies to proceed does not mean the drugs are approved or proven safe and effective. Officials said data with be closely monitored as research advances.\n\"If they are approved, they will be approved with certain conditions. These are not the medications you get a prescription for and pick up at a pharmacy,\" Makary told CNBC.\nMakary went on to say decisions on some of these therapies could come as soon as this summer or fall.\nThe fast turnaround time for drug approvals has been a priority for the Trump administration, which dropped the decades-old standard of requiring two clinical trials for standard drug reviews earlier this year. The new policies have come with some criticism, as industry experts have warned about potential issues with a faster timetable.\nWith Friday's psychedelic announcement, the Trump administration also said pricing remains an important consideration in fast-tracking trials.\n\"We have very openly said that affordability is an important part of a medication's effectiveness on a population level,\" Makary said. \"Lowering drug prices is one of the top priorities in this administration, and it's something we think about in every decision, including how we prioritize the vouchers.\"\nThe announcement also follows the Trump administration saying it would ease restrictions on state-licensed medical cannabis operators.",
+  "published_at": "2026-04-24T16:06:42Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.388906Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

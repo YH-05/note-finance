@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/bitcoin-trails-stocks-by-most-since-2019-as-traders-get-their-kicks-elsewhere.html",
+  "title": "Bitcoin trails stocks by most since 2019 as traders get their kicks elsewhere",
+  "raw_text": "Bitcoin hasn't had this cold a winter in seven years.\nThe biggest crypto token – which trades with a market cap of $1.3 trillion – is down 35% since its relative strength versus the Nasdaq-100 peaked almost a year ago, during which the big-tech index has rallied about an equal amount. The resulting 70-percentage-point GAP is the widest in favor of stocks since March 2019, according to data compiled by CNBC.\nIf options flows are an indicator, it's got so-called bitcoin \"HODLrs\" – \"hold on for dear life\" devotees – thinking about folding.\nFor the first time in weeks, options volumes in key crypto equities like the iShares Bitcoin Trust (IBIT) and Michael Saylor's Strategy are shifting bearish, with put volumes outpacing calls on Tuesday, and more calls being sold than bought in MSTR and IBIT. In Strategy, almost 100,000 puts were likely bought, compared to under 37,000 calls, ThinkOrSwim data show. The most popular contract by volume according to SpotGamma: the 100-strike put expiring June 18 – a bet on new year-to-date lows..\nThe sentiment also extended to options on crypto exchange Coinbase, where more than twice as many calls were sold as were bought on Tuesday.\nWhile it's hard to pinpoint one cause for recent crypto weakness, investors point to several possible reasons: Strategy selling its first bitcoin in four years on Monday, investors making room for upcoming IPOs, or even the growing popularity of alternative trading derivatives like 0-day options or perpetual futures drawing attention away from spot crypto.\n\"You're seeing old-school crypto influencers posting options trades now,\" Charlie Moon, a tech and momentum specialist for Prosper Trading Academy in Chicago, said by phone. \"People used to whet their appetite for day-trading with bitcoin, now they satisfy that appetite elsewhere.\"\nA closer look at bitcoin's relative performance to stocks, which was only this bad in 2018 and 2019, offers a simpler explanation: that rising interest rates might still be the primary catalyst for crypto, even if they're not derailing equities. Some of bitcoin's harshest \"winters\" were in 2022 and 2018, when the Fed was raising rates.\n\"Look at financing costs from U.S. Treasuries to Japanese bonds – yields have all gone up,\" said Quantify Funds CEO David Dziekanski, who runs income-stacked bitcoin and gold ETF ISBG. \"This market is rallying on innovation and productivity, so it makes sense that scarcity assets are being left behind. You need to be able to diversify bitcoin so it's not a line-item risk.\"",
+  "published_at": "2026-06-03T13:13:09Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.813477Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

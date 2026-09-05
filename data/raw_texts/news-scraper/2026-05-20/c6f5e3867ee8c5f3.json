@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934323/google-wear-os-7-smartwatch-battery-life-wear-widgets-io-2026",
+  "title": "Wear OS 7 will keep track of deliveries and sports scores on your wrist",
+  "raw_text": "Amid the flurry of today’s Google I/O announcements, Google shared details about Wear OS 7, the next major update to its smartwatch platform. To help you keep track of things like deliveries and sports scores, Wear OS 7 will get the iPhone-style Live Updates that were introduced on Android last year — which can appear on your watch or your smartphone — and you’ll also be able to track automated tasks that an AI is working on right from your watch.\nWear OS 7 will keep track of deliveries and sports scores on your wrist\nGoogle’s newest smartwatch update could also give you up to 10 percent better battery life.\nGoogle’s newest smartwatch update could also give you up to 10 percent better battery life.\nWear OS is also getting an upgrade from its widget-like Tiles for glanceable information. With the new update, Google is adding “Wear Widgets” to the platform, which look more like Android widgets and can appear in small or large layouts that “align perfectly” with Android’s 2x1 and 2x2 widget formats. There are some AI-powered features coming to Wear OS 7 as well, including the introduction of Gemini Intelligence, Google’s catch-all branding for personalized and proactive Gemini features, on “select watches” launching “later this year.”\nGoogle is also promising an “up to” 10 percent improvement in battery life for average users if you’re upgrading from Wear OS 6 to Wear OS 7. The company says that it’s investing in “power optimizations” so that users can “do more with their favorite apps,” but we’ll have to wait and see how battery life actually shakes out when Wear OS 7 is actually available.",
+  "published_at": "2026-05-19T23:24:36Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-20T03:02:06.833167Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Google",
+      "Google I/O 2026",
+      "News",
+      "Smartwatch",
+      "Tech",
+      "Wearable"
+    ]
+  }
+}

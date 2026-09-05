@@ -1,0 +1,31 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/hunter-gatherers-in-siberia-died-of-a-plague-outbreak-5500-years-ago/",
+  "title": "Hunter-gatherers in Siberia died of a plague outbreak 5,500 years ago",
+  "raw_text": "Plague swept through groups of hunter-gatherers in southeastern Siberia 5,500 years ago, leaving dozens dead in its wake—with DNA from Yersinia pestis bacteria still trapped inside their teeth.\nUniversity of Oxford ancient DNA researcher Ruairidh Macleod and his colleagues recently sequenced the telltale bacterial DNA in teeth from plague victims at four ancient cemeteries in the area around Russia’s Lake Baikal. The tragedy that befell these communities is now the earliest known plague outbreak, courtesy of the oldest strain of Y. pestis ever sequenced.\nUnearthing a new backstory for the plague\nUntil recently, scientists who study the evolution of diseases have held two fairly solid ideas about the origins of plague, the disease caused by Yersinia pestis bacteria. It’s a scourge so awful that it has gone down in history as not just a plague but the plague. The first idea is that the earliest strains didn’t have the right genetic traits to be really lethal. And the second is that the plague first began menacing humans when the first farmers settled in densely packed towns alongside rats and domestic animals.\nBut the dead of Ust’-Ida I cemetery, near Lake Baikal, tell a very different story.\n“Our findings demonstrate that the earliest known outbreaks of plague occurred in prehistoric hunter-gatherers centuries before infections are observed in Neolithic farmers,” wrote Macleod and his colleagues in their recent paper.\nThat challenges our previous assumption that plague spillover was a side effect of people taking up farming and settling in permanent villages and towns, living closer to each other and to an assortment of animals (and their fleas).\n“Much of the accepted theory around epidemiology of disease in the past is that this kind of thing shouldn’t occur in hunter-gatherers because hunter-gatherers are constantly moving around the landscape because they’re in such small groups all the time,” said Macleod in a press conference. “The theory, at least, is that infectious disease can’t really take hold and devastate entire communities in this way.”",
+  "published_at": "2026-06-18T15:04:40Z",
+  "author": "Kiona N. Smith",
+  "collected_at": "2026-06-18T21:00:31.340485Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Science",
+      "ancient DNA",
+      "Archaeology",
+      "biological archaeology",
+      "epidemiology",
+      "forensic archaeology",
+      "marmots",
+      "plague",
+      "science",
+      "the plague",
+      "Y. pestis",
+      "yersinia pestis"
+    ]
+  }
+}

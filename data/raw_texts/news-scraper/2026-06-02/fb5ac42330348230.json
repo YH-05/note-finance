@@ -1,0 +1,32 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/941215/windows-laptops-nvidia-rtx-spark-apple-m1-arm-price-ram",
+  "title": "This could be Windows’ M1 moment — but expect it to cost a ton",
+  "raw_text": "Nvidia’s announcement that it’s getting into the consumer laptop chip space with RTX Spark is huge. Apple has proved for years that Arm-based chips can perform incredibly well while also delivering great battery life — at least on the Mac. In the Windows world, performance hasn’t fully matched up under Qualcomm chips, mostly in the graphics department. There’s clearly still untapped potential, and Nvidia seems to be promising to deliver it.\nThis could be Windows’ M1 moment — but expect it to cost a ton\nNvidia’s RTX Spark ‘superchip’ shows promise for Windows laptops. But it also comes at the worst time.\nThis could be Windows’ M1 moment — but expect it to cost a ton\nNvidia’s RTX Spark ‘superchip’ shows promise for Windows laptops. But it also comes at the worst time.\nThis could be Windows’ moment to blow us away with a new generation of supremely capable chips, much like Apple’s back in 2020, with the introduction of the M1. But why does this launch feel simultaneously exciting and fraught in 2026?\nThe Nvidia RTX Spark sounds like a monster of a laptop chip: 20 CPU cores, 6,144 GPU CUDA cores, and 128GB of unified LPDDR5X memory. Its integrated graphics are said to be equivalent to an RTX 5070 Laptop GPU — though Nvidia notably has shown nothing of performance metrics or actual benchmarks. As my colleague Sean Hollister pointed out, it’s basically a GB10 chip from Nvidia’s DGX Spark mini-PC. Nvidia calls it a “superchip” and “the most efficient PC chip ever built,” while Microsoft is billing its Spark-equipped Surface Laptop Ultra as “the most powerful thing we’ve ever made.”\nIt should surprise no one that Nvidia CEO Jensen Huang spent most of his time introducing RTX Spark laptops talking about AI and agents. The majority of the two-hour Nvidia keynote was about agents and “CPUs for agents,” which Huang said is Nvidia’s “new major growth driver.” But beyond the local AI compute that RTX Spark laptops will be capable of, they’re also being aimed at creators. Adobe is even onboard with optimized versions of Photoshop and Premiere.\nThis is Nvidia, Microsoft, and Windows laptop makers aiming squarely at Apple’s MacBook Pros. It’s not clear yet which MacBook Pro (the M5, M5 Pro, or M5 Max), but these laptops are looking like they’re going to be expensive. The lineups announced so far for the fall include the Surface Laptop Ultra, Dell XPS 16, Asus ProArt P14 and P16, Lenovo Yoga Pro 9n, MSI Prestige N16 Flip AI Plus, HP OmniBook Ultra and OmniBook X 14, and unnamed models from Acer and Gigabyte. Existing or similar models from this lineup typically start at $2,000 to $2,500 and up (aside from some more modest configs of the OmniBook X).\nThis isn’t surprising considering the RTX Spark’s 128GB of RAM. If you look at AMD’s Strix Halo APU with 128GB of RAM — the closest analog to the RTX Spark but built on x86 — you have options like Asus’ ROG Flow Z13 for an MSRP of $3,300 and ProArt PX13 GoPro Edition for $3,000. That Nvidia DGX Spark desktop with the GB10 chip the RTX Spark is based on? One of those costs about $4,700. So how much do you think a Spark laptop with 128GB of memory will cost when you also add things like a keyboard, trackpad, battery, and a 15-inch Mini LED touchscreen?\nNvidia said there will be RTX Spark chips with lower amounts of RAM, but thanks to RAMageddon many laptops with 16GB or 32GB of memory are getting pricier, too — especially as new models come out.\nNvidia could blow the doors off everything else in the performance department when these laptops hit in the fall, but the difference between this and Apple’s M1 moment was that Apple started with the more affordable Mac Mini and MacBook Air, along with the cheapest MacBook Pro. That meant the average buyer was able to feel the benefits right away, and a lot of early sales also meant a lot of early incentive for developers to prioritize adding support for the new chips. It took nearly another year for Apple to scale things up to the M1 Pro and M1 Max with revitalized MacBook Pros.\nNvidia isn’t aiming for an M1 moment as much as it’s trying to skip to an M1 Max or even M1 Ultra moment. And it’s doing so while computers are getting increasingly costly and consumer spending power takes a nosedive. There’s a reason the MacBook Neo rocked the tech world at $599. Does the same happen at $2,499?\nWhen these new laptops come out in the fall, there will be four viable chip options across a range of Windows laptops: Intel, AMD, Qualcomm, and Nvidia. It’s already been nice having three choices: AMD options typically offer great performance at the cost of some battery life, Qualcomm offers the absolute best battery life and standby time but sadly poor games support, and Intel is often a balanced option that maintains full x86 compatibility.\nWith Nvidia in the mix on Arm, we could get another option with strong battery life and much more graphics power. There’s also at least a chance that gaming on Arm will grow closer to parity with the wide compatibility that x86 Windows gamers are accustomed to. Microsoft and Nvidia getting Riot Games to port their anti-cheat software to Arm for games like Valorant and League of Legends and working with other developers using Easy Anti-Cheat, BattlEye, and Denuvo is a big win for Windows on Arm.\nI love seeing more competition, as it’s nice to have all this choice. The latest chips from Intel, AMD, and Qualcomm are each great in their own ways. I welcome a Nvidia option that performs well and has exceptional battery life but doesn’t lack games like Macs do. But even if the RTX Spark ushers in a sea change, the rising tide of prices is bound to leave many adrift.",
+  "published_at": "2026-06-01T20:02:31Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-06-02T15:00:11.754010Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Analysis",
+      "Asus",
+      "Computex",
+      "Dell",
+      "Gadgets",
+      "HP",
+      "Laptops",
+      "Lenovo",
+      "Microsoft",
+      "Nvidia",
+      "Report",
+      "Tech",
+      "Windows"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/threads-finally-brings-messaging-to-the-web/",
+  "title": "Threads finally brings messaging to the web",
+  "raw_text": "Threads is rolling out messaging on the web, bringing one-on-one and group chats to desktop, the Meta-owned social network announced on Tuesday. By bringing messaging to the web, Threads is aligning its desktop experience more closely with competitors like X and Bluesky.\nConnor Hayes, Meta’s head of Threads, said in a post that web messaging was the most requested feature from users after the company first introduced DMs in July 2025.\n“Our most engaged people spend time on web because they’re at their desks, tapped in, using Threads for longer sessions,” Hayes wrote in his Threads post. “A conversation app needs to work wherever you are, and now it does.”\nThe web version of Threads now includes a “Messages” tab that opens your DM inbox, along with a “Requests” section where you can view all incoming message requests. You can also search your messages and quickly start a new chat.\nThe launch doesn’t come as a surprise, as Hayes had teased back in April that messaging would be coming to Threads’ web experience.\nFor a platform that lacked native DMs at launch, messaging has become a core part of Threads. The company told TechCrunch in an email that users have been sending 30% more messages per week since the start of the year, with usage now averaging around 350 million DMs weekly.\nSince launching in 2023, Threads has consistently added new features to expand its platform and remain competitive with its rivals. It’s worth noting that the social network recently added a feature that not even its competitors have: Live Chats.\nThreads’ Live Chats allow for real-time conversations during cultural events and are launching first within the NBA Threads community during the playoffs. Users can send messages, photos, videos, links, and emoji reactions. Up to 150 participants can actively send messages in a chat. Once this limit is reached, additional users can still view the conversation, react to messages, and participate in polls in “spectator” mode.\nThe rollout of messaging on the web and Live Chats shows that Threads is focused on making conversations a central part of its platform, beyond posts and replies.",
+  "published_at": "2026-05-05T18:34:20Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-05-06T03:00:27.065949Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Social",
+      "Meta",
+      "Threads"
+    ]
+  }
+}

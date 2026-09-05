@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/936078/tesla-model-y-missing-sticker-recall",
+  "title": "Tesla recalls thousands of Model Ys at risk of&#8230; missing a sticker",
+  "raw_text": "The National Highway Traffic Safety Administration (NHTSA) has issued a recall for 14,575 Model Y vehicles over an issue that Tesla can’t fix with its usual software update: a missing label. According to the recall report, Model Ys made between November 17th, 2024 and April 21st, 2026 could be missing a weight certification sticker due to a mishap with an “automated vision-scanning tool” in Tesla’s Fremont, California factory.\nTesla recalls thousands of Model Ys at risk of... missing a sticker\nModel Ys made from November 2024 to April 2026 need physical inspections to check for a weight certification label.\nModel Ys made from November 2024 to April 2026 need physical inspections to check for a weight certification label.\nAs Electrek reports, the sticker in question usually goes on the inside of the driver’s side door and shows the vehicle’s maximum safe loaded weight, along with tire info and the manufacture date. Many drivers might not notice these stickers, but they’re important to reference when packing your vehicle since going over the max loaded weight can cause safety risks (they’re also handy for checking your tire pressure).\nTesla estimates that only 45 percent of the recalled Model Y vehicles are actually missing the sticker. The recall report also notes that Tesla has fixed the automated scanning tool that caused the issue and its production teams have begun manually checking that vehicles have the sticker in the factory.\nUnlike most Tesla recalls that are simply fixed remotely, drivers will need to physically bring their Model Ys in for an inspection to check for the sticker and add one if needed. At least this recall doesn’t come with a risk of the wheels falling off.",
+  "published_at": "2026-05-22T14:03:29Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-22T15:00:15.889906Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Electric Cars",
+      "News",
+      "Tesla",
+      "Transportation"
+    ]
+  }
+}

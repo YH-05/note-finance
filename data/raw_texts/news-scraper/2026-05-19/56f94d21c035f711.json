@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/05/google-announces-agent-optimized-gemini-3-5-flash-and-a-do-anything-model-called-omni/",
+  "title": "Gemini 3.5 Flash might be fast enough for gen AI to make sense",
+  "raw_text": "At last year’s I/O event, Google was still talking about the 2.5 branch of Gemini, and what a difference a year makes. We’ve gone through the 3.0 and 3.1 families since then, and now it’s on to version 3.5. Gemini 3.5 Flash is rolling out across a wide range of Google products starting today, and Google again claims this model is even better than its last-gen Pro model.\nThat has been a trend with Google’s tick-tock model updates over the past year, but the team says this release is special. Gemini 3.5 Flash supposedly offers frontier-level intelligence while also being efficient enough that it may finally make complex agentic tasks worth doing at scale. Tulsee Doshi, senior director of product management for Gemini, explains that the innovations of Gemini 3.5 Flash are woven through multiple Google products, and this is just the start.\nIt’s no secret that generative AI is currently a money pit, and all the major AI players are trying to find paths to greater efficiency. The problem is magnified when you start building agentic experiences that are supposed to run for longer to complete complex tasks. Gemini 3.5 Flash may be a big step toward making that viable. The new model can output nearly 300 tokens per second, but its benchmark scores are similar to larger frontier models (like 3.1 Pro) that build outputs at a quarter of that speed. Google now says that the companies using the most AI tokens could save a billion dollars per year by shifting to the more efficient Gemini 3.5 Flash.\nAccording to Doshi, the team made numerous improvements in pre-training with Gemini 3.5 Flash, but insights gleaned from how devs use Gemini models are really paying off.\n“With post-training, we’re really starting to unlock some of the value of the feedback we’re getting from users, for example, from Antigravity,” said Doshi. “That’s really what you’re seeing play out in terms of the code performance and the tool use performance. And then, the hope is that you’ll continue to see the step change where 3.5 Pro will be better, and the next Flash meets Pro performance with that series.”",
+  "published_at": "2026-05-19T18:11:50Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-19T21:00:34.799510Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "gemini",
+      "gemini 3.5",
+      "google",
+      "google i/o 2026"
+    ]
+  }
+}

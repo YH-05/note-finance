@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/will-i-be-ok-teen-died-after-chatgpt-pushed-deadly-mix-of-drugs-lawsuit-says/",
+  "title": "“Will I be OK?” Teen died after ChatGPT pushed deadly mix of drugs, lawsuit says",
+  "raw_text": "OpenAI is facing down another wrongful-death lawsuit after ChatGPT told a 19-year-old, Sam Nelson, to take a lethal mix of Kratom and Xanax.\nAccording to a complaint filed on behalf of Nelson’s parents, Leila Turner-Scott and Angus Scott, Nelson trusted ChatGPT as a tool to “safely” experiment with drugs after using the chatbot for years as a go-to search engine when he was in high school.\nThe teen viewed ChatGPT so highly as an authoritative source of information that he once swore to his mom that ChatGPT had access to “everything on the Internet,” so it “had to be right,” when she questioned if the chatbot was always reliable, the complaint said.\nBut Nelson’s confidence in ChatGPT ended up being dangerously misplaced. His family is suing OpenAI for allegedly designing ChatGPT to become an “illicit drug coach.” Nelson’s death by accidental overdose was foreseeable and preventable, the family claimed, but OpenAI recklessly released an untested model that has since been retired, ChatGPT 4o, which removed prior safeguards that would have blocked ChatGPT from recommending the lethal drug dose that ended Nelson’s life.\nOpenAI does not seem to accept that ChatGPT is responsible for Nelson’s death. In a statement provided to Ars, their spokesperson, Drew Pusateri, described Nelson’s death as a “heartbreaking situation” and expressed that “our thoughts are with the family.” However, Pusateri also emphasized that the ChatGPT model implicated is “no longer available” and suggested that current models are safer.\n“ChatGPT is not a substitute for medical or mental health care, and we have continued to strengthen how it responds in sensitive and acute situations with input from mental health experts,” Pusateri said. “The safeguards in ChatGPT today are designed to identify distress, safely handle harmful requests, and guide users to real-world help. This work is ongoing, and we continue to improve it in close consultation with clinicians.”",
+  "published_at": "2026-05-12T19:00:25Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-13T03:00:30.638329Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "chatbot",
+      "ChatGPT",
+      "drug overdose",
+      "kratom",
+      "openai",
+      "overdose",
+      "wrongful death",
+      "Xanax"
+    ]
+  }
+}

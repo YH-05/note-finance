@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://ms365news.com/blogs/f/your-onedrive-data-now-has-an-expiry-data",
+  "title": "OneDrive data now has an expiry date",
+  "raw_text": "We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.",
+  "published_at": "2026-06-08T08:11:24Z",
+  "author": "taubek",
+  "collected_at": "2026-06-08T15:01:07.658783Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

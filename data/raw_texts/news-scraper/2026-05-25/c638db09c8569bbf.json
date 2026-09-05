@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20273-ciena-coherent-optical-tech-activated-on-matrix-cable-system.html",
+  "title": "Ciena  coherent optical tech activated on Matrix Cable System",
+  "raw_text": "Ciena’s GeoMesh Extreme solution, powered by WaveLogic 6 Extreme (WL6e) coherent optical technology, has been successful activated across the Batam–Jakarta segment of the Matrix Cable System (MCS), a submarine telecommunications cable linking Indonesia and Singapore.\nBatam is the largest city in the Indonesian province of the Riau Islands in the western part of the country.\nMatrix Networks Pte Ltd and PT NAP Info Lintas Nusa, strategic partners in the operation of the Matrix Cable System, announced the successful deployment, which, Ciena says, establishes Matrix NAP Info as one of the first operators in the region to commercially activate the latest generation of Ciena’s coherent optical technology on a live submarine cable system, delivering 1 Tb/s per wavelength channel across the 1,055 km link.\nThe partners in this undertaking bring with them a variety of skills and regional knowledge. Matrix Networks is an international telecommunications company that provides equal and open access to international connectivity via undersea infrastructure in Southeast Asia. NAP Info is a leading Indonesian telecommunications company with more than 20 years of experience in the market. Ciena is a global leader in high-speed connectivity; it builds advanced networks to support exponential growth in bandwidth demand.\nCiena explains that the MCS has long served as a critical ‘digital bridge’ connecting Indonesia to global internet and cloud hubs via Singapore. By upgrading the Batam–Jakarta backbone segment with WL6e, which Ciena calls the most spectrally efficient coherent optical engine commercially available today, Matrix NAP Info has expanded the throughput of its existing fibre infrastructure without having to lay new cables.\nThe upgrade was executed in partnership with Ciena’s accredited channel partner, Terrabit Networks (a regional telecommunications solutions provider headquartered in Singapore, delivering end-to-end network infrastructure and services across Southeast Asia), with Ciena Services overseeing pre-deployment engineering, end-to-end network build-out and lifecycle management.\nAmong the advantages of the upgrade, the Batam–Jakarta segment of the MCS now carries 1 Tb/s per wavelength, while Ciena says its WL6e pushes spectral efficiency to its theoretical limits. In addition, Matrix NAP Info enhances the capacity of its existing cable infrastructure to meet the growing demand for cloud, AI and content delivery services, while driving capital efficiency and supporting a reduced carbon footprint.\nThe upgraded Batam–Jakarta corridor now forms the high-capacity backbone that underpins Matrix NAP Info’s broader digital ecosystem, including MC-IX, Matrix Data Center, Matrix Cloud, and Matrix Internet services.\nOmar Syarif Nasution, Director of Matrix NAP Info, says: “By deploying the most advanced coherent optical technology available, we are future-proofing Indonesia’s international connectivity backbone and ensuring that our customers have access to the bandwidth they need to compete in the AI and cloud era.”",
+  "published_at": "2026-05-19T22:02:30Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-25T03:01:24.583040Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

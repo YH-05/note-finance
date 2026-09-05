@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606030041",
+  "title": "[ULTA] アルタビューティ　1Q増収増益　売上高11％増31.6億ドル、営業益12％増4.48億ドル、EPS7.74ドル",
+  "raw_text": "アルタ・ビューティ<\nULTA>の2027年度第1四半期（2月1日-5月2日）の業績は増収、営業増益だった。\n米現地6月2日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比11.1％増の31億6385万ドルとなった。営業利益は11.6％増の4億4825万ドル。営業利益率は14.2％へ向上した。前年同期は14.1％だった。1株利益（EPS・希薄化後）は7.74ドル（前年同期6.70ドル）。\nアルタ・ビューティ<\nULTA>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-06-02T20:15:38Z",
+  "author": null,
+  "collected_at": "2026-06-02T21:00:22.536612Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

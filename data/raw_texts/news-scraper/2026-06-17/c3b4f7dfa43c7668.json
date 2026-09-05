@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/household-financial-worries-at-highest-level-since-2022-new-york-fed-says.html",
+  "title": "Household worries over finances hit highest level since July 2022, New York Fed survey shows",
+  "raw_text": "U.S. households grew more worried over their financial situation, with the share of those seeing things as much worse than they were 12 months ago hitting a nearly four-year high, according to a Federal Reserve Bank of New York survey.\nWhile the central bank's monthly Survey of Consumer Expectations, released Monday, showed the inflation outlook mostly unchanged, the general perception of conditions deteriorated.\nThe share of those seeing their current situation as \"much worse\" than a year ago leaped to 13.3%, up about 2.7 percentage points from April and the highest since July 2022. The total of those seeing either a much or somewhat worse situation from a year ago stood at 43.7%, which the New York Fed said was the highest since January 2023.\nAt the same time, the outlook for the coming year wasn't any better.\nThose expecting their situations to be either much or somewhat worse totaled 36%, while those seeing things improving totaled just 22.9%. The net between those seeing better versus worse conditions hit its lowest since October 2022, the New York Fed said in the release.\nInflationary impact\nThe survey comes with consumers fearful over the inflationary impact from the Iran war, which has sent energy prices soaring.\nSome Fed policymakers recently have expressed worry that if the conflict persists it could raise inflation expectations among consumers and businesses, making the problem longer term than the typical temporary impact from supply shocks.\nHowever, the survey showed consumer worries about prices virtually unchanged.\nInflation expectations at the one-year horizon declined just 0.1 percentage point, to 3.5%. The outlook at the three- and five-year time frames held flat at 3.1% and 3%, respectively.\nExpectations for gasoline prices actually dropped 0.1 percentage point to 5%, while the outlook for food rose 0.6 percentage point to 5.8% and rent increased 1.4 percentage points to 7.4%. Also, the expectation for household spending growth over the next year fell to 5%, down 0.4 percentage point from April.\nConsumers will get their next inflation reading Wednesday when the Bureau of Labor Statistics releases the consumer price index for May. Economists surveyed by Dow Jones expect that headline inflation rose to 4.2% and core inflation, which excludes food and energy, increased to 2.9%. The Fed targets inflation at 2%.\nThe Federal Open Market Committee makes its next interest rate decision on June 17. Markets are pricing in almost no chance the committee will lower benchmark interest rates, with expectations rising that the central bank instead will hike by a quarter percentage point by the end of the year.\nCorrection: Inflation expectations at the one-year horizon declined just 0.1 percentage point, to 3.5%. An earlier version misstated the move.",
+  "published_at": "2026-06-08T16:13:12Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.537488Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

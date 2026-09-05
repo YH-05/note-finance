@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/trump-h1b-visa-fee-appeal.html",
+  "title": "Trump administration appeals ruling blocking $100,000 H-1B fee",
+  "raw_text": "The Trump administration said Thursday it will appeal a federal judge's ruling striking down President Donald Trump's $100,000 fee on H-1B visa applications in its effort to hike the fee by tens of thousands of dollars.\nThe Justice Department filed the notice three days after U.S. District Judge Leo Sorokin in Boston vacated the fee, ruling that Trump exceeded his authority by imposing what amounted to a tax without approval from Congress.\n\"The Department of Justice is committed to protecting American workers and fully supports President Trump's America First agenda,\" a DOJ spokesperson told CNBC in a statement. \"Another court has already ruled in the Administration's favor on this issue, and we will continue to hold companies accountable when they unlawfully exploit American workers and fail to use the H-1B program as intended.\"\nMonday's decision was a blow to Trump's effort to restrict the H-1B program which was created in 1990 and is heavily used by U.S. tech giants to bring in highly skilled workers from overseas. The program allows U.S. employers to seek government permission to hire nonimmigrant workers in specialty occupations for up to six years.\nSorokin found that \"the substance and application of the $100,000 payment reveal that it is a tax,\" and said Congress had not delegated that power to the executive branch.\nTrump imposed the fee by proclamation last September, arguing the H-1B program was being abused and was replacing American workers.\nBefore his proclamation, H-1B visa fees had ranged from $2,000 to $5,000 per application.\nSeveral companies, including Walmart, said that they would pause their participation in the H-1B program as a result of Trump's proclamation.",
+  "published_at": "2026-06-11T18:53:30Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:20:26.994786Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

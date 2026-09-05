@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/russia-pressures-university-students-to-become-wartime-drone-pilots/",
+  "title": "Russia pressures university students to become wartime drone pilots",
+  "raw_text": "Russian universities are promising free tuition and up to $70,000 to students who are willing to serve as drone pilots in the Russian military for a year—all while claiming students can avoid the risk of frontline combat duty in Ukraine. But there has already been one confirmed battlefield death and possibly more among the new cadre of student drone pilots.\nThat specific recruitment offer appeared on pamphlets distributed at Bauman Moscow State Technical University, according to Bloomberg. Other universities have dangled incentives such as tax holidays, loan forgiveness, and sometimes free land. The independent magazine Groza counted at least 270 Russian academic institutions promoting military contracts to their students in the fifth year of the war that began with Russia’s full-scale invasion of Ukraine in February 2022.\nThis new wave of recruitment is targeting a population of approximately 2 million men attending Russian universities, including gamers and students with technical skills that could make them suitable trainees as drone pilots, according to Bloomberg. Russia’s Defense Ministry has specifically called for drone pilot recruits with expertise in flying drones, model aircraft, electronics, and radio engineering, with computer skills also being desirable, NBC News reported.\nHowever, the effort carries the risk of further depleting Russia’s future educated workforce on top of the country’s existing brain drain—a research study found that 24 percent of top Russian software developers active on GitHub may have left the country within the first year of the war. Some students have also expressed a similar lack of enthusiasm for the Russian war effort. “No one wants to join,” a student named Andrey told NBC News. “No one is interested.”",
+  "published_at": "2026-05-15T22:19:12Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-18T03:00:30.991829Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "drone pilots",
+      "drones",
+      "military drones",
+      "Russia invasion of Ukraine",
+      "Russian Army",
+      "Ukraine invasion",
+      "Ukraine war"
+    ]
+  }
+}

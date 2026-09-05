@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/kalshi-traders-say-spacex-wont-get-to-mars-this-decade.html",
+  "title": "SpaceX doesn't have a timeline for its human missions to Mars. Kalshi traders say don't expect it this decade",
+  "raw_text": "SpaceX made its debut at the Nasdaq on Friday, climbing more than 19% on its first day of trading and rising above a $2 trillion market valuation. But while the arrival of the company to public markets is squared away, some of its other long-term plans are years in the future.\nElon Musk's company in its initial public offering prospectus with the Securities and Exchange Commission repeatedly focused on the \"Moon, Mars and beyond.\" The company's goal for Mars is so large that Musk won't get a bonus of restricted shares unless SpaceX establishes a colony on the planet with more than 1 million inhabitants.\nBut when that will happen is years from now, traders on prediction market platform Kalshi think.\nTraders see just an 18% chance that SpaceX launches a human mission to Mars by 2030. Since the event contract first launched in March 2024, traders have never seen more than one-in-four odds of the mission happening this decade.\nThe event contract will resolve to yes if SpaceX verifies a manned mission to Mars by Dec. 31, 2029.\nTraders' uncertainty mirrors SpaceX's own plans. In its prospectus, SpaceX made clear it doesn't have a vision for when a Mars mission may happen.\n\"Many of our initiatives… involve significant technical complexity, unproven technologies or technologies that do not exist, and such initiatives may not achieve commercial viability,\" SpaceX said. \"As a result, the timeline for certain of our initiatives involving unproven or new innovations ... may be difficult or impossible to determine.\"\nBut while an exact timeline may be unknown, the company's focus on Mars is clear. The planet was mentioned 63 times in the prospectus itself, and once in a photo caption featured in the document.",
+  "published_at": "2026-06-15T14:38:19Z",
+  "author": null,
+  "collected_at": "2026-06-15T15:38:34.529163Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

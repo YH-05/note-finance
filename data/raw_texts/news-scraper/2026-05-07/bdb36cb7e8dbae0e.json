@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/tsmc-taps-wind-power-as-ai-chip-demand-soars-taiwan-feels-energy-crunch/",
+  "title": "TSMC taps wind power as AI chip demand soars, Taiwan feels energy crunch",
+  "raw_text": "Taiwanese chipmaker TSMC is raking in record profits during the AI boom—but it is also racing to help Taiwan develop wind power and other energy alternatives to fossil fuels amid a global energy crisis.\nThe chipmaker has signed a 30-year corporate power purchase agreement for 100 percent of the power produced by the Hai Long offshore wind project. The deal between TSMC and Northland Power, a Canada-based global power producer, covers more than 1 gigawatt of power capacity at three offshore wind sites located off the western coast of central Taiwan in the Taiwan Strait, according to an April 30 announcement.\nOnce completed, the Hai Long offshore wind project would have the capacity to power the equivalent of more than 1 million Taiwanese households. The project’s wind farms began supplying power to Taiwan’s grid in 2025 and are scheduled to become fully operational by 2027.\nTSMC’s move comes as many countries have scrambled to shore up energy supplies since the war in the Middle East has disrupted regional energy production and effectively halted shipping through the Strait of Hormuz. When Qatar shut down natural gas production after its facilities were damaged by Iranian drone strikes in March 2026, Bloomberg reported that Taiwan’s power grid lost one-third of its usual supply of liquefied natural gas.\nThat started an energy crunch countdown because Taiwan relies on natural gas plants to generate about half of its electricity—and Taiwan typically has just two weeks of fuels in reserve. So far, Taiwan’s government has managed to stave off energy shortages by tapping alternative natural gas suppliers such as Australia and the United States, Reuters reported.",
+  "published_at": "2026-05-06T21:47:27Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-07T03:00:30.560829Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Tech",
+      "AI chips",
+      "Chip manufacturing",
+      "offshore wind",
+      "semiconductor manufacturing",
+      "Taiwan",
+      "Taiwan Semiconductor Manufacturing Company",
+      "TSMC",
+      "wind power"
+    ]
+  }
+}

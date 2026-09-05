@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605260973",
+  "title": "２６日香港・ハンセン指数＝終値２５５９９．４５（－６．５８）",
+  "raw_text": "２６日の香港・ハンセン指数の終値は前営業日比６．５８ポイント安の２５５９９．４５と反落した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-26T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-05-26T09:00:22.323847Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

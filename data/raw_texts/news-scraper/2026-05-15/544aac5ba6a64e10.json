@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/foiled-plot-tried-to-sneak-49-lbs-of-cocaine-into-australia-via-xerox-printers/",
+  "title": "Foiled plot tried to sneak 49 lbs of cocaine into Australia via Xerox printers",
+  "raw_text": "Four Australian men have given new meaning to the term “bricked printers.”\nAccording to a press release from the Australian Federal Police (AFP) and Australian Border Force (ABF) today, three men have been sentenced for trying to use five printers to smuggle 22.4 kg (49.4 pounds) of cocaine into Australia.\nIn 2019, Australian news outlets reported that the printers were Xerox brand and that the drugs had a street value of approximately 9.3 million AUD to over 12.4 million AUD ($6.7 million to over $9 million).\nAccording to today’s announcement, the ABF intercepted the printers in Melbourne on April 30, 2017. They found that the printers had 10 packages of “compressed white powder concealed within their paper trays.” The authorities used “presumptive testing” to determine that the powder was cocaine. They subsequently removed the drugs, replaced them with an unspecified alternative material, and sent the package to its original intended destination, a factory in Airport West, Victoria. Australian broadcast network Channel Nine reported in 2017 that authorities also put tracking devices in the printers.\nIn May 2017, Australian police arrested four men who tried to retrieve the printers and charged them with “attempting to possess a commercial quantity of a border-controlled drug,” the AFP and ABF said today.\nOne of the four men was sentenced this month to nine years of prison with a non-parole period of four-and-a-half years. Two other men were previously sentenced: One man was sentenced in 2025 to 10 years in prison with a non-parole period of five-and-a-half-years, and the other was sentenced in 2022 to 10 years of prison with a non-parole period of six-and-a-half years. The fourth man arrested in 2017 was found not guilty.\nThe incident is one example of advanced attempts from crime organizations to smuggle illegal drugs into Australia, according to the AFP’s acting commander, Simone Butcher.\n“The AFP, as well as our domestic and international partners, are steadfast in our mission to protect the community by disrupting and dismantling organized crime groups and their efforts to profit off the misery caused in our community,” Butcher said.",
+  "published_at": "2026-05-13T20:06:09Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-15T03:00:30.485563Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "3d printers",
+      "australia",
+      "crime",
+      "printers"
+    ]
+  }
+}

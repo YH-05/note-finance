@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/senators-ban-themselves-from-prediction-markets-after-candidates-bet-on-own-races/",
+  "title": "Senators ban themselves from prediction markets after candidates bet on own races",
+  "raw_text": "US senators voted unanimously to ban themselves from making bets on prediction markets yesterday, about a week after Kalshi said it caught three congressional candidates betting on their own campaigns.\nThe resolution to prohibit senators from trading on prediction markets passed yesterday by unanimous consent. The action amends the Senate’s conflict-of-interest rules and does not require approval by the House of Representatives. The House has a pending resolution that would impose a similar rule on its own members.\n“United States Senators have no business engaging in speculative activities like prediction markets while collecting a taxpayer-funded paycheck, period,” said Sen. Bernie Moreno (R-Ohio), who introduced the resolution. “Serving in Congress should never be about finding new ways to profit; it should be about delivering results for the American people.”\nMoreno’s resolution applies broadly to all bets on prediction markets, not just those related to events of which a senator has inside knowledge. The Senate also adopted an amendment submitted by Sen. Alex Padilla (D-Calif.), which extends the trading ban to Senate officers and employees. Padilla said in a statement that the rule as amended “is a commonsense step to ensure that senators and their staff cannot use their positions of public trust to line their own pockets.”\nSenate ethics rules are enforced by the Senate Ethics Committee, but the Senate’s enforcement process has been described as being much less effective than the House equivalent.\nDemocrat wants bill targeting Trump admin corruption\nPadilla also said he is pushing “for legislation to rein in Trump administration officials who may be profiting off insider knowledge, including military operations.” A US Army soldier was recently arrested for insider trading after being accused of making prediction-market wagers on the timing of the military’s capture of Venezuelan President Nicolás Maduro.",
+  "published_at": "2026-05-01T17:51:24Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-04T03:00:31.681636Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "prediction markets",
+      "Senate"
+    ]
+  }
+}

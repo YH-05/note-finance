@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.com/icitry/FPS.cob",
+  "title": "FPS.cob: A first person shooter in COBOL",
+  "raw_text": "FPS.cob\nis what you get when you decide that game development is too easy nowadays.\nEnjoy what can only be described as an out-of-body experience in the ways of COBOL tomfoolery.\nIt supports two level styles:\nmap/level1.map\n: the original grid-based Wolf3D-style path.map/doom_sectors.map\n: a sector/linedef map with doors, different heights (so DOOM-like).\ncobc\nffplay\nbash\nFrom the repo root:\nbash build.sh\nTo load a specific map:\nbash build.sh ./map/level1.map\nbash build.sh ./map/doom_sectors.map\nW\n/S\n: move forward and backwardA\n/D\n: turn left and rightSpace\n: fireQ\n: quit\nTextures and sprites live under res/\n.\nMaps live under map/\n.",
+  "published_at": "2026-06-11T15:13:57Z",
+  "author": "MBCook",
+  "collected_at": "2026-06-12T03:01:08.047098Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

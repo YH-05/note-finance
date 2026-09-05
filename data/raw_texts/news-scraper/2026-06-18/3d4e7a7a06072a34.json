@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/17/social-medias-next-evolution-user-controlled-algorithms/",
+  "title": "Social media’s next evolution: user-controlled algorithms",
+  "raw_text": "For years, social media giants controlled what users saw in their feeds. While people could follow accounts, like posts or hide content they didn’t enjoy, recommendation algorithms controlled what was shown to them.\nNow, social platforms are handing over some of their power by allowing users to personalize their algorithms with the help of AI.\nBeyond traditional “Not Interested” buttons, apps like Threads, Instagram, and TikTok have begun introducing tools that let people train their own algorithms and influence what appears in their feeds.\nThe shift reflects an evolution in how recommendation systems work. Social media feeds are moving away from a one-size-fits-all TV channel and toward something more like a streaming service, where users can tune recommendations to their interests and have more control over what they see.\nFor users, the advantage of customizable algorithms is a feed tailored to their interests. For social media giants, it’s a way to boost engagement by displaying content that people are most likely to consume.\nHere’s a look at how social media platforms are giving users more control over their recommendation algorithms.\nThreads\nOn June 16, 2026, Threads launched a new “Your Algo” feature that builds on the platform’s “Dear Algo” tool, which debuted in February. The “Dear Algo” tool lets users influence their feed by publishing a public post, such as “Dear Algo, show me more posts about podcasts,” to indicate the types of content they want to see more or less of in their feed. With the new “Your Algo” feature, users can make those preferences privately, without having to post publicly.\nUsers can tell Threads they want to see more or less of certain topics and choose how long the request lasts: one, three, or seven days. For example, you could ask to see more baseball content and less stressful news.\nIn early June, Instagram launched a new tool that lets you see and control your algorithm across your feed. The tool, called “Your Algorithm,” lets you view the topics that shape your recommendations and customize them to better fit your interests. The tool launched for the reels feed in December 2025, but is now available across the feed, explore, and reels.\nOnce you access the tool in your settings, you see the topics Instagram thinks you care about the most. You can then tell the app what you’re interested in and what you want to see more or less of, and your recommendations will adapt accordingly.\nInstagram head Adam Mosseri has said that social media ranking models have historically been built with technology that wasn’t transparent to users, but now large language models (LLMs) can make recommendation systems more understandable by showing why content is displayed and letting users explicitly communicate their preferences.\nTikTok\nTikTok features a “Manage Topics” tool that gives you more control over what you see in your “For You” feed. Launched in 2024, you can access the feature in your settings to customize your preferences for different topics, such as sports, travel, humor, current affairs, dance, and food. You can do so by moving the slider to adjust how much you do or don’t want to see that sort of content in your For You feed.\nIf you are uncertain about which type of videos fall under a category, you can click the “information” button next to a topic. For instance, TikTok says the “Creative arts” topic includes “painting, drawing, graphic design, and art-related tutorials.”\nIn 2025, TikTok expanded its Manage Topics tool by introducing AI-powered Smart Keyword Filters, which automatically limit content containing related keywords, such as synonyms. For example, if you use the Manage Topics tool to filter out “remodeling,” TikTok will also filter out “renovation” and “renovations.”",
+  "published_at": "2026-06-17T18:19:48Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-06-18T03:00:26.910798Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Social",
+      "Instagram",
+      "Meta",
+      "social media",
+      "TikTok"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/trump-admin-abandons-fight-against-wind-energy-as-clean-energy-output-surges/",
+  "title": "Trump admin abandons fight against wind energy as clean energy output surges",
+  "raw_text": "The Trump administration has abandoned its effort to halt wind energy projects across the United States and dropped its challenge to the court ruling that tossed President Donald Trump’s order freezing federal permitting and leasing for wind projects. States that challenged the order hailed the development as one of the most significant legal victories against the Trump White House’s campaign against the energy transition.\nOn Monday, the US Court of Appeals for the First Circuit dismissed the appeal after the Justice Department filed a motion for its voluntary dismissal on June 10.\nThe case against Trump’s executive order was filed in May 2025 by a coalition of attorneys general from 17 states and Washington, DC, led by New York Attorney General Letitia James.\nMonday’s decision affirms the December 8 ruling by US District Court Judge Patti Saris, which concluded that Trump’s January 2025 executive order was unlawful, finding the sweeping ban on wind projects was “arbitrary and capricious” and exceeded the president’s authority.\nEnvironmental and wildlife advocacy groups applauded the move. Nancy Pyne, a senior advisor to the Sierra Club, said renewable energy continues to prevail and grow in spite of Trump’s relentless attacks.\n“While everyday Americans face soaring bills and unstable prices,” she said, “renewable energy offers an affordable, common sense solution to lower costs and protect our health and our environment.”\nThis latest victory in a string of legal setbacks for the administration comes at a time when clean energy production continues to surge despite a slew of policy, permitting, and procedural hurdles imposed by the White House.\nAccording to a recent report from the nonprofit Environmental Defense Fund and Atlas Public Policy, a record 79.7 GW of clean power is projected to come online in the US in 2026, even as roughly 8 GW of clean energy projects were canceled in the first quarter of the year.",
+  "published_at": "2026-06-16T16:49:09Z",
+  "author": "Aman Azhar, Inside Climate News",
+  "collected_at": "2026-06-16T21:00:31.529993Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Science",
+      "clean energy",
+      "syndication",
+      "trump administration",
+      "wind turbines"
+    ]
+  }
+}

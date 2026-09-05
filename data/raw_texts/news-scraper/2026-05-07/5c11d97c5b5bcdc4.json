@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/theres-no-chance-warsh-will-be-able-to-get-the-fed-to-cut-rates-paul-tudor-jones-says.html",
+  "title": "There's 'no chance' Warsh will be able to get the Fed to cut rates, Paul Tudor Jones says",
+  "raw_text": "Incoming Federal Reserve Chair Kevin Warsh won't be looking to cut interest rates and in fact may want to consider raising them, investor Paul Tudor Jones said Thursday.\n\"Do I think he'll cut rates? No chance,\" Jones said during a wide-ranging CNBC \"Squawk Box\" interview.\nWarsh has made no secret of his belief that the central bank should be thinking about lowering interest rates. The Fed's benchmark overnight rate is currently in a range between 3.5%-3.75%, where it has sat since December.\nThough Warsh sees a path to easing, he will face a Federal Open Market Committee that is coming off a meeting with the most dissents in nearly 34 years. Most of the disagreements have come from regional presidents who objected to the language in the post-meeting statement interpreted as a nod to the potential for further cuts after the three in the latter part of 2025.\nJones said there's a case to be made for hiking.\n\"Well, I'd be thinking about raising them,\" he said. \"I'd want to see the data. But I mean, for sure you'd be thinking about it. And I think he's going to be constrained before the election.\"\nPolicymakers face an environment in which the labor market appears to have stabilized while the Iran war and President Donald Trump's tariffs have helped keep inflation well above the Fed's 2% target.\nFutures traders are pricing in a Fed hold that lasts through the year, with slight and roughly equal chances of a cut or hike, according to the CME Group's FedWatch gauge.",
+  "published_at": "2026-05-07T13:23:19Z",
+  "author": null,
+  "collected_at": "2026-05-07T15:17:27.675823Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

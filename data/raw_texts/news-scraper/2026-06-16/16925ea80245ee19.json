@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/medical/how-world-added-decades-life-expectancy",
+  "title": "How The World Added Decades To Life Expectancy",
+  "raw_text": "The average person today can expect to live far longer than someone born in 1960, regardless of where they live.\nThis chart, via Visual Capitalist's Bruno Venditti, tracks life expectancy at birth across four World Bank income groups. While high-income countries still have the longest lifespans, the biggest gains have come elsewhere. Upper-middle income countries have added more than three decades to life expectancy, while low-income countries have made substantial progress as well.\nThe data for this visualization comes from World Bank via FRED. It tracks life expectancy at birth by income group from 1960 to the latest available data (2024).\nHigh-Income Countries Still Lead\nHigh-income countries still have the highest life expectancy, reaching 80.3 years in 2024.\nThat is up from 68.3 years in 1960, a gain of 12 years. These countries started from a much higher baseline, meaning their gains have been slower but still substantial.\nExamples include the U.S., Germany, and Japan.\nUpper-Middle Income Countries Saw the Fastest Gains\nUpper-middle income countries posted the largest increase, rising from 41.9 years in 1960 to 76.3 years.\nThat is a gain of 34.4 years, the fastest improvement of any group in the dataset. This category includes countries such as China, Brazil, Mexico, and South Africa.\nMuch of this improvement coincided with rising incomes, better sanitation, expanded vaccination programs, lower child mortality, and broader access to healthcare. Together, these changes helped push life expectancy in many middle-income countries toward levels once seen only in the world’s wealthiest economies.\nThe Global Life Expectancy Gap Has Narrowed\nIn 1960, people in high-income countries lived about 27 years longer than those in low-income countries.\nToday, the gap stands at roughly 16 years. While a significant difference remains, low-income countries have added more than 23 years to average life expectancy since 1960. In other words, much of the world’s longevity progress has come from countries that started furthest behind.\nHowever, the remaining gap shows that income, healthcare access, and living conditions continue to shape longevity worldwide.\nIf you enjoyed today’s post, check out Ranked: Countries With the Most Ultra-Rich Residents in 2026 on Voronoi.",
+  "published_at": "2026-06-15T23:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-16T03:00:41.954117Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

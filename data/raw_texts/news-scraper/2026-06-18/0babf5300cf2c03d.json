@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/mortgage-rates-falling-demand-weaker.html",
+  "title": "Mortgage rates are now falling but demand is still weaker",
+  "raw_text": "A mixed week for mortgage rates resulted in less demand from both current homeowners and potential homebuyers. Total mortgage application volume fell 3.8% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, remained unchanged at 6.60%, with points remaining unchanged from 0.63, including the origination fee, for loans with a 20% down payment.\n\"Last week's CPI data showed that inflation continued to move higher, putting upward pressure on rates early in the week, but growing optimism regarding the opening of the Strait of Hormuz brought rates down again by the end of the week,\" said Mike Fratantoni, senior vice president and chief economist at the MBA, in a release.\nApplications to refinance a home loan dropped 5% for the week and were 17% higher than the same week one year ago. Last year at this time mortgage rates were nearly a quarter of a percentage point higher.\nApplications for a mortgage to purchase a home fell 3% for the week and were 3% higher than the same week one year ago. Homebuyers continue to face more than just high mortgage rates. They are up against still lean supply, high prices, and continued uncertainty over the direction of the economy and inflation.\nMortgage rates continued to move lower this week, according to a separate survey from Mortgage News Daily. They now sit at the lowest level since May 14. The drop is mirroring the fall in oil prices, as investors react to a potential end to the war with Iran.\n\"The only warning is that some analysts think oil prices have already gotten ahead of themselves in that regard,\" wrote Matthew Graham, chief operating officer at Mortgage News Daily. \"If those analysts are right, it could limit any additional momentum toward lower rates until peace is on more solid footing.\"\nWednesday will mark the first meeting of the Federal Reserve with its new chairman, Kevin Warsh. It is not expected that the Fed will change interest rates, but investors will be listening for any clues into what may be coming.",
+  "published_at": "2026-06-17T14:10:07Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.794796Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

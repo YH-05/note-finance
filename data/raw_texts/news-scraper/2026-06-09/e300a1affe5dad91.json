@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/09/cisa-gives-us-federal-agencies-three-days-to-fix-a-vpn-bug-under-attack-by-a-ransomware-gang/",
+  "title": "CISA gives US federal agencies three days to fix a VPN bug under attack by a ransomware gang",
+  "raw_text": "A ransomware group is actively exploiting an unpatched flaw in security tools used across the U.S. federal government, prompting the U.S. cybersecurity agency CISA to order all civilian agencies to remediate the vulnerability by end of day Wednesday.\nCybersecurity firm Check Point Software said the bug affects several of its remote access tools, firewalls, and VPNs, which act as digital gatekeepers to protect company networks from unauthorized access.\nThe company said in a separate blog post that it had confirmed the bug was being exploited by a known ransomware group called Qilin to hack into “a few dozen targeted organizations globally” that rely on the affected security tools.\nThe hacks began on May 7 but activity began to rise last week, per Check Point.\nGiven the risk to the federal government’s enterprise network, CISA on Monday ordered all civilian federal agencies — such as Homeland Security, the Department of State, and the Treasury — to fix any instances where agencies are using the affected products by end of day June 11. The agency cited BOD 22-01, its operational guidance memo that allows it to instruct agencies to take security action when there is an active cyber threat to government networks.",
+  "published_at": "2026-06-09T17:40:08Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-06-09T21:00:27.993828Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "CISA",
+      "cybersecurity",
+      "In Brief",
+      "zero-day"
+    ]
+  }
+}

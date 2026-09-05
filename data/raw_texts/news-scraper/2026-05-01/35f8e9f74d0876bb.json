@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260409a.htm",
+  "title": "Federal Reserve Board announces termination of enforcement actions with Crédit Agricole S.A. and Crédit Agricole Corporate and Investment Bank, Mega International Commercial Bank Co., Ltd, and the Goldman Sachs Group, Inc.",
+  "raw_text": "April 09, 2026\nFederal Reserve Board announces termination of enforcement actions with Crédit Agricole S.A. and Crédit Agricole Corporate and Investment Bank, Mega International Commercial Bank Co., Ltd, and the Goldman Sachs Group, Inc.\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Thursday announced the termination of the enforcement actions listed below:\nCrédit Agricole S.A., Paris, France, and Crédit Agricole Corporate and Investment Bank, Paris, France\nCease and Desist Order dated October 19, 2015\nTerminated March 25, 2026\nMega International Commercial Bank Co., Ltd, Taipei, Taiwan, Mega International Commercial Bank Co., Ltd. New York Branch, New York, New York, Mega International Commercial Bank Co., Ltd. Chicago Branch, Chicago, Illinois, and Mega International Commercial Bank Co., Ltd. Silicon Vally Branch, San Jose, California\nCease and Desist Order dated January 17, 2018\nTerminated March 25, 2026\nThe Goldman Sachs Group, Inc., New York, New York\nCease and Desist Order dated May 1, 2018\nTerminated March 25, 2026\nAdditional enforcement actions can be searched for here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-04-09T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:00:32.415777Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Enforcement Actions"
+    ]
+  }
+}

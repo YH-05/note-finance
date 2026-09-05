@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/us-housing-starts-collapsed-may-lowest-covid",
+  "title": "US Housing Starts Collapsed In May To Lowest Since COVID",
+  "raw_text": "With housing inventories at recent highs, the US housing market just suffered another sentiment setback as Housing Starts crashed by 15.4% MoM in May (far worse than 2% drop expected and worse since March 2024)), following a revised 8.5% MoM drop in April. Building Permits slipped 0.7% MoM (in line with expectations)...\nSource: Bloomberg\nThat pulls the Housing Starts SAAR to its lowest since COVID (after reaching the highest since 2024 in April)...\nSource: Bloomberg\nUnder the hood, it was multi-family (rental) starts that collapsed:\nHousing Starts single-family drop from 899K (revised lower from 930K) to 882K\nHousing Starts multi-family drop from 486K (revised lower from 529K) to 284K\nSource: Bloomberg\nDid 'renter nation' just die?\nMultifamily permits also fell...\nHousing Permits single-family rise from 881K (revised higher from 872K) to 886K\nHousing Permits multi-family drop from 491K (revised lower from 514K) to 474K\nIs homebuilder sentiment about to slump even further...\nSource: Bloomberg\nIt seems recent rises in the mortgage rate (and inventories already at over-stuffed levels, given the slowness of sales) has finally dented the homebuilders' self-satisfying confidence.",
+  "published_at": "2026-06-16T12:41:17Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-16T15:00:36.380606Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

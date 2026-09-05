@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/boeing-ceo-737-max-production-assembly-line.html",
+  "title": "Boeing to start 737 Max production on new assembly line July 6, CEO says",
+  "raw_text": "RENTON, Wash. — Boeing will begin building new 737 Max airplanes on July 6 at a final assembly line it's opening north of Seattle, CEO Kelly Ortberg told CNBC on Friday.\n\"We're adding another production line, it's really a carbon copy of what you see here in Renton,\" Ortberg said. \"We'll be loading our first airplane on July 6, so just about a month from now, we'll be bringing that [fourth] line alive.\"\nThe new 737 Max final assembly line in Everett, Washington, will serve as a catalyst for increasing Max production to 52 jets per month — a pace that's expected to begin next year. Boeing is currently building 47 Maxes per month after ramping output from 42 a month earlier this year.\nWhile Boeing wants to build and deliver more 737 Max planes, its production is capped by the Federal Aviation Administration, which put limits on its manufacturing after a door plug blew out on an Alaska Airlines plane in January 2024.\nThat incident prompted lengthy reviews of safety and quality issues in the manufacturing process at Boeing.\n\"We're trying to reset that track record, and I think we've done a good job as we've come back up here in the last 18 months and increased rate, and we've done it differently,\" Ortberg said. \"We've made sure that we're not moving until the production system is stable. We're not pushing work down the production line like we were before. So I think that gives us all optimism.\"\nOrtberg and Boeing leadership have set a long-term goal for Max production of 63 per month, if the supply chain can support the increase.\nThe new assembly line will start with production of the 737 Max 10, a stretch version of the single aisle plane that is expected to be certified by the FAA before the end of the year, clearing the way for the first 737 Max 10 deliveries.",
+  "published_at": "2026-06-05T21:26:54Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.371317Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

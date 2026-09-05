@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://opensourceaimustwin.com/?share=v2",
+  "title": "Open source AI must win",
+  "raw_text": "Opensource AI Must Win\nIf intelligence becomes something people can only rent from a few closed institutions, the public does not just lose software freedom. It loses operational freedom.\nThe ability to study, build, repair, deploy, audit, adapt, teach, preserve, and run intelligence systems without asking permission is of existential importance.\nAI is a civilizational infrastructure for work, education, science, software, creativity, public services, and national capacity. Access must not depend on closed APIs, remote platforms, shifting terms, opaque moderation, model availability, or prices set by a handful of companies.\nOpensource AI should remain usable, understandable, reproducible, locally deployable, economically viable, and community-governed even if today's dominant labs, foreign labs, hardware vendors, cloud platforms, or open-weight model providers change direction or disappear.\nWhen a small number of closed frontier labs and platform companies control the models, this infrastructure risks becoming a subscription economy for cognition.\nAmerica should not fall behind on the freedom to run, inspect, modify, benchmark, teach, and preserve intelligence infrastructure. The practical posture is American capacity with global open standards.\nIf you wanna help me make this real, send a quiet note: me@ahmadosman.com\nOpensource AI Must Win © @TheAhmadOsman 2026",
+  "published_at": "2026-06-13T02:14:24Z",
+  "author": "vednig",
+  "collected_at": "2026-06-13T09:01:30.367623Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

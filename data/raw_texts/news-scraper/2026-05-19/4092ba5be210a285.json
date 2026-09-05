@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605191093",
+  "title": "Ｄサイクルの４月既存店売上高は４カ月ぶり前年下回る",
+  "raw_text": "【材料】Ｄサイクルの４月既存店売上高は４カ月ぶり前年下回る\n加熱する過度な値引きに一定の距離を置きつつ、修理サービス及びパーツ販売の強化に取り組んだ結果、パーツ・アクセサリー及び修理サービスの売り上げは堅調に推移。一方で、自転車車体の売り上げが前年を下回ったことから既存店売上高が前年割れとなった。なお、全店売上高は同７．４％増だった。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-19T08:15:00Z",
+  "author": null,
+  "collected_at": "2026-05-19T09:00:22.279172Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605260016",
+  "title": "本日注視すべき【増資・売り出し】銘柄　(25日大引け後 発表分)",
+  "raw_text": "ポスプラ ＜日足＞ 「株探」多機能チャートより\n○ポスプラ <\n198A> [東証Ｇ]\nサイブリッジ合同会社を割当先とする209万8000株の第三者割当増資を実施する。発行価格は143円。\n[2026年5月26日]\n株探ニュース",
+  "published_at": "2026-05-25T20:50:00Z",
+  "author": null,
+  "collected_at": "2026-05-25T21:00:21.765175Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

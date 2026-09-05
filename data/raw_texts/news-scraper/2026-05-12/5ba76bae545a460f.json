@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/sony-says-efficient-ai-tools-will-lead-to-even-more-games-flooding-the-market/",
+  "title": "Sony says \"efficient\" AI tools will lead to even more games flooding the market",
+  "raw_text": "Anyone following the modern game industry knows that easy-to-use game engines and the accelerating shift to digital distribution have helped enable a massive increase in the quantity of commercial games released each year, both on console storefronts and especially on Steam. Now, Sony Interactive Entertainment President and CEO Hideaki Nishino says we should expect the rate of new game releases to accelerate even faster as new AI development tools make it easier for developers big and small to pursue new projects efficiently.\nIn a presentation to investors on Friday, Nishino noted that Sony “expect[s] to see a meaningful increase in the volume and diversity of content available to players” in the near future. That increase is the inevitable result of AI development tools that are “lowering barriers to creation, accelerating development cycles, and enabling more creators to enter the market,” he said.\nBy way of evidence, Nishino cited Sony’s first-party game development efforts. Gamemakers inside Sony are already using AI tools to “automat[e] repetitive workflows” in areas like quality assurance, 3D modeling, and animation, he said.\nThat includes a 3D animation tool called Mockingbird that Nishino said allows Sony artists to convert raw motion capture data into in-game animation much faster. While this tool can’t replace the motion-capture actors themselves, it means that “animation work that would have taken hours can now be completed in a fraction of a second,” Nishino said.\nMachine-learning tools have also been able to take in “videos of real hairstyles” and apply them to automated animation models that can realistically model “hundreds of strands,” replacing the “labor-intensive process” of animators placing those strands individually, Nishino said.\nElsewhere in the presentation, Sony Group President and CEO Hiroki Totoki praised the increased “efficiency” enabled by AI tools, saying it would, in turn, lead to “more innovative and ambitious projects—projects that were previously difficult to pursue due to constraints of cost and time.”\nTotoki also highlighted a pilot partnership with publisher Bandai Namco that “identified massive gains in speed and productivity per person” in video production. While the team has needed to fine-tune generic AI models to prevent problems of “consistency and controllability,” Totoki added that these models can, in some cases, help enable “highly sophisticated and realistic outputs which were not feasible before due to production time constraints.”",
+  "published_at": "2026-05-08T20:51:17Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-12T03:00:31.807001Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Gaming",
+      "coding",
+      "game development",
+      "LLM",
+      "PlayStation",
+      "Sony",
+      "vibe coding"
+    ]
+  }
+}

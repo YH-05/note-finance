@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/meta-will-use-ai-to-analyze-height-and-bone-structure-to-identify-if-users-are-underage/",
+  "title": "Meta will use AI to analyze height and bone structure to identify if users are underage",
+  "raw_text": "Meta will start using AI to scan photos and videos for visual clues to see if a user is under 13 and should be removed from Facebook and Instagram, the company announced on Tuesday. These visual clues include a person’s height or bone structure, it said.\n“We want to be clear: this is not facial recognition,” Meta explained in its blog post. “Our AI looks at general themes and visual cues, for example height or bone structure, to estimate someone’s general age; it does not identify the specific person in the image. By combining these visual insights with our analysis of text and interactions, we can significantly increase the number of underage accounts we identify and remove.\nThe visual analysis system is now operating in select countries, but Meta says it’s working toward a broader rollout.\nMeta says this system is part of its efforts to keep kids under 13 off its platforms. These efforts include using AI to analyze entire profiles for contextual clues, such as birthday celebrations or mentions of school grades. The company looks for these signals across different formats, such as posts, comments, bios, captions, and more. Meta plans to expand this technology to more parts of its apps, including Instagram Live and Facebook Groups, in the future.\nIf Meta determines that a person may be underage, it will deactivate their account, and the user will need to prove their age using the company’s age verification process in order to prevent their account from being deleted.\nThe announcement comes weeks after a New Mexico jury ordered Meta to pay $375 million in civil penalties for misleading consumers about the safety of its platforms and putting children at risk. The company was also ordered to implement fundamental changes to its platforms. Meta has since threatened to shut down its social media services in the state.\nIt’s worth noting that this case is one of many lawsuits that Meta and other Big Tech companies are facing over child safety.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nMeta also announced on Tuesday that it’s expanding its technology that automatically places teens into stricter “Teen Accounts” on Instagram to 27 countries in the EU and Brazil. These teen accounts place users into a stricter account experience with additional safeguards, such as receiving DMs only from people they follow or are already connected to, hiding harmful comments, and setting accounts to private by default.\nAdditionally, Meta said it’s expanding the technology to Facebook in the U.S. for the first time, followed by the U.K. and EU in June.",
+  "published_at": "2026-05-05T14:27:00Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-05-06T03:00:27.067555Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Social",
+      "Facebook",
+      "Instagram",
+      "Meta"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/traders-are-skeptical-of-iran-timeline-for-strait-of-hormuz-reopening.html",
+  "title": "Traders are skeptical of Iran timeline for Strait of Hormuz reopening",
+  "raw_text": "Iran thinks it can get the Strait of Hormuz to its prewar status within one month of a peace deal with the U.S. Traders on prediction market platform Kalshi are more skeptical.\nThey place just a 38% chance that traffic flows through the strait will return to normal by July 1. The contract defines normal flows as the seven-day moving average of transit through the strait crossing 60 based on data from IMF PortWatch.\nThat level, though, is higher than the roughly 32% chance that traders gave of that happening before the new reports Wednesday.\nReuters cited Iranian state television, which said it had a draft framework of a memorandum of understanding with the U.S., where the detail was learned. The White House denied the existence of any framework with Iran.\nTraders are more confident that flows will return to normal by Aug. 1. They put 60% odds on it happening, higher than the 50-50 chance they had before the reports.\nHowever, all of these odds are lower than chances traders had over the weekend, when there appeared to be a potential imminent announcement of a deal between the two countries. Odds that traffic in the strait returned to normal by July were as high as 50% on Sunday.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-05-27T22:18:07Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.163231Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

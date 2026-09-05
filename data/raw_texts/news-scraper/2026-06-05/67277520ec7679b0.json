@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://momentsingraphics.de/Siggraph2026.html",
+  "title": "Gaussian Point Splatting",
+  "raw_text": "Gaussian Point Splatting\nJoris Rijsdijk, Christoph Peters, Michael Weinnman, Ricardo Marroquim.\n2026–07 in ACM Transactions on Graphics (Proc. SIGGRAPH) 45, 4.\nOfficial version\nAbstract\nWe propose Gaussian point splatting, a stochastic method to render Gaussian splats that scales extremely well to scenes with many Gaussians. Our core idea is to sample pixel-sized, opaque points from the Gaussians and to splat them to a framebuffer using 64-bit atomics. Through parallel programming primitives, we achieve an even distribution of the workload across millions of threads. Since these threads splat points independently, multiple points may splat to the same pixel. That makes it non-trivial to determine how many points should be splatted for a Gaussian or how they should be distributed to achieve the desired opacity. We successfully formalize and solve these problems, thus keeping our renders faithful to the original Gaussian splatting. To further accelerate our method, we employ hierarchical frustum and occlusion culling. Our method renders hundreds of millions of Gaussians in real time. The only differences compared to the original Gaussian splatting are slight noise and differences in aliasing.\nKeywords: novel view synthesis, gaussian splatting, large-scale scenes, GPU atomics, point rendering, parallelism\nImages\nNotes\nThis work gets presented at SIGGRAPH 2026 on 20th of July. The author's version has been published on 20th of May 2026.",
+  "published_at": "2026-06-04T10:48:13Z",
+  "author": "ibobev",
+  "collected_at": "2026-06-05T03:02:48.110505Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

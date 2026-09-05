@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/nebius-situational-awareness-ai-stock-ex-openai-stake.html",
+  "title": "This AI stock is surging after an ex-OpenAI employee's fund disclosed a stake. Here's why",
+  "raw_text": "Dutch cloud provider Nebius popped on Thursday after an ex-OpenAI employee's fund disclosed a sizeable stake in the firm.\nSituational Awareness, a hedge fund founded by former OpenAI researcher Leopold Aschenbrenner, now owns 12.4 million Class A shares of the AI firm, according to a filing published on Wednesday. That represents a 5.6% stake.\nSituational Awareness manages billions in funds and invests in the physical infrastructure necessary for the future of AI.\nNebius, which is listed in the U.S., was last seen up 7% after markets opened. The stock is up 149% year-to-date.\nNebius and Situational Awareness did not immediately respond to CNBC's request for comment.\nNebius has emerged as a key AI compute provider in Europe and has secured several partnerships in recent months, including a $27 billion deal with Meta in March. Nebius will provide $12 billion of dedicated capacity and up to $15 billion of additional compute capacity over five years as part of the deal.\nIt also secured a $2 billion investment from Nvidia in the same month. The deal will see the two firms collaborate on AI infrastructure deployment, fleet management, inference and AI factory design and support.\nAschenbrenner is a German AI researcher who was hired to OpenAI's \"Superalignment\" team in 2023 to ensure that superhuman AI systems are safe, but was ultimately dismissed in 2024 for allegedly leaking internal information.\nHe founded Situational Awareness shortly after in a bid to overcome the infrastructure bottlenecks in AI development, including energy constraints and computing power. Oracle, Nvidia, ASML, and Micron Technology are among its other holdings.\nNebius has been looking to overcome power constraints as Europe faces considerably higher electricity prices than the U.S. It announced a $2.6 billion deal with Bloom Energy last week to deploy Bloom's fuel cell technology to generate electricity faster at its data centers in the U.S.",
+  "published_at": "2026-05-28T14:48:45Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.610481Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

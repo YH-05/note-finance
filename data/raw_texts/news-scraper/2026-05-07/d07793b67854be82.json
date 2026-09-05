@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/paul-tudor-jones-ai-regulation-warning.html",
+  "title": "Paul Tudor Jones says U.S. is late to regulating AI: 'We should have already done it'",
+  "raw_text": "Billionaire hedge fund manager Paul Tudor Jones sent a warning signal on Thursday, arguing the U.S. is late to the game on artificial intelligence regulation.\n\"We need to do it tomorrow,\" he told CNBC's \"Squawk Box\" on Thursday. \"We're late already. We should have already done it.\"\nAccording to Jones, governments need to watermark AI to distinguish between real content and deepfakes. As he raised these concerns, Jones also told CNBC that he recently bought more AI stocks.\nProfessionals are growing increasingly concerned about the dangers of AI as the technology becomes more sophisticated.\nAt a recent conference with AI experts and model makers, Jones said 80% of participants supported AI regulation, up from around 20% last year. The leader of one of those companies said he was surprised the industry wasn't regulated yet, Jones added.\nLawmakers and experts have long advocated for regulations to mitigate the safety, privacy and security concerns associated with the nascent technology.\nThe European Union passed the AI Act in 2024. Some U.S. states have also passed or introduced their own legislation, many of which have targeted child safety. In March, the White House released a nationwide AI policy framework.\nAt the same time, the U.S. is locked in a heated rivalry with China to produce the best AI models and strategy. The Wall Street Journal reported this week that both countries are considering official discussions about AI at an upcoming meeting between President Donald Trump and China's Xi Jinping.\n\"Everyone wants what's best for their people,\" Jones said, adding that he doesn't believe China wants to \"wipe out\" the U.S. \"We should be having a dialogue with them about AI safety.\"",
+  "published_at": "2026-05-07T18:12:29Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.574860Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

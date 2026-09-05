@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+  "title": "Federal Reserve Board announces it has made the joint findings with the Office of the Comptroller of the Currency required for the OCC to approve a request by Morgan Stanley Bank, N.A., for an exemption under section 23A of the Federal Reserve Act",
+  "raw_text": "March 26, 2026\nFederal Reserve Board announces it has made the joint findings with the Office of the Comptroller of the Currency required for the OCC to approve a request by Morgan Stanley Bank, N.A., for an exemption under section 23A of the Federal Reserve Act\nFor release at 5:00 p.m. EDT\nThe Federal Reserve Board on Thursday announced it has made the joint findings with the Office of the Comptroller of the Currency (OCC) required for the OCC to approve a request by Morgan Stanley Bank, N.A., of Salt Lake City, Utah, for an exemption under section 23A of the Federal Reserve Act. Section 23A establishes limits and imposes requirements on a bank's transactions with its affiliates. The bank submitted the request in order to engage in an internal corporate reorganization involving its affiliate, Morgan Stanley Europe SE, Frankfurt am Main, Germany.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-03-26T21:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:02:27.818207Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

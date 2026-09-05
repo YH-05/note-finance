@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/tech-stocks-best-month-since-2020.html",
+  "title": "Tech stocks close out best month since start of Covid pandemic in 2020",
+  "raw_text": "The tech-heavy Nasdaq Composite climbed 15.29% in April, its biggest monthly gain since the start of the Covid pandemic in April 2020.\nEarnings for big tech this week have boosted the sector, with Alphabet, Amazon and Microsoft all beating expectations for revenue and cloud growth.\nAlphabet surged 10% after earnings, climbing 34% this month. It's the company's best month since October 2004, the year it went public.\nMeta fell 9% Thursday after announcing an increase in its capex spend, but still gained nearly 7% for the month.\nShares of Amazon rose 27% in April, while Broadcom gained 35%. Qualcomm on Thursday had its best day since last year, soaring nearly 40% for the month.\nChip stocks saw an especially strong month as the demand for data centers continued to rise.\nMicron and Advanced Micro Devices surged 53% and 74%, respectively, in April. Nvidia shares climbed about 14%, the chipmaker's best month since June.\nIntel's stock doubled in April, the best month in the company's 55-year history.\nApril's gains mark a turning point for the tech sector, which has had a rough start to 2026. Tech stocks, especially software, have been pressured as fears of artificial intelligence disruption continue to escalate.\nYear-to-date, the Nasdaq Composite is up 7%. Most of those gains came in April, as the index was down roughly 7% on the last day of March.\nCORRECTION: This story has been updated to correct the statistic on Qualcomm's stock performance.",
+  "published_at": "2026-04-30T20:34:41Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.407673Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

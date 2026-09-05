@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.githubstatus.com/incidents/fcj3088jg1wx",
+  "title": "Authentication issues related to API requests",
+  "raw_text": "Authentication issues related to API requests\nResolved\nThis incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.\nMonitoring\nThe degradation has been mitigated. We are monitoring to ensure stability.\nUpdate\nThe degradation affecting API Requests has been mitigated. We are monitoring to ensure stability.\nUpdate\nWe continue to investigate issues related to sporadic authentication failures, impacting approximately 15% of API traffic. Erroneous 401 responses are causing app integrations to trigger authentication flows. We have identified a problematic component in our infrastructure and are working to mitigate.\nUpdate\nThe degradation affecting Issues has been mitigated. We are monitoring to ensure stability.\nUpdate\nWe continue to investigate issues related to sporadic authentication failures, impacting approximately 15% of API traffic. Further updates will be provided as we work to mitigate.\nUpdate\nWe are investigating issues related to sporadic authentication failures impacting approximately 15% of API traffic. We will continue to investigate and provide updates.\nUpdate\nIssues is experiencing degraded performance. We are continuing to investigate.\nUpdate\nAPI Requests is experiencing degraded availability. We are continuing to investigate.\nInvestigating\nWe are investigating reports of impacted performance for some GitHub services.\nThis incident affected: API Requests and Issues.",
+  "published_at": "2026-06-10T15:29:52Z",
+  "author": "Multicomp",
+  "collected_at": "2026-06-11T09:00:46.555495Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

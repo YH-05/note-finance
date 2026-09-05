@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/spacex-blocked-from-early-us-benchmark-index-entry-as-sp-reaffirms-existing-rules.html",
+  "title": "SpaceX blocked from early U.S. benchmark index entry as S&P reaffirms existing rules",
+  "raw_text": "S&P Global said on Thursday it was not changing the requirements for entry into its major indices, dealing a setback to Elon Musk's SpaceX by effectively ruling out a swift entry for the world's biggest-ever IPO into the benchmark S&P 500 index.\nMusk has rewritten the IPO playbook for SpaceX in many ways from planning to give retail investors a bigger role in allocations to pushing for early index inclusion, and structuring governance to preserve strong founder control.\nThe company is raising $75 billion and targeting a $1.75 trillion valuation that would place it among the top 10 most valuable U.S.-listed firms, even as only a fraction of its shares are available for trading.\nBut S&P said \"exceptions to the financial viability, seasoning, and IWF (investable weight factor) requirements should not be granted solely based on market capitalization\".\nTo be included in the S&P 500, a company must be profitable under Generally Accepted Accounting Principles in its most recent quarter as well as for the sum of its most recent four quarters, according to one of the rules S&P left unchanged.\nSpaceX posted a net loss of $4.94 billion in 2025, even as revenue rose 33% to $18.67 billion.\nS&P had consulted with investors about shortening the time a megacap company must be publicly listed before joining its indexes, waiving minimum float requirements and removing its profitability requirement.\nThe S&P 500 is Wall Street's most widely followed benchmark. Passive S&P 500 index funds with trillions of dollars in assets would have been forced to buy up SpaceX shares had rules been changed to admit it to the index.\n\"It speaks highly of the credibility of S&P Dow Jones Indices to be rules-based and make sure there's profitability before entrance to the index,\" said Art Hogan, chief market strategist at B. Riley Wealth.\n\"Making exceptions because companies are so large and have been private so long yet are still not profitable, didn't make a great deal of sense.\"\nNasdaq has already made changes that will make it easier for SpaceX, Anthropic and other newly listed megacaps to join its Nasdaq 100 index.\nNasdaq 100 index funds will be forced to buy a sizeable portion of publicly available SpaceX shares when the company joins that index.\nExchange operators have ramped up efforts to boost initial public listings as richly valued technology firms such as SpaceX and AI giants Anthropic and OpenAI edge closer to public offerings, amid growing concerns over a steady decline in the number of U.S.-listed companies.\nS&P Global said it would modify entry rules for its broader S&P Total Market Index and Dow Jones U.S. Total Stock Market Index, creating a pathway for SpaceX to join those less widely followed indexes.\nSpaceX has also already become eligible for inclusion in both the Russell U.S. Equity Indexes and the FTSE Global Equity Index Series under the newly announced fast-entry rules from the index provider FTSE Russell.",
+  "published_at": "2026-06-05T00:39:34Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.661996Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

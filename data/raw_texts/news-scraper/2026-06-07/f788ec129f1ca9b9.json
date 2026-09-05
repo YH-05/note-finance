@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://codeberg.org/ziglang/zig/commit/621844bde551ee1a9b8142d7d146d1fa804247a2",
+  "title": "Zig Zen Update",
+  "raw_text": "This is an automated check to get rid of most bots. If you have JavaScript enabled, it should redirect to the real page soon. If you don't, it still should redirect soon, but you can click here if you're fast.",
+  "published_at": "2026-06-06T08:38:44Z",
+  "author": "tosh",
+  "collected_at": "2026-06-07T03:00:47.085033Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

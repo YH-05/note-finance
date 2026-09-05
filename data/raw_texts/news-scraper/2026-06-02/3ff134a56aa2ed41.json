@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606021215",
+  "title": "４月の米求人件数は７６１．８万人",
+  "raw_text": "【経済】４月の米求人件数は７６１．８万人\n結果 761.8万人\n予想 686.6万人 前回 688.7万人（686.6万人から修正）\n株探ニュース",
+  "published_at": "2026-06-02T14:01:00Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:00:17.346603Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/to-achieve-major-goals-nasa-seeks-to-streamline-its-organization/",
+  "title": "NASA undertakes major reorganization to reduce bureaucracy and move faster",
+  "raw_text": "NASA Administrator Jared Isaacman sent a long email to employees on Friday morning outlining several structural changes that are intended to make the sprawling agency more efficient and allow it to better accomplish major goals, such as returning to the Moon and building a base there.\n“I believe it is imperative to concentrate resources towards the highest priority objectives in the National Space Policy and liberate the best and brightest from needless bureaucracy and obstacles that impede progress,” Isaacman wrote in his 3,000-word letter.\nIsaacman’s message stressed that no one at NASA will lose their jobs, and no field centers will be closed as part of these changes. Rather, the overall intent is to improve operational efficiency and focus on the agency’s core missions. Isaacman laid these out as: execute on the Artemis Program to return humans to the Moon; build an enduring Moon Base; develop a “Space Reactor Office” to get America underway on nuclear power in space; ignite an economy in low-Earth orbit; and build more X-planes and launch more science missions.\nThe changes appear to be an effort to reduce overhead and top-down management within NASA and return more power and decision-making to field centers. They attempt to reverse a decades-long trend at NASA toward bureaucracy and fiefdom building within the organization.\nTwo sources who previously worked at NASA and are familiar with its structural inefficiencies told Ars that these changes are, on balance, very positive for the agency. “I was concerned there was going to be more of a consolidation of authority at headquarters,” one of the people told Ars. “Instead this all appears to be broadly helpful to the mission.”\nConsolidation of mission leadership\nPreviously, NASA had six main “Mission Directorates” that oversee its core areas, such as human exploration, science, and aeronautics. These are being combined into four directorates.",
+  "published_at": "2026-05-22T14:28:42Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-24T03:00:30.718286Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "bureaucracy",
+      "NASA",
+      "reorganization",
+      "space"
+    ]
+  }
+}

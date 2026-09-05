@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/frontier-airlines-spirit-collapse.html",
+  "title": "Frontier Airlines forecasts revenue boost from Spirit collapse",
+  "raw_text": "Frontier Airlines expects a revenue boost from Spirit Airlines' collapse over the weekend, a shuttering that removed Spirit's capacity from the market overnight.\n\"Drawing on the benefits realized from prior Spirit capacity adjustments, we believe their exit supports a [revenue per available seat mile] uplift of 3% to 5% going forward,\" Frontier's chief commercial officer, Bobby Schroeter, said on an earnings call Tuesday.\nJust before Spirit ceased operations, marking the biggest U.S. airline collapse in a generation, the budget airline had 35% overlap with Frontier's seats and 31% with JetBlue Airways' seats in the market, according to an analysis published Sunday by Raymond James analyst Savanthi Syth.\nFrontier shares were up more than 6% in afternoon trading after it released first-quarter results, outpacing the broader market.\nFrontier said it expects unit revenue to rise more than 20% in the second quarter, citing strong demand and less competition on its routes. It expects adjusted losses per share of between 45 cents and 60 cents.\nFrontier was Spirit's planned merger partner four years ago before JetBlue swooped in with an all-cash offer in a deal that was eventually blocked by a U.S. judge in 2024.\nIn Spirit's final months, airlines had been adding flights on its routes or crafting expansion plans behind the scenes. JetBlue, for example, said it would add a host of service at Fort Lauderdale-Hollywood International Airport in Florida, Spirit's former home hub.",
+  "published_at": "2026-05-05T19:57:51Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:17:45.116072Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

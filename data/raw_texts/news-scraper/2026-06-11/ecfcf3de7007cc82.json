@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20366-high-court-dismisses-dot-spectrum-charge-demands-in-india.html",
+  "title": "High Court dismisses DoT spectrum charge demands in India",
+  "raw_text": "There may be even better news for two Indian operators – and notably Vodafone Idea – on outstanding spectrum charges following an Indian High Court ruling on Monday.\nThe Bombay High Court has reportedly quashed spectrum charges totalling roughly INR236 billion (about US$2.475 billion) levied on telecom companies Bharti Airtel and Vodafone Idea. It has apparently ruled that the government could not retrospectively impose the charges for the period between 2008 and 2012.\nEstimates indicate that Airtel’s liability could have been about US$1.678 billion and Vodafone Idea’s about US$795 million.\nAccording to the ruling, the country’s Department of Telecommunications (DoT) failed to identify any statutory or contractual provision that empowered it to impose the charge years after the spectrum had been allocated and paid for under existing licence agreements.\nAs local new resource the Economic Times, explains, the dispute dates back to 2012, when the then union cabinet decided that telecom operators holding spectrum beyond 6.2MHz should pay a one-time charge with retrospective effect from July 2008.\nThis was such a long time ago that the DoT demand notices went to Airtel – but not to Vodafone Idea. Instead they went to Vodafone India and Idea Cellular, the operators that jointly became Vodafone Idea in 2018.\nThe one-time spectrum charge was introduced after a Supreme Court 2012 2G spectrum judgment, with the government seeking to levy an upfront fee on spectrum that operators then held beyond the specified thresholds. The issue has apparently remained under litigation for nearly 15 years – but is it now over?\nAirtel evidently hopes so. In a statement widely quoted in the local press Airtel said: \"This ruling marks an important milestone for India's telecom sector by eliminating legal and financial uncertainty and creating a more supportive environment for future investments.\"\nIt’s an especially good result for Vodafone Idea, coming soon after the news, reported here in May, that the DoT had cut its adjusted gross revenue (AGR) dues by nearly 27%.",
+  "published_at": "2026-06-10T10:58:45Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-11T03:01:35.752775Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

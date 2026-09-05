@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/03/chinese-stocks-are-about-to-get-a-big-ai-boost-morgan-stanley-predicts.html",
+  "title": "Chinese stocks are about to get a big AI boost, Morgan Stanley predicts",
+  "raw_text": "More than $1 billion is poised to flow into the underperforming Hang Seng Tech Index, thanks to the upcoming inclusion of two Chinese artificial intelligence companies, according to Morgan Stanley. Hong Kong's technology stock index has tumbled more than 11% so far this year, despite excitement over Chinese AI. Only seven of the index's constituents have risen in 2026, led by Hua Hong Semiconductor, Lenovo, JD, Midea and several electric car stocks. Meanwhile, generative AI model companies Knowledge Atlas Technology , which runs Zhipu AI, and MiniMax , have both skyrocketed since they went public in Hong Kong in January. Both stocks are expected to join the Hang Seng Tech Index on June 8, driving $1.25 billion to $1.75 billion in passive inflows, the Morgan Stanley analysts said in an April 27 report. The analysts raised their price targets on each stock: Knowledge Atlas to 990 Hong Kong dollars ($126.37) from 560 HKD, and MiniMax to 1,100 HKD from 990 HKD. Zhipu's models are known for their coding capabilities, while MiniMax has stood out more for its breadth of AI capabilities from text to audio generation. MiniMax has also been a popular choice for OpenClaw AI agent users since, like many Chinese AI models, it is relatively cheaper to use than its U.S. peers. However, that is changing as more people use Chinese AI tools. The Morgan Stanley analysts pointed out that in the first quarter, the cost of accessing Chinese AI models rose to at least 17% of what U.S. AI models charged — up sharply from just 5% a year earlier. The analysts predict that each of the frontier Chinese AI models can achieve at least $1 billion in revenue this year, and more than double that next year. Knowledge Atlas and MiniMax are the first two major Chinese companies focused on AI models to go public. Competitors such as Moonshot, which operates the Kimi AI model, and StepFun remain privately held. \"We believe AI and [large language model] names will become a much bigger driver of Hong Kong equity markets, reshaping index composition, performance, liquidity, and fund flows,\" the Morgan Stanley analysts said. \"Strong regulatory support is evident, with tech accounting for 40% of HK IPO fundraising YTD and 43% of the pipeline, reinforcing AI as a durable force in Hong Kong's equity market,\" the analysts said. Tencent and Alibaba , the two largest stocks by market capitalization in the Hang Seng Tech Index, have tumbled by double digits so far this year. Alibaba is the Morgan Stanley analysts' top pick among China internet stocks, based on the view that the e-commerce giant is also a play on AI across the tech stack from cloud computing to AI models. —CNBC's Michael Bloom contributed to this report.",
+  "published_at": "2026-05-03T11:11:39Z",
+  "author": null,
+  "collected_at": "2026-05-03T15:20:00.577930Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.bbc.com/news/articles/cvgd5g7d7gyo",
+  "title": "SpaceX Is Buying Cursor",
+  "raw_text": "Musk's SpaceX overtakes Amazon to become world's fifth most valuable firm\nElon Musk's SpaceX has overtaken Amazon to become the world's fifth most valuable company after a surge in its share price.\nDays after joining New York's tech-focused Nasdaq stock exchange in the biggest public listing ever, its share price has risen by more than 50%.\nIt leaves Musk's rocket company worth about $2.78tn (£2.1tn), while Jeff Bezos's sprawling online retail and media empire is currently worth about $2.66tn.\nThe boom in SpaceX's value came as it announced it was buying AI coding start-up Cursor for $60bn.\nSpaceX said it would take over Anysphere, Cursor's parent company, which makes the artificial intelligence coding agent.\nSoaring shares\nSpaceX has garnered huge enthusiasm among investors for its vision of sending AI data centres to space and even helping humans to colonise Mars.\nIts listing raised $85.7bn and minted Musk as the world's first trillionaire. Since first selling shares to the public at $135 each on Friday, they have risen to $209.\nBut analysts have questioned the sustainability of its high share price given the huge amount of uncertainty over its future earnings.\nWhile Amazon is a household name, with its brand difficult to avoid being encountered on an almost daily basis, SpaceX is less embedded in the lives of the general public.\nDespite SpaceX's stock market value overtaking Amazon, the revenues and profits made by the companies are vastly different.\nAmazon made $30.3bn of profit in the first quarter of 2026, while Musk's future-focused SpaceX lost $4.3bn.\nIn 2025, Jeff Bezos's firm accrued some $716.9bn in sales, while SpaceX recorded $18.67bn.\nBut investors appear to be betting on what they think SpaceX can acheive. While its biggest focus is the manufacture and launch of rockets with reusable parts, the company also manufactures and launches Starlink internet satellites, and is ramping up its presence in the AI race.\nSpaceX and Cursor have been partners since April, when Musk's firm announced it had the right to either buy it for $60bn, or pay $10bn for the work they have done together.\nLike OpenAI and Anthropic, Cursor's technology uses AI to automate the process of writing code, one of the most prominent current uses for artificial intelligence.\nThe tie-up comes as SpaceX tries to catch up with rivals by growing its AI business, xAI, which is behind the controversial Grok chatbot.\nAnnouncing the partnership in April, SpaceX said: \"The combination of Cursor's leading product and distribution to expert software engineers with SpaceX's million H100 equivalent Colossus training supercomputer will allow us to build the world's most useful models.\"\nCursor is used by major companies including Stripe, Adobe and Nvidia, whose boss Jensen Huang has described it as his \"favourite enterprise AI service\".\nSpaceX said the deal would be completed by the end of September, with Cursor's shareholders paid with $60bn worth of SpaceX shares.",
+  "published_at": "2026-06-16T12:31:37Z",
+  "author": "jrm-veris",
+  "collected_at": "2026-06-16T21:00:45.886220Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

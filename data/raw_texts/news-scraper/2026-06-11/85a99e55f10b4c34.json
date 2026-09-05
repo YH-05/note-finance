@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606111177",
+  "title": "弁護士ＣＯＭが３５万株を上限とする自社株買いを発表",
+  "raw_text": "弁護士ＣＯＭ ＜日足＞ 「株探」多機能チャートより\n弁護士ドットコム<\n6027>がこの日の取引終了後に自社株買いを実施すると発表した。上限を３５万株（自己株式を除く発行済み株数の１．５３％）、または５億円としており、取得期間は６月１２日から１１月３０日まで。足もとの株価水準が「最も確実性が高く、かつリターン効率が極めて高い投資機会」と判断したことが要因としている。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-11T08:28:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T09:00:22.172828Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

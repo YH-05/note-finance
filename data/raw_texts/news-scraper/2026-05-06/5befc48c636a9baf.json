@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/european-markets-stoxx-600-ftse-dax-cac-iran-latest-news.html",
+  "title": "European markets fall as Trump threatens new auto tariffs",
+  "raw_text": "LONDON — European markets declined on Monday as investors continued to monitor developments in the Middle East and a potential renewal of transatlantic trade tensions.\nThe pan-European Stoxx 600 closed 1% lower, reversing gains from earlier in the session. Major bourses in Frankfurt, Paris and Milan all closed in the red, while regional stocks were also largely negative. In London, the FTSE 100 was closed for the U.K. early spring bank holiday.\nNokia closed 7.4% higher, taking the Finnish telco's gains to more than 100% since the start of the year, after Inseego said Thursday it would acquire Nokia's fixed wireless access business.\nEuropean automakers tumbled after U.S. President Donald Trump said Friday he would increase tariffs on cars and trucks from the European Union to 25%. The European Commission said it was keeping its options in terms of its response.\nAuto parts maker Continental slumped to the bottom of the Stoxx 600, falling 4.6% as Mercedes Benz shed 3.4% and Volkswagen lost more than 2%.\nThe new duty threat came despite a Supreme Court ruling in February striking down large parts of Trump's tariff agenda.\nMeanwhile, President Trump also unveiled a new plan to \"free\" ships that have been unable to pass through the Strait of Hormuz. The initiative, dubbed \"Project Freedom,\" could involve 15,000 troops, guided missile destroyers, and 100 aircraft guiding commercial ships through the critical shipping channel, according to a social media post from U.S. Central Command.\nThe United Kingdom Maritime Trade Operations reported early Monday that a vessel had been struck by projectiles north of the city of Fujairah in the United Arab Emirates.\nOil prices rose with Brent crude — the global benchmark — rising more than 5% to about $114 a barrel, while West Texas Intermediate climbed 3% to top $105.",
+  "published_at": "2026-05-04T15:59:22Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.695785Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/922531/microsoft-windows-11-run-menu-redesign-test",
+  "title": "Microsoft tests redesigned Windows 11 Run menu with dark mode and more",
+  "raw_text": "Microsoft is testing its much-needed refresh for the Windows 11 Run menu, offering a modern interface that the company says is faster and comes with support for dark mode. The redesign is rolling out now to Windows 11 Insiders in the new Experimental Channel.\nMicrosoft tests redesigned Windows 11 Run menu with dark mode and more\nThe refreshed Run menu is rolling out now to Windows testers in the Experimental Channel.\nThe refreshed Run menu is rolling out now to Windows testers in the Experimental Channel.\nIn a blog post explaining the changes, Microsoft says it decided to drop the Run menu’s “Browse” button — a shortcut to user files — after finding “very low usage.” Instead, Microsoft added support for a new “~\\” command, which leads to your user directory.\nMicrosoft says it built the new Run menu using code from Command Palette, a utility available through PowerToys that allows you to quickly run commands, open websites, search files, and more. Windows 11 Insiders can enable the new Run menu by going to Settings > System > Advanced and turning the option on. An early version of the redesigned Run menu started appearing in preview builds last year.\n“We’ve collaborated tightly with partners across the platform to get these UI surfaces loading snappy,” Microsoft’s blog post says. “Improvements we’ve made to the platform don’t just make Run fast, but they help make the whole OS more efficient.”\nMost Popular\n- Apple raises the Mac Mini’s starting price\n- Meta’s historic loss in court could cost a lot more than $375 million\n- Anker’s discounted 2-in-1 USB-C cable is a great way to spend $15\n- Spirit Airlines shuts down after Trump’s war on Iran doubled jet fuel prices\n- The more young people use AI, the more they hate it",
+  "published_at": "2026-05-01T22:01:53Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-03T03:00:16.726204Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ]
+  }
+}

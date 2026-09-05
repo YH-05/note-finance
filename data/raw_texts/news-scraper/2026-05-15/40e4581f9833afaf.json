@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/931147/x-illegal-hate-terror-content-ofcom-commitments",
+  "title": "X agrees to crack down on illegal hate and terror content in the UK",
+  "raw_text": "British online safety regulator Ofcom says it has accepted new commitments from X that aim to better protect UK users from seeing illegal hate and terror content on the platform. Under the agreement announced today, X says it will withhold access in the UK to accounts reported posting illegal terrorist content and determined to be operated by UK terror groups and assess “at least 85 percent” of terror and hate speech reported by users “within a maximum of 48 hours.”\nX agrees to crack down on illegal hate and terror content in the UK\nIt’s pledging to assess ‘at least 85 percent’ of reported content within 48 hours.\nIt’s pledging to assess ‘at least 85 percent’ of reported content within 48 hours.\nX has also agreed to work with experts regarding reporting systems for illegal hate and terror content and will submit quarterly performance data to Ofcom over the next 12 months to ensure its meeting these new commitments.\n“These commitments are a step forward, but there’s a lot more to do,” Ofcom’s online safety director, Oliver Griffiths, said in a statement. “We have evidence that terrorist content and illegal hate speech is persisting on some of the largest social media sites. We are challenging them to tackle the problem and expect them to take firm action.”\nThis investigation was part of a compliance probe launched by Ofcom in December to examine whether social media platforms have appropriate systems in place to combat the spread of illegal hate and terrorist material. Griffiths says the separate investigation into how the chatbot on X tackles illegal content is still open and ongoing, after Grok was used to digitally undress people without consent.\nThese commitments lay the groundwork for Ofcom to slap X with fines if the platform fails to uphold them, but the regulator notably shies away from finding X liable for currently failing to comply with the UK’s online safety rules regarding illegal content. The commitments themselves are also pretty vague — X says it will expedite reviews for reported content, but makes no mention of proactively seeking it out. There’s also no mention of whether the reports will be assessed by automated systems or human moderators, and X’s safety team is looking pretty thin these days.",
+  "published_at": "2026-05-15T12:40:47Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-15T15:00:15.916549Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Policy",
+      "Politics",
+      "Regulation",
+      "Tech",
+      "Twitter - X"
+    ]
+  }
+}

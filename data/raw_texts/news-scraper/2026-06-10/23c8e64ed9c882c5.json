@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/trump-ice-70-billion-immigration-funding.html",
+  "title": "Trump signs $70 billion immigration funding bill after months of delay",
+  "raw_text": "President Donald Trump on Wednesday signed a $70 billion bill to fund immigration enforcement agencies through the end of his term.\nThe package to pay for Immigration and Customs Enforcement and Customs and Border Protection passed out of Congress in the last week after months of debate and delays amid Democratic concerns about overly aggressive immigration enforcement.\nAt a signing ceremony in the Oval Office on Wednesday, Trump said the bill would \"give the heroes of ICE and border patrol ... the support and resources they need to defend our borders, protect our homeland and to keep America safe.\"\nDemocrats had refused to fund the two Department of Homeland Security subagencies since January, when an immigration surge in Minneapolis led to the deaths of two U.S. citizens at the hands of federal agents.\nRepublicans, in response to Democratic opposition, pursued a congressional process known as budget reconciliation, which allows for the party-line passage of controversial spending and budgetary measures with a simple majority in the Senate, as opposed to the 60 votes normally needed to overcome a filibuster.\nThe Senate advanced the immigration funding package on Friday on a 52-47 vote, with no Democrats voting in favor. The House followed on Tuesday, approving the package 214-212, also with no Democratic support.\n\"Despite Democrat efforts to shut down ICE and Border Patrol, Republicans have now fully funded these agencies through President Trump's entire second term to the tune of nearly $70 billion,\" Sen. Lindsey Graham, R-S.C., who leads the Senate budget panel, said in a statement Tuesday. \"Thanks to President Trump, our border has gone from its weakest point to its most secure point in less than two years.\"\nTrump had originally called for the package to reach his desk by June 1, but progress was derailed last month after the announcement of a $1.8 billion \"anti-weaponization\" fund that drew pushback from congressional Democrats and Republicans alike.\nDespite their apparent frustrations, most Republicans voted against a Democratic measure last week that would have quashed the fund.\nMeanwhile, less than a week after acting Attorney General Todd Blanche said plans for the fund were dead, Trump on Sunday said on NBC's \"Meet the Press\" that he'd prefer the fund move forward.",
+  "published_at": "2026-06-10T18:47:40Z",
+  "author": null,
+  "collected_at": "2026-06-10T21:46:29.181379Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

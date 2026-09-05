@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605220077",
+  "title": "[BULL] ウィブル　1Q増収最終赤字拡大　売上高36％増1.59億ドル、最終赤字2172万ドル、EPSマイナス0.04ドル",
+  "raw_text": "ウィブル<\nBULL>の2026年度第1四半期（1-3月）の業績は増収、最終赤字拡大だった。\n米現地5月21日の通常取引終了後に公開された6-K（重要事項報告書）によると、第1四半期は売上高は前年同期比36.3％増の1億5992万ドルとなった。最終赤字は2172万ドルと、前年同期の861万ドルから拡大。1株あたり損失（EPS・希薄化後）は0.04ドルとなった。前年同期は0.06ドルだった。\nウィブル<\nBULL>\n発表資料\n原本（英語）\n株探ニュース",
+  "published_at": "2026-05-21T20:39:36Z",
+  "author": null,
+  "collected_at": "2026-05-21T21:00:21.689139Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

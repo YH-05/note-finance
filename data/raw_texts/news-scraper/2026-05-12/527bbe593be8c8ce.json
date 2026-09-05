@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/05/linux-bitten-by-second-severe-vulnerability-in-as-many-weeks/",
+  "title": "Linux bitten by second severe vulnerability in as many weeks",
+  "raw_text": "Linux users have been bitten by yet another vulnerability that gives containers and untrusted users the ability to gain root access, marking the second time in as many weeks that a severe threat has caught defenders off guard.\nThe threat, known as Dirty Frag, allows low-privilege users, including those using virtual machines, to gain root control of servers. Attacks are particularly suitable in shared environments, where a server is used by multiple parties. Hackers can also gain root as long as they have access to a separate exploit that gives a toehold into a machine. Exploit code was leaked online three days ago and works reliably across virtually all Linux distributions. Microsoft has said it has spotted signs that hackers are experimenting with Dirty Frag in the wild.\nImmediate and significant threat\nThe leaked exploit is deterministic, meaning it works precisely the same way each time it’s run and across different Linux distributions. It causes no crashes, making it stealthy to run. A vulnerability known as Copy Fail, disclosed last week with no patches available to end users, possesses the same characteristics.\n“The ‘Dirty Frag’ vulnerability presents an immediate and significant threat to Linux systems, as it allows unauthorized users to gain root access by exploiting unpatched kernel flaws,” researchers from security firm Aviatrix wrote Monday. “With proof-of-concept exploits publicly available and signs of limited in-the-wild exploitation, organizations must act swiftly to apply patches and implement mitigations to protect their systems from potential compromise.”\nDirty Frag was discovered and disclosed late last week by researcher Hyunwoo Kim. The exploit chains together code for exploiting two vulnerabilities—tracked as CVE-2026-43284 and CVE-2026-43500. Shortly after the disclosure, someone else leaked key details, effectively making the vulnerability a zero-day. With that, Kim published the source code for the proof-of-concept exploit he had developed. While both vulnerabilities were patched in the Linux kernel, none of the distributions had incorporated the fix.\nAt the time this post went live, several distributors had released patches. Known distributors included Debian, AlmaLinux, and Fedora. People who are interested in other distributions should check with the official provider.",
+  "published_at": "2026-05-11T22:28:19Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-12T03:00:31.803244Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "exploits",
+      "Linux",
+      "vulnerabilities"
+    ]
+  }
+}

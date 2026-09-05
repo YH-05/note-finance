@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/were-tracking-423-mac-configurations-to-see-how-apple-is-handling-shortages/",
+  "title": "Which Macs are suffering from shortages—and where are things getting worse?",
+  "raw_text": "The Apple Macintosh is more than 40 years old, but it’s still going strong, and its recent success was significant enough that Apple CEO Tim Cook called it out during the company’s earnings call last week. In particular, Cook credited the new low-cost MacBook Neo, which Apple says is attracting a fair number of new Mac buyers rather than simply prompting upgrades from previous customers.\nBut Cook also noted that the Mac’s success was being held back somewhat by “supply constraints… on several Mac models,” which was exacerbated by “less flexibility in the supply chain” than Apple was used to; the company also expects to pay “significantly higher” prices for RAM than it has been so far. In other words, shortages of everything from RAM to storage to advanced chipmaking capacity are making it harder for Apple to produce as many Macs as it can sell.\nSites that track Apple news currently post multiple times a month about Mac shortages, shipping estimates for the MacBook Neo. But because those spot checks only account for Apple’s inventory at a moment in time, I did what I sometimes do when I want to back up vibes with empirical data: I made a big spreadsheet (the full thing is here; only a few representative snippets appear in the article below).\nIn early April, I went through nearly every Mac configuration available—every processor, RAM, storage, and color option, plus every possible combination of each. I only skipped features like nano-texture display options or iMac VESA mounts. For models with specific shipping dates, I tracked both the soonest and the latest each model could arrive; for models that listed availability as “weeks” or “months” out, I converted those to dates using the current date at the time. I did this for 423 discrete Mac configurations.\nThis week, I did the whole thing again. And then I noted which ship times had changed by more than a few days.",
+  "published_at": "2026-05-08T15:00:27Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-11T03:00:30.937604Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Tech",
+      "apple",
+      "iMac",
+      "Mac",
+      "Mac mini",
+      "Mac Studio",
+      "MacBook Air",
+      "macbook neo",
+      "MacBook Pro"
+    ]
+  }
+}

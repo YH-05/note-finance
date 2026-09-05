@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605211391",
+  "title": "アンソロピック、マイクロソフト製ＡＩチップの使用で協議と伝わる＝米国株個別",
+  "raw_text": "（NY時間09:08）（日本時間22:08）時間外\nマイクロソフト<\nMSFT> 431.45(+10.39 +2.47％)\nマイクロソフト<\nMSFT>が先ほどから時間外で上昇。アンソロピックがマイクロソフトのＡＩチップ使用で協議と伝わっている。インフォメーションが関係者の話として伝えた。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-21T13:08:00Z",
+  "author": null,
+  "collected_at": "2026-05-21T15:00:22.439639Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

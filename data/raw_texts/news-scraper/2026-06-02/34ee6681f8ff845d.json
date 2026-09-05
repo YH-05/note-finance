@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/from-15-hours-to-one-minute-how-ai-ml-is-speeding-up-gms-development/",
+  "title": "From 15 hours to one minute: How AI/ML is speeding up GM's development",
+  "raw_text": "When we met Sterling Anderson in 2024, he was the chief product officer of Aurora, the self-driving startup he cofounded in 2016 after several years at Tesla. Just over a year ago, though, Anderson decamped from the startup world for something a little more established, taking over as chief product officer at General Motors, the nation’s largest automaker. Since then, he’s had a good view of how GM is entering what he calls the third epoch of engineering and design.\n“There was a time when humans looked at birds and were like, ‘OK, those wings seem to work pretty well. Let’s go and design something that looks like them.’” Anderson said, describing the first age of engineering. “And they just kind of iterated their way to something that was marginally feasible.”\nThe first few hundred years of inventing “was this era of highly empirical iterative design development and engineering,” he said. “And by that I mean humans largely started with what we know or had seen, built prototypes of something that kind of looked like it and maybe tweaked some things, hoping to make it perform better, tested it, iterated, and kind of went through this slow guess-and-check process until we got to something that marginally worked.”\nThe second age began as computers became powerful enough to do some of the early work. “We started to see virtual development tools, in functionally specific ways, improve the work that people did so they didn’t have to go to empirical prototypical development,” Anderson said.\n“For instance, we started to see CFD [computational fluid dynamics] start to inform aero engineers,” he said. “We saw FEA [finite element analysis] inform structural engineers. We saw any number of other virtual tools… but the relay race that was development remained the same, which is to say design passed the baton to aero which passed the baton to structures, just always passed the baton back when they found something that the other guys had to fix.”",
+  "published_at": "2026-06-01T17:41:47Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-02T15:00:26.368821Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Cars",
+      "General Motors",
+      "GM",
+      "machine learning"
+    ]
+  }
+}

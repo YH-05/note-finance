@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/949853/roblox-age-verification-demo-nbc",
+  "title": "Roblox exec says ticking a box for age verification is &#8216;not enough anymore&#8217;",
+  "raw_text": "Roblox’s vice president of safety product policy, Eliza Jacobs, told NBC News that Roblox is “optimistic” that its new facial age estimation tech will “continue to get better,” saying, “Ticking a box to say you’re 13 or older, it’s not enough anymore.” NBC invited a group of kids to try out Roblox’s new video selfie age check process, but they weren’t able to get around it with a fake mustache. Jacobs claims Roblox’s facial age estimates can typically land “within 1.4 years of a child’s exact age.”\nRoblox exec says ticking a box for age verification is ‘not enough anymore’\nKids weren’t able to fool Roblox’s video selfie age checks in a demo with NBC News.\nKids weren’t able to fool Roblox’s video selfie age checks in a demo with NBC News.\nRoblox announced plans in April to begin using its video selfie age estimation tech to sort players into age brackets. Users under 16 and under 9 are now sorted into Roblox Select and Kids accounts, respectively, with restricted access to chat and certain types of games. Players can also use a government ID to verify their age, or parents can manually set their child’s age group.\nIn April, Roblox reported a drop in daily users after rolling out age checks. However, Jacobs stood by the platform’s age verification measures, saying, “We have a long-term vision of safety and civility on the platform that we’re building towards that we believe in.” She added, “It’s OK if some people are not always happy about that.”",
+  "published_at": "2026-06-15T15:52:17Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-15T21:00:16.138726Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News",
+      "PC Gaming",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

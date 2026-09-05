@@ -1,0 +1,33 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/video/musk-v-altman-is-just-getting-started/",
+  "title": "Musk v. Altman is just getting started",
+  "raw_text": "Elon Musk spent the better part of three days on the witness stand this week in his lawsuit against OpenAI, and it’s already getting messy. Emails, texts, and his own tweets are surfacing in court, and there are plenty more witnesses to come. Musk’s argument against OpenAI? By converting the company to a for-profit model, Sam Altman betrayed the “nonprofit for the benefit of humanity” mission Musk signed up to fund. As Musk keeps reminding the courtroom: “You can’t steal a charity.”\nWatch as this episode of TechCrunch’s Equity podcast discusses what’s actually at stake in the courtroom and what to watch for as Altman and others take the stand, plus deals, defense tech, and what Big Tech’s earnings week revealed about the limits of the AI spending era.\nSubscribe to Equity on YouTube, Apple Podcasts, Overcast, Spotify and all the casts. You also can follow Equity on X and Threads, at @EquityPod.",
+  "published_at": "2026-05-01T14:00:00Z",
+  "author": "Theresa Loconsolo",
+  "collected_at": "2026-05-03T03:00:27.271689Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Startups",
+      "Acquisitions",
+      "ai infrastructure",
+      "Amazon",
+      "big tech earnings",
+      "Elon Musk",
+      "Google",
+      "Meta",
+      "Microsoft",
+      "military AI",
+      "OpenAI",
+      "sallie mae",
+      "sam altman",
+      "Scout AI"
+    ]
+  }
+}

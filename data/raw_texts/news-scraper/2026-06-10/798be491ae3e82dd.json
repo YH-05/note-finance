@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/947553/byd-flash-chargers-uk-europe-ev-blade-battery",
+  "title": "BYD to install thousands of 5-minute EV chargers across Europe",
+  "raw_text": "Chinese EV colossus BYD has announced plans to speed up its conquest of the European auto market with the rollout of superfast Flash Chargers across the continent. BYD has already installed the first new chargers in Germany and the UK, and plans to roll out 3,000 across Europe by the end of next year.\nBYD to install thousands of 5-minute EV chargers across Europe\nIt wants to build 3,000 chargers across the continent by 2027.\nIt wants to build 3,000 chargers across the continent by 2027.\nAt an estimated cost of €580,000 (about $670,000) per charger according to the Financial Times, that would mean a total spend of roughly $2 billion to install the network. The 1,500kW charging stations are significantly more powerful than Tesla’s 500kW V4 Superchargers, though Tesla already has 20,000 chargers installed in Europe. BYD, which has been steadily overtaking Tesla in global sales, says its chargers shouldn’t add undue strain to the energy grid, as they’ll charge cars from batteries, which can be topped up overnight.\nAny car with a standard CCS charge port can use the Flash Chargers, though only BYD cars equipped with the company’s new Blade Battery can hit the top speeds. Right now, there’s only one of those in Europe, the €115,000 ($133,000) Denza Z9 GT — it charges to 70 percent in five minutes on the new chargers.",
+  "published_at": "2026-06-10T11:04:32Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-06-10T15:00:11.391526Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Electric Cars",
+      "News",
+      "Transportation"
+    ]
+  }
+}

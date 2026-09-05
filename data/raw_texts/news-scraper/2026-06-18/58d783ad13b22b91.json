@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/here-are-the-odds-of-spacex-becoming-the-worlds-most-valuable-company.html",
+  "title": "Here are the odds of SpaceX becoming the world's most valuable company",
+  "raw_text": "SpaceX debuted as the fifth-biggest stock. The path to third place could take years, at least according to options prices.\nThere's a lot of perks to debuting in the public markets with a multitrillion valuation: worldwide attention, next-day derivatives trading and fast-track inclusion into some of the most important benchmark equity indexes.\nOne small catch: It might take a while to move up each next rung of the market-cap ladder.\nSpaceX's current $2.6 trillion valuation puts the company in a neck-and-neck race with Amazon for world's fifth-biggest company, and more than $1 trillion ahead of Elon Musk's Tesla. From there, it's a big jump to third and second-place Apple and Alphabet, respectively, both of which trade with a market cap over $4.4 trillion.\nTo leap-frog those two and take second place behind $5 trillion Nvidia, SpaceX would need to rally about 70% to $340, assuming Apple and Alphabet don't move.\nRight now, the options market says there's a 50/50 chance that could happen between now and roughly July 2028, projecting data from the options chain on ThinkOrSwim. To get those odds, one must go through the strikes in SpaceX and approximate the odds of a touch at the 340 call.\nThe math is a bit tricker for SpaceX with no options available between June and December 2028. For the most precise estimate of when the stock could get to 340, the June '28 calls assign a roughly 46% chance.\nIf SpaceX bulls expect it to be number one and overtake Nvidia, they better get comfy. There's about a 38% chance that could happen between now and June 2028, and just a 41% chance it happens by December 2028. One can think of option prices as the crowd's bet on how a stock is likely to move.\nThe more expensive the option, the greater the chance traders think the underlying stock will touch that level. The odds of the option expiring in the money are expressed by using what's called an option's delta. The higher the delta, the higher the likelihood that options expire in the money.",
+  "published_at": "2026-06-18T11:14:52Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.519894Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

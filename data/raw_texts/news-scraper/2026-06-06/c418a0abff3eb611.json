@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/944615/section-702-senate-vote-fails-pulte",
+  "title": "Congress still can’t decide what to do about warrantless surveillance",
+  "raw_text": "The deadline to reauthorize Section 702 of the Foreign Intelligence Surveillance Act is coming up a week from now on June 12th, and legislators seem no closer to reaching a deal. If this sounds like deja vu, it’s because we’ve been here before. Congress reauthorized Section 702 in late April — but only for 45 days, so lawmakers could negotiate reforms to the controversial wiretapping authority.\nCongress still can’t decide what to do about warrantless surveillance\nTrump’s appointment of Bill Pulte as director of national intelligence has thrown a wrench in Republicans’ reauthorization plans.\nTrump’s appointment of Bill Pulte as director of national intelligence has thrown a wrench in Republicans’ reauthorization plans.\n“There were no reformers in any of the conversations that happened. Full stop,” Sean Vitka, the executive director of Demand Progress, said on a press call Friday afternoon, hours after the Senate voted 52 to 47 against a deal that would have renewed Section 702 for three years, which would have required sixty votes. Democrats voted against the plan due to President Donald Trump’s announcement on Thursday that Bill Pulte — a businessman with no security clearance — would serve as acting director of national intelligence. They were joined by seven Republicans.\nAs the head of the Office of the Director of National Intelligence (ODNI), Pulte would oversee 18 agencies. In a Friday interview with the Wall Street Journal, Trump suggested that he wants Pulte to gut ODNI. “We’ve made the Department of Education much smaller, and likewise, this should be much smaller,” Trump said. According to the Journal, Trump suggested Pulte fire intelligence staff who served under the Obama and Biden administrations.\nCritics of a so-called “clean” extension of Section 702 — one without reforms like a warrant requirement for queries involving US persons — have cited Trump’s well-documented abuses of its surveillance powers. Pulte’s appointment has only made matters wore for the administration, which has been urging Republican legislators to reauthorize Section 702 without reforms.\nMost Popular\n- Summer Game Fest Live 2026: The biggest news, trailers, and announcements\n- Valve says it’s ready to launch the Steam Machine this summer\n- Windows is back on the Microsoft menu\n- Rivian’s software chief thinks you don’t need CarPlay or buttons\n- Belkin’s new Joy-Con grips also boost the Switch 2’s battery life",
+  "published_at": "2026-06-05T21:15:48Z",
+  "author": "Gaby Del Valle",
+  "collected_at": "2026-06-06T03:00:16.911273Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Politics",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

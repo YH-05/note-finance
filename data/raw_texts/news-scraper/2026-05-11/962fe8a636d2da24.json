@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605120040",
+  "title": "企業経営者、インフレ加速を予想　クリーブランド連銀調査",
+  "raw_text": "【注目】企業経営者、インフレ加速を予想 クリーブランド連銀調査\nこれは、トランプ大統領が世界的に大幅な関税を導入した直後の１年前以来、四半期調査で最も高いインフレ予想となる。当時の数値は３．８％だった。企業経営者は平均して価格を３．３％引き上げ、自社のコストは３．５％上昇すると予想している。\n株探ニュース",
+  "published_at": "2026-05-11T18:59:00Z",
+  "author": null,
+  "collected_at": "2026-05-11T21:00:21.845535Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

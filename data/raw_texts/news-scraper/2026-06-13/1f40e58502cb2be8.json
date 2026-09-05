@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20381-nigeria-misses-target-for-domain-name-adoption.html",
+  "title": "Nigeria misses target for domain name adoption",
+  "raw_text": "The Nigeria Internet Registration Association (NiRA) has said it has surpassed 241,000 active .ng domain names, less than a quarter of the one million active-domain target that NiRA set in 2019 for achievement by 2024.\nThe figure does, however, mark a recovery in registrations since 2022, when the number of active .ng domains fell to 179,420. Over the last 12 months, the association recorded 98,285 new registrations, 71,470 renewals and 1,970 restored domains.\nHowever, as NIRA President Akinsola Adesanya pointed out earlier this week during an internet governance forum, Nigeria’s domain name penetration remains significantly below its potential despite more than two decades of managing the .ng registry.\nIndeed, as the Ecofin news agency points out, for a country of an estimated 242 million people, 241,000 active .ng domains is a fairly modest total.\nSouth Africa, by contrast, has about 1.4 million active country-code domains, while Kenya, with less than a quarter of the population of Nigeria, has 115,000 active domains.\nHowever, low domain name adoption has thrown up other problems, according to local news resource Punch, which reports that Nigeria is losing an estimated US$850 million annually due to weak adoption of its national digital identity infrastructure.\nAt the third edition of NiRA’s Tech Convergence conference, held in Abuja in early June, speakers warned that Nigeria’s continued reliance on foreign domains, offshore hosting and non-indigenous digital platforms is not only exporting revenue but also weakening jurisdictional control over citizens’ data and, one assumes, undermining data sovereignty.\nNiRA backed this up, saying the losses stem from Nigeria’s limited use of local digital infrastructure, including domain registration, data hosting and digital services, which instead route economic value to foreign jurisdictions.\nThe association said expanding adoption of .ng could help retain revenue, improve data security, reduce latency and stimulate domestic cloud and digital infrastructure industries. NiRA has in fact set a new objective of achieving annual growth of 30%.\nHow this will happen is still not clear. Stakeholders at the conference called for policy reforms to deepen local digital adoption, including proposals to mandate .ng domains for businesses and integrate them into national education and public service systems.\nBeyond registration growth, NiRA has implemented Domain Name System Security Extensions (DNSSEC), a technology designed to improve the security, authenticity and resilience of domain-name services.\nNiRA is also modernising its internal systems and revising its governing framework to align its operations with international standards. These measures aim to improve trust in the .ng ecosystem while creating a stronger foundation for future growth.\nThere are also plans for a new .ng Ambassador Programme aimed at driving awareness and adoption of Nigeria’s national domain across government, industry and academia.",
+  "published_at": "2026-06-12T11:19:39Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-13T03:01:24.963565Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

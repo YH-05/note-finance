@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/starlink-blocks-access-to-its-gps-alternative-ahead-of-spacex-ipo/",
+  "title": "Starlink shuts down its GPS-style cheat code. Researchers may unlock it anyway.",
+  "raw_text": "Starlink is unceremoniously shutting down a GPS-style feature that most of the Internet satellite provider’s customers probably never realized existed. But that won’t stop broader momentum toward harnessing Starlink’s satellite constellation as a navigation alternative—especially when GPS jamming and spoofing have become more widespread.\nThe Starlink satellite constellation owned by SpaceX is designed to provide communications services first and foremost, rather than pinpointing users’ locations like GPS and other global navigation satellite systems (GNSS). However, SpaceX publicly acknowledged in a May 2025 letter to the US Federal Communications Commission that Starlink could deliver positioning, navigation, and timing (PNT) services. A handful of savvy Starlink customers had even been accessing Starlink PNT capability for several years until Starlink recently decided to shut down access, according to PCMag.\n“The beauty of Starlink as a backup to GNSS is that it’s such a different system—frequencies 10 times higher, bandwidths 10 to 100 times wider, power 100 to 1,000 times stronger, satellites 100 times more proliferated,” said Todd Humphreys, director of the Wireless Networking and Communications Group (WNCG) and the Radionavigation Laboratory at The University of Texas at Austin, in correspondence with Ars.\nThe built-in location feature was previously accessible through the Starlink mobile app’s Debug Data section. It enabled users to give local networks access to their Starlink dish’s “precise latitude, longitude, and altitude with no authentication required,” according to Paul Sutherland, a software developer, in a blog post.\nStarlink dishes have their own GPS receivers to help pinpoint their own locations so they can find the nearest Starlink satellites. But the user location feature also offered an option to “use Starlink positioning exclusively.” Humphreys has described that Starlink PNT capability as a “cheat code for those who knew about it,” because it even worked in regions with GPS interference.\nThat has proven especially useful for users who installed the latest Starlink dishes on recreational vehicles and boats. In one case study highlighted by PCMag, a sailboat cruising through the Red Sea with the Starlink Mini dish—a user device released in 2024—was able to exclusively rely on Starlink positioning data despite GPS jamming and spoofing.",
+  "published_at": "2026-05-11T17:55:34Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-13T03:00:30.640568Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "GNSS",
+      "GPS",
+      "GPS jamming",
+      "GPS spoofing",
+      "satellites",
+      "spacex",
+      "spacex starlink",
+      "starlink"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/do-you-take-after-your-dads-rna/",
+  "title": "Do you take after your dad’s RNA?",
+  "raw_text": "On a bright afternoon in Jiangsu, China, Xin Yin is playing personal trainer to some mice. One by one, he sets the rodents on a miniature treadmill that starts slow and gradually speeds up. These littermates are born athletes, able to run farther with less lactic acid buildup than average laboratory mice.\nThe secret to their speediness isn’t carried in their genes—the animals come from the same genetic stock as a group of control mice. And they haven’t received any special training. Instead, their fitness seems to stem from their father’s exercise habits before they were even conceived. It’s a finding suggesting that running might benefit not just the exerciser, but also his unborn children.\n“I was very surprised when I first saw the data,” says Yin, a biochemist at Nanjing University.\nYin’s team analyzed the molecules inside the exercising rodents’ sperm and found tiny bits of RNA—dubbed microRNAs—that were present in higher amounts than in the sperm of their idle littermates. When the scientists injected those molecules into unrelated embryos, they got animals just as fit as those that were born to exercising fathers.\nThat 2025 study adds to mounting evidence that sperm are more than wriggling vessels carrying DNA to an egg. Over the past two decades, studies in mice have detected microRNAs and other types of RNA fragments that surge and wane inside sperm cells in response to not just exercise or sloth but also fatty or sugary diets, daily stress, childhood trauma, heavy drinking and exposure to pesticides and other hazards. In step with these changes, researchers have documented developmental and metabolic changes and differing rates of depression in the males’ offspring.\nAnd while it’s difficult to study the effect in people, researchers also have documented fluctuations in RNA fragments in the sperm of men who do or don’t exercise, smoke or eat excess sugar, as well as men with obesity or traumatic childhoods. Studies also report that children of parents who are overweight or who dealt with mental health stress are more likely to have those conditions, too.",
+  "published_at": "2026-05-10T11:15:44Z",
+  "author": "Holly Barker, Knowable Magazine",
+  "collected_at": "2026-05-12T03:00:31.806011Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "DNA",
+      "RNA",
+      "sperm",
+      "syndication"
+    ]
+  }
+}

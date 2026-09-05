@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/global-tech-sell-off-euopean-markets.html",
+  "title": "Global tech sell-off spreads to Europe as chip shares fall",
+  "raw_text": "The pan-European Stoxx 600 index fell as investors monitored a global sell-off in chipmaking companies.\nThe Stoxx 600 index ended the session 0.3% lower. The U.K.'s FTSE 100 rose almost 0.1%, outflanking major bourses in Paris, Frankfurt and Milan, which closed in the red.\nThe sell-off in tech stocks that gripped U.S. and Asian markets on Thursday spread to Europe on Friday as investors retreated from chipmakers.\nThe Stoxx 600 technology index finished the day down 2.8%, as Infineon Technology ended the day down 9.1%, and ASML closed 2.4% lower. Nokia shares finished 5.9% lower.\nThe moves lower came after a downbeat earnings report from Broadcom sparked a rotation out of artificial intelligence-linked names into more defensive sectors.\nWeakness was particularly pronounced in South Korea's chip-heavy market, with the Kospi ending Friday's session 5.5% lower. Sector heavyweights Samsung Electronics and SK Hynix closed down 6.4% and 9.9%, respectively.\nIn the U.S., the Dow Jones Industrial Average was last seen 0.7% lower, while the Nasdaq Composite shed 2.6% as investors retreated from tech names. The broad-based S&P 500 slipped 1.6%.\nFriday's slide on Wall Street came as labor data showed nonfarm payrolls rose 172,000 in May, comfortably outflanking Dow Jones' consensus estimates of 80,000, while the U.S. unemployment rate held steady at 4.3%.",
+  "published_at": "2026-06-05T16:56:28Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.788363Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

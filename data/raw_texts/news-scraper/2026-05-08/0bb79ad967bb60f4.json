@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/926675/apple-education-discount-unidays-verification-us",
+  "title": "Apple’s education discount now requires proof that you’re a student",
+  "raw_text": "Apple now requires proof of eligibility from US customers who purchase products online at discounted education rates, which also apply to the Apple Watch for the first time. According to a new pop-up message displayed on Apple’s education webstore, Apple is directing students, parents, and teachers to verify their status via Unidays’ third-party verification service — a system the Cupertino company has already implemented in other countries, including the UK.\nApple’s education discount now requires proof that you’re a student\nThe Unidays verification system is being re-introduced for US education customers.\nThe Unidays verification system is being re-introduced for US education customers.\nApple Insider reports that the Unidays service is now also being rolled out to Apple customers in Canada, Australia, Hong Kong, Turkey, and Chile. Eligible customers can use an email address, photo ID, or another valid document from an educational institute to verify their academic status through the Unidays app or website.\nThis joins the existing verification requirements already in place when purchasing products at education rates in physical stores. Apple notes that customers can also complete the Unidays verification ahead of time to expedite in-store purchases. The changes are being implemented to prevent people from abusing the education pricing, as anyone in the US was previously able to make discounted purchases via the virtual education store.\nThis is actually Apple’s second attempt to adopt Unidays verification for US purchases, having briefly introduced it four years ago before removing the requirement. Let’s see if it lasts longer this time.\nAnother change to Apple’s education program is that Apple Watch models are now available at a discounted rate for the first time. The discounts will save education customers up to 10 percent off the usual price and apply to the Apple Watch Series 11, Apple Watch SE, and Apple Watch Ultra 3.",
+  "published_at": "2026-05-08T11:53:57Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-08T15:00:16.248535Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "News",
+      "Tech"
+    ]
+  }
+}

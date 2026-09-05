@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942897/cash-app-tags-magic-wand-contactless-payments-price-launch",
+  "title": "Cash App made a magic wand for contactless payments",
+  "raw_text": "The convenience of contactless payments can already feel magical, but Cash App is really leaning into that with its latest accessory. The mobile payment service is launching the Cash App Wand: an NFC-enabled, iridescent, star-topped wand that allows users to make on-the-go payments without pulling out their phone or card.\nCash App made a magic wand for contactless payments\nIf you can’t DIY your own whimsy, then store bought is fine.\nThis plays on a popular DIY trend that’s already circulating on social media platforms, in which people are 3D printing (or otherwise constructing) their own creative “cases” for contactless payment cards. Magic wands seem to be the most popular design, likely because the extra reach makes them convenient for drive-thru payments, but we’ve also seen giant Nintendo-themed coins — the only limitation being that your creation has to fit an actual payment card inside.\nCash App’s alternative differs in that it’s more compact and uses a built-in NFC tag that pairs with an active Cash App Card. It comes with a keychain that you can attach to your belt or bag (provided you’re not worried about it being snatched, though this obviously doesn’t look like a card). The accessory is designed to appeal to teens, with Cash App noting that 1 in 5 teenagers in the US are already using its Cash App Card.\nThe Wand is available for eligible customers ages 13 and up starting today for $25 through Cash App “while supplies last.” It works wherever Visa tap to pay is accepted and has built-in security features that allow you to lock or unlock it within the app, alongside real-time transaction alerts and 24/7 fraud monitoring support.\nIf you’re not into wands, then don’t worry — this is the first of multiple planned Cash App Tags, and the company says it’s planning to drop limited runs of new Tag designs “in the coming weeks,” before making them generally available later this summer.",
+  "published_at": "2026-06-04T16:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-05T03:02:19.166368Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

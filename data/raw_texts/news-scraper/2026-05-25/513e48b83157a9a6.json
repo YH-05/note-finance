@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/belugas-may-pass-the-mirror-test-but-does-the-mirror-test-still-pass/",
+  "title": "Whatever the mirror test tells us, beluga whales pass it",
+  "raw_text": "In hours of underwater video footage from a New York aquarium, a beluga whale named Natasha stretches her neck, pirouettes, nods, and shakes her head in front of a two-way mirror. Her daughter Maris does much the same. According to a new study published in PLOS One, both animals show the behavioral hallmarks of mirror self-recognition—a cognitive ability long considered a marker of self-awareness, and one that had never before been documented in beluga whales.\nIf the result holds up, belugas join a remarkably short list. The mirror self-recognition test (MSR) has been passed, with varying degrees of confidence, by humans (starting around age two), a handful of great apes (chimps, bonobos, orangutans, and—somewhat contentiously—gorillas), Asian elephants, bottlenose dolphins, probably magpies, possibly orcas, and, if you can believe it, a cleaner wrasse. That’s it. No dogs, no cats, no monkeys. Plenty of species we had assumed were self-aware have been tested and failed.\nLooking at the mirror\nSo what is this test, exactly, and what is it supposed to tell us?\nThe procedure is this: While the animal isn’t looking, researchers place a mark on a spot it can only see via a reflection. A mirror is then put in front of the animal while the researchers watch. If the animal touches or examines the mark while looking at its reflection, it comprehends that the figure in the mirror is itself. The test is intuitive and easy to perform—and almost no species passes.\nWhy is this a test of self-awareness in the first place? The logic, going back to the psychologist Gordon Gallup (who invented the test in 1970), is that to use a mirror as a tool for inspecting your own body, you need a mental representation of yourself as a distinct entity. A piece of silvered glass, in this telling, can pry open a lot of cognitive doors.",
+  "published_at": "2026-05-24T11:15:38Z",
+  "author": "Federica Sgorbissa",
+  "collected_at": "2026-05-25T03:00:31.938345Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "animal cognition",
+      "Biology",
+      "consciousness",
+      "mirror test",
+      "neurobiology",
+      "self-awareness"
+    ]
+  }
+}

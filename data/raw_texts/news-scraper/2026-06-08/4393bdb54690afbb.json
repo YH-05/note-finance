@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/eventbrite-and-vimeo-owner-bending-spoons-files-to-go-public/",
+  "title": "Eventbrite and Vimeo owner Bending Spoons files to go public",
+  "raw_text": "Italian app studio Bending Spoons, which has acquired businesses like Eventbrite, Vimeo, and WeTransfer in recent years, has filed to go public in the U.S. The company joins other names like SpaceX and Anthropic that are preparing to IPO this summer.\nThe company said it has over 500 million monthly active users across its apps, with 9 million paying customers. To date, it has made over 50 acquisitions, including AOL, Eventbrite, Vimeo, Komoot, WeTransfer, Evernote, and Brightcove.\nIn its filing with the Securities and Exchange Commission, Bending Spoons said it ended the year with $1.31 billion in revenue and has generated $601 million in Q1, a 132% year-on-year jump. The company gets the majority of its revenue from subscriptions, which account for 84% of its business. It generated $27.4 million in profit in Q1 2026.\nThe company raised funding at a $11 billion valuation last year, up from $2.8 billion in 2024. In April, Reuters reported that the company could seek a $20 billion valuation with the IPO.\nInvestment management firm Baillie Gifford holds a big chunk of the company, with other institutions such as Cox Enterprises, Durable Capital Partners, and Fidelity also on the list of backers.\nBending Spoons typically acquires a property whose business is not in a healthy state, trims the teams, and pushes it to profitability with different kinds of subscription structures.",
+  "published_at": "2026-06-08T13:57:00Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-06-08T15:00:27.163266Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Bending Spoons",
+      "IPO",
+      "Vimeo"
+    ]
+  }
+}

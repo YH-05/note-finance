@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/950929/paramount-plus-two-month-deal-sale",
+  "title": "Paramount Plus is two dollars for two months of ad-free viewing",
+  "raw_text": "Paramount Plus is offering new and former subscribers a discounted rate until June 25th, 2026. You’ll pay 99 cents per month for the first two months, with the Premium plan automatically renewing for $13.99 per month after that, and the more limited Essential plan renewing for $8.99.\nParamount Plus is two dollars for two months of ad-free viewing\nThe discount offer is open to new and former subscribers, and includes some NFL and CBS coverage.\nNow through June 25th, new and former subscribers can get a two-month subscription to Paramount Plus Essential (ad-supported) or Paramount Plus Premium (ad-free) for 99 cents per month. The deal saves you over $20 and includes access to a catalog of over 40,000 TV shows and movies, including Star Trek: Strange New Worlds, The Naked Gun, South Park, and The Daily Show.\nBoth plans include some excellent shows, like Freaks and Geeks, Colin from Accounts, and South Park, and is one of the only places to find the majority of the Star Trek series — I know I’ll be spending two dollars to rewatch The Next Generation.\nYou can also find new movies like the 2025 Naked Gun reboot, classics like Mean Girls, while both plans include access to live NFL games on CBS, UEFA Champions League matches, and Showtime Originals. The Essential plan only includes a subset of the Showtime Originals found on the Premium plan, is ad supported, and doesn’t allow for downloads or live CBS.",
+  "published_at": "2026-06-17T14:30:00Z",
+  "author": "Brad Bourque",
+  "collected_at": "2026-06-17T15:00:11.299713Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Deals",
+      "Gadgets",
+      "Verge Shopping"
+    ]
+  }
+}

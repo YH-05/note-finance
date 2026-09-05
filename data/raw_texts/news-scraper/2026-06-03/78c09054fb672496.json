@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20308-samsung-to-build-a-semiconductor-testing-plant-in-vietnam.html",
+  "title": "Samsung to build a semiconductor testing plant in Vietnam",
+  "raw_text": "A number of news outlets are reporting that tech giant Samsung Electronics is planning to invest about US$1.5 billion in Vietnam to build a semiconductor testing plant, though neither the company nor the country have formally confirmed this.\nNevertheless, a document sent to local authorities in April and reviewed by news agency Reuters indicates that the new factory, in an industrial park 60 kilometres north of Hanoi, is to start operations in November 2027. In fact construction has already begun.\nThis is expected to be Samsung's first chip testing factory in Vietnam, which is said to be a major player in the global semiconductor back-end industry.\nRobust memory chip demand from AI data centre operators has apparently severely constrained supplies to industries such as smartphones, laptops and automobiles.\nIt seems, in fact, that the factory is likely to mainly focus on legacy chips. While less critical for AI supply chains, there is a shortage of these as major producers dedicate more of their production capacity to manufacturing AI chips.\nThe new plant would have annual capacity to deliver 153.3 billion gigabits (Gb) of dynamic random-access memory (DRAM) chips and another 255.6 billion Gb of NAND memory chips, according to Reuters’ assessment of the proposal.\nFew other details, such as production capacity and production timeline, have been revealed. However, the investment was apparently approved by Vietnamese authorities in March.\nAlso it has been reported that Samsung aims to reinvest any profits from the project, up to about US$2.5 billion, for a potential second factory.\nSamsung is already the largest foreign investor in Vietnam; it has reportedly put more than US$23 billion over a number of decades into multiple facilities.",
+  "published_at": "2026-05-27T21:27:23Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-03T03:01:28.512108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/pinterest-signs-4-billion-dollar-amazon-deal-for-cloud-services.html",
+  "title": "Pinterest signs $4 billion Amazon deal for cloud services",
+  "raw_text": "Pinterest said on Thursday it would pay Amazon Web Services $4 billion for cloud services through 2031, as the social media company strengthens a long-term partnership with its largest-ever deal.\nShares of Pinterest were up nearly 5%, while those of Amazon rose 1.7%.\nAmazon.com's cloud computing unit will provide Pinterest its custom chip processors, including Graviton and Trainium, to help scale its AI initiatives.\n\"This expanded commitment with AWS gives us the compute flexibility, hardware optionality, and infrastructure efficiency to accelerate our AI vision,\" Pinterest's Chief Technology Officer Matt Madrigal said in a statement.\nPinterest has been investing in AI tools by rolling out upgrades to its Performance+ ad suite, to boost growth amid intensifying competition from major players such as TikTok and Meta's Instagram and Facebook.\nPinterest said it had worked with AWS since 2010 to improve the reliability and performance of the company's core services.\nThe company, which earlier this month forecast second-quarter revenue above Wall Street estimates, said it plans to diversify its accelerated compute usage with Amazon's custom silicon to improve price performance for its AI needs.\nThis includes leveraging AWS Trainium for large language models and vision-language models that power features like personalized visual search and AI-assisted discovery on its platform.",
+  "published_at": "2026-06-04T14:15:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:19:00.555998Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

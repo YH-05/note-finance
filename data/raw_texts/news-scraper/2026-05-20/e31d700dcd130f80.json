@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/leaving-the-v8-in-the-past-the-all-electric-mercedes-amg-gt-4-door/",
+  "title": "Leaving the V8 in the past: The all-electric Mercedes-AMG GT 4-Door",
+  "raw_text": "At a star-studded event that closed downtown Los Angeles’ Sixth Street Viaduct last night, Mercedes and AMG unveiled the next generation of performance electric vehicles. The new four-door GT Coupe arrives in the midst of a pivotal period, the result of an almost experimental process that seems to take two steps forward and one step back quite regularly. In many ways, the all-electric AMG leaves previous plans in the past by effectively bringing the record-setting Concept AMG GT XX to series production, with many firsts for Mercedes supporting the abandonment of internal combustion power, including new axial motors from YASA and F1-derived battery cells.\nFittingly, then, Mercedes brought out its F1 team’s personnel, as George Russell presented the new car while Toto Wolff and Kimi Antonelli watched from the makeshift grandstands. Hollywood celebs ran the gamut, from Brad Pitt—who drove one GT onto the bridge—to Jacob Elordi and Kevin Hart, while Blink 182 played a surprisingly sarcastic mini set. All of the above may mean less to potential GT buyers than performance metrics and pricing when the 2027 model year comes along, but it only serves to prove just how big a deal Mercedes-AMG believes this will be.\nA new look\nIn person, the new GT bears almost no resemblance to any of Benz’s prior EVs. No more bulbous, nautical EQS shapes or minorly smoothed over boxy G-Wagen aesthetic. The new design is more aided by digital renderings and iterative algorithms, especially the jutting front grille, reclined headlights, and Kamm-tail rear end—a bit of Aston Martin fore and aft. From the profile view, the proportions fit somewhere between a Porsche Panamera or Taycan, low-slung and slippery for ideal aerodynamic efficiency.\nSpecs on paper support that impression, as the new GT measures 1.7 inches (43 mm) shorter in height and 1.4 inches (35.5 mm) longer overall, with the wheelbase stretched by 3.5 inches (89 mm) versus the outgoing model. Inside, the increasingly digital cockpit continues to evolve, with a new dash layout and canted touchscreens. The event afforded nobody but the stars a chance to actually sit in the passenger compartment, but diagrams shared with the media in advance revealed a typical EV skateboard chassis, albeit with a center spine similar to a transmission tunnel on an internal-combustion engine car to house critical EV components, as well as “foot garages” dropped in between battery modules that improve ergonomics. The large hatchback trunk behind the second-row seats complements a minuscule 1.4-cubic-foot (40L) frunk.",
+  "published_at": "2026-05-20T19:53:34Z",
+  "author": "Michael Teo Van Runkle",
+  "collected_at": "2026-05-20T21:00:31.750827Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "axial flux motor",
+      "Mercedes-AMG GT 4-Door Coupe"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/2026-subaru-solterra-review-the-badge-engineered-bz-aint-bad/",
+  "title": "It doesn't feel very agricultural: The 2026 Subaru Solterra review",
+  "raw_text": "After a slow start, Subaru’s electrification journey picked up a bit this year with the debut of a pair of new electric vehicles, the Uncharted and the Trailseeker. Neither is truly an in-house Subaru—like the Solterra EV before them, they use Toyota’s e-TNGA platform. The Solterra remains on sale alongside the two new EVs—it’s bigger than the Uncharted and less off-roady than the Trailseeker—and like the closely related Toyota bZ, the Solterra recently got its midlife update. And since it had been a while since Ars had last driven a Solterra, we decided to spend a week with one.\nThe original Solterra was a rather underwhelming effort. It looked OK, and it was recognizable as a Subaru from the outside, even if the interior was pure Toyota. But it was inefficient and slow to charge, and in 2024, it was a tough value proposition compared to something like a Hyundai Ioniq 5. For Solterra version 1.1, there’s a new visage—does it remind anyone else of an Autobot?—and the tech specs look much improved. At 74.7 kWh, the battery capacity has increased by less than 2 kWh, but its EPA range estimate leaps from 227 miles (365 km) to 288 miles (463 km).\nThe range increase didn’t require something like a decrease in power—in fact, the standard Solterra got a few extra horsepower, taking it to 233 hp (174 kW) from a pair of identical front and rear motors. But alongside the standard powertrain, Subaru now offers the Solterra XT. It almost doubles power to the front motor—it now makes 223 hp (167 kW) to go with the rear’s 117 hp (87 kW), for a combined 338 hp (252 kW). There’s a small range toll to pay, with an EPA estimate of 278 miles (447 km) for the XT. There’s also a slightly larger price tag: The base Solterra starts at $38,495, but the cheapest Solterra XT costs $42,895.\nThere are plenty more changes beneath the skin. The suspension and chassis control software has been revised. Subaru says it does a better job of handling rougher terrain and lower-grip environments, though our time with the car did not involve any forest roads or mountain trails. It rode well on imperfect roads, though, and its increased body stiffness and added sound-absorbing material do a decent job of canceling any noise, vibration, or harshness that would ruin the EV driving experience.",
+  "published_at": "2026-06-04T15:43:51Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-05T03:02:35.613440Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "car review",
+      "Subaru Solterra"
+    ]
+  }
+}

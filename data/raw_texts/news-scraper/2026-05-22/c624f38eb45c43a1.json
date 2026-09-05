@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/936002/samsung-memory-chip-employees-deal-strike-bonus",
+  "title": "Samsung&#8217;s memory chip employees negotiated $340,000 bonuses this year",
+  "raw_text": "Details have emerged about a tentative deal struck between Samsung and semiconductor employees who had threatened to strike. The deal reportedly makes some workers eligible for average annual bonuses of $340,000.\nSamsung’s memory chip employees negotiated $340,000 bonuses this year\nBut the deal may still be a win for Samsung, with smaller payouts than at local rival SK Hynix.\nBut the deal may still be a win for Samsung, with smaller payouts than at local rival SK Hynix.\nThe proposed 18-day strike had hinged on Samsung’s bonus cap for employees in the semiconductor division and followed a substantial rise in the possible bonuses available to employees of SK Hynix, another South Korean chipmaker enjoying a boom thanks to demand for AI components.\nUnder the terms of the new deal, Reuters reports that all chip workers will receive 50 percent of their annual salary as a regular bonus in cash. Further to that, Samsung will set aside 10.5 percent of its annual operating profits to issue stock-based bonuses to semiconductor employees.\nMuch of the negotiation hinged on how those stock bonuses would be distributed, according to The New York Times. The final deal sees 40 percent of the total pot spread across the entire semiconductor division, which includes lossmaking units working on logic chips and third-party components, with the remainder specifically for the memory chip unit, which is driving the current boom. The union had wanted a larger share of the bonuses to be spread equally among staff.\nAccording to Reuters, a memory chip worker on a base salary of around $50,000 could now be eligible for a total bonus of $416,000. It appears at least some employees have already found ways to spend those bonuses.\nExtraordinary as those figures are, the deal is apparently a good one for Samsung, as its bonus payouts are still slightly smaller than those offered at SK Hynix. The majority of the bonus will also be limited to stock, while SK Hynix bonuses can be issued in shares or cash, and Samsung has also made the bonus payments conditional on the company hitting profit milestones.\nSamsung, which recently hit a $1 trillion valuation, is South Korea’s largest company and accounts for around a quarter of the country’s exports. Its last earning report saw an eightfold increase in profits, largely thanks to sales of its memory chips. The deal still needs to be voted on by the union’s members, but a union leader told Reuters that he expects it to be approved.",
+  "published_at": "2026-05-22T11:05:25Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-05-22T15:00:15.891285Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Business",
+      "Labor",
+      "News",
+      "Samsung",
+      "Tech"
+    ]
+  }
+}

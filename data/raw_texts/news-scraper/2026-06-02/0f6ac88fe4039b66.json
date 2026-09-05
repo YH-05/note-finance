@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/941150/uber-lost-found-robotaxi-items-waymo-motional-avride",
+  "title": "People are leaving a lot of weird stuff in their robotaxis",
+  "raw_text": "A unicorn Beanie Baby. A 15-pound green bowling ball. A pair of dentures.\nPeople are leaving a lot of weird stuff in their robotaxis\nUber’s annual Lost and Found Index includes items left behind in autonomous vehicles for the first time.\nUber’s annual Lost and Found Index includes items left behind in autonomous vehicles for the first time.\nThese are just some of the items left behind in robotaxis in the past year, according to Uber’s annual Lost and Found Index. For the first time, the company is expanding its annual of accounting of things forgotten in Uber vehicles to include self-driving cars because, for the first time, Uber has enough self-driving cars on its platform to matter.\nUber doesn’t deploy its own robotaxis, but in the last few years it’s become a clearinghouse for driverless car companies that want access to Uber’s millions of customers. Here in the US, that includes Waymo (in Austin and Atlanta), Motional (Las Vegas), and Avride (Dallas). And while robotaxis only account for less than 1 percent of all of Uber’s trips, it’s enough to earn inclusion in the Lost and Found Index.\nOne thing’s clear: Regardless of whether it’s a human or a robot controlling the vehicle, riders will always leave stuff behind. The most common items are also the most predictable: phones. Uber says the forgotten phones, from iPhones to flip phones, Androids to Galaxys, are the most commonly left-behind items. Other things frequently forgotten include wallets, keys, headphones, glasses, driver’s licenses, and passports.\nAnd then there’s the offbeat leftovers: a jumbo yo-yo, a large black marble duck, a Squishmallow, a Charli XCX poster, a Smurf keychain, and a bag that says “I Heart Hot Dads.” And of course, the aforementioned bowling ball, Beanie Baby, and dentures — the latter of which did make their way back to their owner.\nRobotaxi passengers also left behind a range of clothing, including cowboy hats, red Sonic the Hedgehog Crocs, a Terry Black’s trucker hat, a Harley-Davidson sweater, and a blue cap that reads “Emotional Support Human.” Uber says nearly every major designer is represented on its list, including wallets and purses from Yves Saint Laurent, Chanel, Coach, Louis Vuitton, Prada, Dior, and Hermès. Someone even left behind a white Gucci blanket.\nThe return process for items left in robotaxis goes a little differently than it does for its human-driven vehicles. After flagging a lost item in the app, customers can DM or chat with a US-based customer support agent, who will collect all the details. If and when the item is found, Uber will dispatch one of its couriers to return it for a flat $15 fee. The company also offers the ability to pick up the item from its vehicle depot where the robotaxis are charged and maintained. The process is managed through Uber’s newly created Autonomous Solutions program, through which the company aims to standardize its robotaxis procedures.\n“With tens of millions of lost items reported on Uber each year, we’ve spent the last decade building systems that help riders quickly and seamlessly reunite with their belongings,” said Amy Satrom, global head of autonomous support at Uber, in a statement.\nThe scope of this process will likely grow as more robotaxis appear on Uber’s platform. The company aims to facilitate AV trips in as many as 15 cities globally by the end of this year, with an even split between US and international markets. And by 2029, Uber says its goal is to become the largest robotaxi broker in the world.\nThe cars may be getting more technologically sophisticated, but human beings remain just as forgetful as ever. Although occasionally the robotaxi is at fault. A San Jose resident said recently a Waymo drove off with his luggage after dropping him off at the airport. The company located his luggage, but initially said it couldn’t pay for the shipping costs to return it to him. But after the man reported his predicament to the local news, Waymo said it would cover the costs.",
+  "published_at": "2026-06-02T12:00:00Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-06-02T15:00:11.753402Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Ride-sharing",
+      "Transportation",
+      "Uber",
+      "Waymo"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/anthropics-claude-can-now-dream-sort-of/",
+  "title": "Anthropic's Claude Managed Agents can now \"dream,\" sort of",
+  "raw_text": "SAN FRANCISCO—At its Code with Claude developers’ conference, Anthropic has introduced what it calls “dreaming” to Claude Managed Agents. Dreaming, in this case, is a process of going over recent events and identifying specific things that are worth storing in “memory” to inform future tasks and interactions.\nDreaming is a feature that is currently in research preview and limited to Managed Agents on the Claude Platform. Managed Agents are a higher-level alternative to building directly on the Messages API that Anthropic describes as a “pre-built, configurable agent harness that runs in managed infrastructure.” It’s intended for situations where you want multiple agents working on a task or project to some end point over several minutes or hours.\nAnthropic describes dreaming as a scheduled process, in which sessions and memory stores are reviewed, and specific memories are curated. This is important because context windows are limited for LLMs, and important information can be lost over lengthy projects. On the chat side of things, many models use a process called compaction, whereby lengthy conversations are periodically analyzed, and the models attempt to remove irrelevant information from the context window while keeping what’s actually important for the ongoing conversation, project, or task.",
+  "published_at": "2026-05-06T16:15:27Z",
+  "author": "Samuel Axon",
+  "collected_at": "2026-05-06T21:00:30.779318Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "agentic AI",
+      "Anthropic",
+      "Claude",
+      "Claude Managed Agents",
+      "Code with Claude",
+      "large language models",
+      "LLMs"
+    ]
+  }
+}

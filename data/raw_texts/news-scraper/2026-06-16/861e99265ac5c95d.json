@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/950564/schlage-sense-pro-uwb-aliro-deadlock-price-availability",
+  "title": "Schlage’s UWB-enabled smart lock launches this month",
+  "raw_text": "It’s been more than a year since Schlage announced its first smart lock to support ultra wideband technology (UWB), but now it’s finally almost available to purchase. Starting June 29th, the Schlage Sense Pro deadbolt lock will be available for $399 in the US, allowing customers to unlock their doors by simply approaching them with a supported device, instead of using keys or biometric scans.\nSchlage’s UWB-enabled smart lock launches this month\nThe Schlage Sense Pro will work with Apple’s Home Key hands-free unlocking and is its first to support Matter over Thread.\nThe Schlage Sense Pro will work with Apple’s Home Key hands-free unlocking and is its first to support Matter over Thread.\nThe Sense Pro was first announced at CES 2025. It uses Schlage’s proprietary Converge technology for UWB, which requires a home key on a compatible iPhone or Apple Watch to calculate your speed, trajectory, and motion to unlock the door as you arrive. The Sense Pro is Schlage’s first lock to support Matter over Thread, allowing it to pair with a Thread-enabled Apple Home hub (including select Apple TV 4K and HomePod speaker models) for consistent, low-latency performance.\nIt’s also compatible with Aliro — the smart lock standard that supports UWB hands-free unlocking and NFC tap-to-unlock. Schlage says the Sense Pro is expected to support Aliro digital keys in Samsung Wallet and Google Wallet “later this year,” which will also allow UWB-enabled Google and Samsung devices to use hands-free unlocking, or tap-to-unlock over NFC.\nThe Sense Pro includes built-in Wi-Fi and can be managed remotely either through the Schlage Home app or the Apple Home app. It provides up to six months of battery life “with standard use,” according to Schlage, and features a built-in USB-C port that provides temporary power if the lock stops working when its batteries run dry. Users can track the device’s power using a low-battery indicator on the Sense Pro touchscreen.\nCurrently the only other lock that supports hands-free Aliro UWB unlocking is the Aqara U400, which launched at $270 earlier this year. When my colleague Jen tested the Sense Pro in January 2025, she said it unlocked automatically on approach despite all the RF interference on the CES show floor. And now, after a lengthy wait, we can finally see if that speedy hands-free unlocking experience holds up for actual homes.",
+  "published_at": "2026-06-16T13:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-16T15:00:11.852398Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

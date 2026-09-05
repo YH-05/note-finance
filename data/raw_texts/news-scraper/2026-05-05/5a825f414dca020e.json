@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/economics/us-services-surveys-disappoint-april-amid-stench-stagflation",
+  "title": "US Services Surveys Disappoint In April Amid Stench Of Stagflation",
+  "raw_text": "Despite Manufacturing surveys solid (and US factory orders surging), expectations are for the Services sector surveys today to show stagflationary signals (weak growth, surging prices).\nS&P Global's Services PMI disappointed in April (final), falling from its flash print of 51.3 to 51.0, but still up from multi-year lows below 50 in March, showing just marginal activity growth despite weak drop in sales volumes.\nISM Services PMI also disappointed in April, falling from 54.0 to 53.6 (vs 53.7 exp) amid tumbling new orders and high prices.\nSource: Bloomberg\nUnder the hood it was not a pretty picture at all with new orders slowing dramatically, Prices Paid holding near cycle highs, and employment contracting for the second month in a row...\n“Although business activity returned to growth after a small decline in March, it’s clear the pace of growth has kicked down a couple of gears since the start of the year,\" said Chris Williamson, Chief Business Economist at S&P Global Market Intelligence.\nThe survey data are indicative of GDP growing at a modest 1% annualized rate.\n“Growth may weaken further,\" warns Williamson, as service providers are reporting lower inflows of new business for the first time in two years, reflecting an intensifying hit to demand from the war in the Middle East.\n“The direct impact of the war has been most evident in consumer-facing services, as high prices have led to a pull-back in discretionary spending on activities such as holidays and recreation, though transport has also been curbed by high fuel prices and travel disruptions.\"\nHowever, a secondary additional driver of renewed weakness is a drop in demand for financial services, in part linked to heightened uncertainty about market outlooks but also reflecting expectations of higher inflation and interest rates, which has hit real estate and lending activity.\nBut it's not just weak growth/orders, prices are surging too... broadly.\n“A further increase in input cost inflation reflected not just higher fuel prices but a widening spread of goods and services rising in price, as well as higher wages, which will feed through to consumer price inflation in the coming months.\"\nThe scale of the price rises will put pressure on the Fed to prevent higher inflation becoming entrenched, but the smell of stagflation remains in the air - central bankers' arch-nemesis.",
+  "published_at": "2026-05-05T14:05:42Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-05T15:00:38.348253Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

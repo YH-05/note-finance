@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.wsj.com/business/deals/fox-roku-deal-f6e564f9",
+  "title": "Fox to buy Roku",
+  "raw_text": "<p>Article URL: <a href=\"https://www.wsj.com/business/deals/fox-roku-deal-f6e564f9\">https://www.wsj.com/business/deals/fox-roku-deal-f6e564f9</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48540499\">https://news.ycombinator.com/item?id=48540499</a></p>\n<p>Points: 210</p>\n<p># Comments: 298</p>",
+  "published_at": "2026-06-15T12:50:03Z",
+  "author": "thm",
+  "collected_at": "2026-06-15T21:00:52.279539Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

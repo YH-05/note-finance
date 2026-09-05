@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930348/dyson-find-follow-air-purifier-cool-ai-tracking-camera-privacy",
+  "title": "Dyson put a camera on its purifier so fresh air can follow you around the room",
+  "raw_text": "Dyson has announced a new air purifying bladeless fan that’s its first to incorporate an AI-powered camera for tracking the location of people in a room. Dyson already uses a mix of cameras and AI in its robovacs, but since the new Find+Follow Purifier Cool is stationary and not at risk of running into abandoned socks, here it’s used to direct fresh air towards you and to conserve power by automatically turning the fan off when a room is empty.\nDyson put a camera on its purifier so fresh air can follow you around the room\nThe Dyson Find+Follow Purifier Cool uses on-device AI to track and target people even as they move around.\nThe Dyson Find+Follow Purifier Cool uses on-device AI to track and target people even as they move around.\nThe Dyson Find+Follow Purifier Cool is now available from its online and retail stores for $894.99 and is capable of capturing and trapping 99.97 percent of ultrafine particles as small as 0.3 microns, including particles causing unpleasant odors, allergens, and viruses.\nIt can connect to Wi-Fi allowing it to be remotely adjusted from Dyson’s mobile app, but images captured through its periscope-like camera are only processed by its AI vision system locally, ensuring privacy. It also doesn’t recognize individual persons. The AI is only used to detect presence, and images from the camera are deleted after being analyzed in real time. The use of a camera feels a little like overkill for just presence detection given simpler sensors can potentially accomplish the same thing, but Dyson is known for throwing a lot of engineering at a problem.\nThe purifier can track the movements of people so if you’re bustling around in the kitchen it will intelligently oscillate to constantly direct its airflow in your direction. If there are multiple people in a room, the direction of the airflow will automatically adjust to oscillate back and forth between them. It can adjust the intensity of the airflow when more pollutants are detected, and the Dyson Find+Follow Purifier Cool is Matter-compatible so it can be integrated into smart home setups including Apple Home and Google Home.",
+  "published_at": "2026-05-14T13:35:41Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-14T15:00:16.288184Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

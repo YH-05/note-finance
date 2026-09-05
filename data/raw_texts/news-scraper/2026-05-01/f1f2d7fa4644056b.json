@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/04/rfk-jr-appeals-ruling-that-wiped-out-his-vaccine-advisory-panel/",
+  "title": "RFK Jr. appeals ruling that wiped out his vaccine advisory panel",
+  "raw_text": "After some uncertainty—and a little drama—the Trump administration is appealing a ruling by a judge last month that temporarily halted anti-vaccine changes Health Secretary Robert F. Kennedy had implemented at the Centers for Disease Control and Prevention. Those changes include filling a key vaccine advisory panel with dubious anti-vaccine allies and unilaterally slashing childhood vaccine recommendations.\nOn March 16, US District Judge Brian Murphy issued a temporary injunction on those changes, essentially blocking the appointment of Kennedy’s advisors, nullifying all votes they made on federal vaccine policy, and undoing the changes to the CDC childhood vaccination schedule. Murphy ruled that Kennedy’s advisors were unqualified, and their appointment and the changes to vaccine recommendations violated federal procedures. The ruling stems from a case brought against Kennedy and the Department of Health and Human Services (HHS) by the American Academy of Pediatrics (AAP).\nPrior to the ruling, lawyers for the government argued that Kennedy’s actions were “unreviewable” and his authority was such that he could advise Americans to actively inject themselves with measles virus rather than the vaccine if he wanted. Murphy rejected that argument in his ruling and found the AAP would likely succeed with their claim that Kennedy’s changes were illegal.\nThe temporary injunction essentially froze the CDC’s vaccine advisory panel—the Advisory Committee on Immunization Practices (ACIP)—which was scheduled to meet later in March to discuss alleged COVID-19 vaccines injuries. That meeting did not occur. The committee is also scheduled to meet in late June with no agenda set.",
+  "published_at": "2026-04-30T16:20:45Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-01T15:00:30.620434Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "ACIP",
+      "CDC",
+      "rfk jr"
+    ]
+  }
+}

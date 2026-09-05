@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20291-cameroon-to-block-mobile-devices-that-are-not-on-its-customs-system.html",
+  "title": "Cameroon to block mobile devices that are not on its customs system",
+  "raw_text": "Among headlines relating to ongoing device registration efforts across Africa is recent news that Cameroon’s customs administration has ordered mobile network operators to block digital devices that have not been registered and cleared through the country’s new electronic customs system.\nThe directive, which includes imported mobile phones, tablets and other digital devices, was signed by Fongod Edwin Nuvaga, director general of Cameroon Customs, and takes effect today. It apparently applies to the country’s three leading MNOs, Camtel, MTN Cameroon and Orange Cameroon.\nThe move, aimed at curbing smuggling and tax evasion, enforces the provisions of a 2023 law that introduced a digital clearance system through which importers had to declare devices through the Cameroon Customs Information System.\nThe system verifies devices through a centralised platform linking import records, device identification numbers and network activation data. Each device is identified through its International Mobile Equipment Identity (IMEI) number before it is authorised to connect to local mobile networks.\nOnly devices that have cleared customs duties electronically, are operating in roaming mode, or qualify under a tax amnesty programme will be permitted access to networks. Telecoms operators could face penalties if undeclared or non-compliant devices are allowed onto their systems.\nAccording to the ITWeb Africa website, early figures suggest the initiative is already increasing customs revenue. Statistics released by Cameroon’s Ministry of Finance in late April apparently showed that more than 51,000 mobile devices had been declared through the platform, generating about US$354,000 in revenue.\nHowever, the registration issue is by no means over. Data from the administration has indicated that between 1 April and 25 April 2026, nearly 700,000 new mobile phones connected to local networks without customs clearance.",
+  "published_at": "2026-05-24T22:16:16Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-26T03:01:25.903769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

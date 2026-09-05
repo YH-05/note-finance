@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/data-centers-require-reliable-and-predictable-energy-riot-partners-terrestrial-energy",
+  "title": "\"Data Centers Require Reliable And Predictable Energy\": Riot Partners With Terrestrial Energy",
+  "raw_text": "Riot platforms announced a collaboration with Terrestrial Energy to pair future data centers with co-located nuclear reactors. The two companies are evaluating deploying Terrestrial’s Integral Molten Salt Reactor (IMSR) plants to existing Riot facilities in Texas and Kentucky, as well as multiple other potential sites.\nThe headline comes on the same morning as reactor development peer NANO Nuclear announced a strategic MOU with Supermicro…\nNANO Nuclear Soars On Strategic MOU With Supermicro For Powering AI Data Centers https://t.co/8evwYdhjZC\n— zerohedge (@zerohedge) May 6, 2026\nFollowing deals that have been announced recently from hyperscalers like Meta, Amazon, Google, and Microsoft, data center developers are now being more vocal than ever about their needs for reliable energy.\n“Our data centers require reliable and predictable energy at the scale demanded by today’s hyperscale customers,” said Jason Les, CEO of Riot Platforms. “Partnering with Terrestrial Energy positions our facilities at the forefront of data center deployment, utilizing clean energy and benefitting both our customers and the communities we operate in. The consistent baseload of power required by data centers presents an ideal pairing for development alongside Terrestrial’s IMSR Plants.”\nThe press release is notably lacking on any sort of timeline description for Terrestrial actually making any progress towards reactor construction. Terrestrial is significantly behind almost all of its market peers, including Oklo and NANO Nuclear.\nOklo has made significant progress with constructing a sodium-cooled reactor at INL with the potential to take the reactor critical as early as this summer.\nNANO Nuclear has begun early site work and recently submitted a construction permit application to the NRC for deployment of their KRONOS reactor in Illinois.\nTerrestrial only has some recent document approvals from the NRC and agreements in place with the DOE. No meaningful progress has been made on constructing a pilot reactor or first-of-a-kind commercial-scale deployment.",
+  "published_at": "2026-05-06T16:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T21:00:42.394341Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

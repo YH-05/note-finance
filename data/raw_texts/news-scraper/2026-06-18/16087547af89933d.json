@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/03/20/choose-cnbc-preferred-source-google.html",
+  "title": "How to choose CNBC as a preferred source on Google",
+  "raw_text": "In an era of rapid-fire financial updates and market shifts, getting your news from a trusted source is more important than ever. Google has recently introduced a feature called \"Preferred Sources,\" which allows you to prioritize the outlets you trust most—like CNBC—directly within your search results and news feeds.\nBy following this guide, you can ensure that CNBC's market analysis, breaking business news, and real-time data appear prominently whenever you search for news.\nThis is the fastest way to ensure CNBC appears at the top of your Top Stories carousel on Google Search.\n- Sign in: Ensure you are logged into your Google account on your browser or mobile device.\n- Open source preferences: Navigate directly to Google's Source Preferences page.\n- Search for CNBC: In the search box labeled \"Search by name or website,\" type CNBC or cnbc.com.\n- Check the box: A checkbox will appear next to the CNBC logo. Click or tap to select it.\n- Reload: Tap \"Reload results\" at the bottom of the screen.\nNote: Once selected, CNBC articles will now appear in a dedicated \"From your sources\" section or at the front of the Top Stories carousel.",
+  "published_at": "2026-03-20T17:11:26Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.866867Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "media",
+    "tags": []
+  }
+}

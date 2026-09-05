@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/minnesota-prohibits-prediction-markets-promptly-gets-sued-by-trump-admin/",
+  "title": "Minnesota prohibits prediction markets, promptly gets sued by Trump admin",
+  "raw_text": "The Trump administration yesterday sued Minnesota in an attempt to block the first state law that prohibits prediction markets.\nWhile other states imposed restrictions on prediction markets, Minnesota banned them outright in a law signed by Gov. Tim Walz on Monday. The US Commodity Futures Trading Commission announced a lawsuit against the state, saying that Minnesota’s “new legislation represents the most aggressive move by a state to shut down CFTC-regulated markets and undermine the federal regulatory regime set up by Congress more than 50 years ago.”\n“This Minnesota law turns lawful operators and participants in prediction markets into felons overnight,” CFTC Chairman Michael Selig said. “Minnesota farmers have relied on critical hedging products on weather and crop-related events for decades to mitigate their risks. Governor Walz chose to put special interests first and American farmers and innovators last.”\nThe Minnesota law makes it a felony to create, operate, or advertise a prediction market. The CFTC asked the court for preliminary and permanent injunctions to prohibit Minnesota from enforcing the law, which is scheduled to take effect on August 1. The case was filed in US District Court for the District of Minnesota.\nCFTC asserts exclusive jurisdiction\nThe Minnesota law defines a prediction market as “a system that allows consumers to place a wager on the future outcome of a specified event that is not determined or affected by the performance of the parties to the contract.” The law’s specified events include but are not limited to sports games, wars, mass shootings, acts of terrorism, elections, court cases, deaths or assassinations, weather conditions, and pop culture events such as awards or release dates.\nMinnesota Attorney General Keith Ellison will defend the state law in court. “I’m very concerned about the harms of prediction markets on Minnesotans,” Ellison said in a statement provided to Ars. “Prediction markets are designed to be addictive and prey especially on young people and low-income folks. They help the ultra-rich get richer and the rest of us get poorer. My office and I are reviewing this lawsuit and will respond in court.”",
+  "published_at": "2026-05-20T18:20:56Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-21T03:00:31.288889Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "cftc",
+      "prediction markets"
+    ]
+  }
+}

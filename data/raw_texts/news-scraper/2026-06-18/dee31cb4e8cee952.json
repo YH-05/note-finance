@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/goldman-cuts-oil-forecast-as-hormuz-deal-brings-forward-supply-recovery.html",
+  "title": "Goldman Sachs cuts oil price forecast as Hormuz deal brings forward Gulf supply recovery",
+  "raw_text": "Goldman Sachs cut its oil price forecasts after President Donald Trump reached an interim deal with Iran to reopen the Strait of Hormuz, bringing forward the bank's estimated timeline for a recovery in Persian Gulf crude trade by a month. The Wall Street bank now sees Brent crude averaging $80 a barrel in the fourth quarter of 2026, down from the previous forecast of $90, a team of strategists led by Daan Struyven, co-head of global commodities research, said in a note Monday. The 2027 Brent forecast was trimmed to $75 from $80. Goldman also lowered its U.S. WTI estimates to $75 for the fourth quarter of 2026 and $70 for 2027. Trump and Iran's lead negotiator signed an agreement on Monday to extend a tenuous ceasefire by 60 days and reopen the Strait of Hormuz, raising hopes for an end to the historic energy shock that has roiled global markets and clouded the growth outlook. Brent crude prices dropped by nearly 5% on Monday to their lowest close since March 4. The deal prompted Goldman to bring forward its projected timeline for normalization of Persian Gulf exports to pre-war levels — by one month to end-July — with oil production now expected to recover fully by October. Goldman estimates that normalization could be achieved with a 12 million barrels-per-day increase in Hormuz flows from current levels, bringing volumes back to just 70% of pre-war levels. Additional supply could come from oil producers Saudi Arabia and the United Arab Emirates ramping output above pre-war levels to replenish depleted commercial stocks held by OECD (Organisation for Economic Co-operation and Development), or from potential relief of sanctions on Iranian oil, Goldman said. Despite projecting a 3.2 million barrel-per-day global supply surplus in 2027, Goldman sees Brent prices holding near their long-term fair value of $75 a barrel. Inventories are unlikely to fully rebuild given the scale of draws in the first half-year and ongoing government stockpiling, the bank said, while lingering geopolitical risk premium would keep a floor under prices. Despite the optimism following the announcement, full details of the memorandum have not been disclosed, with a signing ceremony scheduled on Friday in Geneva, to be attended by U.S. Vice President JD Vance and chief Iranian negotiator Mohammad Bagher Ghalibaf. Risks to supply recovery remain as hostilities in the region may resume, mine-clearing could delay the reopening of shipping lanes, or Iran could move to close the Strait again if nuclear talks stall, Goldman analysts said. Should Hormuz remain disrupted through 2027 with Gulf exports recovering only gradually, Brent could rise above $130 in late 2026 and average $105 for the year, the bank estimates. But in a more benign outcome, showing early normalization, stickier demand losses, and stronger supply, prices could average below $70 in Q4 2026 and below $60 in 2027.",
+  "published_at": "2026-06-16T05:53:17Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.812800Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

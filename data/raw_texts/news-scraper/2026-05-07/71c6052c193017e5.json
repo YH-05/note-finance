@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/rfk-jr-plans-to-curb-antidepressants-which-he-falsely-compares-to-heroin/",
+  "title": "RFK Jr. plans to curb antidepressants, which he falsely compares to heroin",
+  "raw_text": "In a brief appearance at a Make America Healthy Again Institute event Monday, anti-vaccine Health Secretary Robert F. Kennedy Jr. announced new federal initiatives to curb prescribing of antidepressants, which he has long attacked with false and dangerous claims. Mental health experts have previously condemned his rhetoric and are already pushing back on his new efforts.\nThe MAHA event was focused on “overmedicalization,” with participants broadly alleging—without evidence—that too many Americans, particularly youths, are overprescribed antidepressants in the class of selective serotonin reuptake inhibitors, or SSRIs. This class includes common medications such as Zoloft, Prozac, Paxil, and Lexapro, which are used to treat depression, anxiety, and post-traumatic stress disorder, among other conditions. Event participants focused on claims that the drugs are prescribed without informed consent, are harmful, and can be difficult to stop taking.\nFalse claims\nThe topics closely echo Kennedy’s claims. Among his many dangerous, evidence-free statements, he has suggested that too many people, including children, are put on SSRIs and that they make people violent. He has even suggested that they are the cause of mass shootings, including school shootings. In a podcast last year, he made the heinous claim that “every Black kid is now just standard put on Adderall, SSRIs, benzos, which are known to induce violence.” His suggested solution is for black children to be “reparented” and work on farms.\nKennedy has also repeatedly made the false claim that quitting antidepressants is extremely difficult, harder to quit than heroin. But experts have debunked the claim—there is no research to back the suggestion. When Kennedy repeated it in his confirmation hearing in January 2025, Keith Humphreys, who studies addiction at Stanford University, emphasized to NPR that antidepressants and heroin “are in different universes when it comes to addiction risk.”",
+  "published_at": "2026-05-05T19:32:38Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-07T03:00:30.564568Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "antidepressants",
+      "depression",
+      "heroin",
+      "MAHA",
+      "robert f kennedy jr",
+      "SSRI"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/60-consumer-ecosystems/20297-pldts-smart-to-bundle-rokid-ai-glasses-with-postpaid-plans.html",
+  "title": "PLDT’s Smart to bundle Rokid AI glasses with postpaid plans",
+  "raw_text": "PLDT’s wireless arm Smart Communications announced on Tuesday it will bundle AI-powered glasses with native access to Google Gemini with two postpaid plans starting this Friday.\nThe offer is the result of an exclusive partnership between Smart and Chinese tech firm Rokid, which Smart said marks its expansion into next-generation devices, particularly AI wearables.\nRokid's AI glasses are powered by native Google Gemini integration, enabling users to access Google's AI assistant directly. Gemini supports natural voice conversations, real-time language translation, intelligent search, content generation, task management, and contextual assistance, all accessible through the Rokid glasses.\nSmart noted that the international version of Rokid’s AI glasses was recently updated to support other large language models, including OpenAI's ChatGPT, DeepSeek, and Alibaba's Qwen. Smart said this will give users more flexibility in accessing a range of AI-powered assistance and services through a single device.\nSmart will offer the Rokid glasses via its Smart Postpaid and Infinity plans. Smart Postpaid customers will have to pay an extra PHP28,800 (US$467.30) for the glasses (which is somewhat cheaper compared to retail prices in local electronics stores), but will also get 40GB open-access data, unlimited 5G data for 12 months, and unlimited SMS and voice calls (mobile and landline). Smart Infinity members on Plan 8000 can get the glasses free of charge.\n“By making Rokid AI Glasses available on Smart Postpaid and Infinity Plans, we are enabling more Filipinos to experience the future of connectivity today,” said Marjorie Garrovillo, first VP and Co-OIC at Smart.",
+  "published_at": "2026-05-26T05:01:38Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-26T09:01:32.357404Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Consumer Ecosystems"
+    ]
+  }
+}

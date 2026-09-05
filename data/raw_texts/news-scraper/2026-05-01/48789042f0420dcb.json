@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/04/in-motorsport-theres-nowhere-to-hide-as-ai-becomes-new-cfd-tool/",
+  "title": "In motorsport, there's nowhere to hide as AI becomes new CFD tool",
+  "raw_text": "Since the introduction of wings to racing cars halfway through the 1960s, airflow has been everything in racing. Until that point, the focus was on making a car as slippery as possible; less drag meant more top speed on the straights. Then designers like Jim Hall at Chaparral and Colin Chapman at Lotus realized they could use the air to push the car onto the track, increasing grip and allowing it to go faster through the corners. Things haven’t been the same since.\nFinding aerodynamic downforce started as something of a dark art. The use of wind tunnels to simulate its effect on scale models of cars was in its infancy, so teams were mostly limited to expensive and sometimes dangerous track testing. But wind tunnels can run day and night, rain or shine, and you can’t crash a car or injure a driver (or worse) in the process. Wind tunnel work became even more important when F1 began restricting on-track testing to help teams cut budgets. Consequently, teams would do as much work with models as possible before validating the results during the limited test sessions they were allowed.\nComputational fluid dynamics (CFD) simulation came next. In racing, everyone is looking for an advantage over their competitors, and it was finally possible to model, with some fidelity, the effect of airflow on a virtual model of a car. Not only were CFD sims cheaper than wind tunnel time, but they were also much faster at iterating. Early design work is now done in silico before being validated with scale models in a wind tunnel, as most series—including Formula 1, the World Endurance Championship, Formula E, and NASCAR—have tightly restricted on-track testing.\nBut as CFD has gotten more capable, it has also become more expensive. It can take thousands of hours of processor time to model a car, and tens of thousands more once you start to explore the effect of things like pitch and yaw. This, too, has become a new bottleneck for motorsport teams, which is why they’re increasingly looking to AI to serve as the next helper.",
+  "published_at": "2026-04-30T15:37:41Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-01T15:00:30.620600Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "F1",
+      "ibm",
+      "Motorsport"
+    ]
+  }
+}

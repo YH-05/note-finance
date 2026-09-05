@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/jpmorgan-traders-are-getting-worried-and-have-turned-cautious-on-the-market.html",
+  "title": "JPMorgan traders are getting worried and have turned cautious on the market. Here's why",
+  "raw_text": "JPMorgan's traders are getting nervous about the state of the current stock market. Traders at the bank said Monday that they've turned \"tactically cautious\" on stocks, until volatility in the bond market and selling in technology stocks subside. Though they remain confident in the underlying fundamentals of the market, they said they expect choppier action over the near term. \"The market setup points to an imminent pullback,\" read a note from the firm's trading desk on Monday. \"Stocks may take a couple weeks to find their footing,\" after Friday's debacle, when the S & P 500 sank more than 2.6%. Recent trading sessions have been especially volatile. Stocks rebounded Monday, after a violent chip selloff Friday drove the Nasdaq Composite down 4% to its worst day in more than a year. Traders bought the dip Monday, with shares of Micron Technology , as an example, climbing 9%. The JPMorgan trading desk expects that the selling in tech could continue, especially ahead of this week's SpaceX IPO, which could drive investors to take profits in highflying sectors such as semiconductors in order to buy the rocket and satellite maker. But there may not be enough support from other sectors to lift the entire market, in that scenario. On Friday, for example, the major market averages all suffered severe pullbacks, even though roughly half of the S & P 500 sectors were actually positive. Bond concern The bond market is another area of concern. The yield on the 10-year Treasury continues to remain above 4.5%, and any indications of higher inflation in the May consumer or producer price indexes due out on Wednesday and Thursday this week could drive rates higher still. To be sure, the bank's traders remain confident that the forces underpinning the stock market continue to be healthy, thanks to strong corporate earnings and an improving macroeconomy. Friday's jobs report, for example, confirmed the labor market is keeping up a surprisingly robust pace of hiring. But the near-term setup remains challenging. For the time being, the JPMorgan trading desk said it's choosing to go long value stocks over growth issues, instead allocating to defensive areas, such as consumer staples, utilities and energy, rather than more cyclical companies. \"We do feel comfortable buying the dip though we think it makes sense to leg into a position over the course of this week and next,\" read the note.",
+  "published_at": "2026-06-08T16:04:09Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.173876Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

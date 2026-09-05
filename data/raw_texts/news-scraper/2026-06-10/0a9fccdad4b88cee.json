@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/mediocre-3y-auction-tails-despite-solid-buyside-demand",
+  "title": "Mediocre 3Y Auction Tails Despite Solid Buyside Demand",
+  "raw_text": "With markets thrown in turmoil following Trump's threat to restart war against Iran in retaliation for downing a US Apache helicopter, it wasn't clear how today's $58 billion 3 year auction would go. In the end, it wasn't great, or terrible: a little tail, but besides that all metrics were relatively solid.\nThe auction priced at a high yield of 4.192%, up from 3.965% in May and the highest yield since Feb '25. It tailed the When Issued 4.189% by 0.3bps, the 2nd consecutive tail.\nThe bid to cover was 2.645, up from 2.540 last month, and above the recent average of 2.614.\nThe internals were also solid, with Indirects awarded 63.7%, up from 62.96%, though just below the 6-auction average of 63.87%. Directs were awarded 21.01%, modestly higher than 20.14% last month leaving dealers holding 15.28%, a slight decline from 16.90% last month.\nOverall, this was an average auction, with forgettable metrics, which was to be expected in light of the broader market selling that provided a buffer to any lack of buyer demand. It also signaled that despite expectations that tomorrow's CPI will be the first 4%+ print in 4 years, the bond market isn't too worried... yet.",
+  "published_at": "2026-06-09T17:28:50Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-10T03:00:36.618157Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

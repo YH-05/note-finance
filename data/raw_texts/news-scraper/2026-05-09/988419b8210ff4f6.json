@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/whoop-on-demand-clinician-access.html",
+  "title": "Fitness wearable Whoop to offer on-demand clinician access to U.S. users",
+  "raw_text": "Wearable fitness tracker Whoop announced on Friday it will introduce in-app access to on-demand licensed clinicians for users in the United States.\nThe new feature comes alongside a suite of health and artificial intelligence-driven features launching globally that will allow users to connect their continuous biometric data with medical guidance in real time.\nMany of the new features are included in the price of membership, though live video consultation for U.S. users will come at an additional cost. Pricing and details will be available when that option launches this summer, according to the company.\n\"Whoop is a membership, and we take that seriously,\" said Ed Baker, chief product officer of Whoop, in the press release. \"We're always asking how we can deliver more value to our members, and these upcoming features are some of the most meaningful we've ever built.\"\nWhoop, which has over 2.5 million users globally, closed a $575 million funding round in March that raised the company's valuation to $10.1 billion, it said.\nMedical consultations will begin with a comprehensive evaluation of data collected by the device and, when available, blood work and medical history, the company said in its release.\nA spokesperson told CNBC the video consultation feature is designed to complement a user's existing care, not replace a primary doctor or emergency service. The company said later Friday that details on prescribing via the service \"aren't available at this time.\"\n\"As our data and coaching insights have become more advanced and personalized, the next step is giving members access to a comprehensive understanding of their overall health,\" Whoop CEO Will Ahmed told CNBC.\nThe update also includes a partnership with health records keeper HealthEx. Users will be able to keep track of diagnoses, medications and procedures directly within the Whoop app and receive AI-powered personalized coaching and proactive check-in reminders.\nIt comes less than a year after the U.S. Food and Drug Administration sent Whoop a warning letter over its Blood Pressure Insights feature. The FDA said Whoop was marketing an unauthorized medical device intended to diagnose, cure, treat or prevent a disease.\nNew FDA guidance issued in January, however, allows optical sensing blood pressure measurements in wellness devices, provided they make no \"medical-grade\" diagnostic claims.",
+  "published_at": "2026-05-08T19:26:06Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.662234Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

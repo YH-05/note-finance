@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/948890/siri-wont-be-your-ai-girlfriend",
+  "title": "Siri won’t be your AI girlfriend",
+  "raw_text": "Our early testing has already shown that Siri AI knows when to shut up, and that’s very much by design. In an interview with Mostly Human spotted by MacRumors, Craig Federighi said Apple’s new Siri won’t act all sycophantic like chatbots made by OpenAI, Google, and others.\nSiri won’t be your AI girlfriend\n‘Siri’s 100 percent not into that.‘\n‘Siri’s 100 percent not into that.‘\n“As you may know, if you use many of the existing chatbots, they’re really focused on engagement to a large degree,” said Federighi who is responsible for software at Apple. “And sycophancy, right? They kind of want to pull you in. They might encourage you to reveal things about yourself, and then use that as a basis to establish a connection.”\nApple purposely took a different approach with its AI chatbot. “We view it quite the opposite,” said Federighi. “I mean, the way that we have designed Siri, Siri really wants to say ‘Listen, that’s not what I’m here for, right? I’m here to help you. I can help you get things done. I can help you learn about the world.’ But if you try to engage Siri as a romantic partner, Siri’s not up for that. Siri’s 100 percent not into that.”\nThe interview, which included marketing chief Greg Joswiak, covers a variety of topics, including privacy and Apple’s new child safety protections.",
+  "published_at": "2026-06-12T07:00:31Z",
+  "author": "Thomas Ricker",
+  "collected_at": "2026-06-12T09:00:16.438977Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apple",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/treasury-yields-investors-await-warsh-fed-decision.html",
+  "title": "Treasury yields are little changed as investors await Fed interest rates decision",
+  "raw_text": "U.S. Treasury yields were little changed on Wednesday as investors await the outcome of Kevin Warsh's first Federal Reserve policy meeting.\nThe yield on the 10-year U.S. Treasury note — the key benchmark for U.S. government borrowing — rose less than 1 basis point to 4.435%.\nThe 2-year Treasury note yield, which more closely tracks short-term Federal Reserve interest rate policy, was up more than 1 basis point at 4.066%. The longer-dated 30-year Treasury bond yield advanced less than 1 basis point to 4.93%.\nOne basis point is equal to 0.01%, and yields and prices move in opposite directions.\nWednesday's Federal Open Market Committee meeting marks the first under Kevin Warsh at the helm. Investors are largely expecting that the Fed will keep interest rates unchanged at a target range of 3.5% to 3.75%.\nHowever, most Wall Street Fed watchers anticipate that Warsh won't submit a \"dot\" to the FOMC's quarterly update of where individual officers expect rates to head from here.\n\"Whilst the statement should turn more hawkish, Warsh may want to communicate his more dovish view, though probably not explicitly,\" wrote ING's senior European rates strategist Michiel Tukker in a note this morning. \"He could, for example, reiterate his conviction about AI-related productivity growth, which would justify lower policy rates further in the future.\"\nInvestors will also be monitoring Warsh's communication style, after 8 years of listening for monetary policy clues from Jerome Powell, who closed out his tenure as Fed chair in May.\n\"Wednesday's FOMC meeting is arguably the most important one in recent memory, since investors will now have to get used to the new Fed Chair's communication style, which is an adjustment period for markets,\" said James Demmert, chief investment officer at Main Street Research.",
+  "published_at": "2026-06-17T13:36:18Z",
+  "author": null,
+  "collected_at": "2026-06-17T15:20:09.659559Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

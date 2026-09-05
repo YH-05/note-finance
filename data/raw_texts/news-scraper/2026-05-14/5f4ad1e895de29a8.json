@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/forecasters-predict-wildfires-floods-severe-heatwaves-from-incoming-el-nino/",
+  "title": "Forecasters predict wildfires, floods, severe heatwaves from incoming El Niño",
+  "raw_text": "Scientists said this week that a developing El Niño is likely to amplify heatwaves, droughts and floods this year, but warned that the long-term warming caused by burning fossil fuels remains the main driver of climate extremes.\nEl Niño is the warm phase of a semi-regular temperature oscillation in the tropical Pacific Ocean, during which massive amounts of heat stored in the ocean are released into the atmosphere, temporarily raising the average annual global surface temperature by as much as 0.3 degrees Fahrenheit.\nDuring an online briefing this week, researchers said that the consequences of a moderate or strong El Niño today are more damaging than those of similar events just a few decades ago because the entire global climate system is now substantially warmer.\nIf the projected El Niño emerges on top of that warmer climate, there is a “serious risk of unprecedented weather extremes” that would not have happened during similar historical El Niños, said Fredi Otto, a professor in climate science at Imperial College London and a lead researcher with World Weather Attribution, a research group assessing how global warming affects climate extremes.\nEl Niño conditions in 2015-2016 and 2023-2024 helped boost Earth’s long-running fever to new records; climatologists expect another spike in the months ahead. But the planet’s temperature will keep reaching new record highs in any case “because of human-induced climate change,” Otto said during the press conference.\nWorld Weather Attribution has assessed the effects of global warming on more than 100 extreme climate events since 2014. Often, she said, those studies try to isolate El Niño’s role in a particular extreme event to accurately measure the effect of human-caused warming.",
+  "published_at": "2026-05-14T13:09:46Z",
+  "author": "Bob Berwyn, Inside Climate News",
+  "collected_at": "2026-05-14T15:00:30.576852Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "climate change",
+      "drought",
+      "El Niño",
+      "wildfires"
+    ]
+  }
+}

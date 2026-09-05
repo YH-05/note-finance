@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/federal-prosecutors-expand-investigation-alleged-political-debanking-major-banks",
+  "title": "DOJ Probes Big Banks For Alleged \"Debanking\" Of Clients",
+  "raw_text": "The US Dept of Justice is intensifying scrutiny of some of the country’s largest financial institutions over allegations that customers were denied banking services, or \"debanked\" for political or ideological reasons, according to the Wall Street Journal.\nThe US Attorney’s Office for the District of Columbia, led by Jeanine Pirro, has reportedly issued subpoenas to several major banks, including JPMorgan Chase, Bank of America, and Wells Fargo. Investigators are seeking information on account closures, customer offboarding decisions, and internal records explaining why certain individuals or businesses were denied access to banking services.\nAccording to the WSJ, the inquiry builds on a broader effort launched by the Trump administration to examine claims that banks used their market power to exclude politically disfavored customers or entire industries from the financial system. Supporters of the investigation argue that concerns about debanking have circulated for years, particularly among conservatives and businesses operating in controversial but legal sectors, yet have received limited attention from regulators and law enforcement.\nAccording to reports, prosecutors are requesting lists of customers who may have been removed from banking relationships, as well as documentation supporting those decisions. The investigation appears to be running alongside a review by federal banking regulators, including the Office of the Comptroller of the Currency (OCC), which previously indicated it had found preliminary evidence suggesting certain industries may have faced heightened barriers to banking access.\nBanks have consistently rejected accusations that political affiliation plays any role in their decisions. Industry representatives maintain that account closures are driven by compliance obligations, anti-money-laundering requirements, risk management concerns, and other regulatory expectations imposed on financial institutions.\nA central issue for investigators will be whether any laws were violated when banks chose to terminate customer relationships or avoid particular sectors altogether. Prosecutors are reportedly evaluating potential claims under the Financial Institutions Reform, Recovery and Enforcement Act (FIRREA), a statute that has historically been used in major financial misconduct cases.\nThe investigation represents one of the most significant federal efforts to date to examine allegations of politically motivated debanking. Whether it ultimately uncovers unlawful conduct remains to be seen, but for many observers, the fact that federal authorities are now formally examining these claims is a step that should have happened years ago.",
+  "published_at": "2026-06-12T12:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-12T15:00:36.706149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

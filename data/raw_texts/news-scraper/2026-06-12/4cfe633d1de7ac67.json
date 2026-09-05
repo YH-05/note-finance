@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://mapcomplete.org/",
+  "title": "MapComplete: Maps about various topics which you can contribute to",
+  "raw_text": "<p>Article URL: <a href=\"https://mapcomplete.org/\">https://mapcomplete.org/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48490532\">https://news.ycombinator.com/item?id=48490532</a></p>\n<p>Points: 180</p>\n<p># Comments: 43</p>",
+  "published_at": "2026-06-11T14:04:05Z",
+  "author": "GTP",
+  "collected_at": "2026-06-12T03:01:08.049438Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

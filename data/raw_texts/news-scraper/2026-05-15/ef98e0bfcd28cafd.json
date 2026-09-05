@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/your-doctors-ai-notetaker-may-be-making-things-up-ontario-audit-finds/",
+  "title": "Your doctor’s AI notetaker may be making things up, Ontario audit finds",
+  "raw_text": "In recent years, many overworked doctors have turned to so-called AI medical scribes to help automatically summarize patient conversations, diagnoses, and care decisions into structured notes for health record logging. But a recent audit by the auditor general of Ontario found that AI scribes recommended by the provincial government regularly generated incorrect, incomplete and hallucinated information that could “potentially result in inadequate or harmful treatment plans that may potentially impact patient health outcomes.”\nIn a recent report on Use of Artificial Intelligence in the Ontario Government, the auditor general reviewed transcription tests of two simulated patient-doctor conversations performed across 20 AI scribe vendors that were approved and pre-qualified by the provincial government for purchase by healthcare providers. All 20 of those vendors showed some issue with accuracy or completeness in at least one of these simple tests, including nine that hallucinated patient information, 12 that recorded information incorrectly, and 17 that missed key details about discussed mental health issues.\nIn the report, the auditor general points out multiple concerning examples of mistakes in those summaries that could have a direct and negative impact on a patient’s subsequent care. That includes situations where an AI scribe hallucinated nonexistent referrals for blood tests or therapy, incorrectly transcribed the names of prescription medication, and/or missed “key details” of mental health issues discussed in the simulated conversations.",
+  "published_at": "2026-05-14T17:28:43Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-15T03:00:30.483739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Health",
+      "audit",
+      "doctor",
+      "government",
+      "medical",
+      "Ontario",
+      "scribe",
+      "summary",
+      "tools"
+    ]
+  }
+}

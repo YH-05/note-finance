@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/cnbc-daily-open-may-day-dawns.html",
+  "title": "CNBC Daily Open: May Day dawns",
+  "raw_text": "Hello, this is Katie Foley, writing to you from London.\nThat eerie calm you've noticed this morning isn't some kind of Goldilocks trade. The vast majority of global stock markets are closed for the Labour Day holiday. In Asia there's no trade in Hong Kong or the Mainland, South Korea, Taiwan, India or across Southeast Asia.\nIn Europe, U.K. stocks will go it alone today with futures currently pointing to an extremely muted start to trade.\nSo, if you're on the Continent - think of us as you're enjoying your lie-in.\nMay trade starts from a position of strength, after a strong April. Both the pan-European STOXX 600 and the German DAX saw their best month in more than a year. But it was Italian stocks that outshone everyone - gaining almost 9% for their best monthly performance since January 2023.\nThe European Central Bank and Bank of England held rates as expected, but the spectre of the first hike ahead rises. Traders are now pricing a 75% chance the ECB hikes in June, and a more than 50% chance that the Bank of England does the same, according to LSEG data.\nBank of England Governor Andrew Bailey told CNBC's Ritika Gupta policymakers must contend with the \"most difficult combination\" of economic effects, as the U.K. faces the consequences of an energy price shock.\nStateside, Apple issued a better-than-expected revenue forecast for the current period after beating on sales and earnings in the fiscal second quarter.\nLooking ahead to the weekend, OPEC+ meets for the first time without UAE on Sunday.\n— Katie Foley\nElectric carmakers in China are layering on more of the same artificial intelligence features as they try to survive a prolonged price war in the world's largest auto market.\nThe competition has shifted over the last few years, from extending battery range to rolling out driver-assist systems and using more powerful automotive chips. Now, automakers are focusing on a suite of in-car AI features.\nMore than 50 car brands now use ByteDance's Doubao AI model, the company's cloud platform Volcano Engine announced last Friday at the Beijing auto show, where the tech unit had a booth next to robotaxi company Pony.ai.\n— Evelyn Cheng",
+  "published_at": "2026-05-01T06:36:04Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.531144Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20260-satellite-intelligence-company-iceye-says-it-plans-to-enter-indian-market.html",
+  "title": "Satellite intelligence company ICEYE says it plans to enter Indian market",
+  "raw_text": "ICEYE, a major name in space-based intelligence, is apparently planning to establish its first Indian production facility within the next year to manufacture small satellites.\nAccording to news service PTI, Rafal Modrzewski, the CEO and co-founder of the company, has said that the facility will serve as the company's primary manufacturing hub for the Asia-Pacific region, complementing its existing operations in Europe and the United States.\nThe precise investment sum was not revealed, though it is said to be in the range of tens of millions of dollars. The company is aiming to manufacture around ten satellites in the first year and will scale production up to 20 to 40 satellites a year after this.\nThere appears to be no precise timeline for startup yet, though ICEYE is said to be holding talks with relevant Indian government departments on its plan.\nICEYE says it owns the world's most advanced SAR (synthetic aperture radar) satellite constellation and provides intelligence and surveillance services to its customers. ICEYE-built constellations serve customers in defence and intelligence, environmental monitoring, insurance and emergency management.\nThe company has been making headlines in a number of diverse markets in the past 18 months, including Sri Lanka, Ukraine and, as we reported late last year, Slovakia, where EMIS, a provider of geospatial information systems (GIS) in the country, and ICEYE announced a strategic partnership to expand access to critical, near real-time hazard information, including satellite-derived flood intelligence, for Slovak authorities.\nIt also entered a partnership in April 2025 with conservation group the Jane Goodall Institute USA (JGI) to deploy its Deforestation Solution across conservation corridors in the Congo Basin, with initial operations focused on the eastern Democratic Republic of Congo (DRC).\nICEYE's SAR constellation operates day and night in any weather, delivering consistent observation where optical systems are blind. This provides JGI's field teams and conservation partners in the DRC with near real-time situational awareness that directly informs patrol planning, enforcement coordination, and resource allocation.",
+  "published_at": "2026-05-18T07:50:25Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-26T03:01:25.908330Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

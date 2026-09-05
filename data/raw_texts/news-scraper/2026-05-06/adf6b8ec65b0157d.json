@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/oil-prices-above-110-are-starting-to-matter-to-the-stock-market-again.html",
+  "title": "Oil prices above $110 are starting to matter to the stock market again",
+  "raw_text": "Oil is starting to matter to the stock market again. Stocks have had a curious relationship to oil prices over the last month, with the two assets rising in tandem. Since the close of April 8 , around when President Donald Trump announced a fragile ceasefire with Iran, the S & P 500 rallied 7.2%, while WTI crude futures jumped more than 8%. Part of the enthusiasm around stocks has to do a strong earnings season that revived investor confidence in the artificial intelligence narrative. Now, however, it seems that stocks and oil are starting to move opposite one another again. On Tuesday, stocks rose as oil prices slid on hopes of a more permanent resolution on the warfront; on Monday, stocks fell as oil rose on fears of an escalating conflict. Brent crude futures were last above $110 a barrel, even after sliding more than 2% on Tuesday. \"Markets are anticipating further easing in geopolitical tensions, helping to soften the drag higher oil prices exert on equities,\" Adam Turnquist, chief technical strategist at LPL Financial, wrote last week. \"Still, oil prices remain elevated at uncomfortable levels, and extending the equity rally will likely depend on additional de-escalation.\" Indeed, the correlation between the two assets is the most inverted it's been in 20 years, on a rolling 60-day basis. Stocks and oil rising in tandem has confused investors who worry that the stock market isn't taking the threat of higher oil seriously, especially when higher fuel prices are already affecting consumers at the pump. To be sure, there are reasons to believe that the latest bull market rally could continue. Stocks are at all-time highs, largely because the fundamental picture remains bright. Take the current earnings season, for example. According to Deutsche Bank Research, AI beneficiaries grew first-quarter earnings by 50% on a year-over-year basis, up from 32% in the fourth quarter. But now it could be the case that the macroeconomy has started to reassert itself with the bulk of first- quarter reports behind investors. Those who worry about oil prices remaining higher for longer are concerned the stock market is vulnerable to a scenario in which the Strait of Hormuz is closed for longer than expected. Already, there are some signs of demand destruction. One study analyzing credit card data from Barclays found that gasoline consumption is suddenly down 8% year over year on a rolling 30-day basis, as consumers seeing higher prices at the pump do what they can to rein in spending.",
+  "published_at": "2026-05-05T19:55:50Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.670376Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

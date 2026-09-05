@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://nltimes.nl/2026/06/05/dutch-govt-will-allow-european-company-operate-digid-platform",
+  "title": "Dutch gov't will only allow European company to operate DigiD platform",
+  "raw_text": "Dutch gov't will only allow European company to operate DigiD platform\nThe next company to manage part of DigiD must be European, State Secretary Eric van der Burg of Interior wrote in a letter to parliament. The tender for the contract after August 2028 will be conducted via the Defense and Security Procurement Act (ADV).\n“The reason for this is that the ADV offers more possibilities than a regular European tender to limit risks to national security,” said the VVD Cabinet member. The ADV stipulates that only European companies are eligible to guarantee security.\nCurrently, DigiD is partially managed by Solvinity, a company owned by a British investor. The American company Kyndryl wanted to acquire that company.\nThe Cabinet blocked that takeover last week following advice from the Investment Review Office (BTI). Parliament was concerned that the U.S. government would gain access to DigiD or could shut it down via Kyndryl.\nThe company itself stated that it would do everything possible to prevent this, but could not guarantee that it was impossible. Due to U.S. legislation, the government there can intervene excessively or request data from American tech companies.\nBy conducting the next tender through the ADV, countries with such legislation are excluded from the management of DigiD, Van der Burg said.\nThe State Secretary also said that data on DigiD and MijnOverheid will be better encrypted following recommendations from a non-public investigation into the possible acquisition of Solvinity by Kyndryl.\nReporting by ANP",
+  "published_at": "2026-06-05T14:48:44Z",
+  "author": "TechTechTech",
+  "collected_at": "2026-06-06T09:00:48.165704Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

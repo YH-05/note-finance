@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/nvidia-backs-ai-legal-tech-legora.html",
+  "title": "Nvidia just invested in the AI legal startup that's splashing Jude Law ads everywhere",
+  "raw_text": "Nvidia's venture arm, NVentures, has invested in Swedish AI legal tech Legora at a $5.6 billion valuation, as the chip giant continues to ramp up startup funding across the globe.\nLegora on Thursday exclusively told CNBC that Nvidia had backed it as part of a $50 million extension of its Series D, which brought the total amount to $600 million following a first close in March. The extension also saw Atlassian, Adams Street Partners and Insight participate.\nInvestors have been piling into promising young AI companies as they bet big on the commercial potential of tech to reshape entire industries and bring big efficiency gains.\nNvidia has been ramping up startup investments in recent years, as its looked to deepen its ties to some of the world's most promising companies, offering technical expertise and supply chain assistance, alongside hard cash.\nLegora is its first bet in the legal tech sector, according to Dealroom data. The size of its investment was not disclosed.\nThe AI startup is building AI agents and tools to help lawyers automate and streamline workflows. The company launched an ad campaign this month featuring the actor Jude Law, using the slogan: \"Law just got more attractive.\"\n\"Enterprise AI is now entering a new phase,\" Max Junestrand, Legora's CEO and cofounder, said in a statement.\n\"Foundation models are improving rapidly, but the real breakthrough is in how they're applied, where AI doesn't just assist, but executes autonomously with the right level of human oversight. With the support of our investors and customers, we're building a full agentic operating system for legal work\".\nAs U.S. AI companies, including the likes of OpenAI and Anthropic, have raised huge sums already in 2026, Legora is part of a cohort of European tech companies also picking up record funding.\nAI startups in Europe have raised $15.1 billion so far this year, according to Dealroom, which is on track to surpass the $21.6 billion picked up in 2025.\nAmid the investment boom, legal tech using AI raised $3.7 billion globally in 2025, a figure set to be roughly matched in 2026, if funding levels for the first five months of the year continue.\nIn March, alongside Legora's big round, U.S. rival Harvey raised $200 million at an $11 billion valuation.\nOver the past year, Legora has grown from 40 to 400 team members across Stockholm, London, New York, Denver, Sydney and Bengaluru.\nThe company says it recently surpassed $100 million in annual recurring revenue and now serves tens of thousands of legal professionals at major corporate legal departments, such as Barclays, as well as leading law firms, such as White & Case, HSFK, and Linklaters.",
+  "published_at": "2026-04-30T08:59:35Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.374046Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

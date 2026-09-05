@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/923994/remarkable-e-ink-tablet-paper-pure-black-and-white-pricing-availability",
+  "title": "Remarkable’s next E Ink digital notepad skips the color screen",
+  "raw_text": "Remarkable announced a new paper tablet today — albeit one without the advanced color screen found in its recent Paper Pro and Paper Pro Move tablets. The new Remarkable Paper Pure instead features an upgraded version of the black-and-white E Ink display found in the Remarkable 2 that launched over six years ago, and once again skips any screen lighting. Thanks to the new display and under-the-hood upgrades, the company says the Paper Pure is twice as fast at “navigating, zooming, and turning pages” when compared to the Remarkable 2.\nRemarkable’s next E Ink digital notepad skips the color screen\nThe Paper Pure replaces the Remarkable 2 with an upgraded screen, improved speed, and the same $399 price.\nThe Paper Pure replaces the Remarkable 2 with an upgraded screen, improved speed, and the same $399 price.\nThe Remarkable Paper Pure is available for preorder today for $399 through the company’s online store, with shipping expected to start in early June. That’s the same price as the Remarkable 2, which the Paper Pure will replace, and cheaper than the $449 Paper Pro Move and larger $629 Paper Pro tablets.\nThe Paper Pure will also be available as part of a more expensive $449 bundle that adds an upgraded stylus with a dedicated eraser button on the end and a Sleeve Folio case in ocean blue, mist green, and desert pink color options. An optional $3.99/month or $39/year Connect subscription is also available, adding unlimited cloud storage and advanced features like editing notes in Remarkable’s apps, searching handwritten notes, and sending documents straight to services like Slack.\nThe Paper Pure’s 10.3-inch third-generation Canvas E Ink screen is the same size and resolution as the Remarkable 2’s, but the company calls it its “whitest yet.” It’s based on E Ink’s Carta 1300 display, which offers improved contrast and refresh speeds. The tablet itself is shorter and slightly thicker than the Remarkable 2 at 6mm, but weighs 360 grams, while its predecessor was nearly 404 grams.\nPart of the weight savings comes from a plastic rear cover that’s now attached with screws and snaps to make repairs easier. However, the Paper Pure uses a larger 3,820mAh battery the company says will last up to three weeks per charge when used for about an hour per day. The tablet’s Marker pen also needs charging as it uses the same active stylus as Remarkable’s color screen devices, but it powers up while magnetically attached to the side of the Paper Pure.\nAlongside the hardware refresh comes a few new software features, but these won’t be exclusive to the Paper Pure. Remarkable’s tablets will be able to connect to Google Calendar or Microsoft Outlook for creating meeting-specific notes that are prefilled with agenda information from an invite. Documents imported from Word, or webpages exported from Chrome or Remarkable’s app, can also be converted to Remarkable’s native notebook format, allowing them to be fully edited and modified with improved formatting.",
+  "published_at": "2026-05-06T12:00:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-06T15:00:16.595604Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

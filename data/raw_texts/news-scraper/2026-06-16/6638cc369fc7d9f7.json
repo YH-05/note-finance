@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/have-politics-finally-come-for-the-national-academies-of-science/",
+  "title": "Have politics finally come for the National Academies of Science?",
+  "raw_text": "Founded during the US Civil War to provide advice to the government, the National Academies of Science have become one of the most prestigious scientific organizations. Its primary function is to prepare comprehensive reports on scientific and technological issues, aided by its ability to attract top talent from across the country.\nThose reports have not been afraid to weigh in on matters of public controversy and risk offending powerful groups, which it has managed to do without losing the respect of the governmental organizations that fund these reports. But this year, there have been increasing signs that the Academies’ ability to dodge political firestorms has reached its limit. Yesterday, a deeply reported story from Politico explained the breakdown between the National Academies and Republican politicians.\nThe National Academies is preparing an expert report on attribution of weather events to human-driven climate change, and fossil fuel companies are worried it will lead to findings of liability in the many cases where those companies are being sued.\nA fight over climate\nIn public, the National Academies has been very circumspect in its approach to the overt hostility toward science displayed by the Trump administration. The organization’s president, Marcia McNutt, almost completely ignored the attacks in her annual “state of the science” address last year, and repeated that approach in this year’s. But that hasn’t helped the organization stay out of Republican crosshairs.\nThe problem, apparently, was projects that were started during previous administrations. One of these was the production of the fourth edition of the Reference Manual on Scientific Evidence. This was prepared for the Federal Judicial Center to help judges determine how to handle scientific issues that come before the courts.",
+  "published_at": "2026-06-12T18:31:36Z",
+  "author": "John Timmer",
+  "collected_at": "2026-06-16T03:00:31.381574Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "climate change",
+      "National Academies",
+      "politics",
+      "Science policy",
+      "weather attribution"
+    ]
+  }
+}

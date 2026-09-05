@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/trump-us-iran-deal-g7.html",
+  "title": "Trump says U.S. will 'go right back to dropping bombs' if he doesn't like Iran deal",
+  "raw_text": "Donald Trump said Wednesday at the G7 conference that the U.S. will \"go right back to dropping bombs\" if he doesn't like the Iran deal.\nThe U.S. President said that the proposed agreement to bring the Middle East conflict to an end, which is set to be formalized at a signing ceremony in Geneva on Friday, is \"not final.\"\n\"It's a memorandum of understanding, and if I don't like it, we'll go back to shooting at them, dropping bombs on their heads. I don't like it if they don't behave. We'll go right back to dropping bombs right smack in the middle of their head,\" the president said at the summit in Evian, France.\nThe signing of the memorandum of understanding would extend the U.S.-Iran ceasefire for 60 days and set up a framework for future negotiations about Tehran's nuclear program and other key issues.\nAt least three Iranian oil tankers passed through the U.S. Navy blockade in the Strait of Hormuz on Wednesday — the first such outbound shipment in two months — further signaling a potential breakthrough.\nOn Monday, Vice President JD Vance told CNBC that \"a lot\" of details remain to be ironed out, but he expressed confidence that America has \"all the cards\" in subsequent talks.\nThe Middle East conflict and the war in Ukraine are dominating the agenda at the G7 event.\nLeaders from the wealthy Group of Seven countries — the U.S., the U.K., France, Germany, Canada, Italy and Japan — are gathering in the Alpine town for the summit, with representatives from the European Union and Ukraine also among those invited to attend.\nAfter meeting with Ukrainian President Volodymyr Zelenskyy and other leaders on Tuesday, Trump called on Russia to \"make a deal,\" telling reporters that \"Russia has lost tremendous amounts of people, and so has Ukraine.\"\nLater on Wednesday, focus will turn to AI and global tech sovereignty, with tech leaders including OpenAI's Sam Altman, Anthropic's Dario Amodei, Google DeepMind's Demis Hassabis attending the event.",
+  "published_at": "2026-06-17T11:49:41Z",
+  "author": null,
+  "collected_at": "2026-06-17T15:20:09.663005Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

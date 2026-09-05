@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/infants-are-bleeding-to-death-after-parents-shun-routine-vitamin-k-shots/",
+  "title": "Infants are bleeding out after parents decline vitamin K shots given at birth",
+  "raw_text": "They entered the world the way babies should, with piercing cries announcing their arrival. They passed their newborn screening tests. Some made it to their 2-week wellness visits without concern.\nThen, without warning, their systems began to shut down. A 7-week-old boy in Maryland developed sudden seizures. An 11-pound girl in Alabama stopped breathing for 20 seconds at a time. A baby boy in Kentucky vomited before becoming lethargic. A brown-haired girl in Texas, not yet 2 weeks old, bled around her belly button.\nDesperate to save them, records show, doctors inserted tubes into their airways and hooked them up to IVs. They ordered blood transfusions. They spent half an hour trying to resuscitate one boy until his parents told them they could stop. They shaved another boy’s soft locks to embed a needle directly into his skull to reduce the pressure in his brain.\nNone of it was enough.\nAt the morgue, the babies were brought in with their diapers and blankets and with their hospital ID bracelets still wrapped around their tiny ankles. The pathologists’ findings were like those you would typically see in ailing adults, not newborns—the kind of bleeding seen during strokes or brain tissue loss similar to what happens when radiation is administered to treat cancer.\nTheir autopsies, which took place over the last several years, all came to the same conclusion: The deaths were caused, in whole or in part, by a rare but potentially fatal condition known as vitamin K deficiency bleeding.\nIn almost every case, the babies’ deaths could have been prevented with a long-standard vitamin K shot. But across the country, families—first in smatterings, now in droves—are declining the single, inexpensive injection given at birth to newborns to help their blood clot.\nMany of them are doing so out of a well-meaning but ill-informed abundance of caution. In the hopes of safeguarding their newborns from what they see as unnecessary medical intervention, they have shunned fundamental and scientifically sound pharmaceutical intervention. The trend is also fueled by a contradictory pairing: families’ fierce desire to protect their babies and a cascade of false information infused into their social media algorithms.",
+  "published_at": "2026-05-06T14:30:47Z",
+  "author": "Duaa Eldeib, ProPublica.org",
+  "collected_at": "2026-05-07T03:00:30.563008Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "health care",
+      "infancy",
+      "Vitamin K"
+    ]
+  }
+}

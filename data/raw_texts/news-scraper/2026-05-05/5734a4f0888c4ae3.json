@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/24/alibaba-qwen-ai-integration-chinese-carmakers-beijing-auto-show.html",
+  "title": "Alibaba’s Qwen AI is coming to cars, allowing drivers to order food and book hotels by voice",
+  "raw_text": "BEIJING — Chinese tech giant Alibaba said Friday that its Qwen artificial intelligence model will be integrated into vehicles from automakers including BYD and a local joint venture of Volkswagen, as the industry pushes to add more in-car digital services and compete for buyers in a slowing electric vehicle market.\nThe model will run on Nvidia's automotive chip system and is designed to function even with limited network connectivity.\nAlibaba said select models will allow drivers to order food delivery, book hotels, buy tickets to attractions and track packages, among other features, through voice commands.\nThe system combines on-device processing with cloud-based computing to interpret voice commands, plan multi-step tasks and connect to services such as payments and navigation.\nAuto companies that will integrate Qwen into their vehicle systems include BYD, Geely, Li Auto, Changan, Dongfeng, BAIC, Great Wall Motor, SAIC Volkswagen and SAIC IM Motors.\nThe announcement was made on the opening day of the Beijing Auto Show 2026.\nEarlier this year, FAW Group's Hongqi brand integrated Qwen into its in-car system, debuting in the Hongqi HS6 plug-in hybrid model.\nThe rollout comes as Chinese automakers compete to attract buyers in a slowing electric-car market and seek to differentiate through in-car software and services.\nA local version of Audi in China, which replaces its four-ring logo with a wordmark, said its second model — an electric SUV called the E7X — will begin presales on May 8. The vehicle will incorporate AI features from ByteDance's Doubao and iFlyTek, Audi said at the auto show.\nIt was not immediately clear whether the AI features would be available in cars exported outside China.\nCadillac, the American luxury vehicle division of General Motors, also showed off a new model with voice-assistant capabilities that can connect with ByteDance's Doubao AI.",
+  "published_at": "2026-04-24T06:51:21Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.390057Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

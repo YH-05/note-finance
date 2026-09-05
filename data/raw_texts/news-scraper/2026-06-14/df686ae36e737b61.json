@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/ebola-cases-in-drc-rise-to-676-as-kenya-protests-erupt-over-us-plans/",
+  "title": "Ebola cases in DRC rise to 676 as Kenya protests erupt over US plans",
+  "raw_text": "Nearly a month into the Ebola outbreak in the Democratic Republic of the Congo, cases continue to rise as officials are still trailing the virus in their response efforts.\nAs of Thursday, June 11, the DRC has reported 676 confirmed cases, 136 deaths, and 119 suspected cases. Uganda is reporting 19 confirmed cases and two deaths.\nThe outbreak, caused by the Bundibugyo strain of Ebolavirus, is already the third largest Ebola outbreak on record. But health experts fear that it could grow much larger and had been quietly spreading for months before the outbreak was declared on May 15.\nReuters reported Thursday that investigators with the DRC health ministry are working backward to find the first case—patient zero—and have identified what may have been an early superspreader event on February 4. They zeroed in on the funeral of a 44-year-old pastor in the remote gold-mining town of Mongbwalu.\nThe pastor was said to have died of a severe abdominal infection, which could have been a manifestation of Ebola. But he was never tested for the virus. More than 80 people attended his funeral, and many relatives and community members fell ill in the following days. Within two weeks of burial, nearly 50 deaths were recorded in the town, and many of those had reported symptoms that could have been from Ebola, including fever, vomiting, and bleeding.\nAs the scope of the outbreak is still coming into view, the US Centers for Disease Control and Prevention released modeling of how it could unfold. The key finding was that if public health interventions aren’t implemented swiftly and strongly—with contact tracing and case isolation—then the outbreak could rival or exceed the largest Ebola outbreak ever recorded. That’s the 2014–2016 West Africa Ebola outbreak, which totaled over 28,000 cases and 11,000 deaths.",
+  "published_at": "2026-06-12T11:30:23Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-14T03:01:12.366019Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "CDC",
+      "drc",
+      "ebola",
+      "WHO"
+    ]
+  }
+}

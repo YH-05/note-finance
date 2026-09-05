@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://x.com/aaronp613/status/2049986504617820551",
+  "title": "Apple accidentally left Claude.md files Apple Support app",
+  "raw_text": "Something went wrong, but don’t fret — let’s give it another shot.\nSome privacy related extensions may cause issues on x.com. Please disable them and try again.",
+  "published_at": "2026-05-01T11:08:32Z",
+  "author": "andruby",
+  "collected_at": "2026-05-01T21:01:00.257062Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

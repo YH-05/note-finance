@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/mcdonalds-mcd-q1-2026-earnings.html",
+  "title": "McDonald's is about to report earnings. Here's what to expect",
+  "raw_text": "McDonald's is expected to report its first-quarter earnings before the bell on Thursday.\nHere's what Wall Street analysts surveyed by LSEG are expecting the company to report:\n- Earnings per share: $2.74 expected\n- Revenue: $6.47 billion expected\nIn March, McDonald's and its CEO Chris Kempczinski went viral — in all the wrong ways — for a taste test of its new Arch Burger that viewers saw as less than enthusiastic. Despite the ridicule from rivals and social media users, Wall Street is still predicting that the fast-food giant had a strong quarter. Analysts are expecting McDonald's to report same-store sales growth of 3.7%, according to StreetAccount estimates.\nInvestors will also be looking for any signs that higher gas prices are having an effect on McDonald's sales. Since the U.S. war with Iran began at the end of February, average fuel prices have spiked, leading to higher prices at the pump and less disposable income for many consumers who were already feeling cash-strapped.\nShares of McDonald's have fallen 10% over the last year, hurt by concerns about the broader economy. Over the same time, the S&P 500 has risen about 31%. The company has a market cap of roughly $201.5 billion.",
+  "published_at": "2026-05-07T04:01:02Z",
+  "author": null,
+  "collected_at": "2026-05-07T09:17:14.854415Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

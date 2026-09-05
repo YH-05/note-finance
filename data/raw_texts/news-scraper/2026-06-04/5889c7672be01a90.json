@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/political/john-bolton-plead-guilty-documents-case-pay-2m-fine-report",
+  "title": "John Bolton To Plead Guilty In Documents Case, Pay $2M Fine: Report",
+  "raw_text": "John Bolton, former national security adviser to President Donald Trump, has reached a plea deal with federal prosecutors and is expected to plead guilty to one count of illegal retention of sensitive national security documents, according to CNN, citing three sources familiar with the matter.\nUnder the agreement, Bolton will pay a fine of more than $2 million. A single count of illegal retention carries a possible sentence of up to 60 months in prison.\nA court hearing is currently scheduled for June 26.\nBolton was originally charged in Maryland with eight counts of transmission of national defense information and ten counts of retention of national defense information. The charges centered on diary-like entries from his time in the Trump White House that were allegedly kept at his residence.\nProsecutors accused him of sharing more than 1,000 pages of information through his personal email with two unauthorized individuals - reportedly his wife and daughter - though these transmission allegations are not part of the plea deal.\nAccording to the indictment, Bolton used personal email and messaging accounts to transmit Top Secret intelligence about foreign adversaries, future attacks, and U.S. foreign-policy relations. He also kept classified files at his home, including sensitive intelligence about foreign leaders and U.S. intelligence sources.\nThe FBI Baltimore Field Office led the investigation, with oversight from the Justice Department's National Security Division. The indictment outlines two core allegations:\nEight counts of transmission of NDI under the Espionage Act (18 U.S.C. §793(d)),\nand Ten counts of unlawful retention of NDI under §793(e).\nThe investigation intensified after Bolton’s email was breached by suspected Iranian hackers, during which investigators discovered the classified “diary-like entries.”\nBolton served as Trump’s National Security Adviser for one year before becoming a prominent critic of the president. Trump has repeatedly called for Bolton’s arrest, particularly over his 2020 memoir that was highly critical of the administration and allegedly contained classified information.\nWhile the first Trump Justice Department opened investigations into the book in 2020, those probes were closed within a year. A new investigation was launched the following year after the email breach.\nDeveloping...",
+  "published_at": "2026-06-04T14:31:04Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T21:00:43.141862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

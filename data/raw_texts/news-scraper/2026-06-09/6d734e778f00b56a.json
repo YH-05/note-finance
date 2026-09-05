@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/theres-still-plenty-of-runway-on-the-tech-boom-analysts-say.html",
+  "title": "There's still plenty of runway on the tech boom, analysts say",
+  "raw_text": "The artificial intelligence boom still has a good amount of runway, even as those stocks have hit speed bumps as of late, some on Wall Street say. Despite widely recognized conditions for a bubble and increasingly concentrated gains across the major indices, some analysts and investors think the music will keep playing well into next year. \"We think the market today is more similar to early 1999, not Q1 2000,\" Andrew Garthwaite at UBS told clients in a Monday note. \"We have not yet seen the preconditions required to be close to the peak.\" Relatively low credit spreads, strong profits and descending interest rates were among the factors showing that a peak is still a ways off, Garthwaite said. \"You can be in a bubble but still have a long way to go,\" hedge fund manager Dan Niles, founder of Niles Investment Management, told CNBC on Tuesday. \"I think that's where we are right now, because you had these same kinds of things back in 1998 [and] 1999, and you still had a monster year in 1999.\" Chip stocks sold off hard in the back half of last week, prompting concerns that a broader reset had started. The S & P 500 and Nasdaq Composite ended higher Monday, lifted by chip stocks as the Philadelphia SE Semiconductor Index closing higher by more than 5%. However, the sector took another spill Tuesday, dragging the Nasdaq down more than 2% while the S & P 500 declined 1%. The Philadelphia SE Semiconductor Index was down almost 6%. Last week's sell-off was triggered on Wednesday by idling – though robust – revenue projections from chipmaker Broadcom and may have been exacerbated by a call from artificial intelligence startup Anthropic for the sector to slow down its pace of advancements . \"Some heavy late-week AI … profit taking [was] partially attributed to Anthropic comments urging to slow down AI development, spooking sentiment after a 9 week run,\" UBS said in a Sunday sales commentary. Some analysts think last week's chip rout was \"healthy\" following parabolic gains in the sector through April and part of May. \"We view the recent pullback in the group as healthy and maintain AVGO, TXN , and AMAT as our top buy-rated picks,\" analyst Atif Malik at Citi wrote on Monday. Credit spreads in both junk and investment-grade bonds are close to historic lows. Recent quarterly earnings for hyperscalers showed revenue increases supporting higher spending initiatives. The Federal Reserve was on a downward path for interest rates late last year, though rising inflation due to increasing energy prices has put rate hikes back on the table. Futures markets are currently pricing in one quarter-point rate hike for this year at the central bank's December meeting, according to CME FedWatch.",
+  "published_at": "2026-06-09T17:20:04Z",
+  "author": null,
+  "collected_at": "2026-06-09T21:19:36.877085Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

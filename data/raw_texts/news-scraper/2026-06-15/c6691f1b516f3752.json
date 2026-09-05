@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/centene-to-offer-buyouts-to-some-employees.html",
+  "title": "Centene to offer buyouts to some employees as health insurer cuts costs",
+  "raw_text": "Centene said it offered buyouts to some employees on Monday, as the health insurer grapples with higher medical costs, funding cuts and membership declines.\n\"Centene is positioning the company to lead the future of healthcare — working to deliver a simpler and better experience for our members and partners while meeting the realities of today's healthcare environment,\" a company spokesperson said in a statement. \"Today we announced a Voluntary Separation Program to support employees who may be considering a transition.\"\nThe company did not indicate how many employees were offered buyouts or how much it is aiming to reduce its workforce. Shares initially fell 4% after Bloomberg first reported the news on Monday.\nLayoffs could follow if the company doesn't meet the target for voluntary separations, Bloomberg reported.\nCentene is the largest Medicaid provider and is focused on other federal health plans through Medicare and the Affordable Care Act. The buyouts come after the company reported a decline in membership in the first quarter, down 6% year over year to 26.3 million, according to a filing.\nCentene's ACA business lost about 2 million members in the first quarter compared with the end of 2025, primarily because Congress let enhanced federal subsidies in the program expire at the start of the year. The company in March also said it expects ACA membership to fall nearly 40% by the end of 2026, executives said in March at a Barclays conference.\nCentene is bracing for the impact of more than $900 billion in cuts to Medicaid over a decade, and the broader insurance industry is still managing higher-than-expected medical costs in privately-run Medicare plans.",
+  "published_at": "2026-06-15T20:50:35Z",
+  "author": null,
+  "collected_at": "2026-06-15T21:21:37.782984Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/grifters-cynics-and-true-believers-the-family-tree-of-vaccine-opponents/",
+  "title": "Grifters, cynics, and true believers: The family tree of vaccine opponents",
+  "raw_text": "Stanley Plotkin, 93, was instrumental in developing a number of vaccines over the course of his career. He recently said that he’s “beginning to regret having lived so long—because we’re going downhill.” How could we possibly have gotten here?\nMaybe we’ve always been here. It turns out that the anti-vaccine arguments currently flooding the Internet have been around for as long as vaccines have. In his new book A Pox on Fools, Thomas Levenson breaks them down into three categories, as made clear in the book’s subtitle: “The True Believers, Grifters, and Cynics Who Convinced Us to Reject Vaccines.” The accusations these people levy against vaccines can just as easily be used to categorize the arguments themselves: They are wrong, they are bad, and they are intolerable.\nWrong\nAs Levenson tells it, in the early 18th century, a couple of forward-thinking Westerners learned about inoculations against smallpox from Ottoman women and an enslaved African. At that point, infectious disease was by far the leading cause of death, as it had been forever. In the 19th century, roughly 40 percent of babies died of infection before they turned 5.\n(This is why the average lifespan back then was so low. It wasn’t that people didn’t live past their 30s; if they survived childhood, they largely did. It’s just that so, so many small children died that they dragged the average way down.)\nWhen smallpox epidemics broke out in London and Boston in 1721, Lady Mary Wortley Montagu and Cotton Mather initiated inoculation campaigns in their respective cities. Inoculation involved taking pus from a pock of someone with a not-very-severe case of smallpox, making a cut in the arm of the person to be inoculated, and rubbing the pus into the cut.\nThere was an immediate backlash. It was morally wrong, some claimed, to interfere with the divine ordination of who would sicken and die and who would not. Only God had that ability, and to thwart it was to defy God’s will. It was hubris and blasphemy. Levenson highlights how the subtext of this attitude was that contracting a highly infectious disease was divine punishment for sin and that the only way to avoid disease was to live a virtuous life.",
+  "published_at": "2026-05-30T11:00:05Z",
+  "author": "Diana Gitig",
+  "collected_at": "2026-06-02T15:00:26.370599Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "book review",
+      "public health",
+      "vaccines"
+    ]
+  }
+}

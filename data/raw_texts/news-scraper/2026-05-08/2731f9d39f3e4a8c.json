@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/16/new-york-fed-president-williams-worries-war-will-slow-growth-aggravate-inflation.html",
+  "title": "New York Fed President Williams worries war will slow growth, aggravate inflation",
+  "raw_text": "New York Fed President John Williams expressed concern Thursday about the Iran war's impact on the economy, saying it already has shown signs of hiking prices and slowing growth.\nIn a speech delivered to bankers in his home district, Williams noted that the conflict has \"intensified the uncertainty\" around national and local conditions.\nWhile he generally expressed confidence that growth would continue and inflation would ease through the year, he said there are threats to both sides of the Federal Reserve's dual mandate for stable prices and low unemployment.\n\"Assuming energy supply disruptions ease reasonably soon, energy prices should come down, and these effects should partially reverse later this year,\" Williams said. \"However, the conflict could also result in a large supply shock with pronounced effects that simultaneously raises inflation — through a surge in intermediate costs and commodity prices — and dampens economic activity. This has begun to play out already.\"\nSuch a condition — slow growth and high prices — is commonly referred to as stagflation and presents a toxic mix for central bank policymakers who would be left to choose which side to prioritize.\nFed Chair Jerome Powell recently rejected that characterization for the U.S. economy, but Williams' comments indicate that it remains a concern for policymakers, if in a reduced sense from the severe episode prevalent in the late 1970s and early '80s.\nWilliams pointed out there have been \"increasing disruptions\" in supply chains specifically concerning energy and related goods. The New York Fed's own Global Supply Chain Pressure Index showed that conditions in March were the most strained since early 2023.\n\"Not only are elevated energy prices showing up in the rising cost of fuel, but there are also pass-through costs in the form of higher airfares, groceries, fertilizer, and other consumer products,\" he said.\nUnder the current conditions, Williams said monetary policy \"is well positioned to balance the risks to our maximum employment and price stability goals.\"\nThe Federal Open Market Committee, of which Williams is a permanent voting member, decided in March to stay on hold, with its benchmark rate targeted between 3.5%-3.75%. Markets are pricing in a 100% probability that the committee stays on hold again at its April 28-29 meeting, and in fact do not expect any cuts this year.\nWilliams did not commit to a future policy stance. While he noted that the outlook is \"highly uncertain,\" he still sees real gross domestic product advancing at a 2%-2.5% clip this year, with inflation around 2.75%-3% before eventually drifting back to the Fed's 2% target in 2027. Williams noted that longer-term inflation expectations are largely in check.",
+  "published_at": "2026-04-16T13:58:42Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.330139Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

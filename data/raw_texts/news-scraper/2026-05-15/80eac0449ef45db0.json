@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/the-perfect-commuter-bike-velotrics-discover-3-makes-its-case/",
+  "title": "The perfect commuter bike? Velotric's Discover 3 makes its case.",
+  "raw_text": "Commuter bikes don’t come with the same constraints many other bikes do. Mountain bikes must glide gracefully through all sorts of abusive terrain; road bikes need to mix high performance with enough comfort to let riders stay in the saddle for hours on end. All a commuter bike needs to do is comfortably and reliably get you from A to B on typical roads with minimal fuss.\nSo it’s been surprising how rarely the commuter bikes I’ve tested have gotten it right. At the low end of the price scale, as you’d expect, the required compromises have a big impact on the experience. The high end addresses those shortcomings, but at prices comparable to high-end bikes from specialized categories. I’ve never encountered something in the middle of the two: affordable, with no compromises.\nBut I may have just found my ideal commuter bike: the Velotric Discover 3. It’s comfortable, it has a great combination of components, and it comes in at just under $2,000.\nUpgrades all around\nVelotric’s first entry in this line, the Discover 1, marked a promising start for the company. While it was definitely in the “compromises needed” category, the shortcomings were relatively minor and carefully chosen. Since then, the company has expanded considerably, introduced many new models, started working with local dealers in the US, and moved a bit upmarket.\nThe third iteration of the Discover illustrates the upmarket move. It costs nearly twice as much as the original Discover, but you get a lot for that price. The hub motor is gone, replaced by a mid-frame motor produced under contract for Velotric.\nWhile it still has a cadence sensor you can select through a menu, the Discover uses a torque sensor by default, providing far more integration with your pedaling. Cadence sensors simply register when the pedals are spinning; a torque sensor registers how much force you’re applying to the cranks. The latter makes the electric assist feel more like just that: an assist for your legs rather than a replacement for effort.",
+  "published_at": "2026-05-15T11:00:44Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-15T15:00:30.425858Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Features",
+      "commute bike",
+      "e-bike",
+      "Shimano",
+      "velotric"
+    ]
+  }
+}

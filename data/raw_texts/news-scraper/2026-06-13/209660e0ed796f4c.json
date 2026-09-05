@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.phoronix.com/news/Arch-Linux-AUR-More-Than-1500",
+  "title": "Arch Linux Now Believes Malware Incident Under Control: More Than 1,500 Packages",
+  "raw_text": "Arch Linux Now Believes Malware Incident Under Control: More Than 1,500 Affected Packages\nIt was bad enough when finding out more than 400 AUR packages for Arch Linux users had been infected with malware but now that number has risen to around 900 a few hours ago and now in the end at more than 1,500 user-contributed packages.\nIn an update a few hours ago, it was believed around 900 packages were infected by malware in this week's incident.\nThen as of writing now, the last message in the thread over this security incident is noting that Arch Linux developers have deleted all the malicious commits they are aware of. Cited was this list that puts the number of malware-affected packages at 1,579! Tons of software in this user-maintained Arch Linux user repository were impacted by this nasty security incident.\nEven at 1,579 packages listed, that final updated noted, it's a \"list containing many (but not all) of the affected packages\". Ouch.",
+  "published_at": "2026-06-13T11:55:30Z",
+  "author": "qwertox",
+  "collected_at": "2026-06-13T15:00:53.614358Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

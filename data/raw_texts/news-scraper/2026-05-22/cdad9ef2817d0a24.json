@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/iot-gadget-maker-acurite-shares-reasoning-for-killing-customers-favorite-app/",
+  "title": "IoT gadget maker AcuRite shares reasoning for killing customers’ favorite app",
+  "raw_text": "AcuRite must kill its customers’ favorite companion app due to “obsolete technology,” VP of product development Jeff Bovee tells Ars Technica.\nAcuRite, which makes smart weather-monitoring devices, announced this month that the My AcuRite iOS and Android app that has been around since 2016 won’t be available after May 30. After that date, device owners must use AcuRite NOW, which AcuRite released in June 2025, to control their gadgets.\nThe announcement has frustrated long-time AcuRite users, largely because the new app lacks some of its predecessors’ capabilities. For example, AcuRite NOW doesn’t allow renaming multiple temperature sensors, organizing on-screen sensors, or reporting temperatures as anything other than whole numbers (AcuRite says it’s working on adding some of these features).\nNewer platform preferred\nSpeaking with Ars, Bovee provided insight into AcuRite’s decision. He pointed to AcuRite NOW being built on a “newer cloud-connected platform” that enables more flexibility. My AcuRite was “primarily a weather-station cloud dashboard,” compared to AcuRite NOW, which ” is intended to be a broader, connected-device platform,” per the executive.\nExplaining further, he said:\n[My AcuRite] provided app and web access to weather data, but the underlying technology was more limited in terms of long-term app development, modern cloud services, smart home integration, and support for newer connected devices.\nAcuRite NOW, purportedly being built on a more modern connected-device architecture, provides a “stronger foundation” for feature improvements, per Bovee. The executive claimed that the new platform is better for mobile-first app development, cloud-based feature updates and services, “such as longer weather data history,” as well as user account management, device pairing, and notifications. For people with additional, third-party smart gadgets, AcuRite NOW also works with Tuya’s SmartLife IoT ecosystem.\nThe new app also charges a subscription fee to share data from AcuRite devices with the real-time weather service Weather Underground—something My AcuRite supported for free. Bovee claimed that AcuRite NOW provides better support for sharing data with Weather Underground. Although the financial benefits for AcuRite are what’s most obvious.",
+  "published_at": "2026-05-21T22:26:34Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-22T03:00:31.370584Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "smart home",
+      "software",
+      "Weather"
+    ]
+  }
+}

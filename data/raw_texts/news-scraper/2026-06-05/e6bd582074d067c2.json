@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://blog.plover.com/2026/03/09/#documentation-wins-2",
+  "title": "Programmers will document for Claude, but not for each other",
+  "raw_text": "|\nArchive:\nSubtopics:\nComments disabled |\nMon, 09 Mar 2026\nFor larger projects, I've taken to having Claude maintain a handoff document that I can have the next Claude read, saying what we planned to do, what has been done, and other pertinent information. Then when I shut down one Claude I can have the next one read the file to get up to speed. Then I have the Claude !!n+1!! update it for Claude !!n+2!!. After seeing the common complaint enough times I had a happy\ninspiration. I'd been throwing away Claude's handoff documents at the\nend of each project. Why do that? It's no trouble to copy the file\ninto the repository and commit it. Someone in the future, wondering\nwhat was going on, might luckily find the right document with I'm a little slow so it took me until this week to think of a better version of this: at the end of the project I now ask Claude to write up from scratch a detailed but high-level explanation of what problem we were solving and what changes we made, and I commit that. Not just running notes, but a structured overview of the whole thing. I review these overviews carefully and make edits as necessary before I check them in. It's my signature on the commit, and my bank account receiving the paycheck, so nothing goes into the repository that I haven't read carefully and understood, same as if Claude were a human programmer under my supervision. But Claude's explanations haven't required much editing. Claude's most recent project summary was around as good as what I could have written myself, maybe a little worse and maybe a little better. But it took ten seconds to write instead of an hour, and it didn't take anything like an hour to review. The serious thing I had to fix the last time around was that Claude had used a previous, related report as a model, and the previous report had had a paragraph I had added at the end that said:\nClaude's new document had an identical section at the end. Oops!\nFortunately, by the time I saw it, it was true, so I didn't have to\ndelete it. I had Claude add a sentence to My advice for the day:\nMaybe this is obvious? But it wasn't obvious to me. I'm still getting used to this new world. [Other articles in category /tech/gpt] permanent link |",
+  "published_at": "2026-06-05T12:30:17Z",
+  "author": "surprisetalk",
+  "collected_at": "2026-06-05T21:00:41.652426Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

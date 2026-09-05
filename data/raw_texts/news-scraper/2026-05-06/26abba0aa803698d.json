@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/oil-prices-trump-pauses-strait-of-hormuz-escort-effort.html",
+  "title": "Oil prices fall as Trump pauses Hormuz escort effort",
+  "raw_text": "Oil prices fell on Wednesday after President Donald Trump said the U.S. would pause its naval escort effort in the Strait of Hormuz, raising hopes of a potential deal with Iran.\nFutures for international benchmark Brent crude for July delivery slid 1.21% to $108.54 per barrel Tuesday, while U.S. West Texas Intermediate futures lost 1.76% to $100.5 per barrel.\nTrump on Tuesday announced in a Truth Social post that the U.S. would temporarily halt \"Project Freedom,\" a military effort launched just a day earlier to escort commercial vessels through the Strait of Hormuz, citing progress in negotiations with Iran toward a final agreement.\nThe Trump administration said roughly 23,000 seafarers across vessels from 87 countries have been stranded in the Persian Gulf following Iran's effective shutdown of the strait.",
+  "published_at": "2026-05-06T00:46:47Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.662152Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

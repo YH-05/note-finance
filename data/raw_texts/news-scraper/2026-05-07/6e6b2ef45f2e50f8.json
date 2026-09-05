@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605071839",
+  "title": "【市場反応】米3月建設支出は増加に改善、ドル売り後退",
+  "raw_text": "【市況】【市場反応】米3月建設支出は増加に改善、ドル売り後退\n米3月建設支出は前月比＋0.6％と3カ月ぶりのプラスとなった。\n良好な結果を受け、米国債相場は伸び悩み。ドル売りも後退した。ドル・円は156円23銭まで下落後、156円40銭までじり高推移。ユーロ・ドルは1.1777ドルから1.1764ドルまで下落、ポンド・ドルは1.3628ドルから1.3614ドルまで下落した。\n【経済指標】\n・米・3月建設支出：前月比＋0.6％（予想：＋0.3％、2月―0.2％）\n《KY》\n提供：フィスコ",
+  "published_at": "2026-05-07T14:29:34Z",
+  "author": null,
+  "collected_at": "2026-05-07T15:00:20.103278Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

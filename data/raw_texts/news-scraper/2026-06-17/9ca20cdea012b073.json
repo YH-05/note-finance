@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/godfather-of-options-sees-spacex-surpassing-nvidia-tesla-as-early-trades-come-in.html",
+  "title": "'Godfather' of options sees SpaceX surpassing Nvidia, Tesla as early trades come in",
+  "raw_text": "SpaceX options are officially listed, and they're off to the races.\nLess than 30 minutes into the session, SpaceX options are already the third-most traded among single stocks, behind Tesla and Nvidia, which typically trade millions of contracts and over $1 billion a day.\nTom Sosnoff, ThinkOrSwim co-founder, TastyTrade founder and CEO of Lossdog — and the man some have called \"the Godfather\" of options trading for his prominent role in bringing options trading to retail investors decades ago — sees SpaceX climbing to the top.\n\"After they settle in and become liquid – that means all the HFT firms reach a volatility consensus – the option volume could surpass TSLA and NVDA as the most active equity,\" Chicago-based Sosnoff said in a text to CNBC. \"That's good for business and good for the retail investor.\"\nMore than 300,000 SpaceX options traded in the first 30 minutes of Tuesday's session, with more calls trading than puts and more than twice as many calls bought compared to puts, according to data from ThinkOrSwim.\nOver $400 million in SpaceX options premium traded during that time, and over $300 million of it was tied to calls, SpotGamma data show. The most popular contract by volume was the 220-strike call expiring Thursday, a near-the-money trade after a 16% rally in SpaceX. The 210-strike in-the-money calls were also popular, accounting for more than $22 million in premium out of the gate.\n\"One word of caution would be to wait a day or two until pricing becomes efficient,\" said Sosnoff. \"I'm guessing the initial option pricing will be rich and the markets will be too wide.\"\nImplied volatility in SpaceX was 135 as of writing.",
+  "published_at": "2026-06-16T14:31:44Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.496307Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

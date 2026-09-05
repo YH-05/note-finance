@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/personal-finance/goldmans-world-cup-winner-prediction",
+  "title": "Goldman's World Cup Winner Prediction Is ...",
+  "raw_text": "The 2026 Football World Cup kicks off June 11, with Mexico vs. South Africa opening the tournament at Mexico City Stadium.\nThe tournament will feature 48 teams across 104 matches at stadiums in the U.S., Canada, and Mexico from next Thursday through July 19.\nJan Hatzius, chief economist and head of global investment research at Goldman Sachs, published a cheat sheet for clients that used a forecasting model built around Elo ratings - the ranking system originally developed for chess - to handicap the tournament. His top pick diverges from the latest Polymarket odds, with Hatzius placing Spain at the top of the list as the most likely World Cup winner.\n\"The model says that Spain has a 26% probability of winning the trophy, followed by France at 19%, Argentina at 14%, Brazil at 8%, and England at 5%,\" Hatzius said.\nHe noted, \"Spain is predicted to win because it has the highest Elo ranking, supported by scoring talent and good momentum into the competition. Argentina is penalised by the \"winner's slump\", i.e. the statistical underperformance of reigning champions in the following World Cup; France suffers from likely facing top-ranked Spain in the semifinals; and England underperforms its Elo rating given historical tournament disappointment, geographical headwinds (likely facing Mexico in high-altitude Mexico City), and a slightly unlucky draw.\"\nHatzius built a regression model to estimate how many goals each team is likely to score against another, using nearly 20,000 international matches since 1978. The model shows a steep decline in goal scoring, with much of it occurring after World War II.\nElo measures national team strength based on results and opponent quality, updating as teams win, lose, or draw. By this metric, Hatzius and his team place Spain No. 1, ahead of Argentina and France, which differs slightly from FIFA's official men's rankings.\nMost Likely Predicted Group Stage Results\nRoad To Winner\nUnlike our previous notes on Goldman's World Cup probabilities in 2022, 2018, and 2014, the rise of Polymarket has changed the betting game, bringing prediction markets directly into the sports-betting mainstream.\nThe latest Polymarket odds show France at 17%, Spain at 16%, and England at 11%...\n...putting market pricing at odds with Goldman's model, which ranks Spain as the winner.\nProfessional subscribers can read the full World Cup note here at our new Marketdesk.ai portal.",
+  "published_at": "2026-06-06T13:55:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-06T21:00:37.713113Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

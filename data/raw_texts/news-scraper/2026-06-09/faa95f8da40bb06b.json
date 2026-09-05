@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/software-stocks-wrap-best-month-since-2001-as-talk-of-saaspocalypse-.html",
+  "title": "Software stocks wrap up best month since 2001 as talk of 'SaaSpocalypse' subsides",
+  "raw_text": "The \"SaaSpocalypse\" may not be over. But for now at least, fears of software's demise have cooled.\nSoftware stocks soared this week, driven by strong results from Snowflake and Okta, signaling that some companies are navigating their way through artificial intelligence disruption better than Wall Street expected.\nThe iShares Expanded Tech-Software exchange-traded fund rose 8% this week and closed May up 21%, the best monthly performance for the ETF since October 2001. Back then it was a brief rebound during the dot-com bust, while the current rally comes as concerns about the impact of AI ripple across the sector.\nSoftware names have been hit particularly hard over the past year due to the boom in so-called vibe coding, with users able to now build apps and websites in minutes thanks to offerings from Anthropic, OpenAI and others.\nWith this month's rally, the iShares software ETF is only down 3.8% for the year, still badly trailing the Nasdaq, which has gained 18% in 2026.\nData platform provider Snowflake was a big driver this week, logging its best day ever on Thursday and gaining nearly 50% in the four trading days following the holiday on Monday. The company announced a $6 billion cloud and chip deal with Amazon and raised guidance as customers gravitate toward more AI tools.\n\"We're also seeing customers deploy and scale workloads at a faster pace,\" CEO Sridhar Ramaswamy told analysts on the company's earnings call.\nAnalysts at Argus Research called Snowflake a \"picks and shovels\" play on generative AI and lifted their price target to $300 from $250. The stock closed Friday at $255.55 and is now up 17% for the year.\n\"We think Snowflake may actually be a beneficiary of GenAI development as enterprises increasingly need to unify and harmonize data, Snowflake's core business, in order to exploit the benefits of GenAI,\" the analysts wrote in a report after earnings.\nOkta was another big winner with investors, gaining a record 30% on Friday. The company reported better-than-expected results, and said the shift to agentic AI is forcing businesses to invest in identity security tools and scale defenses against a wave of bot armies.\n\"AI products are going to take longer, but every organization is going to build and deploy agents,\" Okta CEO Todd McKinnon told CNBC. \"It's fundamental infrastructure that's going to be required over the next few years.\"\nElsewhere in the software space, Atlassian climbed 26% for the week and ServiceNow surged over 20%, while Shopify, Workday and Asana each gained at least 14%.\nAmong the software giants that are also selling cloud infrastructure, Oracle jumped 16% and Microsoft rose almost 8%. However, Microsoft is still down almost 7% for the year, the worst performance among tech's megacaps.",
+  "published_at": "2026-05-29T21:14:04Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.219959Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

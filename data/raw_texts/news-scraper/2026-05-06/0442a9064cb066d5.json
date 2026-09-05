@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924966/energizer-ultimate-child-shield-batteries-ingestion-swallow-burn-prevention",
+  "title": "Energizer’s new coin batteries won’t cause ingestion burns if swallowed",
+  "raw_text": "Energizer has announced a new line of lithium coin batteries it claims are the world’s first to eliminate the risk of ingestion burns if swallowed. Its Ultimate Child Shield line includes three sizes available starting today — 2032, 2025, and 2016 — that are commonly used in devices like remotes, wearables, and trackers such as Apple’s AirTags.\nEnergizer’s new coin batteries won’t cause ingestion burns if swallowed\nThe new Ultimate Child Shield batteries also dye a child’s mouth blue indicating a battery may have been swallowed.\nThe new Ultimate Child Shield batteries also dye a child’s mouth blue indicating a battery may have been swallowed.\nMost swallowed batteries pass right through the body’s digestive system without causing any harm. But if one gets stuck in the esophagus, there’s a risk of it being more than a choking hazard. When the battery makes contact with saliva, it can generate an electrical current, resulting in chemical reactions causing alkaline tissue burns that can result in life-threatening injuries in just a few hours.\nToday’s announcement doesn’t go into specifics about how Energizer’s new Ultimate Child Shield line prevents swallowed batteries from generating currents and the subsequent dangerous chemical reactions, but it works alongside a few other safety measures already available on other Energizer batteries. In addition to child-resistant packaging, the coin batteries are covered in a bitterant (similar to what’s on Nintendo Switch cartridges) to deter ingestion, and a food-grade dye that turns the mouth blue when it comes in contact with saliva, indicating a battery may have been swallowed.\nWhile it says the risk of serious or life-threatening ingestion burns has been eliminated, Energizer still recommends seeking immediate medical attention “in all cases of battery ingestion,” even if you only suspect a child or pet (the dye works with cats and dogs, too) has swallowed one.",
+  "published_at": "2026-05-06T12:00:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-06T15:00:16.595769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

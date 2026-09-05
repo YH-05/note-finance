@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924931/microsoft-office-copilot-windows-reorg-shuffle",
+  "title": "Microsoft’s Office and LinkedIn chief now runs Teams in latest reshuffle",
+  "raw_text": "Microsoft’s LinkedIn chief, Ryan Roslansky, took on an expanded role at the company as head of Office last year, and he’s now getting more responsibilities as part of the latest leadership reshuffle inside Microsoft. Sources tell me that the Microsoft Teams organization is moving to report to Roslansky, who will now lead a new Work Experiences Group at Microsoft.\nMicrosoft’s Office and LinkedIn chief now runs Teams in latest reshuffle\nThe departure of veteran executive Rajesh Jha has triggered big organizational changes inside Microsoft.\nThe departure of veteran executive Rajesh Jha has triggered big organizational changes inside Microsoft.\nThe changes, which come a week after Roslansky named a new CEO of LinkedIn, are part of a broader reshuffle triggered by Rajesh Jha, executive vice president of Microsoft’s experiences and devices group, retiring from Microsoft after more than 35 years. Jha was responsible for the teams behind Windows, Office, Copilot, and Microsoft 365, and Microsoft has been trying to divide up his responsibilities ever since his retirement announcement in March.\nCharles Lamanna, who has risen quickly through the ranks at Microsoft, is also taking on more responsibilities, according to an internal memo seen by The Verge. Lamanna will lead the Copilot, Agents, and Platform (CAP) team inside Microsoft, which includes critical Microsoft 365 and Dynamics 365 services, BizChat, and more. The Microsoft 365 Core team, OneDrive and SharePoint (ODSP), and Data Platform and Growth (DPG) are also joining Lamanna’s team.\nThis will also see veteran Microsoft executives Jeff Teper and Kirk Koenigsbauer move to report to Lamanna. Teper will be executive vice president of apps and agents, while Koenigsbauer is president of Data Platform and Growth.\nMicrosoft’s Surface and Windows chief, Pavan Davuluri, will remain leading the Windows and Devices Group. The Intentional team that Microsoft acquired in 2017 is moving under Davuluri, though. This includes Microsoft technical fellow Charles Simonyi, who founded Intentional Software in 2002. Prior to that Simonyi had spent more than 20 years at Microsoft, overseeing the creation of Excel and Word.\nPerry Clarke is now CTO of Application Systems at Microsoft, after spending nearly a decade running Microsoft 365 Core, the core services and components of Microsoft 365. Clarke’s new role “will focus on the overall systems architecture across M365 and Copilot, and how that composes efficiently with model families, Azure cloud, and silicon,” according to a memo from Jha.\nLamanna thanked Clarke “for the years of stewardship over M365 Core,” in a memo to employees on Tuesday. “The bar they’ve set for engineering rigor and customer obsession laid the foundation for the next generation of AI products and capabilities.”\nThis new structure for Microsoft’s Experiences and Devices organization goes into place this week, and Lamanna, Davuluri, Clarke, and Roslansky will all start reporting directly to Microsoft CEO Satya Nadella on June 30th, once Jha leaves Microsoft.\nMicrosoft’s latest shakeup comes just as the company gets ready to offer long-serving employees the ability to voluntarily retire. US employees whose combined years of service added to their age totals 70 or more will be eligible for voluntary retirement, and Microsoft is announcing the full details to employees tomorrow. There are plenty of employees in the Windows and Office organizations that will be eligible for this onetime program, and it will be interesting to see how many take Microsoft up on its offer.\nUpdate, May 6th: Article updated to note that Roslansky appointed a new CEO of LinkedIn last week, Daniel Shapero, who reports up to him.",
+  "published_at": "2026-05-06T11:45:41Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-06T15:00:16.596174Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Exclusive",
+      "Microsoft",
+      "Report",
+      "Tech"
+    ]
+  }
+}

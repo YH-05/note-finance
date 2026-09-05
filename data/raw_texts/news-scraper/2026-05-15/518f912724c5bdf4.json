@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/931495/intel-ultra-7-270k-plus-cpu-deal-sale",
+  "title": "One of Intel’s fastest desktop CPUs is $50 off",
+  "raw_text": "The Intel Core Ultra 7 270K Plus was billed by the company in late March as one of its “fastest gaming desktop processor ever.” That hype was evidently accurate, as benchmarks done by Gamers Nexus show the processor giving AMD’s pricier X3D cache-equipped Ryzen 9000-series CPUs a run for their money. The Ultra 7 270K Plus also outperforms the Core i9 14900K in many tasks, which has long been a preferred choice for gamers.\nOne of Intel’s fastest desktop CPUs is $50 off\nIts Ultra 7 270K is cheaper than ever, and includes a free download for Lego Batman: Legacy of the Dark Knight.\nIts Ultra 7 270K is cheaper than ever, and includes a free download for Lego Batman: Legacy of the Dark Knight.\nThankfully, it won’t cost you a ton to buy the 270K Plus if you’re considering a PC upgrade or building one from scratch. You can get this CPU at an all-time low price of $279.99 (about $45 off the normal price) right now at Amazon.\nThe 270K Plus requires a motherboard with an LGA 1851 socket, of which there are many options available that support DDR5 RAM, plenty M.2 SSDs, and with support for Wi-Fi 7. It’s great to see prices come down on some PC components, though the savings are tougher to appreciate when costs on RAM are still much higher than they used to be. If you’re looking for a range of parts, Micro Center has component bundles that loop in discounted RAM for the best prices on the web.\nOne nice perk of getting the CPU is that, through July 31st, you can register your purchase with Intel to get a full download of the Lego Batman: Legacy of the Dark Knight game.",
+  "published_at": "2026-05-15T17:46:20Z",
+  "author": "Cameron Faulkner",
+  "collected_at": "2026-05-15T21:00:15.759744Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Deals",
+      "Gadgets",
+      "Gaming",
+      "PC Gaming",
+      "Verge Shopping"
+    ]
+  }
+}

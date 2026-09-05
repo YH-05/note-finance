@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/",
+  "title": "Anthropic scales Claude Mythos  to critical infrastructure in 15+ countries",
+  "raw_text": "Anthropic is expanding Project Glasswing, its joint industry initiative to find and fix critical software vulnerabilities using AI, to about 150 new organizations across more than 15 countries, the company said Tuesday.\nThe news comes a day after Anthropic said it had filed confidentially for an initial public offering, following a $65 billion funding round at a nearly $1 trillion valuation.\nAnthropic’s Claude Mythos is at the heart of Project Glasswing. The AI firm dubbed the model its most powerful yet, able to identify thousands of zero-day vulnerabilities over several weeks. In early April, Anthropic gave 50 initial partners, including the U.S. government, access to Claude Mythos Preview to scan their codebases for vulnerabilities and security flaws.\nThe expanded list of organizations with access to Mythos as of today covers power, water, healthcare, communications, and hardware — industries that weren’t “well-represented” in Anthropic’s initial cohort, the company said. Many who will now have access are companies or nonprofits that maintain codebases which other organizations and governments rely upon, Anthropic noted in a blog post.\n“What each partner has in common is that a successful attack on their codebase could be catastrophic,” the company said. “For most partners, we estimate that a major attack could affect more than 100 million people, with important ramifications for both global and national security.”\nThe expanded group includes organizations in countries friendly to the U.S., including Australia, Canada, France, Germany, Italy, Switzerland, the Netherlands, Spain, Belgium, Sweden, India, Japan, New Zealand, and South Korea, according to The Financial Times, citing a person familiar with the matter.\nThe FT also reported several organizations that have been given access to Mythos, including: U.S.-based identity and security management tool Okta; South Korean companies Samsung, SK Hynix, and SK Telecom; NATO, the U.S.-led military alliance headquartered in Brussels; and the EU’s cyber security agency ENISA.\nTechCrunch has reached out to Anthropic to confirm.\nAnthropic has said it expects other AI companies to soon develop models as capable as Mythos Preview, which is why the firm is racing to establish safeguards within Project Glasswing.\nSince releasing Mythos, rival OpenAI released its own cybersecurity-focused model GPT-5.5-Cyber, which it has rolled out to a large group of partners for testing.",
+  "published_at": "2026-06-02T14:44:21Z",
+  "author": "Rebecca Bellan",
+  "collected_at": "2026-06-02T15:00:21.727571Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Security"
+    ]
+  }
+}

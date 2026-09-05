@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20319-viettel-eyes-dominican-republic-launch-with-560m-investment-plan.html",
+  "title": "Viettel eyes Dominican Republic launch with $560m investment plan",
+  "raw_text": "Vietnamese operator Viettel has reportedly approved plans to launch telecoms operations in the Dominican Republic, a move that would make it the country’s fourth mobile operator.\nAccording to Viet Nam News, Viettel’s board approved a $560 million investment on April 17 to build and operate telecoms and digital infrastructure across the Caribbean nation.\nThe expansion will lead to the creation of a new unit, Viettel Dominicana, although the company’s final corporate structure and local partnerships have yet to be confirmed.\nThe operator is expected to focus initially on mobile services, fixed broadband and mobile money during its first two years of operation. It then plans to expand further into areas including data centres, cloud computing, cybersecurity, IT services and digital logistics.\nThe Dominican Republic telecoms market is currently dominated by América Móvil-owned Claro, Altice and local operator Viva.\nClaro reported 8.1 million mobile subscribers across its Caribbean operations, including the Dominican Republic and Puerto Rico, in the fourth quarter of 2025. Altice had around 1.5 million consumer mobile subscribers in the same period, while regulator Indotel reported Viva had approximately 450,000 subscribers.\nThe Dominican Republic has a population of around 11.5 million people and the largest economy in the Caribbean, with GDP reaching $124 billion in 2024, according to World Bank data.",
+  "published_at": "2026-05-29T09:48:32Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-05T03:05:49.415570Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

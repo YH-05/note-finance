@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/plug-in-hybrids-get-plugged-in-more-than-you-might-think/",
+  "title": "Plug-in hybrids get plugged in more than you might think",
+  "raw_text": "Plug-in hybrid powertrains were developed to be the best of both worlds: a combustion engine and fuel tank that can handle those longer journeys exactly the same as a non-hybrid car, with an electric motor and a battery large enough for most or all of someone’s daily driving range. But only if you plug it in. And it is often taken as a statement of fact that plug-in hybrid owners don’t plug in their plug-in hybrids.\nInstead, they were seduced into buying a car with far too big a battery, no doubt as a result of generous incentives, the theory goes. And if those drivers aren’t going to plug in and therefore enjoy at least some entirely electric driving, they should have bought a parallel hybrid instead, which often delivers better efficiency than a PHEV with an empty battery, at a significantly lower price.\nBut what if that take is wrong? As it turns out, there’s some more evidence that PHEV drivers do in fact plug in their plug-ins, and the latest data point is from one of the most prolific PHEV pushers: Toyota.\nIn the past, Toyota has declined to provide numbers when asked by journalists about the frequency of PHEV plugging. But a pair of researchers at Toyota Research Institute North America have now crunched some data, and, after looking at anonymized data from more than 6,000 RAV4 Prime and Lexus NX 450h+ (between model years 2021–2024), the results are encouraging.",
+  "published_at": "2026-05-21T13:34:53Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-21T21:00:30.526243Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "PHEV",
+      "plug-in hybrid"
+    ]
+  }
+}

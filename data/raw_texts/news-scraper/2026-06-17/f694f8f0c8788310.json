@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606180043",
+  "title": "ウォーシュ議長　私自身は予測の提出を見送った",
+  "raw_text": "【注目】ウォーシュ議長 私自身は予測の提出を見送った\n・私自身は予測の提出を見送った。\n・他の委員に対し引き続き予測を提出するよう促した。\n株探ニュース",
+  "published_at": "2026-06-17T18:41:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T21:00:22.637107Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

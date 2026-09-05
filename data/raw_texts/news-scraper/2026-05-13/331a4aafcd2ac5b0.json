@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/spacex-completes-fueling-test-setting-stage-for-first-launch-of-starship-v3/",
+  "title": "Once again, SpaceX has set a new record for the tallest rocket ever built",
+  "raw_text": "For the third time in three years, SpaceX has stacked a new version of its enormous Starship rocket on a launch pad in South Texas, just a few miles north of the US-Mexico border. The newest-generation Starship, known as Starship Version 3, is taller and more powerful than the ones that came before it.\nThe upgrades on Starship are numerous. Perhaps the most notable changes are higher-thrust, more efficient Raptor engines on the Super Heavy booster and Starship upper stage, a new reusable lattice-like structure at the top of the booster for hot staging, and three—not four—modified grid fins to help bring the first stage back to Earth for recovery and reuse.\nIf all goes according to plan, this is the version of Starship that SpaceX will use to begin experimenting with in-orbit refueling, a capability engineers must master before sending ships anywhere farther than low-Earth orbit. In the near-term, refueling will enable Starships to fly to the Moon to serve as landers for NASA’s Artemis program. Starship remains an iterative development program, and new versions are in the pipeline, but Starship V3 should mark a step toward SpaceX actually using Starships in space, rather than solely proving they can get there and get home.\nBut SpaceX must first do just that with Starship V3. The company has not officially announced a target launch date. Airspace and maritime warning notices released in the last few days suggested the upgraded rocket could lift off as soon as Friday evening from SpaceX’s Starbase launch site on the Gulf Coast east of Brownsville, Texas, but that was before a day-and-a-half delay in launch preps over the weekend.\nA fresh set of maritime warnings issued late Monday indicated SpaceX is now targeting a launch attempt on Tuesday, May 19.\nFinal steps\nGround crews at Starbase lifted the Starship upper stage atop its Super Heavy booster Saturday, assembling a fully stacked Starship V3 for the first time. The rocket has a height of 408 feet (124 meters), a few feet taller than the previous version of Starship.",
+  "published_at": "2026-05-12T11:00:34Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-13T03:00:30.639519Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Commercial space",
+      "launch",
+      "spacex",
+      "Starbase",
+      "starship",
+      "starship flight 12"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924755/google-home-gemini-3-1-upgrade",
+  "title": "Google Home&#8217;s Gemini AI can handle more complicated requests",
+  "raw_text": "Google Home users can now ask Gemini to complete more complex, multi-step tasks and combine multiple tasks in a single command. Google has updated Gemini for Home to Gemini 3.1, which it says will improve the smart home assistant’s ability to interpret and act on requests. The upgrade will also make Gemini for Home better at handling recurring and all-day events and allow users to “move around” upcoming events.\nGoogle Home’s Gemini AI can handle more complicated requests\nAn upgrade to Gemini 3.1 lets Google’s smart home assistant handle multiple requests in the same voice command.\nAn upgrade to Gemini 3.1 lets Google’s smart home assistant handle multiple requests in the same voice command.\nLast month, Google also updated Gemini for Home with improvements for understanding natural language and identifying devices correctly. The upgrades follow reports of bugs in Google’s new smart home assistant, like confusing different animals in camera footage or struggling with accuracy in activity summaries.\nIn addition to the Gemini upgrade, Google also announced improvements to the camera experience, new automation capabilities, and two public previews: Ask Home on Web and a new notification feature. Ask Home on Web will allow Google Home users to manage their smart home from a computer, including searching camera history with natural language, checking on devices, and creating automations. Google is also releasing a public preview for “improved and expanded notifications” that include “quick action” buttons that can be used for device control directly in the notification.",
+  "published_at": "2026-05-05T21:46:04Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-06T03:00:16.590083Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

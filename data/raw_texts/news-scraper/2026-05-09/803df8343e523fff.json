@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605090150",
+  "title": "レーティング週報【新規格付け】　(5月7日－8日)",
+  "raw_text": "●5月7日－8日に調査機関が新規に投資判断を付与した銘柄をまとめました\n銘柄 機関 格付 目標株価 日付\nＤＭＧ森精機 <\n6141> 岩井ｺｽﾓ 新規にＢ＋ 4000 5/8\n三菱重 <\n7011> モルガン 新規に強気 5500→5500 5/7\n川重 <\n7012> モルガン 新規に中立 3150→3150 5/7\nＩＨＩ <\n7013> モルガン 新規に中立 3150→3150 5/7\n株探ニュース",
+  "published_at": "2026-05-08T23:40:02Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:01:16.969667Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "特集",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/north-koreans-behind-nearly-half-of-us-tech-industry-hacks-says-crowdstrike/",
+  "title": "North Koreans behind nearly half of US tech industry hacks, says CrowdStrike",
+  "raw_text": "A new report by cybersecurity giant CrowdStrike found North Korean hackers posing as remote IT workers and online recruiters made up about half of all documented “hands-on-keyboard” intrusions at U.S. tech companies over the past year.\nThe company’s latest annual report on the cybersecurity landscape highlights the growing threat from North Korean operatives, which have become a significant source of cyber intrusions across the tech industry. Hackers associated with the Kim Jong Un regime continuously target companies and developers with schemes aimed at stealing information and cryptocurrency to fund Pyongyang’s nuclear weapons program, which is banned under international law.\nCrowdStrike said that during the period covered by the report — April 2025 to May 2026 — the North Korean hacking group that the company calls “Famous Chollima” accounted for 47% of all state-backed activity targeting the tech sector.\nThe security giant keeps track of hands-on-keyboard intrusions because they typically represent real human hackers conducting malicious and evasive cyber activity, rather than automated malware that traditional security tools can catch. These attacks generally begin with stolen passwords or credentials, followed by the abuse of legitimate tools already present in the target’s systems to maintain persistent access over time.\nFamous Chollima is known for posing as tech workers, such as developers, coders, and IT, then applying for remote jobs at U.S., European, and Asian tech companies under false pretenses. To pull it off, the hackers use AI to generate real-time deepfake images to spoof the faces of real people, and pair those with fraudulent identity documents like stolen passports and driver licenses to pose as Americans or other foreign nationals. This is because North Korea is heavily sanctioned by the West and the United Nations for its ongoing development of nuclear weapons.\nOnce in, the hackers also earn a salary from the companies they infiltrate, which gets funneled back to the North Korean regime, all while stealing intellectual property and other sensitive corporate information. That stolen information is frequently weaponized; when the operatives are eventually caught, they often threaten to expose what they’ve taken unless the company pays a ransom.\nThe hackers also target blockchain developers with the intention of stealing large amounts of crypto, which the Kim regime uses to skirt its broad inability to use the Western banking system. North Korea has netted billions of dollars in stolen crypto over the years, with some $2 billion during 2025 alone.",
+  "published_at": "2026-06-10T19:57:04Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-06-11T03:00:27.239284Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cybersecurity",
+      "hackers",
+      "north korean"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934260/google-io-ai-singularity-demis-hassabis",
+  "title": "Demis Hassabis said this might be the ‘foothills of the singularity.’ What?",
+  "raw_text": "Welcome to a “profound moment for humanity,” according to Google DeepMind CEO Demis Hassabis, who closed out Google I/O’s keynote presentation on Tuesday, saying:\nDemis Hassabis said this might be the ‘foothills of the singularity.’ What?\nAfter a couple of hours of apps and itineraries, Google’s big AI presentation turned philosophical.\nAfter a couple of hours of apps and itineraries, Google’s big AI presentation turned philosophical.\nGoogle’s cutting-edge research and products will help unlock AGI’s incredible potential for the benefit of the entire world. When we look back at this time, I think we will realize that we were standing in the foothills of the singularity.\nIt will be a profound moment for humanity. This technology will be a force multiplier for human ingenuity and usher in a new golden age of scientific discovery and progress, improving the lives of everyone, everywhere. We look forward to building the future with all of you. Thank you, and enjoy the rest of Google I/O.\nJust before announcing we’ve possibly arrived at “the foothills of the singularity,” Hassabis introduced Gemini for Science, a set of tools and experiments in Google Labs and Google Antigravity intended for helping with scientific research. According to Hassabis, with tools like these, Google hopes to “reimagine drug discovery with the goal of one day solving all disease.” Tech executives often discuss AI this way, like Microsoft CEO Satya Nadella referring to AI as “cognitive amplifier tools” and Luma AI CEO Amit Jain’s claim last year that AI is the key to saving Hollywood.\nIn an interview with Bloomberg just a few months ago, Hassabis said that “the singularity is another word for a full AGI arriving,” which is not the same definition we’re used to from the likes of Vernor Vinge and Ray Kurzweil.\nAt the time, even by his measurement, he claimed that “we’re nowhere near that.” When asked about his timeline for achieving AGI, Hassabis said he was standing by his prediction that we have a “50 percent chance of getting there by 2030.”",
+  "published_at": "2026-05-19T22:16:02Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-20T03:02:06.835380Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Google I/O 2026",
+      "News",
+      "Tech"
+    ]
+  }
+}

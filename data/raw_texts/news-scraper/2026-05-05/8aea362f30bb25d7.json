@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050126",
+  "title": "本日の経済スケジュール ─ ★国内市場休場(こどもの日)",
+  "raw_text": "【経済】本日の経済スケジュール ─ ★国内市場休場(こどもの日)\n5月5日(火)\n先負・月齢17.6\n【国内】\n★国内市場休場(こどもの日)\n【海外】\n□中国、韓国市場休場\n★米国3月貿易収支(21:30)\n□米国4月サービス業PMI[確報値](22:45)\n★米国4月ISM非製造業景気指数(23:00)\n★米国2月新築住宅販売件数(23:00)\n★米国3月新築住宅販売件数(23:00)\n□米国3月JOLTS求人件数(23:00)\n□オーストラリア中銀が政策金利を発表\n□EU経済・財務相(ECOFIN)理事会\n【海外決算】\n[米]アドバンスト・マイクロ・デバイセズ<AMD>、アリスタ・ネットワークス<ANET>、イートン<ETN>、ファイザー<PFE>、デューク・エナジー<DUK>、KKR<KKR>、エレクトロニック・アーツ<EA>、ペイパル・ホールディングス<PYPL>、ファーガソン・エンタープライゼス<FERG>/[加]ショッピファイ<SHOP>/[欧]フェラーリ<RACE>\n株探ニュース",
+  "published_at": "2026-05-04T21:20:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:00:22.527915Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605111074",
+  "title": "明日の為替相場見通し＝イラン情勢が相場を左右",
+  "raw_text": "【通貨】明日の為替相場見通し＝イラン情勢が相場を左右\n戦闘終結に向けた米国からの提案に対するイランの回答に関して、トランプ米大統領は１０日、「全く受け入れられない」とＳＮＳに投稿。米原油先物相場は一時、１バレル＝１００ドル台へ上昇するなか、「有事のドル買い」が強まった。今晩から明日にかけても、イラン情勢と原油相場を注視する展開となりそうだ。また、ベッセント米財務長官が１１日から来日しており、その動向も注目されている。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-11T08:22:00Z",
+  "author": null,
+  "collected_at": "2026-05-11T09:00:22.221503Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

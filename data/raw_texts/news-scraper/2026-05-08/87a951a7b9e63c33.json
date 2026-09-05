@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/engineers-at-nasas-jet-propulsion-lab-make-a-breakthrough-in-rotor-technology/",
+  "title": "Engineers at NASA's Jet Propulsion Lab make a breakthrough in rotor technology",
+  "raw_text": "A little more than three years since NASA’s Ingenuity helicopter ended its pioneering mission at Mars, engineers at the Jet Propulsion Laboratory in California are designing next-generation Martian rotorcraft to carry heavier payloads longer distances through the planet’s low-density atmosphere.\nIngenuity was a resounding success, becoming the first airborne platform to explore another world. The dual-bladed helicopter made 72 flights, overachieving NASA’s original goal of five flights over 30 days, after delivery to Mars by the Perseverance rover. By the time the mission ended with a crash-landing in January 2024, Ingenuity had shown scientists a new way to explore other worlds, using air to travel longer distances and reach locations inaccessible to ground vehicles.\nNASA plans to send three more helicopters to Mars on the SkyFall mission, which could launch as soon as late 2028. SkyFall is set to ride to the red planet aboard a nuclear-powered spacecraft named Space Reactor-1, or SR-1, one of the tech demo initiatives announced earlier this year by NASA Administrator Jared Isaacman.\nIngenuity‘s main body was not much larger than a tissue box, with a mass of just 4 pounds (1.8 kilograms) and counter-rotating rotors that spanned about 4 feet (1.2 meters). The SkyFall helicopters will be larger and heavier, and they will use a novel maneuver to land themselves on the Martian surface after entering the atmosphere cocooned inside a heat shield. This will require innovations in the helicopter’s design.\nBreaking a barrier\nEngineers at JPL and a private company named AeroVironment, the same partners that developed Ingenuity, recently made a breakthrough in the lab to nudge the SkyFall mission closer to reality. The tests involved the new, larger rotor blades that will convey the next-gen helicopters through the rarefied Martian atmosphere, just 1 percent the density of air at sea level on Earth.",
+  "published_at": "2026-05-08T15:46:27Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-08T21:00:31.414697Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "jet propulsion laboratory",
+      "Mars",
+      "mars ingenuity",
+      "NASA",
+      "planetary science",
+      "skyfall",
+      "solar system"
+    ]
+  }
+}

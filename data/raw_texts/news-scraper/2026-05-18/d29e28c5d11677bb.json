@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/science/932294/starlink-price-increase-standby-mode",
+  "title": "Starlink raises prices across satellite internet plans",
+  "raw_text": "Starlink is raising prices across its satellite internet plans in the US — including Standby Mode — with the cheapest 100Mbps Residential plan going from $50 to $55 / month, as reported earlier by PCMag. Meanwhile, Starlink’s 200Mbps residential plan has jumped from $80 to $85 / month, while the Residential Max plan went from $120 to $130 / month.\nStarlink raises prices across satellite internet plans\nStarlink’s cheapest Residential plan now costs $55, while Standby Mode jumped to $10.\nStarlink’s cheapest Residential plan now costs $55, while Standby Mode jumped to $10.\nStandby Mode, which allows subscribers to pause their main Starlink service while using unlimited low-speed data, now costs $10 / month instead of $5. Starlink is raising the prices of its Roam plans as well, with the 100GB plan going from $50 to $55 per month, and its Unlimited plan increasing from $165 to $175 per month. The 300GB Roam plan still costs $80 per month.\nStarlink has become a boon for people in rural parts of the US with access to fewer internet options, but there are concerns about whether it will limit competition in the area. In a letter to the Federal Communications Commission last week, Starlink owner SpaceX says the agency should end $4.5 billion in rural internet subsidies, arguing that satellite internet has “solved” the problem of high-speed broadband access.\nIn a message to customers, Starlink says the price increases come as the service is “rapidly increasing network capacity, expanding coverage, and improving reliability to deliver faster, more consistent connectivity for our customers.” Last year, Starlink began offering a 12-month residential plan that drops the price of its dish and router to $0 in select markets.",
+  "published_at": "2026-05-18T14:08:19Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-18T15:00:16.270423Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Science",
+      "Space",
+      "SpaceX"
+    ]
+  }
+}

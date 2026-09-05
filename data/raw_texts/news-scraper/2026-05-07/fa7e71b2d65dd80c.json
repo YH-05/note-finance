@@ -1,0 +1,30 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/hackers-deface-school-login-pages-after-claiming-another-instructure-hack/",
+  "title": "Hackers deface school login pages after claiming another Instructure hack",
+  "raw_text": "On Tuesday, education tech giant Instructure disclosed a data breach where hackers stole students’ private information, including their names, personal email addresses, and messages sent between teachers and students.\nNow, it appears hackers were able to compromise Instructure again — this time defacing several schools’ login pages to the company’s platform Canvas, which allows schools to manage coursework and assignments and communicate with students.\nTechCrunch saw a message published by the cybercrime group ShinyHunters on the Canvas login pages of three separate schools. A review of the defaced portals shows that the hackers injected an HTML file that altered the login screens to display their message.\nThe message says the hackers will publish the stolen data on May 12 if the company does not “negotiate a settlement.”\nAt the time of writing, Instructure’s website appeared to be partially online, at times returning a “too many requests” error. The company’s Canvas portal displayed a notice saying it was “currently undergoing scheduled maintenance.”\nInstructure did not immediately respond to TechCrunch’s request for comment.\nShinyHunters had previously claimed responsibility for the original hack, publicizing it on its leak site — a website hackers use to publish stolen data and pressure victims into paying ransoms — in an effort to extort Instructure into paying to keep the data from going public. This apparent new hack, along with the fact that hackers chose to notify TechCrunch about the defaced login pages, indicate that the hackers are trying to ramp up pressure on Instructure and its customers, hoping to force them to cave to the hackers’ demands.\nIt’s unclear how the hackers were able to compromise the login pages. When asked, a member of ShinyHunters told TechCrunch that they couldn’t comment on specifics, but said this is a second, separate breach.\nFollowing the original breach at Instructure, the hackers claimed to have stolen data from almost 9,000 schools around the world, with the stolen files allegedly containing information on 231 million people.\nThe group has compromised countless victims over the last couple of years, following the same financially motivated playbook: hack, publicize, and extort.",
+  "published_at": "2026-05-07T20:59:09Z",
+  "author": "Lorenzo Franceschi-Bicchierai, Zack Whittaker",
+  "collected_at": "2026-05-07T21:00:27.102471Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "Canvas",
+      "cybercrime",
+      "cybersecurity",
+      "data breach",
+      "ed tech",
+      "Education",
+      "extortion",
+      "hackers",
+      "hacking",
+      "instructure",
+      "shinyhunters"
+    ]
+  }
+}

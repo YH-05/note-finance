@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/judge-probes-whether-musk-settlement-with-trump-admin-is-tainted-by-corruption/",
+  "title": "Judge probes whether Musk settlement with Trump admin is tainted by corruption",
+  "raw_text": "A federal judge reportedly said she will not rubber-stamp a settlement between Elon Musk and the Securities and Exchange Commission, saying the deal raises red flags and needs scrutiny over whether Musk is getting special treatment from the Trump administration.\nAs we reported last week, the Trump administration agreed to let Musk pay a $1.5 million fine to settle a lawsuit that originally sought at least $150 million. In 2022, before buying Twitter outright, Musk purchased a 9 percent stake in the social network and failed to disclose it within 10 days as required under US law. The SEC lawsuit filed during the Biden administration said the late disclosure allowed Musk to keep buying shares at artificially low prices and underpay shareholders by at least $150 million.\nUnder the settlement with the SEC, a trust in Musk’s name would pay a $1.5 million civil penalty to the government and not admit that Musk committed any violation. The deal requires court approval, and Judge Sparkle Sooknanan expressed skepticism at a hearing yesterday in US District Court for the District of Columbia.\n“I am not going to rubber-stamp this settlement, and I cannot rubber-stamp this settlement,” the judge said, Bloomberg reported. “Is Mr. Musk getting some kind of special treatment in this case?” Sooknanan was also quoted as saying.\nSooknanan said that dropping the demand for $150 million and imposing the settlement terms on a trust instead of Musk himself are both “red flags,” a Reuters report said. “Sooknanan also noted that SEC lawyers at a prior hearing to discuss the case had appeared surprised when lawyers for Musk revealed that they had been in settlement talks with the agency,” Reuters reported. Sooknanan called that fact another red flag.",
+  "published_at": "2026-05-14T18:45:01Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-15T03:00:30.483331Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Elon Musk",
+      "SEC"
+    ]
+  }
+}

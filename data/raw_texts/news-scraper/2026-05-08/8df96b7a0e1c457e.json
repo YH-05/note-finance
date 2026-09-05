@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/926741/tesla-cybertruck-cheaper-recall",
+  "title": "Tesla is recalling its cheaper Cybertruck because the wheels might fall off",
+  "raw_text": "Tesla is recalling its RWD Cybertruck Long Range over faulty brake rotors that could cause the wheels to fall off, as spotted earlier by MotorTrend. In a notice on the National Highway Traffic Safety Administration’s website, Tesla says “brake rotor stud holes may crack and allow the stud to separate from the wheel hub.”\nTesla is recalling its cheaper Cybertruck because the wheels might fall off\nAll 173 of the RWD Cybertrucks sold by Tesla are being recalled.\nAll 173 of the RWD Cybertrucks sold by Tesla are being recalled.\nThe recall affects all 173 of the $70,000 Cybertrucks sold by Tesla, which come with 18-inch steel wheels. The company notes that it has identified three warranty claims potentially linked to the issue, but it’s “not aware of any collisions, fatalities, or injuries” related to the recall.\nThis is the 11th Cybertruck recall so far, following issues with the vehicle’s accelerator, trim, inverter, reverse cameras, and even font size. Tesla released its RWD Cybertruck model last April, but discontinued it just months later. It launched an even cheaper $60,000 dual-motor AWD Cybertruck variant in February of this year, which isn’t affected by this recall.\n“On affected vehicles, higher severity road perturbations and cornering may strain the stud hole in the wheel rotor, causing cracks to form,” according to Tesla. “If cracking propagates with continued use and strain, the wheel stud could eventually separate from the wheel hub.” Tesla says it will remove and replace the front and rear brake rotors, hubs, and lug nuts free of charge.",
+  "published_at": "2026-05-08T13:48:14Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-08T15:00:16.247902Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Electric Cars",
+      "News",
+      "Tesla",
+      "Transportation"
+    ]
+  }
+}

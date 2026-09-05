@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20232-telkom-indonesia-launches-satellite-backbone-for-papua-mountains.html",
+  "title": "Telkom Indonesia launches satellite backbone for Papua Mountains",
+  "raw_text": "Telkom Indonesia and its satellite services arm Telkomsat revealed on Monday that they have inaugurated a new satellite gateway to provide backbone infrastructure in the Papua Mountains region.\nThe Wamena Community Gateway, which was launched on Friday at the Wamena Medium Earth Station in Papua’s Jayawijaya regency, functions as the main distribution point of connectivity in Highland Papua, whose mountainous terrain makes rollout of terrestrial telecoms infrastructure difficult and expensive.\nThe Wamena gateway network supports around 7 Gbps of network transport capacity, but can be increased to as high as 40 Gbps if needed.\nTelkom added that the Wamena Community Gateway is designed as an open access platform, so that other operators, ISPs and institutions besides Telkom Group can use it.\nTelkom president director Dian Siswarini said the Wamena gateway will serve as the foundation for the development of the region’s digital economy and public services.\n\"We believe that the presence of Community Gateway Wamena as the main link will have a real impact in improving the quality of communication services in the mountainous Papua region so that it can open access to the digital economy for the community, support public services, education, and health, and strengthen the foundation of Indonesia's digital transformation thoroughly,\" she said in a statement.\nThe Wamena gateway is the second such project built by Telkom and Telkomsat, following a community gateway established in Merauke, South Papua, in December last year. However, that gateway serves as a backup connectivity option in case terrestrial network connectivity is disrupted, whereas the Wamena facility is designed as the main backbone of connectivity for the Jayawijaya Mountains.\nSpeaking at Friday's launch ceremony, Indonesia's deputy Minister of Communication and Digital Angga Raka Prabowo said the Wamena gateway was built as part of the government's priority work program to build inclusive digital infrastructure for the eastern Indonesia.",
+  "published_at": "2026-05-12T02:37:52Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-15T03:01:22.106326Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

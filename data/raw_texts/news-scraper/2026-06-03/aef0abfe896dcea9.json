@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/anthropic-eu-ai-mythos-access-advanced-model.html",
+  "title": "Anthropic to offer EU access to its advanced Mythos model",
+  "raw_text": "Anthropic is sharing access to its most advanced artificial intelligence model, Mythos, with the EU after the bloc had sought access over months due to cybersecurity concerns.\nThe European Commission confirmed to CNBC on Monday that it had \"several productive meetings\" with the American AI firm.\n\"We welcome the latest developments on potential future access,\" EU tech sovereignty spokesperson Thomas Regnier said in emailed statements, adding that the bloc aims to get a clearer idea of the potential risks that the technology poses.\nAnthropic initially rolled out Mythos to a limited number of companies in April as part of Anthropic's cybersecurity venture Project Glasswing, with the model excelling at identifying security flaws and weaknesses in software. The launch prompted a wave of concern over cybersecurity threats from bad actors.\n\"Let's not forget that Mythos is not one off, a new wave of powerful models are coming to the market,\" Regnier said. \"This is a shared challenge, and we are intensifying our discussions with like-minded partners, including the United States.\"\nOfficial terms and conditions of the deal are not yet clear. Anthropic did not immediately respond to CNBC's request for comment.\nThe EU had ramped up discussions with the U.S. administration in the past week in order to gain access after Anthropic told the commission it needed government permission, people familiar with the matter previously told CNBC.\nThe people said at the time that the U.S. government is against sharing the powerful model with non-U.S. governments as a whole, as it aims to remain the dominant AI leader.\nThe EU had already been granted access to OpenAI's GPT-5.5-Cyber model in May, but the commission said it had \"four or five\" meetings with Anthropic at the time and that agreements were at a \"different stage.\"\nGovernments, banks and tech firms were alarmed by the risks posed by Mythos when it was first released in April, as the technology is capable of uncovering thousands of previously unknown software vulnerabilities and could be misused in the hands of bad actors, accelerating cybercrime.\nThe Trump administration also announced agreements in May with Google DeepMind, Microsoft and Elon Musk's xAI that will allow the government to assess artificial intelligence models before they are released publicly.",
+  "published_at": "2026-06-01T18:05:20Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.131688Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

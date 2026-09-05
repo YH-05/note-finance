@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20197-djezzy-taubyte-and-algeria-venture-launch-ai-development-platform.html",
+  "title": "Djezzy, Taubyte and Algeria Venture launch AI development platform",
+  "raw_text": "Algerian telco Djezzy has signed a strategic partnership deal with startup accelerator Algeria Venture and tech startup Taubyte to launch a full-stack AI development workspace for startups, developers, young talent and project leaders.\nThe workspace, called AventureCloudz, leverages Djezzy’s cloud infrastructure and Taubyte’s open-source Git-native technology platform, while Algeria Venture will connect the platform to its network of startups.\nAlgeria Venture will also integrate AventureCloudz into its support programs so that developers and startups have access not only to AI tools but also mentorship and resources.\nAventureCloudz – which will be hosted exclusively on Djezzy’s cloud marketplace – is structured to support individual developers, startups and larger enterprises.\nDjezzy, Taubyte and Algeria Venture are positioning AventureCloudz as a local alternative to global cloud service providers that can also serve to develop AI talent that can drive innovation in Algeria and internationally, whilst also boosting Algeria’s digital sovereignty.\nIn a LinkedIn post last Thursday, Taubyte said the platform aims to “reduce technical barriers and gives Algerian innovators access to modern, sovereign infrastructure built to support software development, AI-assisted creation, and product growth.”",
+  "published_at": "2026-05-05T01:54:12Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-10T03:01:30.727008Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

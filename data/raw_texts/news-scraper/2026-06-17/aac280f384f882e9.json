@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/17/uber-will-bring-its-premium-robotaxi-service-to-houston-in-2027/",
+  "title": "Uber will bring its premium robotaxi service to Houston in 2027",
+  "raw_text": "Uber plans to launch a premium robotaxi service in Houston by mid-2027, making it the second U.S. market under its partnership with EV maker Lucid and autonomous vehicle startup Nuro.\nThe announcement follows a flurry of activity in the San Francisco Bay Area, as the trio of companies prepare to offer a robotaxi service there later this year. Uber says it will eventually take the robotaxi program to “dozens of cities” in the coming years.\nFor now, the focus is on San Francisco and then Houston — both markets where Uber will go head-to-head with rival Waymo, the Alphabet-owned autonomous vehicle company that currently operates commercial robotaxi services in both cities.\nNuro has spent months testing Lucid Gravity SUVs equipped with its self-driving system in San Francisco and has made progress on that front, including giving Uber employees the ability to hail the Lucid robotaxis. But these vehicles still aren’t driverless, despite Nuro receiving a permit last month from the California Department of Motor Vehicles that would allow it to remove the safety driver from the vehicle.\nUber and Nuro’s combined engineering fleet of 100 autonomous vehicles is testing on public roads with safety operators behind the wheel in Houston as well. Nuro is also using closed courses and simulation to validate the self-driving system before opening the robotaxis to the public. The test fleet is expected to expand in the coming weeks as Lucid begins manufacturing the first production versions of the robotaxis at its Arizona factory.\nThe Lucid Gravity robotaxi, unveiled in January, is outfitted with high-resolution cameras, solid-state lidar sensors, and radars that help the self-driving system perceive the real-world environment and operate in it. Uber, which will own and operate the fleet, has focused its efforts on the in-cabin experience, including how riders will interact with the vehicle.\nUber is also expanding its physical footprint in Houston in preparation for the robotaxi launch there. The company now has a 50,000-square-foot depot and dedicated charging pitstop that will act as its operations hub in the city.\nThe robotaxi deal has provided a boost to Nuro, a buzzy autonomous vehicle startup that made a major pivot in 2024 away from building its own delivery robots to licensing its self-driving tech to automakers and other partners. It has also helped Lucid, which has struggled to sell its EVs at scale — a challenge familiar to most EV startups competing in a market still dominated by Tesla.\nUber has made direct investments in both Nuro — about $500 million as first reported by TechCrunch in May — and in Lucid. The ride-hailing giant has committed to invest $500 million in Lucid, committing to invest $500 million in the EV maker and buy a minimum of 35,000 robotaxi-ready Lucid vehicles.",
+  "published_at": "2026-06-17T11:00:00Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-06-17T15:00:21.601605Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "lucid",
+      "Uber",
+      "nuro"
+    ]
+  }
+}

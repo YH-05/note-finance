@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605080118",
+  "title": "[MSI] モトローラ　1Q増収減益　売上高7％増27.1億ドル、営業益10％減5.25億ドル、EPS2.18ドル",
+  "raw_text": "モトローラ・ソリューションズ<\nMSI>の2026年度第1四半期（1月1日-4月4日）の業績は増収、営業減益だった。\n米現地5月7日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比7.4％増の27億1400万ドルとなった。営業利益は9.8％減の5億2500万ドル。営業利益率は19.3％へ低下した。前年同期は23.0％だった。1株利益（EPS・希薄化後）は2.18ドル（前年同期2.53ドル）。\nモトローラ・ソリューションズ<\nMSI>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-07T20:32:11Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:00:22.421875Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

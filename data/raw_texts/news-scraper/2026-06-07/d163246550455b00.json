@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/lg-electronics-shares-jump-after-debut-of-google-based-car-products.html",
+  "title": "LG Electronics' shares surge 24% after showing automotive innovations using Google tech",
+  "raw_text": "Shares of LG Electronics surged as much as 23.95% after the company announced a series of automotive innovations built with technology from Alphabet Inc.'s Google.\nThe South Korean company said its new range of solutions is built on Android automotive operating systems. Its system can control multiple displays with different aspect ratios at the same time by using a single-on-chip, which is different from other conventional in-vehicle display systems, LG said.\n\"The solution supports automakers to significantly reduce the cost of deploying multi-display in-cabin systems,\" LG said.\nAndroid automotive operating systems are in demand, as they enable drivers to access apps in their vehicles without the use of smartphones. The global Android automotive OS market, which was valued at $895.6 million in 2025, is expected to reach $2.14 billion by 2035, according to estimates by Future Market Insights.\nShares last traded up 23.95% at 279,500 won.",
+  "published_at": "2026-05-29T02:29:02Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.667015Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

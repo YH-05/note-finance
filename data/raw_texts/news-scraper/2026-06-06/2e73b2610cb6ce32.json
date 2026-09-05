@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/openai-trump-ai-model-review-order.html",
+  "title": "OpenAI says it will comply with Trump's order requiring AI model reviews before release",
+  "raw_text": "OpenAI has confirmed it will comply with Donald Trump's executive order that asks AI companies to allow the federal government to assess their models' capabilities before they are released.\nGeorge Osborne, the company's head of countries, told CNBC's Arjun Kharpal that the startup would sign up to the voluntary order. \"It's quite right that democratic governments have a big role to play in how this technology is used and deployed,\" he said.\nSpeaking on the sidelines of SXSW in London, Osborne said the company takes its responsibilities \"very seriously\", adding: \"As this leading frontier lab with these very, very powerful and capable AI models, and we don't wait to be asked.\n\"We proactively suggested ways that governments can keep a track on safety and security issues, not just in the U.S., but more broadly.\"\nThe order, which Trump signed on Tuesday, asks for access to AI models 30 days before their release. It requests companies take part in a benchmarking process to assess the \"advanced cyber capabilities of AI models and determine the threshold at which an AI model should be designated a 'covered frontier model'\".\nOsborne, who was the U.K.'s finance minister from 2010 to 2016, said that \"governments are going to have to be smart\" over how they regulate the space.\nHe added: \"What we suggest to governments is they create powerful regulatory bodies, but with a lot of flexibility into how they will operate in the future.\"\nCorrection: This article has been updated to correct George Osborne's former position in the U.K. government. He was the finance minister, not the foreign minister.",
+  "published_at": "2026-06-05T10:04:17Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.793663Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

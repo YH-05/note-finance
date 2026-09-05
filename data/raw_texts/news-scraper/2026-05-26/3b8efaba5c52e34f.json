@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/fbi-easily-nabs-man-selling-sexy-deepfakes-who-used-his-own-photo-in-profile/",
+  "title": "FBI agent explains how easy it is to ID people posting AI porn without consent",
+  "raw_text": "The earliest arrests under the Take It Down Act (TIDA) suggest that cops don’t have to work too hard to identify people illegally posting and selling nonconsensual sexualized deepfakes of women online.\nLast week, the FBI arrested two men after visiting porn websites and clicking on hashtags like #AI #Deepfakes or video titles like “AI_tits” or “Ass_AI.”\nOne suspect accused of violating TIDA was 20-year-old Arturo Hernandez. He allegedly posted 113 albums viewed nearly a million times featuring AI-generated sexualized images and videos of approximately 50 women. Victims included political figures, actresses, and musicians, as well as women who are not public figures, such as female individuals who attended his Texas high school and an Instagram friend.\nGeo-location data helped cops identify Hernandez as a suspect. In his affidavit, an FBI special agent, Christopher Powell, explained that cops investigating the porn site found a second account re-posting all the content that Hernandez allegedly uploaded. That second account was linked to Hernandez’s PayPal account, the complaint said, and an IP address often used to log in to it was the same IP that Hernandez’s Apple records showed he’d used to log in to his iCloud.\nWhile sexualized deepfakes of celebrities and politicians may be easiest to spot in the wild, cops also sought evidence tying Hernandez to AI content depicting people he knew. It likely simplified their search to find that not only did Hernandez follow the Instagram account of one victim, but cops discovered that Hernandez had also saved in a folder on his own Instagram account the specific image used to create AI porn content viewed more than 36,000 times.\nHernandez seemingly tried to distance himself from some of the activity, for example, by registering his Gmail account with the nickname “Ryan” instead of his actual first name. However, cops noted that Hernandez used the “Ryan” nickname elsewhere online, including on his Snapchat account.",
+  "published_at": "2026-05-26T17:46:01Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-26T21:00:31.019584Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "ai porn",
+      "Artificial Intelligence",
+      "etc",
+      "fbi",
+      "nudify",
+      "revenge porn",
+      "take it down act"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/bank-of-america-says-take-profits-too-many-red-flags.html",
+  "title": "Bank of America says take profits: 'Too many red flags'",
+  "raw_text": "There are \"too many red flags\" waving over U.S. stocks, Bank of America warned on Friday. Of 10 bear market signposts tracked by the bank, seven were triggered in May, up from five in April and four in March. Seven is the average number reached ahead of previous bear markets since 1990. \"We see opportunity in S & P 500 stocks, but not the overall cap-weighted index,\" Bank of America strategist Savita Subramanian wrote to clients on Friday. \"Our S & P 500 year-end target of 7100 suggests 6% downside from here.\" The latest signs to turn red are the spread between the best and worst performers in the S & P's technology sector and growth expectations for the index as a whole rising significantly above its five-year average. The gap in the tech sector between the best and worst performing quintiles' median stock is a \"whopping\" 120 percentage points, the highest since Feb. 2000, the peak of the internet boom. The tech spread \"rivals the dotcom bubble,\" Subramanian said, noting that the gap reached 130 points just before the market peak of March 24, 2000. The increasing concentration of gains has concerned many analysts on Wall Street in recent weeks and been reflected in a variety of measures. For example, the S & P 500 closed the month of May at a record high, but only a handful of stocks hit their own all-time highs. Advance-decline lines for the S & P, which compare the number of stocks rising versus the number falling, have exhibited a similar trend . Chip stocks sold off hard on Thursday and Friday after rallying in April and part of May. The sell-off was prompted in part by a Wednesday earnings report from chipmaker Broadcom , which held revenue estimates from artificial intelligence steady instead of raising them. Yet other analysts on Monday viewed last week's selloff as a sign of health in the chip sector. \"We view the recent pullback in the group as healthy and maintain AVGO, TXN , and AMAT as our top buy-rated picks,\" Atif Malik wrote for Citigroup on Monday.",
+  "published_at": "2026-06-08T13:45:06Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:19:58.979743Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

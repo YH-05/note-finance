@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605151436",
+  "title": "外為：1ドル158円57銭前後とドル高・円安で推移",
+  "raw_text": "米ドル／円 ＜日足＞ Slowストキャス 「株探」多機能チャートより\n15日の外国為替市場の\nドル円相場は午後6時時点で1ドル＝158円57銭前後と、午後5時時点に比べ13銭のドル高・円安。\nユーロ円は1ユーロ＝184円45銭前後と8銭の小幅なユーロ高・円安で推移している。\n株探ニュース",
+  "published_at": "2026-05-15T09:01:02Z",
+  "author": null,
+  "collected_at": "2026-05-15T09:02:16.858903Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

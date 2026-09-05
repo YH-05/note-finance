@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/28/spotify-stock-spot-earnings-beat-guidance.html",
+  "title": "Spotify stock plummets after earnings beat expectations as guidance disappoints",
+  "raw_text": "Shares of Swedish audio-streamer Spotify fell over 13% after the market opened Tuesday, as soft guidance overshadowed an earnings beat.\nThe company said first-quarter revenue rose 8% from last year to 4.5 billion euros ($5.3 billion), while monthly active users (MAUs) rose 12% year-on-year to 761 million, both slightly above FactSet estimates.\nPremium subscribers grew 9% to 293 million, reflecting 3 million quarterly net adds, Spotify said.\nFor the current quarter, Spotify expects to add 17 million net users to reach 778 million MAUs. It expects to grow its premium subscribers by 6 million to 299 million.\nWhile second-quarter MAU guidance was slightly above Wall Street's expectations, net premium subscribers had been expected to grow to just over 300.4 million, according to analysts polled by FactSet.\nThe guidance is \"subject to substantial uncertainty,\" Spotify said in an earnings presentation.\nOperating income was guided to 630 million euros, while the Street was expecting closer to 680 million euros, per FactSet estimates.\nSpotify has repeatedly hiked prices for its premium subscription in an attempt to improve profitability.\nIn February, the company increased the subscription price from $11.99 to $12.99 a month in the U.S.\nAt Monday's close, the stock was down 14% year-to-date.",
+  "published_at": "2026-04-28T14:00:46Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.563032Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

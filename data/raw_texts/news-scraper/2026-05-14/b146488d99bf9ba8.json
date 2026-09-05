@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930336/att-tmobile-verizon-joint-venture-agreement-satellite-coverage",
+  "title": "AT&#038;T, T-Mobile, and Verizon team up to eliminate coverage dead zones",
+  "raw_text": "AT&T, T-Mobile, and Verizon have agreed to work together under a new joint venture that aims to end wireless dead zones in the US. The partnership was announced today as an “agreement in principle,” but if finalized would see the three carrier companies pooling their ground-based spectrum resources together to increase coverage in rural areas.\nAT&T, T-Mobile, and Verizon team up to eliminate coverage dead zones\nA new joint venture has been proposed to pool spectrum resources and improve satellite capacity.\nA new joint venture has been proposed to pool spectrum resources and improve satellite capacity.\nThe goal is to create the “best and most diverse ecosystem for wireless and satellite products and services,” though details on how this will actually be achieved are fairly vague. There’s mention of the venture developing a unified technical standard for customers and satellite network operators, and investing in satellite-based, direct-to-device (D2D) technologies to address coverage gaps and improve connectivity.\nIn its press release, AT&T says that existing carrier-satellite agreements will remain in place under this proposed joint venture. “Our goal is to make staying connected simple, no matter where you are — on a rural highway, in a national park, on a boat, or during an emergency,” AT&T CEO John Stankey said in a statement. “By joining with other carriers, we’re bringing our combined expertise to accelerate our customers’ access to reliable, and always-on coverage everywhere.”\nThe joint venture is still subject to closing conditions and negotiations between AT&T, T-Mobile, and Verizon. If this does go ahead, however, the outcome will theoretically be good for everyone. Customers should get access to stronger, more reliable connectivity in areas that struggled with mobile service, and satellite services can more easily serve folks in areas that traditional cell networks can’t cover.",
+  "published_at": "2026-05-14T12:48:49Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-14T15:00:16.288726Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AT&T",
+      "Mobile",
+      "News",
+      "T-Mobile",
+      "Tech",
+      "Verizon"
+    ]
+  }
+}

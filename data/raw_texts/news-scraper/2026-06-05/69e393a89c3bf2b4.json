@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/04/ahead-of-its-ipo-anthropics-daniela-amodei-shrugs-off-doubts-about-ais-returns/",
+  "title": "Ahead of its IPO, Anthropic’s Daniela Amodei shrugs off doubts about AI’s returns",
+  "raw_text": "Private investors have been falling over themselves to get a piece of Anthropic, given the AI model maker is growing at a dizzying pace. Multiple investors told TechCrunch that the company’s $65 billion fundraise at a $965 billion valuation, announced last week, was greatly oversubscribed. Now, with that private demand still strong, Anthropic has revealed that it’s taking steps toward a public listing by filing confidentially for an IPO.\nCo-founder Daniela Amodei, speaking at the Bloomberg Tech conference on Thursday, said the decision comes down to capital. “It’s a really big upfront cost to train the models and to serve inference on them,” she said. “My guess is that over time, the sort of core set of companies that are working to advance the frontier are just going to need access to capital, and I think the public market is very well suited to that.”\nAnthropic has been growing at a breakneck pace. The company announced that annualized revenue crossed $47 billion in May, up dramatically from roughly $9 billion at the end of 2025. That trajectory faces a real test, though. Companies such as Uber have said that while AI can deliver returns, not all of their AI spending has proven productive, raising the prospect that corporations could begin to rein in those budgets and slow growth across the sector.\nThat isn’t fazing Amodei, who believes businesses are still early in figuring out how to deploy AI effectively.\n“The use cases today, I expect will continue to be the primary driver of efficiency or creativity, whether that’s coding, financial services, legal, [or] health care,” she said. “But as the business community gets more familiar with the tools, we’re all going to learn together. My hope is that over time it’ll be more incorporated into the day-to-day of how humans do our work, and there will actually be a lot more value realized.”\nAmodei also addressed why, unlike rivals OpenAI and Elon Musk’s xAI, Anthropic isn’t building its own data centers to meet the company’s growing compute needs.\n“Anthropic’s view has always been wanting to plan for the best outcome but not overextend ourselves such that we’re buying more compute than we could productively use,” she said. “It’s really hard to predict that perfectly. We would much prefer to be on the side of having a little bit more demand for the product than we’re able to serve than the inverse.”\nLast month, the company surprised the AI industry by partnering with xAI for compute capacity, a deal later disclosed in SpaceX’s S-1 filing to cost Anthropic $1.25 billion per month.",
+  "published_at": "2026-06-04T22:43:26Z",
+  "author": "Marina Temkin",
+  "collected_at": "2026-06-05T03:02:29.644706Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "IPO"
+    ]
+  }
+}

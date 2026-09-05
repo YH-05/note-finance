@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://blog.adafruit.com/",
+  "title": "Adafruit Receives Demand Letter from Fenwick Legal Counsel on Behalf of Flux.ai",
+  "raw_text": "Adafruit received at 10:38 p.m. ET on May 22, 2026 a letter from former FBI chief of staff, Jonathan F. Lenzner, and partner at Fenwick & West LLP, counsel for Flux, demanding, among other things, that Adafruit refrain from publishing an article addressing what the letter characterizes as false and potentially defamatory claims about Flux, including statements about Flux’s intellectual property, commercial traction and user base.\nThe letter further asserts claims under the Computer Fraud and Abuse Act. Adafruit accessed only information that Flux’s own systems made publicly available through a server misconfiguration. Adafruit’s reporting concerns a matter of public security interest and was conducted in the ordinary course of responsible disclosure.\nAlthough Adafruit vigorously rejects the assertions made in Flux’s May 22, 2026 demand letter, we have temporarily stopped publishing on the Adafruit blog while we consider our response and next steps.\nWe will update the community as appropriate.\nThe Adafruit press contact is: [email protected]\n-ladyada & pt",
+  "published_at": "2026-06-02T10:00:56Z",
+  "author": "semanser",
+  "collected_at": "2026-06-02T15:00:41.656536Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

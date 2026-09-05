@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/oil-prices-today-wti-brent.html",
+  "title": "Oil falls as International Energy Agency forecasts supply glut next year after U.S.-Iran deal",
+  "raw_text": "Oil prices declined Thursday after President Donald Trump reportedly signed a deal with his Iranian counterpart Masoud Pezeshkian to end the war in the Middle East, while the International Energy Agency flagged a supply glut next year.\nInternational benchmark Brent crude futures for August dropped 1.13% to $78.65 a barrel. U.S. West Texas Intermediate futures for July fell 1.26% to $75.82 per barrel.\nClouding the situation, Trump also told reporters that he could resume attacks on Iran if Tehran failed to honor its commitments, according to Reuters.\n\"We're going to bomb the hell out of them if they violate the agreement,\" Trump reportedly said at a press conference. \"I don't want them to. I want them to honor the agreement.\"\nThe IEA expects a lasting resolution to the conflict will result in significantly higher supply volumes and spark a major oil overhang next year.\nGlobal supply is now expected to drop by 3.9 million barrels per day on average in 2026 to 102.4 mbd, before recovering to 110.3 mb/d next year, according to its latest monthly oil market report.\n\"Our first look at 2027 balances shows a significant overhang emerging next year,\" the IEA added.\nWhile lower oil prices may reduce chances of energy prices leading to a broader inflation problem, this is not \"an all-clear,\" according to a report by New York Life Investment Management. \"Oil remains above pre-conflict levels, shipping normalization will take time, and inventories and strategic reserves still need to be replenished,\" the report noted.\n—CNBC's Hugh Leask contributed to the report.",
+  "published_at": "2026-06-18T01:49:22Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.775265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://gitdot.io/",
+  "title": "Show HN: Gitdot – a better GitHub. Open-source, written in Rust",
+  "raw_text": "<p>What works now: user signups, org creations, private/public repos, and importing GitHub repositories (both as read-only mirrors and full migrations). So basically, you can create, push and pull to a repo, but we don't have many features quite yet (issues, PRs, CI).<p>What is a bit unique is: 1) we built it in Rust and 2) the website is a little odd. Its design is inspired by CLIs (e.g., fzf, broot, vim) instead of web apps, and as such, lacks some affordances that you might typically expect in favor of keyboard-driven instant navigations (we have the very ambitious goal of an FCP of 100ms). In case you're curious, here's how we we built it: <a href=\"https://gitdot.io/designs\">https://gitdot.io/designs</a><p>We recognize that we're making some bold claims here and are also well aware that we have much to learn. Building software is still hard, and that's a fact we seem to relearn everyday.<p>But we wanted to share what we built so far nonetheless.<p>Cheers, thank y'all for reading, and till the next\n—paul & mikkel.</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48447806\">https://news.ycombinator.com/item?id=48447806</a></p>\n<p>Points: 163</p>\n<p># Comments: 129</p>",
+  "published_at": "2026-06-08T16:52:11Z",
+  "author": "baepaul",
+  "collected_at": "2026-06-09T03:00:56.067626Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

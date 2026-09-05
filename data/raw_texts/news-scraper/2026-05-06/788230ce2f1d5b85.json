@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/ups-fedex-amazon-logistics.html",
+  "title": "UPS, FedEx stocks sink after Amazon expands logistics network to other businesses",
+  "raw_text": "Shares of logistics giants UPS and FedEx sank on Monday after Amazon announced a new initiative to open up its supply chain networks to other businesses.\nBoth stocks closed down roughly 10% on Monday. The companies did not immediately respond to requests for comment.\nShares of Amazon remained largely unchanged.\nThe tech company's \"Amazon Supply Chain Services\" will allow companies spanning multiple industries to use Amazon's supply chain and logistics to move and deliver products and raw materials.\nIt's part of Amazon's ongoing growth in services. The announcement could set up Amazon as a major player next to UPS and FedEx, opening up its fleet of more than 100 cargo plans and a massive network of warehouses.\nAmazon said major retailers including Procter & Gamble, 3M, Lands' End and American Eagle Outfitters have already signed up for the new program.",
+  "published_at": "2026-05-04T20:03:20Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.691210Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

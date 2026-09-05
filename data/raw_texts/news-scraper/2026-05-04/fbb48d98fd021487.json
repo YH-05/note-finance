@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/the-markets-next-test-could-come-down-to-two-stocks.html",
+  "title": "The market's next test could come down to two stocks",
+  "raw_text": "The U.S. stock market is on a tear, clearing one hurdle after another, from elevated crude oil prices and geopolitical tensions to five of the seven \"magnificent\" earnings this week.\nNext up: another blockbuster week of first-quarter earnings season, with more than 100 S&P 500 members set to report. Highlights include semiconductor leader Advanced Micro Devices, retail-trading favorites Palantir and Coinbase, and consumer stocks from Uber to Disney.\nFor momentum traders, AMD's report Tuesday after the bell is probably the most important. Semiconductors remain the heartbeat of the bull market as the power-providers behind the artificial intelligence boom, and AMD's been a scorcher, up 270% in the past year. That's more than three times the move in Nvidia, which reports on May 20.\nOptions traders are bracing for a 7% move in AMD and have a generally bullish tilt, with call volumes and premiums far outpacing puts, but about an even number of calls being sold as bought. Perhaps that's because the stock got walloped 17% after its last report before staging a 75% comeback rally in April.\nFlows look a bit more bullish in intelligence-software provider Palantir, a stock that's down 30% from all-time highs, but still up 550% in the past two years and has rallied after five of its last seven reports.\nMore calls were bought than sold in Palantir options trading Friday, and more puts were sold than bought. Calls account for 62% of total volume and 72% of premiums traded. Traders are looking for an 8% swing, slightly below the 8.7% four-quarter average. Alex Karp's company reports after the bell Monday.\nAMD and Palantir in the same week presents an opportunity for hardware and software themes to rally together, after months of underperformance by the latter group. Momentum certainly favors bulls, with the S&P 500, Nasdaq 100 and Russell 2000 all making new highs Friday, and VIX touching 16.4, the lowest since Feb. 3",
+  "published_at": "2026-05-04T13:04:07Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:19:17.194513Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

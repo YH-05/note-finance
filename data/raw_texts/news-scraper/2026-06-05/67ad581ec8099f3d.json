@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/06/googles-new-gemma-4-open-ai-model-is-sized-for-your-laptop/",
+  "title": "Google's new Gemma 4 12B model is designed to run on any laptop with 16GB of RAM",
+  "raw_text": "The generative AI boom has driven the cost of memory into the stratosphere, and Google is a key part of that trend. So it’s only fitting that Google should offer some less RAM-hungry local AI models. The company has announced the release of a new Gemma 4 model that fills a gap in the lineup that launched earlier this year. The new model is efficient enough that you may be able to run it on a pretty average consumer laptop.\nIn April, Google released four models in the Gemma 4 family, which also marked the shift to a more open Apache 2.0 license. The initial models included two mobile-optimized options (E2B and E4B) along with a pair of models for more serious work (26B Mixture of Experts and 31B Dense). That left a rather large unserved space in the middle, which is right where the new model falls.\nGemma 4 12B is considerably more capable than the mobile versions, but it won’t require a $20,000 AI accelerator to run locally. Google says Gemma 4 12B is unique in that it can run on many consumer laptops without sacrificing quality. As long as you’ve got a computer with 16GB of system RAM or VRAM, the 12-billion-parameter model will work. That’s about half the total memory footprint of Gemma 4 26B MoE, and Google claims the new model is almost as capable, at least as far as benchmarks go.",
+  "published_at": "2026-06-03T19:10:03Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-06-05T03:02:35.615432Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "generative ai",
+      "google",
+      "local AI"
+    ]
+  }
+}

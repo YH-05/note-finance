@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://uruky.com/?il=en",
+  "title": "Show HN: Uruky (EU-based Kagi alternative) now has Image Search and URL Rewrites",
+  "raw_text": "Private search you control\nSearch without ads or tracking\nUruky is a private search engine focused on personalization, not an ecosystem.\nEU-based. No surveillance capitalism.\n14-day money-back guarantee\nSign up to search.\nWhat you get\nPrivacy first\nNo ads, no tracking, no analytics. No emails or names stored, just an account number (like Mullvad). We have no incentive to track your searches.\nSearch personalization\nTune results to you: exclude or boost domains. No assistants, news, or summaries. You can search with JavaScript disabled. What Kagi was, originally.\nTrue ownership and validation\nAfter 12 months as a paying customer, you get a copy of the source code.\nJust search\nWe're building a private search engine, not an ecosystem. There are already many privacy-focused alternatives for other services controlled by big tech.\nEU-based\nEU servers, EU storage, EU payment processing, EU search providers (Marginalia, Mojeek, EUSP, etc.).\nNot another AI tool\nThere are no plans to implement any AI features, for now. We find it hard to do in a sensible, responsible, and respectful way.\nWhat do people say about Uruky?\nThe Privacy Dad\nInterview with the Engineer of Uruky, a Private Search Engine\nIndependent Q&A with Bruno, co-founder of Uruky: why he builds privacy tools, how paid search differs from ad-funded engines, and what running a small, account-number-only search business looks like today.\nLe Alternative\nA European paid meta-search to watch\nIndependent month-long review: a privacy-first, paid European meta-search that does not ask for personal data, with a candid look at what works and what is still missing.",
+  "published_at": "2026-06-04T08:56:10Z",
+  "author": "BrunoBernardino",
+  "collected_at": "2026-06-05T03:02:48.110820Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/investors-should-increase-hedges-toward-the-end-of-summer-susquehanna.html",
+  "title": "Three reasons investors should increase hedging toward the end of summer: Susquehanna",
+  "raw_text": "Investors should increase their hedging toward the end of summer, as stretched momentum in the S & P 500, macroeconomic risks and persistently higher oil prices heighten market uncertainty, according to Chris Murphy, co-head of derivatives strategy at Susquehanna. After a strong seasonal run, the S & P 500 is \"starting to look increasingly vulnerable to a correlation shock,\" Murphy said. \"Investors are entering the summer window with crowded momentum exposure, heavy large-cap tech positioning, low asset-manager cash, and a market that has become increasingly dependent on a narrow group of AI, semiconductor, and mega-cap leaders,\" he noted. While the tech sector has been posting one of its strongest two-month runs since 1990 which helped to propel the rally in the S & P 500, the momentum surges \"do not last forever,\" according to Murphy. Murphy noted that the upside call skew has moved sharply higher across Nvidia, Broadcom, Invesco QQQ Trust, VanEck Semiconductor ETF and the broader top-50 S & P component universe, with prime-book momentum exposure at record highs while large-cap tech positioning is near the 95th percentile. Further, current macroeconomic risks would call for more hedging, given that consumer sentiment may be pressured in the coming months by persistently higher oil prices, while decline in the savings rate could signal another sign of fragility, Murphy said. \"For investors who have benefited from the AI and tech-led rally, late summer may be a reasonable window to add protection while the market is still calm, rather than waiting for volatility, correlation, and put skew to reprice after the first real break in momentum,\" he said.",
+  "published_at": "2026-06-03T02:41:47Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.101247Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

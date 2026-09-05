@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/06/locked-in-heated-rivalry-with-researcher-microsoft-fixes-0-day-they-disclosed/",
+  "title": "Locked in heated rivalry with researcher, Microsoft fixes 0-day they disclosed",
+  "raw_text": "Microsoft on Tuesday released fixes for two high-severity zero-days that were disclosed by a researcher who has been locked in a testy beef with the software giant.\nNightmare Eclipse, the pseudonym the researcher goes by, released a handful of high-severity vulnerabilities in recent months, making them zero-days that had the potential to be exploited in the wild. The researcher has said the disclosures, which included proof-of-concept code, came after Microsoft reneged on an arrangement the two made regarding vulnerabilities they had discussed.\nDisclosure drama\n“But someone violated our agreement and left me homeless with nothing,” Nightmare Eclipse wrote in March. “They knew this will happen and they still stabbed me in the back anyways, this is their decision not mine.”\nAs part of June’s vulnerability patch batch release, Microsoft issued a fix for CVE-2026-45586. Nightmare Eclipse disclosed the vulnerability and limited PoC code in May under the name GreenPlasma. The vulnerability is a local privilege escalation, meaning it can be chained to a separate vulnerability to give users or processes with low-level privileges the ability to defeat OS protections and gain full SYSTEM rights needed to install malware.\nMicrosoft said CVE-2026-45586 required minimal complexity to exploit, required no user interaction, and that chances of active exploitation in the wild were likely. The vulnerability, the company added, was the result of “improper link resolution before file access (‘link following’) in [the] Windows Collaborative Translation Framework.” There are no indications that the vulnerability has been actively exploited so far.",
+  "published_at": "2026-06-09T20:56:52Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-06-11T03:00:31.555374Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "microsoft",
+      "nightmare eclipse",
+      "vulnerabilities"
+    ]
+  }
+}

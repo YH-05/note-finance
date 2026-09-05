@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/research-roundup-6-cool-science-stories-we-almost-missed-4/",
+  "title": "Research roundup: 6 cool science stories we almost missed",
+  "raw_text": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. So every month, we highlight a handful of the best stories that nearly slipped through the cracks. April’s list includes tracking Roman ship repairs, the discovery that mushrooms can detect human urine, crushing soda cans for science, and the physics of why dolphins can swim so fast.\nPhysics of why dolphins swim so fast\nDolphins are very good swimmers but the exact mechanisms by which they achieve their impressive speed and agility in water have remained murky. Japanese scientists from the University of Osaka ran multiple supercomputer simulations to learn more about how dolphins optimize their propulsion and found it has to do with the vortices, or eddies, produced by dolphin kicks, according to a paper published in the journal Physical Review Fluids.\nPer the authors, when dolphins flap their tails up and down, the kicking motion pushes water backward and produces swirling currents of varying sizes. The computer simulations enabled the team to break down those different sizes, revealing that the initial tail oscillations produce large vortex rings that generate thrust, and those larger ones then produce many more smaller vortices. However, the smaller ones don’t contribute to the forward motion.\nIn short, “Our results show that the hierarchy of vortices in turbulence is crucial for understanding dolphin swimming,” said co-author Susumu Goto. “The largest vortices are responsible for most of the propulsion, while the smaller ones are mainly byproducts of turbulent flow.” The team hopes to apply these insights into the mechanics of underwater propulsion to the design of faster and more efficient underwater robots.",
+  "published_at": "2026-05-02T14:23:31Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-03T03:00:31.301205Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "research roundup"
+    ]
+  }
+}

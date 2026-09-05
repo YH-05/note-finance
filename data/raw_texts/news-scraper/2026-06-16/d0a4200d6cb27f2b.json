@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/950043/amazon-smart-thermostat-early-prime-day-deal-sale",
+  "title": "Amazon&#8217;s Smart Thermostat is on sale for just $58",
+  "raw_text": "If your electricity bill climbs every summer, a smart thermostat could help keep cooling costs in check. The Amazon Smart Thermostat is an excellent option for its price, especially today. It’s down to just $57.99 at Amazon as a part of Amazon’s early Prime Day sale, which is the best price we’ve seen since Black Friday.\nAmazon’s Smart Thermostat is on sale for just $58\nAmazon’s Alexa-compatible thermostat can learn your routines and help you monitor energy use.\nFor a smart thermostat that costs under $100, the Amazon thermostat offers a lot of helpful features. One of its most useful is its ability to learn and adapt to your routines, reducing the need to constantly tweak the temperature yourself. It’s also compatible with most 24-volt HVAC systems, and adjusts itself accordingly depending upon whether or not you’re asleep or at home. The app lets you create schedules and monitor energy usage as well, giving you a sense of how much AC you’re using so you can make adjustments before your next utility bill arrives.\nPlus, it’s a particularly good buy if you’re embedded in Amazon’s ecosystem. It’s compatible with Amazon’s Alexa, allowing you to adjust the temperature using voice commands or the mobile app. You can also create Alexa Routines so it can work alongside other compatible smart home devices like Amazon’s $44.99 ($25 off) Smart Air Quality Monitor, setting up automations that adjust your home’s temperature when certain indoor air quality conditions are detected. So long as you’re fine going without native temperature sensors, this smart thermostat is an excellent value for the price.",
+  "published_at": "2026-06-15T19:33:28Z",
+  "author": "Sheena Vasani",
+  "collected_at": "2026-06-16T03:00:17.195406Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Deals",
+      "Gadgets",
+      "Tech",
+      "Verge Shopping"
+    ]
+  }
+}

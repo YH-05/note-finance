@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/us-iran-war-missiles-kuwait.html",
+  "title": "U.S. intercepted Iranian missiles targeting American forces in Kuwait, Central Command says",
+  "raw_text": "U.S. Central Command on Monday said Iran fired two ballistic missiles overnight targeting American forces stationed in Kuwait, the latest in a series of attacks that further undermine a threadbare ceasefire.\nThe missiles fired Sunday night at 11 p.m. ET were successfully intercepted and no U.S. personnel were harmed, CENTCOM said in an X post.\n\"U.S. Central Command remains vigilant and will continue to protect our forces from Iranian aggression while supporting the ongoing ceasefire,\" the post said.\nKuwait's Foreign Ministry in a statement condemned the attacks, calling them a \"dangerous escalation\" and asserting the country's right to take necessary measures to hold Iran \"fully responsible for these heinous aggressions.\"\nThe missile attacks came after CENTCOM conducted \"self-defense strikes on Iranian radar and command and control sites for drones\" over the weekend in response to prior Iranian aggression, including \"the shootdown of a U.S. MQ-1 drone that was operating over international waters.\"\n\"U.S. fighter aircraft swiftly responded by eliminating Iranian air defenses, a ground control station, and two one-way attack drones that posed clear threats to ships transiting regional waters,\" CENTCOM said, adding that no American troops were harmed.\nThe kinetic exchanges between the U.S. and Iran came as Israel ramps up its military offensive in Lebanon against the Iran-backed militia Hezbollah.\nIran has repeatedly said that Israel's attacks in Lebanon constitute violations of its ceasefire with the U.S., which began in mid-April as a two-week pause and was later extended indefinitely by President Donald Trump.\nIranian Foreign Minister Abbas Araghchi in an X post Monday morning said, \"The ceasefire between Iran and the US is unequivocally a ceasefire on all fronts, including in Lebanon.\"\n\"Its violation on one front is a violation of the ceasefire on all fronts. The US and Israel are responsible for the consequences of any violation,\" he wrote.",
+  "published_at": "2026-06-01T16:27:14Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.133092Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "politics",
+    "tags": []
+  }
+}

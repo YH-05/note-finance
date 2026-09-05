@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/952099/adobe-ai-assistants-photoshop-premiere-illustrator-beta-launch",
+  "title": "Photoshop and Premiere now have AI assistants",
+  "raw_text": "Adobe’s plan to stick AI assistants into all of its Creative Cloud suite is now fully underway, with new chatbots now rolling out to its biggest editing and design apps. As part of a public beta launching today, Photoshop, Premiere, Illustrator, InDesign, and Frame.io now each have a bespoke AI Assistant that can be used to organize your work and automate app-specific tasks.\nPhotoshop and Premiere now have AI assistants\nPrompt-based editing capabilities are rolling out to Adobe’s most popular Creative Cloud apps.\nPrompt-based editing capabilities are rolling out to Adobe’s most popular Creative Cloud apps.\nWhile the AI assistants are all powered by Adobe’s “conversational creative agent,” they work independently and operate “as a specialist” within each Creative Cloud app, according to Adobe’s announcement. That means the Premiere AI assistant is fine-tuned for tasks like quickly reorganizing your video timeline, for example, while Photoshop’s version of the chatbot understands how to use some of its most popular photo editing tools on your behalf.\nThe AI assistants provide a chatbot-like interface within each app where you can describe what changes you’d like to make to your project in natural language prompts, similar to the assistants that have already rolled out to Adobe Express, Acrobat, and Firefly. The capabilities of each are fairly expansive, as expected for complex design apps, but here’s a rough overview of what each can do:\nThe AI assistant in Premiere can sort assets into bins, and quickly rename batches of clips based on what’s happening in the footage. It can also identify questions or specific keywords in recorded speech, and use them to add markers to your project timeline, or lay out a working starting point for your video. Adobe says that “the tedious set-up work is taken care of for you,” and that the AI assistant can help with anything you do in the Project panel or Timeline.\nFor Photoshop, you can “describe the desired outcome,” according to Adobe — a prompt-based approach to editing that we’ve already seen in Adobe’s Firefly assistant. You can use it to organize your layers, switch backgrounds, resize assets for use on online platforms, and more. This desktop app expansion follows Adobe launching an AI assistant for its web and mobile versions of Photoshop earlier this year.\nIn Illustrator, the AI assistant can support “multi-step production jobs,” such as flagging color mode errors or missing fonts, reorganizing layers, and generating multiple versions of design files from a spreadsheet or document. For Adobe’s InDesign publishing software, the chatbot can apply print-readiness checks and copy and styling updates across every page layout when you upload a new PDF or open an existing template. And in Frame.io, the assistant can surface revision feedback, organize shoot assets, generate B-roll footage, and help with “creative direction” on your projects, according to Adobe.\n“Adobe has always been at the center of how the best creative work comes to life, and this is a major expansion of that promise,” said Adobe’s creativity head David Wadhwani. “Every creative now has an agent capable of helping them execute across every app and platform where they work so they can set the vision, apply their taste, and make the calls that only they can.”\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T13:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-18T15:00:11.531965Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Adobe",
+      "AI",
+      "Creators",
+      "Design",
+      "News",
+      "Tech"
+    ]
+  }
+}

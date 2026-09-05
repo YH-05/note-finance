@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/wayve-fund-raise-amd-qualcomm-arm.html",
+  "title": "Chip giants AMD, Qualcomm and Arm back driverless car startup Wayve with fresh funds",
+  "raw_text": "British autonomous driving startup Wayve on Wednesday said it raised funds from Qualcomm, AMD and Arm, adding some of the biggest names in tech to its long list of backers as it takes on rivals like Alphabet's Waymo.\nThe three semiconductor firms invested $60 million into Wayve, the company said on Wednesday, in a follow-on investment to the $1.2 billion funding round the driverless car company announced in February.\nWhile relatively small in size, the investment is strategic in nature.\nWayve's technology is designed to make cars autonomous without the need for high-definition maps or massive amounts of training in a specific area, which is a different approach to competitors like Waymo.\nThe U.K.-headquartered firm has designed its technology to work with any automaker. But different automakers use various chips to power their driverless cars, such as those designed by NVIDIA or Qualcomm. Arm and AMD are all involved in auto chips.\nIn the $1.2 billion funding round from February, Wayve announced Nvidia as a backer. Now with all of the major semiconductor names on board, Wayve has scope to work more closely with the companies as it looks to commercialize its technology and sell it to more automakers.\n\"What's exciting for us is it gives our customers choice of which silicon platform they want to work with. And it lets us work with what's already being used across the industry,\" Wayve CEO Alex Kendall told CNBC in an interview.\n\"We can meet the industry where they are. It just increases the speed and scale of our adoption.\"\nWayve is currently testing its driverless cars in the U.K., Germany, Japan and the U.S., and has signed a commercial deal with Nissan to integrate its AI into the company's driver-assistance systems for commercial cars. In March, the two companies and Uber said they would also develop robotaxis.\nKendall declined to comment on other deals with automakers that are in the works, but said \"it's going to be a matter of time before every vehicle has this kind of capability,\" referring to driverless systems that Wayve is developing.\nWayve is facing increasing competition in markets where it operates. Waymo is testing cars outside of the U.S. in Japan and the U.K.\nOn Tuesday, Waymo announced its cars in London were operating with trained specialists behind the wheel. This is another step before it starts offering passenger rides, which the Alphabet-owned company is aiming to do this year.\nMeanwhile, Chinese players like Baidu, WeRide and Pony.ai, are expanding their driverless technology offerings overseas.",
+  "published_at": "2026-04-15T13:00:01Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.111528Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

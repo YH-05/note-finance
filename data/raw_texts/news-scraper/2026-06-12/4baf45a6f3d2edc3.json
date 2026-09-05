@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.bbc.com/news/videos/clyrvrde160o",
+  "title": "US-Canada border library gets new Quebec-only entrance",
+  "raw_text": "Watch: Historic US-Canada border library gets new Quebec-only entrance\nThe Haskell Free Library and Opera House, a landmark community institution built deliberately across the Canada–US border in 1904 so neighbours could share books and performances, has opened a new Canada-only entrance.\nThis comes after the Trump administration limited access for individuals entering from Canada, barring them from using the library's original main entrance, situated in Vermont on the US side of the border.\nFor more than a century, visitors from both countries moved freely through the building, crossing the international border marked by a strip of black tape on the floor. But tighter US security rules effectively closed the historic shared entrance to Canadian visitors in October 2025.\nThe new entrance, created from a former emergency exit on the Canadian side, was a costly project funded in part through community fundraising.\nVideo by Eloise Alanna",
+  "published_at": "2026-06-11T13:42:42Z",
+  "author": "NalNezumi",
+  "collected_at": "2026-06-12T03:01:08.049738Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

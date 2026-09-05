@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/how-the-other-half-lives-vw-shows-off-electric-polo-gti-for-europe/",
+  "title": "Volkswagen shows its first electric GTI; there's no chance of US sales",
+  "raw_text": "When Volkswagen introduced the first Golf GTI in Europe in 1976, it might not have been the first hot hatchback, but it quickly became the gold standard version. Unlike in America, where big cars were cheap and fuel even cheaper, small European streets and even smaller car-buying budgets necessitated vehicles a little more economical in both size and fuel consumption. Small, front-wheel-drive hatchbacks were the answer, but they weren’t particularly exciting. The GTI changed that perception with a more powerful engine, sharper handling, and subtle styling tweaks, creating a recipe for the next 50 years. And today, VW showed off its first electric GTI.\nWhile the new EV might be inspired by the original Golf GTI, it’s one segment smaller than the current Golf—meet the VW ID. Polo GTI. VW has given some of its ID EVs GTX branding until now, but this is the first to get the GTI badge.\nLike the 1976 original, the new car has front-wheel drive, but the ID. Polo GTI’s electric motor generates 222 hp (166 kW)—just over twice the output of the 1.6 L engine in the old car. There’s a 52 kWh battery pack that provides a WLTP range estimate of 236 miles (424 km), with DC fast charging up to 105 kW with a 10–80 percent charge time of 24 minutes.\nZero to 62 mph (100 km) at 6.8 seconds is brisk as opposed to rapid, and it’s still quicker than a 20th century VW GTI. A curb weight of 3,395 lbs (1,540 kg) is significantly more than those 70s, 80s, and 90s hatchbacks weighed, though.",
+  "published_at": "2026-05-15T17:55:55Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-18T03:00:30.994296Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "VW ID. Polo GTI"
+    ]
+  }
+}

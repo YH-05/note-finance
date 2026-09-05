@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://openreview.net/pdf?id=Yxz92UuPLQ",
+  "title": "Transformers are inherently succinct",
+  "raw_text": "<p>This paper is being published at ICLR 2026 (top AI conference), and was selected as one of three outstanding papers.</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48416635\">https://news.ycombinator.com/item?id=48416635</a></p>\n<p>Points: 118</p>\n<p># Comments: 32</p>",
+  "published_at": "2026-06-05T18:50:26Z",
+  "author": "brandonb",
+  "collected_at": "2026-06-06T09:00:48.159302Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

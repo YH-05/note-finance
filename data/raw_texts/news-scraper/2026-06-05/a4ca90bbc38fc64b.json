@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://herbsutter.com/2026/06/04/c-the-documentary-released-today/",
+  "title": "C++: The Documentary",
+  "raw_text": "C++: The Documentary premiered today on YouTube, and it was great to be on the live chat with Bjarne and many other key folks who participated in C++’s history. I’m honored to have been one of hundreds of people who have played a part in advancing Bjarne’s wonderful project over the years.\nIf you haven’t watched this yet, make it a weekend goal. What a great synopsis of a 40-year success story, from humble beginnings to global adoption to being currently (as of Q3 2025) the fastest-growing of the top four languages in the world… +90% users in the past 3.5 years.\nPeople who appear in the documentary:\n- Bjarne Stroustrup: Bell Labs, Designer and original implementer of C++\n- Alexander Stepanov: Designer of the Standard Template Library\n- Anders Hejlsberg: Creator of C#, TypeScript, and Turbo Pascal\n- Andrei Alexandrescu: Principal Research Scientist, Nvidia & C++ Author\n- Andrew Koenig: Bell Labs, Founding member of the C++ Standards Committee, Researcher, C++ Author & Educator\n- Barbara Moo: Bell Labs, Manager C++ Development Team & C++ Author\n- Brian Kernighan: Bell Labs, Computer Scientist, Co-author of “The C Programming Language”\n- Chris Lattner: Creator of Mojo, LLVM, Clang & Swift\n- Danilo Piparo: Particle Physicist, CERN, ROOT Framework Project Lead\n- Eric Lubin: Software Developer – Lead, Hudson River Trading\n- Gabriel Dos Reis: Software Engineer and Architect, Microsoft; C++ tools builder; Mathematician\n- Herb Sutter: Technical Fellow, Citadel Securities; Chair, Standard C++ Foundation; Chair Emeritus, ISO C++ Committee\n- John Romero: Video Game Developer, Co-Creator of Doom and Quake, Co-Founder id Software\n- Nina Ranns: Vice-Convener of the ISO C++ Committee\nChapters\n- 00:00 Intro\n- 01:50 Invention at AT&T Bell Labs\n- 07:30 C with Classes\n- 09:37 Early adoption of C with Classes\n- 10:53 From C with Classes to C++ (and CFront)\n- 12:32 Why is it called C++?\n- 13:24 AT&T starts selling software / Another team tries to take over C++\n- 16:08 Early development of C++ at AT&T Bell Labs\n- 19:10 “It was a buggy product” / Release 2.0.0\n- 21:55 C++ spreading beyond AT&T\n- 24:50 Too many versions of C++\n- 26:03 Need for standardization\n- 29:38 The STL by Alexander Stepanov\n- 37:19 The first standard: C++98\n- 39:21 C++ at CERN in the 90s\n- 40:34 C++ spreading to games and trading\n- 43:00 C++ winter of the early 2000s\n- 45:34 Programming language wars (C#)\n- 49:25 There’s a need for an efficient programming language again\n- 52:29 Modern C++ (C++11)\n- 56:29 Is the standards committee making C++ too complicated?\n- 1:00:45 C++ is everwhere\n- 01:05:00 The future and challenges for C++\n- 01:08:31 Bjarne’s impact",
+  "published_at": "2026-06-05T04:37:01Z",
+  "author": "ingve",
+  "collected_at": "2026-06-05T09:00:52.092137Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

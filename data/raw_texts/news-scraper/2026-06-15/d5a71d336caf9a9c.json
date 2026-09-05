@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/",
+  "title": "KPMG pulls report on AI usage due to apparent hallucinations",
+  "raw_text": "Professional services firm KPMG has pulled a report titled, “Redefining excellence in the age of agentic AI,” after numerous organizations said the report’s claims about their AI usage were untrue.\nResearch group GPTZero identified a number of inaccuracies in the report, which was published in October 2025. GPTZero told the FT that the inaccuracies stemmed from AI hallucinations. In other words, the professional services firm appears to have used AI to help write a report about AI.\nUBS, the UK’s National Health Service, Swiss Federal Railways, and Transport for London all told the FT that the report’s claims about their AI usage were either untrue or misleading. A KPMG spokesperson said the firm removed the report from its websites while conducting its own investigation.\n“We expect all our people to follow our guidelines on the responsible use of AI, including human oversight to validate content and verify independent sources,” the spokesperson said.\nLast month, EY withdrew a report on loyalty rewards programs that appeared to include fake footnotes and AI hallucinations.",
+  "published_at": "2026-06-13T20:42:31Z",
+  "author": "Anthony Ha",
+  "collected_at": "2026-06-15T03:00:26.614599Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "kpmg"
+    ]
+  }
+}

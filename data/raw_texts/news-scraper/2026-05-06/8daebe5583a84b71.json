@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/spacex-may-spend-up-to-119-billion-on-terafab-chip-factory-in-texas/",
+  "title": "SpaceX may spend up to $119B on ‘Terafab’ chip factory in Texas",
+  "raw_text": "SpaceX, Elon Musk’s space company that also houses his AI company, xAI, is considering spending $55 billion, at least initially, to build a semiconductor factory in Grimes County, Texas, according to a proposal on the county website.\nThe company estimates it may spend a total of $119 billion on the project, which would be a “multi-phase, next-generation, vertically integrated semiconductor manufacturing and advanced computing fabrication facility,” according to the filing.\nMusk has previously outlined plans for the project, dubbed “Terafab,” that will also see Tesla contributing resources. The companies have roped chipmaking giant Intel into the effort, aiming to develop chips for AI servers, satellites, SpaceX’s proposed data center in space, as well as autonomous Tesla vehicles and robots.\nThe billionaire has said the manufacturing facility will, sometime in the future, manufacture enough chips to provide 1 terawatt of power per year, arguing that semiconductor manufacturers aren’t making chips quickly enough for his companies’ artificial intelligence and robotics needs. “We either build the Terafab or we don’t have the chips, and we need the chips, so we build the Terafab,” he wrote.\nHowever, Musk wrote in a tweet on Tuesday that Grimes County, Texas, was only one of several locations under consideration for the factory.\nThe filing comes as Musk has doubled down on ensuring xAI has enough computing power available to train and power its Grok series of AI models. He’s also intent on capitalizing on the demand for AI compute by building data centers in space, which he has cited as a big reason for combining xAI with SpaceX. The combined entity is said to have a valuation of $1.25 trillion and is expected to go public in June.",
+  "published_at": "2026-05-06T17:23:08Z",
+  "author": "Ram Iyer",
+  "collected_at": "2026-05-06T21:00:26.400431Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Hardware",
+      "Elon Musk",
+      "In Brief",
+      "Intel",
+      "semiconductors",
+      "SpaceX",
+      "xAI"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/",
+  "title": "Upcoming breaking changes for npm v12",
+  "raw_text": "Our next npm major version, v12, introduces security-related default changes to npm install\n. All these changes are available behind warnings in npm today on 11.16.0 or newer, so you can prepare before the upgrade. v12 is estimated to release in July 2026.\nEach change turns an npm install\nbehavior that runs automatically today into one you explicitly opt into:\nallowScripts\ndefaults to off:npm install\nwill no longer executepreinstall\n,install\n, orpostinstall\nscripts from dependencies unless they are explicitly allowed in your project. This includes nativenode-gyp\nbuilds (i.e., a package with abinding.gyp\nand no explicit install script still gets blocked, because npm runs an implicitnode-gyp rebuild\nfor it).prepare\nscripts from git, file, and link dependencies are blocked the same way. To see what would be blocked, runnpm approve-scripts --allow-scripts-pending\n. Then allow the packages you trust withnpm approve-scripts\nand block the rest withnpm deny-scripts\n. The resulting allowlist is written topackage.json\nand should be committed. If your install routine runs scripts, you can observe warnings in npm 11.16.0+.-\n--allow-git\ndefaults tonone\n:npm install\nwill no longer resolve Git dependencies (direct or transitive) unless explicitly allowed via--allow-git\n. This closes a code-execution path where a Git dependency’s.npmrc\ncould override the Git executable, even with--ignore-scripts\n. This change was previously announced on 2026-02-18 and is available in npm 11.10.0+. -\n--allow-remote\ndefaults tonone\n:npm install\nwill no longer resolve dependencies from remote URLs, such as https tarballs (direct or transitive), unless explicitly allowed via--allow-remote\n. This flag is available in npm 11.15.0+. The related--allow-file\nand--allow-directory\nflags are not changing their defaults in v12.\nUpgrade to npm 11.16.0 or later, run your normal install, and review the warnings. Use npm approve-scripts --allow-scripts-pending\nto see which packages have scripts, approve the ones you trust, and commit the updated package.json\n. After that, only the scripts you approved keep running once you upgrade. Anything you leave unapproved will stop. More details are available in our docs at npm approve-scripts\n, npm deny-scripts\n, and allow-scripts\nconfig (for npx\nand global installs). Please share your comments and questions in our community discussion.",
+  "published_at": "2026-06-09T21:01:00Z",
+  "author": "plasma",
+  "collected_at": "2026-06-10T03:01:27.633951Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

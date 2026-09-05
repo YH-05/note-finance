@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/930178/citr-rubio-visa-deportation-misinformation-research",
+  "title": "Trump administration defends right to ban content moderation experts from US",
+  "raw_text": "The Trump administration is fighting for the right to keep some social media moderation advocates out of the US.\nTrump administration defends right to ban content moderation experts from US\nA group of independent tech researchers is seeking to block the State Department policy.\nA group of independent tech researchers is seeking to block the State Department policy.\nOn Wednesday, US District Court Judge James Boasberg heard arguments in a lawsuit between the nonprofit Coalition for Independent Technology Research (CITR) and Secretary of State Marco Rubio and other Trump administration officials. The suit concerns a policy that allows restricting visas to foreign officials who “demand that American tech platforms adopt global content moderation policies.” The CITR is arguing for a preliminary injunction blocking the policy, which the State Department already referenced when it sanctioned five people who work on online disinformation issues, including the former European official who spearheaded enforcement of its digital services rules. It says allowing the policy to continue will silence people researching topics like content moderation and misinformation online.\nThe policy in question was announced in May last year, and the State Department issued the sanctions in December, saying its targets “advanced censorship crackdowns by foreign states.” The group included the former EU official Thierry Breton and executives from the Center for Countering Digital Hate (CCDH) and Global Disinformation Index (GDI), both of which are members of CITR. CCDH’s CEO, Imran Ahmed, who was a target of the sanctions, is a lawful permanent US resident, according to CITR.\n“One of the worst parts about a chilling effect is all of the research that won’t happen”\nThe CITR argues the policy harms scholars’ ability to speak and publish freely. In declarations to the court, researchers described holding back from publicly discussing work they feared could threaten their visa status, or delay publishing certain research ahead of international travel. “One of the worst parts about a chilling effect is all of the research that won’t happen,” CITR executive director Brandi Geurkink said at a press conference after the hearing.\nThe government’s defense largely relies on reading the policy in a very narrow manner. Attorney Zack Lindsey argued it targets only the conduct of people who work for foreign governments, so independent researchers have nothing to fear. Carrie DeCell, senior staff attorney at the Knight First Amendment Institute arguing on behalf of CITR, asserted there’s no evidence figures like Ahmed were coordinating with a foreign government. If the policy is being applied outside its supposed criteria, Boasberg asked Lindsey, “doesn’t that explode your argument?” Lindsey insisted Ahmed wasn’t actually targeted under the policy, despite Rubio referencing it in a memo where he advised that Ahmed was deportable — and argued the details of any particular target don’t undermine the State Department’s larger authority.\nOverall, Lindsey left exactly what constitutes working with a foreign government ambiguous — an ambiguity that, DeCell said, “seems to be part of the point.” The State Department is seeking to preserve an expansive right to restrict visas, regardless of the specifics of a given policy.\nThe injunction could hinge partially on technical questions like whether the CITR has grounds to sue. But Boasberg questioned another of the government’s major claims: that a court can only decide if a policy is constitutional in the context of a legal challenge for an individual visa holder who’s facing deportation. “No matter how preposterous a policy that was promulgated, there could be no constitutional challenge?” he asked as a hypothetical. He’ll soon decide whether the policy must be stopped to prevent irreparable harm. “I will do my best to get it all figured out,” Boasberg said.",
+  "published_at": "2026-05-13T21:58:44Z",
+  "author": "Lauren Feiner",
+  "collected_at": "2026-05-14T03:00:13.962817Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Politics",
+      "Regulation",
+      "Speech"
+    ]
+  }
+}

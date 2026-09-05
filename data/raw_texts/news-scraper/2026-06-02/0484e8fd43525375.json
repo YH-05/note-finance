@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/research-roundup-7-cool-science-stories-we-almost-missed-4/",
+  "title": "Why cats prefer silver vine to catnip and other May highlights",
+  "raw_text": "It’s a regrettable reality that there is never enough time to cover all the interesting scientific stories we come across. So every month, we highlight a handful of the best stories that nearly slipped through the cracks. May’s list includes the discovery of a possible prehistoric mining site in the Pyrenees; a new species of tiny blue octopus; why cats seem to prefer silver vine to catnip; and why political polarization might behave like a phase transition, among other noteworthy stories.\nPrehistoric mining in the Pyrenees\nHigh in the eastern Pyrenees is a prehistoric cave, excavated between 2021 and 2023. Based on analysis of artifacts uncovered at the site, a team of Spanish archaeologists believes this may have served as an ancient copper smelting spot, with far more frequent occupation by humans than previously thought. The researchers described these preliminary findings in a paper published in the journal Frontiers in Environmental Archaeology.\nOf particular interest were 23 hearths found in the second and third layers of the excavation, filled with crushed green mineral fragments that had clearly been subject to burning; other materials found there showed no sign of thermal damage. The team is still conducting experiments to conclusively identify the green material, but the fragments strongly resemble malachite. That’s significant because malachite can be heated to produce copper. Most of the hearths are between 4,000 and 5,500 years old. The team also recovered two prehistoric pendants, a human finger bone, and a baby tooth belonging to a child about 11 years old. It’s possible there may be burials in deeper layers as excavations continue at the site.\nFrontiers in Environmental Archaeology, 2026. DOI: 10. 3389/fearc.2026.1811493 (About DOIs).\nSinging mice\nSinging mice live high in the cloud forests of Costa Rica, engaging in chirping call-and-response duets that can change slightly depending on responses received. In 2019, scientists pinpointed the precise brain circuit responsible for this behavior. Now, scientists at Cold Spring Harbor Laboratory (CSHL) have discovered that this ability doesn’t require any major evolutionary leap in brain complexity, just a couple of targeted changes to existing wiring patterns, according to a paper published in Nature.",
+  "published_at": "2026-06-01T21:38:55Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-06-02T15:00:26.367510Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Archaeology",
+      "Physics",
+      "research roundup"
+    ]
+  }
+}

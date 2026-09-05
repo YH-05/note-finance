@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/okta-okta-earnings-q1-2027.html",
+  "title": "Okta jumps 8%, tops first-quarter results on agentic AI demand",
+  "raw_text": "Okta beat Wall Street's fiscal first-quarter estimates after the bell on Thursday as demand for identity security tools spikes with the onslaught of agentic artificial intelligence.\nShares gained 8%.\nHere's how the company did versus LSEG estimates:\n- Earnings per share: 91 cents adjusted vs. 85 cents expected\n- Revenue: $765 million vs. $752 million expected\nThe identity security provider said revenue grew 11% from a year ago. Net income rose to $74 million, or 42 cents per share, from $62 million, or 35 cents per share, a year ago.\nCEO Todd McKinnon told CNBC that the agentic AI buildout is spiking demand for identity tools from Okta, but AI is not yet a majority of its revenues.\n\"We're playing a long game here,\" he said. \"It's not billions of dollars of token spend right now, it's plumbing for what's going to be required for the next five and 10 years, so I feel like it's less susceptible to euphoria.\"\nRight now, McKinnon said customers are beginning to assess and plan ways to deploy AI at scale, which should benefit the business long-term.\nThe proliferation of AI agents is drawing attention to tools that can help verify agents and secure companies from cyber threats. In recent weeks, Anthropic's Mythos model, which the company delayed fully rolling out to public due to concerns that hackers could use it to exploit software vulnerabilities, is intensifying these fears.\nSoftware is also facing a major reckoning as model makers launch tools capable of vibecoding apps and replacing the software as a service sector's longstanding business models.\nMcKinnon said Okta is allocating more resources to tools like Okta for AI agents and Net-zero for AI agents as companies adopt agentic AI and demand more security defenses.\nGuidance for the current-quarter was roughly in-line with estimates. The company anticipates $790 million to $794 million, compared to $791 million expected.\nRemaining performance obligations, which measures subscription backlog, and current remaining performance obligations, or subscription backlog topped estimates.",
+  "published_at": "2026-05-28T22:04:22Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.820517Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

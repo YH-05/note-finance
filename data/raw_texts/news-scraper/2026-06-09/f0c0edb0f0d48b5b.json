@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.com/luke8086/gentleos32",
+  "title": "GentleOS – Classic operating system with a lovely retro GUI",
+  "raw_text": "A hobby operating system for vintage 32-bit PCs.\nIts goal is to provide a simple platform for tinkering with retro hardware and running graphical interactive apps on bare metal.\nAt minimum, it only requires an i386 CPU, 4MB of RAM, and a VGA display capable of 640x480x16 mode.\nBy design it's entirely monolithic, mostly configured at compile time, and only supports standard PC devices: VGA/SVGA, keyboard, PS/2 mouse, serial mouse, PC speaker. The only future plans are bugfixes, optimizations, and adding more apps.\nGentleOS/32 has a pure 16-bit spin-off called GentleOS/16, which targets devices as old as 80186.\nFor details on building and running, see USAGE.md.\n-\nAssets in vendor/icons8 have been sourced from Icons8 using the free license and modified\n-\nAssets in vendor/mona have been extracted from the Mona Font and modified (LICENSE)\n-\nAssets in vendor/int10h have been extracted from the The Ultimate Oldschool PC Font Pack and modified (LICENSE)\nExcept where otherwise noted, GentleOS/32 is licensed under GPLv2.",
+  "published_at": "2026-06-09T09:50:30Z",
+  "author": "tekkertje",
+  "collected_at": "2026-06-09T15:04:18.408645Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

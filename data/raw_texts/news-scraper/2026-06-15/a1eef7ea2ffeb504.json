@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://mrmarket.lol/what-the-fuck-happened-to-nerds/",
+  "title": "What the Fuck Happened to Nerds",
+  "raw_text": "<p>Article URL: <a href=\"https://mrmarket.lol/what-the-fuck-happened-to-nerds/\">https://mrmarket.lol/what-the-fuck-happened-to-nerds/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48538229\">https://news.ycombinator.com/item?id=48538229</a></p>\n<p>Points: 605</p>\n<p># Comments: 373</p>",
+  "published_at": "2026-06-15T08:23:52Z",
+  "author": "vrnvu",
+  "collected_at": "2026-06-15T15:00:39.244970Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

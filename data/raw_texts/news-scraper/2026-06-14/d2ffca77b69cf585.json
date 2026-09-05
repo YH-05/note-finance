@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/06/12/elon-musk-becomes-the-worlds-first-trillionaire-with-spacex-debut.html",
+  "title": "Elon Musk becomes the world's first trillionaire with SpaceX debut",
+  "raw_text": "CNBC's Robert Frank reports on Elon Musk's new status.",
+  "published_at": "2026-06-12T16:51:59Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.185912Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

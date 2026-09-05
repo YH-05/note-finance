@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/second-carcass-eating-fly-species-cleared-by-fda-for-maggot-wound-therapy/",
+  "title": "Second carcass-eating fly species cleared by FDA for maggot wound therapy",
+  "raw_text": "The Food and Drug Administration this week cleared a second carcass-feasting fly species for use in maggot wound therapy, according to an announcement from Cuprina Holdings, a Singapore-based company that has dubbed its new therapeutic larvae MediFly Maggots.\nWith the clearance, Cuprina appears to be the only company to have FDA clearance to sell two species of fly larvae—and it’s abuzz with the potential to dominate the global maggot market.\nThe new species is Lucilia cuprina, or Australian sheep blowfly. It’s a close relative of Lucilia sericata, or the common green bottle fly, which is the fly species most often used for wound therapy, often called biosurgery or maggot debridement therapy (MDT). L. sericata is the only other fly with FDA clearance, which the agency first granted in 2004 to Ronald Sherman, who is now Cuprina’s Medical and Scientific Director.\n“We now hold FDA clearance for both species used in MDT, a position no other company holds,” Cuprina CEO David Quek said in a statement. “This anchors our wound-care platform in one of the world’s most demanding regulatory markets and gives us a defensible edge as we continue to build our portfolio.”\nThe company makes no claims of any significant therapeutic difference between the two maggot treatments. Rather, they are seen as fitting into different markets. L. sericata is more familiar in Western wound care, Cuprina says, while L. cuprina may have more recognition in Australia, Africa, Asia, and parts of the Americas.\nFor his part, Sherman, a long-time champion of wriggling remedies, cheered the clearance as a step forward for MDT generally. “Maggot debridement therapy has earned its place in modern wound care, and adding a second FDA-cleared species strengthens the entire field,” Sherman said. “Lucilia cuprina has a meaningful international track record, and bring[ing] it under US FDA clearance gives clinicians and their patients more flexibility in how this therapy is delivered.”",
+  "published_at": "2026-06-17T22:11:20Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-18T03:00:31.116452Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "Cuprina",
+      "fda",
+      "maggot debridement therapy",
+      "maggots",
+      "wound"
+    ]
+  }
+}

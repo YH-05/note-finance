@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040018",
+  "title": "東京為替：ドル・円は小動き、材料難で様子見",
+  "raw_text": "【通貨】東京為替：ドル・円は小動き、材料難で様子見\n4日午後の東京市場でドル・円は小動きとなり、156円70銭台を中心とした値動きが続く。東京市場の休場で材料が乏しく、積極的に動きづらい。日本の為替介入への警戒感から円売りは抑制されるものの、中東情勢の不透明感からドルに買いが入りやすい地合いに。\nここまでの取引レンジは、ドル・円は155円72銭から157円19銭、ユ-ロ・円は182円81銭から184円35銭、ユ-ロ・ドルは1.1720ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-04T05:52:21Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.719382Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

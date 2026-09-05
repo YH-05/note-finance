@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/oil-price-iran-deal-war-ceasefire-trump.html",
+  "title": "Brent oil price posts biggest monthly loss in six years as market counts on a U.S.-Iran deal",
+  "raw_text": "Bent oil posted its biggest monthly loss in six years as traders hoped that the U.S. and Iran are nearing a deal that will reopen the Strait of Hormuz.\nThe international oil benchmark fell more than 19% in May, its worst month since March 2020 when the Covid-19 pandemic closed economies. U.S. West Texas Intermediate crude prices shed nearly 17% in May, its worst performance since April 2025.\nPrices fell Friday after President Trump said he would meet in the White House Situation Room to make a final determination about an agreement with Iran. West Texas Intermediate lost 1.73% to close at $87.36 per barrel while Brent fell 1.77% to settle at $92.05 per barrel.\nBut Trump laid out a series of demands that Iran has rejected in the past.\nTehran must agree it will never have a nuclear weapon, the U.S. president said, and must immediately open the Strait of Hormuz to unrestricted traffic in both directions without tolls. The Islamic Republic must also agree to remove any remaining mines in the strait, he said.\nAnd Iran must agree to allow the U.S. to unearth and destroy its enriched uranium buried under rubble from U.S. and Israeli attacks last year, Trump said.\nU.S. officials told CNBC Thursday that negotiators hammered out a 60-day memorandum of understanding, or MOU, to extend the ceasefire and start talks on Iran's nuclear program. Trump still has to sign off on the MOU, the officials said. Axios first reported the news of an MOU.",
+  "published_at": "2026-05-29T20:13:49Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.486007Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

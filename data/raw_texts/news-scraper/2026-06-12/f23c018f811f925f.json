@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/12/oil-prices-wti-brent-on-hopes-of-us-iran-deal-despite-tehran-pushback.html",
+  "title": "Oil prices fall on hopes of U.S.-Iran deal despite Tehran pushback",
+  "raw_text": "Oil prices fell Friday after U.S. President Donald Trump said Washington had reached a framework agreement with Iran, raising hopes the Middle East conflict could be nearing its end.\nU.S. crude oil futures for July delivery fell 1.65% to $86.26 per barrel, while August futures for international benchmark Brent lost 1.55% to $88.98 per barrel in early Asia trading.\nSpeaking at the Oval Office, Trump said he expects an agreement to be signed \"over the next few days,\" assertions he has made several time during the conflict. He also said the Strait of Hormuz would reopen once a deal is finalized.\nEarlier in the day, Trump said he had called off a planned round of U.S. military strikes against Iran, arguing that negotiations with Tehran \"have been brought to the highest level of Iranian leadership and approved.\"\nTehran pushed back on Trump's claim, with Iranian state-affiliated outlet Fars reporting on Telegram that Tehran had not approved any draft text for an initial memorandum of understanding with Washington.\nIn a subsequent post, Fars portrayed Trump's announcement as a step back from his earlier military threats, saying he had failed to present any new elements beyond a proposal Iran had already submitted.\n\"The reality is that up until now, not only has Iran not given a final response, but it is the US that has returned to its previous demand,\" Fars reported in a translated post. \"Of course, it seems that given that the US has accepted the text proposed by Iran, there is a possibility of re-examining this text,\" according to Fars.\nBMO Capital Markets said oil prices have remained surprisingly contained despite the recent fresh exchange of U.S.-Iran strikes, with ongoing diplomatic efforts, alternative shipping routes around the Strait of Hormuz and sharply lower Chinese crude imports helping offset geopolitical risks.\nCiti also echoed in a note on Friday that sharply lower Chinese crude imports have helped moderate oil prices since the start of the Middle East conflict, reducing fears of a bidding war for supplies. The bank estimates China can keep imports near 8.7 million barrels per day without materially depleting inventories, suggesting demand from China may not provide a major boost to prices in the near term.",
+  "published_at": "2026-06-12T00:53:28Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.756687Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

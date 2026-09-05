@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942761/apple-texas-age-verification-app-store",
+  "title": "Apple is bringing age verification to Texas this week",
+  "raw_text": "Apple will introduce age verification in the App Store for users in Texas starting on Thursday, June 4th. The move, as spotted by MacRumors, comes just days after a federal appeals court allowed Texas’ App Store Accountability Act to go into effect while a lawsuit against it proceeds.\nApple is bringing age verification to Texas this week\nPeople who create a new Apple account in Texas will be asked to verify that they’re over 18.\nPeople who create a new Apple account in Texas will be asked to verify that they’re over 18.\nPeople in Texas who are creating a new Apple account will need to verify they’re over 18 using a credit card or government ID. Apple may also automatically verify users’ age using the age of their account and whether they have a credit card on file.\nMeanwhile, users under 18 must join a Family Sharing group, where a parent or guardian will need to provide consent for app downloads and in-app purchases. Developers must also ensure they’re providing age-appropriate experiences for users under 18 and can use Apple’s Declared Age Range API to check a user’s age range.\nDespite Apple’s attempts to push back on app store-level age verification, the company has announced plans to implement age checks to comply with laws in places like Utah, Louisiana, Brazil, Australia, Singapore, and the UK. Google is required to make similar changes to the Play Store and is also introducing age-checking tools for developers.\nLast December, a judge blocked the App Store Accountability Act (SB 2420) from taking effect, but an appeals court has now reversed this decision — at least while the court figures out whether the law is constitutional. Even if this law gets struck down in Texas, a federal version with the same name is still making its way through Congress and could impose age verification at the app store nationwide.",
+  "published_at": "2026-06-03T21:49:51Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-04T03:00:16.977881Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "iPhone",
+      "News",
+      "Policy",
+      "Politics",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

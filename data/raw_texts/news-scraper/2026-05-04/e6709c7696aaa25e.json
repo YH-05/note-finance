@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/tesla-made-573-million-selling-musks-other-companies-last-year",
+  "title": "Tesla Made $573 Million Selling To Musk’s Other Companies Last Year",
+  "raw_text": "Elon Musk’s business empire is becoming increasingly intertwined — and if SpaceX eventually goes public, Wall Street will likely take a much harder look at how money moves across his companies.\nA newly disclosed filing shows Tesla booked more than $570 million last year from transactions with Musk-controlled companies, according to Insider. That included roughly $430 million from selling Megapack battery systems to xAI and another $143 million — primarily vehicle sales — to SpaceX. Some of those purchases included Cybertrucks, which have reportedly become a significant part of SpaceX’s vehicle fleet.\nThe relationship goes both ways. Insider writes that Tesla also disclosed that it put $2 billion into SpaceX and xAI last year and paid the companies a combined $15 million+ for various commercial and consulting services.\nTaken together, the filings offer a clearer picture of how frequently Musk’s companies now rely on one another. xAI has been absorbed into SpaceX, engineers from Tesla have previously worked on projects at X, Grok is being built into Tesla products, and Musk has publicly discussed future collaboration between Tesla and SpaceX on the Roadster.\nTesla also disclosed last week that Elon Musk’s total 2025 compensation was valued at roughly $158 billion, based on the maximum fair value of stock options tied to his newly approved pay package. The figure immediately caught Wall Street’s attention because of its sheer scale...it’s nearly 40 times Tesla’s annual net income and roughly 1.5 times the company’s total revenue for the year.\nFor investors already uneasy about the growing overlap between Musk’s companies, the compensation number adds another layer of concern around governance and capital allocation. Between massive cross-company transactions, shared talent across SpaceX, xAI, and X, and now an unprecedented pay package, analysts are likely to keep a much closer watch on how Musk’s empire operates — especially if SpaceX eventually becomes a public company too.",
+  "published_at": "2026-05-04T02:10:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-04T03:00:41.500500Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/whats-so-special-about-a-formula-1-driver-in-the-loop-simulator/",
+  "title": "F1 teams spend millions on their simulators—what makes them different?",
+  "raw_text": "Among the ways Formula 1 has changed in the 21st century has been its adoption of driver-in-the-loop simulators. It all started in the early 2000s, probably at McLaren, maybe at Toyota or Ferrari; F1 teams are notoriously secretive about their performance advantages. Along the years, they’ve gotten more and more capable, but so too have high-end consumer sims like the multi-axis setups that cost tens of thousands of dollars. What is it that makes the multimillion-dollar simulators used in F1 that much more expensive, and that much better for the job?\nFor one thing, latency.\n“There’s this intimate link between the inputs that [a driver] provides to the car, the way the car responds, and then the driver immediately feels that and reacts to it. So this is a very dynamic closed loop involving the driver and the car,” explained Ash Warne, founder and CTO of Dynisma Motion Generators, a UK-based simulator company that supplies Ferrari, Alpine, and soon Cadillac with DiL simulators that can cost as much as $10 million.\n“And what we do in a driving simulator is obviously to take away the car entirely and to bring in our system, and we need it to replicate the real car as accurately as possible, because otherwise your World Champion racing driver, who has this innate and instinctive understanding of what the car should be, will immediately pick up on it as different,” Warne said.\nAnd he really does mean low latency. “Between 3 and 5 milliseconds. So this is from the moment that the car physics model says, for example, the back end of this car is stepping out and starts to accelerate the car in yaw to when we can actually measure, on an accelerometer on the chassis of the simulator, that movement happening,” Warne said. For context, that’s about an order of magnitude quicker than the best commercial flight simulators, or the National Advanced Driving Simulator that we drove in Iowa a few years back.",
+  "published_at": "2026-06-11T18:18:12Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-12T03:00:30.847651Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Cadillac F1",
+      "driving simulator",
+      "Dynisma",
+      "Formula 1",
+      "Racing"
+    ]
+  }
+}

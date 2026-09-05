@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/amazon-exec-downplays-new-fire-phone-rumors-no-clear-path-that-makes-sense/",
+  "title": "Amazon devices chief says a new smartphone is “just not the goal”",
+  "raw_text": "In March, Reuters reported that Amazon was developing a new smartphone. Citing four anonymous “people familiar with the matter,” the publication said that Amazon was exploring using Alexa as an operating system and developing the phone, codenamed Transformer, to push people to use Amazon’s AI and other services. At the time, the sources said that Transformer could still be canceled, and Amazon declined to comment on the report to Ars Technica.\nIn an interview published on the Financial Times (FT) today, Panos Panay, Amazon’s head of devices and services, said building a new phone isn’t Amazon’s goal.\nThe company already tried selling a smartphone in 2014, but it discontinued the Fire Phone about a year later following poor sales.\nFT reporter Rafe Rosner-Uddin asked Panay, who was behind Microsoft’s failed Surface Duo phone, whether Amazon is interested in releasing a new AI-focused phone.\n“Here’s what I’d say: it’s just not the goal. I know there’s a lot of rumors out there,” Panay responded.\nPanay said Amazon is not “necessarily” trying to create a new phone.\nHe added:\nThere’s no clear path that makes sense… there’s so many new form factors that are important that need to be focused on. It’s a tricky question. If I black-and-white say no, I would say that was accurate. But I also think it’s misleading.\nAmazon’s devices chief pointed to the importance of making “a big bet when you need to,” suggesting that currently, Amazon doesn’t need to release a phone.",
+  "published_at": "2026-05-13T17:06:57Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-13T21:00:31.229945Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "Amazon",
+      "amazon alexa",
+      "smartphone"
+    ]
+  }
+}

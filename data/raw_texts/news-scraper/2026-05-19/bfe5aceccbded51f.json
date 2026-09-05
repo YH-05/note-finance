@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20257-nextdc-expands-overseas-with-ai-data-centre-in-kuala-lumpur.html",
+  "title": "NextDC expands overseas with AI data centre in Kuala Lumpur",
+  "raw_text": "Australian data centre operator NextDC has launched its first overseas data centre – KL1 in Kuala Lumpur – to support the rapid growth of AI, cloud computing and digital services across Southeast Asia.\nLaunched on Thursday in Klang Valley, KL1 sports an IT load capacity of 65MW and is designed to be certified Tier IV by the Uptime Institute – which NextDC said would make it the first such facility in Peninsular Malaysia to receive Tier IV certification.\nNextDC also said KL1 is engineered so that organisations can scale AI capabilities while maintaining operational certainty and sovereign compliance as demand for AI accelerates.\nNextDC said KL1 represents a AUD1 billion (US$713.6 million) long-term investment as the company looks to establish itself outside of Australia as a regional leader for mission-critical infrastructure platforms.\n“This is not only about entering a new market. It is about NextDC establishing infrastructure platforms in the locations where customers need to operate, connect and scale in the AI economy,” said NextDC CEO and MD Craig Scroggie in a statement.\nScroggie added that Malaysia is emerging as a strategic destination for digital infrastructure investment in Asia, supported by strong economic growth, increasing enterprise demand and government-led initiatives to accelerate AI adoption.\n“Positioned at the centre of this ecosystem, KL1 Kuala Lumpur provides a natural hub for organisations seeking to operate across Southeast Asia while maintaining control over data, infrastructure and regulatory requirements,” he said.\nScroggie also expects KL1 to act as a catalyst for broader economic activity, supporting digital industry growth, attracting investment and contributing to the development of Malaysia’s technology workforce.\nMalaysia’s Minister of Digital, Gobind Singh Deo, touted the launch of KL1 as the latest example of Malaysia’s credientials as a digital hub of Southeast Asia and a key driver of the regional AI economy.\n“[This] investment not only reinforces global investor confidence in our digital ecosystem but also ensures that Malaysia remains at the forefront of the global value chain,” he said.",
+  "published_at": "2026-05-18T03:38:02Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-19T03:01:21.883312Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

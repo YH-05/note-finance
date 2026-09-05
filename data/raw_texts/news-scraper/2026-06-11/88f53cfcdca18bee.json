@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/bucking-rfk-jr-ob-gyns-release-vaccine-guidance-that-conflicts-with-cdc/",
+  "title": "OB-GYNs release their own vaccine schedule, rejecting RFK Jr.'s meddling",
+  "raw_text": "For the first time, the American College of Obstetricians & Gynecologists (ACOG) has released its own recommendations for maternal vaccination, providing formal guidance that diverges from that of the Centers for Disease Control and Prevention amid unprecedented policy changes and meddling from anti-vaccine Health Secretary Robert F. Kennedy Jr.\nACOG President Camille Clare blamed “changing national recommendations coupled with rampant vaccine misinformation” for the confusion among patients and health care professionals about vaccines during pregnancy.\n“It is incredibly important for the public to have access to reliable, evidence-based information on maternal immunizations from a trusted source. ACOG is proud to be that source,” Clare said in a statement.\nACOG’s 2026 Maternal Immunization Schedule\n. Those vaccines have been dropped from the CDC’s recommendations under Kennedy, in conflict with scientific evidence and amid strong opposition from medical organizations.Currently, the CDC recommends only two immunizations during pregnancy: Tdap (against tetanus, diphtheria, and pertussis) and RSV (against respiratory syncytial virus). ACOG’s new guidance recommends influenza, COVID-19, RSV, and Tdap vaccines. It also provides clear recommendations for additional vaccines for certain populations, as well as vaccinations recommended during postpartum and while breastfeeding.\nMedical organizations revolt\n“Immunizations are an essential part of prepregnancy, prenatal, and postpartum care,” said ACOG Chief of Clinical Practice Christopher Zahn in a statement. “As OB-GYNs, we have the power to combat vaccine misinformation on our own platforms, help our patients make educated decisions, and increase confidence in vaccination overall.”",
+  "published_at": "2026-06-10T16:52:36Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-11T03:00:31.554325Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "ACOG",
+      "anti-vaccine",
+      "OB-GYN",
+      "robert f kennedy jr",
+      "vaccines"
+    ]
+  }
+}

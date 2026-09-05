@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/946147/apple-watchos-27-ipados-27-supported-devices-dropped",
+  "title": "Apple drops support for a long list of Apple Watches and iPads with latest OS updates",
+  "raw_text": "I hope you have a modern Apple Watch or iPad, because otherwise watchOS 27 and iPadOS 27 won’t run on your device. Apple often drops support for older devices with its latest software updates, but this year it’s culling even more device generations than ever before.\nApple drops support for a long list of Apple Watches and iPads with latest OS updates\nWatchOS 27 won’t support the original Apple Watch Ultra.\nWatchOS 27 won’t support the original Apple Watch Ultra.\nApple is dropping support for four generations of Apple Watch models in watchOS 27. According to Apple’s website, the latest watchOS update will only be available on Apple Watch Series 10 devices and above, Apple Watch Ultra 2 and above, and Apple Watch SE 3.\nThat means if you have a nearly three-year-old Apple Watch Series 9 model then you’re out of luck. Likewise, if you purchased the original Apple Watch Ultra in 2022, there won’t be any watchOS 27 update waiting for you this fall.\nIt’s a surprise support cull for Apple Watch models, which consumers certainly don’t refresh as much as an iPhone. WatchOS 26, released a year ago, supported Apple Watch Series 6 and later, as well as Apple Watch SE (2nd generation) and later, and all Apple Watch Ultra models. This was the same list of devices as watchOS 11.\nOver on the iPad side, iPadOS 27 cuts support for 3rd-generation iPad Air models and 8th generation regular iPad models. iPad Pro owners will also need a 4th generation 12.9-inch model or above, or a 2nd generation 11-inch model and above.\nBoth watchOS 27 and iPadOS 27 include an improved version of Siri, dubbed Siri AI. This might explain why watchOS 27 is only available on the watch models that support Apple Intelligence. Surprisingly, Apple is maintaining support for its iPhone 11 models with iOS 27 later this year. This means an iPhone from 2019 is supported by its latest OS updates, but an Apple Watch from 2022 isn’t. Make it make sense.\nCorrection, June 8th: An earlier version of this article misstated which iPads would receive iPadOS 27. The 4th-generation (A14) and 5th-generation (M1) iPad Air are supported, not unsupported.",
+  "published_at": "2026-06-08T19:45:00Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-06-08T21:00:16.238672Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "News",
+      "Tech",
+      "WWDC 2026"
+    ]
+  }
+}

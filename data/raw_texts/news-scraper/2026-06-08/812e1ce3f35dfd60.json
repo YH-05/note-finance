@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.com/boringcollege/zig-by-example",
+  "title": "Zig by Example",
+  "raw_text": "A hands-on introduction to Zig via annotated examples. Zig is a general-purpose, compiled systems language focused on robustness, optimality, and simplicity — no hidden control flow, no hidden allocations, no preprocessor.\nWritten by Dariush Abbasi for Boring College\n- Hello, World\n- Values\n- Variables\n- Integers\n- Floats\n- Strings\n- Arrays\n- Slices\n- Vectors\n- Structs\n- Enums\n- Unions\n- Functions\n- Blocks and Statements\n- If / Else\n- Switch\n- While Loops\n- For Loops\n- Defer\n- Errors\n- Optionals\n- Pointers\n- Multi-Pointers\n- Slices (Pointers)\n- Comptime\n- Generics\n- Memory Allocation\n- ArrayList\n- HashMap\n- Linked List\n- Testing\n- Formatting and Print\n- File I/O\n- Processes\n- JSON\n- Random Numbers\n- Sorting\n- Math\n- Build System\n- C Interop\nZig by Example is inspired by Go by Example by Mark McGranaghan. Examples target Zig 0.14.\nContributions welcome — see CONTRIBUTING.md.",
+  "published_at": "2026-06-08T13:06:19Z",
+  "author": "dariubs",
+  "collected_at": "2026-06-08T15:01:07.656161Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

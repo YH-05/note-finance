@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/strong-earthquake-strikes-off-cubas-northwest-coast.html",
+  "title": "Strong earthquake strikes off Cuba's northwest coast",
+  "raw_text": "An earthquake of magnitude 6.0 struck off the coast of Cuba on Monday, the German Research Center for Geosciences (GFZ) said.\nThe quake was at a depth of 10 km (6.21 miles), GFZ added. There were no immediate reports of damages.\nThe U.S. Geological Survey reported the earthquake at a 6.1 magnitude, with its epicenter 104 km west-northwest of Mantua, Cuba.\nNo tsunami warning or watch was issued after the earthquake, according to the U.S. National Weather Service.",
+  "published_at": "2026-06-08T19:10:55Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.170777Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

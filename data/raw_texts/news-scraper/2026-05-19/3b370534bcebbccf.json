@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/us-hantavirus-case-was-false-positive-outbreak-cases-drop-from-11-to-10/",
+  "title": "US hantavirus case was false positive; outbreak cases drop from 11 to 10",
+  "raw_text": "In a press briefing Friday, officials for the World Health Organization announced that the case count of the hantavirus outbreak on the cruise ship MV Hondius in the South Atlantic has shrunk from 11 cases to 10 after a previously reported US case was found to be a false positive.\nThat US case was originally reported by US health officials as “mildly positive,” and the WHO had considered it “inconclusive,” but still counted in the outbreak as a case in the agency’s May 13 outbreak report and in a briefing on May 14.\nThe inconclusive case was in Dr. Stephen Kornfeld, an American doctor aboard the ship who helped respond to the outbreak after the ship’s doctor became ill. In an interview with CNN earlier this week, Kornfeld explained that he and others on board had taken nasal swabs early in May, before evacuation, and those swabs were sent for PCR testing in the Netherlands. Two labs in the Netherlands processed Kornfeld’s swabs; one lab reported a negative result, and the other reported a faint positive.\nGenerally, a faint positive result on a PCR test could suggest low levels of virus at the start or end of an infection, or it could simply suggest contamination.\nAdding to the complexity of the potential case, Kornfeld said that he had developed a minor illness in early April while on the ship, just a few days after the first hantavirus case fell ill in the outbreak—a Dutch man who died on board from his infection.\nIn an interview with ABC News Friday, Kornfeld reported that his repeat testing was negative and so was his serology testing looking for antibodies against hantavirus—which he would have developed if his illness in April was actually an unusually mild hantavirus infection. Overall, the testing shows that he is not currently infected and has not had a previous infection. As such, he has been transferred from the biocontainment unit to the quarantine unit at the Nebraska Medical Center, where US passengers from the Hondius are being monitored.",
+  "published_at": "2026-05-15T21:31:53Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-19T03:00:30.807538Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "cases",
+      "CDC",
+      "hantavirus",
+      "hondius",
+      "outbreak",
+      "WHO"
+    ]
+  }
+}

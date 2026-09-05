@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/08/u-s-defense-contractor-who-sold-hacking-tools-to-russian-broker-ordered-to-pay-10-million-to-former-employers/",
+  "title": "US defense contractor who sold hacking tools to Russian broker ordered to pay $10M to former employers",
+  "raw_text": "Peter Williams, a veteran cybersecurity executive who was the head of the hacking and surveillance tech division of U.S. defense contractor L3Harris, has been ordered to pay $10 million to his former employer. Williams was the central figure in one of the worst leaks of advanced hacking tools in the history of the United States and its closest allies.\nOn Wednesday, a judge ordered Williams to pay that amount in restitution on top of the $1.3 million he had already been ordered to pay to L3Harris. Williams, a 39-year-old Australian citizen who previously worked in one of Australia’s intelligence agencies, was until last year the general manager of Trenchant. Born out of the acquisition of two sister startups, Trenchant is L3Harris’ division that develops advanced spyware and hacking tools and sells them to the U.S. government and its allies in the Five Eyes intelligence alliance, a coalition of five English-speaking nations that share classified intelligence with one another. In addition to the U.S., the alliance includes Australia, Canada, New Zealand, and the United Kingdom.\nVeteran cybersecurity reporter Kim Zetter first reported the new order to pay restitution in her newsletter.\nWilliams’ lawyers did not respond to a request for comment.\nLast year, Williams was arrested and accused of stealing seven unspecified trade secrets — almost certainly cyber exploits, which is code that hijacks software vulnerabilities, and surveillance technology — from Trenchant and then selling them to Operation Zero. The Russian firm acts as a broker, buying and selling hacking tools, and it says it works exclusively with the Russian government and local companies.\nWilliams pleaded guilty and was sentenced to more than seven years in prison.\nWilliams made $1.3 million selling the trade secrets, which he used to buy luxury watches, a house near Washington, D.C., and family vacations. Trenchant told prosecutors that it suffered losses of up to $35 million due to Williams’ theft.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nU.S. prosecutors said Williams “betrayed” the United States and its allies by giving Operation Zero, which the U.S. government calls “one of the world’s most nefarious exploit brokers,” tools that could have been used to hack “millions of computers and devices around the world.”\nAs TechCrunch previously reported, Williams took advantage of his privileged “full access” to Trenchant’s internal network to siphon the tools out of the company’s offices. After Williams sold the hacking tools to Operation Zero, some of them ended up being used by Russian government spies in Ukraine, and later Chinese cybercriminals, according to former L3Harris employees who recognized the stolen code in cybersecurity research that Google published after investigating the cyberattacks in which those tools were deployed.\nWilliams also tried to frame one of his employees for the theft.",
+  "published_at": "2026-05-08T16:43:19Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-05-08T21:00:27.584511Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cybersecurity",
+      "L3Harris",
+      "Peter Williams"
+    ]
+  }
+}

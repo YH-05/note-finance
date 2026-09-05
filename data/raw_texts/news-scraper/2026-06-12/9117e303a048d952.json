@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/we-managed-to-glean-some-interesting-details-about-the-artemis-iii-mission/",
+  "title": "We managed to glean some interesting details about the Artemis III mission",
+  "raw_text": "On Tuesday, NASA announced the crew for the Artemis III mission, which is scheduled to be flown no earlier than summer 2027. As part of the announcement, space agency officials also discussed plans for the crew to dock with both a Blue Origin lander and a SpaceX Starship lander during the spaceflight in low-Earth orbit.\nThe presentation, although informative, still left open key questions about the landers’ readiness and what exactly they’ll look like. After the crew announcement, Ars sat down with Jeremy Parsons, NASA’s Artemis program manager, to answer some of these questions.\nThis interview, conducted at NASA’s Johnson Space Center, has been lightly edited for clarity.\nArs: How is the Space Launch System rocket and launch pad looking a couple of months after Artemis II?\nJeremy Parsons: The mobile launcher is honestly in great shape after the launch, so the modifications we did between (Artemis) I and II were highly, highly successful. We rolled back a couple of weeks after launch, and two things are kind of going on in parallel right now.\nThe boosters have arrived at what we call the rotation processing surge facility, so they’re being prepped and ready for stacking—so rotation, all that kind of stuff. And then on the mobile launcher, there were a couple of areas of damage, and we’ve got like 90-something percent of it done right now. There are a couple of areas in the flame hole that they’re re-welding, and we want to get that work done before we start stacking boosters. As a general rule, we don’t want to weld with the propellant there. So all of that’s looking to finish up [in the] early July time frame. I expect us to be stacking in July.\nArs: What is the plan for testing the SLS rocket? Will you perform a wet dress rehearsal on the rocket before putting Orion on top?\nParsons: As you saw in Artemis I and II, we had issues with the cryogenic seals—those go through what is called the tail service mast umbilicals. We’re in the process of redesigning those and implementing new ones for this mission. Part of what we want to do is… what we call a short-stack tanking or wet dress rehearsal. Basically, you get the boosters and the core stage on, [and] you complete all the thermal protection systems. We then would put a cover on top of the core stage, and we’d roll out in that configuration. Then we tank it up and make sure the seals are tight.",
+  "published_at": "2026-06-10T17:31:13Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-06-12T03:00:30.849376Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "NASA",
+      "space"
+    ]
+  }
+}

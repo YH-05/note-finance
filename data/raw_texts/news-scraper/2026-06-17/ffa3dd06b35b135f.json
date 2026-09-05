@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://ribbie.tv/watch",
+  "title": "Show HN: An 8-bit live gamecast for baseball",
+  "raw_text": "<p>Hey HN, I built a website to watch live baseball games in an 8-bit broadcast. It takes live MLB data streams and converts them into near real-time pixel art gamecasts.<p>Been waiting to share this for when there’s actually a good slate of games happening since the site is pretty bare otherwise.<p>Here is today's schedule:<p>Mets @ Reds - 9:40am PDT\n<a href=\"https://ribbie.tv/watch/game/824503\" rel=\"nofollow\">https://ribbie.tv/watch/game/824503</a><p>Royals @ Nationals - 10:05am PDT\n<a href=\"https://ribbie.tv/watch/game/822721\" rel=\"nofollow\">https://ribbie.tv/watch/game/822721</a><p>Marlins @ Phillies - 10:05am PDT\n<a href=\"https://ribbie.tv/watch/game/823450\" rel=\"nofollow\">https://ribbie.tv/watch/game/823450</a><p>Tigers @ Astros - 11:10am PDT\n<a href=\"https://ribbie.tv/watch/game/824178\" rel=\"nofollow\">https://ribbie.tv/watch/game/824178</a><p>Padres @ Cardinals - 11:15am PDT\n<a href=\"https://ribbie.tv/watch/game/823044\" rel=\"nofollow\">https://ribbie.tv/watch/game/823044</a><p>..and another 14 games throughout the later day.<p>I'm still early on in this project, but I've tried to add little details with actual stadiums, day and night modes, between inning graphics and interstitials, live scoreboards, etc.<p>Would love any feedback and ideas. Thanks for checking it out!</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48573012\">https://news.ycombinator.com/item?id=48573012</a></p>\n<p>Points: 149</p>\n<p># Comments: 85</p>",
+  "published_at": "2026-06-17T16:44:15Z",
+  "author": "brownrout",
+  "collected_at": "2026-06-17T21:00:49.205979Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

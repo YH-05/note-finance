@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/blackstones-private-credit-fund-joins-peers-gating-investors-after-surge-redemptions",
+  "title": "Blackstone's Private Credit Fund Joins Peers In Gating Investors After Surge In Redemptions",
+  "raw_text": "The private credit gates are shutting all over again.\nAfter virtually every marquee private credit fund limited withdrawals after being flooded with redemptions requests in Q1, we are seeing more of the same as the second quarter rolls out.\nAnd two days after Cliffwater LLC capped redemptions at 5% after investors requested 17% to be returned, a jump from the 14.0% in Q1 (which was also gated at the 5%) limit, this morning Bloomberg reports that Blackstone has also limited redemptions from its flagship private credit fund for the first time after investors sought to pull 10% of the shares, the latest such fund to cap withdrawals amid a continued investor exodus.\nThe $79 billion Blackstone Private Credit Fund told shareholders that it would return 5% of its shareholders’ money, according to a filing\nThursday. During the previous quarter, the fund allowed investors to redeem a record 7.9% after tapping senior executives to help finance the withdrawals with hundreds of millions of their own cash.\nThis time - realizing that the avalanche of redemptions requests will not ease for a long time - the company did not bother with coming up with a creative solution to avoid gating... and gated investors, joining all of its other peers in doing so.\nOf course, Blackstone told shareholders that repurchases began to decelerate during the back end of its tender offer period, although as the chart below shows, we will have to wait until Q3 to see if that is true.\nAcross the $1.8 trillion private credit market, redemption requests are expected to increase this quarter as investors redouble efforts to claw back money after being restricted. What is concerning, is that despite the recent surge in software stocks - driven entirely by positioning and not fundamentals - private credit continues to feel the pain of investor revulsion to BDC's overreliance on sottware cash flows, suggesting that the recently meltup in software stocks is due to a major pullback as soon as the marketwide gamma squeeze fizzles.",
+  "published_at": "2026-06-04T13:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T21:00:43.142363Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

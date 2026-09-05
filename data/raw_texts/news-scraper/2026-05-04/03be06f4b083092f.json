@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/sec-and-elon-musk-agree-to-settle-lawsuit-over-twitter-buyout-in-2022.html",
+  "title": "SEC and Elon Musk agree to settle lawsuit over Twitter buyout in 2022",
+  "raw_text": "The Securities and Exchange Commission agreed to settle a lawsuit it filed against Elon Musk last year that accused the world's wealthiest person of violating securities law in the run-up to his purchase of Twitter.\nFilings on Monday, signed by attorneys representing the SEC and Musk, said that Musk's revocable trust would pay a civil penalty of $1.5 million to the commission as part of the settlement. The settlement still needs sign-off by the judge presiding over the case.\nAlex Spiro, an attorney for Musk, said the result vindicated his client, writing in a statement that, \"A trust vehicle has agreed to a small fine for being late on one filing.\"\nThe SEC didn't immediately respond to a request for comment.\nMusk, who is CEO of Tesla and SpaceX, purchased Twitter for $44 billion in a leveraged buyout in late 2022. Musk later changed the name to X before merging it with his artificial intelligence company, xAI, and then with SpaceX earlier this year. According to Forbes, Musk has a net worth of roughly $790 billion.\nPrior to his purchase of Twitter, Musk built up a position of greater than 5% in the company, which was publicly traded. At that level, Musk was required to disclose his holdings to the public within 10 calendar days of reaching the 5% threshold. However, Musk was late in filing the disclosure.\nThe SEC said in its initial complaint that Musk's failure to disclose his stake allowed him to buy shares at \"artificially low prices,\" putting other investors at a disadvantage. In a court filing last month, the SEC revealed that it was \"engaged in discussions of a potential resolution\" with Musk on the matter.\nIn a separate class action trial, a jury in a federal court in California found in March that Musk had misled Twitter investors in the runup to his Twitter buyout. Musk's attorneys said after that verdict that they planned to appeal.\nThe agreement disclosed on Monday follows a prior settlement between the regulator and Musk in 2018 involving Tesla and the CEO's aborted efforts to take the automaker public. Musk and Tesla each had to pay $20 million in fines, and Musk had to temporarily relinquish his role as chairman of the company's board. A revised consent decree was signed the following year.\nFollowing that agreement, Musk repeatedly said he doesn't respect the SEC.\nMeanwhile, Musk is currently embroiled in a separate legal action with OpenAI CEO Sam Altman. The trial — Musk v. Altman — began last week in a federal courthouse in Oakland, California, with Musk taking the stand from Tuesday through Thursday. In 2024, Musk sued Altman and OpenAI, alleging they reneged on their promise to keep the artificial intelligence lab as a nonprofit.",
+  "published_at": "2026-05-04T20:52:38Z",
+  "author": null,
+  "collected_at": "2026-05-04T21:18:29.709489Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

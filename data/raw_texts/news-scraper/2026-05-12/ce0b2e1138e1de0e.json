@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/with-skyroot-at-the-head-of-the-class-indias-private-space-industry-seeks-to-take-off/",
+  "title": "A promising Indian launch startup nears its first orbital test flight",
+  "raw_text": "After decades of controlling all aspects of spaceflight, the Indian government decided in 2020 to open things up to private industry. Essentially, the government said, companies could build their own rockets, obtain permission to launch them, and even use state-operated facilities.\nThe government and the country’s space agency, ISRO, instituted this change in response to the rise of commercial space industries in the United States, and later China, that were playing an increasingly important role in global spaceflight.\nNow, six years later, this structural shift is beginning to bear some fruit. The most promising Indian launch company, Skyroot Aerospace, is nearing the pad with its first orbital rocket.\nThe Vikram-1 launch vehicle could take flight within the next couple of months, its cofounder and chief executive officer, Pawan Kumar Chandana, told Ars in an interview. And with a recent $60 million fundraising round valuing the firm at $1.1 billion, the company is poised to accelerate its commercial launch efforts.\nThe origins of Skyroot\nChandana graduated with an engineering degree from the Indian Institute of Technology in 2012, and like almost anyone in India interested in space at the time, he went to work for the Indian Space Agency. But six years later, he could see the coming disruption to the space industry and believed that India would soon follow suit.\n“Going back to my school days, I always had the ambition to be an entrepreneur,” he said. “I was super inspired by what SpaceX was doing. Rocket Lab was also building up. The world definitely needed more access to space.”\nAlthough India lacked a purely commercial space industry, Chandana believed that the rising country had the right ingredients in place. The country had great engineers, a supplier base, government spaceports, and an advantageous location near the equator.\nStill, leaving ISRO was a major risk. Chandana had no guarantees that India would open up its launch industry to the private sector or even allow government payloads to fly on private rockets. But he believed that if he didn’t start working on a private launch company now, competitors in the United States, China, Europe, Japan, and elsewhere would pull even further ahead. So he and another ISRO scientist, Naga Bharath Daka, took the leap and founded Skyroot in June 2018 in Hyderabad.",
+  "published_at": "2026-05-11T13:53:24Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-12T03:00:31.805684Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "india",
+      "launch",
+      "skyroot"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/airlines-jet-fuel-iran-war.html",
+  "title": "Airlines spent 56.4% more on jet fuel in month after Iran war started, U.S. government says",
+  "raw_text": "U.S. airlines spent 56.4% more on jet fuel in March, the month after the U.S.-Israel strikes on Iran began, than they did in February, U.S. government data released Wednesday shows.\nU.S. carriers spent $5.06 billion on fuel in March, up from $3.23 billion in February. It was 30% more than what they paid in March 2025, according to the Department of Transportation.\nAirlines have lowered or scrapped their 2026 forecasts altogether because of the spike in fuel, their biggest expense after labor. Some carriers have scaled back growth plans to cut costs and avoid having too much expensive capacity in the markets.\nThe spike in jet fuel was even sharper and topped $4 a gallon in some markets in April as the war continued and the Strait of Hormuz was effectively closed.\nSpirit Airlines collapsed over the weekend, and the carrier said the surge in jet fuel costs foiled its plans to emerge from bankruptcy midyear.\nOther major carriers told Wall Street as they reported earnings last month that they expect customers to cover the higher jet fuel costs by early 2027, if not the end of this year.\nSo far, booking trends show consumers are still traveling, In March, travel agency ticket sales rose 12% from a year ago to $10.4 billion, with the number of domestic trips up 5% and international up 1%, according to the Airlines Reporting Corp.",
+  "published_at": "2026-05-06T19:15:47Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.698112Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

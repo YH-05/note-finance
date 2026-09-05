@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/lufthansa-q1-middle-east-conflict-2-billion-fuel-cost.html",
+  "title": "Lufthansa faces nearly $2 billion in extra fuel cost amid the Iran war, after axing 20,000 flights",
+  "raw_text": "Germany's largest airline, Lufthansa, expects to take on 1.7 billion euros (nearly $2 billion) in additional fuel costs this year, as the Middle East conflict poses \"enormous challenges.\"\nIn its first-quarter earnings published Wednesday, the airline said it had hedged 80% of its jet fuel. It expects to take on additional costs of 1.7 billion euros in 2026, which it plans to offset via cost-saving measures and increased revenue from ticket sales.\nLufthansa reported its first-quarter adjusted EBIT or operating loss was 612 million euros, while revenue rose to 8.7 billion euros ($10.2 billion), up 8% from 8.1 billion euros in the first quarter last year. Net income came in at 665 million euros, compared with 885 million euros in the prior year.\n\"In the first quarter, we significantly improved on the previous year's financial results,\" Lufthansa's CEO Carsten Spohr said. \"But the ongoing crisis in the Middle East, combined with rising fuel costs and operational constraints, poses enormous challenges for the world as a whole, for global air travel, and for our company as well. However, we are resilient in our ability to absorb these impacts.\"\nEurope is facing a jet fuel crunch because of the ongoing blockade of the Strait of Hormuz. The International Energy Agency's chief, Fatih Birol, warned last month that the continent is weeks away from running out of supply.\nJet fuel prices had surged 103% by the end of March compared to the month prior, according to the International Air Transport Association.\nLufthansa has already cut 20,000 short-haul flights in an effort to save 40,000 metric tons of jet fuel and eliminate unprofitable flights.\nMeanwhile, other European airlines have also taken a hit from surging fuel costs. British carrier EasyJet reported that it took on £25 million ($34 million) in additional fuel costs in March, with a headline loss before tax between £540 million and £560 million for the six months to March 31.\nThe budget airline said customers are leaving it later to book tickets, with bookings weaker for the rest of the year compared with last year. EasyJet has also hedged 70% of its summer fuel, leaving the remaining 30% vulnerable to volatile fuel prices.\nThe IEA's Birol flagged that, as peak travel season approached, demand for jet fuel would be 40% higher than in March. Middle East refineries provide around 75% of Europe's jet fuel.\n\"The rest is coming from some big Asian countries that have now export restrictions, and Europe is now trying to get it from the U.S. and Nigeria. If we are not able to get in Europe, additional imports from the countries now, we will be in difficulties,\" Birol said.",
+  "published_at": "2026-05-06T08:38:10Z",
+  "author": null,
+  "collected_at": "2026-05-06T09:18:05.393053Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

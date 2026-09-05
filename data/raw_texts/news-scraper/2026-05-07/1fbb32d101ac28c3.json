@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/google-updates-ai-search-to-include-expert-advice-from-reddit-and-other-web-forums/",
+  "title": "Google updates AI search to include quotes from Reddit and other sources",
+  "raw_text": "Google is updating search to refine its AI experience by adding additional context to links, like excerpts from web forums and blogs, as well as a feature that highlights links from a user’s news subscriptions.\nWhile citing web forums and discussion boards can help users find answers to more niche queries, this design choice could also prove chaotic.\nTwo years ago, Google overhauled its search experience to put AI front and center — when you search for something, Google will often summon an “AI Overview,” which has spurred mixed reception from users. People quickly pointed out how the feature could be exploited, since it failed to recognize sarcasm or information that comes from dubious sources. (It cited The Onion when telling someone to eat “one small rock per day,” and used Reddit to advise someone to put glue on their pizza to make the cheese stick better.)\nThough Google’s AI Overviews have improved significantly, they still — like anything powered by an LLM — are prone to hallucination. A recent New York Times analysis found that the AI Overviews were correct about nine times out of 10. But for a company that processes trillions of queries a year, that success rate would mean that hundreds of thousands of searches turn up inaccurate results every minute.\nOf course, not every search has an objective yes-or-no answer, which is why Google might want to pull in voices from web forums where people discuss such questions — there’s a reason why people often add “Reddit” to the end of their Google searches.\n“For many searches, people are increasingly seeking out advice from others,” Google explains. “To help you find the most helpful insights to explore further, AI responses will now include a preview of perspectives from public online discussions, social media, and other firsthand sources. We’re also adding more context to these links, like a creator’s name, handle, or community name, to help you decide which discussions you might want to read or participate in.”\nBut now Google is complicating the role of its AI Overviews. Is the AI Overview supposed to answer a question, or is it supposed to serve you a variety of sources that might have the information you’re looking for? Isn’t that basically just a normal Google search?\nGoogle will, at least, add more context to where its AI Overview commentary comes from, which might help users decipher if they’re getting information from a trustworthy source. It’s similar to how ChatGPT or Claude will sometimes provide links that are supposed to back up its claims.\nStill, we’d recommend double-checking that the AI is not hallucinating the validity of these citations.",
+  "published_at": "2026-05-06T15:49:39Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-05-07T03:00:27.003115Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ai overviews",
+      "Google",
+      "Google Search",
+      "Reddit"
+    ]
+  }
+}

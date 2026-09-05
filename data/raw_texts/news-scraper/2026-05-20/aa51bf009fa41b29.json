@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/ill-buy-10-of-those-nasa-science-chief-yearns-for-mass-produced-satellites/",
+  "title": "\"I'll buy 10 of those\"—NASA science chief yearns for mass-produced satellites",
+  "raw_text": "There are more opportunities to access space than ever, thanks to a bevy of commercial rockets, some with reusable boosters, led by SpaceX’s workhorse Falcon 9. So why is NASA launching fewer telescopes and planetary science missions than it did a quarter-century ago?\nThe answer is complex. It is not necessarily the money. The space agency’s science budget this year is $7.25 billion, roughly the same as it was in 2000, adjusted for inflation. This is despite attempts by the Trump administration to drastically reduce NASA science funding.\nIn the early months of his tenure, NASA Administrator Jared Isaacman’s focus has been on human spaceflight and the Moon. This isn’t terribly surprising given NASA’s wildly successful Artemis II mission carrying four astronauts around the Moon last month. Since taking office in December, Isaacman has announced an overhaul of the Artemis program, canceling a space station to be built in orbit around the Moon in favor of construction of a base on the lunar surface.\nOn the robotic front, Isaacman is pushing for NASA to launch a first-of-its-kind nuclear-powered spacecraft in 2028 to deliver a trio of drone rotorcraft to explore Mars. Isaacman has not said as much about concrete changes to NASA’s science program. He has defended the Trump administration’s proposed cuts to NASA’s science budget—as would be expected of him as a Trump political appointee—but the budget proposals come from the White House, not from NASA headquarters.\n“Mr. Isaacman is very keen on us doing things quicker and for less,” said Nicky Fox, associate administrator for NASA’s science mission directorate. “More shots on goal is one of his favorite phrases. And I think, for us, it’s looking at the right-sized mission for the problem. Not everything has to be $1 billion or more. There are ways you can do fantastic science. His challenge is he wants 10 $100 million missions to be flying.”",
+  "published_at": "2026-05-19T20:43:31Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-20T03:02:21.418227Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "astrophysics",
+      "Commercial space",
+      "NASA",
+      "planetary science",
+      "solar system"
+    ]
+  }
+}

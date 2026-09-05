@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/oil-price-today-iran-war-hormuz-trump-israel-lebanon.html",
+  "title": "Oil prices fall 3% on report Trump reluctant to restart Iran war",
+  "raw_text": "Oil prices dropped about 3% Thursday, on a report that President Donald Trump is reluctant to resume full-scare war with Iran despite recent clashes.\nWest Texas Intermediate futures declined 3.1% to close at $93.04 per barrel. Brent futures, the international benchmark, lost 2.8% to settle at $95.03 per barrel.\nTrump told his aides that the weekslong ceasefire with Iran is holding despite sporadic clashes, unnamed U.S. officials told The Wall Street Journal. The president said he would consider ending the truce if Iran kills American troops, the officials said.\nThe White House declined to comment on the report when asked by CNBC. A White House official said while Trump \"always prefers a diplomatic solution, he has been clear about the consequences if Iran refuses to make a deal.\"\nThe ceasefire appeared on the verge of collapsing earlier this week after Iranian state media said Tehran had cut off talks with the U.S. due to Israel's military campaign in Lebanon. Iran backs Hezbollah militants in Lebanon who have fired missiles at Israel.\nIsrael and Lebanon agreed on Wednesday to implement a ceasefire, which could help advance talks between the U.S. and Iran. But it is unclear whether a Lebanon ceasefire would hold. Hezbollah operates independently from the government in Beirut.\nIsraeli Prime Minister Benjamin Netanyahu told CNBC on Wednesday that \"we have to disarm Hezbollah and we have to demilitarize Lebanon.\"\nTrump is facing growing opposition to the war in the Republican-led Congress. The House of Representatives passed a resolution Wednesday that called on Trump to withdraw U.S. forces or seek congressional approval to continue the conflict. The resolution still has to pass the Senate and would almost certainly be vetoed by Trump.",
+  "published_at": "2026-06-04T19:25:55Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.814139Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

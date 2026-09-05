@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/no-tech-no-problem-dow-makes-record-and-traders-think-these-stocks-can-lead-now.html",
+  "title": "No tech, no problem. Dow makes record and traders think these stocks can lead now",
+  "raw_text": "The flashiest group in the market took a step back Thursday as chip stocks dropped 1.5%, but U.S. stock market bulls didn't miss a beat.\nThe Dow Jones Industrial Average closed at a fresh record following a 2% pop and the S&P 500 bounced 0.4% as 9 of 11 sectors advanced. Health-care stocks led gains and options traders followed suit, piling into the group as a handful of insurers and drugmakers pushed toward new highs.\nTraders bought about 5,300 calls in the State Street Health Care Select Sector SPDR ETF (XLV) on Thursday, compared to just over 1,000 puts, according to data from ThinkOrSwim. At the same time, just over 2,000 calls were sold, and of the $13 million traded in the fund, $11 million was tied to calls.\nBig winners in the category included insurers Humana and Centene, both of which put in new one-year highs, and UnitedHealth Group, which closed just below its one-year high reached in May. Options trading was heaviest in UnitedHealth, where 87% of the $135 million traded in options premium was tied to calls.\nBulls also loved Eli Lilly, a major leader in weight loss drugs that rallied more than 4% to just under all-time highs from a week ago. Calls outpaced puts more than two-to-one amid $145 million of options premium traded, and traders bought over 10,500 calls, more than twice as many as they sold and three times more than puts.\nThe options flows in the sector are particularly notable when compared to the response an almost equivalent rally in the financial sector, another underperforming group that led Thursday's rally.\nIn the State Street Financial Select Sector ETF (XLF) tracking the sector, options trading was much more mixed, albeit on much bigger volume. Almost 380,000 options traded in the fund, with premium roughly evenly split between calls and puts, and more calls sold than bought, according to SpotGamma data.",
+  "published_at": "2026-06-05T11:45:23Z",
+  "author": null,
+  "collected_at": "2026-06-05T15:19:54.009606Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

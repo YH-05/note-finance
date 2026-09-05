@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/rivian-renegotiates-doe-loan-adjusts-capacity-plans-for-georgia-plant.html",
+  "title": "Rivian renegotiates DOE loan down to $4.5 billion, adjusts capacity plans for Georgia plant",
+  "raw_text": "Rivian Automotive on Thursday said it has renegotiated a $6.57 billion loan from the U.S. Department of Energy down to $4.5 billion and is adjusting its production expectations at an under-construction plant in Georgia.\nThe DOE loan was previously set to support two phases of production for a total of 400,000 units annually. The amended loan covers one phase of production with a total capacity of 300,000 vehicles, the company said Thursday.\nThe changes enable Rivian to draw on the loan sooner and have greater initial production but lowers its total production capacity for the plant amid uncertain demand for all-electric vehicles.\nThe initial loan terms were negotiated under the Biden administration. It had been in limbo under the Trump administration, which has taken action to cut or reduce such loans and has pulled back government investments to promote EVs.\nRivian said it plans to tap into the loan in 2027, a year ahead of previously scheduled. The automaker also said production of the company's upcoming R2 electric vehicle is on track to begin at the facility in late 2028, following its recent start to production at its current facility in Normal, Illinois.\nRivian CEO RJ Scaringe on Thursday told CNBC's Phil LeBeau that any future expansion of the Georgia plant would be funded by the company, which has been raising capital through partnerships with companies such as Volkswagen and Uber.\nThe EV maker announced the new loan details in connection with its first-quarter results, which included a net loss of $416 million, or 33 cents per share, down from a loss of $541 million, or 48 cents per share, a year ago. Those per-share results were not comparable to Wall Street expectations.\nRivian's revenue for the quarter was $1.38 billion, up from $1.24 billion a year earlier and slightly ahead of the $1.36 billion expected by analysts, according to LSEG.\nThe company's gross profit, which is closely watched by investors, was $119 million — down $87 million during the first quarter compared with a year earlier. That included a $62 million loss for its automotive segment and a $181 million profit for its software and services division.\nThe decline in automotive profit was primarily due to a $100 million slump in sales of automotive regulatory credits and lower production volumes, Rivian said.",
+  "published_at": "2026-04-30T22:21:00Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.510886Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

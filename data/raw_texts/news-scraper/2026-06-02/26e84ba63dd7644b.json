@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606021200",
+  "title": "NY外為：円続落、日銀の6月利上げ観測後退",
+  "raw_text": "【通貨】NY外為：円続落、日銀の6月利上げ観測後退\nNY外為市場で円は続落した。インフレが高まらず、日銀の6月利上げ観測が後退しつつある。ドル・円は159円73銭から159円79銭まで上昇。ユーロ・円は186円07銭から186円20銭まで上昇し4月30日来の円安・ユーロ高。ポンド・円は215円19銭から215円32銭まで上昇、4月末来の円安・ポンド高水準で推移した。\n《KY》\n提供：フィスコ",
+  "published_at": "2026-06-02T13:21:19Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:00:17.347785Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

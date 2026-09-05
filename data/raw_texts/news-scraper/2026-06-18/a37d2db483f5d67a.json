@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20398-egypt-approves-major-data-centre-project.html",
+  "title": "Egypt approves major data centre project",
+  "raw_text": "Egypt has approved a US$400 million data centre project to boost the country’s cloud infrastructure, granting a license to a company called Hassan Allam Digital Infrastructure and Data Centre Solutions to establish and operate data centres and provide cloud computing services.\nThe license was awarded by the National Telecommunications Regulatory Authority during a ceremony witnessed by Communications and Information Technology Minister Raafat Hindi in Cairo on 15 June.\nHassan Allam Digital Infrastructure and Data Centre Solutions is part of Hassan Allam Holding, which specialises in engineering and construction, and investment and development.\nThe company reportedly plans to invest an initial US$400 million in the first phase of a new data centre project designed to meet international standards, with further expansion planned in the coming years.\nThe facility is expected to serve government institutions, financial organisations, and local and international businesses, addressing growing demand for data hosting, cloud computing and digital services.\nMinister Raafat Hindi has been widely quoted as saying that the licensing decision reflects Egypt’s commitment to developing the data centre and cloud computing industry as a key pillar of the digital economy. Indeed, the country’s regulator has pointed out that ten licenses for the establishment and operation of data centres have been issued over the past two years,\nThe Minister says the government is working with stakeholders to create an integrated national strategy for data centres and cloud computing aimed at enhancing digital and data sovereignty and positioning Egypt as a regional hub for data exchange and digital services.\nHassan Allam Digital Infrastructure has said the project will be developed in partnership with Egyptian technology and venture capital firm A15 and will support emerging technologies including cloud computing, artificial intelligence, and data-driven services. There doesn’t appear to be a timetable yet.",
+  "published_at": "2026-06-16T19:51:33Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-18T03:01:19.515872Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

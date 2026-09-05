@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341",
+  "title": "South Korean Forums Will Need to Scan Every Images with AI Censorship Tools",
+  "raw_text": "Due to recent regulation changes (전기통신사업법), the South Korean government is requiring internet communities and forum owners to scan every user uploaded images and videos on their website, by AI.\nThe hardware to run these AI models are also not provided by government, website owners have to buy datacenter grade Nvidia GPUs by themselves, putting financial pressure to small businesses and forums.\nWebsites will need to implement these hardware and software features, starting immediately from July 1st, which is just next month.\nHere is the original image provided from Korean government, specifying the hardware requirements for AI models. I also added English translated image, made with nano banana (sorry for using ai for this…)\nRelated article (in Korean):\nPost from Korean forum/news website(루리웹) owner, after listening briefing from Korean government, expressing how ridiculous the situation is:\nThis feels really dystopian, even for South Korean standards.\nAnd this is why South Korea has been ranked only slightly better in terms of press freedom than their authoritarian counterpart North Korea.\n1 Like\nAnd what do they even want to censor? Nudity/porn? If so, why do you need some super strong Nvidia hardware, it can’t be so hard to filter it out even without AI?\nI would say it is either written by incompetent lawmakers or by someone whose goal is to kill small, free and open communities. But most likely both\n1 Like\nI’m not fluent in law so I might be wrong, but the law itself roughly states about illegally filmed porns without subject’s consent, and CSAM materials.\nBut in practice, it is much worse.\n- South Korea has been pushing to classify creative works like drawings and novels as CSAM if it contains minors. If you drew NSFW fanart about some 2D anime character that is 17 years old? yup, that is CSAM right there, prepare for interrogation and jail time.\n- While porn is basically illegal in South Korea, AI model seems to be even more sensitive, blocking even mild nudity in general. This is known because the law itself is not new, it is now just getting expanded to include internet communities and forums, but the law has been in effect for messenger apps like KakaoTalk since 2021, and there have been cases where the ai model censored photos of normal swimsuits, anime drawings, memes, any photo that contains text “sex”, and even linear algebra math problems for some reason.\n- Few days ago in Korea, there has been a controversy about creating memes about dead former president, 노무현. This system might censor memes about politicians in the future, who knows.\nThis is a country with a long tradition of censorship. It’s no surprise that censorship has moved online.",
+  "published_at": "2026-06-04T23:45:56Z",
+  "author": "Cider9986",
+  "collected_at": "2026-06-05T09:00:52.096400Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

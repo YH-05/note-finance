@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/stocks-making-the-biggest-moves-after-hours-avgo-crwd-pvh.html",
+  "title": "Stocks making the biggest moves after hours: Broadcom, CrowdStrike, PVH & more",
+  "raw_text": "Check out the companies making headlines after the bell : Broadcom — Shares fell 5% after the chipmaker reported fiscal second-quarter revenue of $22.19 billion, coming in below the $22.27 billion analysts polled by LSEG had expected. This marked Broadcom's first revenue miss since December 2024. The company's $7.18 billion infrastructure revenue also missed the $7.32 billion StreetAccount estimate. Five Below — The discount retailer tumbled nearly 9%, even as the company provided a better-than-expected outlook. Second quarter revenue is expected to range from $1.18 billion to $1.2 billion, versus the StreetAccount estimate of $1.15 billion. Same-store sales for the period are expected to grow 7% to 9%, versus 4.4% consensus. Petco — Shares of the pet retailer fell more than 4% after Petco's current-quarter forecast came in shy of Wall Street's expectations. Petco sees second-quarter adjusted EBITDA ranging from $110 million to $112 million. The consensus sought EBITDA of $115 million, per StreetAccount. CrowdStrike — The cybersecurity stock fell 9% on lackluster second-quarter guidance. CrowdStrike sees Q2 revenue around $1.44 billion, just above a StreetAccount estimate of $1.3 billon. It also expects earnings per share of $1.16 per share to $1.17 per share. Analysts expected a forecast of around $1.16 per share. Shares of Palo Alto Networks and Fortinet also traded lower in sympathy. PVH — The Tommy Hilfiger and Calvin Klein parent tumbled more than 20% after it reiterated its full-year earnings guidance. The company also posted a Q1 earnings beat, but revenue was about in line with expectations. C3.ai – The artificial intelligence application software company jumped more than 4%. C3.ai's fourth quarter adjusted loss came in at 33 cents a share on revenue of $52 million. Analysts polled by LSEG sought a loss of 37 cents per share and $50 million in revenue.",
+  "published_at": "2026-06-03T22:51:53Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.683450Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

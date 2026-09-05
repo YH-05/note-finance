@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/14/china-boeing-order-airplanes-737-max-trump-says.html",
+  "title": "China will order 200 Boeing jets, Trump tells Fox News",
+  "raw_text": "President Donald Trump told Fox News that China has agreed to buy 200 Boeing jets, according to a clip that aired Thursday, more than the 150 aircraft Boeing had expected.\n\"One thing he agreed to today, he's going to order 200 jets. That's a big thing. Boeings,\" Trump told Fox News, referring to Chinese President Xi Jinping. \"Boeing wanted 150, got 200.\"\nAnalysts had expected a large Boeing aircraft order to come out of Trump's visit to China, with Jefferies estimating the order could reach 500 aircraft. Boeing CEO Kelly Ortberg and other top executives from U.S. companies joined Trump on the trip.\nThe manufacturer hasn't won a major order from China in almost a decade, but the country has been buying from Boeing's main rival, Airbus.\nTrump didn't specify which aircraft China could purchase from Boeing, though analysts had expected a potential order to include hundreds of Boeing's bestselling 737 Max planes.\nBoeing and the White House didn't immediately comment. Boeing shares closed 4.73% lower Thursday and were up 0.29% after hours.\nOrtberg said on a company earnings call last month that the U.S.-China summit could be a \"meaningful opportunity for us\" that could include an aircraft order.\n\"I'm not going to give you the number of airplanes, but it's a big number,\" he said.",
+  "published_at": "2026-05-15T01:52:07Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.504048Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

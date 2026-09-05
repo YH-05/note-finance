@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/theres-a-lot-of-hype-about-chinese-evs-is-any-of-it-true/",
+  "title": "There's a lot of hype about Chinese EVs—is any of it true?",
+  "raw_text": "The Beijing Auto Show is currently taking place in China, offering those of us behind the Trump tariff curtain a peek at what’s increasingly being dubbed the world’s most advanced car market. Chinese EVs leave everyone else in the dust, we’re told, with infotainment that makes your smartphone look like a StarTac, range numbers that would make a turbodiesel Audi weep, and charging that might be even faster than filling up with gas, depending on the size of your tank.\nAs an American, I mostly have to take someone else’s word for that. If there’s one thing Democratic politicians can agree on with Republicans, even now, it’s that they don’t want cars from Chinese automakers on US roads. Toward the end of his administration, President Joe Biden levied a 100 percent tariff on Chinese EVs. Under the Biden and then Trump administrations, Congress passed a law restricting the sale of Chinese-linked connected car software in the US. President Trump has added further tariffs to Chinese imports, making their cars even less competitive here. And just this week, more than 70 Democratic representatives called for maintaining barriers to Chinese cars for both national security and economic reasons.\nThis puts those elected officials increasingly out of step with popular sentiment on the Internet (I’m using the Ars comments and social media platform Bluesky as my bellwethers). From what I can see, there’s strong appetite for those sweet, cheap Chinese electric vehicles. Headlines like Reuters’ claim that “[f]or the average price of a car in the US, you could buy 5 new Chinese EVs” only reinforce that sentiment.",
+  "published_at": "2026-05-01T11:00:15Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-03T03:00:31.304278Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Features",
+      "Chinese EVs"
+    ]
+  }
+}

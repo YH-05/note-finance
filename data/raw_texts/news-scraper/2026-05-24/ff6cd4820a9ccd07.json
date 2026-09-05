@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/doctors-outraged-after-rfk-jr-fires-leaders-of-key-preventive-medicine-panel/",
+  "title": "First vaccines, now mammograms? RFK Jr.’s latest firings have doctors outraged.",
+  "raw_text": "Top medical groups are outraged and alarmed that anti-vaccine Health Secretary Robert F. Kennedy Jr. has fired two leaders of an influential panel that makes recommendations and sets insurance coverage for preventive care—such as mammograms, colonoscopies, statin use, and depression screening.\nOn Wednesday, news broke that Kennedy had fired the two vice chairs of the US Preventive Services Task Force (USPSTF), leaving the critical, nonpartisan panel half empty. Typically, the task force is made of 16 independent volunteer preventive medicine experts who serve four-year, overlapping terms. But with the new firings, USPSTF has eight vacancies, including the chair and vice chair positions.\nKennedy has already undermined the USPSTF’s work by failing to replace members whose terms ended at the turn of the year, preventing the task force from meeting over the past year, and blocking it from releasing finalized recommendations on self-collected samples for cervical cancer screening.\nWith the new firings, doctors fear that USPSTF will go the way of the Advisory Committee on Immunizations Practices (ACIP) and its vaccine recommendations for the Centers for Disease Control and Prevention—which is to say, that Kennedy will remove expert members, replace them with unqualified allies, and push through fringe or politicized recommendations. Such damage to the task force threatens to imperil access to lifesaving preventive services for millions of Americans. Under the Affordable Care Act, most health insurance plans must cover recommended preventive services that the USPSTF grades as “A” or “B,” which reflect the evidence-based certainty of benefit.\nDoctors respond\nIn a statement on Wednesday, American Medical Association President Bobby Mukkamala said the organization was “extremely concerned” by the firings.\n“Today’s changes were foreshadowed by the earlier dismantling of the Advisory Committee on Immunization Practices (ACIP),” Mukkamala said. “We strongly urge HHS to restore the USPSTF’s long-standing, transparent process for selecting members, specifically clinicians with expertise in the fields of preventive medicine and primary care. We also implore HHS to commit to once again holding regular Task Force meetings to ensure its important work can continue without further delay. Our patients’ lives depend on it.”",
+  "published_at": "2026-05-22T11:30:38Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-24T03:00:30.718654Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "ama",
+      "preventive care",
+      "rfk jr",
+      "robert f kennedy jr",
+      "USPSTF"
+    ]
+  }
+}

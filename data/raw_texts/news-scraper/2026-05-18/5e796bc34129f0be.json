@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20226-guodian-gaoke-gets-licence-to-trial-leo-satellite-iot-in-china.html",
+  "title": "Guodian Gaoke gets licence to trial LEO satellite IoT in China",
+  "raw_text": "Chinese satellite operator Guodian Gaoke has reportedly received a two-year trial licence from the Ministry of Industry and Information Technology (MIIT) to offer LEO satellite-based IoT services in China.\nAccording to a report from Yicai Global on Friday, citing a statement from MIIT, Guodian Gaoke will spend the trial period accelerating deployment and activation of its Tianqi LEO satellite constellation.\nThe MIIT said the pilot – which will be the first such pilot in China – will help the Chinese satellite IoT sector achieve economies of scale and establish an industrial IoT ecosystem, as well as a regulatory regime to govern it.\nGuodian Gaoke already has 41 LEO satellites in orbit for the first phase of its global network, the report said. According to filings with the International Telecommunication Union, it plans to launch another 640 LEO sats in the second phase, with the total constellation comprising 3,918 satellites.\nGuodian Gaoke has already signed a couple of international deals for its Tianqi constellation. In December last year, the company signed a trilateral agreement with African satellite communications provider Q-KON and Chinese satellite communication terminals and antennas specialist StarWin to roll out satellite IoT services across South Africa.\nGuodian Gaoke and StarWin signed a similar agreement with Malaysian satellite operator MEASAT in October 2025.",
+  "published_at": "2026-05-11T04:55:21Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-18T03:01:19.009189Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

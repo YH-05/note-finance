@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/948215/bluesky-communities-at-protocol-atmosphere-reddit",
+  "title": "Bluesky is getting ‘communities’",
+  "raw_text": "Bluesky will be getting “communities,” which will function as smaller spaces where you can “go deeper and hang out with people who care about the same stuff” sometime this year, according to head of product Alex Benzer. They will be built on the decentralized AT Protocol that underpins Bluesky, with Benzer saying that “it’s a new structure for everyone” that’s part of the “Atmosphere” (a shorthand for the AT Protocol ecosystem).\nBluesky is getting ‘communities’\nThey’re set to launch sometime this year.\nThey’re set to launch sometime this year.\nBenzer listed out a “few ideas we have in mind so far” in a thread. “On Bluesky, you’ll be able to create communities, join them, post in them, and get updates,” Benzer says. “The core features on Bluesky stay simple. The magic comes from communities also existing on the open web. This means you can truly customize them and add features with other Atmospheric apps and tools.”\nCommunities will get a handle that “doubles as a URL,” and if you go to that URL, you’ll “land on a custom homepage for the community,” according to Benzer. “Builders can also host a completely custom experience there instead.” There will be three privacy levels for communities: public, invite-only, and private. And each community would have its own feed, Benzer says.\nBenzer’s thread follows Bluesky COO Rose Wang saying last week that the company wanted to move away from being a “public square” and that it was “very inspired by companies like Reddit.” Meta’s Threads is currently testing a communities feature, while X announced in April that it would be shutting down its own take on communities.",
+  "published_at": "2026-06-11T00:05:48Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-06-11T03:00:16.369702Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Social Media",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606171264",
+  "title": "１７日香港・ハンセン指数＝終値２４３１２．１６（－１８１．７９）",
+  "raw_text": "１７日の香港・ハンセン指数の終値は前営業日比１８１．７９ポイント安の２４３１２．１６と続落した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-17T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T09:00:22.491265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

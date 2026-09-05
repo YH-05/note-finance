@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605191250",
+  "title": "ウォール街の銀行団、ワーナー向けローン債権の投資家向け再販売を開始",
+  "raw_text": "ウォール街の銀行団は本日、ワーナー・ブラザース・ディスカバリー<\nWBD>向けのローン債権の投資家向け再販売を開始した。調達した資金は、同社へのつなぎ融資（ブリッジローン）の借り換えに充てられる予定。\n今回の案件は、５０億ドルのドル建てローンと、１０億ユーロのユーロ建てローンで構成される。ＪＰモルガン<\nJPM>が主幹事を務める。\n投資家向け説明会（レンダーコール）は明日予定されているという。\n株探ニュース",
+  "published_at": "2026-05-19T13:37:00Z",
+  "author": null,
+  "collected_at": "2026-05-19T15:00:21.597411Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

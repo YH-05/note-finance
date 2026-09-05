@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/institutional-investors-retail-jll.html",
+  "title": "Why institutional investors are returning to retail 'in a very big way'",
+  "raw_text": "Key Points\n- More stores closed or downsized than opened or expanded during the first quarter, according to a report from JLL, but vacancies are still low at just 4.4%.\n- Retail offers much better yields than other commercial real estate sectors.\n- Investment transaction volumes reached more than $15 billion during the first quarter, an increase of 5% compared with Q1 2025, according to the report.",
+  "published_at": "2026-06-04T13:43:59Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.230603Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

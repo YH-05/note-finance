@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/04/30/as-tim-cook-steps-down-apple-hit-record-sales-but-a-chip-shortage-looms/",
+  "title": "As Tim Cook steps down, Apple hit record sales — but a chip shortage looms",
+  "raw_text": "Apple reported a record quarter on Thursday. Yet outgoing CEO Tim Cook warned of some gathering storm clouds in the form of memory chip supply issues that could impact business in the near future.\n“Today Apple is proud to report our best March quarter ever, with revenue of $111.2 billion and double-digit growth across every geographic segment,” Cook said during Thursday’s earnings call. “iPhone achieved a March quarter revenue record, fueled by such extraordinary demand for the iPhone 17 lineup.”\nLess rosily, Cook relayed that Apple spent more on memory chips in March than in previous quarters, though the company’s costs were offset by its ability to sell stockpiled inventory. But, he warned, the expectation is “significantly higher memory costs” in June and beyond — the likes of which may “drive an increasing impact” on the business.\nCook was referencing what has commonly been called “RAMageddon,” the trend of the AI industry guzzling up memory chips with such astonishing gusto it is spurring shortages. This is driving up the prices of hardware. Apple is primarily a hardware company, so that’s obviously not great news for its core products.\nMost notably, the chip shortage has impacted the iPhone. Despite the strong sales figures touted by Apple on Thursday, it has previously been reported that RAM costs have quadrupled — impacting phone production costs and putting John Ternus, Apple’s incoming CEO, in a less-than-enviable position.\nOne possible result may be that Apple increases prices for the iPhone. “There’s just a little less flexibility in the supply chain at the moment for getting more parts,” Cook told Reuters on Thursday.\nTernus, who has served as Apple’s senior vice president of hardware engineering, was on Thursday’s earnings call and praised Cook. “In my view, Tim is one of the greatest business leaders of all time. Stepping into the role of CEO is an incredible honor, and it means a great deal to me to have Tim’s trust and confidence,” Ternus said.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nMeet your next investor or portfolio startup at Disrupt\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to save up to $410.\nHe will obviously have his work cut out for him when he begins the job on September 1. But he will still have Cook’s supply chain experience to lean on for a while. Cook will become executive chairman.",
+  "published_at": "2026-04-30T23:59:15Z",
+  "author": "Lucas Ropek",
+  "collected_at": "2026-05-01T15:00:26.763199Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Hardware",
+      "Apple",
+      "iPhone",
+      "Tim Cook",
+      "John Ternus",
+      "RAMaggedon"
+    ]
+  }
+}

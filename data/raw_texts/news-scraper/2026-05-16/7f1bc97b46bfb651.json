@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/931817/windows-11-movable-taskbar-start-button",
+  "title": "Windows 11 tests an adjustable taskbar and resizable Start menu",
+  "raw_text": "Microsoft’s latest Windows 11 test will allow you to reposition the taskbar and change the size of the Start menu. The update, which is rolling out to Windows 11 Insiders in the Experimental channel, lets you place the taskbar on the bottom, top, left, or right side of the screen.\nWindows 11 tests an adjustable taskbar and resizable Start menu\nWindows 11 Insiders can choose a smaller taskbar as well.\nWindows 11 Insiders can choose a smaller taskbar as well.\nMicrosoft first teased its movable taskbar in March as part of efforts to rebuild trust among users. You can adjust the alignment of the icons inside the taskbar, as well as open the Start menu drawer from wherever you placed it. Windows 11 Insiders can access a shorter taskbar, too, which could come in handy for devices with smaller displays. There’s also an option to choose from a “Small” or “Large” Start menu.\nThe Start menu’s layout will soon get easier to adjust as well, with new toggles that will allow you to show or hide the “Pinned,” “Recommended,” and “All” sections. The company is also renaming the “Recommended” section to “Recent” to “better reflect what the section primarily shows, including recently installed apps and recently used files.” You can now hide your name and profile picture from the Start menu, too, in case you’re sharing your screen or making a presentation.\nThese features are rolling out in the “coming weeks” to the Experimental Channel. “We have talked about earning trust through steady and visible progress,” Microsoft design director Diego Baca says in the blog post. “Start and taskbar are where that trust is tested most, every time you sit down at your PC.”",
+  "published_at": "2026-05-15T21:14:45Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-16T03:00:16.279597Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ]
+  }
+}

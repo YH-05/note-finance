@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/931347/trump-mobile-t1-phone-logo-flag-stars-stripes",
+  "title": "Does Trump Mobile know how many stripes are on the American flag?",
+  "raw_text": "Where’s the Trump phone? We’re going to keep talking about it every week. We’ve reached out, as usual, to ask about the Trump phone’s whereabouts. This week, despite our best hopes, we still don’t have our phone — but we do have some fresh doubts about the company’s patriotic credentials.\nDoes Trump Mobile know how many stripes are on the American flag?\nHere’s a hint: it’s not 11.\nHere’s a hint: it’s not 11.\nThis has been a momentous few days for Trump Mobile, in which it defied the haters by announcing that its phones will be shipping to buyers this very week. Not that there’s any sign the company has actually done that, but I digress. Because what I really want to talk about today is the American flag.\nI am not an American, which probably explains why I didn’t immediately realize that something in the T1 Phone’s design is… off. And, no, I don’t mean the gold finish, the uneven camera lens spacing, or the fact that it looks suspiciously like a two-year-old HTC phone. I mean the US flag that features prominently on the back. At a glance, to a non-native, it looks fine. But look closer, and there’s something curious: It only has 11 stripes. Last I checked, there really should be 13.\nThe 13 stripes represent the 13 colonies that broke away from British rule to fight for independence, so you probably shouldn’t just lop two of them off. What’s stranger still is that Trump Mobile changed its logo to introduce the error. Take a closer look at the near-final version of the phone I was shown in February, with its giant T1 logo (thankfully since removed), and you’ll see the flag at the bottom has the correct number of stripes. Someone at Trump Mobile changed the logo to take stripes out for the final release. Under a president who wants to criminalize flag-burning, that’s skirting awfully close to the edge of the law.\nThere is a charitable read on all this. Look at the two versions of the logo and you’ll see that the “Trump Mobile” logo beneath the flag has moved a fraction of an inch closer, about the same distance away as the other stripes are from each other. Perhaps it’s now meant to be the 13th stripe, which might feel a little sacrilegious in its own way. That would be a clunky bit of design, but at least isn’t an outright goof.\nBut that doesn’t explain this week’s glossy promotional video for the phone. While it mostly shows the typical version of the phone, with its 11-stripe logo, there’s one luxurious, slow-motion, close-up panning shot that shows… nine stripes. Nine!? There’s no defending that with a spurious claim about “clever” logo design, it’s simply wrong, any way you look at it. And it’s downright confusing: Why does the logo change on the phone between different shots in the video?\nThe obvious theory, of course, is generative AI. Maybe Trump Mobile just whipped up a quick Grok prompt for a “slick marketing video for a golden phone that definitely has the normal number of stripes in the American flag.” It certainly seems possible, because this isn’t the only inconsistency: The texture of the phone’s trademark golden finish varies throughout, frosted in some shots and perfectly shiny in others. The phone’s boot-up screen changes too, as does its box — I count three different versions of each. Surely only AI could be so inconsistent?\nMaybe… and yet, things are never so simple when it comes to Trump Mobile. Because there’s one other oddity to this promo video: a fleeting glimpse of a scratch on the camera module, easy to miss but impossible to unsee. You might have guessed this already, but on subsequent shots, it’s nowhere to be seen. AI seems unlikely to introduce a scratch, suggesting that there was a real phone somewhere in this video — incompetently handled, badly filmed — but likely mixed into a sea of AI-generated clips alongside it.\nIt’s enough to knock one’s confidence that Trump Mobile really does have phones ready to ship after all. So far I can’t find a single person online credibly claiming to have even had a shipping alert, let alone a phone. For our part, we’ve had no email letting us know the two phones we ordered are ready to ship, and logging into our Trump Mobile account doesn’t give any obvious sign that the company even has our order. There’s one box labeled “T1 deposit,” but it simply lists details of a cell plan we didn’t order and says “Expiry Date: To be assigned.” It’s not clear what exactly is expected to expire, beyond my hope of ever receiving a phone.\nFor what feels like the hundredth time, I’ve reached out to Trump Mobile for comment. For what’s definitely the first time, I’ve been forced to ask them if they know how many stripes are on the US flag.\nGot inside information on Trump Mobile or the Trump phone? Reach out securely from a personal device to tips@theverge.com, or see our How to Tip Us page.",
+  "published_at": "2026-05-15T16:47:16Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-05-15T21:00:15.760134Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Design",
+      "Gadgets",
+      "Mobile",
+      "News",
+      "Phones",
+      "Policy",
+      "Politics",
+      "Tech"
+    ]
+  }
+}

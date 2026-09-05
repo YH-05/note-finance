@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/08/intels-comeback-story-is-even-wilder-than-it-seems/",
+  "title": "Intel’s comeback story is even wilder than it seems",
+  "raw_text": "Bloomberg has a deep dive this week into how Intel CEO Lip-Bu Tan is trying to rescue one of Silicon Valley’s most storied, and stumbling, chipmakers. It’s worth a read, but it actually undersells the most jaw-dropping part of the story: Intel’s stock has risen a stunning 490% over the past year, a bet by Wall Street that may be running well ahead of the company’s actual turnaround.\nTan, who took over in March of last year, has spent much of his first year schmoozing rather than restructuring — locking in a sweetheart deal with the U.S. government (now Intel’s third-largest shareholder), cozying up to Elon Musk on a factory partnership, and reportedly landing preliminary manufacturing agreements with both Apple and Tesla.\nThe fundamentals are still messy. Intel’s chip yields lag well behind industry leader TSMC, and employees tell Bloomberg that Tan has been light on specifics internally, with some teams adjusting missed deadlines rather than recovering from them.\nBut investors are betting big on the bigger picture. Whether the execution follows is the multibillion-dollar question.",
+  "published_at": "2026-05-08T20:02:52Z",
+  "author": "Connie Loizos",
+  "collected_at": "2026-05-09T03:01:21.931986Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Enterprise",
+      "Hardware",
+      "TC",
+      "Apple",
+      "Elon Musk",
+      "In Brief",
+      "Intel",
+      "Lip-bu Tan"
+    ]
+  }
+}

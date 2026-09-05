@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/china-pmi-april-xi-trump-iran-war.html",
+  "title": "China factory activity tops expectations in April — but growth slows as new orders soften",
+  "raw_text": "China's factory activity topped analysts' expectations in April, although growth slowed from the prior month when it hit a year-high, as new orders saw a slowdown.\nThe official manufacturing purchasing managers' index reading of 50.3 was higher than the 50.1 expected by Reuters-polled economists.\nNon-manufacturing PMI fell into contraction territory at 49.4, compared to the 50.1 seen in March, with activity in the services and construction sectors both shrinking. A figure above 50 indicates expansion, while below shows a contraction in activity.\nChina's composite PMI dipped to 50.1 from March's 50.5.\n\"Industry still looks comparatively firm, while services and domestic demand show some weakness, which keeps boosting internal demand high on the policy agenda,\" said Hao Zhou, head of research and chief economist at Guotai Junan International Holdings.\nWhile growth in new orders slowed, Zhou said that output and new orders remain key supports as both continue to be in expansion territory. The new order sub-index fell to 50.6 in April from 51.6 in the prior month.\n\"The PMI index shows the manufacturing sector has not been adversely affected by the conflict in the Middle East. The new export order index actually rose above 50 the first time in two years,\" said Zhiwei Zhang, president and chief economist at Pinpoint Asset Management. The new export orders sub-index rose to 50.3 in April.\nZhaou, however, cautioned that input prices were running \"hot,\" as oil remains sensitive to Middle East tensions.\nThe data also comes alongside a private PMI survey by RatingDog and S&P Global, which saw manufacturing PMI at 52.2 against an expected reading of 51 — the strongest showing since December 2020.\n\"Solid demand, improved operations, and new product launches jointly drove output to its highest growth rate in nearly two years,\" RatingDog said.\nChina is preparing for a summit between President Xi Jinping and U.S. President Donald Trump in May, where Beijing will likely be looking for clarity around the threat of Section 301 tariffs.\nTrump's \"Liberation Day\" tariffs had been struck down under a Supreme Court decision earlier in February, although the U.S. president had moved quickly to impose a 10% duty on global imports to the U.S.\nTrump and Xi met in Busan, South Korea last year and agreed to a trade truce that saw his administration reduce the overall tariff rate on Chinese goods to around 47%, while Beijing pledged to suspend sweeping export controls on rare earths.\n— CNBC's Evelyn Cheng contributed to this report.",
+  "published_at": "2026-04-30T02:43:18Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.716707Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/trumps-10-global-tariff-is-illegal-court-rules/",
+  "title": "Court rules Trump's 10% tariff is just as illegal as the tariff it replaced",
+  "raw_text": "The day after the Supreme Court struck down a set of Donald Trump’s emergency tariffs, the president quickly imposed another, using a never-before-invoked provision of a decades-old trade law to order a global 10 percent tariff on most imports.\nNow, that second set of tariffs has been deemed illegal, and there are no more emergency levers that Trump can pull to try to replace them any time soon. That leaves Trump without much negotiation leverage a week before he’s set to meet with China’s President Xi Jinping, who already appeared to have the upper hand heading into talks.\nFor Trump, when the US Court of International Trade invalidated his global tariffs, his key trade policy—which relies on imposing tariffs to supposedly drive more manufacturing into the US—was put at risk of being gutted.\nMoving forward, Trump won’t be able to rely on the law to collect the global tariffs.\nLucky for Trump, the international trade court’s narrow ruling did not require a universal injunction blocking tariffs nationwide, and it limited refunds to only importer plaintiffs who sued. That could help the Trump administration avoid even more chaos after Customs and Border Patrol recently began processing refund requests to comply with the Supreme Court ruling.\nHowever, it’s unclear if the court’s ruling could prompt additional lawsuits from other importers that are seeking refunds, as well as anyone who can argue they have been harmed by the global tariffs, such as non-importer customers who can prove they paid higher prices linked to tariffs.\nTrump will most likely appeal the ruling. But in the meantime, it likely puts immediate pressure on his administration to quickly conclude investigations into tariff regimes that may be available under other statutes. That could take weeks, if not months, analysts expect.\nOn Friday, Trump “criticized the judges” at the international trade court, while telling reporters that he would pursue his tariff agenda under other authorities, The New York Times reported.",
+  "published_at": "2026-05-08T19:25:30Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-10T03:00:31.216290Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Amazon",
+      "apple",
+      "Donald Trump",
+      "ieepa tariffs",
+      "section 301",
+      "tariff refunds",
+      "tariffs"
+    ]
+  }
+}

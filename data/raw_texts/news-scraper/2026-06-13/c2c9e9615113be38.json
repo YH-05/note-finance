@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/12/spacex-hit-with-sell-rating-by-cfra-shortly-after-ipo.html",
+  "title": "SpaceX hit with sell rating by CFRA shortly after IPO",
+  "raw_text": "SpaceX got hit with a sell rating from CFRA on Friday, just minutes after its debut on the Nasdaq . The financial research company also gave SpaceX a 12-month price target of $115, significantly below its offering price of $135 per share and its current trading level of about $174 as of 1:19 p.m. ET. CFRA said SpaceX has \"elevated valuation expectations.\" The market capitalization of the company was $1.77 trillion at its initial offering price, but is currently higher due to its share price soaring in afternoon trading. To live up to its valuation, SpaceX will need to prove the viability of its Starship rocket, expand its Starlink internet service, generate returns from its artificial intelligence infrastructure, and eventually produce consistent free cash flows, CFRA said. SPCX 1D mountain SpaceX trading \"Our primary concern is that SpaceX's long-term strategy remains heavily dependent on Starship,\" CFRA analyst Keith Snyder wrote in a note to clients Friday, saying that the Starship rocket could be a \"bottleneck\" for various SpaceX initiatives. The commercial viability of the heavy-lift rocket hinges on its reusability, which could generate huge savings and widen the company's moat against its competitors. Other analysts on Wall Street were focusing Friday on Starship, as well. \"Successful reusability of Starship is the single most important value unlock,\" Myles Walton at Wolfe Research wrote to clients. When it comes to SpaceX, \"you don't need to believe in targets, you just have to believe in Starship,\" Walton wrote. Unlike some of SpaceX's other rockets, Starship is designed to be fully reusable, which could boost profit margins on the product another 10% from their current level, according to Wolfe. If Starship doesn't live up to expectations, it could hurt numerous other segments of SpaceX's integrated business, including Starlink satellites, orbital AI computing, and satellite-to-mobile operations, CFRA's Snyder said. \"This creates a significant execution bottleneck, as delays or technical setbacks in Starship could ripple across nearly every major growth initiative,\" he wrote.",
+  "published_at": "2026-06-12T17:21:01Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:37:30.165464Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

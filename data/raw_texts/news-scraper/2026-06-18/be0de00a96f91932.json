@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/18/kevin-warsh-trump-federal-reserve-chair.html",
+  "title": "Kevin Warsh to be sworn in as Federal Reserve chair on Friday",
+  "raw_text": "President Donald Trump will swear in Kevin Warsh, his hand-picked choice to lead the Federal Reserve, during a ceremony Friday, a White House official told CNBC.\nThe move will end a process that started in the summer of 2025 and culminated last week with the Senate confirming Warsh in a nearly total party-line vote.\nThe new chair will succeed Jerome Powell, whose term expired Friday but who continues to serve on a pro-tempore basis until Warsh officially takes over.\nOnce seated, Warsh, 56, will become the 11th chair in the modern era as well as the wealthiest person ever to hold the seat, based on financial disclosures he filed ahead of confirmation. He will have to divest himself of much of the investments that he has accrued in his portfolio to confirm with stringent new regulations adopted for Fed officials.\nThe ceremony will have added meaning in that Trump not only nominated Warsh but did so with expectations that the post-Powell Fed will resume lowering interest rates, as it did three times in 2025.\nHowever, markets expect that elevated levels of inflation and a stable labor market likely will discourage further easing until there's ample evidence that the pace of price increases is again headed back to the Fed's 2% goal. Powell presided over a Fed that has missed the target for more than five years running.",
+  "published_at": "2026-05-19T11:37:27Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.861308Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

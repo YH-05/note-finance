@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/",
+  "title": "OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks",
+  "raw_text": "OpenAI announced a new feature that it says will provide additional protection from prompt injection attacks, where malicious chatbot instructions are hidden in webpages and other content sources.\nAmong other things, Lockdown Mode will disable live web browsing (so you can only access cached content), the retrieval and display of images from the web (you can still generate images), deep research, and agent mode.\nThe company says that even with Lockdown Mode turned on, ChatGPT could still be vulnerable to prompt injections — which could, for example, “appear in cached web content or in an uploaded file, and could still affect the behavior or accuracy of a response.”\nBut the goal is to reduce the likelihood that sensitive data gets shared in the process.\n“Lockdown Mode is not intended for everyone,” OpenAI says. “It is designed for people and organizations that handle sensitive data and want stricter protection from data exfiltration risks related to prompt injection.”\nThe company says it’s currently rolling Lockdown Mode out to self-serve ChatGPT Business accounts, as well as eligible personal accounts.",
+  "published_at": "2026-06-06T20:32:24Z",
+  "author": "Anthony Ha",
+  "collected_at": "2026-06-07T03:00:26.945112Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Security",
+      "OpenAI"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/atlassian-team-q3-stock-2026-earnings.html",
+  "title": "Atlassian stock soars 29% after earnings show strong cloud, data center growth",
+  "raw_text": "Atlassian shares jumped more than 29% on Friday after the software company topped Wall Street's expectations for the fiscal third quarter, reporting strong cloud growth and data center revenue.\nHere's how the company did compared with LSEG estimates:\n- Earnings per share: $1.75 adjusted vs. $1.32 expected\n- Revenue: $1.79 billion vs. $1.69 billion expected\nAtlassian's stock has been among the hardest hit by the \"SaaS-pocalypse\" this year, with shares down more than 45% year to date.\nThe phrase refers to the sell-off in technology stocks following the release of software built on top of artificial intelligence models from companies like OpenAI and Anthropic. Software executives have responded by saying core business metrics have not deteriorated.\nIn March, Atlassian laid off about 10% of its workforce, or roughly 1,600 jobs, saying the move would allow it to \"self-fund further investment in AI and enterprise sales, while strengthening our financial profile.\"\nAtlassian CEO Mike Cannon-Brookes told CNBC on Thursday that the company saw \"incredible strength\" in its business during the quarter and that the concerns plaguing the broader software sector may be overblown.\n\"We're seeing jobs numbers be continually strong in the areas that people have worried about, so I'm not sure those fears are going to play out,\" Cannon-Brookes said in an interview with CNBC's \"Closing Bell: Overtime.\" \"They're certainly not playing out in Atlassian's numbers, in terms of how our customers continue to expand the use of our software as a strategic partner to their business.\"\nAtlassian's revenue grew 32% year over year in the quarter, which ended on March 31. Cloud was a bright spot in the report, with revenue jumping 29% year over year to $1.13 billion. Analysts were expecting $1.08 billion in cloud sales, according to FactSet.\nData center revenue came in at $561 million, blowing away the $515 million expectation.\nThe company boosted its full-year guidance for cloud and data center revenue growth, which it forecast to be 26.5% and 21.5%, respectively.\nAnalysts at BTIG said in a research note on Friday that Atlassian's Teamwork Collection product, a bundled set of applications, is \"standing out as a significant growth engine\" as customers upgrade to secure more AI credits. The firm has a buy rating on Atlassian's stock.\n\"While it'll take more time and execution to sound the all-clear on AI disruption risk, this print shows that TEAM is turning that threat into a distinct competitive edge by leveraging the unique context of its Teamwork Graph,\" BTIG analysts wrote. \"We expect this fundamental momentum to drive follow-through beyond the +25% AH move.\"\nAtlassian posted a net loss of $98.39 million, a loss of 38 cents per share, widening from a year ago, when it reported a net loss of $70.81 million, a loss of 27 cents per share.\nCNBC's Jordan Novet contributed to this article.",
+  "published_at": "2026-05-01T19:21:05Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.516387Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

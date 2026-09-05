@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/cerebras-ipo-ai-chipmaker.html",
+  "title": "AI chipmaker Cerebras targets $3.5 billion raise in IPO",
+  "raw_text": "Artificial intelligence chipmaker Cerebras aims to raise as much as $3.5 billion by going public on the Nasdaq.\nThe company is looking to sell 28 million shares, for $115 to $125 each, according to an updated prospectus it filed on Monday.\nAt that range, Cerebras could be worth up to $26.6 billion in the initial public offering, based on shares outstanding. In February, the company announced a venture round that gave it a $23 billion valuation, with Advanced Micro Devices among its investors.\nRelatively few technology companies have gone public since central banks raised interest rates in 2022 to fight rising prices, making investors less interested in unprofitable names.\nBut with the ascent of generative AI products such as OpenAI's ChatGPT, investors have become rabid about betting on companies that benefit from the trend. Money-losing Cerebras competitor CoreWeave, which rents out Nvidia graphics processing units as a cloud service, raised $1.5 billion in an IPO last year. Cerebras' chips are an alternative to Nvidia's popular GPUs.\nCerebras sought to go public in 2024 but later withdrew the paperwork, as its business model was shifting away from selling hardware and toward operating a cloud service based on its own chips. In April, Cerebras filed for an IPO for a second time.\nIn January, Cerebras said it would provide up to 750 megawatts of AI computing power to OpenAI through 2028 in a transaction worth over $20 billion.\nThe company's fourth-quarter revenue grew about 76% year over year to $510 million, and it showed $87.9 million in net income for the period.\nAndrew Feldman, Cerebras' co-founder and CEO, is not selling shares in the IPO. He will own 10.3 million shares after the IPO that would be worth up to $1.28 billion at the high end of the range, according to the filing.\nThe company has an option to sell an additional 4.2 million shares to underwriters after the IPO that would yield another $525 million in proceeds at the high end of the range.\nWATCH: OpenAI unveils first AI model running on Cerebras chips",
+  "published_at": "2026-05-04T10:45:24Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.344361Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/the-fitbit-air-is-great-but-googles-ai-is-too-nice-to-be-your-coach/",
+  "title": "The Fitbit Air is a good wearable weighed down by a chatty AI \"coach\"",
+  "raw_text": "Smartwatches can track your health stats, but they also do a lot of other things you might not always want or need. The $100 Fitbit Air tracker ditches the screens that have become common on people’s wrists, leaving behind a tiny puck of health sensors you can often forget you’re wearing. You will not, however, forget that Google’s new health platform is built around AI.\nThe Air has no speaker, and there’s only one LED on the side to indicate battery level. You can double-tap the tracker to check the level, and that’s about the end of on-device features. The vibration motor is only for alarms—it can’t sync with notifications on your phone. That makes sense, given there is no screen to tell you what that buzz was all about.\nThe stock Performance Band is simple, consisting of a smooth polyester yarn with small velcro pads and a metal loop. It’s durable but does seem to absorb a bit of moisture. For swimming or heavy workouts, you’ll probably want the silicone active band. This one hides the Air puck a bit more effectively, and it looks good in a sporty way.\nWhile $35 for a bit of silicone is rather spendy, that’s nothing compared to the $50 Elevated band, which is a more understated polyurethane option. However, it doesn’t make sense to pay half the cost of the tracker just for a band that looks marginally better.\nThird-party bands for the Pixel Watches have been mediocre and rare despite Google’s Apple-like commitment to its proprietary connector over the past four generations. The Fitbit Air is much simpler. The device just has to snap into a loop or frame to stay put. I’m hopeful that more band options will become available in the future because Google’s options are far too expensive.",
+  "published_at": "2026-06-05T15:40:48Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-06-06T03:00:31.360960Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Reviews",
+      "Tech",
+      "Artificial Intelligence",
+      "generative ai",
+      "google",
+      "wearables"
+    ]
+  }
+}

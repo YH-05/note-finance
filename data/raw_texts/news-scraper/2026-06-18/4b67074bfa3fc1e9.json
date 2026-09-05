@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/amazon-quantum-computing-timeline.html",
+  "title": "Amazon AI exec predicts first 'commercially useful' quantum computers in 5-7 years",
+  "raw_text": "The first \"commercially useful\" quantum computer will be available in the next five-to-seven years, Amazon's top artificial intelligence executive told CNBC on Wednesday.\nPeter DeSantis, who is a few months into his role leading a new Amazon organization focused on AI models, chips and quantum computing, said the technology will then grow in a similar way to the advancement of semiconductor capabilities.\n\"I actually do believe, over the next five-to-seven years, we're going to start to see the first commercially useful small-scale quantum computers,\" DeSantis told CNBC.\n\"From there, we're going to see something that looks a lot like Moore's Law, where they're going to get bigger and bigger every year, and they're going to be able to tackle more and more interesting problems,\" he said.\nMoore's Law is the idea that the number of transistors on a computer chip doubles every two years, leading to more powerful semiconductors over time.\nDeSantis' comments are the first timeline forecasts delivered by Amazon regarding useful quantum computing.\nQuantum computing proponents claim the technology will be able to solve problems that current computers can't.\nIn classical computing, information is stored in bits. Each bit is either a one or zero. Quantum computing uses quantum bits or qubits which can be zero, one or something in between.\n\"One of the misnomers is a quantum computer is going to be a faster computer, that's not it at all. A quantum computer is going to solve a very particular type of problem that isn't solved well today with a classic computer, and it's going to solve it much better,\" DeSantis said.\nQuantum computing is becoming an increasingly competitive field with tech giants including Microsoft, Google and IBM, as well as a slew of startups, developing the technology.\nLast year, Amazon unveiled Ocelot, its quantum computing chip designed to tackle the problem of error correction, a key challenge in the realm of quantum.\nDeSantis' timeline is somewhere in the middle of various other timeline forecasts about useful quantum computing. In March last year, a Google quantum executive told CNBC the technology is only five years away from running practical applications that can't be calculated on modern computers.\nMicrosoft believes it will have a commercially viable quantum machine by 2029.\nOn the other end of the spectrum, Nvidia CEO Jensen Huang rocked quantum stocks last year when he said 15 years would \"probably be on the early side\" for useful quantum computers. Huang later walked back those comments.\n\"The problems that I would think are going to be tackled first are the ones that are quantum-based problems, so things like chemistry, material science,\" DeSantis said Wednesday.\n\"These are the problems where today we cannot run high enough fidelity simulations in a classic computer, and once we have a quantum computer, we're going to find some real progress,\" he said.\n— CNBC's Kif Leswing contributed to this article.",
+  "published_at": "2026-06-17T17:43:22Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.788666Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

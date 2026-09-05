@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/14/biogen-alzheimers-drug-moves-to-late-stage-trial.html",
+  "title": "Biogen advances Alzheimer's drug to late-stage trial despite disappointing data",
+  "raw_text": "Biogen plans to advance an experimental drug for Alzheimer's disease to late-stage testing despite disappointing mid-stage trial data, the company said Thursday.\nBiogen said its experimental drug that targets tau, a protein associated with the memory-robbing disease, failed to show better responses at higher doses.\nNonetheless, Biogen plans to move the drug diranersen into Phase 3 testing because of signals suggesting the treatment decreases levels of tau and slows cognitive decline, particularly at the lowest dose.\nDr. Priya Singhal, Biogen's head of development, said the results are compelling.\n\"We're really excited that we've been able to demonstrate an unprecedented combination of tau reduction in pathology and the cognitive benefit and have been really getting close to isolating a dose,\" she said. \"Those are the three requirements you need to go to Phase 3.\"\nThe results mark the latest example of Biogen's uneven journey to develop drugs for Alzheimer's. Biogen for years has been researching the brain disease. It's brought to market two drugs designed to slow cognitive decline, though it pulled its first drug, Aduhelm, after it couldn't overcome controversy surrounding its approval.\nBoth Aduhelm and the other Alzheimer's drug Biogen brought to market, Leqembi, remove a protein associated with Alzheimer's called amyloid from the brain. Diranersen is an antisense oligonucleotide that limits production of tau.\nRival Eli Lilly is also studying drugs that seek to decrease levels of tau.",
+  "published_at": "2026-05-14T17:23:33Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.181791Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

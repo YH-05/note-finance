@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/924993/google-ai-search-mode-overviews-update-reddit-links",
+  "title": "Google&#8217;s AI search summaries will now quote Reddit",
+  "raw_text": "Google is updating its AI Search features to make it easier for users to find information from sources they know and trust. One of the more notable changes introduces “a preview of perspectives” from firsthand sources like social media, Reddit, and other web forums, effectively linking your search queries with online conversations around similar topics.\nGoogle’s AI search summaries will now quote Reddit\nThe new AI Mode and AI Overviews updates bring in perspectives from firsthand sources like social media and web forums.\nThe new AI Mode and AI Overviews updates bring in perspectives from firsthand sources like social media and web forums.\nGoogle says this update aims to address that “people are increasingly seeking out advice from others” when searching for information online. This will be relatable for anyone who’s added “Reddit” to the end of Google Search terms to find experiences from real humans instead of SEO-optimized web results. It also backs up claims made by Reddit CEO Steve Huffman last year that “just about anybody using Google at this point will end up on Reddit.”\nBy building these features into its AI Search tools, Google is trying to encourage more users to try them instead of manually hunting through traditional web results in Google Search. Google says it’s also adding additional context to these new AI response links, such as the creator’s name, handle, or community name, to make those conversational sources easier to quickly identify. These firsthand sources are presented as “Expert Advice” in AI-powered Search results, and can point users to specific, specialized forums and subreddits they may wish to explore further.\n“For example, if you’re researching how to take great pictures of the northern lights, you might see quotes from a photography forum advising on exposure time, along with clickable links – featuring the specific community name – so you can jump to the full conversation,” Google said in its announcement.\nGoogle is also adding more links to useful websites beside the relevant text in AI responses. These are intended to be related to the user’s query, but not necessarily the answer they’re looking for, such as linking users to blogs about touring guides and training suggestions when searching for information about cycling routes. Another change adds suggestions for related topics to the end of AI responses to encourage users to explore more around the subject they’re researching. For example, if users search for how cities are expanding green spaces, Google may now also show recommended reports and case studies on successful efforts in major cities alongside the results summary.\nAnd finally, Google is also making specific sources easier to find with a new feature that highlights links from your news subscriptions in AI Mode and AI Overviews, at least for the publishers that support linking a subscription. That means your trusted sources of information should stand out more against the deluge.",
+  "published_at": "2026-05-06T13:00:30Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-06T15:00:16.594336Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

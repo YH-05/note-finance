@@ -1,0 +1,31 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/desperate-trump-taps-tim-apple-jensen-huang-elon-musk-to-attend-xi-summit/",
+  "title": "Desperate Trump taps \"Tim Apple,\" Jensen Huang, Elon Musk to attend Xi summit",
+  "raw_text": "Donald Trump has very little leverage heading into two days of meetings with China’s leader, Xi Jinping, in Beijing this week, experts say.\nThe thinking goes that Trump came into office with a plan that has since largely failed. He hoped to resolve the conflict in Ukraine, settle things down with Israel and Gaza, launch his Liberation Day tariffs, and quickly diversify US supply chains, all of which would have given him substantial leverage over China.\nBut none of that happened, and instead, Trump’s escalations in Iran have only handed China even more leverage heading into talks, and Xi knows it.\nUnwilling to appear weak when negotiating with one of America’s most critical trading partners and fiercest adversaries, Trump invited executives of some of the biggest US tech firms to tag along.\nAmong tech leaders joining Trump is Tim Cook, who Trump fondly calls “Tim Apple.” The Beijing trip will likely be Cook’s “final major diplomatic effort” as Apple’s departing CEO, EuroNews noted. Elon Musk will also be there, suggesting that Trump still values the SpaceX CEO’s input on foreign policy. And at the last minute, Trump confirmed that Nvidia CEO Jensen Huang will also be attending, which Reuters noted could help Nvidia finally convince China to start buying the high-end chips that Huang convinced the US would be safe to sell to China earlier this year.\nScott Kennedy, a senior adviser at the Center for Strategic and International Studies (CSIS), a bipartisan think tank, recently spent two weeks in Beijing discussing US-China relations with Chinese officials and businesses. At a recent press briefing, he provided insights that could help explain why Trump may have hastily formed this tech gaggle ahead of the summit.",
+  "published_at": "2026-05-14T11:00:58Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-15T03:00:30.484834Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "apple",
+      "Artificial Intelligence",
+      "Donald Trump",
+      "Elon Musk",
+      "Jensen Huang",
+      "NVIDIA",
+      "semiconductors",
+      "Taiwan",
+      "Tim Cook",
+      "us-china trade war",
+      "Xi Jinping"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20234-mtn-posts-strong-q1-growth-as-data-and-fintech-revenues-surge.html",
+  "title": "MTN posts strong Q1 growth as data and fintech revenues surge",
+  "raw_text": "MTN Group reported strong first-quarter 2026 results, driven by continued growth in data and fintech services across its African markets.\nGroup service revenue increased 20% year-on-year (21.1% in constant currency) to ZAR56.8 billion ($3.4 billion) while EBITDA rose 28.3% to ZAR27.6 billion and margins expanding to 47%.\nThe operator said performance was supported by sustained momentum in Nigeria, Ghana, Côte d’Ivoire and Cameroon. Nigeria remained the largest contributor to growth, with service revenue rising 41.7% in constant currency.\nData revenue climbed 36.1%, continuing to be the biggest contributor to overall growth, while fintech revenue increased 22.4%. Voice was flat with a growing 1.3%.\nMTN’s total subscriber base rose 5.4% to 312.7 million users, with active data subscribers increasing 8.7% to 175.6 million. Data traffic jumped 20.2% to 6827 petabytes during the quarter.\nMobile money growth also accelerated, with monthly active MoMo users increasing 8.2% to 67.4 million. Fintech transaction volumes rose 15.8% to 6.3 billion, while transaction value climbed 32.8% to US$163 billion.\nThe group invested ZAR13 billion in capital expenditure during the quarter, up year-on-year from ZAR12 billion, to expand network coverage and capacity. MTN said the stronger macroeconomic environment in markets such as Nigeria, Ghana and Uganda supported increased investment.\nCEO Ralph Mupita said the company had started executing on its Ambition 2030 strategy with strong commercial and financial momentum despite ongoing geopolitical and macroeconomic uncertainty.\nMTN also continued progressing strategic initiatives during the quarter, including the structural separation of fintech operations in markets such as Ghana and Nigeria, alongside the proposed acquisition of IHS assets to strengthen its digital infrastructure business.",
+  "published_at": "2026-05-12T12:43:04Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-14T03:01:17.746744Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

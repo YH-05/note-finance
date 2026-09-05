@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/trumps-doe-restarts-energy-rebate-program-with-dumb-conditions/",
+  "title": "Trump's DOE restarts energy rebate program with dumb conditions",
+  "raw_text": "Federal energy efficiency rebate programs will no longer cover a switch from fossil fuels to electricity for heating, according to long-awaited guidance from the Department of Energy.\nThe department published an update on how it will implement consumer programs with $8.8 billion in funding. The new provisions include eliminating use of diversity, equity and inclusion considerations, among other changes.\nThis follows legal challenges after President Donald Trump issued an executive order last year, upon returning to office, canceling the release of funds from Biden’s Inflation Reduction Act, including rebates for home energy efficiency. A coalition of states successfully sued to restore the funding, obtaining an injunction in March 2025.\nStates have been waiting for the Department of Energy to reopen funding, a process that begins with this latest publication.\nClean energy and environmental advocates said the guidance was overdue and severely flawed.\nTony Sirna, deputy policy director for Evergreen Action, said it’s “flatly illegal” to eliminate funding for electrification, which was a part of Congress’ intent. “This is a deliberate effort to deny relief to millions of families at the exact moment they need it the most,” he said in a statement.\nThe guidance, dated May 29 and announced in a news release on June 1, covers the $4.3 billion Home Owner Managing Energy Savings, or HOMES, program and the $4.5 billion High-Efficiency Electric Home Rebate, or HEEHR, program, with additional guidance for Indian tribes participating in HEEHR.\nThe HOMES program provides up to $8,000 for households to make energy-efficient upgrades, including insulation, air sealing, heating and cooling equipment, water heaters, duct sealing, appliances and lighting, according to the Department of Energy. The upgrades must reduce energy use by at least 20 percent to be eligible.",
+  "published_at": "2026-06-02T13:29:00Z",
+  "author": "Dan Gearino, Inside Climate News",
+  "collected_at": "2026-06-03T03:00:30.628588Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "department of energy",
+      "fossil fuels",
+      "High-efficiency electric home rebate",
+      "Trump climate policy"
+    ]
+  }
+}

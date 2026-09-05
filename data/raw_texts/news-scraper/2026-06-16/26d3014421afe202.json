@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20382-telecom-namibia-signs-satellite-subsea-connectivity-deals-with-angola-firms.html",
+  "title": "Telecom Namibia signs more satellite, subsea connectivity deals with Angola firms",
+  "raw_text": "Telecom Namibia has taken more steps to expand its regional satellite and subsea cable connectivity with Angola via separate agreements signed with Angola’s Gabinete de Gestão do Programa Espacial Nacional (GGPEN), Angola Telecom, and SATCAB (Satélite e Cabo TV).\nOn Friday, Telecom Namibia revealed it had signed a pilot commercial agreement (PCA) with GGPEN to use the Angosat-2 satellite platform to expand access to digital services across Namibia and the broader Southern African region.\nThe PCA formalises the transition from a successful Proof of Concept phase into a structured real-network trial of Angosat-2 satellite services. The pilot phase will enable Telecom Namibia to evaluate the platform’s technical performance, service capabilities, and commercial viability under operational conditions.\nTelecom Namibia and GGPEN will work towards commercially launching Angosat-2 satellite services once the pilot is completed. Telecom Namibia aims to target a range of customers for the service, including lodges and tourist establishments, mining operations, schools and other educational institutions, agricultural enterprises, farms, businesses and rural communities.\n“Through this pilot commercial agreement, we are not only testing technology, we are actively shaping the future of connectivity in our region,” said Telecom Namibia chairperson Fimanekeni Petrus in a statement.\nMoving ahead with SARSSy/Equiano integration\nMeanwhile, Telecom Namibia announced on Saturday it signed a master service agreement (MSA) with Angola Telecom and SATCAB to integrate the Southern African Regional Submarine System (SARSSy) with the Equiano Cable System.\nThe SARSSy cable project aims to interconnect with Equiano via Telecom Namibia’s Swakopmund landing station, and provide additional international capacity to Namibia, Angola and other countries along the west coast of Southern Africa.\nUnder the MSA, Telecom Namibia will serve as the landing party for SARSSy and host and support the infrastructure in its landing station in Swakopmund, including Angola Telecom’s equipment.\nAngola Telecom said the partnership model provides it with the flexibility to expand its capacity and potentially assume ownership of its infrastructure components over time. Telecom Namibia said it will provide Angola Telecom with an initial dedicated transmission capacity of 1 Tbps on the Equiano cable as part of the deal.\nSATCAB will “play a key role in the delivery of the system”, although none of the companies offered specifics.\nThe MSA builds on the MoU and commercial terms agreement (CTA) signed by Telecom Namibia and Angola Telecom last April, moving the project forward from strategic intent to practical implementation.\nThe deals are the latest moves by Telecom Namibia to beef up its infrastructure for local and international connectivity. Earlier this month, the telco signed separate lease deals with open-access fibre infrastructure providers Lightstruck and Demshi to expand its fibre broadband business.",
+  "published_at": "2026-06-15T04:31:43Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-16T03:01:22.936892Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/19/mortgage-rates-closing-in-on-7percent.html",
+  "title": "Mortgage rates surge to highest level since July",
+  "raw_text": "Growing concern over the trajectory of the Iran war has bond yields rising and mortgage rates following suit.\nThe average rate on the 30-year fixed loan rose 7 basis points Tuesday to 6.75%, according to Mortgage News Daily. That is the highest level since July 31. Rates are now up 33 basis points in just the past 10 days and are 46 basis points higher than their recent April low of 6.29%.\nThat April drop came after a sharp spike in rates at the start of the war, when the rate jumped from 5.99% at the start of March to 6.64% by the end of the month.\n\"Bonds are telling politicians to get serious about ending the war or face increasingly dire consequences,\" wrote Matthew Graham, chief operating officer at Mortgage News Daily.\nThe move from 5.99% to now 6.75% is a meaningful change in the housing affordability math. For a buyer putting 20% down on a $420,000 home — roughly the national median home price — their monthly principal and interest payment has gone from $2,012 to $2,179, a difference of $167.\nThe nation's homebuilders are slightly less sensitive to rate moves, as the builders have been buying down mortgage rates to get buyers in the door. Rates are still lower than they were a year ago, when they spiked over 7%.\n\"Rates are a challenge,\" said John Lovallo, a UBS homebuilder analyst, in an interview Tuesday on CNBC's \"Squawk on the Street.\" \"But we're still at levels where the builders can operate at effectively. As quickly as rates went up, they could come down just as precipitously if this war comes to some kind of resolution and oil pulls back.\"\nLovallo said he sees this as a buying opportunity for the builder stocks and noted that the homebuilders are still seeing average order growth through the spring season.\n\"Demand for housing is still robust,\" he said.\nSales of pending homes rose in April both month over month and compared with a year ago, according to a report Tuesday from the National Association of Realtors.\n\"Buyers are coming out with cautious optimism despite increasing economic uncertainty and a slight rise in mortgage rates,\" said Lawrence Yun, chief economist for the NAR, in a release. \"Demand will easily be even higher once mortgage rates retreat to the levels they were at earlier this year.\"",
+  "published_at": "2026-05-19T20:06:10Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.177174Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

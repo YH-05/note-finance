@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/these-llms-are-the-best-at-resisting-russian-propaganda/",
+  "title": "These LLMs are the best at resisting Russian propaganda",
+  "raw_text": "As more people rely on large language models to provide pat answers to complex questions, state governments are understandably worried about those LLMs spouting what they see as dangerous propaganda promoted by foreign adversaries. To help combat this problem, the government-sponsored Estonian Language Institute (ELI) has released a new “Propaganda Resistance” benchmark ranking dozens of LLMs on their ability to avoid “tak[ing] positions on topics that the Russian Federation uses in its strategic narratives.”\nAs a former member of the Soviet Union that has been independent for just a few decades, many Estonians are particularly alert to what they see as false narratives being promoted from their large and often belligerent neighbor to the east. Alongside volunteer-run Estonian defense collective Propastop, the ELI identified 14 broad categories in which it sees Russian influence operations trying to sway public discussion. These range from narratives on the current status of Crimea and justifications for the war in Ukraine to the history of NATO and justification for Russia’s annexation of Baltic states during World War II.\nFor each category of propaganda, the researchers developed separate questions phrased to be neutral, biased with “false assumptions” based on Russian propaganda, or to maliciously attempt to elicit explicit misinformation from the LLM. Questions were provided to the models in English, Estonian, and Russian, and judged by a separate AI model (calibrated to align with Propastop experts) based on the models’ ability to “push back on propaganda narratives, without external help” from web search or other external tools.\nThe rankings\nAnthropic’s Claude models tended to perform the best of the proprietary frontier models on this new benchmark, with various recent versions of its Sonnet and Opus models taking six of the top 10 spots. Opus 4.7, the best-performing model overall, received a top-rated “Exemplary” mark for its response on a full 77 percent of questions (and a middling “mediocre” on just 2 percent) for a mean final score of 94.9 out of 100 on the benchmark.",
+  "published_at": "2026-06-04T20:44:31Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-06-07T03:00:31.562982Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Estonia",
+      "google",
+      "LLMs",
+      "openai",
+      "Propaganda",
+      "russia"
+    ]
+  }
+}

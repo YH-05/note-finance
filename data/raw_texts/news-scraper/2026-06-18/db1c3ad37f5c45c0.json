@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/952441/yueban-xiaoban-self-driving-autonomous-toilet",
+  "title": "This robotic self-driving toilet comes to you",
+  "raw_text": "During a recent expo in Shanghai that focuses on elderly care, assistive devices, and rehabilitation medicine, a Chinese company called Yueban debuted a smart toilet that does something we haven’t seen before; it comes to you. The autonomous self-driving Xiaoban toilet was designed to improve accessibility for those dealing with mobility issues due to age, injuries, or disabilities. It’s expected to sell for ¥28,999 yuan in China, or nearly $4,300, according to IT Home, but global availability hasn’t been confirmed.\nThis robotic self-driving toilet comes to you\nThe Xiaoban will safely navigate a home, clean up after users, and empty itself all on its own.\nThe Xiaoban will safely navigate a home, clean up after users, and empty itself all on its own.\nThe Xiaoban toilet uses technology similar to what’s found in the most advanced robot vacuums. A suite of sensors, including lidar and ultrasonic, are used to autonomously plan safe routes through a home or care facility that avoid obstacles and stairs when it’s been summoned by a remote or voice commands. The user may still need assistance with actually getting onto the toilet, but it saves them from having to relocate to a bathroom. Based on videos of the Xiaoban in action, it also appears to handle nearly everything else.\nIn lieu of paper, the toilet features both a built-in bidet and a warm air drying mechanism for cleaning the user, plus a system that self-cleans the bowl and seals waste inside an enclosed receptacle. That, along with ultraviolet lights that are used to kill bacteria, will help to minimize odors and potentially reduce the stigma of using a toilet away from a bathroom.\nAfter the user is finished, the toilet will head to one of two places. If its charging dock is connected to plumbing and drainage the Xiaoban will first go there to recharge, refill its reservoirs, and empty the collected waste after it’s been pulverized to prevent blockages. If the dock lacks drainage, the toilet will instead first stop at a bathroom where an extending arm will pump the waste into a traditional toilet so it can be flushed away. While the Xiaoban doesn’t entirely replace caregivers, it does make their job a lot easier by eliminating the need to assist someone getting to a bathroom, and handling most of the cleanup afterwards.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T18:08:17Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-06-18T21:00:16.391370Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070798",
+  "title": "東京為替：米ドル・円は引き続き156円台前半で推移",
+  "raw_text": "米ドル／円 ＜５分足＞ 「株探」多機能チャートより\n7日午前の東京市場でドル・円は156円20銭台で推移。156円53銭から156円05銭まで値下がり。原油先物はやや底堅い動きを維持しており、米ドル買い・円売りは拡大していないようだ。ユーロ・ドルは1.1746ドルから1.1763ドルまで強含み。ユーロ・円は183円89銭から183円50銭まで値下がり。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-07T02:45:34Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:00:21.794726Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

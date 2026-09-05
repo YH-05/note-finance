@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040003",
+  "title": "今日の注目スケジュール：欧ユーロ圏製造業PMI確報値、米耐久財受注、米製造業受注など",
+  "raw_text": "【市況】今日の注目スケジュール：欧ユーロ圏製造業PMI確報値、米耐久財受注、米製造業受注など\n＜国内＞\n株式市場は祝日のため休場(みどりの日)\n＜海外＞\n14:00 印・製造業PMI確定値(4月) 55.9\n17:00 欧・ユーロ圏製造業PMI確報値(4月) 52.2\n20:00 ブ・FGV消費者物価指数(IPC-S)(先週)\n20:25 ブ・週次景気動向調査\n22:00 ブ・製造業PMI(4月) 49.0\n22:00 米・耐久財受注(3月)\n22:00 米・製造業受注(3月) 0％\nユーロ圏財務相会合(ユーログループ、ブリュッセル)\n英・株式市場は祝日のため休場(メーデー)\n注：数値は市場コンセンサス、前回数値\n《CS》\n提供：フィスコ",
+  "published_at": "2026-05-03T21:30:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:00:22.726112Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

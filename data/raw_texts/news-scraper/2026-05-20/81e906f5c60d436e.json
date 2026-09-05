@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605210062",
+  "title": "エヌビディア、決算受け時間外で売買交錯＝米国株個別速報",
+  "raw_text": "（NY時間16:21）（日本時間05:21）時間外\nエヌビディア<\nNVDA> 222.25（-1.22 -0.55%）\nエヌビディア<\nNVDA>が日本時間５時２０分過ぎに２－４月期決算（第１四半期）を発表し、時間外で株価は売買交錯。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-20T20:21:00Z",
+  "author": null,
+  "collected_at": "2026-05-20T21:00:22.353018Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

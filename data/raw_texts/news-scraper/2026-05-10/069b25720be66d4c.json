@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/ice-protesters-sue-to-stop-dhs-from-seizing-dna-samples/",
+  "title": "DHS can’t create vast DNA database to track ICE critics, lawsuit says",
+  "raw_text": "Four protesters are suing to stop the Department of Homeland Security (DHS) and the Federal Bureau of Investigation (FBI) from seizing DNA samples from Americans arrested while peacefully protesting Immigration and Customs Enforcement (ICE) activity.\nIn a complaint filed in an Illinois district court on Wednesday, protesters arrested at the Broadview ICE facility during “Operation Midway Blitz”—when thousands of federal agents flooded Chicago—demanded an injunction to stop alleged violations of the First and Fourth Amendments, as well as the Administrative Procedure Act.\nThey have accused the federal government of “wrongfully arresting peaceful protesters, collecting their DNA, uploading their genetic profiles to government databases, and storing their DNA samples in federal labs—permanently.”\nOut of 92 non-immigration arrests at Broadview, they emphasized, only one protester was convicted. That conviction was based on pleading guilty to concealing a prior felony charge and “had nothing to do with the protests at Broadview,” the protesters said.\nAmong the plaintiffs, two protesters faced minor charges that were quickly dropped—each accused of impeding a federal officer for slapping the agent’s phone from their hand—while the other two were charged with no crimes at all. Arguing that federal officials have vastly exceeded their authority, they hope the district court will agree that Supreme Court precedent clashes with the law that agents are using to justify the widespread DNA collection.\nWhat did the Supreme Court say?\nIn a 2013 case, the Supreme Court held that authorities can collect DNA without violating Fourth Amendment restrictions against unreasonable searches under “one set of circumstances,” protesters alleged.\nIf “an individual has been validly arrested with probable cause for a serious offense,” and that fact has been “confirmed by a judicial officer,” DNA can be collected to identify a person, the Supreme Court ruled. And in that limited scenario—intended to balance rights to privacy with the government’s interest in protecting the public from dangerous criminals—the DNA collected may not be used to extract information about the person’s relatives or health, plaintiffs stressed. It can only be used for identification purposes.",
+  "published_at": "2026-05-07T21:35:01Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-10T03:00:31.218184Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Department of Homeland Security",
+      "DHS",
+      "DNA",
+      "dna database",
+      "dna samples",
+      "fbi",
+      "immigration and customs enforcement"
+    ]
+  }
+}

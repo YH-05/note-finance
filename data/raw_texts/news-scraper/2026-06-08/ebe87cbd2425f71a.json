@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/chip-rebound-sparks-hedging-flurry-from-traders.html",
+  "title": "Chip rebound sparks hedging flurry from traders",
+  "raw_text": "When it comes to chipmakers, traders are ordering à la carte and shorting the buffet.\nPut volume more than doubled that of calls Monday morning in the VanEck Semiconductor ETF (SMH), with more than half of total premiums tied to puts. Of that, more than 10% of the $217 million in premium exchanging hands did so in the 550-puts expiring Aug. 21. That level represents a 7% drop from current levels, showing traders are skeptical of the chip ETF's Monday bounce of more than 5%.\nDespite the overall bearish sentiment on the group, traders placed several bullish bets on potential winners. For example, in Marvell Technology, calls outnumbered puts three to one, and more than 80% of premiums. The action follows the S&P Dow Jones Indices announcing the chipmaker will be included in the S&P 500 on June 22. Call buyers in Marvell were largely targeting the $300 level in the stock across June, July and September expirations. Those at-the-money bets are not cheap to make. Thirty-day implied volatility in Marvell is in the 98th percentile, meaning premiums are highly elevated thanks to the stock's recent rip higher.\n\"Even for a volatile index like the [PHLX Semiconductor Index], the last two weeks have been pretty crazy,\" said Bespoke co-founder Paul Hickey. \"And after the moves we've had to both the upside and now the downside, I wouldn't expect it to immediately sell down. Prepare for more pre-July 4th fireworks!\"\nHeadline fever is also lighting Intel's fuse, as Alphabet reportedly commissioned the company to make 3 million in-house AI chips. Options volume in Intel was trending for nearly twice its daily average Monday morning, and more than 70% of that volume was tied to calls. Nearly three times more calls were bought at or above ask, with more than 60% of those calls being more than 5% out of the money.\nCerebras joined in on the frenzy, too. The newcomer had more than $50 million in premiums change hands, overwhelmingly tied to calls. All of the top 10 most popular contracts by dollar amount were calls, of which more than 60% were greater than 5% out of the money.",
+  "published_at": "2026-06-08T17:40:04Z",
+  "author": null,
+  "collected_at": "2026-06-08T21:20:11.307428Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

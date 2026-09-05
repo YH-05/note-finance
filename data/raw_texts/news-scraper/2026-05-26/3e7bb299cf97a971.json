@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20295-cambodias-cellcard-doubles-5g-network-to-500-base-stations.html",
+  "title": "Cambodia’s Cellcard doubles 5G network to 500 base stations",
+  "raw_text": "Cambodian telco CamGSM (a.k.a. Cellcard) revealed on Monday it has doubled its 5G network coverage since its initial launch in January, and is on track to double it again by the end of July this year.\nCellcard said its 5G network now comprises 500 base stations, and covers around 50% of the population in Phnom Penh, as well as Techo International Airport.\nIn February, Cambodia’s Ministry of Post and Telecommunications reported that Cellcard had launched 289 5G base stations in Phnom Penh and Kandal Province at that time, while Viettel-owned Metfone had deployed 531 5G base stations in key target areas in Phnom Penh and numerous provincial capitals. Last month, Smart Axiata announced it had rolled out 750 5G sites in 21 provinces.\nCellcard said its coverage strategy is focused primarily on dense urban deployments and indoor coverage, with targeted deployments covering large shopping malls, ministries, state institutions, business areas, convention centres, luxury hotels, universities, schools, hospitals, healthcare facilities, tourist attractions, entertainment venues and stadiums.\nCellcard CEO Yap Kok Leong said the telco aims to expand its 5G coverage to over 1,000 sites by the end of July 2026 across Phnom Penh, Takhmao and key regions of Cambodia.\n“We are building an efficient network designed with a focus on real customer experience, with fast speeds, strong indoor coverage, seamless mobility and reliable home connectivity,” he said in a statement. “More 5G sites will continue to be launched throughout 2026 as Cellcard accelerates nationwide deployment and strengthens Cambodia’s digital ecosystem.”",
+  "published_at": "2026-05-26T03:55:26Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-26T09:01:32.357953Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

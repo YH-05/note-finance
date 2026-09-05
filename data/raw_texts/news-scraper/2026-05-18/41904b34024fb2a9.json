@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605190046",
+  "title": "トランプ大統領、明日のイランへの攻撃計画を中止",
+  "raw_text": "【注目】トランプ大統領、明日のイランへの攻撃計画を中止\nトランプ大統領の発言が伝わっており、明日のイランへの攻撃計画を中止したと表明した。攻撃を延期するよう要請を受けたという。一方「いつでもイランを攻撃できる態勢にある」とも述べている。\n株探ニュース",
+  "published_at": "2026-05-18T19:06:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T21:00:22.081727Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

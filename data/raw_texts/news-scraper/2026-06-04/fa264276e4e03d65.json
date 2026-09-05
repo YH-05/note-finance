@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/microsoft-plans-linux-tools-and-an-rtx-spark-desktop-for-windows-developers/",
+  "title": "Microsoft plans Linux tools and an RTX Spark desktop for Windows developers",
+  "raw_text": "Microsoft’s Build developer conference kicked off today, and as with almost everything the company has done in the last few years, Microsoft’s opening keynote focused overwhelmingly on AI and other closely related technologies. There’s Microsoft Scout, an OpenClaw-based “Autopilot” agent that can hook into Microsoft 365 data to perform tasks for users; several new AI models; an expanded preview of “Codename MDASH,” which is a “multi-model agentic scanning system” meant to detect and fix software vulnerabilities.\nA few of those announcements stood out to us as particularly interesting, either for esoteric technical reasons or because they seem like they may have some utility for those who aren’t spending their every waking moment using generative AI tools. (Microsoft’s recent efforts to make its flagship operating system faster, more reliable, more useful, and less annoying didn’t really come up, but there have been plenty of other announcements on that front lately.)\nOn the hardware front, we didn’t get any updates for existing Surface devices (not counting yesterday’s Surface Laptop Ultra announcement), but we did get something new: the Surface RTX Spark Dev Box is “a compact developer PC” built around Nvidia’s new RTX Spark chip with up to 128GB of built-in memory.\nThe Dev Box looks a little like a cartoon anvil or piano fell onto an Xbox Series X and flattened it. Its aluminum casing was designed “to double as a heatsink,” and its preloaded version of Windows 11 Pro will include a “purposeful” set of developer-centric default settings and preinstalled tools.\nThis is a follow-up of sorts to the Windows Dev Kit 2023, also known as “Project Volterra.” This Qualcomm Snapdragon 8cx Gen 3-powered PC was essentially the system board from a Surface Pro tablet stuffed into a plastic box, and it was introduced alongside Arm-native versions of several Microsoft developer tools. It helped to set the stage for the Arm-based flagship Surface devices that launched the next year, which benefitted from a better and faster x86-to-Arm code translation technology called Prism and a greater number of Arm-native third-party apps that didn’t need to be translated in the first place.",
+  "published_at": "2026-06-02T22:51:10Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-04T03:00:31.491101Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "copilot",
+      "microsoft",
+      "NVIDIA",
+      "RTX Spark",
+      "windows 11",
+      "windows 11 25h2"
+    ]
+  }
+}

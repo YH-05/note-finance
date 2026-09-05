@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.nytimes.com/2026/06/17/technology/anthropic-trump-administration-fable.html",
+  "title": "Anthropic employees accuse Trump administration of targeting them",
+  "raw_text": "<p>Article URL: <a href=\"https://www.nytimes.com/2026/06/17/technology/anthropic-trump-administration-fable.html\">https://www.nytimes.com/2026/06/17/technology/anthropic-trump-administration-fable.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48571660\">https://news.ycombinator.com/item?id=48571660</a></p>\n<p>Points: 172</p>\n<p># Comments: 182</p>",
+  "published_at": "2026-06-17T15:15:34Z",
+  "author": "thm",
+  "collected_at": "2026-06-18T03:00:40.363230Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

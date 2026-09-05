@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20164-mtn-appoints-former-deloitte-africa-ceo-as-chief-risk-officer.html",
+  "title": "MTN appoints former Deloitte Africa CEO as chief risk officer",
+  "raw_text": "MTN Group has appointed former Deloitte executive Lwazi Bam as its new Group Chief Risk Officer, effective 1 June.\nBam (pictured) will support the company’s Ambition 2030 strategy, which focuses on driving growth through increased data adoption and expanded financial inclusion across Africa.\nHe brings more than 20 years of senior leadership experience, including extensive oversight of risk and governance. Bam previously served as Chief Executive of Deloitte Africa, where he managed complex, multi-jurisdictional operations in highly regulated environments and strengthened risk, governance, and capital discipline frameworks.\nA qualified chartered accountant, Bam has also held board roles at several major organisations, including Standard Bank Group, Standard Bank South Africa, SAICA, ZEDA Limited, Valterra Platinum, and Woolworths.\nMTN Group President and CEO Ralph Mupita said Bam’s experience leading large, complex businesses across multiple markets, along with his deep understanding of risk and regulatory frameworks, will support MTN’s strategy to deliver digital solutions across the continent.\nBam said he is inspired by MTN’s impact in Africa and looks forward to contributing to a company focused on advancing digital solutions for the continent’s development.",
+  "published_at": "2026-04-28T08:03:46Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-02T03:03:18.538769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

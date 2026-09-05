@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20163-telkom-indonesia-launches-agentic-ai-platform-for-enterprises.html",
+  "title": "Telkom Indonesia launches agentic AI platform for enterprises",
+  "raw_text": "Telkom Indonesia announced on Monday that it has launched a next-gen agentic AI platform that it says will accelerate digital transformation via intelligent automation, business process integration and data-based decision making.\nThe platform, dubbed Agentic AI by BigBox, differs from reactive, conversation-based AI in that it can execute semi-automatic and automatic actions according to the needs of the organization.\nTelkom said agentic AI is designed to break down large work into more structured stages, manage execution through specialist agents, conduct self-evaluations, and connect with various external systems.\nAgentic AI by BigBox supports cross-system workflow orchestration, data integration and end-to-end AI capabilities, as well as improved operational efficiency on an enterprise scale.\nTelkom said it’s using agentic AI internally to consolidate and integrate IT systems across its various entities, optimise operational costs and investment, accelerate data-based decision making, and automate strategic business processes.\nIts enterprise and B2B customers can use Agentic AI by BigBox to improve customer experience, automate services and operations, present advanced analytics, predictive decisions, and cross-platform integration, said Telkom’s digital IT director Faizal Rochmad Djoemadi.\n“We designed Telkom Agentic AI not only as an AI tool, but as a digital platform that is able to work and execute,” Faizal said. “This is our step to encourage organizations to be faster, more integrated, and more adaptive in facing digital business dynamics.”\nTelkom is also touting Agentic AI by BigBox as a flagship solution from its AI Center of Excellence (AI CoE) initiative, which was launched in September last year as a “national AI ecosystem enabler.”\nTelkom first unveiled Agentic AI by BigBox at last week’s ITD Summit in Bandung.",
+  "published_at": "2026-04-28T03:24:27Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-04T03:01:20.550035Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

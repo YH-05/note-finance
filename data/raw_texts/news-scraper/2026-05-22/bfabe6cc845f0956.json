@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/935477/philips-business-monitor-dual-sided-lcd-display-24b2d5300",
+  "title": "Philips’ new display has a screen on both sides",
+  "raw_text": "Its name might be dull and uninspired, but the Philips 24B2D5300 Business Monitor brings a novel feature I’ve never seen on a display before: screens on either side. The design will primarily benefit people who are constantly angling their computer screen so those on both sides of a desk can see it, like a car salesperson walking a buyer through configuration options or a doctor conferring with a patient. But there are some potential co-working applications, too.\nPhilips’ new display has a screen on both sides\nYou can mirror what’s displayed on the front and back, or use it as two separate screens.\nYou can mirror what’s displayed on the front and back, or use it as two separate screens.\nStarting next month, the dual-sided monitor will be released in parts of Europe for £359.99 (around $484), according to Digital Camera World. It’s currently listed on both the UK and Ireland versions of Philips’ website. A wider release has not yet been announced.\nFeaturing back-to-back 23.8-inch LCD panels with a resolution of 1920 x 1080 at 120 Hz, the monitor can be connected to one or multiple devices using either a pair of power-delivering USB-C ports, or a pair of HDMI ports. In most scenarios it will be connected to a single computer with the same thing mirrored on both sides, but the dual displays can also be used as two extended displays with one side showing public-facing info and the other for private details. Repositioning the monitor could be tricky since it can’t be mounted to an articulated arm, but its base swivels 180-degrees so you can still spin it around to easily double-check what’s displayed on the other side.",
+  "published_at": "2026-05-21T19:36:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-22T03:00:16.688855Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

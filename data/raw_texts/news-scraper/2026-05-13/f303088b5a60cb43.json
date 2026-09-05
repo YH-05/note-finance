@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605131390",
+  "title": "明日の為替相場見通し＝米４月ＰＰＩなど注目",
+  "raw_text": "【通貨】明日の為替相場見通し＝米４月ＰＰＩなど注目\n前日発表された米４月消費者物価指数（ＣＰＩ）は市場予想を上回り、市場には米連邦準備制度理事会（ＦＲＢ）が年内は政策金利を据え置き、状況次第では利上げに動くとの観測が浮上した。続いて発表される米４月ＰＰＩも注目されそうだ。市場では前年同月比で４．８％上昇（前月は４．０％）が見込まれている。今晩はカシュカリ・ミネアポリス連銀総裁などに発言機会がある。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-13T08:33:00Z",
+  "author": null,
+  "collected_at": "2026-05-13T09:00:22.378628Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

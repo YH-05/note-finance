@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/hulu-set-to-keep-existing-as-standalone-streaming-service-and-app-for-now/",
+  "title": "Hulu set to keep existing as standalone streaming service and app (for now)",
+  "raw_text": "Disney currently has no plans to shutter Hulu as a standalone streaming service or app, according to a company representative.\nIn a report from Variety today, the spokesperson said that Disney, which took total ownership of Hulu in June 2025, will continue to sell subscriptions to Hulu in the US and that “there are no current plans to sunset the Hulu app.”\nDisney owned two-thirds of Hulu before closing its acquisition of the streaming service’s remaining third from Comcast last year. Since then, some reports have suggested that the Hulu app would be phased out in 2026, while others have speculated that Disney would likely, but not definitely, shutter Hulu. Disney’s statement today means that people should be able to continue watching stuff on Hulu without having to pay for Disney+ for the foreseeable future; although, Disney is free to change its mind at any point.\nThat it will continue to keep the app is good news for people who pay for Hulu+Live TV, which lets users watch broadcast channels or Hulu add-ons that add content from entities like Cinemax and Showtime. Disney+ doesn’t support either of those features currently but will do so “at a later date,” Disney said in an announcement today.\nMeanwhile, Disney continues working to get Hulu and Disney+, which is 12 years younger, on the same backend technology infrastructure. Thus far, that work has included making available in March 2024 a Hulu tile in the Disney+ app where people can access content available from Hulu. Since then, users have been able to search for Hulu content within Disney+, and Hulu content recently watched through Disney+ appears on Disney+’s “Continue Watching” section. Notably, people only need a Hulu subscription and a “MyDisney” login—not a Disney+ subscription—to use the Disney+ app.\nFor many Disney+ and Hulu subscribers, that’s sufficient integration for ensuring it’s easy to watch Hulu content on Disney+. That level of integration involved determining how to unify “everything from login tools to advertising platforms, to metadata and personalization systems” and moving more than 100,000 individual assets/artwork, per a March 2024 report from The Verge. Disney has also said it would re-encode all of Hulu’s video files in order to create one master library with Disney+.",
+  "published_at": "2026-05-20T18:48:41Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-20T21:00:31.751687Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "acquisitions",
+      "Disney",
+      "Hulu",
+      "mergers",
+      "streaming"
+    ]
+  }
+}

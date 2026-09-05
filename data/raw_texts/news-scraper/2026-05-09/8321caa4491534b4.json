@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/this-company-made-headlines-for-its-aggressive-ai-driven-layoffs-citi-says-its-paying-off.html",
+  "title": "This company made headlines for its aggressive AI-driven layoffs. Citi says it's paying off",
+  "raw_text": "The big layoffs tied to artificial intelligence by Block , along with the company's user improvements using the technology, will power the stock to even greater heights, according to Citi. The bank, which has buy rating on the fintech name, raised its price target to $100 from $85. That implies 43% upside from Thursday's close. \"XYZ is effectively leveraging AI (Goose, Builderbot) internally, and AI-based solutions like Moneybot and Managerbot,\" analyst Bryan Keane wrote. Moneybot is an AI tool to manage and track spending. Managerbot aims to help owners manage their businesses. This should \"help to drive even further end user engagement helping to sustain mid-to-high teens [gross product] growth and rapidly expanding margins.\" Block shares have rallied 33% over the past three months as the company increasingly adopts AI. That rally gained steam in late February, when Block CEO Jack Dorsey announced the firm was laying off as much as 24% of its staff as part of its efforts to automate its workforce with AI. XYZ 3M mountain Shares are up 33% over the past three months. Block should continue to benefit financially from its AI initiatives, adding to \"multiple drivers [that are] all working concurrently to sustain and extend Cash App [gross product] growth\" and efforts to increase the business' scale, per Citi. The emerging technology powers Goose, or the company's open-source AI agent framework designed to connect large language models to software engineering tasks. It also is used in Builderbot, an internal agentic AI tool at Block that can write, review and deploy code. Citi's call falls in line with consensus on Wall Street. Of the 45 analysts covering Block, 37 have a buy or strong buy on the stock.",
+  "published_at": "2026-05-08T15:10:46Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.669683Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20280-drc-gets-first-distributed-ix-as-de-cixs-acix-expands-to-second-data-centre.html",
+  "title": "DRC gets first distributed IX as DE-CIX’s ACIX expands to second data centre",
+  "raw_text": "DE-CIX announced that its ACIX (Africa Congo Internet Exchange) in the Democratic Republic of the Congo has expanded its presence to a second data centre, making ACIX the first distributed IX in the DRC.\nACIX – which marked part of DE-CIX’s initial entry in Africa in 2022 and began operations in 2023 – was originally hosted in Kinshasa by local ISP and hosting provider United SA, and operated by DE-CIX on behalf of NGO ‘Internet Pour Tous’ (Internet For All) as part of the DE-CIX-as-a-Service (DaaS) program.\nOn Tuesday, DE-CIX said that ACIX has established a new presence in Open Access Data Centres (OADC) Texaf’s Kinshasa FIH1 data centre.\n“The integration of OADC Texaf’s newly-built Kinshasa facility will enable additional networks to connect to the exchange and benefit from improved connectivity,” said Marco Brandstaetter, global program manager for DaaS at DE-CIX.\n“As a neutral infrastructure provider, our role is to enable open interconnection and support the development of the broader digital ecosystem,” said Mohammed Bouhelal, MD and director of business development at OADC Texaf DC. “Hosting ACIX within a carrier-neutral environment contributes to creating a trusted platform where all ecosystem participants can interconnect on equal terms.”\nUnited SA CEO Hussein Ibrahim said the distribution of ACIX to a second data centre will help strengthen the DRC’s digital infrastructure ecosystem by enabling improved local internet traffic exchange, reduced latency, enhanced network resilience, and broader interconnection opportunities for the national and regional Internet community.\n“Strong digital ecosystems are built on strong interconnection. ACIX represents an important step toward a more connected and digitally empowered region, where data can remain local, networks become more resilient, and innovation can scale across borders,” he said in a statement.\nACIX is designed as a neutral IX environment open to all licensed operators, ISPs, mobile operators, cloud providers, content providers, enterprises, financial institutions, academic networks and international carriers operating in the DRC and the wider region.\nInternet Pour Tous plays a central role in supporting the development and coordination of the ACIX initiative as a neutral ecosystem platform intended to promote inclusive interconnection and digital ecosystem growth across the country.",
+  "published_at": "2026-05-21T04:10:11Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-24T03:01:19.210725Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

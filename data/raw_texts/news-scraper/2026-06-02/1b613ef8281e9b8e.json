@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/14/cdc-no-us-hantavirus-cases-people-monitored.html",
+  "title": "CDC says there are no U.S. hantavirus cases currently, 41 people being monitored",
+  "raw_text": "The U.S. Centers for Disease Control and Prevention said there are no hantavirus cases in the country as of Thursday, as it monitors 41 people across the U.S. for the virus.\nThe agency said the risk to the general public remains low in the aftermath of an outbreak on a cruise ship. The CDC advised those who are being monitored to stay at home and avoid people for 42 days.\nThat includes people from three main groups: passengers who were recently repatriated and are now in Nebraska and Atlanta, passengers who had already left the ship and returned home before the outbreak was identified and people who may have been exposed during travel, \"specifically on flights where a symptomatic case was present,\" Dr. David Fitter, the incident manager for the CDC's hantavirus response, told reporters in a media briefing.\nThe World Health Organization has reported 11 total cases of hantavirus linked to the outbreak, eight confirmed by lab testing, including three deaths.\nThe spread of the virus has sparked concerns about a potential global health crisis only a few years removed from the devastation of the Covid-19 pandemic. However, public health experts have stressed the risks from the outbreak are limited, and have cautioned that it likely will not cause a widespread health emergency.\nThe Andes strain of hantavirus associated with the outbreak, unlike other illnesses including Covid, measles and the flu, does not spread easily between people.\nEven so, more confirmed cases could emerge in the coming weeks because it has a long incubation period, according to experts.\nSome public health experts have said the U.S. response to the spread of hantavirus, slowed by staffing cuts at the CDC and the Trump administration's decision to leave the WHO, has exposed cracks in its readiness to handle another health crisis.",
+  "published_at": "2026-05-14T19:56:23Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.640014Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/06/peoplesoft-0-day-affecting-hundreds-of-organizations-steals-gigabytes-of-data/",
+  "title": "PeopleSoft 0-day affecting hundreds of organizations steals gigabytes of data",
+  "raw_text": "One of the world’s most active ransomware groups exploited a critical vulnerability in Oracle’s PeopleSoft software suite and used it to target about 100 customers and extort at least one of them to pay up in exchange for not leaking stolen data, researchers said.\nThe group, tracked as ShinyHunters, had been exploiting the PeopleSoft vulnerability for more than two weeks before Oracle flagged it. CVE-2026-35273, as the vulnerability is tracked, carries a severity rating of 9.8 out of 10, making the former zero-day one of the year’s most critical vulnerabilities to be exploited.\nGoogle’s Mandiant security team said it’s an SSRF (server-side request forgery), a vulnerability that allows attackers to send requests from a susceptible server to systems used by the targeted organization. Oracle said the SSRF is remotely exploitable, and the company has issued a stopgap mitigation but has yet to fully patch the flaw. Google has confirmed that victims are receiving extortion demands.\n9.8 0-day exploited for 2 weeks\nThe University of Nottingham confirmed on Wednesday that it was the victim of a hack that put a “significant” amount of student data in the hands of a threat actor. The confirmation came after ShinyHunters claimed the university was one of its recent victims and published gigabytes of data it claimed to have stolen in the hack.\nMandiant said ShinyHunters has been exploiting the vulnerability since May 27. As of Wednesday, the group had targeted roughly 300 endpoints belonging to 100 user organizations. About 68 percent of the organizations operated within the higher education sector. A researcher said on Tuesday that the group responsible had “exposed several directories revealing ongoing targeting of PeopleSoft.” The attackers also left available a staging server containing tools used in the attack.",
+  "published_at": "2026-06-12T19:26:47Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-06-12T21:00:32.031113Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "oracle",
+      "PeopleSoft",
+      "ShinyHunters",
+      "zerodays"
+    ]
+  }
+}

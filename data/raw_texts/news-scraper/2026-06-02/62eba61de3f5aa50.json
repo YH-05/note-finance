@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/snowflake-just-had-its-best-day-ever-hsbc-thinks-theres-more-to-go.html",
+  "title": "Snowflake just had its best day ever. HSBC thinks there’s more to go",
+  "raw_text": "Shares of Snowflake are still attractive even after they had their strongest single-day performance on record, according to HSBC. The bank upgraded the cloud computing name to buy from hold. It also lifted its price target to $289 from $176. The new forecast implies upside of 20.8% from Thursday's close. Snowflake skyrocketed more than 36% on Thursday, its best day ever, after announcing it will spend $6 billion on compute from Amazon. On top of that, the company reported better-than-expected fiscal first-quarter earnings thanks to demand for its artificial intelligence tools, such as Cortex Code, or CoCo. SNOW YTD bar SNOW year to date \"We believe CoCo marks the clearest evidence of Snowflake's AI monetisation opportunity,\" HSBC analyst Stephen Bersey wrote. He noted that CoCo's user base has grown to more than 7,100 accounts and \"contributed meaningful AI revenue.\" \"Overall, this reflects strong early momentum and supports our view that AI is now accelerating both direct AI revenue and core platform consumption,\" Bersey said. \"Furthermore, we expect AI-led product adoption to deepen as more customers move from pilot to production workflows.\" Despite Thursday's massive surge, the stock is up only 9% for the year – lagging the S & P 500's 10.5% advance in that time. Shares were battered earlier in the year amid concerns that AI would take market share from \"software-as-a-service\" companies. At one point, Snowflake was down as much as 44% for the year on a closing basis. Most analysts are bullish Snowflake. Of the 52 who cover the stock, 45 rate it a buy or strong buy, according to LSEG.",
+  "published_at": "2026-05-29T10:28:28Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.604549Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

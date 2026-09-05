@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/sam-bankman-fried-applies-for-a-pardon-from-trump/",
+  "title": "Sam Bankman-Fried applies for a pardon from Trump",
+  "raw_text": "FTX co-founder Sam Bankman-Fried has officially filed for a pardon from President Trump, according to the Justice Department’s Pardon Attorney Office website.\nBankman-Fried is serving a 25-year prison sentence after being convicted on fraud and money laundering charges in 2024. The pardon application was first reported by Bloomberg News.\nTrump has pardoned hundreds of people during his second term. While a majority of those were people who participated in the January 6 riot, many were convicted of financial fraud. An NBC News analysis from January found that more than half of the individual pardons granted were to people who committed white-collar crimes like money laundering, bank fraud, and wire fraud.\nTrump has pardoned a number of people who have donated large sums to his political campaigns. Very few of those he has pardoned filed the official application with the Justice Department, according to Bloomberg.",
+  "published_at": "2026-06-08T18:26:35Z",
+  "author": "pseudolus",
+  "collected_at": "2026-06-09T15:04:18.410911Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

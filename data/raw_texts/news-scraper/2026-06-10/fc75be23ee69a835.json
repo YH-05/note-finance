@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947770/google-lyria-music-ai-lawsuit-youtube",
+  "title": "Google won’t just admit it’s feeding YouTube creators to its music AI",
+  "raw_text": "If you’ve uploaded a song to YouTube, Google almost certainly considers your video fair game for training its Lyria music AI, it just won’t admit it right now.\nGoogle won’t just admit it’s feeding YouTube creators to its music AI\nIt can if it wants to. But it won’t say if it is.\nIt can if it wants to. But it won’t say if it is.\nA group of independent musicians is suing Google, claiming that it illegally used songs they uploaded to YouTube to train its Lyria 3 model. Google has filed a motion to dismiss the case, saying:\nTheir lawsuit is based on the unsupported hypothesis that Google trained on their specific works. Even accepting their untested allegations as fact, the Complaint cannot stand. Plaintiffs each granted YouTube, and Google — which provides the service—a broad license to use the uploaded content. That license, present in YouTube’s Terms of Service, authorized the conduct alleged in the Complaint.\nThis is standard hedging for a legal filing: “you can’t prove we did it, and even if we did, we’re allowed to.” When asked directly if Google was using YouTube videos to train its Lyria 3 AI music model, the company declined to comment. But based on past public statements, it seems safe to assume the answer is yes.\nIn an interview from April 2024 with Bloomberg, YouTube CEO Neal Mohan said that “some portion” of YouTube videos may be used internally to train models like Gemini. Later that year, a blog post about creator tools confirmed as much, saying “we use content uploaded to YouTube to improve the product experience for creators and viewers across YouTube and Google, including through machine learning and AI applications.”\nThe company even confirmed to CNBC that it was using YouTube uploads to train Gemini and Veo. What Google hasn’t done is specifically confirm that it’s also using YouTube uploads to train Lyria.\nHowever, in its motion to dismiss, Google says that by uploading content directly to YouTube, the plaintiffs agreed to the terms of service, which grants the company the right to “reproduce, distribute, [and] prepare derivative works,” based on the upload.\nWith all of that considered, it might seem odd that Google won’t just admit the obvious. But right now, the company has little to gain by going on record. And with litigation pending, maintaining plausible deniability is a calculated move.",
+  "published_at": "2026-06-10T17:20:36Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-10T21:00:16.765118Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Creators",
+      "Entertainment",
+      "Google",
+      "Law",
+      "Music",
+      "Policy",
+      "Streaming",
+      "Tech",
+      "YouTube"
+    ]
+  }
+}

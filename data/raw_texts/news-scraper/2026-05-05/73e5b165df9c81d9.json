@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/lucid-lcid-q1-2026.html",
+  "title": "EV maker Lucid plans to adjust production, citing elevated vehicle inventories",
+  "raw_text": "DETROIT — Lucid Group plans to take actions to better align its production with customer demand for its luxury all-electric vehicles, the company said Tuesday.\nThe EV manufacturer said it needs to lower its \"elevated inventory\" of vehicles, which for automakers has historically meant lowering or idling vehicle production.\nA company spokesman on Tuesday told CNBC that there is currently no plan to idle its sole U.S. plant in Arizona, but declined to reconfirm the company's prior production guidance of between 25,000 and 27,000 units.\nLucid, in a release Tuesday, said it will take \"further steps to align production with anticipated deliveries and customer demand.\" The company did not include the guidance in its release.\nThe company has produced roughly 3,200 more vehicles than it has sold since 2024, according to its annual production and deliveries. That includes a difference of roughly 2,000 units last year and 2,400 vehicles during the first quarter of 2026.\n\"We ended the quarter with elevated inventory that we expect to convert to revenue and cash as deliveries normalize, while maintaining alignment between production and sales cadence. Our focus is on disciplined execution — driving structural cost improvements, managing capital efficiently, and improving operating leverage as we scale,\" Lucid CFO Taoufiq Boussaid said in a statement.\nThe comments came as the company reported its first-quarter results that were in line with preliminary results released by the company a month ago, but still significantly missed Wall Street's expectations.\nHere's how the company performed in the first quarter compared with average estimates compiled by LSEG:\n- Loss per share: $3.46 vs. a loss of $2.64 expected\n- Revenue: $282.5 million vs. $440.4 million expected\nThe company's revenue increased roughly 20% year-over-year but was far lower than the 87.4% jump analysts were expecting, according to LSEG.\nLucid produced 5,500 vehicles and delivered 3,093 vehicles in the first quarter of 2026.\nThe all-electric vehicle maker said a seat supplier issue \"significantly affected\" deliveries of its crucial Lucid Gravity SUV during the quarter.\nSeveral other automakers have said high gas prices caused by the war in Iran have led to increased interest in all-electric vehicles following a dearth in demand after the Trump administration ended consumer incentives last year of up to $7,500 for the purchase of an EV.\nLucid reported a 144% increase in North America order intake from February to March.",
+  "published_at": "2026-05-05T20:30:22Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:17:45.114161Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/bank-of-japan-governor-ueda-hospitalised-will-miss-june-meeting.html",
+  "title": "Bank of Japan governor Ueda hospitalised, will miss June meeting",
+  "raw_text": "Bank of Japan Governor Kazuo Ueda has been hospitalised for medical treatment and will miss the June 15-16 policy meeting, the central bank said on Wednesday.\nDeputy Governor Ryozo Himino will preside over the rate review in place of Ueda, and the other deputy governor, Shinichi Uchida, is set to host the post-meeting press conference, the BOJ said in a statement.\nUeda, 74, is expected to remain in hospital for about two weeks getting treatment for an infected liver cyst, work remotely and attend the next July 30 to 31 policy meeting, the BOJ said.\nThe BOJ is widely expected to raise its short-term policy rate to 1% from 0.75% at next week's meeting, which would take borrowing costs to levels unseen in three decades.\nThe announcement follows one the BOJ made in late May that its Deputy Governor Uchida had been discharged from hospital after recovering from leukaemia treatment.",
+  "published_at": "2026-06-10T10:27:37Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.377727Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

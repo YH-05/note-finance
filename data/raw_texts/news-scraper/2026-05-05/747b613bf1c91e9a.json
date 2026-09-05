@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/podcast/923974/ai-car-design-codex-vergecast",
+  "title": "What an AI-designed car looks like",
+  "raw_text": "The cars rolling off production lines right now are filled with old ideas. From beginning to end, the creation of a new vehicle can take five years or longer — which is plenty of time for a lot of tastes, politics, and gas prices to change. That’s one reason car manufacturers are so enthusiastic about the potential for AI to help speed up certain parts of the process, from model-making to wind-tunneling. LLMs could be poised to change the way we get around.\nWhat an AI-designed car looks like\nOn The Vergecast: driving an LLM, Claude Code vs. Codex, RIP AGI, and more.\nOn The Vergecast: driving an LLM, Claude Code vs. Codex, RIP AGI, and more.\nOn this episode of The Vergecast, automotive and tech journalist (and frequent Verge contributor) Tim Stevens explains how car companies are adopting AI, and why speeding up development could be such a big deal. He also tells us why, even though the car companies swear they’re not planning to replace humans with AI, we should be worried about what happens when car companies replace humans with AI. At the end of this transformation, will AI models be the ones deciding what cars we drive? And what might they pick? That future is a ways out, but it’s worth thinking about now.\nAfter that, The Verge’s Hayden Field joins the show to catch up on a bunch of the biggest stories in AI. Claude Code and Codex are competing for AI coding supremacy; Anthropic either is or isn’t back in with the US government, and it’s not entirely clear how much it even matters; the vibes at OpenAI are slightly better but still not great; AGI is dead, maybe. Nothing about the AI industry is ever static, so we have a lot to discuss.\nFinally, Hayden sticks around to answer a question from the Vergecast Hotline (call 866-VERGE11 or email vergecast@theverge.com!) about the companies laying off huge swaths of employees and pointing to “AI efficiencies” as the reason. Are these layoffs really about AI? Sometimes. Sort of.\nIf you want to know more about everything we discuss in this episode, here are a few links to get you started:\n- The AI-designed car is taking shape\n- OpenAI’s big Codex update is a direct shot at Claude Code\n- Microsoft and OpenAI’s famed AGI agreement is dead\n- OpenAI’s new security model is for ‘critical cyber defenders’ only\n- Anthropic releases a new Opus model amid Mythos Preview buzz\n- Anthropic’s new cybersecurity model could get it back in the government’s good graces\n- Jack Dorsey’s Block cuts nearly half of its staff in AI gamble",
+  "published_at": "2026-05-05T13:42:18Z",
+  "author": "David Pierce",
+  "collected_at": "2026-05-05T15:00:11.190532Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "Podcasts",
+      "Tech",
+      "Vergecast"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://discuss.grapheneos.org/d/35949-volkswagen-app?page=3",
+  "title": "Volkswagen started blocking GrapheneOS users",
+  "raw_text": "The myVW app is still working for me again as of yesterday. I'd be glad to share any details that could help. All I can say is that I always ran the app in my Owner profile, once I realized it does work without play svcs (I ignored the error message and didn't care about the lack of a location map - but I did have a text based proximity location). Just to recap my steps to restore the app's functionality (besides location):\n1). I deleted the Aurora store version of the app\n2). Installed a fresh version directly from the play store (that didn't work at first and crashed upon opening)\n3). Noticed my device had a GOS update pushed to it and completed that process\n4). Enabled Play services before launching the app\n5). Logged into the app, including the app pin, and confirmed the app was working as previously\n6). Exited the app and disabled G play svcs\n7). Launched the app again and had no issues getting to the home screen that showed my doors were locked, climate off, and the approximate location\nAgain, please lmk if I can provide any additional info that could help.",
+  "published_at": "2026-06-17T15:04:47Z",
+  "author": "microtonal",
+  "collected_at": "2026-06-18T03:00:40.363624Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

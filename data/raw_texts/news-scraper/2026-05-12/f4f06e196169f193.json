@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/928480/waymo-recall-flooded-roads-robotaxi",
+  "title": "Waymo recalls robotaxis for driving on flooded roads",
+  "raw_text": "Waymo is recalling its autonomous driving software that allowed its vehicles to drive on flooded roads. The recall affects 3,791 vehicles that operate using Waymo’s fifth and sixth generation systems.\nWaymo recalls robotaxis for driving on flooded roads\nIt’s the first recall for Waymo’s sixth generation autonomous driving system.\nIt’s the first recall for Waymo’s sixth generation autonomous driving system.\nIn documents filed with the National Highway Traffic Safety Administration, the Alphabet-owned company said that an unoccupied Waymo robotaxi “encountered an untraversable flooded section of a roadway that has a 40 mph speed limit.” Despite detecting the flooded road, the vehicle “proceeded at reduced speed.” Waymo said it was currently working on a remedy. In the interim, the company has updated its vehicles to “increase weather-related constraints and updated the vehicles maps.”\nWhile no one was injured in the incident, it highlights the risk for driverless car companies when encountering altered road conditions as a result of extreme weather. In its first few years of operation, Waymo has strategically stuck to cities with warmer, drier climates — places like Phoenix, Los Angeles, Atlanta, and Austin. But as it eyes a slate of East Coast cities, including Boston, New York City, and Washington, DC, for the next phase of its expansion, its abilities to handle more adverse weather will become a crucial test.\nThis is the first recall of Waymo’s sixth generation system, which rolled out earlier this year and is intended for “high volume production.” Waymo’s current fleet of Jaguar I-Pace vehicles runs on the company’s fifth generation technology, first rolled out in March 2020. That system has been recalled five times, including for driving passed stopped school buses and crashing into stationary objects.\nThe sixth generation system is designed to work seamlessly across multiple vehicle types, starting with the Zeekr RT minivan (rebranded as Ojai) and followed by the Hyundai Ioniq 5. Waymo is in talks with other automakers, including Toyota, about future models.\nMost Popular\n- Logitech’s tiny folding mouse improves upon the laptop trackpad\n- Forza Horizon 6 has been leaked and cracked a week before its release\n- Palantir’s true believers are wearing this jacket\n- Google stopped a zero-day hack that it says was developed with AI\n- Govee’s new portable smart lamp is on sale for the first time",
+  "published_at": "2026-05-12T13:32:39Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-05-12T15:00:16.362779Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Transportation",
+      "Waymo"
+    ]
+  }
+}

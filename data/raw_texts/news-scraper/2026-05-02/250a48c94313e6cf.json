@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/fisa-section-702-congress-extension.html",
+  "title": "FISA Section 702: Congress passes short-term surveillance program extension just before deadline",
+  "raw_text": "The House on Thursday passed on a vote of 261-111 a 45-day extension of a controversial foreign surveillance program, voting just as the program was set to expire.\nThe Senate earlier Thursday unanimously passed the measure, which will next go to President Donald Trump for his signature next. The president has urged Congress to reauthorize the program.\nSection 702 of the Foreign Intelligence Surveillance Act of 1978 allows the government to collect the communications of people outside the U.S., including when they are interacting with Americans. Opponents have argued that extending the program without amendments could lead to abuses and the U.S. government's spying on American citizens, while proponents say it's a crucial national security tool.\nThe Senate had rejected a bipartisan House proposal to reauthorize the program for three years. That measure included unrelated language that would have banned the Federal Reserve from establishing a central bank digital currency.\nSenators from both parties opposed the digital currency language and instead pivoted to their own short-term solution for FISA, punting on broader negotiations until lawmakers return to Washington in mid-May after a scheduled recess.\n\"This is not the outcome that any of us wanted for the FISA 702 program, but here we are,\" Rep. Jim Jordan, chair of the House Judiciary Committee, said during debate on the House floor on Thursday.\n\"The 702 program is incredibly important for protecting our national security and advancing our interest abroad. This temporary extension will ensure that there is no disruption to the program while we work out our differences on a longer reauthorization,\" Jordan said.\nThursday's vote is the second short-term extension of the program in less than a month. On April 17, the House and Senate passed a 10-day patch that carried the surveillance program through Thursday.\nMembers on both sides of the aisle concerned with individual privacy have sought to end the government's warrantless collection of its own citizens' data as part of the program.\n\"Nothing about protecting our safety should prevent us from protecting our rights. We can have both,\" Rep. Jamie Raskin, D-Md., the House Judiciary Committee ranking member, said from the House floor.",
+  "published_at": "2026-04-30T21:09:18Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.535202Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

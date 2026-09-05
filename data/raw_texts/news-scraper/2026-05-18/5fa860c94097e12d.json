@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605181053",
+  "title": "明日の為替相場見通し＝１６０円意識の円安進行あるか",
+  "raw_text": "【通貨】明日の為替相場見通し＝１６０円意識の円安進行あるか\nきょうは、米金利上昇や原油高、それに２６年度補正予算での赤字国債発行への思惑も重なり、ドル買い・円売りが強まり一時１５９円００銭台に円安が進んだ。為替介入に絡む動きも警戒されるなか、明日にかけて一段のドル高・円安が進むかが注視される。明日は国内で１～３月期ＧＤＰ・速報値が発表される。今日から明日にかけてＧ７財務相・中央銀行総裁会議が開催される。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-18T08:37:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T09:01:17.061472Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

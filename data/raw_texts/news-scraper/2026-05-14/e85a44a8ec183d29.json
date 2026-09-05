@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/930188/microsoft-edge-copilot-ai-tabs",
+  "title": "Microsoft&#8217;s Edge Copilot update uses AI to pull information from across your tabs",
+  "raw_text": "Microsoft Edge is adding a new feature that will allow its Copilot AI chatbot to gather information from all of your open tabs. When you start a conversation with Copilot, you can ask the chatbot questions about what’s in your tabs, compare the products you’re looking at, summarize your open articles, and more.\nMicrosoft’s Edge Copilot update uses AI to pull information from across your tabs\nThe new features include AI podcasts, summaries, and quizzes based on what you’re browsing.\nThe new features include AI podcasts, summaries, and quizzes based on what you’re browsing.\nIn its announcement, Microsoft says you can “select which experiences you want or leave off the ones you don’t.” The company is retiring Copilot Mode as well, which could similarly draw information from your tabs but offered some agentic features, like the ability to book a reservation on your behalf. Microsoft has since folded these agentic capabilities into its “Browse with Copilot” tool.\nSeveral other AI features are coming to Edge, including an AI-powered “Study and Learn” mode that can turn the article you’re looking at into a study session or interactive quiz. There’s a new tool that turns your tabs into AI-powered podcasts as well, similar to what you’d find on NotebookLM, and an AI writing assistant that will pop up when you start entering text on a webpage.\nYou can also give Copilot permission to access your browsing history to provide more “relevant, high-quality answers,” according to Microsoft. Copilot in Edge on desktop and mobile will come with “long-term memory” as well, which can tailor its responses based on your previous conversations. And, when you open up a new tab, you’ll see a redesigned page that combines chat, search, and web navigation, along with the Journeys feature, which uses AI to organize your browsing history into categories that you can revisit.\nMeanwhile, an update to Edge’s mobile app will allow you to share your screen with Copilot and talk through the questions about what you’re seeing. Microsoft says you’ll see “clear visual cues” when Copilot is active, “so you know when it’s taking an action, helping, listening, or viewing.”",
+  "published_at": "2026-05-13T22:04:28Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-14T03:00:13.961353Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Web"
+    ]
+  }
+}

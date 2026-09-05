@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/these-clever-active-beam-headlights-are-finally-coming-to-america/",
+  "title": "These clever active beam headlights are finally coming to America",
+  "raw_text": "MUNICH—Headlight technology in the US is about to get smarter. When Audi’s Q9 SUV goes on sale here later this year, it will feature the automaker’s latest adaptive beam headlights, which manage the nifty trick of providing better, brighter illumination while minimizing glare for both the driver and other road users. Such technology is old hat to our European readers, but it’s finally debuting on our roads after years of lobbying and intensive, lengthy testing to satisfy the new federal regulations. And after trying out the headlights during a recent trip to Europe, I can say, “It’s about time.”\nDespite America’s reputation as an innovation powerhouse, we have lagged behind Europe and Japan in automotive lighting technology for decades, thanks to 1960s-era regulations that allowed only low- and high-beam headlights, nothing else. For years, OEMs like Audi, BMW, Mercedes-Benz, Toyota, and Volvo lobbied the National Highway Traffic Safety Administration to allow them to bring more modern technology to these shores to no avail.\nAt first, it was laser high beams, which could project their beams much farther down the road than conventional halogen or xenon lights. Lasers are cool, but adaptive driving beam technology is even cooler. Each headlight is actually a multipixel LED, and by turning some of those pixels off, the headlight beam can be shaped to mask the light to selectively dim oncoming vehicles instead of switching to low beams.\nProve it\nToyota was the first company to ask the government to let it import adaptive driving beam lights in 2013—the same year Audi introduced the technology in Europe in the A8—but it wasn’t until 2022 that NHTSA finally agreed that the tech had major safety benefits and should be allowed on US roads. In Europe and Japan, where adaptive driving beam technology has been legal for many years, approval followed road tests by vehicle regulators and independent testing authorities.\nBut NHTSA said that wasn’t stringent enough for the US, where automakers don’t get type approval for new products but instead certify themselves, then tell the government they comply with the safety rules. Instead, NHTSA set out a long list of tests that lights must pass to demonstrate that they don’t dazzle oncoming traffic.",
+  "published_at": "2026-05-21T13:00:09Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-21T15:00:31.560747Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Audi Q9",
+      "headlights"
+    ]
+  }
+}

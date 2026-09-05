@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606041250",
+  "title": "ダウ平均は大幅高で始まる　半面ナスダックは大幅安＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は大幅高で始まる 半面ナスダックは大幅安＝米国株オープン\nダウ平均 51205.10（+518.03 +1.02%）\nナスダック 26594.63（-259.34 -0.97%）\nCME日経平均先物 67370（大証終比：-270 -0.40%）\n株探ニュース",
+  "published_at": "2026-06-04T13:31:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:00:17.679352Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

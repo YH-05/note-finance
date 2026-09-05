@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/06/these-are-the-most-overbought-stocks-after-a-volatile-week.html",
+  "title": "These are the most overbought stocks after a volatile week",
+  "raw_text": "Hewlett Packard Enterprise emerged as one of the most overbought stocks as the market grappled with seesawing volatility this week. Market uncertainty gave investors whiplash over the past few trading sessions, with the S & P 500 jumping to new record highs to kick off the week. But a sell-off in chip stocks on Friday ultimately dragged the broad market index lower and broke its nine-week win streak. Still, investors piled into several individual stocks this week, pushing them into overbought territory. CNBC Pro used its stock screener tool to identify such names, based on their 14-day relative strength index, or RSI. Stocks with a 14-day RSI reading above 70 are considered overbought, meaning that a pullback could be on the horizon. On the other hand, a result below 30 indicates that a stock is oversold and could soon see a potential rebound. The following table shows this week's most overbought names: An earnings blowout led Hewlett Packard Enterprise to a weekly gain of 14%. Shares surged after the tech company reported cloud and artificial intelligence revenue that beat analysts' estimates in the fiscal second quarter. In the period, HPE earned an adjusted 79 cents per share on $10.68 billion in revenue. This topped the earnings of 53 cents per share and revenue of $9.79 billion that analysts polled by LSEG had expected. It was the biggest earnings beat since 2018. Following this quarterly report, Loop Capital upgraded the stock to a buy rating from hold. Its updated price forecast of $75, up from $23, implies an upside of 52% from HPE's Friday close. \"Apr Q was a historic blowout quarter as Agentic and Inferencing adoption is triggering not only amplified revenue growth but [operating margin] expansion as well,\" wrote analyst Ananda Baruah. \"Now that commercial inference investment has begun in earnest…we believe we could be at the front end of a 3-5 year growth expansion.\" HPE's RSI at the end of the week was 73. Investors also flocked toward cybersecurity stock Fortinet , which finished the week with an RSI of 76. Fortinet had a volatile week, swinging in reaction to quarterly results from peers Palo Alto Networks and CrowdStrike. Fortinet shares gained more than 2% to touch a 52-week high on Thursday, but they ultimately tumbled 3% on Friday in a massive tech rout. Nevertheless, the stock advanced nearly 5% on the week. Other names on this week's most overbought stocks list included Host Hotels and Resorts and Humana . The stocks ended the week with RSIs of 79 and 77, respectively.",
+  "published_at": "2026-06-06T12:36:38Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.457952Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

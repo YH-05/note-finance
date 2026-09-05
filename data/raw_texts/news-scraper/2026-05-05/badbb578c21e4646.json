@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/technology/elon-musk-reaches-15-million-settlement-sec-over-twitter-stake",
+  "title": "Elon Musk Reaches $1.5 Million Settlement With SEC Over Twitter Stake",
+  "raw_text": "Tech billionaire Elon Musk on May 4 agreed to pay $1.5 million to resolve a Securities and Exchange Commission (SEC) lawsuit alleging he violated securities laws over the delayed disclosure of his Twitter stake.\nA filing dated May 4 states that Musk’s revocable trust will pay a civil penalty of $1.5 million to the commission as part of the settlement, subject to approval by the court.\nAccording to the filing, once the proposed settlement is approved by the court, the SEC will “file a stipulated dismissal of Elon Musk in his personal capacity, which will resolve this case in its entirety.”\nThe SEC filed the lawsuit in January 2025, alleging that Musk violated federal securities laws by delaying disclosure of his stake in Twitter before his bid to buy the platform in 2022.\nThe regulator said Musk crossed the 5 percent ownership threshold in March 2022, triggering a 10-day deadline to make the holding public. Musk did not disclose his holdings until April 2022, when he had already acquired a more than 9 percent stake in Twitter, according to the filing.\nThe SEC said the delay had allowed Musk to buy shares at “artificially low prices” and enabled him to underpay by at least $150 million for his shares after his beneficial ownership report was due.\nMusk had previously sought to have the SEC suit dismissed. In August 2025, his lawyers argued that the SEC targeted Musk over his outspoken criticism of the regulator and “government overreach.”\nSeparately, in March, a federal jury held Musk liable for misleading Twitter shareholders by driving down the social media platform’s stock price months before acquiring it. The decision followed a civil class action lawsuit filed by Twitter investors in October 2022.\nMusk agreed to buy Twitter at $54.20 per share in April 2022 but later sought to back out of the deal, prompting the company to take legal action to enforce the deal. He ultimately completed the acquisition in October 2022 and rebranded Twitter as X.\nIn a verdict on March 20, jurors found Musk liable for misleading investors through two social media posts he shared in 2022. The first post said the deal was “temporarily on hold” pending verification that bots accounted for less than 5 percent of users on the social media platform.\nIn the second post, Musk suggested that the percentage of bots could exceed 20 percent and said the buyout of Twitter could not go forward until he received confirmation that it was less than 5 percent. Musk’s legal team has said they plan to appeal the verdict.",
+  "published_at": "2026-05-05T12:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-05T15:00:38.350089Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

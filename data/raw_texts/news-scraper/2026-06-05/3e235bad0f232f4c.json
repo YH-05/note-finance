@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/chinas-factory-activity-beats-forecasts-in-may-private-survey-shows-despite-softer-official-data.html",
+  "title": "China’s factory activity beats forecasts in May, private survey shows, despite softer official data",
+  "raw_text": "BEIJING — China's manufacturing activity expanded faster than expected in May, according to a private survey released Monday, although growth slowed from the previous month and contrasted with softer official data pointing to weaker momentum in the sector.\nThe RatingDog China General Manufacturing Purchasing Managers' Index, compiled by S&P Global, came in at 51.8, a touch above the 51.6 expected in a Reuters poll.\nThe reading was down from April's 52.2, indicating a slower pace of improvement in manufacturing conditions. The 50 mark separates expansion from contraction.\n\"While the rate of growth eased, it remained among the highest observed over the past five years,\" said Yao Yu, founder of credit research firm RatingDog.\nNew export business saw a slight decline in May, the RatingDog PMI report said, while employment also \"contracted marginally.\"\nSeasonally adjusted input prices fell in May from the prior month for the first time in half a year, although costs remained elevated due to higher prices for raw materials and energy, as well as supply chain disruptions, the report said.\nThe private survey of Chinese manufacturers noted optimism for growth over the next 12 months, based partly on \"new product launches, technological breakthroughs and improved production capacity.\"\nBecause it samples a smaller group of export-oriented manufacturers, the RatingDog survey often differs from the official manufacturing PMI, which covers a broader segment of China's manufacturing sector.\nChina's official manufacturing PMI for May fell to 50 in May from 50.3 in April, in line with expectations and its lowest since a 49 print in February, according to data released Sunday.\nOverall, the official PMI suggests \"subdued manufacturing sector growth, increased services activity, and continued decline in the construction industry,\" Goldman Sachs analysts said in a report Sunday.\nThe mixed manufacturing signals come as China's broader economy continues to show uneven momentum.\nWhile China's retail sales growth hit a 40-month low in April, official figures showed overall domestic tourism and spending picked up during an extended May 1 holiday. Chinese hotel group H World said the 10 most popular destinations by occupancy rate were in smaller cities. Rates tend to be lower in those regions than major cities.",
+  "published_at": "2026-06-01T14:27:11Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.705477Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

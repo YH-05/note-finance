@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/amd-leads-an-epic-run-in-chip-stocks-not-seen-since-the-dot-com-bubble-burst.html",
+  "title": "AMD leads an epic run in chip stocks not seen since the dot-com bubble burst",
+  "raw_text": "The move in Advanced Micro Devices — and the wider chips sector — is nothing short of bonkers. AMD soared 20% on Wednesday after the chipmaker posted better-than-expected Q1 earnings and revenue. Its Q2 revenue outlook was also stronger than expected. AMD had already climbed more than 60% in the past month before the latest move. The rally led several Wall Street firms to upgrade AMD, including Goldman Sachs . It also gave a boost to an already strong chips sector. The Invesco PHLX Semiconductor ETF (SOXQ) , which tracks the PHLX Semiconductor Index (SOX), jumped 3.1% in early trading. Intel and Micron Technology were higher by 3% and 4%, respectively. That puts semiconductors in territory not seen since the dot-com bubble burst. According to Bespoke Investment Group, including the early trading moves Wednesday, the SOX index is roughly 56% above its 200-day moving average. \"The group has only been more extended above its 200-DMA on two different occasions: July 1995 and March 2000,\" Bespoke said in a note. \"July 1995 was still in the early days of the Dot-Com boom of the 1990s, but March 2000 was the absolute peak.\" \"Either way, these kind of extreme readings can't last forever, so we would temper expectations for the semis over the next twelve months at this point,\" Bespoke added. The SOX index is higher by more than 55% year to date, bolstered by renewed excitement around the artificial intelligence trade. Its valuation is elevated relative to the broader market. The SOX trades at 26 times forward earnings, according to FactSet, while the S & P 500 sells for 21 future profits. The question for investors now is: How long can this parabolic surge last?",
+  "published_at": "2026-05-06T13:32:47Z",
+  "author": null,
+  "collected_at": "2026-05-06T15:20:38.888790Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

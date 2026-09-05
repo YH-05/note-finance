@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/squishmallows-dentures-and-an-i-heart-hot-dads-bag-uber-has-found-thousands-of-items-left-in-robotaxis/",
+  "title": "Squishmallows, dentures, and an ‘I Heart Hot Dads’ bag: Uber has found thousands of items left in robotaxis",
+  "raw_text": "For the past 10 years, Uber’s annual Lost & Found Index has provided a rather quirky anthropological snapshot of its riders — and even a few insights into society. The annual catalogue of millions of forgotten items ranges from mundane modern-day tools such as smartphones and laptops, to more eyebrow-raising objects like live fish, an ankle monitor, a toboggan, a package of live butterflies, and a single Louboutin shoe.\nThis year, Uber is using the report to highlight the same old problem of lost items with a new twist: robotaxis. Thousands of items (it’s a bit too new for millions) were left behind in robotaxis on Uber’s ride-hailing network in the past year, the company said Tuesday. There were the usual suspects of phones, keys, wallets, passports, and headphones, along with a few items that strayed into the who-is-this-rider category: a set of dentures, an “I Heart Hot Dads” bag, and a blue hat that reads “Emotional Support Human.”\nBeyond this entertaining list lies a business opportunity, if a minor one. Even in a future of robot taxis, someone still has to return the things passengers leave behind.\nUber has spent the past several years locking up dozens of partnerships with autonomous vehicle (AV) technology companies. But it really wasn’t until March 2025, when the “Waymo on Uber” robotaxi service launched in Austin, that the commercial wheels on its AV business started turning. Since then, Uber and Waymo have also started a robotaxi service in Atlanta. Uber has added other AV companies to its app in the past year, including Motional in Las Vegas and Avride in Dallas, although these still have human safety operators behind the wheel.\nThat Uber has already logged thousands of lost items in just 12 months gives some sense of just how many robotaxi rides have been completed on its app. The underlying message here is that Uber’s existing network is already set up to reunite riders with their lost items, including a 15-pound yo-yo, one large black marble duck, a Squishmallow, and a Charli XCX poster.\nWhen an Uber rider forgets belongings in a robotaxi, the process for recovering them is similar to any other Uber ride: open the app, click the activity tab, select the trip during which the item was lost, and contact customer support. Riders are then able to message, chat, or call a support agent. If the item is located, they have two options: pay $15 for an Uber Courier driver to provide same-day local delivery, or pick up the belonging in person from an AV depot, where the vehicles are stored and serviced.\nUber Courier is a rebrand of Uber Connect, which launched in 2020 and allowed users to send packages and personal items between local addresses. But Uber says there is more to its robotaxi support network than repurposing existing services.\n“With tens of millions of lost items reported on Uber each year, we’ve spent the last decade building systems that help riders quickly and seamlessly reunite with their belongings,” Amy Satrom, global head of autonomous support at Uber, said in a statement. “As autonomous rides continue to scale on Uber, we’re bringing that same expertise to AVs — combining our fleet operations, support teams, and hybrid network to make getting a lost item back simple, even when there’s no driver behind the wheel.”\nIn February, the company announced Uber Autonomous Solutions, a new business division that conveys its bigger ambitions around driverless tech. The division provides companies with a suite of services that handle all the tasks associated with operating a robotaxi, self-driving truck, or sidewalk delivery robot business, including software and support services.\nAnd Uber clearly means to make AVs a major revenue driver. The company plans to offer robotaxi rides through its app in as many as 15 cities globally by the end of the year and has said it intends to be the largest facilitator of AV trips in the world by 2029.",
+  "published_at": "2026-06-02T23:25:20Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-06-03T03:00:27.130664Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "autonomous vehicles",
+      "avride",
+      "Motional",
+      "Uber",
+      "Waymo"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/russias-plan-to-advertise-on-rockets-and-spacecraft-takes-off/",
+  "title": "Russia's plan to advertise on rockets and spacecraft takes off",
+  "raw_text": "It’s difficult to know the true state of the Russian economy, both because the country’s financial reporting is sparse and because official figures are unreliable. But things probably aren’t great.\nThis week, Sweden’s minister of foreign affairs, Maria Malmer Stenergard, shared her country’s assessment that the Russian economy has likely contracted over the last five years amid the war in Ukraine. Inflation is also high, and international sanctions have cost Russia $450 billion since the onset of the war in February 2022. Russia’s economy is currently smaller than that of Texas, Stenergard said.\nBy most measures, then, the economy is not in tip-top shape. Moreover, the war is draining a large amount of the country’s financial resources, with defense spending reaching a post-Soviet record of about 7 percent of government spending.\nSo perhaps it shouldn’t be a surprise that Russia’s beleaguered space program is turning to alternative sources of revenue: Since January 1, Russian rockets have been regularly plastered with advertising for banks, restaurants, and more.\nBuilding on history\nAdvertising in space, especially with the Russian space program, is nothing new. Thirty years ago, for example, Pepsi paid about $5 million to have a cosmonaut film a large Pepsi can replica outside the Mir space station. In 2000, Pizza Hut paid to have its logo painted on a Proton launch vehicle sending a spacecraft to the International Space Station.\nHowever, these have largely been one-off measures. Now, Russia has made space advertising part of its official space policy.\nLast fall, President Vladimir Putin, who has served in that role for all but four years this century, approved changes to federal laws governing advertising and space activities to allow for the placement of advertising on spacecraft.",
+  "published_at": "2026-05-20T14:28:57Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-21T03:00:31.289459Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "advertising",
+      "roscosmos",
+      "russia",
+      "space"
+    ]
+  }
+}

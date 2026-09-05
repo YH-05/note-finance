@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/the-skeptics-guide-to-humanoid-robots-going-viral-on-the-internet/",
+  "title": "The skeptic’s guide to humanoid robots going viral on the Internet",
+  "raw_text": "It may appear that humanoid robots capable of handling any task have almost arrived—especially when tech companies showcase them performing acrobatic feats or handling household chores. But there is still a significant gap between these robot demonstrations and proving that the same robots can reliably and repeatedly manage such tasks in the real world.\nThe latest wave of robot videos can be particularly tricky, given the human tendency to anthropomorphize objects with a humanoid figure. A robot arm doing a dance move may simply seem “cool,” but a humanoid robot doing the same dance move can trigger more misleading assumptions, said Jonathan Hurst, cofounder of Agility Robotics and a robotics researcher at Oregon State University.\n“People automatically extrapolate and assume that the robot that looks like a person can do all the things that a person who can dance could do—which is not true,” Hurst told Ars. “But a lot of the startup companies do kind of prey on that for being able to raise a lot of money.”\nOne of the biggest challenges is developing robots that can generalize their skills across many different conditions and environments in the same way that humans can, said Sergey Levine, a computer scientist at the University of California, Berkeley, and cofounder of the AI and robotics company Physical Intelligence. But that degree of generalization is practically impossible to capture within a single robot demonstration.\n“Maybe the robot can pour a glass of wine, but can it pour it out of any bottle and into any glass in any environment?” Levine said. “That’s actually a lot harder than having a robot do a backflip in one stage demo.”\nThe real measure for robotic capabilities involves conducting “quantitative, large-scale evaluations” in real-world environments, Levine explained. “There’s always a gap between the kind of things that somebody can show in a demo and what the real capability of the robot is,” he said.",
+  "published_at": "2026-06-04T22:23:36Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-06-06T03:00:31.361876Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "humanoid robots",
+      "robot AI",
+      "Robotics",
+      "robots"
+    ]
+  }
+}

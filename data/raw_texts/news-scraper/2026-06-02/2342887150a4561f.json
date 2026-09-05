@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/940874/microsoft-majorana-2-quantum-chip-build",
+  "title": "Microsoft’s next-gen quantum chip cuts timeline to useful quantum computing",
+  "raw_text": "Microsoft claimed last year that it had made a key breakthrough in quantum computing with Majorana 1, the company’s first quantum processor. While physicists were immediately skeptical of Microsoft’s claims, the software giant is announcing Majorana 2 today, the next generation of its topological quantum chip.\nMicrosoft’s next-gen quantum chip cuts timeline to useful quantum computing\nMicrosoft’s Majorana 2 chip uses a new material stack that promises quantum computing much sooner.\nMicrosoft’s Majorana 2 chip uses a new material stack that promises quantum computing much sooner.\nMajorana 2 contains qubits, a unit of information in quantum computing much like the binary bits that computers use today, that are 1,000 times more reliable, according to Microsoft. It’s a milestone that helps make quantum computing more reliable, thanks to the use of a new material stack and some help from Microsoft Discovery’s agentic AI.\n“To create Majorana 2, the Microsoft Quantum team improved Majorana 1’s material stack to create a more\nstable topological phase,” explains Chetan Nayak, Microsoft technical fellow and corporate vice president of quantum hardware. “Majorana 2 replaces Majorana 1’s superconductor, aluminum, with lead, and also updates the semiconductor active region to a combination of indium arsenide and indium arsenide antimonide.”\nThe improved materials mean better performance of qubits, according to Microsoft. “In the aluminum-based Majorana 1, qubit lifetimes were between one and 12 milliseconds, whereas in Majorana 2, the lifetimes exceed 20 seconds, representing more than 1,000x improvement in stability,” says Nayak. Some qubit lifetimes now exceed a minute, enough to convince Microsoft that it has made enough significant progress to promise useful quantum computing much sooner.\n“Based on this rapid progress, we are accelerating our roadmap to a scalable, practical quantum computer,” says Nayak. “We have cut our timeline in half and now aim to reach this target by 2029.” Microsoft is working toward building a fault-tolerant prototype quantum computer based on topological qubits, with an aim of quantum computing solving some of the world’s most difficult problems.\nMicrosoft is now releasing Discovery, the platform that helped improve its Majorana chips, to its customers today. Microsoft Discovery is designed to help apply agentic workflows to research and development programs. A local app version of Microsoft Discovery is now available on GitHub, and researchers can use a GitHub Copilot account to access it.\nMost Popular\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet\n- Gemini’s new AI agent is about as good as Google’s demo\n- These are the first Nvidia RTX Spark laptops\n- This could be Windows’ M1 moment — but expect it to cost a ton\n- This is the Microsoft Surface Laptop Ultra with Nvidia RTX Spark",
+  "published_at": "2026-06-02T18:15:00Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-06-02T21:00:16.734660Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Microsoft",
+      "Microsoft Build",
+      "News",
+      "Science",
+      "Tech"
+    ]
+  }
+}

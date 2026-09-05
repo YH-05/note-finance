@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20160-myriota-aims-to-enhance-satellite-iot-in-malaysia.html",
+  "title": "Myriota aims to enhance satellite IoT in Malaysia",
+  "raw_text": "Myriota, a leading name in low-power satellite connectivity, says it is accelerating its ongoing expansion into the ASEAN market with a strategic focus on Malaysia.\nAs a key next step in this regional growth, the company has been formally accepted as an Associate Member of the Malaysian Technical Standards Forum Bhd (MTSFB).\nThis, says Myriota. marks a significant step forward its Myriota’s mission to increase its footprint across Southeast Asia. By joining the MTSFB, Myriota says it intends to work closely with local industry players and key stakeholders to strengthen the IoT ecosystem, with a specific focus on use cases that require reliable, low-power satellite connectivity.\nThrough its engagement with the MTSFB, Myriota says it aims to contribute to technical standards, notably by participating in technical discussions to help shape the future of IoT and connectivity standards within Malaysia.\nIt also aims to align with Malaysia’s national digital and connectivity goals by providing the infrastructure necessary for modern, data-driven industries and to actively engage with local partners to scale the adoption of satellite-enabled IoT across the region.\nThe company says its low-power, cost-effective satellite IoT solutions are designed to enable remote monitoring, sensing and tracking data collection – even in the region’s most challenging environments.\nMyriota adds that its presence in Malaysia serves as a foundation for broader regional scaling, promising to deliver enhanced connectivity and operational efficiency to industries ranging from agriculture and logistics to infrastructure monitoring.\nIn recent months the company has announced what it says is the world’s first commercial 5G non-terrestrial network (NTN) engineered for IoT. It has also signed an MoU with Telkomsat, Indonesia’s leading satellite service provider.",
+  "published_at": "2026-04-27T21:33:26Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-01T15:01:21.400677Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

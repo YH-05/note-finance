@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/949679/uk-under-16-social-media-ban-announcement",
+  "title": "Under-16 social media ban announced by UK government",
+  "raw_text": "The UK is the latest country to follow Australia in implementing a total social media ban for children under 16, Prime Minister Keir Starmer has announced. The ban, which could take effect from early next year, will be joined by wider measures that will also prevent children from talking to strangers in online games, livestreaming, or using sexual or romantic chatbots.\nUnder-16 social media ban announced by UK government\nThe law will ‘go further than any other country,’ also restricting kids’ ability to talk to strangers in online games.\nThe law will ‘go further than any other country,’ also restricting kids’ ability to talk to strangers in online games.\n“Do we truly believe that social media creates a happy environment for our children? Do we truly believe that it’s a place where they can feel safe?” Starmer asked during a press conference announcing the policy. “I don’t think I even need to answer those questions, do I?”\n“Every parent can see it with their own eyes,” he said. “Social media is making children unhappy. It’s making it easier for bullies to harass and abuse them, and it could even be harming their mental health, exposing them to content that is dangerous because that’s what grabs the attention. It’s designed to be addictive – of course it is. Features like the Infinite Scroll – they’re designed to lock you in for hours.”\nBanned social media apps will include Snapchat, TikTok, YouTube, Instagram, Facebook, and X, though messaging apps like WhatsApp and Signal will not be covered. “Romantic companion chatbots” will have to enforce a minimum age of 18, and “intimate functionalities” will have to be restricted for under-18s on more general AI tools. Together with the restrictions on games and livestreaming platforms, the UK government said in a statement that its new policy will “go further than any other country” in restricting children’s time online.\nThe restrictions may eventually go further still, with the government also looking at “overnight curfews and breaks in infinite scrolling for under-18-year-olds,” with an announcement on that planned for next month.\nUK communications regulator Ofcom has been tasked with determining the best age verification measures for the policy. The UK has required wide-ranging age verification measures since last summer under the Online Safety Act, which requires certain websites to limit access to under-18s to prevent them accessing pornography or content perceived as dangerous. That age verification has typically required users to either upload credit card information or government ID, or agree to a face scan to estimate their age.\n“Tech companies have had countless opportunities to keep children safe, yet they have failed to act,” said technology secretary Liz Kendall. “That is why we are taking power away from the tech giants and putting it back in parents’ hands.”\nThe government says legislation is expected to be presented to parliament before the end of the year, and that the first set of regulations could take effect from spring 2027. Australia’s ban on social media for under-16s went into effect in December 2025, and multiple governments worldwide are now developing or considering similar laws, including Canada, France, Spain, and Denmark.",
+  "published_at": "2026-06-15T08:19:09Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-06-15T09:00:16.662442Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Policy",
+      "Politics",
+      "Regulation",
+      "Social Media",
+      "Tech"
+    ]
+  }
+}

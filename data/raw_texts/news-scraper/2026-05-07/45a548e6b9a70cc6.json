@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/entertainment/925916/save-to-spotify-ai-podcasts",
+  "title": "OpenClaw and Claude can put your AI-generated podcasts in Spotify",
+  "raw_text": "Save to Spotify is a new command-line tool designed specifically for AI agents like OpenClaw, Claude Code, or OpenAI Codex. If you’re the kind of person who collects research on a topic, then feeds it through their AI of choice to create audio summaries and personal podcasts, this lets you save them right alongside the latest episode of The Vergecast and Welcome to Night Vale on Spotify.\nOpenClaw and Claude can put your AI-generated podcasts in Spotify\nA new command-line tool lets AI agents save audio alongside your other podcasts.\nA new command-line tool lets AI agents save audio alongside your other podcasts.\nTo set it up, you need to download and install the Save to Spotify CLI from GitHub. Then you just prompt your AI agent as normal, but tack on “and save to Spotify,” and it should show up right in your podcast feed. In the blog post announcing the feature, Spotify said:\nNow, we’re making it possible to save and play Personal Podcasts on Spotify. Your agent can generate a daily briefing, private to you, and it’s saved alongside everything else in Your Library. And as always with Spotify, it’s seamlessly integrated across the devices you use.",
+  "published_at": "2026-05-07T14:15:40Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-05-07T15:00:14.422519Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Entertainment",
+      "News",
+      "Spotify"
+    ]
+  }
+}

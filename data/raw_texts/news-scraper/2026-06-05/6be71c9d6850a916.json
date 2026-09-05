@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/bitcoin-dismal-week-price-below-all-time-high-crypto-investors.html",
+  "title": "Bitcoin caps a dismal week as price wallows 50% below its all-time high",
+  "raw_text": "Bitcoin's dire start to June worsened early on Friday, with the cryptocurrency on course to trade more than 16% lower for the week.\nPrices had fallen to April lows on Tuesday after crypto treasury company Strategy sold a small amount of its bitcoin holding, weighing on sentiment.\nMeanwhile, tech stocks have been under pressure, bringing an end to an extended rally, after Broadcom's revenue miss on Wednesday sent semiconductor stocks lower.\nTo cap off an already bruising week in crypto, privacy coin Zcash tumbled after an AI-assisted security review exposed a long-standing vulnerability that could have allowed the creation of counterfeit ZEC.\nA bitcoin rebound, or characteristic dip-buying by investors, is yet to take place. It was last seen trading at $62,500, meaning it is down by about half since its all-time high of $126k in October 2025 – a decline of 50% in just ten months.\nAs of now, bitcoin is teetering just above the psychologically important $60k threshold. The last time it traded below $60k was on September 18, 2024.\nCharles-Henry Monchau, chief investment officer at Syz Group, said bitcoin's latest weekly decline has been driven by a combination of Strategy's forced selling and a crowding-out effect from hot money chasing other assets.\n\"Speculators are going all-in on AI stocks and memory chips, especially in Korea, and the market also anticipates that upcoming monster IPOs will divert some retail money into the new stocks,\" Monchau told CNBC over email.\nAdditionally, bitcoin's key catalyst for renewed investor interest, the crypto market structure bill known as the Clarity Act, is drifting further out of reach as legislative priorities shift and lawmakers remain divided on key provisions of the bill.\nAs uncertainty around the Iran war has kept bitcoin under pressure, the stock market has risen to new records. The divergence has investors questioning both of bitcoin's dominant narratives: that it is \"digital gold\" that should benefit from geopolitical uncertainty, and that it trades like a high beta tech stock.\n\"We saw the 30-day Pearson correlation between bitcoin and the Nasdaq and S&P 500 reach a near-perfect positive correlation as recently as a month ago, but that has collapsed over the last several weeks,\" Rajiv Sawhney, head of international portfolio management at Wave Digital Assets, told CNBC over email.\n\"So while global equities, particularly tech stocks, continued to reach new all-time highs, bitcoin has failed to track the same upward price trend.\"\nOthers see the most recent moves as an opportunity to buy the dip. Speaking to CNBC's Squawk Box Europe on Friday, Strive Chief Executive Matt Cole said that bitcoin's fundamentals have \"never been better.\"\n\"This is the fifth time that bitcoin has been at its 200-week moving average — the previous four have all been the perfect time to buy the dip, and I think this time will age in the same manner,\" he added.",
+  "published_at": "2026-06-05T14:10:26Z",
+  "author": null,
+  "collected_at": "2026-06-05T15:19:54.005872Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

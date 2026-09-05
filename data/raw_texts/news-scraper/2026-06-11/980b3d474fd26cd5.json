@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/truist-says-meta-has-found-its-next-20-billion-business.html",
+  "title": "Truist says Meta has found its next $20 billion business, stock set to gain more than 40%",
+  "raw_text": "Shares of Meta Platforms are set to surge as the company develops new sources of revenue, including subscriptions, according to Truist. The firm reiterated its buy rating on Meta, maintaining its price target of $840. That implies nearly 44% from Monday's close. Shares are off roughly 11% year to date. META YTD mountain Meta Platforms in 2026 \"We remain constructive on Meta as the company continues to outgrow the digital ad while also diversifying into new revenue streams, including subscriptions,\" the analysts wrote. The social media company has increased its focus on building additional revenue sources. Analysts at Truist say the ad-based model is similar to Google 's successful expansion into subscriptions through YouTube and Google One, which generated a revenue of over $35 billion in fiscal year 2025. The recent launch of consumer- focused \"Plus\" tiers across Facebook, Instagram and WhatsApp, alongside paid Meta AI offerings, gives users extra personalization, engagement and audience control features. Truist estimates such features could attract over 360 million paid subscriptions, which could generate over $20 billion in high-margin revenue by 2030, accounting for roughly 5% of Meta's revenue. Recent advances in Meta's multimodal reasoning model, Muse Spark , also helped launch premium subscriptions , including Meta OnePlus and Meta One Premium. With features like advanced image/video generation, unlimited voice conversations and \"Thinking Mode,\" the company is targeting users willing to pay for higher compute limits and advanced agentic workflows, Truist analysts said. Truist estimates Instagram Plus could generate about $10 billion in annual revenue by 2030, followed by Meta AI at roughly $6.5 billion. Facebook Plus and WhatsApp Plus are projected to generate roughly $2.8 billion and about $2 billion, respectively. Subscriptions for Plus tiers range from $3 to $4 per month, with Facebook Plus and Instagram Plus costing $3.99 per month, WhatsApp Plus $2.99 per month, while Meta's AI-focused plan ranges from $7.99 to $19.99 per month. \"Over time, we see Meta offering other subscription types beyond the ones we discussed above including subscriptions supporting its hardware offerings particularly around Meta glasses with added functionality like storage and longer recording,\" according to analysts at the bank.",
+  "published_at": "2026-06-09T16:12:47Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.358809Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

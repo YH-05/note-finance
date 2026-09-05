@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605151665",
+  "title": "ダウ平均は反落して始まる　３４９ドル安　ナスダックも大幅安で始まる＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は反落して始まる ３４９ドル安 ナスダックも大幅安で始まる＝米国株オープン\nダウ平均 49713.90（-349.56 -0.70%）\nナスダック 26215.15（-420.07 -1.59%）\nCME日経平均先物 61845（大証終比：-195 -0.32%）\n株探ニュース",
+  "published_at": "2026-05-15T13:32:00Z",
+  "author": null,
+  "collected_at": "2026-05-15T15:00:21.566395Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

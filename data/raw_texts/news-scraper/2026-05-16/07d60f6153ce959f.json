@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/claude-codes-product-lead-talks-usage-limits-transparency-and-the-lean-harness/",
+  "title": "Claude Code's product lead talks usage limits, transparency, and the \"lean harness\"",
+  "raw_text": "SAN FRANCISCO—Amid an ever-expanding array of surfaces, growing demand for tokens and compute, and a rapidly evolving user base, Anthropic doesn’t have a long-term road map for Claude Code. However, it’s betting that such a plan would be rendered moot by improvements in model capabilities and new signals from developers on how best to use it. That’s the takeaway from a 30-minute conversation Ars had with Cat Wu, Anthropic’s head of product for Claude Code.\nLast week, in a three-level car rental parking garage meticulously converted into an event space in downtown San Francisco, Anthropic put on its second annual Code with Claude developer conference. As previously reported, the single-day event included a keynote introducing new features for Managed Agents and announcing a compute deal with SpaceX.\nThat compute deal was accompanied by a doubling of usage limits for Claude Code users on the company’s Pro and Max plans—a response to a lot of user frustration about a compute crunch, especially in recent weeks.\nAnthropic’s products—especially Claude Code, its tool for agentic software development—have seen runaway popularity. “We tried to plan very well for a world of 10x growth per year,” Anthropic CEO Dario Amodei said on stage at the conference. “And yet we saw 80x, and so that is the reason we have had difficulties with compute.”\nUser growth was accompanied by a shift in how people used the company’s models, away from simple chat interfaces to complex, multi-agent workflows that are many times more demanding.\nDuring the crunch, Anthropic has been testing solutions to reduce demand, like enforcing stricter limits during peak hours or removing Claude Code from its cheaper subscription plan.\nAnd over the past year, Anthropic has released a plethora of new features, products, and surfaces for interacting with its models. Claude Code went from the CLI to the IDE to the desktop, and new tools for managing multiple agents were rolled out, too. The pace at which the company has shipped has been intense and chaotic at times.",
+  "published_at": "2026-05-15T10:30:01Z",
+  "author": "Samuel Axon",
+  "collected_at": "2026-05-16T03:00:31.231147Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "agentic AI",
+      "Anthropic",
+      "Cat Wu",
+      "Claude",
+      "Claude Code",
+      "Code with Claude",
+      "software development"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/us-customs-agency-trade-judge-to-seek-path-to-final-tariff-refunds.html",
+  "title": "U.S. customs agency, trade judge to seek path to final tariff refunds",
+  "raw_text": "Officials from the U.S. Customs and Border Protection agency head to a federal trade court on Tuesday to try to find a way to refund tens of billions of dollars of tariffs that were collected and later deemed illegal by the Supreme Court.\nJudge Richard Eaton of the Court of International Trade in Manhattan has framed the hearing as a negotiating session to sort out what needs to be done to return the remaining chunk of the $166 billion in illegal tariffs.\n\"All of the substantive law in this case has either been decided by the Supreme Court, or is the subject of settled law,\" Eaton wrote in a letter that appeared on the court docket on June 3. \"All that remains are, what might be termed, settlement negotiations.\"\nThe CBP has said that it has accepted and started processing claims for nearly $90 billion in refunds of what it estimates could be up to $127 billion in so-called Phase 1 refunds, which are the least-complicated cases. The CBP said in a June 4 court filing that $22 billion in refunds have been completed and sent to the Treasury Department for distribution to importers.\nThe next phase involves more legally complicated and older, so-called liquidated tariffs. An importer typically pays an estimated tariff and around a year later the CBP finalizes the tariff amount, which is called liquidation. CBP has said it can only process liquidated tariffs in certain situations or if the importer sues.\nSmaller companies, which make up the vast bulk of importers, fear the cost of suing and the time and distraction involved might not be worth the effort to obtain a refund.\nEaton wrote the June 3 letter in response to the government resisting his order that the CBP commissioner appear at Tuesday's hearing. The U.S. Court of Appeals for the Federal Circuit later temporarily stayed that order and Eaton agreed to allow CBP to send a lower-ranking official.\nThe CBP has also argued that the Supreme Court ruled last year that federal judges lack the authority to issue nationwide injunctions.\nTo circumvent that potential problem, companies have asked Eaton to certify a class of all importers who paid the illegal tariffs. Creating a class of importers could give Eaton a path to issue a single order that would apply to all importers and simplify the refund process without the need for each importer to file a lawsuit.\nThe U.S. Supreme Court struck down tariffs U.S. President Donald Trump imposed under an emergency economic law in February. The Trump administration, which has put tariffs at the center of its trade policy, has since used other legal authorities to impose new tariffs.",
+  "published_at": "2026-06-09T16:05:53Z",
+  "author": null,
+  "collected_at": "2026-06-09T21:19:36.879168Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/this-ai-stock-was-left-for-dead-now-traders-are-betting-big-on-a-comeback.html",
+  "title": "This AI stock was left for dead. Now traders are betting big on a comeback",
+  "raw_text": "It's hard to find an AI stock that's not making new highs on a daily basis.\nPerhaps that's why options traders are piling into Super Micro Computer, the data-center server play that's up 15% Wednesday after earnings, but still down 49% from last year's high.\nOptions volumes skew bullish in the stock, with almost five times more calls than puts traded Wednesday and call premiums accounting for about 90% of options value traded.\nThree of the biggest trades by dollar amount were call buyers, with one trader spending $1.4 million on 2,000 of the 35-strike calls expiring Jan. 15 next year. The most popular contract was also the 35-strike, expiring May 8, where 22,000 trades occurred. Super Micro hasn't traded above that level since December.\nSuper Micro shares are now up almost 50% since March, when shares crashed 30% after reports that its cofounder, a manager and a contractor were charged with smuggling Nvidia chips to China by the U.S. Attorney's Office for the Southern District of New York. The company itself was not named as a defendant.\nEarnings Tuesday night are helping to turn the story around after the server maker issued strong guidance, although revenue for its fiscal third quarter came in below estimates.",
+  "published_at": "2026-05-06T16:47:13Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.322456Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605181251",
+  "title": "【市場反応】米5月NAHB住宅市場指数は予想外に上昇、ドル売り後退",
+  "raw_text": "【市況】【市場反応】米5月NAHB住宅市場指数は予想外に上昇、ドル売り後退\n5月全米ホームビルダー協会（NAHB）住宅市場指数は37と、予想外に4月34から上昇した。25カ月連続で50を割り込み、企業が引き続き市場を悲観視していることが明かになった。\nドル・円は158円61銭から158円90銭まで上昇。ユーロ・ドルは1.1657ドルの高値から1.1646ドルまで反落した。ポンド・ドルは1.3400ドルで高止まりとなった。\n【経済指標】\n・米・5月NAHB住宅市場指数：37（予想：34、4月：34）\n《KY》\n提供：フィスコ",
+  "published_at": "2026-05-18T14:30:33Z",
+  "author": null,
+  "collected_at": "2026-05-18T15:00:21.769265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

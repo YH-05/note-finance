@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/933556/google-io-gemini-volvo-ex60-camera-ai-parking",
+  "title": "Gemini will use Volvo’s external cameras to interpret parking signs",
+  "raw_text": "Gemini is gaining the power of sight and mobility. Today at the I/O conference, Google and Volvo announced that the AI-powered assistant will be able to access external cameras in the upcoming EX60 SUV to help explain and interpret its surroundings to vehicle owners. The upgrade is possible thanks to Volvo’s use of Google’s embedded Android Automotive as its vehicle operating system.\nGemini will use Volvo’s external cameras to interpret parking signs\nIf you get a parking ticket, you can just blame AI.\nIf you get a parking ticket, you can just blame AI.\nGoogle posits that the first use case will be to ask Gemini to translate difficult-to-understand parking signs, though the company obviously sees other future applications as possible as well. Google envisions a camera-enabled Gemini recalling a road sign, interpreting lane markings, or even answering questions about a nearby landmark or restaurant. The company says Gemini will be able to tell car owners how long they can park in a certain location, whether they need certain permits, and other restrictions.\n“In the future, Gemini will make your drive more helpful by allowing you to learn more about your surroundings while on the road,” Patrick Brady, VP of Android Automotive at Google, said in a statement.\nThis feature isn’t just powered by Google’s Gemini alone; it also relies on the EX60’s computing power provided by Qualcomm’s Snapdragon system-on-a-chip, as well as its over-the-air software capabilities.\nThe parking sign interpretation seems like it could be legitimately useful — as long as its accurate. Testing will obviously determine whether the system works as well as Google claims. I live in the New York City region, and parking signs are notoriously difficult to decipher. But you can also imagine a scenario in which Gemini wrongly interprets a parking sign, resulting in a pricey ticket or, even worse, vehicle impoundment. Google needs to be sure that it nails this feature, otherwise car owners will simply disable it.\nWith the power of sight, Google also says Maps will be more adept at delivering navigation directions. Volvo will be among the first automakers to receive Google Map’s new Immersive Navigation feature, in which the route is rendered in 3D with better graphics to more closely resemble the real world. With access to external cameras, for example, Google Maps will deliver more conversational directions that takes into account nearby landmarks, like “go past this light and take the next left at the library.”\nCorrection May 19: A previous version of this story attributed the EX60’s AI-powered features to Nvidia computing power. The features run on Qualcomm’s Snapdragon system-on-a-chip.",
+  "published_at": "2026-05-19T18:00:00Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-05-19T21:00:19.855394Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Cars",
+      "Google",
+      "Google I/O 2026",
+      "News",
+      "Tech",
+      "Transportation",
+      "Volvo"
+    ]
+  }
+}

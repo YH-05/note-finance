@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/my-ssn-was-exposed-in-a-breach-at-columbia-a-school-i-have-no-connection-with/",
+  "title": "My SSN was exposed in a breach at Columbia—a school I have no connection with",
+  "raw_text": "A weird text from my dad in February sent me on a months-long quest to solve a mystery that has been troubling an odd group of victims from a Columbia University data breach last year. That group? People with absolutely no connection to the school.\nThe text included a photo of a letter from Columbia, informing me that I was a victim of a data breach last June, one that exposed a wide range of sensitive information, including 1.8 million Social Security numbers.\nColumbia’s public notices about the breach were addressed exclusively to “members of the Columbia community.” In the notices, Columbia warned that an “unauthorized party obtained information about students and applicants related to admissions, enrollment, and financial aid processes, as well as certain personal information associated with some Columbia employees.” Major news reports that followed only referenced people affiliated with Columbia as victims, while pointing out that the hacktivist behind the breach was reportedly motivated to expose Columbia’s history of “affirmative action-based” admissions.\nBut I don’t belong to the “Columbia community.” I have never applied for, attended, or worked for the school. And the letter sent to me—which arrived six months after the public notice—did not explain how Columbia obtained and exposed my SSN. All the letter said was that the breach affected “certain personal information about admissions, enrollment, and the financial aid process.” It directed me to sign up for free credit monitoring from Kroll Monitoring, a service Columbia hired to manage the hotline for victims.\nIt took a nightmare journey through Columbia’s victim support services before a Columbia official finally explained how decades of third-party data collection, combined with multiple unsuccessful data-removal initiatives, had led the school to warehouse data from so many unaffiliated people.\nDid taking the SAT expose my SSN?\nIn my search for information, Kroll’s hotline felt like a dead end. The only option hotline staffers offered victims like me was to escalate the case, and if you called back, they would offer to re-escalate it. Supposedly, escalation would result in a callback with more information. When weeks passed without any follow-up, I tried a different route and contacted Columbia’s IT call center.",
+  "published_at": "2026-06-04T13:48:51Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-06-04T21:00:31.660881Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Policy",
+      "Columbia university",
+      "data breach",
+      "social security numbers"
+    ]
+  }
+}

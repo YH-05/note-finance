@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/04/trump-nominates-fox-news-doctor-to-be-the-next-surgeon-general/",
+  "title": "Trump nominates Fox News doctor to be the next surgeon general",
+  "raw_text": "In a series of social media posts Thursday, President Trump withdrew his nomination of Make America Health Again influencer Casey Means to be surgeon general, lashed out at Sen. Bill Cassidy (R-La.) for Means’ stalled nomination in the Senate, then announced a new nominee: Nicole B. Saphier, a breast radiologist at Memorial Sloan Kettering Cancer Center, a Fox News contributor, and founder of an herbal supplement company who has questioned vaccines.\nTrump’s abandonment of Means comes as no surprise. The nomination of the Stanford University-trained doctor has been stalled in the Senate since her February confirmation hearing before the Senate Health, Education, Labor, and Pensions (HELP) Committee, which Cassidy chairs. Afterward, it became clear that several Republican lawmakers, including Cassidy, had reservations about her nomination.\nDoubts about Means\nSpecifically, concerns centered around her vaccine views and qualifications. Although she has a medical degree, she dropped out of her medical residency and does not hold an active license, which means, if confirmed, she would serve as the country’s top doctor without being able to practice medicine. During her hearing, she largely tried to skirt questions about vaccines, avoiding explicitly recommending lifesaving shots or contradicting the views of anti-vaccine Health Secretary Robert F. Kennedy Jr.\nSince abandoning her medical career, Means has built a lucrative wellness career, becoming a prominent influencer among Kennedy’s MAHA movement. As such, she has peddled diagnostic tests, herbal remedies, various wellness products, teas, supplements, and “elixirs,” while providing dubious health advice. In the book Good Energy, which she co-authored with her brother and which some consider the “MAHA bible,” there is a chapter titled, “Trust Yourself, Not Your Doctor.”\nIn a post about Means’ failed nomination, Trump blasted Cassidy, calling him “a very disloyal person,” who “stood in the way of Robert F. Kennedy Jr.’s Nominee, Casey Means.” He then clarified: “I nominated Casey, a strong MAHA Warrior, at the recommendation of Secretary Kennedy, who understands the MAHA Movement better than anyone, with perhaps the possible exception of ME!” Trump ended by thanking Means and saying she would continue to fight for MAHA.",
+  "published_at": "2026-04-30T22:09:36Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-03T03:00:31.304433Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "Casey Means",
+      "Nicole Saphier",
+      "robert f kennedy jr",
+      "Surgeon General",
+      "Trump"
+    ]
+  }
+}

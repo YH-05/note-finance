@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20344-maharashtra-announces-possible-data-centre-deal-with-airtrunk.html",
+  "title": "Maharashtra announces possible data centre deal with AirTrunk",
+  "raw_text": "The Government of Maharashtra in Western India has signed a letter of intent (a preliminary, non-binding agreement similar to a memorandum of understanding or MoU) with hyperscale data centre specialist AirTrunk for a data centre deal potentially worth 2 trillion rupees (about US$21 billion).\nPosting on LinkedIn, Devendra Fadnavis Chief Minister of Maharashtra explained: “We exchanged a Letter of Intent for land allotment at the Raigad Pen Growth Centre (Orange City) for their upcoming Data Centre — a massive ₹2 Lakh Crore investment with 3 GW capacity!”\nThe Raigad Pen Growth Centre is a 1,217-acre smart city located in Pen Taluka, in the state’s Raigad district.\nFounded in 2018, AirTrunk was acquired by asset manager Blackstone and the Canada Pension Plan Investment Board (CPPIB) for US$16.1 billion in 2024 in what was reportedly the largest-ever deal in the space at the time.\nThe company is fairly new to the Indian market. In fact, we reported earlier this year that it had acquired Lumina CloudInfra, a developer of large-scale data centres with a strong presence in India, a deal that marked its entry into the market.\nThe Data Centre Dynamics website reports that AirTrunk has data centres either operating or under development in Mumbai, Chennai, and Hyderabad. It also operates in Malaysia, as well as its home market, Australia, and Hong Kong, Japan and Singapore.\nThis is not the only recent data centre deal in this fast-growing market. As we reported yesterday, the diversified infrastructure firm Anant Raj has signed an MoU with the government of the North Indian state of Haryana to invest in the development of a large-scale data centre in the state.",
+  "published_at": "2026-06-04T13:30:53Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-11T03:01:35.755782Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

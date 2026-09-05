@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/project-prometheus-bezos-bajaj-live-updates.html",
+  "title": "Bezos opens up about AI startup Prometheus after $12 billion raise: 'We're not being secretive'",
+  "raw_text": "Prometheus, one of Jeff Bezos' newest ventures, announced a $12 billion funding round on Thursday that values the company at $41 billion.\nThe artificial intelligence startup launched in November with $6.2 billion in funding.\nBezos, who stepped down as Amazon CEO in 2021, serves as co-CEO alongside Vik Bajaj, a professor at Stanford University's School of Medicine who previously co-founded Alphabet's Verily, a research lab dedicated to life sciences.\nCNBC's David Faber spoke with Bezos and Bajaj exclusively from Prometheus headquarters in San Francisco on Thursday.\nKey moments from the exclusive interview:\n- Prometheus raises $12 billion at $41 billion valuation\n- Amazon could work with Prometheus\n- Bezos says Prometheus isn't being \"secretive\"\n- Bezos on AI regulation: \"Reasonable\" rules are needed\n- AI will raise the standard of living\nIn his first time speaking at length about the startup, Bezos revealed that Prometheus is developing a set of AI tools to help engineers design and manufacture physical products easier and faster. He said it's still \"premature\" to disclose what Prometheus has accomplished so far, \"but it's really quite remarkable.\"\nThe latest funding round will help Prometheus acquire more compute, Bezos said.\n\"That is a big chunk of the funding we've raised,\" he said. \"And one of the reasons we've had to raise a significant amount of funding is because ... what we're doing is very compute intensive and we need to, you know, create that data.\"\nPrometheus is focused on building AI models for physical tasks, including engineering, manufacturing and drug design. The startup has remained tight-lipped about its initial products, and it has been busy recruiting talent from companies including OpenAI, Google DeepMind and Nvidia.",
+  "published_at": "2026-06-11T15:59:13Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.768601Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

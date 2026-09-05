@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-cloud-virtualization/20262-telesur-selects-squire-technologies-for-ribbon-sbc-replacement.html",
+  "title": "Telesur selects Squire Technologies for Ribbon SBC Replacement",
+  "raw_text": "Suriname’s Telesur has selected Squire Technologies to provide a Ribbon SBC replacement as part of a wide-reaching network transformation.\nTelesur delivers fibre broadband, 4G LTE, and 5G to businesses and subscribers in Suriname, and is now evolving into a digital platform to provide services such as deliver fintech, cloud computing and data services. The new agreement with Squire Technologies will allow Telesur to enhance its B2B/residential offer with VoIP services.\nTo enable full SIP routing and interconnect, Squire Technologies will provide a Ribbon SBC replacement via its Voice Platform, Vozi. The platform combines the functionality of Squire’s SBC, SSR (SIP Session Router) and a C5 Softswitch, consolidating analogue and digital VoIP solutions, and offers unique SSR functionality with an inbuilt MGC to control third-party Gateways over MGCP.\nThe MGC will facilitate the migration of analogue customers to SIP, and the C5 Softswitch will enable new B2B VoIP service offers. The combined SBC SIP interconnects and C5 VoIP services enable Telesur to sell its own VoIP retail services, opening new revenue streams.\nIn past years, Suriname’s economy has experienced considerable volatility. The nation’s primary exports - oil and gold - have left it vulnerable to global price fluctuations. However, investment in digital infrastructure is enabling the country’s economy to diversify into other areas.\nTelesur is providing the resources that are transforming healthcare, education, employment and sustainability initiatives. The company is a leader in sustainable connectivity, utilising 75 solar-powered sites to extend connectivity into remote areas. Network enhancements mean that Surinamese can access financial services from hard-to-reach places, reducing the country’s digital divide.\n“In recent years, our efforts to extend coverage to hard-to-reach areas have boosted digital inclusion. This project continues our commitment to ensuring our customers get the most from their connection”, said Doric Ramlakhan, CEO at Telesur.",
+  "published_at": "2026-05-18T14:10:07Z",
+  "author": "James Barton",
+  "collected_at": "2026-05-22T03:01:36.701060Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cloud & Virtualisation"
+    ]
+  }
+}

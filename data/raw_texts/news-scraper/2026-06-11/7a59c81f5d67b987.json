@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606120060",
+  "title": "トランプ大統領　合意がまとまった",
+  "raw_text": "【注目】トランプ大統領 合意がまとまった\n・イランと戦争を巡る偉大な和解に達した。\n・イランとの合意の署名は恐らく欧州で行われる。\n・合意が署名され次第、海峡は開かれる。\n・自分ではなく、バンス副大統領が署名へ。\n・署名は週末にも行われる可能性がある。\n株探ニュース",
+  "published_at": "2026-06-11T19:39:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:00:21.486905Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

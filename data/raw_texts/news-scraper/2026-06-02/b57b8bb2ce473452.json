@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/meta-tests-series-for-episodic-reels-on-instagram-and-facebook/",
+  "title": "Meta tests ‘Series’ for episodic Reels on Instagram and Facebook",
+  "raw_text": "Meta is testing a new “Series” feature for Reels that’s designed to make it easier to keep up with serialized content on Instagram and Facebook, the company told TechCrunch.\nSelect creators will now be able to create a series using their Reels, both new and old. Each Reel will become an episode in a bigger story with a dedicated hub on their profile, mirroring an experience that’s already available on TikTok.\nThe launch of the new feature indicates that Meta is embracing longer-term viewing, rather than quick scrolling sessions, as is normally the case with short-form videos. With organized series, the social media giant is looking to bring audiences back repeatedly and build stronger viewing habits. As for creators, the new feature offers a more organized way to release episodic videos, like tutorials and challenges.\nMeta told TechCrunch that it’s considering ways to monetize the new feature, but didn’t share specifics on what that could look like.\nIt’s worth noting that Instagram rival TikTok launched a Series feature back in 2023, allowing creators to post collections of premium content behind a paywall that viewers can purchase for access. It’s possible that Meta could follow a similar playbook with its own series feature in the future.\nMeta says it’s already seeing serialized content take off, so its newest test feature is meant to make it simpler to catch every episode. For example, if a creator is doing a “10 days of healthier baking” series, they can bundle all 10 videos into a single series. The series would appear in a new tab on the creator’s profile with its own page so people can find all the episodes, watch them in order, and pick up where they left off.\nWhen viewers discover episodes of a series while scrolling their feed or the Reels tab, they will see the option to tap into the full series to see other episodes. Users also have the option to save a series to watch later or stay up-to-date.\nFor the testing phase, Meta is working with select creators and content producers who have already shared serialized content on Instagram and Facebook.",
+  "published_at": "2026-06-02T15:00:00Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-06-02T21:00:26.838288Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Social",
+      "Facebook",
+      "Instagram",
+      "Meta",
+      "reels"
+    ]
+  }
+}

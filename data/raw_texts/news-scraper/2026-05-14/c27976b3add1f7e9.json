@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/929160/dell-alienware-15-laptop-price-release-date-branding",
+  "title": "Dell and RAMageddon are watering down the Alienware brand",
+  "raw_text": "I remember a time when Alienware refused to make a thinner laptop — the company didn’t want to compromise on its builds. But today, Dell is slapping the Alienware name on a piece of hardware that sounds utterly watered down. It’s partly RAMageddon’s fault.\nDell and RAMageddon are watering down the Alienware brand\nThe new Alienware 15 sounds cheap — but it comes at a price.\nThe new five-pound Alienware 15 is supposedly an entry-level gaming laptop, one designed to invite those with less cash into the fold. That’s an admirable goal at a time when all kinds of gaming hardware suddenly costs more. But unlike Alienware’s affordable $350 OLED monitor, the laptop does not sound like good value for the money.\nEven with a last-gen, entry-level Nvidia RTX 4050 graphics chip, you’ll pay $1,299 and up. (In some markets the laptop will start with an RTX 3050 — a five-year old chip!) An RTX 5050 will cost you $1,459 or more and a midrange RTX 5060 model costs $1,849 and up.\nFor that kind of money you could easily find more powerful specs from a competing brand. Generally, a 5060 laptop can be had for $1,400 MSRP or closer to $1,100 on sale. Dell’s RTX 5060 prices are squarely in RTX 5070 territory.\nDid I mention that the 15.3-inch, 1920 x 1200, 165Hz screen only displays 62.5 percent of the sRGB color spectrum? Yes, sRGB, not the superior Adobe RGB or DCI-P3. Even the lackluster Alienware 16 Aurora, the company’s first stab at releasing a too-pricey budget machine, managed 100 percent of sRGB, and for less money too. That 16-incher could be had with a 96 watt-hour battery and an RTX 5060 for $1,469.99, while the Alienware 15 costs $380 more for a smaller 70Wh battery and the same GPU.\nNot that you should pick an Alienware 16, necessarily, as both machines cut corners. Both only have a 720p webcam at 30fps, and most of their USB ports top out at just 5Gbps. You do get one 10Gbps, 100W USB-C docking port, but it’s USB 3.2, not USB 4 or Thunderbolt. At least the Alienware 15 has an HDMI 2.1 port, some form of Ethernet, and the keyboard is backlit — but in white, not the RGB you’d expect from Alienware.\nPerhaps the Alienware 15’s lightly sloped and curved chassis, or its entry-level Ryzen 200 or Intel Core (not Ultra) CPUs, will pleasantly surprise buyers by punching above their weight. But if I were short on cash, I’d be looking at machines like this HP or this Asus instead. I fear this story is everything we told you about RAMageddon coming true — not just price hikes, but manufacturers also cutting corners simultaneously.\n“The rising cost of RAM is affecting pricing across the industry. The Alienware 15 is priced to be competitive in that context,” Dell spokesperson Frank Cestone tells The Verge, adding that it plans to have regular sales on the Alienware 15.\nEven if RAM and storage prices backed Dell into a corner, though, surely it could have shielded its premium gaming brand from damage by calling this a Dell instead? I can’t figure out what “Alienware” even stands for with the new Alienware 15. I hope the leaked Nvidia N1X-powered Alienware is far more interesting.",
+  "published_at": "2026-05-14T13:00:00Z",
+  "author": "Sean Hollister",
+  "collected_at": "2026-05-14T15:00:16.288345Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Dell",
+      "Gadgets",
+      "Laptops",
+      "News",
+      "Tech"
+    ]
+  }
+}

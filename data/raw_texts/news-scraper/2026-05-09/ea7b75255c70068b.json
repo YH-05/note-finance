@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20221-airtel-africa-profit-jumps-as-revenues-near-6-5bn.html",
+  "title": "Airtel Africa profit jumps as revenues near $6.5bn",
+  "raw_text": "Airtel Africa posted strong results for the year ended March 31, 2026, with revenue growth accelerating across its core mobile, data and fintech businesses.\nReported revenue increased 29.5% year-on-year to US$6.4 billion, while constant currency revenue growth reached 24%. The operator said growth was driven by strong demand for digital services, tariff adjustments in Nigeria and continued customer expansion across its markets.\nProfit after tax rose sharply to US$813 million from US$328 million a year earlier, helped by higher operating profit and foreign exchange gains. Underlying EBITDA increased 37.2% in reported currency to US$3.16 billion, with EBITDA margins reaching 49.3%.\nAirtel Africa’s customer base grew 10.5% to 183.5 million users, while smartphone penetration climbed to 49.5%. Data customers increased 14.8% to 84.2 million, with average monthly data usage rising from 7GB to 8.9GB per user.\nMobile money continued to be a major growth driver, with Airtel Money customers rising 21.3% to 54.1 million. Annualised transaction value surpassed US$215 billion in the fourth quarter, supported by broader digital adoption and expanding use cases.\nThe operator invested heavily in network expansion during the year, rolling out more than 3,250 sites and extending its fibre footprint by around 3,200km to 81,900km. Capital expenditure rose 31.9% to US$884 million, with Airtel Africa planning to increase spending further to around US$1.1 billion in FY27.\nCEO Sunil Taldar said the results reflected strong execution and growing demand for digital connectivity and financial services across the company’s footprint. He added that Airtel Africa remains committed to listing Airtel Money in the second half of 2026, subject to market conditions.",
+  "published_at": "2026-05-08T10:02:55Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-09T03:02:24.062728Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

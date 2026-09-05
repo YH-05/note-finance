@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/ai-agents-crypto-could-escape-and-become-unstoppable-experts-warn",
+  "title": "AI Agents With Crypto Could Escape And Become 'Unstoppable', Experts Warn",
+  "raw_text": "Artificial intelligence agents that have autonomous access to crypto wallets could become unstoppable if deployed maliciously or if they escape from sandboxes, experts from a leading academic research consortium warned.\n“Unstoppable Autonomous Agents” (UAAs) pose a clear threat if they are deployed to persist automatically and have access to digital assets, according to a June 8 industry review written by 25 academics and experts from top US universities for the Initiative for Cryptocurrencies and Contracts (IC3).\n“When combined systematically, crypto tools can channel AI’s fluid power into secure, reliable, and highly autonomous systems,” the researchers wrote.\nHowever, this combination could have “far-reaching consequences for users and the financial system,” they added.\nUAAs may also be equipped with access to cryptocurrency wallets, social media accounts, APIs, and other external tools, said the researchers.\n“The capabilities enabling such agents are already emerging and improving rapidly.”\nThe warning comes as crypto projects and executives have been pushing the agentic payment and micropayment economy narrative this year, suggesting it could be the biggest use case for decentralized digital assets.\nAI self-replication alarm bells\nThe paper also revealed that existing models can already “surpass self-replication red lines” in local environments, by autonomously creating a live, separate copy of themselves on the same machine, “a capability that could let a system evade shutdown and proliferate.”\nBecause reward signals used in training often fail to perfectly capture the intended objectives, “UAAs deployed for benign purposes may inadvertently cause harm,” or pursue resource acquisition as a default strategy, they said.\nHowever, the authors noted that models have yet to replicate themselves onto external infrastructure.\nPotential AI agent insider trading advantages\nA fleet of self-replicating, resource-acquiring agents could also create unpredictable demand and liquidity dynamics in crypto markets.\n“AI-powered trading systems could enable collusion between autonomous agents and create unfair insider advantages through opaque strategies.”\nThe tech sector is already dealing with difficult questions about the threat of unmitigated AI.\nModels such as Anthropic’s Claude Mythos have already been shown to be capable of finding and exploiting zero-day vulnerabilities in major operating systems.\nProfessor Ari Juels, IC3 co-director and Chainlink Labs chief scientist, presents the paper at ETHConf. Source: IC3\nMeanwhile, Gartner warned in late May that governance failures around autonomous AI agents could trigger widespread enterprise failures, predicting 40% of companies will be forced to decommission their agents by 2027.\n“The harms that could follow from fully autonomous agents of this kind are severe,” the researchers said, suggesting circuit breaker guardrails.",
+  "published_at": "2026-06-09T18:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-09T21:00:43.502087Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

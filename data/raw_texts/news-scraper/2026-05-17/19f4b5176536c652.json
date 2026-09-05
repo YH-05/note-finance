@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20255-kenya-insists-in-local-presence-for-x-as-social-media-reach-grows.html",
+  "title": "Kenya insists in local presence for X as social media reach grows",
+  "raw_text": "The Kenyan government has given social media platform X, formerly Twitter, three months to establish a physical presence in the country.\nCabinet Secretary for the Ministry of Information, Communications and the Digital Economy William Kabogo has explained that X is currently operating under temporary authorisation while compliance talks continue.\nAccording to ITWeb Africa, Kabogo told senators on Wednesday that the requirement forms part of broader efforts to enforce child protection and content moderation standards on platforms with large audiences in Kenya.\nThe argument appears to be that if a company has offices in Kenya and is accused of issues arising from its platforms, it can then be held accountable in that country.\nIn addition, it seems that an expanded framework has been granted to the regulator the Communications Authority of Kenya, which can now suspend the operations of digital platforms that breach local rules or fail to comply with directives issued through the country's communications governance structure.\nOther social media platforms are apparently facing heightened scrutiny, including TikTok and Meta.\nThere is a wider context to this; the growing influence and reach of social media in Kenya. In fact in early May the Media Council of Kenya, an independent national institution established for the purposes of setting, and ensuring compliance with, media standards, published its State of Media 2025 Survey (available at the MCK website) which revealed that social media has overtaken television as Kenyans’ primary news source. Indeed, 39% of respondents cite it as their main platform.\nTelevision followed at 31%, radio at 19% and other sources made up the remainder. Overall, 74% of Kenyans now use social or digital media platforms for news.\nAccess to social media is dominated by mobile phones; the figure here is 91%. WhatsApp (19.8%) and Facebook (18.2%) are still the most popular platforms, followed by TikTok (14.9%) and YouTube (12.3%).\nMore than half of Kenyans do not regularly visit news websites, underscoring the fact, as the survey puts it, that social platforms have become the primary gateway to news.",
+  "published_at": "2026-05-15T10:02:46Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-17T03:01:28.479757Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

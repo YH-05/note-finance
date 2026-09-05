@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/the-kospi-is-up-100percent-in-2026-goldman-sachs-still-see-more-upside.html",
+  "title": "Korea’s stock market has doubled in 2026, and Goldman still sees another 35% upside",
+  "raw_text": "South Korea's stock market has already doubled this year, but some strategists say the rally may still have room to run as the country's artificial intelligence-linked chip giants continue to power earnings growth.\nGoldman Sachs on Wednesday raised its 12-month target for the benchmark Kospi to 12,000, implying more than 35% upside from current levels.\n\"Earnings are driving Asian equity returns,\" Goldman strategists led by Timothy Moe said, adding that they remain overweight Korea on expectations of \"higher earnings, underpriced memory cycle duration, rerating catalysts.\"\nThe Kospi has surged roughly 100% year-to-date, making it one of the world's best-performing major indexes. But the rally has become increasingly concentrated in a handful of heavyweight technology names, particularly memory-chip maker SK Hynix and electronics giant Samsung Electronics.\nGlobal financial services firm BTIG noted that the rapid runup comes with risks.\n\"Over the last six sessions, the KOSPI is up 12.15%. Yet breadth was negative each day, and not by a little bit,\" said Jonathan Krinsky, chief market technician at BTIG. \"That is what happens when a few of the largest names make up ~50% of an index.\"\nPeter Kim, global strategist at KB Financial Group, said Korea's \"twin towers\" continue to outpace the broader market by a wide margin, while the semiconductor cycle remains the dominant driver of equity performance.\n\"The stock market action is taking much of the attention away from the underlying vulnerabilities of the Korean economy and its industries,\" Kim wrote in a client note, warning that China is rapidly gaining market share from Korean exporters and that the broader domestic economy remains weak.\nThe divergence between the booming stock market and softer domestic conditions has also complicated the outlook for policymakers. Korea's economy faces sluggish wage growth, weak job creation and pressure from higher energy prices, even as equities and property prices climb.\nThat said, global investors appear willing to look past those risks for now as AI-driven earnings continue to dominate the region's equity story. Goldman sees 60% earnings-per-share growth for Asia Pacific equities in 2026, with technology remaining the market's strongest-performing sector.",
+  "published_at": "2026-06-03T01:07:39Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.477667Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

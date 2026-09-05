@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040014",
+  "title": "東京為替：ドル・円は急落、156円台に下落",
+  "raw_text": "【通貨】東京為替：ドル・円は急落、156円台に下落\n4日午後の東京市場でドル・円は急落し、155円半ばに下値を切下げた。東京市場の休場で薄商いを狙った動きか、相場の行方が注視される。前週は日本の為替介入報道で円買い優勢となり、相場を圧迫している。それに続く措置も警戒され、円売りは後退したもよう。\nここまでの取引レンジは、ドル・円は155円72銭から157円19銭、ユ-ロ・円は182円81銭から184円35銭、ユ-ロ・ドルは1.1720ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-04T04:21:26Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.720129Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

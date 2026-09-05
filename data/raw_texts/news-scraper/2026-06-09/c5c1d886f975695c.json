@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/apples-ios-27-macos-27-golden-gate-and-other-updates-focus-on-refinement/",
+  "title": "Apple's iOS 27, macOS 27 Golden Gate, and other updates focus on refinement",
+  "raw_text": "Apple has taken the wraps off of its next-generation operating system updates at its Worldwide Developers Conference today, including iOS 27, iPadOS 27, and macOS 27 Golden Gate. And while the long-awaited Siri AI update is the headliner, Apple also emphasized its efforts to optimize its software, improving its performance and reliability.\nFor starters, the company is continuing to refine the Liquid Glass design language that it introduced last year. A slider in the Settings will allow users fine-grained control over the translucency of the Liquid Glass effect, ranging from maximally transparent and glassy to fully tinted. Last year’s redesigned icons are also being re-redesigned with more glass layers, which Apple says will make them sharper and more distinctive.\nOn macOS, Apple has also changed the way app toolbars and sidebars work, making toolbars more distinct, making the contents of sidebars extend all the way to the edge of the window, and reintroducing color to sidebar icons. Mac windows are also getting a “tighter corner radius,” to address complaints about the way window resizing works in macOS 26 Tahoe.\nApple has also rebuilt how search works across its operating systems. Updated indexing in Spotlight, Mail, and Photos should make them find both new and old content more reliably.",
+  "published_at": "2026-06-08T18:07:13Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-09T03:00:31.908340Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Tech",
+      "Apple silicon",
+      "MacOS",
+      "wwdc 2026"
+    ]
+  }
+}

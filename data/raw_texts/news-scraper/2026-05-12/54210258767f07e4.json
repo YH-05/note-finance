@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20233-space42-ready-to-launch-skylo-powered-d2d-satellite-on-thuraya-4.html",
+  "title": "Space42 ready to launch Skylo-powered D2D satellite on Thuraya-4",
+  "raw_text": "UAE-based satellite player Space42 revealed on Monday it is ready to launch direct-to-device (D2D) satellite services via its geostationary Thuraya-4 satellite via a partnership with non-terrestrial network (NTN) firm Skylo Technologies.\nSpace42 said that Skylo's 3GPP-compliant NTN platform has already been integrated with Thuraya-4 and is ready for commercial deployment. The two companies have also tested the platform by completing a bi-directional, real-time voice call on the network with no modified SIM and no changes to existing operator core infrastructure.\nSpace42 said that commercial deployment of Thuraya’s D2D service will begin across Thuraya-4’s coverage footprint across 37 countries on a rolling basis as it secures the necessary regulatory approvals and operator agreements in each target market.\n“This partnership advances Space42's strategy to become a global NTN leader, extending Thuraya-4's reach through an interoperable connectivity layer that enables satellite and terrestrial networks to function as one unified system,” said Ali Al Hashemi, Space42’s CEO of space services, in a statement.\n“Space42’s decision to select Skylo’s standards-based architecture for Thuraya-4 validates what we have built: a carrier-grade connectivity layer where satellites function as a natural extension of mobile networks, not a parallel system,” added Skylo co-founder and CEO Parthsarathi Trivedi.\nThuraya-4 – which went live in November 2025 after being launched into orbit earlier in the year – is designed to integrate seamlessly with terrestrial networks to support Space42’s broader strategy to develop and launch 3GPP-compliant D2D satellite services.\nIn September last year, Space42 and Viasat launched their Equatys JV, which aims to leverage 100 MHz of harmonized MSS spectrum already allocated across more than 160 markets to offer D2D services globally.",
+  "published_at": "2026-05-12T03:39:26Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-12T09:01:19.934087Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

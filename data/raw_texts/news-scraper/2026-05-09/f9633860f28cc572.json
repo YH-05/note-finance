@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/cloudflare-net-q1-2026-stock-earnings-layoffs.html",
+  "title": "Cloudflare stock sinks 24% after earnings as company cuts 1,100 employees due to AI changes",
+  "raw_text": "Cloudflare reported first-quarter earnings Thursday that beat analysts' expectations, but the company announced a 20% reduction in its workforce. Shares sank 24% Friday.\nHere's how the cloud company did versus LSEG estimates:\n- Earnings per share: 25 cents vs. 23 cents expected\n- Revenue: $640 million vs. $622 million expected\nIn a blog post, the company announced that it is cutting over 1,100 employees, writing that agentic artificial intelligence has \"fundamentally changed\" the company's work.\n\"This wasn't an easy decision, but it's the right decision,\" CEO Matthew Prince said on the earnings call, adding that there are roles at the company \"that just aren't the roles that we need for the future.\"\nThe company highlighted that its use of AI has increased over 600% in the last three months as it embraces \"an agentic AI-first operating model.\"\nCloudflare's first-quarter revenue increased 34% year-over-year. The company forecasted revenue for the second quarter to fall between $664 million and $665 million. Analysts expected $665 million.\nThe company's Q2 guidance of 27 cents in earnings per share was in line with Wall Street's expectations.\nIn the earnings release, Prince described the growth of AI as the company's biggest tailwind in history.\nThe company forecasted full-year revenue for 2026 to fall between $2.805 billion and $2.813 billion, narrowly beating estimates of $2.8 billion. Cloudflare said it expects full-year earnings between $1.19 per share and $1.20 per share, beating estimates of $1.14.\nCloudflare posted a net loss of $22.93 million, a loss of 7 cents per share in Q1 2026. A year ago, the company had a net loss of $38.45 million, a loss of 11 cents per share.",
+  "published_at": "2026-05-08T14:41:22Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.670433Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

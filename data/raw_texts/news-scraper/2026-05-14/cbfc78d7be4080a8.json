@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/the-newest-ai-boom-pitch-host-a-mini-data-center-at-your-home/",
+  "title": "The newest AI boom pitch: Host a mini data center at your home",
+  "raw_text": "Data centers may be coming to your neighborhood as side installations associated with new homes—and in exchange would offer subsidized electricity and Internet access along with backup batteries to homeowners. The company behind the plan has already begun pilot testing in preparation for a 100-home trial run this year.\nThe “distributed data center solution” announced by the San Francisco startup SPAN would deploy thousands of XFRA nodes that contain liquid-cooled Nvidia RTX Pro 6000 Blackwell Server Edition GPUs operating with minimal noise, according to a press release. By harnessing excess power capacity among US households, SPAN aims to quickly expand the available compute for AI workloads without the costs and delays associated with trying to build warehouse-size data centers.\n“Data centers are loud, ugly, and often drive up local electricity bills,” said Chris Lander, vice president of XFRA at SPAN, in correspondence with Ars. “[This] is quiet, discreet, and makes energy more affordable for the host and community.”\nSPAN’s approach could avoid the significant land use and water consumption issues that come with huge data center projects, which may help sidestep growing community opposition to such developments. In a CNBC interview, SPAN also claimed it could install 8,000 XFRA units at a cost five times lower than building a typical 100-megawatt data center with the same compute capacity.\nStarting in 2027, SPAN plans to scale up to 80,000 XFRA nodes across the United States and provide more than 1 gigawatt of distributed compute. This network would not replace the centralized data centers being built by hyperscaler companies such as Google and Microsoft for the intensive training of AI models, but would instead be more suitable for supporting cloud gaming, content streaming, and AI inference, in which trained models are applied to real-world tasks.",
+  "published_at": "2026-05-12T21:59:03Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-14T03:00:28.571371Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ai data centers",
+      "AI GPU",
+      "data centers",
+      "GPU",
+      "NVIDIA"
+    ]
+  }
+}

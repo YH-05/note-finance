@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/924551/microsoft-xbox-ceo-copilot-ai-asha-sharma",
+  "title": "Microsoft gives up on Xbox Copilot AI",
+  "raw_text": "Xbox is “winding down Copilot on mobile” and “will stop development of Copilot on console,” new Xbox CEO Asha Sharma announced on Tuesday. The move follows Sharma’s reorganization of the Xbox platform team earlier on Tuesday, which added executives from Microsoft’s CoreAI team — where Sharma worked before taking over Xbox — to the Xbox side of the company.\nMicrosoft gives up on Xbox Copilot AI\nNew Xbox CEO Asha Sharma continues to make her mark.\nNew Xbox CEO Asha Sharma continues to make her mark.\nXbox needs to move faster, deepen our connection with the community, and address friction for both players and developers.\nToday, we promoted leaders who helped build Xbox, while also bringing in new voices to help push us forward. This balance is important as we get the business back on track.\nAs part of this shift, you’ll see us begin to retire features that don’t align with where we’re headed. We will begin winding down Copilot on mobile and will stop development of Copilot on console.\nSharma took over from former Microsoft Gaming CEO Phil Spencer in February and has already made some big changes, including scrapping the Microsoft Gaming brand and cutting the price of Xbox Game Pass.\nMicrosoft made a big deal about Copilot for Gaming last year, and said in March that the gaming-focused Copilot would be coming to current generation consoles sometime this year. Now, though, that won’t be happening.",
+  "published_at": "2026-05-05T19:54:37Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-06T03:00:16.590873Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Gaming",
+      "Microsoft",
+      "PC Gaming",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/hpe-stock-earnings-ai-cloud-servers.html",
+  "title": "HPE surges 19% after Monday's blowout earnings, closing its best day ever",
+  "raw_text": "Shares of Hewlett Packard Enterprise closed up 19% Tuesday, its best day ever, as the company posted its biggest earnings beat since 2018.\nCEO Antonio Neri told CNBC's \"Squawk on the Street\" on Tuesday that the company is \"uniquely positioned\" to capture the disruption brought about by artificial intelligence.\n\"We have the best portfolio we've ever had in this company,\" he said.\nAI-related demand in its server unit blew away analysts' expectations for second-quarter earnings. HPE reported adjusted earnings per share of 79 cents, versus 53 cents expected, and overall revenue soared to $10.68 billion versus an expected $9.79 billion.\nServer revenue alone, a sub-division of its cloud and AI unit, came in at $5.45 billion, topping the $4.66 billion analysts expected.\nNeri called that unit's revenue growth \"exceptional,\" and told analysts on Monday's earnings call that agentic AI has been a \"key driver of demand acceleration.\"\n\"Traditional sever orders increased triple digits, as customers continue to modernize their compute infrastructure and invest in AI inferencing,\" Neri said.\nIn the wake of Dell's own AI-fueled earnings blowout, some analysts are getting cautious about how sustainable demand might be in the server space, as firms continue to buy and server prices climb.\nBernstein increased their HPE estimates after better projections in the traditional server unit and took their price target to $62 from $35, writing that \"a lot of the upside is already in the stock.\" The firm kept its rating at Market Perform. Morgan Stanley took their price target from $33 to $71.\n\"Similar to DELL, HPE is seeing material upside to results from inelastic server demand and share capture, as servers become strategic, and those with supply take price,\" Morgan Stanley analysts wrote. \"Durability of demand vs. peak earnings risk will be the key debate from here.\"\nCNBC's Katie Tarasov, Kristina Partsinevelos and Chris Eudaily contributed to this report.",
+  "published_at": "2026-06-02T20:13:02Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.818104Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

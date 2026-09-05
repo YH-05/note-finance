@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/the-rampocalypse-has-bought-microsoft-valuable-time-in-the-fight-against-steamos/",
+  "title": "The RAMpocalypse has bought Microsoft valuable time in the fight against SteamOS",
+  "raw_text": "Valve and its SteamOS operating system have already done what a bunch of companies (including Apple) have been trying to do for decades: make a dent in Windows’ dominance in PC gaming.\nI mean, sure, according to Valve’s own statistics, Microsoft remains dominant. Over 92 percent of PCs in the Steam Hardware Survey run some version of Windows. But five years ago, this number was just over 96 percent. Ten years ago, it was just under 96 percent. Fifteen years ago? It was 96 percent. Go back any further than that and Steam only runs on Windows in the first place, itself a testament to Microsoft’s ubiquity.\nBetween April 2021 and now, Linux’s share has climbed from under 1 percent to over 5 percent. This is a small number, and it’s not all SteamOS (Valve’s OS isn’t broken out, but Arch, the base distribution for SteamOS, accounts for about 0.33 of that just-over-5-percent). But it’s also more than these numbers have ever moved. By making Windows games run on Linux, rather than trying to push game developers to make Linux-native ports, Valve has done via organic word-of-mouth success what the company utterly failed to do in the early 2010s when it tried to take on Windows directly.\nA year ago, Valve seemed poised to build on that success. SteamOS picked up official support for some third-party gaming handhelds and other hardware besides, and some manufacturers were beginning to ship models with SteamOS rather than Windows pre-installed. Games were being tested not just for Steam Deck compatibility, but general SteamOS compatibility. Late in 2025, Valve announced the Steam Machine, an effort to compete with game consoles and lower-end gaming PCs.\nAnd Microsoft seemed unable to respond. Windows handhelds usually relied on clunky third-party software to replicate the Deck’s handheld-optimized interface, and Microsoft’s first imperfect stab at a competing interface launched years after the Steam Deck on just two Xbox-branded systems. Valve’s timing also coincided with a tenuous time for Windows, when Microsoft was asking users to move from Windows 10 to Windows 11, an OS with a reputation for being irritating and having higher system requirements. If people are already being asked to switch to new software or upgrade their hardware, there’s always a chance that the software they switch to won’t be a newer version of the same thing.",
+  "published_at": "2026-05-01T22:00:59Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-02T03:02:27.296954Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Tech",
+      "asus rog ally",
+      "steam deck",
+      "steam machine",
+      "steamos",
+      "windows 11 24h2",
+      "windows 11 25h2"
+    ]
+  }
+}

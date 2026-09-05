@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/ark-invest-owns-spacex-in-its-venture-etf-it-says-starlink-alone-supports-2-trillion-value-at-ipo.html",
+  "title": "Ark Invest owns SpaceX in its venture ETF. It says Starlink alone supports $2 trillion value at IPO",
+  "raw_text": "SpaceX's long-awaited public debut could rank among the most significant stock offerings in history, according to Brett Winton, chief futurist at ARK Invest, who argues the company's satellite internet business alone can justify a valuation approaching $2 trillion. Elon Musk's rocket and satellite company set an IPO price of $135 a share, valuing SpaceX at roughly $1.77 trillion ahead of its planned Nasdaq debut on June 12. \"It does not surprise me that they are targeting a valuation in excess of and close to $2 trillion,\" Winton said Thursday on CNBC's \"Squawk Box. \" \"The AI opportunity is ginormous.\" SpaceX said it plans to sell 555.6 million shares, which would amount to a $75 billion fundraise. The underwriters have an option to purchase an additional 83.33 million shares at the IPO price, amounting to $11.2 billion. Musk will own over 82% voting control after the offering. Winton said SpaceX's growth prospects extend far beyond launch services and are closely tied to the rapid expansion of artificial intelligence. ARK estimates that companies developing and operating foundation AI models could collectively generate between $15 trillion and $20 trillion in enterprise value by 2030. \"I think this historical moment is going to be looked back upon as the critical technological inflection, maybe in the history of humanity,\" Winton said. ARK is already heavily exposed to SpaceX through its venture strategy. The ARK Venture Fund's largest holding is private shares of SpaceX, which represented about 11.4% of assets. The fund has gained roughly 15% this year and more than 70% over the past 12 months. ARKVX 1Y mountain Ark Venture Fund one year While investors often focus on SpaceX's reusable rockets, Winton said the company's Starlink satellite broadband network is the primary driver of ARK's valuation thesis. According to Winton, Starlink currently operates a constellation capable of delivering roughly 500 terabits per second of bandwidth and generates about $13 billion in annual revenue. The upcoming Starship rocket could dramatically accelerate that growth by reducing launch costs and enabling SpaceX to deploy far more satellites at a faster pace. \"With each Starship rocket, they can launch 60 terabits a second,\" Winton said. \"Ten launches can duplicate their existing capacity in space....It's not like you only get 10 launches and the opportunity expires. We think they can do hundreds of launches and get into the hundreds of billions of dollars of Starlink revenue.\"",
+  "published_at": "2026-06-04T14:18:15Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.230496Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/options-traders-love-this-under-the-radar-ai-play.html",
+  "title": "Options traders love this under-the-radar AI play",
+  "raw_text": "For an $18 billion market-cap company, data-center owner Iren trades like one of the AI giants.\nThe company had two of the top 20 biggest options trades in the market on Thursday and a total $173 million of premium traded hands, with 73% of that in calls.\nBy comparison, less than a million dollars of options traded in total between data-center real-estate stocks Equinix and Digital Realty Trust, whose combined market cap is almost ten times Iren's. As of noon Chicago time, the trading in Iren also surpassed the dollar amount traded in VanEck Semiconductor ETF.\nThe two biggest trades of the day were part of a $36 million long strangle trade that bets on a big move in either direction. The trader bought 12,500 65-strike calls and an equal amount of 60-strike puts both expiring Sept. 18 of this year, a trade that only pays off if the stock crashes below $45 or rallies above $79, which would be an all-time high.\nThe stock's been a retail trading favorite the past year, adding 770% as the company squared its focus onto AI customers from crypto and bitcoin mining.\nImplied volatility going into earnings tonight points to a 14% swing, but traders do have a habit of overpaying for options around earnings. The average implied earnings move was 12% the past year, but the median actual move was 6%, according to data compiled by Cboe.",
+  "published_at": "2026-05-07T18:27:17Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.574231Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

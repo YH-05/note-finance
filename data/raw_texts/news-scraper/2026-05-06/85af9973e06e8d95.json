@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/nuro-receives-driverless-testing-permit-ahead-of-uber-robotaxi-service-launch/",
+  "title": "Nuro receives driverless testing permit ahead of Uber robotaxi service launch",
+  "raw_text": "Nuro has been granted a permit to begin driverless testing of Lucid Gravity SUVs equipped with its autonomous tech on California public roads — vehicles that will eventually be used in Uber’s premium robotaxi service. But the Silicon Valley-based startup, backed by Nvidia and Uber, says it isn’t quite ready to begin.\nThe California Department of Motor Vehicles, the agency that regulates the testing and deployment of autonomous vehicles in the state, confirmed to TechCrunch on Tuesday that it modified Nuro’s driverless AV permit to include Lucid Gravity vehicles.\nNuro has held a driverless permit for six years, but it only applied to operate a low-speed delivery vehicle — a program that was scrapped when the startup pivoted its business model to focus on licensing its technology to companies like Uber.\nThis latest driverless permit allows Nuro to test the Lucid vehicles without a human safety operator behind the wheel. Nuro spokesperson David Salguero told TechCrunch the company expects to begin driverless testing later this year, without providing further information on timing.\nThe driverless permit is one of many regulatory hurdles that Nuro must clear before Uber can launch its premium robotaxi service. Nuro will also have to receive a driverless ride-hailing permit from the California Public Utilities Commission and a deployment permit from the DMV.\nFor now, Nuro and Uber are testing the Lucid vehicles in autonomous mode with a human safety operator in the driver’s seat. Last month, that testing was expanded to allow Uber employees to request an autonomous ride in a Lucid robotaxi — with a human safety operator still on board — through the Uber app.\nAs Nuro makes progress on testing, Uber has upped its commitment to Lucid.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nThis Week Only: Buy one pass, get the second at 50% off\nYour next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register before May 8 to bring a +1 at half the cost.\nWhen the three-way deal was announced in July 2025, Uber said it would invest $300 million in Lucid and buy 20,000 robotaxi-ready Gravity vehicles. That has since been expanded to $500 million and a minimum of 35,000 robotaxis, with the agreement changing to include at least 10,000 Gravity SUVs and 25,000 EVs built on Lucid’s upcoming mid-size platform.\nThose EVs will be equipped with Nuro’s autonomous vehicle system, which is powered by Nvidia’s Drive AGX Thor computer. The Lucid Gravity robotaxi, which was revealed in January, is outfitted with high-resolution cameras, solid-state lidar sensors, and radars that help the self-driving system perceive the real-world environment and operate within it.\nUber has also made a multimillion-dollar investment in Nuro.\nLucid has delivered 75 engineering vehicles to Nuro and Uber and testing and mileage accumulation is ongoing in several cities throughout the United States, the EV maker disclosed during its first-quarter earnings call on Tuesday.\nLucid said Tuesday it is on track for commercial robotaxi operations to begin in late 2026. It is possible that those robotaxi operations will not be driverless or will be limited in some other way, depending on regulatory approvals.\nStill, Lucid executives struck a positive tone during the call noting that all the development and certifications are moving along as expected.",
+  "published_at": "2026-05-06T00:07:47Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-05-06T03:00:27.062898Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "autonomous vehicles",
+      "lucid",
+      "luid gravity",
+      "nuro",
+      "Uber"
+    ]
+  }
+}

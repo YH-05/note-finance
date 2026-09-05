@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932417/google-gmail-docs-cal-sheets-workspace-icon-redesign",
+  "title": "Google is rolling out its redesigned Workspace app icons",
+  "raw_text": "It’s not just you — the Google Workspace apps are getting a new look. The redesigned app icons, leaked last month, are now rolling out widely, as we started noticing this morning. Users with the redesigned icons will notice they now have a gradient look that fades from lighter to darker shades, rather than being the same flat tone throughout, similar to the redesigned Google logo that launched a year ago.\nGoogle is rolling out its redesigned Workspace app icons\nThe new designs feature soft color gradients, rounded corners, and overhauled icon shapes.\nThe new designs feature soft color gradients, rounded corners, and overhauled icon shapes.\nSome of the icons switched from a rainbow design to a single color, like Google Chat, Meet, and Calendar, which could help all of the icons stand out a bit more from one another — or make them harder to recognize. Others haven’t changed as much, as 9to5Google notes, like Google Docs, Sheets, and Slides, which have the same colors and general approach. As one Reddit user pointed out, though, the Sheets and Slides icons were switched to landscape mode, which is also how most people use both of those apps.\nThe Google Drive icon also got a significant overhaul with rounded corners (and it lost the spot of red it had in the bottom right corner). A few also lost the borders around them, like Google Keep, which is now just a yellow light bulb, rather than a bulb on a yellow rectangle. As someone who frequently uses Keep, it’s going to take me a while to get used to spotting a totally different icon shape, although I like the overall look of the new one. I also appreciate the cleaner look of the Gmail icon, although it hasn’t changed too much compared to the old version.\nThe new icons are arriving right before Google I/O kicks off on Tuesday, where Google could announce even more visual changes to its ecosystem.",
+  "published_at": "2026-05-18T16:29:37Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-19T03:00:16.197783Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Design",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

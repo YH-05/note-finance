@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/san-francisco-housing-is-booming-due-to-ai-this-reit-should-benefit.html",
+  "title": "San Francisco's housing market is booming because of AI. This real estate stock should benefit",
+  "raw_text": "San Francisco real estate prices are rising rapidly and Essex Property Trust , a real estate investment trust, stands to benefit, according to Piper Sandler. The investment bank upgraded ESS to overweight from neutral on Sunday, arguing that the company \"has the wind in its sails\" due to the \"AI-fueled rapid rebound\" of property values in the Bay Area, which is bringing more highly-paid professionals into the city. \"The Bay Area's rebound is accentuated by a lack of new supply, with landlords benefiting as the burgeoning tech demand is pushing on price,\" Piper analyst Alexander Goldfarb in a report. \"Office shows that even with San Francisco's overall ~30% availability rate, the dwindling amount of view space is creating bidding wars.\" Goldfarb thinks ESS will raise guidance, with second-quarter earnings being driven by the \"accelerating\" Bay Area. Piper has overweight ratings on other office and retail REITs as well: BXP, BRX, FRT and KIM. \"It is too soon to rotate into the Sunbelt … the Coasts are still the place to be for 2026, with the Sunbelt not likely to see market traction until later this year, which sets up 2027 for acceleration,\" he said. San Francisco real estate prices have moderated in recent years but are now the metropolitan area with the second fastest growing annual rent change, according to research from Apartment List. Prices are up 5.1% year-over-year in San Francisco, behind only Virginia Beach with a 5.2% increase, and up 4.8% in San Jose. \"Two Bay Area metros – San Francisco and San Jose round out the top three, as the AI boom has created a wave of high-paying tech jobs there,\" Apartment List analysts wrote . In March 2026, San Francisco house prices rose at an annual rate of 19% annually, selling for a median price of $1.7 million, or 280% above the national average, according to Redfin. The median price-per-square-foot in San Francisco was $1110, up 9.2% since last year, the group found.",
+  "published_at": "2026-05-04T15:38:22Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.337337Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

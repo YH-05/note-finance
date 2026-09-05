@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/22/why-car-wash-real-estate-is-cleaning-up.html",
+  "title": "Why car wash real estate is cleaning up",
+  "raw_text": "CNBC's Diana Olick reports on what has sparked private equity interest in car wash real estate.",
+  "published_at": "2026-05-22T17:58:44Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.675986Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606060038",
+  "title": "モジタバ師とトランプ大統領の会談は実現しない",
+  "raw_text": "【注目】モジタバ師とトランプ大統領の会談は実現しない\nレザイ氏は「和平合意の実現は米国が凍結しているイラン資産２４０億ドルの解除に同意するかどうかにかかっている」と主張した。また、「ボールはトランプ大統領側にある」と述べ、今後の進展は米国の対応次第だとの認識を示した。\n一方、モジタバ師の健康状態や、同師が意思決定にどのような役割を果たしているのかについての質問には回答しなかった。\n株探ニュース",
+  "published_at": "2026-06-05T17:15:00Z",
+  "author": null,
+  "collected_at": "2026-06-05T21:00:21.913122Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

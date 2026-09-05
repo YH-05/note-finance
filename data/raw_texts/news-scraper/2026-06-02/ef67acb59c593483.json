@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/theres-a-record-disconnect-unfolding-in-the-trading-pits-right-now.html",
+  "title": "There's a record disconnect unfolding in the trading pits right now",
+  "raw_text": "Forget a tale of two cities, it's two different worlds for traders in the U.S. stock market.\nIf you're tracking index gains in the S&P 500, it's a slow and steady grind as volatility declines to the lowest since January, with the Cboe Volatility Index (VIX) touching 15.6 Thursday, compared to 35 in March when geopolitical fears drove daily whipsaw moves in the market.\nIf you've been trading individual stocks, the roller-coaster ride hasn't stopped, and in many cases – particularly in tech names – it's only gotten crazier.\nCboe's S&P 500 Constituent Volatility Index VIXEQ, which aggregates VIX-like measurements for each specific company and weights by market capitalization, is sitting near its highest level in more than a year. The spread between VIXEQ and VIX is now the widest since January 2023, as far back as the exchange's stock-specific data go.\n\"What stands out in the current market is just how calm things are at the index level even as single stock volatility remains near a 1-year high,\" Mandy Xu, head of derivatives market intelligence at Cboe, wrote in an email. \"Stock dispersion is extremely elevated and correlation levels have fallen to historic lows as traders switch focus from macro risks (e.g. Iran) to stock-specific catalysts such as AI and earnings.\"\nThe volatility spread between single stocks and the index makes a world of a difference for options traders who make risk-reward decisions based on fast-changing prices of individual contracts.\nThe clearest example is in the semiconductor space, where implied volatility in the VanEck Semiconductor ETF (SMH) is about 50%, near the highest in a year and more than three times higher than in the S&P 500, but still lower than many individual stocks like Micron, whose implied volatility is 101%.\nOne implication is that the dollar amount being spent trading options on semiconductors is skyrocketing: Gross options premium traded across semiconductors tracked by Citadel Securities is 25% above the prior record from March 2024 and five times the historical monthly average, according to a message from Scott Rubner, the firm's head of equity and equity derivatives strategy.\nSo far there's not much evidence traders think the split-volatility dynamic will change.\nSmall traders have been happy to buy expensive single-stock contracts in hopes of extended rallies, which so far has mostly worked. And in index products like the State Street SPDR S&P 500 ETF (SPY), selling puts was the most popular trade Thursday: a bet that generally prefers VIX to continue dropping. Somewhere in between is sentiment on the SMH ETF, where put-buying dominates at a record level.\n\"My thought is when you're having historical disconnect like this it's more likely you get a little bit of broadening out,\" Noel Smith, chief investment officer of Convex Asset Management, said by phone. \"I don't see things crumbling until these big IPOs — SpaceX, Anthropic, etc. — get ingested by the marketplace.\"",
+  "published_at": "2026-05-29T13:29:56Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.602420Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

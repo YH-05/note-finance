@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606060032",
+  "title": "日経225先物：6日2時＝1400円安、6万5270円",
+  "raw_text": "【市況】日経225先物：6日2時＝1400円安、6万5270円\nTOPIX先物期近は3920.5ポイントと前日比34ポイント安、TOPIXの現物終値比は28.59ポイント安で推移。\n○主要先物価格・2時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 65270 -1400 12166\n日経225mini 65265 -1405 263233\nTOPIX先物 3920.5 -34 13247\nJPX日経400先物 35460 -275 338\nグロース指数先物 757 -1 793\n東証REIT指数先物 1752 +5 4\n株探ニュース",
+  "published_at": "2026-06-05T17:00:41Z",
+  "author": null,
+  "collected_at": "2026-06-05T21:00:21.913533Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

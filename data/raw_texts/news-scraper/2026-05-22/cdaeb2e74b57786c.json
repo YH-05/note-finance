@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/zillow-loses-access-to-thousands-of-home-listings-amid-bitter-legal-feud/",
+  "title": "Zillow loses thousands of listings in fight over “hidden” homes",
+  "raw_text": "On Wednesday, Zillow abruptly lost access to thousands of property listings in the Chicago area after filing a lawsuit accusing a private listing network owner of colluding with the nation’s largest brokerage to harm consumers by hiding homes.\nAccording to the Chicago Sun-Times, hopeful Chicagoland home buyers browsing Zillow and Trulia suddenly saw significantly fewer listings. On Zillow, a nearly 5,000-home market dropped to about 1,700.\nThorough home buyers diligently checking every possible resource can still turn to other platforms, like Redfin and Realtor.com, which currently host between 5,000 and 8,000 listings, the Sun-Times noted.\nBut in an antitrust lawsuit filed last week, Zillow claimed that everybody buying or selling a home will be harmed if the alleged collusion goes unchecked.\nSpecifically, Zillow alleged that Midwest Real Estate Data LLC (MRED) and Compass, two “powerful players in the real estate industry,” have conspired to create “barriers to information that harm or threaten harm to sellers, buyers, and competitors by hiding real estate listings behind a velvet rope in a Private Listing Network (PLNs).”\nAs Zillow has alleged, MRED—Chicago’s multiple listing service (MLS) provider—“entered into a conspiracy” with Compass—Chicago’s dominant brokerage—to block platforms like Zillow from taking steps to increase transparency of available listings in the area.\n“Rather than share all of its listings transparently—as its competitors do—Compass has sought to anticompetitively benefit from its dominance by hiding listings from anyone who is not working with a Compass agent in a PLN,” Zillow’s complaint alleged.\nThis allegedly “allows Compass to lure prospective home buyers to its brokerage with the promise of access to listings hidden behind a registration wall” and then maximize opportunity for profit by engineering “deals where its agents represent both sides of the transaction.”",
+  "published_at": "2026-05-21T18:35:38Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-22T03:00:31.371890Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Chicago",
+      "real estate",
+      "us housing",
+      "Zillow"
+    ]
+  }
+}

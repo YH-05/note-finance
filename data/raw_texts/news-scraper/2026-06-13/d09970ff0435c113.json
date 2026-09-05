@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/bank-of-america-buys-into-agentic-ai-trade-double-upgrades-this-stock.html",
+  "title": "Bank of America buys into agentic AI trade, double upgrades this stock",
+  "raw_text": "Rising demand for central processing units as companies increasingly focus on agentic artificial intelligence is a boon for Intel , and is convincing Bank of America to turn from bearish to bullish on the stock. The bank double upgraded its rating on the stock to buy from underperform. It also raised its price target to $135, which represents a 26% gain from Wednesday's close. Analyst Vivek Arya wrote in a Thursday note that turnaround in his sentiment comes from a shift in the AI buildout to focus on CPUs instead of XPUs. \"Agentic AI differs from traditional genAI by shifting from a single prompt-response workflow to a multi-step system that plans, reasons, retrieves info, uses tools, executes code simultaneously,\" he wrote. \"While XPUs remain critical for inference, many orchestration and decision-making functions are latency-sensitive, sequential, and [input-output]-intensive — making them better suited for CPUs.\" Arya now forecasts that CPU sales could reach $40 billion by 2030. CPUs in the first quarter of 2026 brought in $5.1 billion in revenue. Shares of Intel have surged 60% since its earnings report released April 23 , when the company showed signs of revenue growth. Still, fewer investors own the stock than other major chip companies. That gives Arya a positive outlook for shares too. \"INTC is the 2nd least owned (after SNDK ) semis/AI infra stock in SPX as of May 2026 despite its ~$540bn mkt cap being 5th in the group,\" he wrote. \"At just 16% ownership (up ~300bps MoM), we flag potential for ownership broadening to lead to stock gains.\" Shares of Intel were up 4.5% in premarket trading Thursday. INTC YTD mountain Intel year-to-date.",
+  "published_at": "2026-06-11T11:22:18Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:37:30.190531Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

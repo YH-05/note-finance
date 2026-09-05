@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20274-sparkle-and-entel-to-link-lima-and-sao-paulo-with-new-terrestrial-route.html",
+  "title": "Sparkle and Entel to link Lima and São Paulo with new terrestrial route",
+  "raw_text": "Global operator Sparkle and Bolivian state-owned telco Entel announced on Tuesday they have signed an MoU to create a new coast-to-coast terrestrial fibre route across Peru, Bolivia, and Brazil.\nThe planned route will span 4,370 km and establish a direct connection between Lima and São Paulo that will serve as a low-latency alternative to existing subsea cable routes to meet growing demand for scalable and resilient connectivity across regional digital ecosystems.\nUnder the MoU, Sparkle and Entel Bolivia will jointly commercialize the corridor, offering high-performance connectivity to gaming companies, ISPs, OTT platforms, digital service providers, and data centres across the region.\nWhile Latin America’s digital entertainment sector continues to expand rapidly, several areas in western South America still rely on long-distance subsea or indirect international routes to reach the Atlantic coast, resulting in suboptimal performance for cloud gaming, real-time streaming, financial services, IoT and AI-driven applications.\nSparkle and Entel said the new terrestrial corridor will create a unified transcontinental backbone capable of scaling up to 60 Tbps, which will improve performance, route diversity and service resilience for regional and international traffic flows. The route also promises latencies below 60ms, compared to more than 120ms on long-haul subsea routes.\nEntel will contribute its terrestrial backbone infrastructure spanning national and cross-border segments, underpinned by its 44,000-km fibre network connecting Lurín, Peru, with Puerto Quijarro, Bolivia, and multiple international interconnection points. Sparkle will manage the Brazilian segment of the route from Puerto Quijarro to São Paulo.\nThe two companies will coordinate sales, operations, and maintenance activities, with customers able to access capacity through either partner. Sparkle and Entel will sort out revenue-sharing mechanisms in a subsequent agreement.\n“This initiative consolidates Bolivia's position as a digital corridor in South America, enabling the efficient interconnection of the Pacific and Atlantic digital ecosystems, and unlocking new opportunities for the development of high-capacity digital services across the region,” said Entel Bolivia GM Jorge del Solar in a joint statement.\n“We are proud to collaborate with Entel Bolivia on this ambitious project, which reflects our shared vision to accelerate the region’s digital integration and support the growth of gaming, OTT services and cloud-based solution across Latin America” added Sparkle CEO Enrico Bagnasco.\nThe project is being carried out in the broader context of the broader Bioceanic Corridor infrastructure initiative launched by the governments of Brazil, Paraguay, Argentina and Chile at the end of 2015 with the goal of creating a continuous road and rail route connecting the Pacific and Atlantic coasts of South America via those four countries.",
+  "published_at": "2026-05-20T03:03:18Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-24T03:01:19.211613Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

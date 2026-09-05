@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606120049",
+  "title": "原油は２．５８％安＝ＮＹ原油終値",
+  "raw_text": "【市況】原油は２．５８％安＝ＮＹ原油終値\nNY原油先物7 月限（WTI）（終値）\n1バレル＝87.71（-2.32 -2.58%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-11T18:47:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:00:21.488292Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

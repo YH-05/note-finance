@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606041268",
+  "title": "トランプ大統領、司法長官にブランチ氏指名の意向",
+  "raw_text": "【注目】トランプ大統領、司法長官にブランチ氏指名の意向\nトランプ大統領は３日夜にホワイトハウスで開かれた非公開の夕食会で、ブランチ氏を正式な司法長官とする手続きを開始するよう、４日にスタッフに指示すると述べた。\nこの手続きは「非常に迅速に進む」と確信しているとトランプ大統領は語った。発言の映像は、ホワイトハウスで次席補佐官を務めるスカビーノ氏がソーシャルメディアで公開。\n４月にボンディ司法長官が解任された後、ブランチ氏は長官代行を務めてきた。\n株探ニュース",
+  "published_at": "2026-06-04T14:22:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:00:17.677996Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

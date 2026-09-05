@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/weather-monitoring-firm-hangs-dark-cloud-over-customers-heads-by-forcing-new-app/",
+  "title": "Weather-monitoring firm hangs dark cloud over customers’ heads by forcing new app",
+  "raw_text": "Weather-monitoring company AcuRite is forcing device owners to use a new companion app on May 30, frustrating some long-time customers.\nAcuRite, which sells devices such as weather stations, indoor thermometers, and rain gauges, began emailing customers last month that they’d soon have to control their devices with the AcuRite Now iOS and Android app. AcuRite first launched the app in June 2025 to control a new weather station, the AcuRite Optimus. However, owners of AcuRite devices had still been able to use the My AcuRite app, which launched in 2016.\nSoon, however, My AcuRite will no longer be available, making AcuRite Now the only official app for controlling AcuRite devices. The website for the My AcuRite app currently reads:\nAs part of our continued investment in delivering smarter, more connected solutions, the My AcuRite app will be winding down. To ensure uninterrupted access to your weather data and to unlock even more capabilities, all users should transition to AcuRite NOW before May 30th, 2026.\nPer the website, AcuRite Now “works with thousands of products” in Tuya’s SmartLife IoT ecosystem, including third-party fans, thermostats, light bulbs, plugs, cameras, and motorized blinds.\n“Looks like a bad joke”\nSome AcuRite customers are upset about losing access to My AcuRite because they think AcuRite Now is an inferior app.\nThose customers have complained online about being unable to use AcuRite Now to rename multiple temperature sensors, difficulties uploading data to weather sites, and the app only reporting temperatures in whole numbers. An AcuRite support page says that AcuRite is “hoping” to add the ability to organize on-screen sensors and rename multiple sensors to AcuRite Now, as well as a desktop version of the app, “soon.”\nOne popular feature of My AcuRite was the ability to share data from AcuRite devices with Weather Underground, a real-time weather service. AcuRite Now also supports this feature, but users have to pay a subscription fee that starts at $2 per month. The subscription, dubbed AcuRite Now+, also includes more data storage (365 days of history instead of 30).",
+  "published_at": "2026-05-15T20:16:24Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-15T21:00:30.407265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "smart home",
+      "software",
+      "Weather"
+    ]
+  }
+}

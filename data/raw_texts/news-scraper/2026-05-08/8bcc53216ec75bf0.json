@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/926286/valve-steam-controller-reservations-queue-scalpers",
+  "title": "Valve is fighting Steam Controller scalpers with a new reservations system",
+  "raw_text": "Valve’s new Steam Controller sold out quickly when it went on sale on Monday, and the company is going to open a “reservations queue” on Friday at 1PM ET for anyone who missed that initial run.\nValve is fighting Steam Controller scalpers with a new reservations system\nStarting Friday, you can make a reservation to buy a Steam Controller.\nStarting Friday, you can make a reservation to buy a Steam Controller.\nWhen the controller initially went on sale, many potential buyers experienced difficulties checking out before the controller went out of stock, and some sellers on eBay posted listings for the controllers that were considerably more expensive than Valve’s $99 asking price. “While we were happy to see such a high level of interest, the experience for a lot of you trying to buy it was incredibly frustrating,” Valve says. It’s making changes to “improve the purchase experience and to limit reseller activity.”\nAfter the reservations queue is open, “Once you reserve, your place in line will be saved,” according to Valve. “When we go back in stock, order emails will be sent in the same order that reservations were made.” When your order email comes in, you’ll have 72 hours to complete the purchase, and you’ll only be able to buy one controller. To make a reservation, your account must be in good standing and you must have bought something on Steam before April 27th. And “for now,” if you’ve already bought a Steam Controller, you can’t reserve another. The company says it will begin fulfilling reservations “next week” in the US and Canada, and in the “following weeks” in the UK, the EU, and Australia.\nValve still hasn’t committed to a firm date this year for when the Steam Machine and Steam Frame will go on sale. (Though it did recently import 50 tons of game consoles.) Hopefully, when they are available to order, Valve implements a reservations system — the company took reservations for the original Steam Deck, though it took several months after release for Valve to clear the queue.",
+  "published_at": "2026-05-07T18:06:01Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-08T03:00:16.143824Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Gaming",
+      "News",
+      "PC Gaming"
+    ]
+  }
+}

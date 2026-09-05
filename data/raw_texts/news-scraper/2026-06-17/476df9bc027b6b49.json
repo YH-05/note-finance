@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/spacex-ipo-spcx-greenshoe-overallotment.html",
+  "title": "SpaceX IPO raises total of $85.7 billion as underwriters exercise 'greenshoe' overallotment option",
+  "raw_text": "SpaceX underwriters have officially exercised their overallotment of shares in the historic initial public offering, bringing the total raised to $85.7 billion, according to an investor relations update out Monday.\nElon Musk's space and artificial intelligence company raised an initial $75 billion on Thursday, making it the biggest IPO ever.\nSpaceX's brokers, which include Goldman Sachs and Morgan Stanley, had the option to buy an additional 83.3 million shares as part of the overallotment, which is commonly referred to as the \"greenshoe.\"\nThe additional money raised in the SpaceX overallotment is bigger than almost all tech IPOs on record. Underwriters typically exercise the overallotment when the stock rises.\nSpaceX staff wore green shoes on the trading floor Friday in a nod to the \"greenshoe\" option, and Musk re-shared a photo on X.\nAfter pricing at $135 per share, the stock soared in Friday's debut, climbing 19%. The stock closed at around $161, pushing the company's valuation past $2 trillion.\nShares of SpaceX continued to climb on Monday morning, jumping more than 7% in their first full day of trading.\nMusk told employees gathered at SpaceX's Starbase headquarters in Texas on Friday that he wanted to take the company public now to raise capital for \"a significant growth phase.\"\nSpaceX is expected to use the funds to complete and begin commercially flying its Starship rockets, the largest ever built or launched. The rockets are designed to be fully re-usable someday, and to deploy SpaceX's new V3 satellites, which could massively expand their Starlink satellite internet service.\nThe rockets are still being tested and have mostly carried dummy satellites to space so far.\nThe company also aims to build, launch and run AI data centers in space, known as orbital data centers, and to build a massive chip factory with Musk's automaker, Tesla, and Intel in Texas. Musk has pitched space-based data centers as a solution to AI's power needs, though the technology remains unproven and comes with a host of associated risks.\nSpaceX has a fraction the revenue of any of tech's megacaps and racked up a $4.9 billion loss last year, with total losses since its founding of over $41 billion. After the stock's close on Friday, SpaceX was worth $2.1 trillion, giving it a multiple of 112 times last year's revenue.\n— CNBC's Annie Palmer contributed reporting.",
+  "published_at": "2026-06-15T16:41:57Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.505943Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

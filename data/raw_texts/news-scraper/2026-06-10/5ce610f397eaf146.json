@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/apple-stock-siri-ai-reaction.html",
+  "title": "Apple shares slide after big Siri AI reveal",
+  "raw_text": "Apple shares fell more than 3% on Tuesday, a day after the company revealed new artificial intelligence software at its annual Worldwide Developers Conference.\nApple announced new frameworks that will allow app developers to tap into Apple's AI on iPhones and Macs, called Apple Intelligence, as well as a new version of Siri called Siri AI that's based on large language models. Apple also revealed that it is using a cloud model \"comparable\" to so-called frontier models with help from Google and Nvidia.\nBut investors sold the news, and Apple posted its worst day since February.\nAnalysts reacted positively to Apple's announcements and praised the Siri improvements. But some analysts said there weren't many surprises, and that it wouldn't be a short-term boost for the stock, especially since Apple didn't commit to a release date for Siri AI, although developers can already test it out in beta software.\n\"While the company laid out a decent vision and some early personalized/contextual AI use cases, it plans on releasing Siri AI beta later this year, with no concrete timing of a full release,\" wrote Baird analyst William Power. \"We think that's contributing to the intraday sell-off.\"\nGoldman Sachs analysts said that Apple's integration of AI into its hardware could drive a strong product refresh cycle, but also noted that Apple has an opportunity to monetize AI through rate limits and subscriptions.\n\"Some features, including image generation, have daily usage limits because they rely on powerful server models,\" wrote Goldman analyst Michael Ng. \"Users will be able to get increased access through most iCloud+ subscription plans, which should drive direct monetization for Apple Intelligence.\"\nJP Morgan analyst Samik Chatterjee noted that Apple said its AI features would be delayed in China and Europe due to regulatory issues, and noted that it's only being launched in English to start.\n\"While the fall launch of Siri AI in the US will be a significant positive for the holiday sales season, the future roll-out to other geographies as well as other languages will be a critical watchpoint for investors going forward,\" Chatterjee wrote.\nApple Intelligence may underwhelm consumers who have a lot of choices, wrote UBS analyst David Vogt. He wrote that he doesn't expect the new features to be a \"demand game changer\" for Apple hardware.\n\"Despite various interesting AI-related announcements, we leave our iPhone estimates unchanged as we do not believe that the new offerings will drive iPhone demand,\" Vogt wrote.",
+  "published_at": "2026-06-09T20:35:14Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.429232Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

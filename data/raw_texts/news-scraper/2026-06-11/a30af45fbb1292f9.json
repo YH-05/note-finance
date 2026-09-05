@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/here-are-the-odds-of-bear-markets-in-each-stock-index-this-summer.html",
+  "title": "Here are the odds of bear markets in each stock index this summer",
+  "raw_text": "U.S. stocks just flopped again as fresh selling in the all-important tech cohort dragged all major indexes into the red after an early attempt to rally Wednesday.\nThe question on every trader's mind: how bad could it get?\nWith the epic rally in AI stocks now taking major hits, it's a fair question, and one that options-market makers are always calculating. To get the odds of a specific move, investors need only to pick the relevant strike price of a security's option and the delta of that corresponding contract, from which the odds of closing in the money, or touching the strike, can be approximated.\nFor the S&P 500, a technical bear market decline of 20% from the closing high of 7,610 would mean a slide to 6,088. Put contracts on the index are pricing in a 10.5% chance it closes at that level on Aug. 31, according to data from ThinkOrSwim. The odds of it touching that price between now and then are generally double, or about 21%. For the Nasdaq 100, the chance goes up to 32%.\n\"I think it sounds high in the Nasdaq and low in the S&P 500 – from a volatility standpoint I'd be selling Nasdaq, buying S&P vol,\" Scott Bauer, CEO of Prosper Trading Academy, said in a call. \"This individual stock volatility is affecting Nasdaq more but eventually that should at least stop going higher, it's at pretty extreme levels. There's definitely some FOMO selling with people trying to free up cash for SpaceX.\"\nImplied volatility in the Nasdaq 100 is almost 33, compared to 22 in the S&P 500. Concentrated selling in big-tech AI winners is responsible for the spread, which means the odds of steeper moves in either direction will be higher in the tech-heavy Nasdaq.\nSmall-cap stocks are somewhere in between, with 30-day implied volatility in the Russell 2000 at 29. Odds of losing at least 20% between now and Aug 31 are about 24%.\nThe last technical bear market in the S&P 500 was the roughly 10-month long downturn amid higher interest rates in 2022. On an intraday basis, the index fell more than 21% during last year's sell-off around tariff announcements.",
+  "published_at": "2026-06-11T11:21:04Z",
+  "author": null,
+  "collected_at": "2026-06-11T15:21:04.938123Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

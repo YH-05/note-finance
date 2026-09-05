@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/the-58000-tv-bill-when-directv-sued-o-j-simpson-for-piracy/",
+  "title": "The $58,000 TV bill: When DirecTV sued O.J. Simpson for piracy",
+  "raw_text": "Imagine the life of a federal judge in the Southern District of Florida back in 2005. On Monday, you hold a hearing on contested legislation. On Tuesday, you rule in a national security case. But on Wednesday—bah, there’s just something about Wednesday—you have to spend a sunny day indoors, reading technical affidavits on satellite TV bootloaders, electronic countermeasures, and smartcard voltage dips that take place 522 clock ticks after startup.\nTedious, really. Not the kind of thing one seeks a federal judgeship for. A satellite TV piracy case. Against some random dude in Miami.\nYou flip through the papers on your desk with a sigh but stop when you see the case caption. DirecTV is not suing some random dude in Miami. It’s suing someone famous, perhaps one of the most famous people in the world now, thanks in large part to that murder charge—though of course he had beaten the rap. Still, a celebrity of his stature surely has the money to pay for satellite TV?\nWednesday promises to be more interesting than usual. You settle into your leather chair and begin reading the filings in DirecTV, Inc. v. O.J. Simpson.\nStrange trouble\nOver the last several decades of his life, former football star O.J. Simpson got himself into a truly wide-ranging set of difficulties. After the killings of his ex-wife and her friend, “the Juice” led police on his infamous white Bronco freeway chase (1994), was charged with murder (1994), was acquitted of murder (1995), was sued for “wrongful death” (1996), was found liable for “wrongful death” (1997), defaulted on his California mortgage (1997), had his Heisman Trophy auctioned (1999), and eventually moved to Florida (2000), which had strong laws protecting homes and pensions from creditors and court judgments.\nThen came a period of relative calm. Simpson avoided major legal drama, though he still managed to get charged with battery (2001—later acquitted) and for speeding in a boat through a manatee zone (2002—bench warrant issued, later reduced to a $130 fine).",
+  "published_at": "2026-05-22T11:00:43Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-22T15:00:30.589739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Policy",
+      "copyright",
+      "DIRECTV",
+      "OJ Simpson",
+      "piracy",
+      "satellite TV"
+    ]
+  }
+}

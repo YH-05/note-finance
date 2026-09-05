@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20266-airtel-uganda-to-test-d2c-after-starlink-bags-provisional-licence-2.html",
+  "title": "Airtel Uganda to test D2C after Starlink bags provisional licence",
+  "raw_text": "Airtel Uganda announced on Monday it has begun testing Starlink’s direct-to-cell (D2C) LEO satellite service, shortly Starlink received a provisional licence to offer services in the country.\nIn a LinkedIn post, Airtel Uganda MD and CEO Soumendra Sahu, confirmed that the telco has entered the testing phase for D2C satellite services with Starlink.\n“Today, we are pleased to begin our journey of exploring our long-awaited partnership with Starlink,” he said. “This marks the start of testing a highly advanced technology that enhances smartphone network connectivity through direct-to-cell satellite services.”\nThe test is part of Airtel Africa’s deal with SpaceX in December 2025 to launch Starlink’s D2C in all of its 14 markets sometime this year.\nThe announcement followed hot on the heels of Monday's news that the Uganda Communications Commission (UCC) granted Starlink an provisional licence last week to offer broadband satellite services.\nUnder the licence conditions, Starlink must deploy a national gateway with a physical point of presence in Uganda, ensure that all devices activated in the country are properly registered, and maintain an operational office in Uganda with critical technical, legal and support staff.\nAs part of the agreement, the UCC has established a formal operating framework in Uganda to certify and guide Starlink’s operational rollout, including requirements for compliance with national regulatory standards.\nDr. Aminah Zawedde, permanent secretary for the Ministry of ICT and National Guidance, said the licence agreement follows extensive engagements between the government and Starlink officials to ensure compliance with Uganda’s regulatory framework.\nStarlink/SpaceX representative Ryan Goodnight said Starlink intends to support sectors such as education and health by donating internet connectivity devices to selected facilities across the country.\n“We believe this partnership will lower internet costs and enable more people to join the digital economy,” Goodnight said. “We are ready to comply with Uganda’s laws and work closely with the government and UCC to ensure successful implementation.”\nStarlink has been available in Uganda since 2023, although only via its roaming feature in which users buy Starlink kits and subscriptions in neighbouring countries where Starlink operates legally. The UCC ordered Starlink to shut down service in Uganda at the start of this year ahead of the country’s general elections in mid-January.",
+  "published_at": "2026-05-19T04:16:45Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-19T09:01:28.457725Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

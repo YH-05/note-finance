@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/oil-prices-today-us-iran-missile-middle-east-israel-opec.html",
+  "title": "Oil prices spike over 3% as Iran and Israel trade strikes, escalating regional tensions",
+  "raw_text": "Oil prices rose Monday amid heightened tensions in the Middle East as Iran and Israel traded strikes, raising concerns over a fragile ceasefire and an extended conflict.\nInternational benchmark Brent crude futures for July advanced 3.18% to $96.05 per barrel. U.S. West Texas Intermediate futures for August gained 3.46% to $93.67 a barrel.\nThe Israeli Air Force hit military targets in western and central Iran, Monday local time, Israel Defense Forces said in post on X.\nPresident Donald Trump was briefed after Israel was hit by an Iranian missile for the first time since the start of the ceasefire, the White House confirmed to MS NOW. The missile attacks are \"certainly not going to help negotiations.\" Trump told Fox News on Sunday.\n\"A deal with President Trump is no longer feasible at this stage,\" an Iranian official involved in the talks between Tehran and Washington told MS NOW.\nIn a post on X, MB Ghalibaf, Iran's Parliamentary Speaker, said that the U.S. \"naval blockade and violation of agreements regarding Lebanon\" would be violations of the ceasefire. The region's U.S. and regime bases and assets are now \"legitimate targets\" due to the current U.S. blockade as well as military action in Lebanon, he added.\nMeanwhile, OPEC+ agreed to increase targets by 188,000 bpd from July, according to an OPEC statement, making this the fourth oil output quota hike approval since the closure of the Strait of Hormuz. This increase is on par with June's, which was lowered from monthly increases of 206,000 bpd in May and April due to the exit of the UAE from the organization.\n—CNBC's Garrett Downs contributed to the report.",
+  "published_at": "2026-06-08T02:09:02Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.588097Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

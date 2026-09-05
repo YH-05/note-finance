@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/uh-oh-the-international-space-station-is-leaking-again/",
+  "title": "Uh-oh, the International Space Station is leaking again",
+  "raw_text": "NASA confirmed Thursday that the Russian segment of the International Space Station has begun leaking atmosphere into space again. It’s an old problem that NASA recently hoped was resolved.\nFor more than half a decade, engineers from Roscosmos and NASA have been tracking the leak rate from a small Russian module attached to the space station that leads to a docking port. The source of these leaks, microscopic structural cracks, have been difficult to find and address.\nIn January, NASA said that after multiple inspections and sealant applications, the pressure inside this segment, known as the PrK module, had reached a “stable configuration.” The PrK module is essentially a transfer tunnel attached to the Zvezda Service Module on the Russian segment of the space station.\nThis announcement by NASA was greeted by a sigh of relief in the space community, as atmospheric leaks on a pressure vessel like the International Space Station are never a good thing.\nLeaks begin again\nUnfortunately, the leak returned three weeks ago. After a couple of sources reported this to Ars, NASA confirmed the issue on Thursday. On May 1, after Russian cosmonauts unloaded cargo from the Progress 95 cargo spacecraft, Roscosmos noted a “slow pressure drop” in the PrK module.\n“Teams performed data analysis, which indicated a loss of about one pound per day,” NASA spokesperson Josh Finch told Ars. “Roscosmos allowed the pressure in the transfer tunnel to gradually decrease while monitoring the rate. The area now is being maintained at a lower pressure, with small repressurizations as needed. There are no impacts to station operations, and NASA and Roscosmos are coordinating on next steps.”\nAlthough there is no impact on astronauts aboard the station, nor any immediate concerns about the station’s health, the returning leak issue raises new questions about the long-term viability of the ISS.\nHigh risk, high consequence\nIn the past, NASA officials have downplayed the severity of the leak risks publicly and in meetings with external stakeholders of the ISS. Internally, however, there appears to be greater concern. The space agency uses a 5×5 “risk matrix” to classify the likelihood and consequences of risks to spaceflight activities, and the Russian leaks have been classified as a “5” on both high likelihood and high consequence. Their potential for “catastrophic failure” is discussed in meetings.",
+  "published_at": "2026-05-21T16:07:17Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-21T21:00:30.525021Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "international space station",
+      "iss",
+      "leaks",
+      "NASA",
+      "roscosmos",
+      "space"
+    ]
+  }
+}

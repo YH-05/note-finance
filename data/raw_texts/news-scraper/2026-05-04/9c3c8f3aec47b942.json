@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/amd-is-adding-hdmi-2-1-support-for-linux-thats-good-news-for-the-steam-machine/",
+  "title": "AMD is adding HDMI 2.1 support for Linux. That's good news for the Steam Machine.",
+  "raw_text": "Last year, we noted how the long-standing vagaries of HDMI licensing and open source AMD driver development combined to prevent the upcoming Steam Machine from receiving official support for the HDMI 2.1 display standard. Now, though, it seems that AMD is making real progress on adding full HDMI 2.1 compliance to its Linux amdgpu driver in the near future.\nIn patch series notes for an amdgpu driver update posted on Friday (and noticed by Phoronix), AMD’s Harry Wentland says that the company is finally adding HDMI FRL (Fixed Rate Link) support to the popular Linux display driver. That’s the feature that allows for higher bandwidth on compatible HDMI cables compared to the TMDS standard found on HDMI 2.0 and earlier. That in turn enables direct support for higher resolutions, dynamic HDR, and features like Variable Refresh Rate that aren’t supported in HDMI 2.0.\nWentland notes that this update is still just “a representative subset of HDMI compliance,” in part because it is missing the code to support the Display Stream Compression (DSC) that allows for even higher resolutions and frame rates up to 10K at 100 Hz. But Wentland adds that DSC support “is still being tested and will be sent out later,” and that “a full compliance run” for HDMI 2.1 is “in the works.” An AMD driver developer with the handle agd5f also commented on Phoronix, noting that “a full implementation [of HDMI 2.1] will ultimately be available once the patches are ready and have completed compliance testing.”",
+  "published_at": "2026-05-04T16:26:49Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-04T21:00:30.592255Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "AMD",
+      "HDMI",
+      "hdmi 2.1",
+      "Linux",
+      "steam machine",
+      "Valve"
+    ]
+  }
+}

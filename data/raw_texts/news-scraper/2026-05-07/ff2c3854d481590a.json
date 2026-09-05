@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://jp.reuters.com/markets/global-markets/3UZQ7SBIQFN35LVT6Q3DZVVC7E-2026-05-07/",
+  "title": "ユニクロ、4月国内既存店売上高は前年比10.2％増　夏物など好調",
+  "raw_text": "［東京 ７日 ロイター］ - ファーストリテイリング\n(9983.T)は７日、４月のユニクロ国内既存店売上高が前年同月比１０．２％増加したと発表した。端境期の需要にマッチした通年商品や夏物の新商品の販売が好調だった。",
+  "published_at": "2026-05-07T09:00:06.266807Z",
+  "author": null,
+  "collected_at": "2026-05-07T09:00:31.389309Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "reuters_jp",
+    "category": "business",
+    "tags": []
+  }
+}

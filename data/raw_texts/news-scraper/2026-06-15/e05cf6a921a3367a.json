@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/good-news-we-have-extra-time-before-the-sun-ends-life-on-earth/",
+  "title": "Good news—we have extra time before the Sun ends life on Earth",
+  "raw_text": "It’s a bit worrying when a scientific paper begins, “How long will life on Earth survive?” But in this case—a study by Jacob Haqq‐Misra of Blue Marble Space and Eric Wolf at the University of Colorado Boulder—the billion-plus-year timeline under consideration shouldn’t cause you too much existential panic.\nThe context for this question is that we understand the Sun will brighten as it eventually matures into a red giant that swallows the Earth in a solar furnace. So, where along that 5 billion-year path will life on Earth, in fact, be cooked?\nWeathering and the weather\nThis isn’t just a question of incoming radiation. Among the thermostat-like stabilizing feedback loops in Earth’s climate, the cycling of CO2 through the solid Earth is a major factor over timescales this long. The weathering of silicate rocks at the surface converts atmospheric CO2 into carbonate that ends up on the seafloor, where it can be subducted into the mantle with tectonic plates. (And eventually, it can cycle back out to the atmosphere through volcanoes.)\nThe weathering of bedrock depends, in part, on temperature. Warmer temperatures and a more active hydrologic cycle mean an increased rate of weathering, which pulls more CO2 out of the atmosphere. That slows rising temperatures. But in this scenario, it could also lead CO2 to fall to extremely low levels—and photosynthesis requires CO2.\nThis far-future puzzle has been the focus of many model simulations over the past few decades. With a steadily brightening Sun, when does the Earth either get too hot or too CO2-starved for the base of the food chain to survive?\nSome of those models have been relatively simple equations. Others have been more complex one-dimensional layer models, representing an ocean and an atmosphere separately in the math, for example. This new study brings a 3D model to the party and uses a pair of scenarios that mark opposite ends of a spectrum.",
+  "published_at": "2026-06-15T16:28:17Z",
+  "author": "Scott K. Johnson",
+  "collected_at": "2026-06-15T21:00:30.819431Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "astrobiology",
+      "red giant"
+    ]
+  }
+}

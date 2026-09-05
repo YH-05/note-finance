@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606081264",
+  "title": "インテルが時間外で１４％高＝米国株個別",
+  "raw_text": "（NY時間09:10）（日本時間22:10）時間外\nインテル<\nINTC> 113.23（+14.06 +14.18%）\nインテル<\nINTC>が時間外で大幅高。取引開始前にアルファベット<\nGOOG><\nGOOGL>傘下のグーグルが同社に対し、３００万個超のＴＰＵ（テンソル・プロセッシング・ユニット）の発注を行ったと伝わった。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-08T13:12:00Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:00:29.658510Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

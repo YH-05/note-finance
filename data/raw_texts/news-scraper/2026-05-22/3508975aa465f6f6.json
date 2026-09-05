@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20270-planned-cape-town-data-centres-opposed-over-environmental-concerns.html",
+  "title": "Planned Cape Town data centres opposed over environmental concerns",
+  "raw_text": "Plans by data centre company Equinix to build two data centres in Cape Town South Africa are facing opposition over alleged lack of transparency relating to their potential effect on the environment.\nOpponents of the scheme have reportedly lodged a formal objection lodged with city planners, arguing that the two projects should not be approved without full disclosure of their water, power and environmental impact.\nReuters reports that the Housing Assembly (HA), a social movement representing more than 20 communities in the Western Cape of South Africa, and Foxglove, a UK registered non-profit community interest company, say the application cannot be approved without the key information needed for officials to assess the project.\nThe combined projected power usage of the two data centres is said to up to 160 megawatts, but a major concern appears to involve the sort of back-up power generation that will be used, which, it seems, has not been made clear. There’s also an issue with water management (cooling is often required by data centres and water is a way of providing this), especially as Cape Town has had water scarcity problems in the past, including a severe drought in 2017-2018.\nReuters says that Equinix – which already operates a site in Johannesburg with 100% renewable energy coverage, according to its website – has declined to comment on the objection lodged by the HA and Foxglove.\nKing David Golf Club, the owner of King Air Industrial, the development site on which the data centres are due to be built, and Equinix have 30 days to offer a response, after which the city authorities have 180 days to make a decision.\nIronically, it was only last week that South Africa’s government pledged to boost investment in digital infrastructure, including data centres, through tax incentives and policy reforms.",
+  "published_at": "2026-05-19T14:45:27Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-22T03:01:36.700149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

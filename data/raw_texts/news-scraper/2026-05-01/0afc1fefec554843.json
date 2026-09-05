@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://status.canonical.com/#/incident/KNms6QK9ewuzz-7xUsPsNylV20jEt5kyKsd8A-3ptQEHpOd8VQ40ZQs-KD81fboQXeGZB94okNHdHBGlCv58Sw==",
+  "title": "Canonical/Ubuntu have been under DDoS for more than 15h",
+  "raw_text": "This page uses cookies to store preferences and improve user experience. By continuing to visit our page, you agree to our use of cookies. Know more about our cookie and privacy policy.",
+  "published_at": "2026-05-01T07:44:17Z",
+  "author": "jtlebigot",
+  "collected_at": "2026-05-01T15:00:51.841577Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605201153",
+  "title": "[TJX] TJX　1Q増収最終増益　売上高9％増143億ドル、純利益29％増13.3億ドル、配当0.480ドルへ増配",
+  "raw_text": "TJX<\nTJX>の2027年度第1四半期（2月1日-5月2日）の業績は増収、最終増益だった。四半期配当は0.480ドルへ増配する。\n米現地5月20日の通常取引開始前に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比9.2％増の143億ドルとなった。純利益は28.6％増の13億3200万ドル。1株利益（EPS・希薄化後）は1.19ドル（前年同期0.92ドル）。四半期配当は増配。前年同期から0.055ドル多い0.480ドルへ増額する。\nTJX<\nTJX>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-20T13:19:11Z",
+  "author": null,
+  "collected_at": "2026-05-20T15:00:18.495287Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

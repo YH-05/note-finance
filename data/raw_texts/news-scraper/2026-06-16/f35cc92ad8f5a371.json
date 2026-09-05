@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/iran-deal-came-in-time-as-strategic-petroleum-reserve-hits-lowest-level-since-1983.html",
+  "title": "The Iran deal came just in time as Strategic Petroleum Reserve hits lowest level since 1983",
+  "raw_text": "The U.S. Strategic Petroleum Reserve has fallen to the lowest level in more than 40 years as emergency stocks are released to help ease the supply disruption triggered by the Iran war.\nThe SPR stood at 340.3 million barrels as of June 12, the lowest level since the summer of 1983, according to data released Monday by the Department of Energy. The reserve fell nearly 9 million barrels week over week.\nThe deal that the U.S. and Iran are set to sign on Friday to reopen the Strait of Hormuz comes as oil executives have warned that global inventories are rapidly depleting to critical levels.\n\"We're approaching unheard of inventory levels,\" Exxon senior vice president Neil Chapman said May 28 at a conference hosted by Bernstein in New York. Chapman warned at the time that oil prices would spike as inventories fall while summer fuel demand is set to peak.\nInventories will continue to decline even after the U.S.-Iran deal is implemented as it will likely take weeks to months for oil flows through Hormuz to normalize.\n\"We still have inventory draws. Those are inexorable and they're already at historic lows,\" said Bob McNally, president of consulting firm Rapidan Energy. \"We don't think we're out of the woods in terms of upper pressure on prices\"\nThe U.S. agreed in early March to release 172 million barrels from the reserve. It was part of a coordinated release of 400 million barrels by the members of the International Energy Agency, the largest such intervention in the organization's history.\n\"The U.S. is the supplier of last resort,\" said Matt Smith, director of commodity research at Kpler. \"Everybody's coming to the U.S. to pull barrels out of it because there's not the availability elsewhere.\"\nPresident Donald Trump repeatedly slammed the Biden administration for releasing barrels from the SPR after Russia's invasion of Ukraine. The SPR hit a Biden-era low of around 346 million barrels in July 2023.",
+  "published_at": "2026-06-15T21:13:48Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.275108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/spacex-ipo-hedging-challenge-wall-street-short-nasa.html",
+  "title": "Unique SpaceX IPO is hedging challenge for Wall Street: 'What are you going to do, short NASA?'",
+  "raw_text": "SpaceX will debut under the ticker 'SPCX' this Friday, and its options will begin trading on Tuesday, June 16th.\nIt's a quick turnaround that leaves investors a little bit in the lurch. They'll have little time and a small sample size of activity to judge how the world's largest IPO will trade day-to-day over the long term, which one trader says will present the biggest hedging challenge in nearly three decades.\n\"As an options trader, we used to do a lot of this sort of hedging around IPOs back in 2000. Back then, however, there was an entire basket of technology stocks you could use to create a facsimile of a hedge. There were correlations, proxies, and liquid names that at least gave you a framework for managing risk,\" says Millbank Dartmoor Portsmouth CIO Dennis Davitt on \"The Exchange.\"\nThere are, of course, no real comparisons to SpaceX, which will be the only publicly traded private sector company operating in the space launch business at scale when it begins trading on the Nasdaq this Friday.\nAs Davitt puts it: \"What are you going to do, short NASA?\"\nThe necessity of hedging is paramount for investors – often institutional – who own SpaceX equity via private markets. The company's private market valuation has nearly tripled in the past year, according to Forge data. When that happens, associated risk increases due to the position becoming a larger portion of one's overall portfolio.\nThis is where the lack of direct comparisons to SpaceX in the current market makes things tricky, and while Davitt has experienced similar blockbuster IPOs up close, he acknowledges that this is a unique challenge.\n\"This reminds me a lot of, like I used to work at Credit Suisse in 2004 when we IPOed Google,\" says Davitt. \"Hedging it back then was easier because there were more things to sell. So when you put a hedge together on something like this, you create a basket of things that simulate the price action… but there's nothing to sell in SpaceX.\"\nIn the absence of directly actionable proxies or synthetic hedges, the challenge then becomes expectation management.\n\"My instinct, being old, is and having been around these bigger IPOs like this, is that it tends not to be that crazy 200% blow-off top,\" says Davitt. \"I do not believe that Elon Musk is going to allow this to IPO at $135 and trade up to $270 the first day.\"\nBut even if price action is muted, there are other pitfalls related to other trading vehicles which hold SpaceX equity.\n\"I think the initial SPCX markets are going to be pretty challenging for traders meaning super wide and with a very high IV,\" Spotgamma Founder Brent Kochuba told me via email.\n\"Not only is the price action of the stock under question, but you have these levered ETFs which are going to launch, and then forced index buying. Compounding that are the FOMC meeting and VIX expiration on the next day (17th), followed by a massive June options expiry.\"",
+  "published_at": "2026-06-10T22:32:36Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.777140Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

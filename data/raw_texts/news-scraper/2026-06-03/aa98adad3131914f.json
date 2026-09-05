@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20324-flag-launches-chennai-singapore-subsea-route-to-boost-india-asia-connectivity.html",
+  "title": "FLAG launches Chennai-Singapore subsea route to boost India-Asia connectivity",
+  "raw_text": "FLAG has launched a new subsea route between Chennai and Singapore, adding capacity and route diversity along one of Asia’s busiest connectivity corridors.\nThe privately-owned subsea cable operator said the route forms part of its Vision 2030 strategy to strengthen global network resilience and expand coverage in key digital markets.\nThe Chennai-Singapore route follows FLAG’s Mumbai-Singapore investment announced in 2025 and provides a second, geographically distinct connection between India and Singapore. The company said the new path will improve network resilience and offer additional routing options for customers across South and Southeast Asia.\nWhen combined with FLAG’s ECHO subsea cable system linking Singapore and the US, the route also creates new connectivity options between India and the United States, reducing reliance on traditional westbound routes through the Middle East and Europe.\nFLAG said the infrastructure is designed to support cloud providers, content delivery networks, enterprises and international carriers seeking greater network redundancy and lower latency.\nChief Strategy and Revenue Officer Paul Abfalter said growing demand for digital services means operators can no longer rely on a limited number of international routes. He added that the new link strengthens FLAG’s ability to manage and reroute traffic across a more resilient network architecture.\nVice President of Product Nadya Melic described India as a key market for FLAG, adding that Chennai is an increasingly important connectivity hub for linking the country into global digital networks.\nThe launch forms part of FLAG’s broader investment strategy in India, where the company is expanding both its network footprint and local operations.",
+  "published_at": "2026-06-01T08:01:32Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-03T03:01:28.509921Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

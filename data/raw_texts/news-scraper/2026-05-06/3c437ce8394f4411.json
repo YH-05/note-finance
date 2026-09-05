@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/apple-to-pay-250m-to-settle-lawsuit-over-siris-delayed-ai-features/",
+  "title": "Apple to pay $250M to settle lawsuit over Siri’s delayed AI features",
+  "raw_text": "Apple has agreed to pay $250 million to settle a class action lawsuit over how it marketed its AI features ahead of the launch of the iPhone 16. The Financial Times was the first to report the news.\nThe lawsuit alleged that Apple exaggerated the breadth of features Apple Intelligence would bring, which included a significantly upgraded version of its assistant, Siri. The complaint alleges that the company created the impression that advanced AI capabilities would be available to users sooner than they actually were. In particular, the plaintiffs allege that Apple overstated both the readiness and functionality of these features, particularly the promised improvements to Siri, which have yet to fully materialize.\nAs a result, the complaint claims, people who bought the iPhone 15 or iPhone 16 believed they were paying for cutting-edge AI tools that were not actually available at the time of purchase. The lawsuit framed this as false advertising, and says Apple’s marketing influenced buying decisions based on features that were incomplete or delayed.\nApple did not admit to wrongdoing in court, but has chosen to settle the case rather than continue with litigation. Under the proposed agreement, eligible U.S. customers who purchased the iPhone 15 or iPhone 16 between June 10, 2024 and March 29, 2025 could receive up to $95 per device.\nApple has been touting a more advanced version of Siri ever since it unveiled Apple Intelligence in 2024 during WWDC. The anticipated updates are expected to help Siri function more like modern AI chatbots such as ChatGPT or Claude. The upgraded experience is rumored to be powered by Google Gemini, though newer reports state the company’s next iPhone operating system may let users choose from a number of third-party large language models.\nThe settlement arrives ahead of Apple’s annual developer conference on June 8, when the company is expected to preview a version of its AI-enhanced Siri.",
+  "published_at": "2026-05-06T15:12:49Z",
+  "author": "Lauren Forristal",
+  "collected_at": "2026-05-06T21:00:26.402533Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Hardware",
+      "Apple",
+      "Apple Intelligence",
+      "lawsuit",
+      "siri"
+    ]
+  }
+}

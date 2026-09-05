@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/948244/ryanair-cma-probe-parents-child-seating-fee",
+  "title": "Ryanair is under investigation over charging parents to sit with their kids",
+  "raw_text": "European economy airline Ryanair is under investigation in the UK for charging parents mandatory fees to sit with their children. The Competition and Markets Authority (CMA) said it was looking into whether the seating fees, which may be charging parents for the airline to meet its child safety and disability‑related obligations, are “unfair” under consumer law.\nRyanair is under investigation over charging parents to sit with their kids\nThe UK’s competition watchdog says the mandatory fees are ‘unfair’ under consumer law.\nThe UK’s competition watchdog says the mandatory fees are ‘unfair’ under consumer law.\nUnder Ryanair’s terms and conditions, at least one parent or guardian is required to sit with children aged between 2-11 when they fly, which the airline calls a “mandatory family seat.” This approach to seating imposes a fee — typically £8 (around $10) per flight, according to the CMA — on parents to guarantee a seat beside their child. Seat reservations are otherwise optional for other passengers.\nUK consumer law requires businesses to show customers a total ticket price upfront, rather than “dripping” additional charges separately during the flight booking process. The CMA probe will examine whether the mandatory family seat fee violates these requirements, and says it believes Ryanair is “the only major airline flying out of the UK” to impose such charges.\nWhile Ryanair’s website offers free reserved seating for kids under 12, the CMA says that parents and guardians are being charged a booking fee to access these seats. The UK’s competition watchdog also notes that Ryanair no longer imposes these fees on flights to and from Italy, after the airline lost its appeal in 2024 against a ban introduced by Italy’s Civil Aviation Authority (ENAC).\n“Lots of families save up to afford a summer holiday and we know that extra charges can quickly bump up the price. Our investigation will consider Ryanair’s approach to family seat reservations and how the cost is presented to consumers to determine whether they comply with consumer law,” Hayley Fletcher, the CMA’s senior director of consumer protection, said in a statement. “For the past year, we’ve told businesses to ensure their customers are shown the total price upfront – those who don’t face the very real possibility of action from the CMA.”\nIn a statement to BBC News, Ryanair said its family seating policy “fully complies with all relevant laws,” and that it “looks forward to disproving these false CMA claims during this bogus investigation.”",
+  "published_at": "2026-06-11T08:59:16Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-11T09:00:16.590595Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Policy",
+      "Politics",
+      "Regulation",
+      "Transportation"
+    ]
+  }
+}

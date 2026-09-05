@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/stock-pullbacks-can-be-an-opportunity-to-make-your-money-back-and-then-some-heres-how.html",
+  "title": "Stock pullbacks can be an opportunity to make your money back and then some. Here's how",
+  "raw_text": "When a stock you own pulls back, you can use an options trade to get your money back.\nCase in point: Fluor Corp.\nFollowing its Q1 2026 earnings release, the stock is pulling back by 15%.\nDespite a healthy rebound in net earnings to $160 million versus a loss in the prior period and also the same quarter in the prior year. The market is reacting to a revenue miss ($3.66B vs. $3.89B consensus) and a narrowing of full-year EBITDA guidance due to cost growth in its mining segment towards the lower end of their prior guidance.\nHowever, the \"data center\" bull thesis remains intact. CEO Jim Breuer highlighted a surge in new awards for gas-fueled and nuclear power — the very backbone of AI infrastructure. For a shareholder looking to recover from this morning's $2.50 haircut, a 1x2 Call Ratio Spread offers a way to repair the position with high efficiency.\nThe Recovery Play: June 50/52.5 Call 1x2 Ratio against long stock\nA 1x2 Call Ratio Spread involves buying one lower-strike call and selling two higher-strike calls. Using the June monthly expiration:\n- Buy (1) June $50 Call\n- Sell (2) June $52.50 Calls\n- Max Gain: $2.50\n- Max Loss: No premium outlay, but your stock could be called away\n- Skill Level: Intermediate\nNet Credit: Ideally executed for a small credit (e.g., $0.10 - $0.25), depending on post-earnings volatility levels.\n- Lowering Basis via Credit: By receiving a credit, you slightly lower your effective cost basis on existing shares without requiring additional capital outlay.\n- The \"Sweet Spot\" Acceleration: If FLR drifts back toward its pre-earnings levels, this trade hits maximum profit at $52.50. Between $50 and $52.50, the long call gains value rapidly while the two short calls decay or stay out of the money, accelerating your recovery.\n- Monetizing Post-Earnings IV: Even after the \"IV Crush,\" the residual volatility risk premium (VRP) is usually higher in the OTM (out-of-the-money) strikes. Selling two calls allows you to capture more of that overvalued premium than a standard vertical spread.\nRisk Management & Outlook\nThe primary risk of a 1x2 spread is the \"naked\" short call. If the data center narrative goes parabolic and FLR rips past $55.00 (the approximate breakeven of the spread), you effectively cap your gains or face an obligation to sell additional shares.\nHowever, for a stock that just cut guidance, a vertical moonshot is less likely than a slow \"grind-back\" as the market digests the $25.7 billion backlog. This play bets on a steady recovery to the $52.50 level—reclaiming the pre-earnings price while using the market's own volatility to pay for the \"insurance\" of the bounce.",
+  "published_at": "2026-05-08T17:18:55Z",
+  "author": null,
+  "collected_at": "2026-05-08T21:17:43.561044Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

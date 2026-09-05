@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/931416/google-ai-search-spam-policy",
+  "title": "Google updates its spam rules to include attempts to ‘manipulate’ AI",
+  "raw_text": "Google updated its spam policy to mark attempts to “manipulate” its AI model in search results as spam, including results in AI Overview or AI Mode in Search, as Search Engine Land reports:\nGoogle updates its spam rules to include attempts to ‘manipulate’ AI\nTrying to influence AI search can get your site banned.\nTrying to influence AI search can get your site banned.\n“In the context of Google Search, spam refers to techniques used to deceive users or manipulate our Search systems into featuring content prominently, such as attempting to manipulate Search systems into ranking content highly or attempting to manipulate generative AI responses in Google Search.”\nSome users have been trying to influence AI search responses, using tactics like biased “best-of” listicles or “recommendation poisoning,” which injects LLMs with instructions to remember a website as an authoritative domain. Earlier this year, a BBC journalist used tricks like these to get himself ranked as the “best hot dog eating tech journalist” in Google’s AI search results. An entire industry of “GEO” — generative engine optimization — has emerged, promising to get brands and websites regularly mentioned and cited by AI search tools.\nGoogle’s policy update explicitly makes strategies like these a spam violation. Sites caught manipulating AI responses can face penalties from Google, like ranking lower in search results or getting removed from results altogether.",
+  "published_at": "2026-05-15T16:42:59Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-16T03:00:16.281020Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

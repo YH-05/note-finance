@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/927756/matter-openadr-demand-response-smart-home-energy-management",
+  "title": "Matter and OpenADR team up to connect smart homes to the grid",
+  "raw_text": "Smart energy management just took a step closer to becoming simpler. This week, the organizations behind Matter, the smart-home interoperability standard, and the OpenADR protocol, which sends signals between the grid and the home, announced an agreement to work together. This should make it easier for connected appliances to participate in demand response programs (DR) and, hopefully, save you money.\nMatter and OpenADR team up to connect smart homes to the grid\nThe two standards bodies are working together to make it easier to connect home appliances to demand response programs.\nThe two standards bodies are working together to make it easier to connect home appliances to demand response programs.\nIn demand response programs, a customer agrees to reduce or shift their electrical usage in exchange for utility bill credits or other incentives. The Connectivity Standards Alliance, which runs Matter, and the nonprofit OpenADR Alliance have outlined how the two protocols will work together to automate this process.\nMatter will handle in-home communication between a smart, connected electrical appliance, such as an EV charger, heat pump, or solar install, and an energy gateway that collects real-time data. Then the OpenADR 3 protocol will handle communication between the gateway, utilities, and grid. This should enable an end-to-end pathway from the grid to your home’s electrical appliances.\nWhen energy demand is high, these appliances can make small shifts or reductions in energy use, potentially via a home energy management system. For example, a freezer could delay a defrost cycle, a washing machine could wait to start a load, or a hot water tank could pause its heating.\nTraditionally, DR programs have focused on HVAC systems, the largest energy consumer in your home. But by connecting more electrical appliances in people’s homes to the grid, utilities could see significant aggregate benefits. That’s been difficult so far with multiple fragmented standards, but a press release from the CSA and the OpenADR Alliance promises that the partnership should make it easier for manufacturers to develop products capable of working with DR programs and for utilities to have a “standardized, scalable mechanism for demand response.”\nWith the push toward electrification, connecting more appliances to DR programs could unlock savings for homeowners while helping utilities balance the grid’s needs.",
+  "published_at": "2026-05-11T14:40:28Z",
+  "author": "Jennifer Pattison Tuohy",
+  "collected_at": "2026-05-11T15:00:12.975069Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Matter",
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

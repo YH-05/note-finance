@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/dell-stock-earnings-ai-servers.html",
+  "title": "Dell stock skyrockets 32% for its best day ever as AI server revenue soars",
+  "raw_text": "Shares of Dell Technologies closed 32.76% higher on Friday, wrapping its best day ever after the company reported its fastest pace for revenue growth for any period since returning to the public market in 2018.\nThe stock narrowly beat its previous record from March 1, 2024, when it popped 31.6%. Shares are now up 234% in 2026.\nDell, which reported first-quarter earnings after the bell on Thursday, saw a flood of artificial intelligence-related demand for its servers, which contain graphics processing units from companies like Nvidia.\nQuarterly revenue soared nearly 88% year over year, with AI server revenue alone increasing 757% from a year earlier to $16.1 billion. Adjusted earnings per share came in at $4.86, beating expectations of $2.94.\nBen Reitzes, head of technology research at Melius, said he'd \"never seen anything like\" Dell's latest quarter.\n\"They beat every line in the model, so this wasn't just AI, it was great execution,\" Reitzes told CNBC's \"Squawk on the Street.\" \"They beat whatever we would've thought.\"\nOn Friday, some analysts had to rethink their approach to Dell after the surprise print.\nMorgan Stanley wrote that while they expected a clean beat and raise this quarter, they're \"eating our humble pie\" off the back of Dell's results.\n\"We got this one wrong, and our model/PT are under review,\" the analysts wrote. \"This was — across the board — one of the most impressive quarters we've seen in our time covering Hardware, especially in the context of what is happening across the component universe.\"\nEven before Friday's move, Dell's stock has surged, nearly tripling in the past year as its chairman and CEO Michael Dell has built strong ties with President Donald Trump during his second term.\nGovernment ethics filings showed the president bought $1 million to $5 million in Dell shares on Feb. 10, purchases that came after Michael and Susan Dell announced a $6.25 billion gift to help fund Trump Accounts for 25 million U.S. children.\nDuring a Mother's Day event at the White House earlier this month, Trump told Americans to \"go out and buy a Dell,\" while thanking the Dells for their Trump Account participation.\nOn Wednesday, Dell landed a Pentagon contract worth $9.7 billion to provide a suite of software to the U.S. military.\n— CNBC's Garrett Downs, Hayley Cuccinello and Jordan Novet contributed to this report.",
+  "published_at": "2026-05-29T20:10:26Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.149406Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

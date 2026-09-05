@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/ethereum-can-quantum-proof-accounts-just-7-cents-says-foundations-kohaku-project-lead",
+  "title": "Ethereum Can Quantum-Proof Accounts For Just 7 Cents, Says Foundation's Kohaku Project Lead",
+  "raw_text": "Ethereum could begin adding post-quantum protections to accounts for as little as $0.07, without waiting for a hard fork, according to the Ethereum Foundation's Kohaku project lead Nicolas Consigny.\nIn a Saturday X post, Consigny shared a paper proposing a cheaper way for Ethereum users to protect their accounts against future quantum-computing threats. The approach adapts SPHINCS+, a post-quantum signature standard developed by the US National Institute of Standards and Technology, to work more efficiently on Ethereum.\nDubbed “SPHINCS-,” the proposal aims to reduce onchain verification costs without requiring a protocol change or precompile. Consigny described SPHINCS- as a bridge toward a future post-quantum signature system dubbed “leanSPHINCS,” which aims to further reduce verification costs through aggregation.\nThe proposal seeks to address the long-term risk of a quantum threat to Ethereum's Elliptic Curve Digital Signature Algorithm with a cost-efficient solution that may be deployed before a dedicated hard fork is developed.\nSignature scheme SPHINCs variant security degradation and onchain verification costs. Source: Ethresearch.ch\nFuture quantum computing threats stirs crypto community\nIn April, post-quantum startup Project Eleven awarded a prize to researcher Giancarlo Lelli for using a quantum computer to break a 15-bit elliptic-curve key.\nBitcoin’s keys are 256 bits long, significantly larger than the 15-bit key Lelli managed to crack. He derived the private key from a public key paired to it, using a variant of Shor’s algorithm, a quantum computing technique that theoretically poses a threat to the type of cryptography used by Bitcoin.\nAccording to Glassnode, about 1.92 million Bitcoin, representing nearly 10% of the total supply, are considered “structurally unsafe” in a future quantum attack scenario. Another 4.12 million BTC, or 20.6% of the supply, are classified as “operationally unsafe” due to key or address management practices.\nSource: Glassnode\nThe analytics company estimates that the remaining 69.8% of the supply, or 13.99 million Bitcoin, remains unexposed to a quantum computing threat, broadly in line with Ark Invest’s March estimate that 65% of the supply was safe.",
+  "published_at": "2026-06-14T19:10:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-15T03:00:41.642015Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/uk-regulator-enforces-new-competition-requirements-on-google-search.html",
+  "title": "Google must let UK publishers opt out of AI search under new rules",
+  "raw_text": "Britain has imposed new conduct requirements on Google's search services, including allowing publishers to stop their content being used to power the U.S. tech giant's AI features, as the watchdog ramps up its oversight.\nThe country's Competition and Markets Authority has flagged concerns about Google's dominance in search, designating the company with the \"strategic market status\" that allows it to set targeted rules to increase trust and transparency.\nGoogle accounts for more than 90% of UK queries and the regulator said in January it wanted to give publishers more control over how their content was used.\nThe CMA on Wednesday said the requirements imposed on Google under the digital markets competition regime gave \"publishers more control and stronger bargaining power over the use of their content,\" while securing a fair deal.\nNews websites and other publishers have seen click-through rates drop sharply as a result of users relying on overviews generated with the help of AI.\nGoogle said it was providing \"new resources, insights and control for website owners\" to navigate the changes in how users find and understand information using generative AI.\nIt said it was testing a new control that lets publishers manage how their links and content appear in generative AI search features.\nSites that opt out would not receive traffic from AI Overviews and AI Mode, it said in a blog post, but the controls would not affect traditional search results.\nIt said it was also increasing the number of links in AI responses and it was starting to roll out new insights for publishers.\nThe CMA said Google would be required to make sure content from publishers, including news organisations, was properly attributed in AI-generated search results, using clear links.\n\"Google has recently announced changes to its search business and the requirements we've introduced today are designed to respond to what Google is doing now and in the future,\" CMA Chief Executive Sarah Cardell said.\nGoogle faces increasing regulatory scrutiny across the world, including in the United States and European Union, and the company in March said it was developing new search controls to address British competition concerns.",
+  "published_at": "2026-06-03T08:37:29Z",
+  "author": null,
+  "collected_at": "2026-06-03T09:18:44.995306Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

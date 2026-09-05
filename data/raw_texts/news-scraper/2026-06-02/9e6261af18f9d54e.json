@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/pacific-fusions-latest-prototype-packs-440-gigawatts-into-an-80-nanosecond-burst/",
+  "title": "Pacific Fusion’s latest prototype packs 440 gigawatts into an 80-nanosecond burst",
+  "raw_text": "Pacific Fusion took the wraps off its latest pulser module prototype on Tuesday, a piece of equipment that allows the company to move ahead with its demonstration fusion power plant. Construction on the fusion power plant is expected to begin this summer.\nResults from the shipping container-sized prototype were good enough to unlock another tranche of Pacific Fusion’s Series A round, which exceeds $1 billion, the company exclusively told TechCrunch. The company did not disclose the size of the tranche. Pacific Fusion is among the best-funded fusion startups.\nThe tranche-based model is more widely used in biotech, where it saves startups time on fundraising, allowing them to remain focused on hitting technical milestones.\nThe funding arrangement has allowed the company “to keep our heads down,” Pacific Fusion CTO Keith LeChien told TechCrunch. “It means that we can lean into the future without spending 20% to 50% time constantly looking for the next piece of capital.”\nPacific Fusion is pursuing a form of fusion power known as inertial confinement. Its reactor will use 156 pulser modules to deliver an enormous jolt of electricity to a small fuel target in the fusion chamber. That electrical pulse will create a magnetic field around the eraser-sized fuel pellet, squeezing it until atoms inside fuse and release enormous amounts of energy.\nThe startup’s next challenge will be to scale up from the sub-scale prototype to a full-size pulser module, the core component of the demonstration power plant. The company hopes that power plant will be able to produce more electricity than the facility requires to operate, a feat no one has achieved yet.\nBut because the race for fusion power is heating up, the company isn’t waiting for results from a full-scale pulser module before starting work on the demonstration power plant. “The shovels go in the ground for that facility this summer,” LeChien said.\nTo date, inertial confinement is the only way humans have been able to produce a controlled fusion reaction that releases more energy than was required to start it, a milestone known as scientific breakeven. And so far, only one experiment, at the National Ignition Facility (NIF) at Lawrence Livermore National Laboratory, has been able to produce and replicate those results.\nBut where NIF relies on large, expensive lasers, Pacific Fusion is hoping it only needs thousands of less costly electrical switches and capacitors. Those capacitors and switches will be coordinated to generate enormous, precisely timed pulses of electricity — each about 100 nanoseconds long.\nPacific Fusion’s challenge is ensuring the capacitors can release their energy at precisely the right moment. If they don’t, the fuel pellet won’t be hit with sufficient energy to compress quickly enough to spark a fusion reaction.\nThe company’s demonstration device will have 156 full-size pulser modules. Each module will contain 32 circular stages, and each stage will be ringed with 10 bricks. One brick contains two capacitors to store power and one switch to release it.\nThe prototype pulser module that the company recently tested is about a third the size of the full module. It contains nine stages and 90 bricks, and it released 440 gigawatts of peak power in just 80 nanoseconds.\n“It meets all our requirements for scaling up to build our big demonstration system,” LeChien said.\nOnce Pacific Fusion has its demonstration power plant ready, it intends to skip past scientific breakeven and go straight for facility breakeven, in which its demonstration device generates enough energy to power the entire facility.\n“Any fusion approach, regardless of your specific technology, has to traverse through that,” LeChien said. “It’s the next tectonic milestone in fusion.”",
+  "published_at": "2026-06-02T11:00:00Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-02T15:00:21.729166Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "Exclusive",
+      "nuclear fusion",
+      "fusion power",
+      "Pacific Fusion"
+    ]
+  }
+}

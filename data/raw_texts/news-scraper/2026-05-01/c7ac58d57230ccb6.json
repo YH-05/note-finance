@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://xcancel.com/aaronp613/status/2049986504617820551",
+  "title": "Apple accidentally left Claude.md files Apple Support app",
+  "raw_text": "Multiple replies say that this proves Apple was using Claude all the time they said they were working on a better Siri. While it *might* be true that Apple has been using Claude all that time, all *this* proves is that Apple is using Claude right now. ...\nIt's a problem of these company firing devs. Who knows an agent push the code automatically. Who was the reviewer? Another agent problem. How soon can we realise that AI is not the end game. The humans in the loop are.\nApple is using Claude Code to build their apps and just accidentally proved it.\nClaude.md files were left in the latest Apple Support app update. The same configuration files developers use to instruct Claude Code on how to work with their codebase shipped to millions of iPhones today.\nThe most secretive tech company in the world just leaked their AI development workflow through a forgotten file in a routine app update.\nSomewhere in Cupertino an engineer is having the worst day of their career. Somewhere at Anthropic the sales team is having the best one.\napple's been running mythos preview on their own stack via glasswing for weeks. genuinely curious what the report card looked like! ios/macos has been the cleanest in the game vs windows/android forever. ironic that we're finding out about their claude usage via a shipped .md file 💀\nSomeone is going to get fired for this.\nEspecially after they banned the vibe-coded apps from the App Store.\nIt seems like the message is You may not make vibe-coded apps, but Apple can support you with vibe-coded updates.\nthis is the second claude-adjacent leak in 30 days\nmarch: CI/CD misconfig → 512k lines exposed. devs found anthropic had been reading opencode's source while sending it legal threats\napril: apple support app ships claude.md to 100k users\nai labs love controlling narratives. they're bad at it\nlmao, people are going to copy this into their repos with expectations that they build the next trillion dollar company. We're definitely regressing in intelligence.",
+  "published_at": "2026-05-01T11:08:32Z",
+  "author": "andruby",
+  "collected_at": "2026-05-01T15:00:51.837808Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

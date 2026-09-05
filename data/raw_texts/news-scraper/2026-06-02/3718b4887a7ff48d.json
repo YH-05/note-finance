@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/19/car-wash-real-estate-cleaning-up.html",
+  "title": "Here’s why car wash real estate is cleaning up",
+  "raw_text": "Key Points\n- The 100% bonus depreciation passed by the Trump administration is delivering a boost to car wash real estate.\n- The car wash business has evolved markedly over the last decade as private equity investors flock to the recurring revenue.\n- Typically, private equity buys the car wash business and then sells the property to an individual investor.",
+  "published_at": "2026-05-19T14:34:43Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.634909Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

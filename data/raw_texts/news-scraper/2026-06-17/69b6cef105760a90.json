@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606171263",
+  "title": "明日の為替相場見通し＝ウォーシュＦＲＢ新議長の会見など注目",
+  "raw_text": "【通貨】明日の為替相場見通し＝ウォーシュＦＲＢ新議長の会見など注目\nこの日は１６０円２０～４０銭台を中心とするレンジでの一進一退が続いた。今晩は米連邦公開市場委員会（ＦＯＭＣ）の結果が発表される。政策金利は据え置きの見通しだが、米連邦準備制度理事会（ＦＲＢ）の新議長に就任したウォーシュ氏の記者会見での発言内容が関心を集めている。また、政策金利見通し（ドットチャート）も公表される見込みであり、その内容が注目されている。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-17T08:24:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T09:00:22.491694Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

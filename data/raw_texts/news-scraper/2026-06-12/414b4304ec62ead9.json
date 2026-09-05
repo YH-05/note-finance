@@ -1,0 +1,33 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/video/spacex-anthropic-and-openais-hot-ipo-summer/",
+  "title": "SpaceX, Anthropic, and OpenAI’s hot IPO summer",
+  "raw_text": "The IPO market is back, and it’s not the same companies leading the charge. FAANG had a good run, but a new acronym is taking over: MANGOS — Meta (or Microsoft, depending on who you ask), Anthropic, Nvidia, Google, OpenAI, and SpaceX. Half of that bunch is heading to public markets in the same window, and it’s a stress test for investors, for valuations, and for what we can even expect from a public tech company in 2026.\nOn this episode of TechCrunch’s Equity podcast, hosts Kirsten Korosec, Anthony Ha, and Sean O’Kane break down what this IPO moment actually means beyond the headline numbers, and who stands to benefit.\nSubscribe to Equity on YouTube, Apple Podcasts, Overcast, Spotify and all the casts. You also can follow Equity on X and Threads, at @EquityPod.",
+  "published_at": "2026-06-12T16:23:25Z",
+  "author": "Theresa Loconsolo",
+  "collected_at": "2026-06-12T21:00:27.009952Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Fundraising",
+      "ai infrastructure",
+      "Anthropic",
+      "Apple WWDC",
+      "ChatGPT",
+      "FAANG",
+      "Google",
+      "IPO",
+      "MANGOS",
+      "OpenAI",
+      "Sam Bankman-Fried",
+      "SBF",
+      "SpaceX",
+      "Waymo"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20332-google-to-partner-kenyan-tourism-ministry.html",
+  "title": "Google to partner Kenyan Tourism ministry",
+  "raw_text": "Underlining the importance of tourism to the country and the potential of telecommunications in supporting growth in this sector, a new partnership has been announced between Kenya’s Ministry of Tourism and Wildlife and Google Kenya.\nThis initiative, widely reported by local press, apparently follows recommendations made by the government’s Rebranding Taskforce and aims to modernise Kenya’s tourism sector through advanced digital infrastructure and artificial intelligence.\nAt the centre of the initiative is a new analytics hub called Tourism Pulse. Built on Google Cloud infrastructure, the platform will analyse Google search trends, visitor traffic data, and destination perception indicators to help tourism authorities design policies and promotional campaigns based on market insights.\nThe partnership also includes the use of Google's Gemini AI models to develop a travel planner capable of creating personalised itineraries based on travellers’ interests, budgets and preferences.\nThis will, it is hoped, help to deliver a more customised travel experience that reflects changing consumer habits and a growing demand for personalised recommendations among international travellers.\nIn addition, precision marketing strategies will be deployed to target key international markets and increase Kenya’s global tourism visibility.\nThese changes will be accompanied by new digital skilling programmes for young people and tourism-focused small and medium enterprises (SMEs) in modern technology applications. Local curators will also receive training on Google Arts & Culture platforms, thereby, the partners say, opening up new opportunities in digital storytelling, heritage preservation, and online cultural promotion.",
+  "published_at": "2026-06-02T13:06:32Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-05T03:05:49.414052Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

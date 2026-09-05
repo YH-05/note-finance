@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/nasa-provides-some-details-about-artemis-iii-but-hard-decisions-remain/",
+  "title": "NASA provides some details about Artemis III, but hard decisions remain",
+  "raw_text": "NASA announced Wednesday that it will fly the Artemis III mission in low-Earth orbit and that it continues to target 2027 for this stepping-stone flight that will help land humans on the Moon.\nThe space agency chose the orbit close to Earth—as opposed to a higher orbit—because it would preserve the final remaining Interim Cryogenic Propulsion Stage for launching the Artemis IV landing mission later this decade. Instead, NASA will use a “spacer” to simulate the mass and overall dimensions of an upper stage but without propulsive capabilities.\nThe additional information released this week follows a decision made by NASA Administrator Jared Isaacman three months ago to shuffle the agency’s Artemis plans in order to accelerate a lunar landing.\nInstead of landing on the Moon with Artemis III, the agency now plans to launch four astronauts inside the Orion spacecraft, on top of the Space Launch System rocket. In Earth orbit they will rendezvous with one, or both, of the vehicles under development to carry astronauts down to the lunar surface: SpaceX’s Starship and Blue Origin’s Blue Moon Mark 2.\nSaving an upper stage\nThis decision to reduce the risks of the eventual lunar landing mission with an interim test closer to home has largely been applauded by the space community. It greatly increases the chance of success with the eventual lunar landing mission.\n“For the first time, NASA will coordinate a launch campaign involving multiple spacecraft integrating new capabilities into Artemis operations,” said Jeremy Parsons, Moon to Mars acting assistant deputy administrator, in a news release. “We’re integrating more partners and interrelated operations into this mission by design, which will help us learn how Orion, the crew, and ground teams all interact together with hardware and teams from both providers before we send astronauts to the Moon’s surface and build a Moon Base there.”\nHowever NASA continues to put off some key details for this mission, which Isaacman has repeatedly said will launch in (late) 2027.",
+  "published_at": "2026-05-13T18:37:29Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-15T03:00:30.486068Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "artemis iii",
+      "hls",
+      "lunar landers",
+      "NASA",
+      "orion",
+      "space"
+    ]
+  }
+}

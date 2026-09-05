@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20322-paratus-kenya-connects-health-facilities-in-muranga-county-to-starlink.html",
+  "title": "Paratus Kenya connects health facilities in Murang’a County to Starlink",
+  "raw_text": "Paratus Kenya announced on Friday that Murang’a County has launched what it says is Kenya’s largest public digital healthcare initiative, which connects 170 health facilities via Starlink’s LEO satellite constellation.\nThe initiative – which was delivered under Paratus’ recently launched Essential Access offering – combines telemedicine with digital health reporting, allowing patients to access specialist consultations at their nearest clinic while enabling community health promoters to submit healthcare data digitally from the field.\nParatus said the roll-out improves access to healthcare for approximately 1.2 million residents in Murang’a County, most of whom live in rural communities. Patients benefit from faster diagnosis, reduced travel time, improved referrals and access to specialist expertise previously unavailable in many rural areas. Digital records can also be accessed remotely, while lab samples are transported to larger facilities and results uploaded back into the system for immediate review.\nThe project is part of Murang’a County’s healthcare transformation programme and supports Kenya’s broader Universal Health Coverage and digital healthcare goals. Paratus Kenya managed the Essential Access and Starlink installation across the county after an initial pilot of 35 health facilities was deemed successful at the end of 2025.\nThe telemedicine system currently supports hundreds of consultations daily through a central hub, allowing doctors to connect remotely with patients in surrounding clinics and dispensaries. The roll-out also includes digital health hubs that extend access to surrounding communities. With 15 doctors based at the central telemedicine hub, the Murang’a digital health access service can handle between 450 to 600 patients per day.\nParatus said another 302 public health facilities will be connected to Starlink before the end of the year.\n“Paratus Essential Access is designed to support the institutions that communities depend on every day. This project demonstrates how connectivity can help transform healthcare access and improve service delivery in underserved areas,” said Paratus Kenya MD Joseph Kibwott.\nParatus Essential Access was launched at the end of March to deliver Starlink satellite connectivity to communities and emergency services organisations in Africa’s remote communities. Apart from Kenya, Essential Access is also available in Botswana, Eswatini, Lesotho, Mozambique, Rwanda and Zambia. Paratus plans to roll out the service to other territories in the coming months.",
+  "published_at": "2026-06-01T03:55:31Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-09T03:01:27.646562Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

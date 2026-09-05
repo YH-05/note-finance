@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/us-navy-blockade-iran-trump-oil.html",
+  "title": "U.S. Navy ends blockade of Iran's ports and coastal areas",
+  "raw_text": "The U.S. Navy on Thursday lifted its blockade of Iran's ports and coastal areas at the direction of President Donald Trump.\n\"American forces are not impeding the transit of vessels to or from Iranian ports,\" U.S. Central Command said in a statement on social media. \"All U.S. military blockade enforcement efforts have ceased.\"\nThe end of the blockade comes after Trump and Iranian President Masoud Pezeshkian signed a memorandum of understanding Wednesday that aims to end the U.S.-Iran war.\nUnder the agreement, Iran is obligated to allow commercial vessels to transit the Strait of Hormuz without paying tolls for 60 days.\nVice President JD Vance told reporters earlier Thursday that Iran has not fired on ships in Hormuz for two consecutive nights. \"So far they are honoring their end of the commitment,\" Vance said.\nThe vice president said more than 12 million barrels of oil transited Hormuz overnight. CNBC could not immediately verify that number. Three Saudi tankers carrying around 6 million barrels have crossed the strait, the trade intelligence firm Kpler said.\nAbout 14 million barrels per day of oil and 6 million bpd of refined products transited Hormuz before the U.S. and Israel attacked Iran on Feb. 28.\nTehran responded by attacking ships in Hormuz, basically shutting down the sea lane and triggering the biggest oil supply disruption in history.\nOil flows through Hormuz could reach nearly 50% of prewar levels in 30 days if the U.S.-Iran deal is fully implemented without any problems, Kpler forecast in a note earlier this week. It is unclear when exports through the strait will fully return to prewar levels if they ever do.\n\"Everything's going to be more gradual,\" Amrita Sen, founder of Energy Aspects, told CNBC. \"Initially, of course, the ships that are stuck will come out, but it's not going to be back to pre-conflict levels overnight.\"",
+  "published_at": "2026-06-18T19:29:26Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:30:35.254280Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

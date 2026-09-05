@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318b.htm",
+  "title": "Federal Reserve Board and Federal Open Market Committee release economic projections from the March 17-18 FOMC meeting",
+  "raw_text": "March 18, 2026\nFederal Reserve Board and Federal Open Market Committee release economic projections from the March 17-18 FOMC meeting\nFor release at 2:00 p.m. EDT\nThe attached tables and charts released on Wednesday summarize the economic projections made by Federal Open Market Committee participants in conjunction with the March 17-18 meeting.\nFor media inquiries, email [email protected] or call 202-452-2955.",
+  "published_at": "2026-03-18T18:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:02:27.819214Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Monetary Policy"
+    ]
+  }
+}

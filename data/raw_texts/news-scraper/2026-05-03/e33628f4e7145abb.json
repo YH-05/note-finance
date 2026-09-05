@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20168-gsma-and-pleias-release-lid-model-to-close-ais-african-language-gap.html",
+  "title": "GSMA and Pleias release LID model to close AI’s African language gap",
+  "raw_text": "AI company Pleias and the GSMA announced on Tuesday they have released CommonLingua, an open-source language identification (LID) model that they say will help close the African language gap in AI.\nBilled as the first joint release under the GSMA’s “AI Language Models in Africa, by Africa, for Africa” initiative, CommonLingua is a compact 2-million-parameter open-source LID model covering 334 languages – including 61 African languages.\nThere are over 2,000 living languages in Africa, many of which remain underrepresented in AI training data. One reason is that before language models for, say, Swahili, Yoruba or Wolof can be built, the underlying text must first be correctly identified by language.\nThe problem is that LID systems such as fastText, GlotLID, and OpenLID – which were built around European and Asian high-resource languages – frequently mislabel African-language text as English or French.\nAccording to Pleias and the GSMA, CommonLingua is designed to fix this first step of the pipeline.\nCommonLingua achieves 83% accuracy and a macro score F1 of 0.79 on the new CommonLID benchmark, which is 10 percentage points above leading LID models. At 2 million parameters and shipping as an 8 MB checkpoint, CommonLingua is also relatively lightweight, running around 20 texts per second on CPU and up to 3,000 texts per second on a single GPU.\nThe model operates directly on UTF-8 byte sequences rather than relying on a language-specific tokenizer, which Pleias and the GSMA said enables consistent handling across scripts including Latin, Arabic, Ethiopic, N’Ko, and Tifinagh.\nThe 61 African languages supported by CommonLingua run across eight language families: Bantu (21), Niger-Congo / West African (18), Afro-Asiatic and Semitic (7), Cushitic and Chadic (4), Berber (3), Nilo-Saharan (3), and pidgins, creoles, and other (5).\n“African languages are not an edge case. They are the working languages of hundreds of millions of people, and they deserve AI infrastructure built with the same care as any other language,” said Pierre-Carl Langlais, co-founder and CTO at Pleias. “CommonLingua is deliberately the first brick we are laying: you cannot curate what you cannot identify.”\nLouis Powell, the GSMA’s director of AI initiatives, added that closing the gap in African-language AI is is fundamental to digital inclusion and unlocking economic opportunity.\n“Progress has long been held back by the lack of foundational infrastructure, beginning with something as essential as language identification,” Powell said. “CommonLingua addresses this critical gap, enabling the development of richer datasets and more representative AI systems at scale.”\nThe CommonLingua LID is trained exclusively on open-licensed and public domain content aggregated through the Common Corpus project, including Wikipedia, Scientific publications in OpenAlex, VOA Africa, WaxalNLP, Cultural Heritage, and Pralekha. All datasets are released under permissive licenses.",
+  "published_at": "2026-04-29T03:22:17Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-03T03:01:18.552866Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

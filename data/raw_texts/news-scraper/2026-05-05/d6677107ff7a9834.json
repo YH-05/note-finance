@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/hackers-are-still-exploiting-the-cpanel-bug-to-gain-control-of-thousands-of-websites/",
+  "title": "Hackers are mass-exploiting the cPanel bug to gain control of thousands of websites",
+  "raw_text": "Nearly a week after the makers of the popular web server management software cPanel and WebHost Manager (WHM) alerted users of a critical flaw in its software, hackers are now mass-compromising thousands of websites that rely on the vulnerable software.\nAs of Monday, there are more than 550,000 potentially vulnerable servers running cPanel, a number that has remained stable for days. And there are now around 2,000 cPanel instances likely compromised, down from around 44,000 on Thursday. These statistics are published by Shadowserver, a nonprofit organization that scans and monitors the internet for cyberattacks.\nOn Thursday, security researchers alerted that hackers started compromising servers running cPanel and WHM, taking advantage of a bug that allowed the attackers to take full control of and hijack the vulnerable servers via their control panels.\nAs Bleeping Computer reported, some of the extent of damage so far is visible by the fact that Google has indexed dozens of websites that at some point displayed a message from a group of hackers that claimed to have encrypted the victim’s files in an apparent ransomware attack. Some of those sites now load normally.\nThe ransom note included a chat ID for the victims to contact the hackers, who did not immediately respond to TechCrunch’s request for comment.\nU.S. Cybersecurity and Infrastructure Security Agency (CISA) warned on Thursday that the vulnerability — tracked as CVE-2026-41940 — was being exploited in the wild, and added it to its Known Exploited Vulnerabilities (KEV) catalog. CISA asked government agencies to patch by Sunday. CISA did not immediately respond to a request for comment, asking whether it could confirm that government agencies have patched their servers.\nThe attacks against web servers running cPanel and WHM have likely been ongoing since much earlier than the vulnerability was disclosed. According to KnownHost CEO Daniel Pearson, his company detected attacks as far back as February 23.\nAn unnamed spokesperson for cPanel acknowledged receipt of TechCrunch’s request for comment, but did not provide a response.\nUpdated with response from cPanel.",
+  "published_at": "2026-05-04T18:02:18Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-05-05T03:00:27.380805Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cPanel",
+      "cyberattack",
+      "cybersecurity",
+      "hackers",
+      "web hosting"
+    ]
+  }
+}

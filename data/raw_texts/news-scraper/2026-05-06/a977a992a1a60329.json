@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/chrome-on-android-now-supports-approximate-instead-of-precise-location-sharing/",
+  "title": "Chrome on Android now supports approximate instead of precise location sharing",
+  "raw_text": "Chrome on Android now lets users share their approximate location with websites rather than their precise location, Google announced this week. The tech giant says that while some cases require precise location, such as when you’re placing a delivery order or trying to find the closest ATM, there are instances when your approximate location is enough, like when you’re getting access to local weather and news.\n“By letting you share your approximate location, we’re giving you more control over your location data,” Google explained in a blog post. “And you can still share your precise location when it’s needed — e.g., for navigation — so you won’t lose functionality.”\nGoogle plans to bring this feature to the desktop in the coming months. The company did not share a timeline for when, or if, the feature will launch for Chrome on iOS.\nThe company will also be introducing new APIs that let web developers request either an approximate location or specify when a precise location is necessary. The tech giant says it encourages developers to review their location needs and only request precise location when it’s essential for the site’s functionality.\nThe new feature is a small win for Android users, as it gives them more control over how much location data they share with websites.",
+  "published_at": "2026-05-06T15:54:06Z",
+  "author": "Aisha Malik",
+  "collected_at": "2026-05-06T21:00:26.400869Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Android",
+      "Chrome",
+      "Google",
+      "In Brief"
+    ]
+  }
+}

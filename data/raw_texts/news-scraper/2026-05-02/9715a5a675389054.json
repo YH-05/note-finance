@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/amoebas-eat-man-alive-over-months-in-puzzling-ultra-rare-cautionary-tale/",
+  "title": "Man dies covered in necrotic lesions after amoebas eat him alive",
+  "raw_text": "Over the course of six months, black lesions and deep ulcers formed over the body of a 78-year-old man, puzzling doctors. His face was covered in dark scabs. A lesion had destroyed his left eyelid, and one had created a hole between the roof of his mouth and his nasal cavity.\nIt wasn’t until he was transferred to a Yale School of Medicine hospital for higher-level care that doctors finally identified the cause of his ghastly affliction: a common free-living amoeba that can be found almost anywhere, including tap water. But by then, it was too late. The man’s case is reported in the journal Emerging Infectious Diseases. (A graphic image of his case is here, but be warned.)\nUnicellular terror\nThe amoeba the doctors found was Acanthamoeba, which is known to cause such horrifying infections. But it’s rare, and when it explodes into a full-body, often deadly malady, it tends to be in patients who have compromised immune systems or are otherwise debilitated. As such, the opportunistic pathogen is most often found in people with HIV/AIDS, cancers, and diabetes, as well as those on powerful immunosuppressive drugs, like transplant patients. The man didn’t fit into any of these categories.\nBesides widespread infections, Acanthamoeba is known to cause localized ones, most notably eye infections—aka Acanthamoeba keratitis. It’s rare, but often linked to contact wearers who don’t clean their lenses properly. If not identified and treated early, it can easily lead to permanent vision loss. The unicellular terror can also cause a rare brain infection (granulomatous amebic encephalitis), again, mostly in immunocompromised patients. And it can infect wounds or the sinuses, particularly in people who rinse their sinuses with tap water that hasn’t been boiled. Acanthamoeba and other amoeba species have been found in more than 50 percent of US tap water samples.",
+  "published_at": "2026-05-01T21:05:37Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-02T03:02:27.297206Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "acanthamoeba",
+      "amoeba"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/02/martin-scorsese-becomes-the-latest-and-most-unlikely-hollywood-voice-for-ai/",
+  "title": "Martin Scorsese becomes the latest — and most unlikely — Hollywood voice for AI",
+  "raw_text": "Martin Scorsese has signed on as a partner and adviser to AI image-generation startup Black Forest Labs, The New York Times reported on Tuesday.\nThe caveat is that one of the world’s most famous living directors is using the tech solely for storyboarding.\n“For 70 years, I’ve been creating my own storyboards,” he said in a statement to the Times. The tool, he said, helps him communicate his vision to cinematographers and production designers far faster and more efficiently.\nBlack Forest Labs is a 70-person outfit headquartered not in San Francisco, but in Freiburg, Germany, the closest major city to the actual Black Forest. Despite its unlikely address, the startup powers image features inside Adobe, Canva, Microsoft, and Meta, and was last valued at $3.25 billion by its investors, which include BroadLight Capital, co-founded by Scorsese’s talent manager, Rick Yorn.\nBlack Forest Labs was founded by the team behind Stable Diffusion and according to Wired, declined to partner with Elon Musk’s xAI in recent months after an earlier collaboration on Grok’s image generator ended amid concerns about the platform’s content safeguards.\nYou can imagine that some in the entertainment industry will be concerned about the development, even given its limited scope. Still, it’s just the newest sign that Hollywood’s once-fierce resistance to AI is softening.",
+  "published_at": "2026-06-02T18:16:53Z",
+  "author": "Connie Loizos",
+  "collected_at": "2026-06-02T21:00:26.835365Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Media & Entertainment",
+      "TC",
+      "black forest labs",
+      "In Brief",
+      "martin scorsese"
+    ]
+  }
+}

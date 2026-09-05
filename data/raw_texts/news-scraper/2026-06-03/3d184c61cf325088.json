@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20300-avelacom-launches-low-latency-route-between-bangkok-and-tokyo.html",
+  "title": "Avelacom launches low-latency route between Bangkok and Tokyo",
+  "raw_text": "Avelacom, a ultra-low latency connectivity and infrastructure provider, says it has launched a new direct low-latency route between Bangkok and Tokyo, which, it says, delivers less than 65 ms round-trip delay (RTD).\nThe new route was optimised through improvements to the terrestrial fibre segment, enabling a more direct path between Thailand and Japan. This, says Avelacom, establishes a new low-latency benchmark for connectivity between Bangkok and Tokyo and further strengthens Avelacom’s APAC network infrastructure.\nOne of the key use cases of the new route is low-latency connectivity between the Thailand Futures Exchange and the CME derivatives markets, particularly for commodity derivatives market data access and trading, including gold-related products.\nAs Avelacom explains, Bangkok is continuing to strengthen its role as a regional financial and trading hub, increasing demand for deterministic, low-latency infrastructure across APAC.\nThe route is designed for proprietary trading firms, institutional trading desks, and regional banks operating in global equity, FX, commodity, and derivatives markets, where network performance increasingly impacts execution efficiency and overall trading performance.\nAleksey Larichev, CEO of Avelacom, explains: “For us, network expansion is not limited to deploying additional points of presence. The underlying route architecture itself remains equally important. We continuously optimise long-distance terrestrial and submarine network segments to achieve the most direct paths and lowest possible latency between markets.”\nAvelacom owns and operates a global network connecting to more than 80 data centres worldwide. This route further expands its global low-latency network connecting major traditional and digital asset trading venues across Europe, North America, APAC, and the Middle East.",
+  "published_at": "2026-05-26T14:26:37Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-03T03:01:28.513117Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

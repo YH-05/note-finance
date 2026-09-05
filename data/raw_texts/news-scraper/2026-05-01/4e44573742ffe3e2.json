@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/california-gas-price-iran-war-oil.html",
+  "title": "California gas prices hit $6 per gallon as fuel costs jump nearly 30 cents in a week across the U.S.",
+  "raw_text": "California gasoline prices hit $6 per gallon on Thursday, a 30% increase since the U.S. and Israel launched the war against Iran in late February.\nDrivers in California are paying the most in the nation at $6.01 per gallon on average, according to data from AAA. Prices in the Golden State are at the highest level since October 2023, the data shows.\nDiesel, meanwhile, cost about $7.50 per gallon on average in California on Thursday, a 47% increasse since the war broke out on Feb. 28. Diesel is essential for the economy because the fuel is used by trucks and trains to deliver all the goods that consumers buy.\nGasoline prices nationwide surged 27 cents over the past week as oil prices spiked. Drivers paid $4.30 per gallon on average across the U.S. Thursday, compared to $4.03 a week ago.\nPrices at the pump eased for a couple weeks as oil prices fell on the hope that the U.S. and Iran would reach a deal to end the war. But fuels costs started rising after it became clear that Iran was not reopening the Strait of Hormuz, one of the most important oil export corridors in the world.",
+  "published_at": "2026-05-01T14:14:51Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.390724Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

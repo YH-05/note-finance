@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/humanitarian-communications/20362-philippine-telcos-deploy-starlink-in-mindanao-after-deadly-7-8-quake.html",
+  "title": "Philippine telcos deploy Starlink in Mindanao after deadly 7.8 quake",
+  "raw_text": "Philippine telcos PLDT, its wireless arm Smart Communications, and Globe Telecom have deployed Starlink’s broadband and direct-to-device (D2D services as part of recovery efforts following Monday’s 7.8 earthquake in Mindanao.\nThe earthquake, which struck off the coast of Mindanao in the Cotabato Trench on Monday morning, killed at least 37 people and injured 487, with authorities expecting those numbers to rise, according to the BBC.\nGeneral Santos City and several municipalities in South Cotabato were among the hardest hit, with thousands of homes and schools damaged, roads buried in landslides, and telecoms and electricity services knocked out, the BBC reports.\nPLDT and Smart said on Monday that network service interruptions have primarily been linked to commercial power outages affecting certain sites – otherwise, the majority of their network facilities remain stable and operational.\nPLDT said it is deploying Starlink satellite broadband services to critical locations and areas identified by local government units as needing backup connectivity, as part of a broader effort to provide communications support to government units, emergency responders, and affected communities in General Santos City.\nMeanwhile, Globe Telecom said on Tuesday it has rolled out Starlink’s D2D satellite service in South Cotabato, Sultan Kudarat and Sarangani, where most of its terrestrial network outages have been reported, mainly due to electricity services being shut down “as a safety precaution”.\nGlobe said the Starlink D2D deployment will enable about 700,000 Globe and TM subscribers in the affected areas to access the service for free for up to 30 days.\nBoth telcos are also offering free Wi-Fi, device charging, and NDD calling services in General Santos City and other affected areas.\nPLDT signed a deal to resell Starlink’s LEO satellite broadband service in the Philippines in August 2025. Globe Telecom signed an MOU with LEO Starlink in January this year to resell its D2D satellite service.",
+  "published_at": "2026-06-10T03:18:07Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-10T09:01:27.645762Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Humanitarian Comms"
+    ]
+  }
+}

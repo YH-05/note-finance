@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/spacex-stock-record-ipo-debut.html",
+  "title": "SpaceX gains 6% in premarket after record debut",
+  "raw_text": "SpaceX shares jumped in premarket trading on Monday following its record-breaking debut last week on the Nasdaq, which marked the biggest initial public offering in history.\nShares of SpaceX were around 6% higher at the start of premarket trading, hovering around the $170 mark.\nSpaceX jumped 19% on Friday with the stock closing at $161 after being priced at $135 per share. That put the company's market capitalization above $2 trillion.\nElon Musk's space company operates the Starlink satellite internet service and a fleet of reusable rockets. In February, Musk merged the company with his artificial intelligence startup xAI. SpaceX lost nearly $5 billion in 2025 and the blockbuster IPO has sparked debate over whether the company's huge valuation is justified.\nCFRA on Friday initiated coverage of the stock with a \"sell\" rating and a 12-month price target of $115, which is a nearly 29% drop from Friday's closing price. CFRA said its view was \"due to the company's extremely ambitious growth strategy, elevated valuation expectations, and significant capital intensity.\"\nSpaceX's capital expenditures in the three months ended March totaled $10.1 billion versus $4.1 billion in the same period last year. The majority of that went toward artificial intelligence.\nMorningstar analyst Nicolas Owens released a note on June 8, in which he said the firm values SpaceX at $63 per share, and described the stock as \"overvalued.\"\nHowever, other analysts are more bullish. New Street Research initiated coverage of SpaceX with a $165 price target.",
+  "published_at": "2026-06-15T08:33:19Z",
+  "author": null,
+  "collected_at": "2026-06-15T09:32:26.018265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/traders-brace-for-800-billion-in-earnings-related-stock-movement.html",
+  "title": "Traders brace for $800 billion in earnings-related stock movement",
+  "raw_text": "Get ready.\nWenesday night is the main event for earnings season, with Alphabet, Amazon, Meta and Microsoft – four of the \"Magnificent Seven\" — set to report. Options traders are pricing in more than $800 billion of market cap movement after the bell.\nIf options prices are an indication, it will be a more volatile night than what we've seen over the past year. Current implied moves are bigger than the four-quarter average for three of the four names.\nMeta is the exception, where options are pricing in a 7.3% move compared to the yearlong average of 9.3%. That's despite the fact Meta has exceeded the implied move after its last three reports.\nGoogle parent Alphabet, on the other hand, has a history of smaller moves that underperform the options pricing, and it looks like traders may be setting themselves up for a repeat disappointment. Options are pricing a near-6% move in the shares, compared to the four-quarter average of under 1.5%.\nIn terms of directional bias, options flows still lean bullish, with calls volumes and premiums outpacing puts in all four names, and flows showing more demand for upside exposure than for selloffs.\nAmazon in particular saw bullish options flow Wednesday morning, with a few big call buyers spending more than $500,000 to get upside exposure. One trader spent $616,000 buying 581 of the 260-strike in-the-money calls expiring next Friday, while another trader looked to the September 18 expiry to buy 299 of the 265-strike calls, just out of the money in a trade that cost $731,000.\nEven in Microsoft, the laggard of the group, bullish flows were notable in the 450-strike calls expiring mid-June, with almost $3 million of trades across that contract early in the session.",
+  "published_at": "2026-04-29T17:24:27Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.081770Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

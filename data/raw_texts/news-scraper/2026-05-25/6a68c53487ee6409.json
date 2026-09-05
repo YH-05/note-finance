@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605250963",
+  "title": "新規設定ファンド一覧　5月第4週（5月18日～5月22日）",
+  "raw_text": "5月第4週（5月18日～5月22日）に新規設定されたファンドは以下の通り。\n運用開始日\n〇5月18日\n円建てニッポン社債ファンド２０２６－０５（限定追加型）（円起物２０２６－０５）\n運用会社：大和アセットマネジメント\n〇5月21日\nＳＢＩ ＮＡＳＤＡＱ１００インデックス・ファンド（ＳＢＩ ＮＡＳＤＡＱ１００）\n運用会社：ＳＢＩアセットマネジメント\n株探ニュース",
+  "published_at": "2026-05-25T08:45:00Z",
+  "author": null,
+  "collected_at": "2026-05-25T09:00:21.866774Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

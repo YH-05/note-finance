@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/software-stocks-are-crashing-up-here-are-the-winners.html",
+  "title": "Software stocks are crashing up. Here are the winners",
+  "raw_text": "The rally in software stocks has gone from recovery to raging bull market, and traders are betting there's more to come.\nThe iShares Expanded Tech-Software ETF (IGV) is up 35% from its April low after a 5% rally Friday on the back of double-digit percentage gains in ServiceNow and Workday. Options traders are piling into bullish positions on the ETF, where trading is more than 5x the daily average of the past 30 days and call volumes outpace puts four-to-one.\nTraders bought more than 50,000 calls on IGV in Friday's session, compared to just under 6,000 puts. Even after huge moves in ServiceNow, Salesforce and Oracle on Friday, call option volumes in each stock outpaced puts by a factor of 5, according to data from ThinkOrSwim.\nMore money traded in IGV options than in semiconductor ETF SMH as of midday Friday, with $120 million of the total $140 million in IGV premium in call contracts, according to SpotGamma.\n\"We're holding steady on the IGV versus SOX dispersion, we're expecting that mean reversion to continue,\" said Dan Deming, managing partner at KKM financial. \"It's just been so dramatic. Our trade is more long software than short semis.\"\nTo be sure, some traders opted to hedge their call-buying in IGV with spreads, and some of the biggest notional trades of the day were call sales, including a handful of multi-million-dollar sellers of the 90-strike calls expiring in December.\nThe most popular contract by volume after those 90 strikes was the June 18 105-strike call that traded over 20,000 contracts. Those need a little more than a 5% move to break even.\nTraders work at the New York Stock Exchange on May 28, 2026.\nNYSE",
+  "published_at": "2026-05-29T18:07:35Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.598982Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

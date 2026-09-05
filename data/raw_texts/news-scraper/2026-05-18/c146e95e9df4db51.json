@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605181234",
+  "title": "トランプ大統領、ＩＲＳに対する１００億ドル規模の訴訟取り下げ",
+  "raw_text": "【注目】トランプ大統領、ＩＲＳに対する１００億ドル規模の訴訟取り下げ\n月曜日の朝にマイアミで提出された書類には詳細説明はほとんどなく、トランプ大統領側の弁護士ブリト氏による訴訟取り下げ要請のみが記載されていた。\nこれにより、２０１９年の納税情報流出を巡り、トランプ大統領がＩＲＳを提訴していた異例かつ物議を醸していた訴訟は決着に向かう見通しとなった。\n株探ニュース",
+  "published_at": "2026-05-18T13:16:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T15:00:21.771497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

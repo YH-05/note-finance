@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/threes-a-party-us-china-and-now-russia-are-on-the-prowl-in-geo/",
+  "title": "Three's a party: US, China, and now Russia are on the prowl in GEO",
+  "raw_text": "The world’s leading space powers desperately want to know what the others are up to high above the equator. For more than a decade, the US military has operated a fleet of “inspector” satellites designed to sidle up to other spacecraft in geosynchronous orbit and take pictures. China started launching its satellites for a similar mission in 2018.\nArs has written about these activities in geosynchronous orbit (GEO) before, but the last few months have seen a couple of interesting developments. First, Russia has now joined the fray with the recent arrival of its own suspected inspector (or attack) satellite in GEO. Second, the US Space Force is poised to order more—perhaps many more—reconnaissance satellites of its own to send into the geosynchronous belt.\nGEO is special. The laws of orbital mechanics mean a satellite in this type of orbit, some 22,000 miles (36,000 kilometers) over the equator, moves around the Earth at the same rate as the planet’s rotation, causing it to hover over the same location. Commercial and military-owned geosynchronous satellites typically spend years in the same location, or slot, to provide communications services to users.\nUntil now, Russia’s spying in geosynchronous orbit has primarily focused on eavesdropping on foreign communications. Russia launched two satellites, Olymp or Luch, to wander around geosynchronous orbit, moving from slot to slot to loiter near Western-owned communications satellites for several months at a time. The goal, according to Western analysts, was to listen in on or potentially jam signals relayed through these satellites, some of which route secure communications for US and NATO military forces.\nThe trend today is geared toward reconnaissance and surveillance in GEO. Military forces and intelligence agencies want to know where other satellites are located, what they look like, and what they’re capable of doing. The US military’s Geosynchronous Space Situational Awareness Program (GSSAP) satellites, which began launching in 2014, do exactly this by roaming the geosynchronous belt, using propulsive maneuvers to make slight changes to altitude and inclination to move within a few dozen miles of Chinese and Russian satellites, close enough for optical telescopes to get a good look.",
+  "published_at": "2026-05-15T19:11:48Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-16T03:00:31.228545Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Andromeda",
+      "china",
+      "geosynchronous orbit",
+      "gssap",
+      "military space",
+      "rg-xx",
+      "russia",
+      "space force"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/",
+  "title": "Meta’s months-old AI unit is a soul-crushing gulag, say the engineers stuck inside it",
+  "raw_text": "Anyone who works at Meta or knows anyone who works at Meta will tell you the same thing: It is not a happy place, particularly given the seemingly endless layoffs the company has executed over the last few years — cuts that have only accelerated as the company funnels billions into AI.\nNow, a new report in Wired suggests the company’s Applied AI team is on the verge of revolt.\nThe drama kicked off when someone hijacked a livestreamed, employee-only presentation this week with an expletive-laden meltdown, demanding that attendees tell a senior Meta AI executive that he was “a piece of sh*t.” One presenter reportedly covered their face with their hands.\nThat outburst, Wired reports, reflects simmering rage inside the three-month-old unit of roughly 6,500 engineers and product managers who have been tasked with supporting the company’s AI research ambitions.\nEmployees describe being forced into the group with no real choice: join or quit. Many call themselves “draftees.” Their assigned work? Generating puzzles and coding problems to train AI models. “It’s literally the gulag,” one employee told Wired. “Most people find the work soul-crushing,” said another.\nA report last month in Business Insider shed light on how many employees learned they’d be moved into the group — through a surprise email, a process that one self-described draftee described later on Reddit as “quite random.” According to an internal announcement in April reviewed by Business Insider, Meta’s AI models still lacked the knowledge to outperform humans at technical tasks like coding. “For agents to understand how people actually complete everyday tasks using computers, we need to train our models on real examples,” the post read.\nIn a leaked audio recording from an internal meeting that same month, Meta CEO Mark Zuckerberg explained the logic behind drafting Meta’s own engineers rather than outside contractors: Alexandr Wang — who sold his data-labeling startup Scale AI to Meta for $14.3 billion before taking the chief AI officer role and heading up Meta Superintelligence Labs — knows the data-labeling world well, and the company believes Meta’s average employee has “significantly higher” intelligence than third-party contractors. Better, then, to enlist them.\nMeanwhile, more than 1,600 Meta employees company-wide have signed a petition protesting a program that monitors their clicks and keystrokes for AI training data. The mood across the company is dark enough that Meta’s chief product officer, Chris Cox, felt compelled to address the “brutal” environment on a call with employees this week.\nTechCrunch has reached out to Meta for comment.\nAccording to earlier reports, the Applied AI team is led by Maher Saba, a 12-year veteran of Meta who was previously a vice president in its Reality Labs division, the division that burned through $83 billion on the metaverse before Meta moved on to AI. The new organization reports up to Meta CTO Andrew Bosworth.\nOriginally, it was structured in such a way that up to 50 employees reported to one manager.\nZuckerberg, for his part, reportedly addressed the situation in an internal memo Friday, acknowledging that recent changes had “caused distress” and admitting the company had made mistakes that it plans to address. According to Wired, he added in his memo that “Meta’s north star is to be the best place for the most talented people in the world to make an impact.”",
+  "published_at": "2026-06-12T23:00:54Z",
+  "author": "Connie Loizos",
+  "collected_at": "2026-06-13T03:00:27.432062Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Social",
+      "Meta"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947898/meta-instagram-your-algorithm-main-feed-tell",
+  "title": "You can just tell the Instagram algorithm what you want now",
+  "raw_text": "Instagram is going to let you tweak what its algorithm shows you on your main feed. With the Your Algorithm feature, “you can now see the topics we think you’re interested in, and change them, across all the major parts of Instagram,” according to Instagram boss Adam Mosseri. Right now, the feature will only surface topics, but Instagram is working on “supporting requests for people, different moods or vibes, content types, and more.”\nYou can just tell the Instagram algorithm what you want now\nAdam Mosseri wants AI to give users a sense of control over recommendations.\nAdam Mosseri wants AI to give users a sense of control over recommendations.\nThe company has been slowly giving users more agency over some algorithms on Instagram, having already launched the Your Algorithm feature for your Reels feed and the Explore page. With Wednesday’s announcement, Mosseri is taking the opportunity to get a little philosophical. “This is the start of something bigger than a feature,” Mosseri says. “I believe it’s in our best interest as a business to empower people to shape Instagram into something that works for them, and that people should be able to have a meaningful amount of agency over the products they spend so much time in. We intend to build much of what comes next on that principle.”\nMosseri says that while algorithmic recommendations are “in many ways a genuine technical achievement,” they also have a “cost” in what they did “to people’s agency,” noting that how people interacted with the systems became one-sided. “The system learns from what you tap, watch, and share, but you don’t really get to tell it what you want. I think this is part of what people feel when they feel uneasy about social media — not the content itself, but the sense that the experience is happening to them rather than being shaped by them.”\nFor a long time, Mosseri says that ranking models were “built with technologies that aren’t legible to people.” Now, however, he says that LLMs can “look at clusters of content and describe them in language people understand,” which gives Instagram “a way to show people what the system thinks they’re interested in, and a way for them to tell the system what they actually want.”",
+  "published_at": "2026-06-10T17:06:10Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-06-10T21:00:16.765412Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Instagram",
+      "Meta",
+      "News",
+      "Tech"
+    ]
+  }
+}

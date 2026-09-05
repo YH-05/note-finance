@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20228-ebrd-loan-to-boost-data-centre-expansion-in-jordan.html",
+  "title": "EBRD loan to boost data centre expansion in Jordan",
+  "raw_text": "The European Bank for Reconstruction and Development (EBRD) says it is strengthening Jordan’s position as a regional digital hub with a US$14.1 million loan to digital ecosystem Aqaba Digital Hub (ADH) in Aqaba, a coastal city located on the Red Sea.\nCapital Bank of Jordan, an existing lender to ADH, acts as parallel lender in the financing.\nThe EBRD loan will fund the fit-out and expansion of ADH’s existing data centre, including settling supplier commitments and constructing a second hall. The site is Jordan’s largest Tier 3 carrier-neutral data centre.\nThe financing will be complemented by technical assistance to support the launch of Aqaba Digital Academy, which will deliver specialised training in information and communications technology (ICT) and cybersecurity. The Academy will place particular emphasis on promoting skills development among women and young people.\nADH is a leading Jordanian digital infrastructure and technology group that operates a data centre, fibre-optic networks and subsea cables. Its platform brings together colocation, interconnection, and connectivity services, serving local, regional and international clients and serves as a key landing station for terrestrial and subsea cables linking Jordan to European and global networks.\nThe Coral Bridge subsea cable, which ADH constructed jointly with Telecom Egypt, connects Jordan to Africa, as well as to Europe. ADH also serves as the landing station for the Blue Raman Subsea Cable System, developed by an international consortium including Telecom Italia Sparkle and connecting Europe, Middle East, and Asia.\nEmphasising the importance of the loan, Aqaba Digital Hub’s CEO, Eyad Abu Khorma, explains: “This financing will expand our carrier-neutral digital infrastructure, strengthening Aqaba’s role as a connectivity corridor linking Europe, the Middle East, and Asia. As demand for resilient, diversified routes grows, we are well positioned to support new Asia–Europe connectivity, including emerging Mediterranean routes. We are also investing in local talent to support Jordan’s evolving digital economy.”",
+  "published_at": "2026-05-11T13:00:18Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-11T15:01:14.153307Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

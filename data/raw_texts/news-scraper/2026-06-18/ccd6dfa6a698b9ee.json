@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/michael-burry-says-hes-tempted-to-bet-against-spacex-but-passes-on-expensive-options.html",
+  "title": "Michael Burry says he's tempted to bet against SpaceX, but passes on expensive options",
+  "raw_text": "Michael Burry of \"The Big Short\" fame said Tuesday he has no position in SpaceX, arguing that options used to wager against the stock remain too expensive even as he questioned the company's nearly $3 trillion market value.\nThe investor, best known for predicting the U.S. housing collapse before the financial crisis, said he had reviewed several bearish options trades tied to SpaceX but ultimately passed on all of them.\n\"I am not involved with SpaceX now. Neither short nor, ahem, long,\" he said in a SubStack post Tuesday.\nA put option with a $100 strike price expiring in December 2028 was priced at about $25 per contract with the stock trading around $212, Burry said. A similar contract expiring in June 2027 cost roughly $13, while a December 2026 put traded around $6.75.\n\"Tempted by that one. But no thank you,\" Burry said of the shorter-dated option. \"With any luck SPCX will settle up here in the mid $200s and vol will drain out of put option chain.\"\nStill, Burry questioned the scale of the company's valuation, describing SpaceX as \"fundamentally a small space company, a niche telecom, a bedeviled social media company, and a Coreweave-light\" generating less than $20 billion in annual revenue.\nHe argued the company's market capitalization had reached levels that dwarf many established businesses and fortunes, noting that SpaceX is now worth more than Warren Buffett's Berkshire Hathaway and exceeds the market value of many industries and national economies.\n\"Berkshire Hathaway has been eclipsed 2 1/2 times over in just three days. Berkshire Hathaway, painstakingly assembled over two century-old lives. The two greatest investors of our time,\" Burry said.\nThe comments add to a growing debate over whether investors are assigning too much value to SpaceX's businesses, which span launch services, satellite internet and social media, following one of the most closely watched public offerings in recent years.\nShares of SpaceX jumped 20% in their first full day of trading after a blockbuster debut, and they have since popped more than 25% week to date. The historic IPO minted Elon Musk as the world's first trillionaire.\nLast month, Burry urged investors to scale back exposure to surging technology stocks, saying investors should \"reject greed\" as enthusiasm around artificial intelligence and momentum-driven trades pushes valuations sharply higher. He has been warning for months that the stock market's AI fixation increasingly resembles the final stages of the dot-com bubble.",
+  "published_at": "2026-06-16T20:55:45Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.804493Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

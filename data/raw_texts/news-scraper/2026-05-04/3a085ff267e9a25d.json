@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040024",
+  "title": "東京為替：ドル・円は値を戻す展開、157円付近",
+  "raw_text": "【通貨】東京為替：ドル・円は値を戻す展開、157円付近\n4日午後の東京市場でドル・円は値を戻す展開となり、157円に接近している。NY原油先物(WTI)は1バレル＝102ドル台に水準を切り上げ、欧州勢とみられるドル買いが相場を押し上げた。ただ、日本の為替介入への警戒感は継続し、一段の円売りは抑制された。\nここまでの取引レンジは、ドル・円は155円72銭から157円24銭、ユ-ロ・円は182円81銭から184円40銭、ユ-ロ・ドルは1.1720ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-04T07:17:07Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.717525Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

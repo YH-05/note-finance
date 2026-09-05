@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/the-may-jobs-report-is-around-the-corner-how-the-market-could-react-according-to-jpmorgan.html",
+  "title": "The May jobs report is around the corner. How the market could react, according to JPMorgan",
+  "raw_text": "A major data report will give investors a glimpse into how the U.S. economy is doing amid the U.S.-Iran war and persistent inflation worries — and it could sway the stock market. The Bureau of Labor Statistics is set to release its May U.S. jobs report Friday. Economists polled by Dow Jones expect it to say the economy added 80,000 jobs last month while unemployment remained steady at 4.3%. The report comes after ADP said Wednesday that private payrolls grew by 122,000 last month — above a Dow Jones forecast of 110,000. It also follows another BLS report that showed job openings in April were at their strongest level in nearly two years . \"Investors will be closely watching this week's jobs report for confirmation that the labor market remains in a stable but slowing equilibrium, with both hiring and layoffs subdued in a continued 'low hire, low fire' environment,\" Glenmede strategists Jason Pride and Michael Reynolds wrote earlier this week. The report is also likely to move stocks, and depending on the number, the market could have an adverse reaction. JPMorgan's trading desk broke down how they think the S & P 500 will trade based on how strong or weak the report is: 40% chance — Labor market expands by 70,000-100,000, and the S & P 500 rises 0.5%-1%. 25% chance — Nonfarm payrolls grow 40,000-70,000. The S & P 500 would trade between flat and down 0.75% in this scenario. 25% chance — Jobs grow by 100,000-130,000. With a print like this, the S & P 500 could rise as much as 0.75% or fall by 0.25% on the day. 5% chance — Less than 40,000 jobs added, and the S & P 500 tumbles 1%-1.5%. 5% chance — More than 130,000 jobs are added. JPMorgan traders think the S & P 500 could fall as much as 1% or gain as much as 0.5%. \"A hotter print will see Equities reacting to bond yields, where inflation concerns could drive yields higher along with bond vol, which would be equity negative. It is also possible that we get a hotter print without a material change to the unemployment rate, in which case stocks would react positively to the favorable growth outlook,\" JPMorgan's trading desk wrote.",
+  "published_at": "2026-06-03T14:31:23Z",
+  "author": null,
+  "collected_at": "2026-06-03T15:19:06.168590Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

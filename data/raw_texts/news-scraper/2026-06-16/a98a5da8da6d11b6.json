@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/indias-solution-to-entrance-exam-fraud-a-temporary-ban-on-telegram.html",
+  "title": "India's solution to entrance exam fraud: A temporary ban on Telegram",
+  "raw_text": "Indian authorities have restricted access to the messaging app Telegram in an effort to prevent exam fraud, after the cancellation of a crucial test last month sparked protests across the country.\nTelegram will be unavailable until June 22, while its message editing feature will also be disabled until June 30, India's National Testing Agency said in a statement shared on X on Tuesday.\nThe move is in response to the \"organized use of the [Telegram] platform by cheating rackets to defraud candidates,\" who will be taking a national entrance test on June 21, the NTA said.\nThe National Eligibility cum Entrance Test (undergraduate) or NEET-UG is a crucial exam for admission to medical colleges and was cancelled in May due to allegations of a paper leak, affecting millions of students.\nTelegram is owned by Russian-born tech billionaire Pavel Durov, and it claims to have more than 1 billion monthly active users globally. CNBC has reached out to Telegram for comment.\nOver the past few weeks, government investigations found multiple channels on Telegram claiming to have access to leaked exam papers and soliciting payments \"ranging from a few thousand to several lakhs of rupees from candidates and their families.\"\nThe NTA has said that no such exam paper is \"available outside the secured examination chain,\" and claiming access to it amounts to fraud.\nLast month, Rahul Gandhi, India's leader of the opposition, demanded the resignation of the country's education minister, Dharmendra Pradhan, following the NEET \"paper leak\" that affected 2.2 million students. The NEET-UG exam was first held on May 3 but was cancelled on May 12, following complaints of irregularities in the process.\nA social media-first, mock political party known as the Cockroach Janta Party has also organized protests across India demanding accountability for the paper leak issue.\nThe discrepancies in exams have been \"fairly disastrous,\" Ashok Malik, partner at public policy think tank The Asia Group told CNBC earlier this month. \"It is perhaps the biggest challenge the government has faced in 12 years,\" he said.",
+  "published_at": "2026-06-16T09:10:55Z",
+  "author": null,
+  "collected_at": "2026-06-16T15:23:26.612032Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605020065",
+  "title": "NY金：小幅高、戻り売りの興味残る",
+  "raw_text": "【市況】NY金：小幅高、戻り売りの興味残る\nCOMEX金6月限終値：4644.50 ↑14.90\n1日のNY金先物6月限は小幅高。ニューヨーク商品取引所（COMEX）の金先物6月限は、前営業日比＋14.90ドル（＋0.32％）の4644.50ドルで通常取引終了。時間外取引を含めた取引レンジは4570.00-4673.00ドル。原油先物の続落を意識した買いが入ったが、4650ドル超の水準では戻り売りの興味も残されており、上げ幅は縮小。通常取引終了後の時間外取引では主に4630ドルを挟んだ水準で推移。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-01T20:54:35Z",
+  "author": null,
+  "collected_at": "2026-05-01T21:00:22.411838Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060321",
+  "title": "欧州株　ユーロストックス５０先物は０．９６％高、大幅続伸で取引開始へ",
+  "raw_text": "欧州株 ユーロストックス５０先物は０．９６％高、大幅続伸で取引開始へ\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-06T06:31:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T09:00:22.535791Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

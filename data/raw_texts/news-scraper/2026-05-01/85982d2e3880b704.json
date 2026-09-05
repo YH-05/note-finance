@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/metas-reality-labs-lost-over-4-billion-in-first-quarter.html",
+  "title": "Meta’s Reality Labs lost over $4 billion in first quarter",
+  "raw_text": "As Meta pumps increasing amounts of cash into artificial intelligence, the company's metaverse efforts continue to bleed money.\nIn its first-quarter earnings report on Wednesday, Meta revealed that its Reality Labs division recorded an operating loss of $4.03 billion while bringing in $402 million in sales. Wall Street was projecting a loss of $4.82 billion on $488.8 million in first-quarter revenue.\nMeta's Reality Labs unit, which builds virtual reality and augmented reality technology as well as wearable devices, has accumulated over $80 billion in total operating losses since late 2020. Facebook founder Mark Zuckerberg changed the company's name to Meta in 2021, reflecting his view that work and play would move to the virtual world.\nThat vision was interrupted by the generative AI boom, spawned by OpenAI's ChatGPT in late 2022. Meta has widely been viewed as a laggard in AI, but the company is investing heavily in infrastructure as well as new models and services to try and keep pace with OpenAI, Anthropic and Google.\nReality Labs, meanwhile, is experiencing cuts. In January, Meta laid off roughly 1,000 Reality Labs employees as part of an effort to shift VR-related resources to AI-powered wearable devices, following the surprise success of the Ray-Ban Meta smart glasses developed in partnership with EssilorLuxottica.\nMeta conducted another round of job cuts in March that affected several hundred employees working across units like Reality Labs, Facebook, global operations, recruiting and sales. Meta said last week that it plans to eliminate 10% of its workforce, which equates to 8,000 employees, while ending efforts to fill 6,000 open roles.\nWATCH: Meta's more sophisticated AI model Muse Spark is here, with 'contemplating' mode.",
+  "published_at": "2026-04-30T01:20:36Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.423527Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

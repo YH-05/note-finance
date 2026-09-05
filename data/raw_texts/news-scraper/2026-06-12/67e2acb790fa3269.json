@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/sentinelone-s-stock-earnings-ai-layoffs.html",
+  "title": "SentinelOne stock drops 8% as cyber firm trims headcount to boost AI investments",
+  "raw_text": "SentinelOne shares sank 8% as the cybersecurity company laid off 8% of its full-time workforce to focus on artificial intelligence and data investments.\n\"This is not a reactive measure, it is a deliberate evolution to reduce complexity, raise the performance bar, and build a leaner, more agile SentinelOne,\" CEO Tomer Weingarten told analysts on the earnings call Thursday.\nOver the last few months, he said SentinelOne has restructured its teams and already seen \"meaningful productivity\" gains from ramped AI use.\nIn a securities filing, the company said it expects a one-time $25 million charge tied to the layoffs. The company had over 3,000 employees at the end of April.\nTech companies are increasingly slashing headcount as AI forces businesses to reallocate resources to keep pace with innovation. New AI tools are also allowing businesses to automate workloads.\nEarlier this week, Israel-based web developer Wix slashed a fifth of its workforce due to AI and the strength of the Israeli shekel. Cisco downsized its headcount by nearly 5% earlier this month and Block roughly halved its workforce in February. Software firm Atlassian cut about 1,600 jobs in March.\nSentinelOne's workforce cuts also came alongside lackluster guidance for the current quarter and full year.\nThe company said it anticipates between $289 million and $291 million in revenue, versus the $292 million expected by LSEG analysts. SentinelOne reiterated its full-year outlook, expecting revenue between $1.195 billion and $1.205 billion. That came up short of a $1.21 billion forecast.\n\"Combined with growing criticalness of category, this should have been a Q where it sustained recent gains; lack of material guidance raise leaves in holding pattern,\" wrote analysts at Morgan Stanley.\nCybersecurity companies are in the middle of a significant inflection, spurred by Anthropic's Mythos model and the rise of autonomous AI agents that are capable of exploiting vulnerabilities faster than ever before. That's forcing businesses to scale their security defenses and invest in newer tools.\nAt the same time, some cybersecurity stocks have sold off this year, getting swept up in broader market fears that new AI tools will displace software businesses.",
+  "published_at": "2026-05-29T20:09:02Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.818184Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/aurora-lands-mclane-deal-to-run-driverless-truck-routes-in-texas/",
+  "title": "Aurora lands McLane deal to run driverless truck routes in Texas",
+  "raw_text": "Aurora Innovation will start hauling loads in driverless trucks for distribution giant McLane, the latest company to adopt the startup’s autonomous vehicle technology following a multi-year pilot program.\nUnder the commercial agreement announced Wednesday, trucks outfitted with Aurora’s self-driving system will be used to transport goods between Dallas and Houston. These trucks will operate autonomously and will not have a human safety driver on board who can take over. However, Aurora will still have what it describes as a “human observer” sitting in the cab — who does not operate the vehicle — per an agreement it has with truck manufacturer Paccar.\nAurora said it plans to expand to new routes between McLane distribution centers across the U.S. Sun Belt by the end of the year.\nThe companies launched a pilot program in 2023 using autonomous trucks with a human safety operator. The pilot eventually expanded to two round-trips daily between Dallas and Houston.\nMcLane recently approved moving to driverless operations, which now run seven days a week between the two Texas cities.\nThe companies are taking a novel approach to this route, using Aurora’s driverless tech for the long-haul portion of the trip before handing it over to a McLane truck driver who makes local deliveries to customers like fast food restaurants. Aurora said this handoff occurs at the company’s Dallas and Houston terminals located right off the freeway.\nThe commercial contract is the latest win for Aurora as it tries to transition from a developer of autonomous trucks to a commercial operator earning money on its driverless routes. And it comes a year after the company launched its commercial self-driving truck service in Texas. Since then, Aurora has landed a commercial agreement to haul frac sand for Detmar Logistics. Last month, Hirschbach Motor Lines agreed to buy 500 Aurora-powered trucks; that agreement, which is outlined in a memorandum of understanding, is expected to close later this year.\nToday, the company operates driverless trucks — some with a human observer still in the cab — on routes between Dallas and Houston, Fort Worth and El Paso, El Paso and Phoenix, Fort Worth and Phoenix, and Laredo and Dallas.\nAurora reports its first-quarter earnings Wednesday after the markets close.",
+  "published_at": "2026-05-06T14:56:55Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-05-06T15:00:27.645310Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "aurora",
+      "Aurora Innovation",
+      "autonomous vehicles",
+      "self-driving trucks"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/heavily-shorted-rumble-soars-after-landing-largest-customer-commitment-date-270m-ai-cloud",
+  "title": "Heavily Shorted Rumble Soars After Landing \"Largest Customer Commitment To Date\" In $270M AI Cloud Deal",
+  "raw_text": "Shares of the free-speech video platform and cloud-services company Rumble soared in premarket trading after it announced in an 8-K filing that it had signed a multi-year, $270 million deal with a third-party cloud customer for dedicated GPU cloud capacity powered by Nvidia Blackwell B300 systems.\nThe deal, announced Thursday morning, is Rumble's largest customer commitment to date and signals the video platform's push deeper into AI infrastructure and cloud computing services.\n\"Rumble entered into a multi-year, $270 million agreement with a third-party cloud customer, representing Rumble's largest customer commitment to date,\" the company wrote in the filing.\nThe filing continued, \"Under the agreement, the customer has committed to purchase dedicated GPU cloud capacity from Rumble powered by NVIDIA Blackwell B300 systems,\" adding, \"The agreement includes potential for greater value and extended length based on market success.\"\nRumble went public through a SPAC merger with CF Acquisition Corp. VI, a Cantor Fitzgerald–backed blank-check company. The deal closed in mid-September 2022, and the shares began trading on Nasdaq.\nSince then, shares have traded sideways, unable to break above $16 resistance, and have plunged as low as $3.39 in early 2024.\nNews of the AI cloud-capacity deal sent shares soaring 14% in premarket trading.\nNotably Rumble is heavily shorted, with 28% of the float short, or about 24.5 million shares. Days to cover stand around 7.1.\nWhat's notable about Rumble is that it's no longer a free-speech YouTube alternative, but is now shifting toward AI infrastructure and GPU cloud services.",
+  "published_at": "2026-06-04T17:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T21:00:43.138784Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

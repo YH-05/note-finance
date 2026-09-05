@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/fed-dissenters-explain-no-votes-saying-they-disagreed-with-hinting-next-move-would-be-a-cut.html",
+  "title": "Fed dissenters explain 'no' votes, saying they disagreed with hinting next move would be a cut",
+  "raw_text": "Federal Reserve officials who voted this week against the post-meeting statement said they didn't think it was appropriate to signal that the next interest rate move would be lower.\nRegional presidents Neel Kashkari of Minneapolis, Lorie Logan of Dallas and Beth Hammack of Cleveland released statements explaining their votes, offering similar rationale regarding the verbiage in the statement — but not over the decision to keep a hold on rates form their current position.\nKashkari said the statement contained \"a form of forward guidance about the likely direction for monetary policy. Given recent economic and geopolitical developments and the higher level of uncertainty about the outlook, I do not believe such forward guidance is appropriate at this time.\"\nInstead, he said the Federal Open Market Committee statement Wednesday should have indicated the next move could be a cut or a hike. This was the third consecutive pause for the committee after it cut three times in the latter part of 2025.\nSimilarly, Hammack said she didn't agree with the decision to indicate an \"easing bias around the future path for monetary policy.\"\n\"I see this clear easing bias as no longer appropriate given the outlook,\" she said. Hammack noted that inflation pressures \"continue to be broad based\" as the Iran war and the subsequent surge in oil prices pose a threat to the Fed's 2% goal.\nLogan also said she is \"increasingly concerned\" about inflation getting back to target.\n\"The conflict in the Middle East raises the prospect of prolonged or repeated supply disruptions that could create further inflationary pressures. At the same time, the labor market has been stable, with low unemployment and payroll job gains keeping pace with labor force growth,\" she said. \"The economic outlook is highly uncertain, however.\"\nMoreover, Logan said the so-called forward guidance part of the FOMC statement \"is an important policy tool\" on which \"households and businesses rely on ... to make future plans.\"\nThe statement passed by an 8-4 vote, the largest number of dissents since 1992. Governor Stephen Miran again dissented in favor of a rate reduction.\nThe specific language at issue was: \"In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks.\"\nThe \"additional adjustments\" phrasing is the key issue. Fed observers generally see the language as implying that the next move would be in keeping with the recent cuts.\nData released Thursday indicate that inflation picked up in March. Core inflation, which excludes food and energy, climbed to 3.2%, its highest level since November 2023, according to the Commerce Department.",
+  "published_at": "2026-05-01T19:15:15Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.719192Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

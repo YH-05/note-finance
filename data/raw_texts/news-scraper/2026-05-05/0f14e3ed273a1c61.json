@@ -1,0 +1,29 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/hackers-steal-students-data-during-breach-at-education-tech-giant-instructure/",
+  "title": "Hackers steal students’ data during breach at education tech giant Instructure",
+  "raw_text": "Education tech giant Instructure has confirmed a data breach affecting students’ private information. The hacking and extortion gang ShinyHunters claimed responsibility for the breach.\nThe hackers claim to have stolen students’ names, their personal email addresses, and messages sent between teachers and students — the same type of data Instructure admitted was stolen.\nInstructure is the latest corporate giant hacked by the ShinyHunters gang. The cybercriminals have targeted universities and cloud database companies in recent months, in efforts to steal vast amounts of people’s personal information and threaten to post the data online if the companies do not pay the hackers’ ransom.\nA member of ShinyHunters shared a sample of the stolen data with TechCrunch, which included data from two schools in the United States, one in Massachusetts and one in Tennessee. In the case of the one in Massachusetts, the data included messages, which contain names, email addresses, and some phone numbers. As for the school in Tennessee, the sample included students’ full names and email addresses.\nThe sample did not contain passwords or the other types of data that Instructure said was unaffected by the breach.\nTechCrunch is not naming the schools as they are not confirmed victims. Based on information that appears on their websites, both schools appear to use Instructure’s platform Canvas, which allows customers to manage coursework, assignments, and communicate with students.\nShinyHunters also shared a list of about 8,800 schools allegedly affected by the breach. TechCrunch could not confirm whether all the listed institutions were affected, nor whether they are Instructure customers. On its official site, Instructure says it has more than 8,000 institutions as customers.\nWhen reached by TechCrunch, Instructure’s spokesperson Kate Holmes did not answer several questions about the incident, and instead referred to the company’s official page where it is publishing updates on the breach.\nOn its data leak site, where ShinyHunters claims responsibility for data breaches and attempts to pressure victims into paying a ransom, the hackers claim the breach affected close to 9,000 schools around the world, and 275 million people’s data, including students, teachers, and other staff. In an online chat, the ShinyHunters member told TechCrunch that the total unique emails that are included in the stolen data amount to 231 million.\nFinancially motivated hacking groups are known to exaggerate their claims to gather the attention of the media, as well as their victims.\nAs of Tuesday, Instructure said some of its products, such as Canvas, were restored for customers after undergoing maintenance.",
+  "published_at": "2026-05-05T14:31:50Z",
+  "author": "Lorenzo Franceschi-Bicchierai",
+  "collected_at": "2026-05-05T15:00:21.801339Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cyberattack",
+      "cybercrime",
+      "cybersecurity",
+      "data breach",
+      "ed tech",
+      "Education",
+      "hackers",
+      "hacking",
+      "instructure",
+      "shinyhunters"
+    ]
+  }
+}

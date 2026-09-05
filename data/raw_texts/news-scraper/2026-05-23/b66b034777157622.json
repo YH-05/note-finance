@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/trump-fcc-asks-public-to-comment-on-whether-abcs-the-view-is-a-news-show/",
+  "title": "Trump FCC asks public to comment on whether ABC's The View is a news show",
+  "raw_text": "The Federal Communications Commission is escalating its attack on ABC’s The View with a proceeding that seeks public comment on whether the talk show is a “bona fide news interview program.”\nThe FCC Media Bureau today issued a public notice seeking opinions on whether The View qualifies for the bona fide news exemption to the equal-time rule, which requires equal time for opposing political candidates on non-news programming. The probe of The View is driven by Chairman Brendan Carr, who has embraced President Trump’s declaration that the FCC is no longer an independent agency and used his chairmanship to open investigations into broadcasters that Trump dislikes.\n“Decades ago, Congress made the decision to prevent covered broadcast television programs from being used to advance certain partisan political purposes,” the Media Bureau public notice said. The equal-time rule exists to prevent broadcast television stations “from unfairly putting their thumbs on the scale for one political candidate or set of candidates over another,” and “to ensure that no legally qualified candidate for office is unfairly given less access to the public airwaves than their opponent,” it said.\nThe FCC notice invited the public to comment on whether The View’s decisions on show format and participants are “based on newsworthiness or on an attempt to oppose or support particular candidates within the meaning of FCC precedent.”\nThis isn’t the only case of Carr targeting the Disney-owned ABC. Carr threatened ABC station licenses in September 2025, alleging that airing Jimmy Kimmel’s show might violate the rarely enforced news distortion policy. Last month, Carr ordered an unusual review of ABC’s broadcast licenses over allegations that its diversity, equity, and inclusion (DEI) practices violate anti-discrimination rules.",
+  "published_at": "2026-05-22T21:10:46Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-23T03:00:30.804219Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "ABC",
+      "brendan carr",
+      "FCC",
+      "The View"
+    ]
+  }
+}

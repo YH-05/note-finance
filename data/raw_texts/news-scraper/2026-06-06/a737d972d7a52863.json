@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20331-ses-announces-latam-inflight-and-satellite-broadband-deals.html",
+  "title": "SES announces LatAm inflight and satellite broadband deals",
+  "raw_text": "Space solutions company SES has clearly been busy in the Latin American market – something that has been underlined by recent announcements relating to inflight connectivity in Mexico and expanded broadband access in Colombia.\nSES and Viva, Mexico’s ultra low-cost airline, have launched what they describe as fast and reliable multi-orbit satellite inflight connectivity service on Viva’s Airbus aircraft,.\nA total of 60 A320s and 40 A321s are set to offer the SES solution in the coming years. Offering the youngest Latin American fleet of Airbus A320s and A321s, Viva will be the first Mexico-based airline to offer service using SES’s new electronically steered array (ESA) antenna, which is less than seven centimetres tall and delivers reliable connectivity to the SES multi-orbit network.\nAs SES explains, connecting to satellites in different orbits provides consistent and reliable coverage – no matter the location.\nMeanwhile SES and telecommunications services provider TV ISLA say they will expand broadband access on Providencia Island, part of Colombia’s San Andrés Archipelago, with a hybrid medium Earth orbit (MEO) and low Earth orbit (LEO) satellite connectivity solution.\nThe project will provide resilient, high‑performance connectivity to the island, directly benefiting approximately 7,000 residents as well as the thousands of tourists who visit each year.\nSES’s managed solution will include resilient MEO capacity from its own MEO constellation, complemented by its LEO solution powered by its partner’s constellation.\nThis hybrid multi‑orbit approach, the partners explain, will deliver more than 500 Mbps of low‑latency trunk capacity to enable the rapid rollout of an on-island fibre‑to‑the‑home (FTTH) network to approximately 1,500 homes in the coming months.\nLocated 700 kilometres north of the mainland in the Caribbean Sea, Providencia Island has historically experienced poor connectivity.\nSES says it offers a quick-time‑to‑market, cost‑efficient and scalable solution that will connect the island while also avoiding the environmental impact associated with new subsea infrastructure.\nSince 2018 TV ISLA and SES have collaborated to connect San Andrés, the largest island in the Colombian archipelago, with a similar MEO solution.",
+  "published_at": "2026-06-02T12:42:18Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-06T03:02:07.360212Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

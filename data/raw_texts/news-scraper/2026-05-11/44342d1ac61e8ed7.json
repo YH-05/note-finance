@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/927722/discord-xbox-game-pass-starter-edition-nitro-subscribers",
+  "title": "Discord adds a free Xbox Game Pass ‘starter edition’ for Nitro subscribers",
+  "raw_text": "Discord is announcing the launch of Nitro Rewards today, a new program for subscribers that bundles benefits from third parties like Microsoft, Logitech, and SteelSeries, into a Nitro subscription. The main addition is that Nitro members will now get a new starter edition of Xbox Game Pass at no extra cost.\nDiscord adds a free Xbox Game Pass ‘starter edition’ for Nitro subscribers\nNitro members will also get discounts off Logitech and SteelSeries gear.\nNitro members will also get discounts off Logitech and SteelSeries gear.\nXbox Game Pass starter edition, which leaked last month, allows PC and Xbox owners to download more than 50 games, including titles like Fallout 4, Stardew Valley, and DayZ. The starter edition also includes 10 hours a month of Xbox Cloud Gaming streaming and the ability to earn up to $25 a year in the Xbox Store with rewards.\nAlongside the Game Pass bundle, Nitro subscribers will also get up to 30 percent off at Logitech G, 15 percent off at SteelSeries, and 20 percent off at KontrolFreek. Nitro members will also receive 250 Orbs automatically each month, the in-app currency that Discord uses to tempt users into watching ads in exchange for things like avatar decorations or in-game bonuses.\n“Having Xbox on board as a flagship partner, alongside Logitech and SteelSeries, is a strong signal of what this program can offer, and we’ll continue to look for opportunities to add more benefits as we grow,” says Lu Zhang, senior director of product at Discord.",
+  "published_at": "2026-05-11T13:00:00Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-11T15:00:12.977782Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

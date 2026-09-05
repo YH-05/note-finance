@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/startup-says-sound-waves-can-replace-fire-sprinklers-experts-arent-so-sure/",
+  "title": "Infrasound waves stop kitchen fires, but can they replace sprinklers?",
+  "raw_text": "In a makeshift demonstration kitchen in Concord, California, cooking oil splatters in and around a frying pan, which catches fire on an unattended gas stove. Within moments, a smoke detector wails. But in this demonstration, something less common happens: An AI-driven sensor activates and wall emitters blast infrasound waves toward the source of the fire in an attempt to put it out.\nThe science of acoustic fire suppression, which has long been known and documented in scientific literature and the press, works by vibrating oxygen molecules away from a fuel source, depriving the fire of a critical component needed for combustion.\nIndeed, after just a few seconds of infrasound, the tiny kitchen blaze goes out.\nThe demonstration I witnessed took place in the presence of numerous firefighters and officials from Contra Costa County Fire Protection District, the state’s premier wildland firefighting agency (CAL FIRE), and invited journalists.\n“We were able to not just point-and-shoot like a fire extinguisher; we figured out how to run it through ducting and distribute it like a sprinkler system,” said Geoff Bruder, co-founder and CEO of Sonic Fire Tech, during the presentation.\nThe company’s goal is to replace sprinklers, which are effective at stopping fires but can also do significant water damage to a property. Sonic Fire Tech appears to be the first company trying to commercialize the science of acoustic fire suppression. Its executives have already been touring Southern California; Wednesday’s event was the first in the northern half of the state.\nThe company aims to make this infrasound technique mainstream in both commercial (for instance, a data center, where sprinklers would damage electronics) and in-home installations, given that sprinklers are already required in all new California homes built in 2011 and later.\nSonic Fire Tech also hopes to produce a backpack-based system that could be worn by wildland firefighters headed out into the field.",
+  "published_at": "2026-05-02T11:30:26Z",
+  "author": "Cyrus Farivar",
+  "collected_at": "2026-05-05T03:00:31.297389Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "fire",
+      "firefighting",
+      "infrasound",
+      "sprinklers"
+    ]
+  }
+}

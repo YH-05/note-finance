@@ -254,7 +254,7 @@
     {
       "date": "2026-04-18",
       "day_label": "土",
-      "status": "draft",
+      "status": "published",
       "slots": [
         {
           "slot": "朝",
@@ -291,10 +291,12 @@
           "threads_char_count": 330,
           "instagram": true,
           "posted_at": null,
-          "threads_permalink": null,
+          "threads_permalink": "https://www.threads.com/@career_sister/post/DXRYToGD1Y2",
           "instagram_caption": "slot_3_evening/instagram_caption.md",
           "carousel_slides": 7,
-          "instagram_permalink": null
+          "instagram_permalink": null,
+          "status": "published",
+          "published_at": "2026-04-18T20:36:25.603452+09:00"
         }
       ]
     },

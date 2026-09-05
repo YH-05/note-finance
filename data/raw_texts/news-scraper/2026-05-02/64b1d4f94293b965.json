@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/921823/valve-steam-controller-mechanism-mounts-basegrip-dock",
+  "title": "This accessory can snap a Steam Controller to your phone — or almost anything else",
+  "raw_text": "Valve’s new Steam Controller goes on sale on Monday for $99, and accessories-maker Mechanism will be ready. As far as we know, Mechanism’s new Basegrip is the very first way to attach a Steam Controller to your phone — as well as Mechanism’s lineup of accessories, including mounts for hanging handhelds and gamepads on the Ikea Skadis pegboard or just about anywhere else. The Steam Controller mount will go on sale the same day as the controller, since Valve gave Mechanism early access to the design.\nThis accessory can snap a Steam Controller to your phone — or almost anything else\nThe same day you buy your Steam Controller, you can get a useful accessory.\nWhen the Basegrip is paired with Mechanism’s phone mount, the company suggests that you can use the Steam Controller to remote-control your PC using the Steam Link streaming app. But, Mechanism notes that “the controller doesn’t work across all of iOS or Android yet” — and based on my own testing with iOS, there are some issues, so the Steam Controller with a Mechanism Basegrip and mount may not be your one-stop shop for mobile gaming for the moment. (For what it’s worth, playing games with the Steam Controller using the Steam Link iOS app did work for me.)\nMechanism is also opening a waitlist for a Steam Controller dock that stands up the controller at an angle. The Steam Controller comes with a charging puck that attaches magnetically, but normally the puck — and a connected Steam Controller — lay flat on the ground. Mechanism says its dock, on the other hand, is “perfectly weighted for your controller lifting pleasure” and “is designed to proudly display, charge, and connect your Steam Controller.” The company is opening up a waitlist for the dock, and says it will launch in June 2026.\nLike it has in the past, Mechanism is also offering free files so you can 3D print your own versions of the Basegrip and a “stripped down Dock.”\nValve previously used dozens of Mechanism’s mounts — back then, they were called Deckmate — to create the Steam Deck-filled orb that now features in the company’s lobby. Yes, the same orb that Kojima took a selfie with the other day.\nUpdate, May 1st: Added more images.",
+  "published_at": "2026-05-01T17:00:00Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-02T03:02:12.436584Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Gaming",
+      "News",
+      "PC Gaming"
+    ]
+  }
+}

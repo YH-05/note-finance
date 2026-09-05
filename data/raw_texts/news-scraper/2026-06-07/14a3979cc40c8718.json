@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/",
+  "title": "LLMs are eroding my software engineering career and I don't know what to do",
+  "raw_text": "<p>Article URL: <a href=\"https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/\">https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48434312\">https://news.ycombinator.com/item?id=48434312</a></p>\n<p>Points: 295</p>\n<p># Comments: 218</p>",
+  "published_at": "2026-06-07T12:49:29Z",
+  "author": "poisonfountain",
+  "collected_at": "2026-06-07T15:00:44.615211Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606110643",
+  "title": "東京為替：ドル・円は高値圏、原油相場は底堅い",
+  "raw_text": "【通貨】東京為替：ドル・円は高値圏、原油相場は底堅い\n11日午前の東京市場でドル・円は小幅高となり、再び160円50銭台に浮上した。米軍によるイランへの攻撃終了が報じられ、原油相場は一服。NY原油先物(WTI)は1バレル＝91ドル台半ばで下げ渋り、ドル売りを弱めた。ただ、為替介入への警戒でドル買いは限定的。\nここまでの取引レンジは、ドル・円は160円42銭から160円56銭、ユ-ロ・円は185円05銭から185円29銭、ユ-ロ・ドルは1.1526ドルから1.1555ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-06-11T02:56:25Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:00:21.872360Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

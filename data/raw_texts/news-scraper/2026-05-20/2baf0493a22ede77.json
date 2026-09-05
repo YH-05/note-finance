@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/china-banned-rtx-5090d-v2-while-nvidia-ceo-jensen-huang-was-visiting/",
+  "title": "China banned RTX 5090D V2 while Nvidia CEO Jensen Huang was visiting",
+  "raw_text": "Beijing banned an Nvidia gaming chip while the company’s chief executive, Jensen Huang, was visiting China with Donald Trump last week, the latest salvo in the superpowers’ battle to dominate AI.\nThe chip was added to a list of banned goods at China’s customs checkpoints last Friday, according to a copy of the document seen by the FT and two people with knowledge of the matter.\nThe move highlights Beijing’s determination to keep out Nvidia’s chips, especially the degraded versions made to comply with US export controls. The Chinese government wants to support domestic chipmakers such as Huawei and Cambricon as they catch up to their US rivals.\nThe Nvidia chip, known as the RTX 5090D V2, was introduced last August to comply with US export controls. It was aimed at Chinese gamers and 3D animators, but it has also been bought by AI developers, cut off from the most sophisticated Nvidia products.\nNvidia’s Huang said on Monday that he believed China’s market would become accessible to US chip suppliers. “My sense is that over time, the market will open,” he told Bloomberg TV.\nSales of other Nvidia chips including the H200 and the H20, another China-specific product that Nvidia sold earlier in the market, have been blocked by Beijing even though the Trump administration has approved sales to Chinese tech groups such as Alibaba and Tencent.",
+  "published_at": "2026-05-20T13:10:15Z",
+  "author": "Zijing Wu in Hong Kong and Michael Acton in San Francisco",
+  "collected_at": "2026-05-20T15:00:26.084914Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "NVIDIA",
+      "syndication"
+    ]
+  }
+}

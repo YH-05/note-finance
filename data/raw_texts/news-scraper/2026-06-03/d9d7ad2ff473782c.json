@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606040040",
+  "title": "[CRWD] クラウドストライク　1Q増収最終黒字転換　売上高26％増13.8億ドル、純利益2777万ドル、EPS0.11ドル",
+  "raw_text": "クラウドストライク・ホールディングス<\nCRWD>の2027年度第1四半期（2-4月）の業績は増収、最終黒字転換だった。\n米現地6月3日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比25.6％増の13億8562万ドルとなった。最終損益は2777万ドルの黒字に転換。前年同期は1億426万ドルの赤字だった。1株損益（EPS・希薄化後）は0.11ドルの黒字（前年同期0.42ドルの赤字）。\nクラウドストライク・ホールディングス<\nCRWD>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-06-03T20:13:08Z",
+  "author": null,
+  "collected_at": "2026-06-03T21:00:23.042766Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

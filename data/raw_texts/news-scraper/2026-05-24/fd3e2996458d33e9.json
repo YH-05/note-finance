@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/a-satellite-company-supporting-ukraine-appears-to-be-in-russias-crosshairs/",
+  "title": "Four Russian satellites are now within striking distance of an ICEYE radarsat",
+  "raw_text": "At least four Russian military satellites changed their orbits to match that of a Finnish-American radar surveillance satellite in the last week, raising questions about Russia’s intentions amid an ever-expanding standoff high above Earth.\nThe maneuvers were identified through open source orbital tracking data. Greg Gillinger, a retired Air Force space intelligence officer, revealed the orbit changes Friday in a special edition of his Integrity Flash newsletter, published by Integrity ISR, a private business that provides “combat-proven operational support and elite training that enhances mission success across ISR (Intelligence, Surveillance, and Reconnaissance), cyber, space, and targeting domains.”\nThe Russian satellites in question, designated Kosmos 2610 through 2613, launched together on April 16 on a Soyuz-2.1b rocket from Plesetsk Cosmodrome in northern Russia. Over the last week or so, the four satellites adjusted their inclinations—the angles of their orbits to the equator—by less than a degree.\nThat may sound insignificant, but such “plane change” maneuvers use up a lot of fuel. The delta-v, or velocity change, required for a plane change maneuver of this magnitude is equivalent to the impulse needed to raise altitude by more than 100 miles.\nThe upshot is that these four Russian satellites are now positioned to routinely pass near a commercial radar surveillance satellite operated by the Finnish-American company ICEYE. This imaging platform, named ICEYE-X36, is part of a fleet of satellites providing all-weather overhead radar images to the US military and European governments. ICEYE also provides imagery to Ukraine’s military in its fight against Russia. ICEYE’s co-founder and CEO, Rafal Modrzewski, met with Ukrainian President Volodymyr Zelenskyy last year.",
+  "published_at": "2026-05-22T22:50:23Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-24T03:00:30.715516Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "Russia war on Ukraine",
+      "russian space agency",
+      "russian space program",
+      "spy satellites",
+      "Ukraine war"
+    ]
+  }
+}

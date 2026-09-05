@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/ibm-announces-five-year-10bn-quantum-investment",
+  "title": "IBM Announces Five-Year, $10BN Quantum Investment",
+  "raw_text": "IBM is set to invest more than $10 billion in quantum computing over the next five years.\nAccording to the company, the investment will cover R&D, capex, manufacturing scaling, ecosystem partnerships, and M&A; areas that IBM says will help accelerate its quantum roadmap beyond 2029, when it expects to deliver the world's first large-scale, fault-tolerant quantum computer.\nThe announcement comes two weeks after the US government signed letters of intent with nine quantum computing companies, including IBM. That agreement will see IBM receive $1bn from the Department of Commerce, the largest funding agreement of the nine, to establish a new superconducting quantum foundry subsidiary dubbed Anderon.\nAt the time, IBM said Anderon would be the first pure-play quantum foundry in the US, adding that the company would match the $1bn from the Department of Commerce to fund the initiative. The subsidiary will be headquartered in Albany, New York, and will operate as a standalone company, manufacturing 300mm quantum wafers.\n\"The quantum era is no longer ahead of us, it has started. Our clients, partners, and users around the world are tapping into IBM quantum computers to do work that was impossible a few years ago,\" said Arvind Krishna, chairman and CEO, IBM. \"The pace of discovery with quantum computers is accelerating rapidly, and this investment powers our ability to deliver the next generation of quantum hardware, software, and manufacturing.\"\nIBM has been at the forefront of the development of quantum processors and, in February 2025, claimed to have booked $1bn in quantum business between Q1 2017 and Q4 2024. In November of that same year, IBM claimed it would achieve quantum advantage by the end of 2026 and is on target to develop a fault-tolerant quantum computer by 2029.\nIn April of this year, it was reported that IBM was planning to expand its quantum campus in Poughkeepsie, New York. The company has filed to develop a 511,000 sq ft (47,475 sqm) quantum computing facility at its existing campus and will demolish two buildings to establish the new center, which will be used to manufacture and assemble its next-generation Starling quantum systems.",
+  "published_at": "2026-06-03T19:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T03:00:42.255657Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

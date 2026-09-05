@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/continuing-jobless-claims-hit-3-month-highs",
+  "title": "Continuing Jobless Claims Hit 3-Month-Highs",
+  "raw_text": "The number of Americans filing for unemployment benefits for the first time fell from 230k (4 month highs) to 226k (vs 225k exp) last week - elevated but still within the range of the last four years...\nSource: Bloomberg\nPennsylvania and Oregon saw the largest rise in initial claims last week while Ohio and Illinois saw the biggest decline...\nMeanwhile, continuing jobless claims rose back above 1.8 million Americans - the highest print in 3 months - but still well off cycle highs near 2 million in Q4 2025...\nSource: Bloomberg\nThe bottom line is that while initial claims are rising, they remain low by historical standards and continue to run below year-ago levels, reinforcing the more hawkish 'labor market is resilient' framework introduced yesterday.",
+  "published_at": "2026-06-18T12:36:26Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-18T15:00:36.600241Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

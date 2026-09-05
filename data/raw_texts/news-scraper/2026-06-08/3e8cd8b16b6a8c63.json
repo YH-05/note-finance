@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/apple-wwdc-2026-live-updates.html",
+  "title": "WWDC 2026 live updates: Apple AI, Siri and iPhone software in focus",
+  "raw_text": "Apple doesn't typically release new iPhones during the summer, but the software updates revealed on Monday at WWDC will launch alongside new hardware in the fall. Apple will also reveal more of its artificial intelligence strategy, including updates to Siri and its partnership to use Google's Gemini models.\nApple stock has neared record highs in recent weeks as investors and analysts approved of a Google AI partnership announced in January and the latest iPhones have shown strong, continuing sales momentum.\nBut Apple needs to communicate to investors that it has a strong plan to win in AI and needs to convince developers that Siri and the company's Apple Intelligence platform are worth building for.\nIt's the last annual developer conference for Tim Cook as CEO of Apple, and also an opportunity for the incoming CEO, John Ternus, to communicate directly to Apple's developers, employees, and fans.\nCNBC reporters are on the ground in Cupertino, California, and will track what the iPhone maker says about Apple Intelligence, Siri, iOS, iPadOS, macOS, watchOS, visionOS and tvOS, plus any impact on developers, consumers and investors.",
+  "published_at": "2026-06-08T14:48:30Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:19:58.977864Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

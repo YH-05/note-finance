@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/how-long-will-it-take-to-rebuild-blue-origins-launch-pad-we-asked-some-spacex-vets/",
+  "title": "How long will it take to rebuild Blue Origin's launch pad? We asked some SpaceX vets.",
+  "raw_text": "A former NASA engineer named John Muratore sat on console as launch director in early September 2016 as propellant flowed onto a Falcon 9 rocket in Florida. Ahead of a planned launch two days later, SpaceX was preparing for a static fire test of the vehicle.\nThen, all of a sudden, the rocket exploded. “It came out of nowhere, and it was really violent,” Muratore said. This fireball resulted in the destruction of the rocket, much of its launch site, and the AMOS-6 satellite already attached to the vehicle.\nNearly a decade later, on May 28, Blue Origin conducted a static fire test of a new rocket, with its larger New Glenn vehicle a few miles down the Florida coast. The company had gotten further into its test, reaching engine ignition, before its rocket also exploded.\nFor longtime space coast observers, some of the parallels between these two spectacular explosions were uncanny. Both the Falcon 9 and New Glenn programs were on the cusp of taking off toward a higher launch cadence. At the time, NASA was counting on the Falcon 9 to return its capability to launch humans, and today, NASA is counting on New Glenn as a key element of its lunar ambitions. And both explosions catastrophically damaged their launch sites.\nTo better understand the challenges Blue Origin now faces, Ars spoke with several SpaceX veterans who experienced the AMOS-6 failure and worked the long days afterward to get the Falcon 9 rocket flying and rebuild the shattered facility at Space Launch Complex-40.\nDifficult memories return\n“My AMOS-6 scar started itching when I saw the video of New Glenn,” said Hans Koenigsmann, the SpaceX engineer who led the failure investigation in the fall of 2016. “It’s really terrible.”",
+  "published_at": "2026-06-03T10:00:07Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-06-04T03:00:31.490711Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Space",
+      "amos-6",
+      "failure",
+      "falcon 9",
+      "new glenn",
+      "space"
+    ]
+  }
+}

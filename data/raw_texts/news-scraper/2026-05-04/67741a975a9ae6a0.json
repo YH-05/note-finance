@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20167-blaize-nokia-and-datacomm-to-deploy-hybrid-ai-infrastructure-in-indonesia.html",
+  "title": "Blaize, Nokia and Datacomm to deploy hybrid AI infrastructure in Indonesia",
+  "raw_text": "AI computing company Blaize revealed on Tuesday it has signed an MoU with Nokia and IT services provider Datacomm Diangraha to accelerate deployment of hybrid AI inference inference infrastructure in Indonesia.\nThe collaboration will see Datacomm deploy a joint reference architecture unveiled by Blaize and Nokia earlier this month that offers a pre-integrated, validated solution framework for hybrid AI deployments across edge, cloud and data centre environments in Asia-Pacific.\nUnder that architecture, Nokia provides the infrastructure backbone for GPU-intensive telco RAN workloads, such as training, AI-RAN acceleration, and large-scale cloud inference where GPU economics are justified. Blaize provides its programmable AI platform designed specifically for the enterprise edge, where power budgets are constrained, deployments are geographically distributed, and the economics of GPU infrastructure are prohibitive.\n\"The combination of Nokia's validated networking infrastructure and Blaize's energy-efficient inference compute is uniquely positioned for the enterprise edge,” said Blaize CEO Dinakar Munagala in a statement. “GPU economics simply do not scale to thousands of distributed sites — but Blaize does. This is not about replacing GPUs – it is about deploying the right compute where it delivers the most value.\"\nDatacomm Diangraha – which has been partnering with Nokia for over 20 years – will collaborate with Blaize and Nokia to deploy their hybrid AI infrastructure across Indonesia's public sector, geospatial, and enterprise verticals, citing a 50%+ surge in customer AI inference demand over the past six months.\n“Our partnership with Nokia has been the backbone of our infrastructure capabilities for more than two decades. Adding Blaize to that foundation gives us something genuinely new: the ability to take AI inference to our customers at the edge – in the sectors and at the scale that Indonesia's digital transformation actually requires,” said Datacomm Diangraha president director Tan Wie Tjin. “This is a strategic move, and the timing is right.”\nNokia joined forces with Blaize in January this year, when the two companies signed an MoU to develop and deploy practical AI and physical AI systems, with a focus on edge and hybrid AI inference use cases. The Nokia Innovation Lab in Singapore serves as a neutral proving ground where joint solutions with Blaize are developed, tested, and validated before deployment.\n“Nokia's role is to make hybrid AI deployable at scale – connecting the cloud to the far edge with a level of reliability, security, and automation that enterprise customers can build real businesses on,” said Dion Leung, Nokia’s Asia Pacific head of AI and Cloud. “With Blaize on compute and Datacomm on the ground in Indonesia, we have the complete picture.”",
+  "published_at": "2026-04-29T02:44:51Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-04T03:01:20.549546Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

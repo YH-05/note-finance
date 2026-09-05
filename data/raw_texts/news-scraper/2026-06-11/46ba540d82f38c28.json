@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606110619",
+  "title": "ダイイチについて、Fidelity Management & Research Company LLCは保有割合が減少したと報告 [変更報告書No.5]",
+  "raw_text": "【５％】ダイイチについて、Fidelity Management & Research Company LLCは保有割合が減少したと報告 [変更報告書No.5]\n■財務省 ： 6月11日受付\n■発行会社： ダイイチ <7643> [東証Ｓ]\n■提出者 ： Fidelity Management & Research Company LLC\n◆義務発生日 保有割合（前回→今回） 保有株数 提出日時\n2025/07/31 6.78％ → 6.63％ 758,749 2026/06/11 11:51\n■提出者および共同保有者\n(1)Fidelity Management & Research Company LLC\n4.22％ → 3.10％\n(2)FIAM LLC\n2.57％ → 3.53％\n※上記は金融庁のEDINET（電子開示システム）で開示された書類に基づく情報です。金融商品取引法上の公衆縦覧ではありません。\n※金融商品取引法で自己株式は保有株券に含めないことになっており、そのため保有株数等が0と表記される場合があります。\n※保有株数が変動せず、発行済み株式数の変動に伴って保有割合が変動しているケースもあります。\n※変動幅が1％未満の変更報告書は契約変更などによる場合があります。\n※詳しくはEDINETで原本をご確認ください。\n株探ニュース",
+  "published_at": "2026-06-11T02:54:02Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:00:21.873036Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "５％",
+    "tags": []
+  }
+}

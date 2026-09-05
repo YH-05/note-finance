@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/everything-that-could-go-wrong-with-trumps-ai-safety-tests-according-to-experts/",
+  "title": "Spooked by Mythos, Trump suddenly realized AI safety testing might be good",
+  "raw_text": "This week, the Trump administration back pedaled and signed agreements with Google DeepMind, Microsoft, and xAI to run government safety checks on the firms’ frontier AI models before and after their release.\nPreviously, Donald Trump had stubbornly cast aside the Biden-era policy, dismissing the need for voluntary safety checks as overregulation blocking unbridled innovation. Soon after taking office, he took the extra step of rebranding the US AI Safety Institute to the Center for AI Standards and Innovation (CAISI), removing “safety” from the name in a pointed jab at Joe Biden.\nBut after Anthropic announced that it would be too risky to release its latest Claude Mythos model—fearing that bad actors might exploit its advanced cybersecurity capabilities—Trump is suddenly concerned about AI safety. According to White House National Economic Council Director Kevin Hassett, Trump may soon issue an executive order mandating government testing of advanced AI systems prior to release, Fortune reported.\nIn CAISI’s press release, the center acknowledges that the voluntary agreements signed by Google, Microsoft, and xAI “build on” Biden’s policy. Celebrating the new partnerships, CAISI Director Chris Fall did not mention Mythos but promised that the “expanded industry collaborations” would help CAISI scale its work “in the public interest at a critical moment.”\n“Independent, rigorous measurement science is essential to understanding frontier AI and its national security implications,” Fall said.\nTo date, CAISI said it has completed about 40 evaluations, including those of frontier models that have yet to be released. When conducting tests, CAISI frequently gains access to models with “reduced or removed safeguards,” which CAISI said allowed them to more “thoroughly evaluate national security-related capabilities and risks.”\nThrough the evaluations, the government will also gain a better understanding of model capabilities, CAISI claimed. And to ensure that evaluators understand top national security concerns as they emerge across government, a “group of interagency experts” has formed a task force “focused on AI national security concerns,” CAISI said.",
+  "published_at": "2026-05-06T21:20:14Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-08T03:00:30.550630Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "ai action plan",
+      "AI safety",
+      "Donald Trump",
+      "frontier ai",
+      "google",
+      "google deepmind",
+      "microsoft",
+      "xAI"
+    ]
+  }
+}

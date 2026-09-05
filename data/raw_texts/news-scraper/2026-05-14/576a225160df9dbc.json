@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/930629/data-center-policy-map-interactive",
+  "title": "Use this map to find the data centers in your backyard",
+  "raw_text": "When Oregon resident Isabelle Reksopuro heard Google was gobbling up public land to fuel its data centers in her home state, she didn’t initially know what to believe. “There’s a lot of misinformation about data centers,” she said. “Google has denied taking that land.”\nUse this map to find the data centers in your backyard\nKnowledge is power, so here’s how to find power-gobbling data centers near you.\nKnowledge is power, so here’s how to find power-gobbling data centers near you.\nTechnically, she explains, The Dalles, a city near the Washington state border, sought to reclaim that land, “and Google is just a big, unnamed power user.” The city had in fact asked for ownership of a 150-acre portion of Mount Hood National Forest, claiming it needs access to Mount Hood’s watershed to meet municipal needs as its population — 16,010 as of the 2020 census — grows. But critics, including environmentalists, say the city is trying to secure more water for Google, which has a sprawling data center campus in The Dalles that already consumes about one-third of the city’s water supply.\nThis controversy made Reksopuro curious about the backlash to data centers being built in other communities. So Reksopuro, a student at the University of Washington who studies the connections between tech and public policy, decided to map it out. Using information collected by Epoch AI and data scraped from legislation on data centers, she built an interactive map tracking AI policy around the world. She designed it to be simple enough for anyone to use. “I wanted it to be something that my younger sisters could play through and explore to understand what are the data centers in the area and what’s actually being done about it,” Reksopuro said. She hoped to shift their opinions that way, “instead of like, through TikTok.”\nUsing Claude, the map searches for new sources four times a day and checks them against the existing database Reksopuro built out. “Once it does that, it will write a new summary, add it to the news feed, and populate it on the sidebar,” she said. “I wanted it to be self-updating, since I’m also a student.”\nOpposition to data centers is one of the few things that unites Americans across party lines. After the initial construction phase, data centers bring few permanent jobs, and send “power costs to records in much of the US,” reports Bloomberg. Though data centers are increasingly controversial, Reksopuro’s map shows that the public response to them is nowhere near universal, nor are the policies governing their construction and use. While there’s been a huge backlash to data centers in Maine — which in April passed the first state-level moratorium on hyperscale data centers, though it was later vetoed by Gov. Janet Mills — Texas “is a huge fan of data centers,” Reksopuro said. “Texas actually passed a tax exemption for data centers.” The state gives data centers more than $1 billion in tax breaks each year, The Texas Tribune reports.\nReksopuro isn’t against data centers, but she thinks tech giants benefit from a lack of transparency around data center policies. “Right now, it’s this really opaque thing — and all of a sudden, there’s a facility,” she said. “I think that if people knew about data centers beforehand, it would give them leverage. They would be able to negotiate: ask for job training programs, tax revenue, environmental monitoring, things to improve their community.”",
+  "published_at": "2026-05-14T17:40:00Z",
+  "author": "Gaby Del Valle",
+  "collected_at": "2026-05-14T21:00:16.702863Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "Tech"
+    ]
+  }
+}

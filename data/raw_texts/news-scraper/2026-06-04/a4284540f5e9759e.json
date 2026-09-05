@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/oil-falls-as-lebanon-and-israel-agree-to-implement-ceasefire.html",
+  "title": "Oil falls as Lebanon and Israel agree to implement ceasefire",
+  "raw_text": "Oil prices eased on Thursday as Israel and Lebanon's ceasefire agreement boosted hopes for a broader deal to end the U.S.-Israeli war with Iran, while the U.S. House approved a resolution seeking to curb President Donald Trump's war powers.\nBrent futures were down $1.56, or 1.6%, at $96.25 a barrel, while U.S. West Texas Intermediate crude fell $1.29, or 1.3%, to $94.73.\nBoth benchmarks rose about 2% on Wednesday, extending the previous session's gains, after renewed Middle East hostilities including Iranian attacks on Kuwait and U.S. military strikes near the Strait of Hormuz.\nIn the U.S., the Republican-led House approved a resolution on Wednesday to block Trump from continuing the war against Iran. To take effect, the resolution would need Senate approval and two-thirds majorities in both chambers to override an almost certain Trump veto.\nTrump suggested on Wednesday that there could be progress in negotiations with Iran as soon as this weekend.\nIranian Foreign Minister Abbas Araqchi on Wednesday said Tehran's contacts with Washington have not been cut off, but no progress has been made in the negotiations, adding both sides were studying the texts that were exchanged.\nMeanwhile, U.S. crude stockpiles fell by 8 million barrels to 433.7 million barrels in the week ended May 29, the Energy Information Administration said on Wednesday. That compares with analysts' expectations in a Reuters poll for a 4-million-barrel draw.\nHaitong Futures said in a note that oil prices are likely to move toward the upper end of their range due to a persistent supply-demand imbalance as global crude inventories fall rapidly.",
+  "published_at": "2026-06-04T11:08:11Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:19:00.562070Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/streaming/929627/netflix-ads-plan-upfront-2026",
+  "title": "Netflix’s ad ambitions just keep growing",
+  "raw_text": "For the second year in a row, Netflix’s ad-supported tier more than doubled its monthly viewerbase. During its 2026 upfront presentation, Netflix revealed that its $8.99-per-month plan reaches more than 250 million people around the globe, a significant leap from 94 million users reported last year.\nNetflix’s ad ambitions just keep growing\nThe streaming service’s ad-supported tier now reaches 250 million viewers each month.\nThe streaming service’s ad-supported tier now reaches 250 million viewers each month.\nThe streaming service reported earning $1.5 billion from ads in 2025, and now it’s finding more areas to stick them across its service. Starting next year, Netflix will start showing ads in the vertical video feed it just launched on its mobile app, and in the lineup of podcasts it began adding to the platform late last year.\nNetflix first rolled out its ad-supported Basic tier in 2022, and since then, it has not only grown in memberships but also in price. The streaming service has included the Basic plan in its recent hikes, making it cost $2 more than its $6.99 launch price. This week, Texas Attorney General Ken Paxton cited Netflix’s ad-supported plan in a lawsuit against the company, claiming the service misled subscribers about the data it’s collecting about them for ads.\nNetflix is expanding its ad-supported tier to 15 new countries as well, including Austria, Belgium, Colombia, Denmark, Indonesia, Ireland, the Netherlands, New Zealand, Norway, Peru, the Philippines, Poland, Sweden, Switzerland, and Thailand. The service is also testing a new personalization tool that adjusts the ads its subscribers see “based on their viewing behaviors.”",
+  "published_at": "2026-05-13T18:45:32Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-13T21:00:16.562476Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Netflix",
+      "News",
+      "Streaming"
+    ]
+  }
+}

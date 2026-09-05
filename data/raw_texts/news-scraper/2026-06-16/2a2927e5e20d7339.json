@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/rivian-layoffs.html",
+  "title": "Rivian laying off hundreds of workers amid R2 launch",
+  "raw_text": "Rivian said Tuesday it was laying off hundreds of workers, or less than 2% of its workforce, as the electric vehicle maker aims to narrow losses.\nThe layoffs affect some teams in the service and customer segments, according to a spokesperson. The company had 15,232 employees across North America and Europe at the end of last year.\n\"We recently restructured a handful of teams within Rivian as we work to profitably scale our business,\" the company said in a statement.\nThe layoffs come a week after the automaker officially launched deliveries of its key new vehicle, the R2 SUV. The R2 is meant to transform Rivian from a niche EV manufacturer that sells luxury vehicles into a more mainstream brand like U.S. EV leader Tesla. The layoffs were first reported by The Wall Street Journal.\nRivian has said it hopes to achieve profitability with the R2. It has never turned an annual profit.\nThe EV maker lost $3.6 billion last year, while only delivering 42,247 vehicles, according to company filings. Its automotive segment lost about $6,000 per vehicle it delivered during the first quarter of this year.\nRivian and other EV manufacturers are increasingly facing a more challenging market than they did in recent years amid changing regulations under the Trump administration, including the elimination of a $7,500 federal incentive for purchasing an EV.\nRivian laid off more than 600 workers in October, or roughly 4.5% of its workforce. Those cuts largely involved restructurings of its marketing, vehicle operations, and sales/delivery and mobile operations teams.",
+  "published_at": "2026-06-16T18:41:27Z",
+  "author": null,
+  "collected_at": "2026-06-16T21:20:57.599177Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

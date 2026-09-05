@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/information-technology/2026/05/in-stunning-display-of-stupid-secret-cisa-credentials-found-in-public-github-repo/",
+  "title": "In stunning display of stupid, secret CISA credentials found in public GitHub repo",
+  "raw_text": "Security researcher Brian Krebs brings us the news that America’s Cybersecurity & Infrastructure Agency (CISA) has had a large store of plaintext passwords, SSH private keys, tokens, and “other sensitive CISA assets” exposed in a public GitHub repo since at least November 2025.\nThe now-offline public repo—named, somewhat aspirationally, “Private-CISA”—was brought to Krebs’ attention by GitGuardian’s Guillaume Valadon, who was alerted to the repo’s presence by GitGuardian’s public code scans. Krebs says that Valadon approached him after receiving no responses from the Private-CISA repo’s owner.\nIn an email to Krebs, Valadon claimed that the repo’s commit logs show that GitHub’s default protections against committing secrets—protections designed to protect unwitting or unskilled developers against exactly this kind of stupidness—had been disabled by the repo’s administrator.\nTesting by Seralys founder Philippe Caturegli showed that this was not a joke or hoax and that he was able to use the credentials in the Private-CISA repo to gain access to multiple Amazon Web Services GovCloud accounts “at a high privilege level.”\nKrebs notes that the repo appeared to be managed by Virginia-based Nightwing, a CISA contractor. Nightwing has so far not commented publicly, instead referring questions back to CISA.\nThis isn’t the first time CISA has screwed up—in fact, it’s not even the first time this year. In January, polygraph-failing acting CISA Director Madhu Gottumukkala uploaded sensitive government documents to ChatGPT after demanding and receiving an exemption to the agency policy that prohibited ChatGPT’s use by CISA personnel. Gottumukkala was removed from his role in February.",
+  "published_at": "2026-05-19T18:27:08Z",
+  "author": "Lee Hutchinson",
+  "collected_at": "2026-05-20T03:02:21.419170Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "brian krebs",
+      "CISA",
+      "credentials",
+      "GitHub",
+      "krebs",
+      "krebsonsecurity",
+      "leak",
+      "security leak"
+    ]
+  }
+}

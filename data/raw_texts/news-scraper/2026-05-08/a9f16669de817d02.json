@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/former-nasa-chief-takes-helm-of-national-security-space-firm/",
+  "title": "Former NASA chief takes helm of national security space firm",
+  "raw_text": "Before he became NASA administrator in 2018, Jim Bridenstine was a naval aviator who then served as a US representative from Oklahoma for three terms, sitting on the Committee on Armed Services. Now, five years after leaving NASA, Bridenstine is returning to those military roots.\nThis week, Bridenstine was named chief executive of a Maryland-based company, called Quantum Space, that builds “advanced maneuverable spacecraft.”\n“For us, national security space is a priority,” said Bridenstine in an interview.\nMeet Ranger\nThe company is developing a spacecraft, Ranger, that is about the size of a Volkswagen Beetle before its solar panels are deployed. Ranger is intended to provide the military an unparalleled maneuvering capability in space, from low-Earth orbit to geostationary orbit to cislunar space. Ranger will carry 4,000 kg of hydrazine propellant on board to enable rapid maneuvering.\n“This is high energy,” Bridenstine said. “The fuel gets burned quickly. The spacecraft can also be refueled, and it can refuel others.”\nBridenstine said the US Space Force is interested in bringing on new capabilities for in-space maneuvering. He believes Ranger can meet this demand with its large fuel tanks, capacity to be refueled, and a proprietary “multi-mode” technology that allows the spacecraft to operate in both high-thrust maneuvering mode and high-efficiency operations. To that end, Quantum Space acquired Phase Four last September.\nHe noted that, in President Trump’s budget request for fiscal-year 2027, funding for the Space Force would increase by approximately 80 percent, to $71 billion.\nGetting around space quickly\nSo, what might the military use Ranger for?\nQuantum Space has already won a contract to support the LASSO program for the Defense Advanced Research Projects Agency, which aims to develop spacecraft capable of flying in very low orbit all around the Moon (potentially as low as 10 km above the surface) to characterize the concentration of water on the lunar surface. The company is also involved in the Air Force Research Lab’s Oracle-P program to build space situational awareness spacecraft in cislunar space. Finally, Quantum Space is one of 14 competitors in the $6.2 billion Andromeda program to develop surveillance and reconnaissance satellites.",
+  "published_at": "2026-05-07T11:00:17Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-08T03:00:30.549833Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "jim bridenstine",
+      "quantum space",
+      "ranger",
+      "space"
+    ]
+  }
+}

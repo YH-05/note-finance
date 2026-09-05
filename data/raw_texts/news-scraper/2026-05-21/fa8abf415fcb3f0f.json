@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/05/buckle-up-google-is-set-to-remake-search-with-agentic-ai-in-2026/",
+  "title": "Buckle up: Google is set to remake search with agentic AI in 2026",
+  "raw_text": "Last year marked the beginning of Google’s explicit focus on AI search, and this year’s I/O solidified that shift. As Google’s search VP Liz Reid said during the keynote, “Google search is AI search.” This change is well underway, and the very reasonable objections to this path will not dissuade the company. All the metrics that matter to Google say this is the right move. But at the end of the day, Google can get whatever outcome it wants because it’s just that big and influential.\nGoogle started testing AI Mode for search just over a year ago, making the shift official at I/O 2025. You hear a lot of complaints around the Internet about how AI is changing Google’s search products, but Google is getting what it wants: more searches. Reid revealed at I/O 2026 that AI Mode usage has been doubling every quarter. There are now more than 1 billion people using AI Mode every month.\nIt’s not hard to see how that could be true. AI Mode invites a conversational experience—it asks you questions—and each of those follow-up queries counts as searches. Google has also pushed AI Mode very hard, including prominent links and nudges to get people to use its search chatbot instead of the traditional product. And unlike many of Google’s other AI experiences, you don’t have to pay anything to AI search. Everyone who uses Google search gets the full AI experience.\nYou can hardly escape AI Mode as it is, and Google is announcing even more AI Mode integrations at I/O this year. AI Overviews may be the most prominent element of Google’s AI search shift, but that’s increasingly looking like a stopgap as AI Mode spins up. Google has a new “seamless” search experience that ties AI Mode into AI Overviews. Most Google searches now produce an AI Overview. Google is expanding a mobile feature that lets you move from an Overview into AI Mode. This feature is now available across desktop, too.",
+  "published_at": "2026-05-20T17:31:04Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-21T03:00:31.289088Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "google",
+      "search"
+    ]
+  }
+}

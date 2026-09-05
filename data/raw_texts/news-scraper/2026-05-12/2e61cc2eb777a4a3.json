@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928479/google-googlebook-laptops-android-tease-aluminium-chromebook",
+  "title": "Google announces its Chromebook successor: the Googlebook",
+  "raw_text": "Google is announcing a new line of laptops coming in the fall called Googlebooks. Details are sparse for now, as the tease is just a small part of various Android announcements during Google’s Android Show. But we do know this is a major new initiative in the laptop space for Google, seemingly designed to succeed Chromebooks with something more capable: a platform running a long-rumored new operating system based on a fusion of Android and ChromeOS.\nGoogle announces its Chromebook successor: the Googlebook\nGoogle has a new operating system and a new laptop platform, but no hardware just yet.\nGoogle has a new operating system and a new laptop platform, but no hardware just yet.\nThat operating system, through various leaks, has been referred to as Aluminium OS. Google isn’t announcing the OS’s real name or giving many details about it just yet. “We’ll have more to share on the exact OS branding later this year,” Peter Du of Google’s global communications team tells The Verge. “We can confirm it is not Aluminium — that is the codename, not the official branding.”\nSo, what do we actually know about Googlebooks and their operating system that’s not Aluminium but also not not Aluminium? For starters, Googlebooks are built on the Android technology stack. They’ll run Chrome for web browsing and also run Android apps. They’ll even be able to directly access files from your Android phone and run your apps right off of it so you don’t have to temporarily move your attention across devices. And they’re going to have Gemini Intelligence baked into just about everything — right down to the cursor.\nGooglebooks will have a Magic Pointer feature that offers contextual suggestions whenever you shake your cursor and point it at something on the screen. Google’s examples include setting up a meeting by pointing at a date in an email or selecting images of furniture and a living space to visualize them together. Beyond your mouse pointer, Googlebooks will also feature the custom AI-created widgets that Google is also debuting today for Android phones and Wear OS smartwatches. I don’t know what kind of horrors people will be able to make into widgets, but Google gives the example of making one to organize your flights, hotel information, restaurant reservations, and another for creating a countdown timer for an upcoming family reunion. (It’s always flights, hotels, and restaurants, isn’t it?)\nWhile there are many outstanding questions to be answered about Googlebooks, the biggest and most obvious ones are what will these laptops look like, what chips will be in them, and what will they cost? We’ve got none of that so far. Google only has some initial renders of a mysterious Googlebook and the promise that it’s working with Acer, Asus, Dell, HP, and Lenovo to make the first models. There are no model names. No specs. Nada. Google isn’t even saying if the laptop in its renders is made by a partner or a tease of some first-party Pixel-like Googlebook to come or is just a cool mockup. The one distinct hardware feature shown, the bar of glowing Google-colored light, will be a signature of all Googlebooks. (Sure, bring on the RGB. Why not?)\nI’m always excited by new hardware and new operating systems, even if Google is now trying to brand their OSes as “intelligence systems” (cringe). But this tease also leaves a wake of uncertainty. From this tiny glimpse of the Googlebook operating system, it certainly looks a lot like ChromeOS. So it’s easy to draw the conclusion that Googlebooks are the new Chromebooks. And what does that mean for the millions of Chromebooks already out there?\nWhen asked if Chromebooks and ChromeOS will live on, Google’s Peter Du told The Verge, “Yes, there will be Chromebooks releasing after the launch of Googlebook” and “...all Chromebooks will continue to receive support through their device’s existing date commitment.” That date commitment is 10 years of automatic security updates for Chromebooks released in 2021 or later. But there’s no telling what Google’s focus on Chromebooks and ChromeOS will be like in a world that also has Googlebooks.\nWe’ll just have to wait and find out — either for a proper product launch or for the inevitable leaks Google is known for.",
+  "published_at": "2026-05-12T17:00:00Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-05-12T21:00:16.462185Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Chrome",
+      "Chromebook",
+      "Gadgets",
+      "Google",
+      "Laptops",
+      "News",
+      "Tech"
+    ]
+  }
+}

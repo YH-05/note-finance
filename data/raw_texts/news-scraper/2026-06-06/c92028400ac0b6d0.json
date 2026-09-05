@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/coinbase-launch-token-backed-mortgage-down-payments-summer",
+  "title": "Coinbase To Launch Token-Backed Mortgage Down-Payments This Summer",
+  "raw_text": "Cryptocurrency exchange Coinbase will allow qualified borrowers to pledge digital assets to fund Fannie Mae-backed mortgage apartments beginning this summer.\nIn a Thursday notice, Coinbase and its partner, Better Home & Finance, said the mortgage structure plan launching “by summer 2026” will allow borrowers to initially use Bitcoin (BTC) or USDC (USDC) as collateral for loans to fund down payments for homes. The initiative, first announced in March, represented a significant shift in companies allowing digital assets to be used for financing houses.\n“We’re excited to expand access to all qualified borrowers to fix an ongoing issue: buyers who qualify on every measure that matters but cannot clear the down payment hurdle because their wealth isn’t where the system expects to find it,” said Better founder and CEO Vishal Garg.\nGarg said in a March post on X:\n“This isn’t a niche thing. It’s what everyone is going to do once most financial assets are tokenized. It’s just a better way to buy a house.”\nThe move by Coinbase and Better followed US regulatory agencies under the Trump administration being friendlier to crypto companies and more accepting of digital assets integrated with traditional finance. In June 2025, the US Federal Housing Finance Agency (FHFA) directed Fannie Mae and Freddie Mac to consider crypto as an asset in mortgage risk assessments without requiring a conversion into fiat.\nOther mortgage lenders have made similar moves since the FHFA order. In February, Newrez began allowing borrowers to use their cryptocurrency holdings to qualify for a mortgage application.\nSource: Bill Pulte\nVolatile crypto-backed mortgages scrutinized for political motivations\nAlthough the price volatility of cryptocurrencies like Bitcoin may present challenges to the mortgage plan, some US lawmakers have accused FHFA head Bill Pulte of being “unduly influenced” by President Donald Trump in supporting such policies.\n“Expanding underwriting criteria to include the consideration of unconverted cryptocurrency assets could pose risks to the stability of the housing market and the financial system,” said five US senators in a July 2025 letter to Pulte following the FHFA order.\nRepublican lawmakers, including crypto proponent Cynthia Lummis, have proposed codifying the FHFA order into law. She introduced the 21st Century Mortgage Act in July 2025, saying government agencies “must evolve to meet the needs of a modern, forward-thinking generation.”",
+  "published_at": "2026-06-05T19:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-06T03:00:41.673314Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

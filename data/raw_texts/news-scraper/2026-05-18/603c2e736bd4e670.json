@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605181229",
+  "title": "ダウ先物もプラスに転じる＝速報",
+  "raw_text": "【市況】ダウ先物もプラスに転じる＝速報\nダウ先物 49677（+60.00 +0.12％）\nS＆P500 7449.25（+17.00 +0.23％）\nナスダック100先物 29379.00（+147.25 +0.50％）\n株探ニュース",
+  "published_at": "2026-05-18T12:57:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T15:00:21.771916Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

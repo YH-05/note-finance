@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/japan-stocks-topix-goldman-sachs-target-4400-earnings-foreign-inflows.html",
+  "title": "Goldman Sachs says Japan rally still has legs after record Topix run",
+  "raw_text": "Japanese stocks still have room to climb even after this year's blistering rally, according to Goldman Sachs, citing stronger corporate earnings, rising shareholder returns and renewed foreign inflows as reasons for further gains. The bank raised its 12-month target for the Topix index to 4,400 from 4,200, which marks an upside of more than 11% from current levels, even after the TOPIX hit a record high last Friday. The Topix, or Tokyo Stock Price Index, is a broad measure of Japanese equities that tracks domestic companies listed on the Tokyo Stock Exchange. Goldman said the more bullish outlook followed a \"positive full-year results season\" and an improved earnings outlook for Japanese companies. The bank revised its earnings-per-share growth estimates for fiscal 2026 to 11% from 7%, while maintaining its fiscal 2027 estimate at 11% and forecasting 9% growth in fiscal 2028. The strategists said the market's valuation still had room to expand. They maintained a target forward price-to-earnings multiple of 17.5 times, noting that the TOPIX's valuation had retreated to around 15 times after geopolitical tensions in the Middle East triggered a selloff earlier this year. \"However, with the environment for foreign flows and earnings revisions now looking far more constructive, this 17.5x multiple should be seen as a reasonable target level,\" the strategists wrote. Foreign investors have poured roughly 16 trillion yen ($100.3 billion) into Japanese equities since April 2025, data from Goldman showed. The bank also pointed to improving shareholder returns as a major support for Japanese stocks. Total shareholder returns by TOPIX companies reached 43 trillion yen in fiscal 2025, while buyback announcements remained robust during the latest earnings season.",
+  "published_at": "2026-06-01T07:48:29Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.140949Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

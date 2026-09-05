@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605200498",
+  "title": "韓国株下げ拡大　サムスン電子労組、予定通り大規模スト実施へ",
+  "raw_text": "韓国株下げ拡大 サムスン電子労組、予定通り大規模スト実施へ\n東京時間11:32現在\n韓国総合株価指数 7088.96（-182.70 -2.51%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-20T02:42:00Z",
+  "author": null,
+  "collected_at": "2026-05-20T03:02:12.343892Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

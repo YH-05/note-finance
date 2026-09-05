@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/04/googles-privacy-maze-how-gemini-traps-you-and-your-data/",
+  "title": "The hidden cost of Google's AI defaults and the illusion of choice",
+  "raw_text": "Many people are hoping—nay, praying—that the potential AI bubble will burst soon.\nBut to hear Google tell it, generative AI is the future, and the company’s products have to change to keep up with the technical reality. As a result, Gemini is seeping into every nook and cranny of the Google ecosystem. Generative AI feeds on data, and Google has a lot of your data in products like Gmail and Drive. What does that mean for your privacy, and what happens if you don’t want Gemini peeking over your shoulder? Well, it’s kind of a mess.\nThe amount of data Gemini retains depends on how you access the AI, and opting out of data collection can mean running straight into so-called “dark patterns,” UI elements that work against the user’s interest.\nThis is the future?\nGoogle doesn’t train AI with your data, except when it does\nConcerns over how Google uses your private data stretch back long before the generative AI boom. When Google stepped up advertising in Gmail, the company clarified that it doesn’t use the content of your emails to serve ads. Instead, ad personalization (which you can disable) is a global feature that uses your web activity and vital statistics to target you. Most people have come to terms with that, but things get murkier in the realm of AI.\nAs Google rolls more Gemini features into iconic products like Gmail, it has again had to clarify when it does and doesn’t use your data. In a recent blog post (and associated YouTube Short), Google sought to clarify that your emails are not being piped directly into Gemini. Instead, Gemini gets access to your data for “isolated tasks.” When you interact with Gemini features in Workspace apps like Gmail or Drive, the AI processes your data but does not save it.\n“Protecting users’ privacy and control over their data is fundamental to how we develop and deploy AI in Google Workspace,” a Google spokesperson said. “The content you put into Workspace—like your private Drive files—is yours, and when using Gemini in Workspace we do not use that personal content to train our foundational generative AI models.”",
+  "published_at": "2026-04-30T11:00:31Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-01T15:00:30.621243Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Features",
+      "Google",
+      "Artificial Intelligence",
+      "gemini",
+      "generative ai",
+      "google",
+      "privacy"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20389-first-watt-and-mtn-nigeria-launch-renewable-energy-infrastructure-programme.html",
+  "title": "First WATT and MTN Nigeria launch renewable energy infrastructure programme",
+  "raw_text": "Sustainable development company First WATT Renewable and operator MTN Nigeria have announced a strategic renewable energy infrastructure partnership designed to reduce diesel dependence and improve operational resilience at MTN’s critical facilities.\nThe agreement will also involve the supply of renewable energy systems to power electric vehicle (EV) charging infrastructure across selected MTN locations in Nigeria.\nThe programme comprises two major project components. The first is an energy-as-a-service deployment that will provide approximately 34 MWp of solar photovoltaic as a generation capacity and 40 MWh of battery energy storage across selected MTN facilities nationwide.\nThese sites include data centres, switch facilities, cable landing stations, customer service centres and other network critical locations.\nThe second is the supply of renewable energy infrastructure to power 60 kW EV charging stations for eight MTN facilities across the country.\nTogether, both components are designed to reduce dependence on diesel-based systems, lower operating emissions, support operational uptime, strengthen business continuity and increase the contribution of renewable energy across MTN’s operational sites, including selected EV charging locations.\nBased on current project assumptions, the programme is expected to support the avoidance of an estimated 25,000 tonnes of carbon dioxide equivalent emissions (tCO ₂e) over five years, subject to operational performance and final emissions calculations.\nTobechukwu Okigbo, Chief Corporate Services and Sustainability Officer at MTN Nigeria, explains: “This partnership supports our efforts to reduce diesel dependence, improve operational efficiency, and strengthen the resilience of the systems that power connectivity.”\nHe adds: “It is also aligned with Project Zero, under our Doing for Planet sustainability pillar, through which we are focused on reducing greenhouse gas emissions, improving energy efficiency and increasing the use of renewable energy across our operations.”",
+  "published_at": "2026-06-15T13:27:17Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-18T03:01:19.517728Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

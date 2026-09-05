@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/u-s-government-warns-of-severe-copyfail-bug-affecting-major-versions-of-linux/",
+  "title": "US government warns of severe CopyFail bug affecting major versions of Linux",
+  "raw_text": "A severe security vulnerability affecting almost every version of the Linux operating system has caught defenders off-guard and scrambling to patch after security researchers publicly released exploit code that allows attackers to take complete control of vulnerable systems.\nThe U.S. government says the bug, dubbed “CopyFail,” is now being exploited in the wild, meaning it’s being actively used in malicious hacking campaigns.\nThe bug, officially tracked as CVE-2026-31431 and discovered in Linux kernel versions 7.0 and earlier, was disclosed to the Linux kernel security team in late March, and patched after about a week. But the patches have yet to fully trickle down to the many Linux distributions that rely on the vulnerable kernel, leaving any system running an affected Linux version at risk of compromise.\nLinux is widely used in enterprise settings, running the computers that operate much of the world’s data centers.\nThe CopyFail website says that the same short Python script “roots every Linux distribution shipped since 2017.” According to security firm Theori, which discovered CopyFail, the vulnerability was verified in several widely used versions of Linux including Red Hat Enterprise Linux 10.1, Ubuntu 24.04 (LTS), Amazon Linux 2023, as well as SUSE 16.\nDevOps engineer and developer Jorijn Schrijvershof wrote in a blog post that the exploit works on Debian and Fedora versions, as well as Kubernetes, which relies on the Linux kernel. Schrijvershof described the bug as having an “unusually big blast radius” as it works on “nearly every modern distribution” of Linux.\nThe bug is called CopyFail because the affected component in the Linux kernel, the core of the operating system that has virtually complete access to the entire device, does not copy certain data when it should. This corrupts sensitive data within the kernel, allowing the attacker to piggyback the kernel’s access to the rest of the system, including its data.\nIf exploited, the bug is particularly problematic because it allows a regular, limited-access user to gain full-administrator access on an affected Linux system. A successful compromise of a server in a data center could allow an attacker to gain access to every application, server, and database of numerous corporate customers, and potentially gain access to other systems on the same network or data center.\nThe CopyFail bug cannot be exploited over the internet on its own, but can be weaponized if used in conjunction with an exploit that works over the internet. Per Microsoft, if the CopyFail bug is chained together with another vulnerability that can be delivered over the internet, an attacker could use the flaw to gain root access to an affected server. A user operating a Linux computer with a vulnerable kernel could also be tricked into opening a malicious link or attachment that triggers the vulnerability.\nThe bug could also be injected by way of supply chain attacks, in which malicious actors hack into an open source developer’s account and plant the malware in their code in order to compromise a large number of devices in one go.\nGiven the risk to the federal enterprise network, U.S. cybersecurity agency CISA has ordered all civilian federal agencies to patch any affected systems by May 15.",
+  "published_at": "2026-05-04T22:21:32Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-05-05T03:00:27.379284Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cyberattacks",
+      "cybersecurity",
+      "linux"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/06/white-house-ai-policy-adviser-krishnan-to-leave-position.html",
+  "title": "White House AI policy adviser Krishnan to leave position",
+  "raw_text": "White House artificial intelligence policy adviser Sriram Krishnan on Saturday said he will leave his position at the end of June, marking the exit of a leading figure helping craft policies for frontier technologies.\n\"This journey has been the privilege of a lifetime,\" Krishnan posted on X. He did not give a reason for leaving.\nKrishnan has been involved in Trump administration efforts to create a national framework for regulating AI developments, as security fears in Washington have mounted over powerful new systems.\nAnthropic's Mythos, for example, has reportedly demonstrated the ability to expose cybersecurity weaknesses in computer systems such as at banks.\nThe White House on Tuesday released an executive order that directs federal agencies to ask leading AI developers to voluntarily submit their most capable models for government cybersecurity tests before releasing them to the public.",
+  "published_at": "2026-06-06T18:03:00Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.607420Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

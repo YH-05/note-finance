@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/crowdstrike-warns-of-increasing-chinese-ai-cyberattacks-on-us-tech.html",
+  "title": "Beijing escalating AI espionage to catch up with the U.S. on tech, cybersecurity firm says",
+  "raw_text": "U.S.-based cybersecurity giant CrowdStrike warned Tuesday of increasing cyberattacks from China-based entities aimed at stealing artificial intelligence to narrow the tech gap with the U.S.\nThe Chinese entities accounted for more than 58% of state-sponsored targeted cyberattacks aimed at tech companies, especially their AI assets, CrowdStrike said in a report.\n\"China-nexus adversaries are escalating espionage against technology organizations to steal the AI capabilities and intellectual property they cannot build fast enough on their own,\" CrowdStrike said in a statement.\nThe analysis covered events over the 12 months to March 31. U.S. restrictions on China's access to AI training chips have restricted Beijing's tech development, although homegrown AI models have sought to slash operating costs while offering nearly similar intelligence.\nChinese-affiliated cyberattacks targeted government communications in Southeast Asia and \"maintained persistent access\" to North American tech organizations by taking advantage of vulnerabilities, CrowdStrike said.\nThe Cyberspace Administration of China did not immediately respond to CNBC's faxed request for comment.\nEarlier this year, U.S. AI giants Anthropic and OpenAI complained that Chinese companies extracted competitive intelligence from the American tech companies. Analysts at the time cautioned that the boundaries of illicit behavior could be blurry.\nOver the last several weeks, Anthropic has touted the cyber capabilities of its newest Mythos model and rolled out the tech to CrowdStrike and other companies. Anthropic on Tuesday released a public version of the model, called Claude Fable 5, which rankings firm Artificial Analysis said is \"nearly 5 points ahead of any other lab's best model.\"\nCrowdStrike said it also found North Korea-affiliated entities tried to infiltrate IT workforces across North America, Europe and Asia, primarily to generate revenue for the regime.",
+  "published_at": "2026-06-10T05:02:45Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.353159Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

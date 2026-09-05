@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/the-may-inflation-numbers-are-due-out-wednesday-morning-heres-what-to-expect.html",
+  "title": "The May inflation numbers are due out Wednesday morning. Here's what to expect",
+  "raw_text": "Inflation numbers out Wednesday are expected to cross another unpleasant threshold as the cost of living continues to climb for U.S. consumers.\nIf the Wall Street consensus is correct, the consumer price index is expected to show inflation running at a 4.2% annual rate off an expected 0.5% monthly gain in May. That would mark the first time the CPI has passed 4% since May 2023 and would be the highest reading since April of that year.\nOf course, much of the rise in the headline number, which was at just 2.4% a year ago, can be attributed to the surge in energy costs resulting from the Iran war.\nHowever, even core prices, which exclude food and energy, are projected to post a 2.9% annual reading after rising 0.3% in May, according to Dow Jones.\nInflation burst\nWorries are accelerating that the burst of inflation is broadening, as the jump in oil prices starts to spread through the economy and raise expectations that inflation isn't dissipating anytime soon.\n\"It's not just an oil story, it's a money supply story, and it's increasingly an AI story,\" said Liz Ann Sonders, chief investment strategist at Charles Schwab. \"So this is a broader inflation problem than just energy, meaning that we probably still have somewhat sticky inflation.\"\nSonders added that \"a lot of this skittishness\" from investors is about inflation, so \"something worse than expected probably doesn't sit well with the equity market.\"\nThe Trump administration has made the case that inflation will come down quickly once the fighting in the Middle East settles down.\nHowever, Sonders advised against counting on that with so much damage already done to supply.\n\"Even if there would be a quick resolution to the war, you probably wouldn't see oil prices come down to prior lows, because there's been so much disruption to production,\" she said. \"That's not something that a switch can just be turned back on.\"\nAnnual headline inflation was 3.8% in April while the core rate stood at 2.8%.\nThe Bureau of Labor Statistics will release the report at 8:30 a.m. ET.",
+  "published_at": "2026-06-09T19:49:59Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.356476Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

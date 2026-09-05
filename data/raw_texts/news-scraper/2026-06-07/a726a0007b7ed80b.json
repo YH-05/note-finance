@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/were-buying-the-dip-in-our-newest-chip-stock-getting-a-better-price-on-a-great-name.html",
+  "title": "We're buying the dip in our newest chip stock, getting a better price on a great name",
+  "raw_text": "We're buying 100 shares of Intel at roughly $103 each. Following Friday's trade, Jim Cramer's Charitable Trust will own 500 shares of INTC, increasing its weighting in the portfolio to 1.3% from 1.06%. We're nibbling on some more Intel, whose stock was under pressure in a sharp semiconductor selloff. Intel dropped 8% as the tech-heavy Nasdaq sank more than 2.5%. The broader market S & P 500 was down over 1.5%. At around $103, the stock has pulled back about 20% from its May 11 closing high of just over $129. We added this chipmaker to the Trust on Wednesday, highlighting how its central processing unit (CPU) business is well-positioned for the Agentic AI era as rack architectures in data centers evolve toward a 1-to-1 CPU-to-GPU ratio. GPUs are graphics processing units, dominated by Nvidia . INTC YTD mountain Intel YTD We're also impressed by the technological and execution improvements that have been made under CEO Lip-Bu Tan. While CPUs are the main part of the Intel story today, its chip manufacturing business holds a lot of potential as companies seek alternative sources for advanced chip manufacturing and packaging. Taiwan Semi remains the industry's gold standard in chipmaking, but with the company operating near full capacity and the supply chain tigh t , Intel has an opportunity to win a lot of new foundry customers. (Jim Cramer's Charitable Trust is long INTC. See here for a full list of the stocks.) As a subscriber to the CNBC Investing Club with Jim Cramer, you will receive a trade alert before Jim makes a trade. Jim waits 45 minutes after sending a trade alert before buying or selling a stock in his charitable trust's portfolio. If Jim has talked about a stock on CNBC TV, he waits 72 hours after issuing the trade alert before executing the trade. THE ABOVE INVESTING CLUB INFORMATION IS SUBJECT TO OUR TERMS AND CONDITIONS AND PRIVACY POLICY , TOGETHER WITH OUR DISCLAIMER . NO FIDUCIARY OBLIGATION OR DUTY EXISTS, OR IS CREATED, BY VIRTUE OF YOUR RECEIPT OF ANY INFORMATION PROVIDED IN CONNECTION WITH THE INVESTING CLUB. NO SPECIFIC OUTCOME OR PROFIT IS GUARANTEED.",
+  "published_at": "2026-06-05T16:33:23Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.622989Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

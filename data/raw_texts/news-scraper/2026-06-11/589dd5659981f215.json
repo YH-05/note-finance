@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/elon-musk-addresses-asml-employees-pushes-into-chip-manufacturing.html",
+  "title": "Ahead of SpaceX IPO, Elon Musk addresses ASML employees as part of push into chip manufacturing",
+  "raw_text": "As he gears up to take SpaceX public in the largest IPO on record, CEO Elon Musk on Thursday spoke to employees of ASML, Europe's most valuable company, underscoring the importance of chip manufacturing to his two main businesses.\nAs the sole provider of a crucial advanced chipmaking machine, ASML will be a likely supplier for Musk's massive chip fabrication plant in Texas known as Terafab.\nCalling in virtually to ASML's annual technology conference, Musk spoke in a fireside chat with CEO Christophe Fouquet. The event was only accessible to employees, but Musk's appearance was confirmed by the company.\nIt comes days after Musk wrote in a post on X that, \"ASML should be treasured and supported. It is arguably the greatest company in Europe.\"\nThe Terafab project is Musk's effort to move SpaceX beyond rockets and into advanced chip manufacturing. Musk officially announced plans for Terafab in March to make chips for Tesla and SpaceX, which owns artificial intelligence lab xAI.\nASML, based in the Netherlands, is the only company in the world that makes the $400 million machine needed for an advanced chip manufacturing step known as extreme ultraviolet lithography. Without ASML, the world's three leading chip manufacturers — Taiwan Semiconductor, Samsung and Intel — can't make leading edge chips for AI.\nEUV machines will be a necessity inside Terafab. And SpaceX will need a growing number of chips for its data centers after signing recent deals to provide compute capacity to Google and Anthropic.\nIf the full buildout comes to fruition, Terafab will cost between $55 billion and $119 billion. Last week, SpaceX secured tax incentives for the project during a contentious public hearing in Grimes County, Texas, despite opposition from nearby residents.\nAt ASML, Musk's remarks also received pushback from some employees. On the company's internal communication platform, a group of employees wrote, ahead of the event, that Musk's appearance did not align with ASML's values, citing controversial involvement in U.S. politics and what some described as \"Nazi sympathies,\" according to Dutch newspaper Eindhovens Dagblad.\nAs a key supplier to all the most advanced chip manufacturers, ASML is known for keeping a neutral profile so it can work well alongside a complex global network of customers.\nASML is expanding its footprint in its headquarters of Eindhoven, where a new campus is expected to open in 2028.",
+  "published_at": "2026-06-11T17:24:40Z",
+  "author": null,
+  "collected_at": "2026-06-11T21:20:26.996547Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

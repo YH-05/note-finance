@@ -1,0 +1,28 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/pentagon-boasts-of-using-ai-to-write-reports-mandated-by-congress/",
+  "title": "Pentagon boasts of using AI to write reports mandated by Congress",
+  "raw_text": "The US Department of Defense has a lot of congressionally mandated homework to do every year involving hundreds of required reports on various national security topics. But Pentagon officials have been proudly describing a new shortcut—using generative AI tools to write such reports for Congress.\nPentagon Chief Technology Officer Emil Michael highlighted AI-generated reports to Congress as a key example of how the Department of Defense—stylized as the Department of War under the Trump administration—has adopted generative AI during an event hosted by the Hudson Institute think tank in Washington, DC, on June 12. The Pentagon has made AI tools, starting with Google Cloud’s Gemini for Government, widely available to members of all six military branches through the department’s bespoke GenAI.mil platform since December 2025.\n“I have to report to Congress every year on this thing,” Michael said. “Let me load all the papers onto it and have it draft me a congressional report that would otherwise take 200 hours of staffing time and do it in five hours.”\nMore evidence of such AI usage came from previous comments by Jacob Glassman, deputy assistant secretary of defense for science and technology foundations at the US Department of Defense, during the Box Federal Summit held in Washington, DC, on April 23. According to DefenseScoop coverage, Glassman described how he told a short-staffed team responsible for delivering a congressionally mandated report to “use GenAI.mil, do the best you can.”\nThe team supposedly came back to Glassman a week later, claiming that the AI-generated report was “the best report we’ve written in the past five years.” As DefenseScoop notes, Glassman did not identify the report in question.",
+  "published_at": "2026-06-16T18:11:05Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-06-17T03:00:31.721953Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "congress",
+      "Department of Defense",
+      "gemini",
+      "genai",
+      "generative ai",
+      "google",
+      "Google Gemini",
+      "Pentagon",
+      "US Military"
+    ]
+  }
+}

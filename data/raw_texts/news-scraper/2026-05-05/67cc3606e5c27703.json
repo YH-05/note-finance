@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/oil-prices-brent-wti-trump-iran.html",
+  "title": "Brent oil tops $118 after Trump says he will blockade Iran until it agrees to a nuclear deal",
+  "raw_text": "Oil prices jumped more than 6% on Wednesday, after President Donald Trump said he will maintain the U.S. naval blockade against Iran until they agreed to a nuclear deal.\nInternational benchmark Brent crude futures rose about 6% to close at $118.03 per barrel. U.S. West Texas Intermediate futures advanced nearly 7% to settle at $106.88 per barrel.\n\"The blockade is somewhat more effective than the bombing,\" Trump told Axios on Wednesday. \"They are choking like a stuffed pig, and it is going to be worse for them. They can't have a nuclear weapon.\"\nAttempts to continue negotiations to end the war have stalled in recent days. Iran has refused to reopen the Strait of Hormuz until the U.S. lifts its blockade. Tehran's control of the strait has choked off oil exports from the Middle East.\nRead more\nEnergy market participants were also digesting the ramifications of the United Arab Emirates' abrupt decision to quit OPEC, although analysts said the move was likely to have a limited market impact given the ongoing Middle East crisis.\nStrategists at Dutch bank ING said in a research note published Wednesday that the UAE's exit from the oil producer group represents \"a big blow\" to OPEC and would certainly be welcomed by Trump \"as it erodes OPEC's influence in the oil market, while it should also be beneficial for importers and consumers.\"\n\"However, in the near term, the biggest driver for oil prices remains developments in the Persian Gulf and the timing of a resumption in oil flows through the Strait of Hormuz,\" they added.",
+  "published_at": "2026-04-29T19:01:01Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.377289Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

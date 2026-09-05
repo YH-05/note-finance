@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/the-average-spacex-buyer-post-ipo-is-almost-under-water-after-two-day-slide.html",
+  "title": "The average SpaceX buyer post-IPO is almost under water after two-day slide",
+  "raw_text": "The average investor who bought SpaceX shares in the open market after its debut has seen nearly all of their gains disappear as a sharp pullback erased a large chunk of the stock's post-IPO surge.\nShares of SpaceX fell 3.6% Thursday to just under $184.98 a share. The stock's five-day volume-weighted average price, or VWAP, is $181.71 a share. VWAP measures the average price a security has traded throughout the day, weighted by trading volume and is widely used by traders to gauge investors' positioning.\nThe move suggests the average post-IPO buyer is now approximately breaking even.\nThe stock soared from its $135 IPO price to an intraday high above $225 on Tuesday as investors piled into one of the most anticipated public offerings in years. Since then, however, shares have retreated 20%, wiping out much of the gains accumulated after the debut. It's now back to where it was trading on day two, Monday..\nThe decline has also narrowed the profits for thousands of retail investors who gained access to the IPO through brokerage platforms including Robinhood, Fidelity and SoFi. While many individual investors received only a fraction of the shares they requested — in some cases just one or a handful of shares — those allocations were purchased at the $135 offering price, leaving them with gains even after the recent pullback.\nThe reversal underscores how quickly sentiment has shifted following the company's blockbuster debut. After briefly pushing SpaceX's market value close to $3 trillion, investors have begun reassessing whether the stock's rapid advance can be justified by fundamentals.\n— CNBC's Chris Hayes and Deena Zaidi contributed to the story.",
+  "published_at": "2026-06-18T20:10:47Z",
+  "author": null,
+  "collected_at": "2026-06-18T21:30:35.253009Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/28/catl-shares-slide-after-5-billion-hong-kong-share-placement-plan.html",
+  "title": "CATL declines nearly 7% as the Chinese battery maker unveils $5 billion share placement",
+  "raw_text": "Shares of China's Contemporary Amperex Technology declined 6.81% Tuesday after the EV battery giant unveiled plans for a roughly $5 billion equity offering in Hong Kong.\nCATL, which makes lithium-ion batteries for electric vehicles, is seeking to raise $39.2 billion Hong Kong dollars (about $5 billion) through a private placement, as it accelerates investment in its renewable energy business against the backdrop of a global oil crunch.\nCATL shares were last trading at HK$627.5, compared with the placement price of HK$628.20\nNet proceeds are expected to total roughly HK$39.1 billion after fees, with funds earmarked for global new-energy projects, research and development, and general corporate purposes.\nThe company said the funds will support its push into overseas markets, expand production capacity and strengthen its zero-carbon strategy.\nCATL said demand for power and energy storage batteries remains strong as electrification accelerates globally, and the funds will help reinforce its leadership in the fast-growing sector.\nThe company listed in Hong Kong last year in May after a bumper IPO that saw it raise more than $5 billion, with proceeds largely allocated to overseas projects including a plant in Hungary. The company is also listed in Shenzhen, mainland China.\nHSBC said in a note last Friday that strong earnings momentum remains central to the investment case for CATL after the battery maker recently posted first-quarter net profit of 20.7 billion yuan ($2.8 billion), up about 49% from a year earlier.\nThe bank expects momentum to carry into the second quarter, citing solid production pipelines and high utilization rates, with CATL likely to sustain output levels of around 85% to 90%. Continued capacity expansion is also seen as a key driver of market-share gains.\nHSBC said broader macro and industry trends are reinforcing demand, with volatile oil prices accelerating the shift toward electrification and boosting adoption of EV and energy storage systems. Rapid growth in AI data centers could further lift demand for battery storage solutions, potentially steepening the medium-term growth trajectory.\nThe bank maintained its buy ratings on both CATL's mainland and Hong Kong-listed shares, while raising price targets to 547 yuan and HK$790, respectively, reflecting higher earnings forecasts driven by stronger volume assumptions.",
+  "published_at": "2026-04-28T07:52:56Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.722512Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

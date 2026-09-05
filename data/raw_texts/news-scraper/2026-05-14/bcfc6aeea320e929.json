@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/the-physics-of-how-olympic-weightlifters-exploit-barbells-whip/",
+  "title": "The physics of how Olympic weightlifters exploit barbell's \"whip\"",
+  "raw_text": "Olympic weightlifting consists of three basic movements performed on a barbell: the snatch, the clean, and the jerk (with the latter two executed in combination). At such an elite level, athletes seek to exploit every possible advantage, including how a barbell bends and recoils in response to loaded weight and applied force—a property known as flexural bending in physics and dubbed the “whip” by Olympic athletes. Scientists are learning more about the underlying mechanisms of the whip, according to a presentation at this week’s meeting of the Acoustical Society of America in Philadelphia.\nJoshua Langlois, a graduate student at Pennsylvania State University, competes in Strongman competitions as a hobby. He also has friends who compete at the national level in Olympic weight-lifting events. “They told me how they use the whip,” Langlois said during a media briefing. “When they dip down, they can feel when the bar flexes back up and use that to accelerate the movement upward to increase the amount they can lift.”\nLanglois decided to conduct a modal analysis, i.e., how an object moves or vibrates, to quantify the whip and better understand the mechanics, as well as what makes for a good barbell at the elite level. He suspended four 20-kg men’s barbells (women use 15-kg barbells)—with 50 kg loaded on each end—from elastic resistance bands so that the bar was essentially floating in space. Then he attached accelerometers at each end of the bar where the vibrational mode patterns occur. Next, he tapped set locations across the bar with a small hammer, measuring the acceleration at the endpoints, which enabled him to map out how the bars moved in response. He compared the vibrations of different barbells, as well as a single barbell loaded with different weights.",
+  "published_at": "2026-05-13T19:05:35Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-14T03:00:28.567797Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "acoustics",
+      "Physics",
+      "sports",
+      "sports science"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/nvidia-gets-into-the-arm-pc-business-with-new-high-end-rtx-spark-processor/",
+  "title": "Nvidia RTX Spark comes to Windows PCs with Arm CPU, RTX GPU, and unified memory",
+  "raw_text": "These days, Nvidia primarily sells AI data center products, and its traditional consumer devices feel like more of a side project. But the company occasionally still releases something designed for consumers. After a couple of years of rumors, Nvidia has announced an Arm-based chip designed to power Windows PCs. Dubbed RTX Spark, the new chip combines a 20-core Nvidia Grace CPU co-developed with MediaTek, up to 6,144 Blackwell-based GPU cores (the same architecture as the RTX 50-series GPUs), and support for up to 128GB of unified LPDDR5x memory.\nNvidia and its partners offered nothing about expected pricing, but both “slim Windows laptops with all-day battery life and premium displays” and “compact desktop PCs” are slated to be “available this fall” from partners including Asus, Dell, HP, Lenovo, Microsoft, MSI, Acer, and Gigabyte.\nThis isn’t Nvidia’s first chip for Windows PCs; earlier chips in the Tegra series powered several of the short-lived Windows RT tablets. But Tegra chips largely stopped appearing in consumer devices following the Tegra X1 in the late 2010s (variants power the original Nintendo Switch and the apparently unkillable Nvidia Shield TV box). Modern Arm-based PCs in the Windows 10 and Windows 11 eras have all used processors from Qualcomm.\nNvidia stands to benefit from the years of progress made on the Arm version of Windows since the Windows RT days. Microsoft’s x86-to-Arm code translation layer, codenamed Prism, has gotten better and faster. Many major apps now ship Arm-native versions that can run without the performance and responsiveness penalties that still crop up in translated apps. Most of the time, at least for productivity work and general computing, an Arm-based PC and an Intel or AMD-based PC look and feel indistinguishable.\nAnd Nvidia’s entry into the market may help improve the gaming experience, one area where the Arm version of Windows still falls short. Translated games often play, but they can show lag or responsiveness issues even when running at a reasonable frame rate; many games that require kernel-level anti-cheat software to be installed still don’t run at all. Nvidia and Microsoft told The Verge that they were actively working with Riot Games to support League of Legends and Valorant on Arm PCs; with Krafton to support PUBG; and with the developers of Easy Anti-Cheat, BattlEye, and Denuvo.",
+  "published_at": "2026-06-01T14:47:22Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-06-02T15:00:26.369519Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Tech",
+      "NVIDIA",
+      "rtx 50-series",
+      "RTX Spark",
+      "windows 11",
+      "windows on arm"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/katie-haun-raises-1-billion-for-new-venture-funds/",
+  "title": "Katie Haun raises $1B for new venture funds",
+  "raw_text": "Former Andreessen Horowitz investor Katie Haun announced on Monday in a press release that her firm has raised $1 billion across new funds to continue its thesis of backing crypto and blockchain.\nThe capital will be spread across startups at early and later stages, Bloomberg reported, and, within the crypto and blockchain space, it will be used to back startups focused on alternative assets (like gold and other commodities), the agentic economy, and financial services.\nThe firm hopes to deploy the capital globally over the next two to three years. Haun left a16z in late 2021 and launched her own venture firm shortly after, in 2022. The firm handles more than $2 billion in assets under management, estimates PitchBook, and its investments include Palmer Luckey’s Erebor Bank and the crypto finance company Ellipsis Labs.",
+  "published_at": "2026-05-04T19:12:15Z",
+  "author": "Dominic-Madori Davis",
+  "collected_at": "2026-05-04T21:00:26.594139Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Startups",
+      "Venture",
+      "a16z",
+      "blockhain",
+      "In Brief",
+      "Katie Huan"
+    ]
+  }
+}

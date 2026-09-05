@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20277-ustda-backs-base-station-feasibility-study-in-west-africa.html",
+  "title": "USTDA backs base station feasibility study in West Africa",
+  "raw_text": "The United States Trade and Development Agency (USTDA) has announced funding for a feasibility study to install approximately 1,500 turnkey mobile communications base stations across Benin, Côte d’Ivoire, Ghana and Nigeria.\nThe project will deploy wireless infrastructure developed by Vanu, a US-based company focused on low-cost mobile network systems for rural and hard-to-reach areas.\nThe USTDA, which is described as the US government’s first mover on critical infrastructure development in emerging markets, says it is accelerating the deployment of trusted US-made wireless infrastructure in West Africa to connect off-grid communities in a region that, it suggests, is dominated by Chinese-made wireless systems.\nUSTDA’s assistance will fund the study for Vanu Côte d’Ivoire, which has selected US company Vernonburg Group, a global consulting firm dedicated to building a connected world, to provide US expertise to assess the commercial viability of large-scale deployment and help mobilise financing for implementation.\nThe study will evaluate existing network infrastructure, analyse market conditions across all four countries, assess legal and regulatory frameworks, and develop a comprehensive financing plan.\nUSTDA says the project will generate substantial opportunities to deploy trusted US wireless solutions, network management systems, and other digital infrastructure throughout the project’s implementation.\nThe deployment of mobile base stations will also address West Africa’s urban-rural connectivity gap and provide millions of West Africans with faster, more reliable mobile access, supporting economic activity in areas that have historically been offline or limited to outdated 2G and 3G networks.",
+  "published_at": "2026-05-20T14:37:20Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-20T21:04:18.684428Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

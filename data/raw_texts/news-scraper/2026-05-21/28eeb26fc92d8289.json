@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605220078",
+  "title": "本日注視すべき【増資・売り出し】銘柄　(21日大引け後 発表分)",
+  "raw_text": "ヒューリック ＜日足＞ 「株探」多機能チャートより\n○ヒューリック <\n3003> [東証Ｐ]\n既存株主による1739万2100株の海外売り出しを実施する。売出価格は5月21日から22日までの期間に決定される。\n[2026年5月22日]\n株探ニュース",
+  "published_at": "2026-05-21T20:50:00Z",
+  "author": null,
+  "collected_at": "2026-05-21T21:00:21.688434Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

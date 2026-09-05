@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/14/bond-market-fed-inflation-warsh-powell.html",
+  "title": "Bond market believes Fed behind the curve on inflation as Warsh takes over",
+  "raw_text": "Bond market investors believe the Federal Reserve needs to play catch up on inflation as its new leader takes over, according to Ed Yardeni, president of Yardeni Research.\nWall Street expects the central bank's Federal Open Market Committee to relinquish its bias toward easing rates at the policy meeting next month, Yardeni said. Bond traders are hoping that is replaced with a slant toward tighter monetary policy, the economist said.\nYardeni's evidence: The 2-year U.S. Treasury yield is above the federal funds rate, or FFR. When this happens, investors are hinting that they do not believe the FFR is high enough to bat down inflation, he said.\n\"The market is signaling that the current FFR is too low to curb inflation and may have to be hiked,\" Yardeni wrote in a Wednesday note to clients.\nThe Fed may have to show a willingness to hike interest rates after five years of inflation running above its annual target of 2%, Yardeni added.\n\"A simple removal of the easing bias may not be enough,\" he said.\nYardeni's comments follow a series of inflation readings this week showing a reacceleration in the wake of the Iran War. That can complicate the outlook for Kevin Warsh, President Donald Trump's pick to succeed Fed Chair Jerome Powell.\nApril's consumer price index showed an annual increase of 3.8%, the highest rate since 2023. Wholesale inflation jumped 6% over 12 months in April, its fastest clip since 2022.\nWarsh, who was confirmed by the Senate this week, has promised a \"regime change\" at the central bank. Trump has long pressured the Fed to lower interest rates, arguing that decreased borrowing costs would benefit the economy.\nBut Fed funds futures traders are pricing in no rate cuts for the remainder of the year, according to CMEGroup's FedWatch tool. The likelihood of a rate hike priced in by the market jumped over recent days.",
+  "published_at": "2026-05-14T19:26:20Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.504502Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

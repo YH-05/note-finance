@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/doctors-blast-trump-for-doubling-down-on-vaccine-policy-modeled-after-denmark/",
+  "title": "New Trump vaccine order based on \"no credible scientific evidence,\" doctors say",
+  "raw_text": "The American Medical Association came out swinging this weekend at an executive order President Trump signed Friday that reaffirms intentions to model US childhood vaccine recommendations after those of Denmark—a country with universal healthcare, less diversity, and a population about the size of Maryland’s.\n“There is no credible scientific evidence to support,” such a change, AMA President Bobby Mukkamala said in a statement. The current vaccine schedule “is built on decades of rigorous research and real-world data, and it is designed to protect children in the US when they are most vulnerable based on our nation’s disease burden,” he said.\nThe plan to align federal childhood vaccine recommendations with Denmark’s was first revealed by anti-vaccine Health Secretary Robert F. Kennedy Jr. in January. The overhaul would see the total number of recommended immunizations drop from 17 to 11, walking back recommendations for shots against rotavirus, COVID-19, influenza, meningococcal disease, hepatitis A, and hepatitis B. It stemmed from a December executive order by Trump to align US vaccine recommendations with the “best practices from peer, developed countries.”\nFrom that order, Trump administration officials carried out a “comprehensive scientific assessment,” which concluded the US should emulate Denmark. The work was carried out by two Trump administration political employees, Tracy Beth Høeg, a sports medicine doctor, and Martin Kulldorff, a biostatistician, neither of whom has expertise in vaccine policy, but both are anti-vaccine allies of Kennedy.\nThe acting director of the Centers for Disease Control and Prevention at the time—Jim O’Neill, a technology investor—signed off on the changes. But in March, a federal judge issued a temporary injunction that reversed the changes, finding that Kennedy violated federal regulations in implementing them.\n“Crazier and crazier”\nWhile the federal government is appealing that injunction, the new executive order on Friday reaffirms Kennedy’s plans to adopt Denmark’s strategy, calling for “realigning” US vaccine policy with “best practices from peer, developed countries.\"It states that the scientific assessment written by Høeg and Kulldorff is a “guiding resource for the Federal Government” and that the CDC shall ” take any appropriate steps to update the United States childhood and adolescent vaccine schedule.”",
+  "published_at": "2026-06-01T19:07:58Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-02T15:00:26.368461Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "anti-vaccine",
+      "CDC",
+      "Denmark",
+      "executive order",
+      "robert f kennedy jr",
+      "Trump",
+      "vaccines"
+    ]
+  }
+}

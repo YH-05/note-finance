@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+  "title": "US Consumer Price Index up 4.2%",
+  "raw_text": "<p>Article URL: <a href=\"https://www.bls.gov/news.release/cpi.nr0.htm\">https://www.bls.gov/news.release/cpi.nr0.htm</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48477551\">https://news.ycombinator.com/item?id=48477551</a></p>\n<p>Points: 261</p>\n<p># Comments: 286</p>",
+  "published_at": "2026-06-10T15:10:40Z",
+  "author": "ortusdux",
+  "collected_at": "2026-06-11T09:00:46.555958Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

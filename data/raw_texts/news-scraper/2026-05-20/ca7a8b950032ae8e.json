@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20252-c3ntro-telconet-plan-new-backbone-linking-data-centres-in-mexico-and-us.html",
+  "title": "C3ntro, Telconet plan new backbone linking data centres in Mexico and US",
+  "raw_text": "Mexican carrier C3ntro Telecom and Ecuadorian telco Telconet announced on Thursday they are partnering to build a subsea and terrestrial fibre network called CSN-2 to connect data centre hubs in Mexico and Florida.\nThe subsea segment of CSN-2 will link Veracruz, Mexico, to Apalachee Beach, Florida, with a strategic branch to Galveston, Texas toward Houston. It also includes a potential branch to Bonita Beach, Florida, to interconnect with Telconet’s CSN-1 subsea cable, which will connect Bonita Beach to Ecuador, Panama and Colombia.\nC3ntro and Telconet said this will create a new subsea route across the Gulf of Mexico that strengthens connectivity between Mexico, the US, and Latin America.\nCSN-2 also includes a new terrestrial segment linking Veracruz and Querétaro. This will be integrated into C3ntro's upcoming Tikva network, which will run from Querétaro to Phoenix, Arizona in the US.\nThe result, said C3ntro president Simón Masri, will be a continuous, high-capacity corridor spanning key infrastructure routes across the region and connecting key data centre ecosystems in Phoenix, Texas, Georgia, Virginia, Florida and Querétaro to support AI and hyperscale growth.\n“By combining CSN-2 with Tikva and leveraging Telconet's proven subsea track record, we are creating a network that directly connects the newest AI data centre markets in North America with the diversity, resiliency and scalability required for the next generation of digital infrastructure,” Masri said in a statement.\n“Following the momentum of CSN-1, partnering with C3ntro allows us to combine subsea and terrestrial networks into a single platform connecting one of the fastest-growing digital infrastructure ecosystems in the world,” said Telconet CEO Tomislav Topic.\nNeither telco provided a timeline for when CSN-2 will be ready for service. CSN-1 and Tikva are both under construction and on track for completion by the fourth quarter of this year.",
+  "published_at": "2026-05-15T03:12:56Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-20T03:03:25.107656Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

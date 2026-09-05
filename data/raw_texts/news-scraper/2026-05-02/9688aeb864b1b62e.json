@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/04/as-the-most-severe-linux-threat-in-years-surfaces-the-world-scrambles/",
+  "title": "The most severe Linux threat to surface in years catches the world flat-footed",
+  "raw_text": "Publicly released exploit code for an effectively unpatched vulnerability that gives root access to virtually all releases of Linux is setting off alarm bells as defenders scramble to ward off severe compromises inside data centers and on personal devices.\nThe vulnerability and exploit code that exploits it were released Wednesday evening by researchers from security firm Theori, five weeks after privately disclosing it to the Linux kernel security team. The team patched the vulnerability in versions 7.0, 6.19.12, 6.18.12, 6.12.85, 6.6.137, 6.1.170, 5.15.204, and 5.10.254) but few of the Linux distributions had incorporated those fixes at the time the exploit was released.\nA single script hacks all distros\nThe critical flaw, tracked as CVE-2026-31431 and the name CopyFail, is a local privilege escalation, a vulnerability class that allows unprivileged users to elevate themselves to administrators. CopyFail is particularly severe because it can be exploited with a single piece of exploit code—released in Wednesday’s disclosure—that works across all vulnerable distributions with no modification. With that, an attacker can, among other things, hack multi-tenant systems, break out of containers based on Kubernetes or other frameworks, and create malicious pull requests that pipe the exploit code through CI/CD work flows.\n“‘Local privilege escalation’ sounds dry, so let me unpack it,” researcher Jorijn Schrijvershof wrote Thursday. “It means: an attacker who already has some way to run code on the machine, even as the most boring unprivileged user, can promote themselves to root. From there they can read every file, install backdoors, watch every process, and pivot to other systems.”\nSchrijvershof added that the same Python script Theori released works reliably for Ubuntu 22.04, Amazon Linux 2023, SUSE 15.6, and Debian 12. The researcher continued:",
+  "published_at": "2026-04-30T20:20:48Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-02T03:02:27.300459Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "exploits",
+      "Linux",
+      "local privilege escalation",
+      "vulnerabilities"
+    ]
+  }
+}

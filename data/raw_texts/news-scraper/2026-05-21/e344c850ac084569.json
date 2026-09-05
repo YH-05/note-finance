@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/935202/flipper-devices-one-zero-wireless-multi-tool-linux-open-source-computer",
+  "title": "The new Flipper One is a pocket-sized Linux computer",
+  "raw_text": "It’s been nearly six years since Flipper Devices introduced the Zero, its popular but controversial wireless hacking multi-tool. The company’s latest creation (following a slight departure with a device that lets co-workers know when you’re too busy to chat) is the new Flipper One. It’s a similarly pocketable electronic multi-tool but also a tiny open source Linux computer powered by an 8-core RK3576 processor with a GPU, a 6 TOPS NPU, and 8GB of RAM.\nThe new Flipper One is a pocket-sized Linux computer\nThe hardware’s not finalized, but the more powerful Flipper One won’t be a replacement for the Flipper Zero.\nThe hardware’s not finalized, but the more powerful Flipper One won’t be a replacement for the Flipper Zero.\nThe Flipper One is also packed with connectivity including PCIe, SATA, and USB 3.0 interfaces, two ethernet ports, and an M.2 slot that can expand its capabilities with modules that add cellular connectivity, or Flipper Zero functionality like NFC and RFID. Instead of requiring a mouse, the Flipper One’s user interface can be navigated using a built-in D-pad and a collection of customizable buttons, but the team behind it hasn’t finalized the user interface, or even the device itself.\nAlthough it was announced today, the Flipper One isn’t available for sale or preorder yet. The reason the company revealed a device it’s not actually ready to sell is because it wants to solicit feedback from developers before finalizing the hardware. The company created an online portal detailing the development of the Flipper One where the community can also submit suggestions and ideas on how to further improve it. Flipper co-founder and CEO Pavel Zhovner is hoping to launch a Kickstarter for the device later this year, priced at around $350, according to Gizmodo.",
+  "published_at": "2026-05-21T13:18:35Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-21T15:00:16.874236Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Linux",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934269/plex-pass-lifetime-subscription-triple-750-price-hike",
+  "title": "Plex is tripling the price of a lifetime pass to $750 after doubling it last year",
+  "raw_text": "I am dying to know how much money Plex is about to make the next six weeks charging people to stream their own video from their own homes. Today, it’s giving every prospective customer until July 1st to lock in a lifetime subscription at today’s rates — before it triples the price to $750.\nPlex is tripling the price of a lifetime pass to $750 after doubling it last year\nNot your average streaming price hike.\nNot your average streaming price hike.\nPlex already more than doubled the price of a lifetime Plex Pass subscription from $119.99 to $249.99 last March, and it’ll triple again on July 1st to $749.99. At that price, you’d have to subscribe for 11 years (at the current annual rate) to make the lifetime sub worthwhile.\nPlex isn’t choosing the new number because it expects you to pay $750. In a blog post, the company says it actually wanted to stop issuing lifetime plans; it would rather push users towards recurring subscriptions instead to “sustain long-term development”. Now that the annual subscription covers a decade’s worth of Plex, it’s a win for Plex either way.\nBut it may especially be a win for Plex if you, like me, feel sudden FOMO and consider giving Plex $250 for a lifetime subscription now. While you’d only be giving Plex around 3.5 years of annual revenue at today’s rates, it gets an instant infusion of cash. It’s like a huge sale except instead of needing to lower the price, Plex has actually raised it. (Again, the annual subscription costs double what it did last March.)\nPlex’s blog and emails to users encourage this with a hugely prominent call to action, bolded and highlighted in blue: “You have until 12:01 AM UTC on July 1, 2026, to get a Lifetime Plex Pass at the current price of $249.99 USD* here. If you’ve been considering it, now’s a great time to buy.”\nSo does Plex’s website, which is currently topped with a banner reading: “The price of a Lifetime Plex Pass is increasing on July 1, 2026. Get yours at the existing price while you still can. Buy now”.\nNone of that is to suggest Plex is laughing all the way to the bank. It’s a small company, its finances are private, the global advertising market is in a downturn, and it had big layoffs a few years back.\nPlex says monthly and annual subscription prices aren’t changing today, and nothing will change for existing lifetime pass holders. Those changes came last year. That’s also when Plex gated one of its most valuable features behind that subscription: the ability to stream your media server’s video outside your home.\nFor free, without a subscription, you can still create collections and stream to devices on your local network, and stream remotely from other people who pay. Plex Pass also adds features that lets you skip the intros and credits on shows, remotely download your media, auto-rewind when pausing, hardware-accelerated streaming in its Media Server app, and more.",
+  "published_at": "2026-05-19T23:03:48Z",
+  "author": "Sean Hollister",
+  "collected_at": "2026-05-20T03:02:06.835155Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Entertainment",
+      "Gadgets",
+      "Tech",
+      "TVs"
+    ]
+  }
+}

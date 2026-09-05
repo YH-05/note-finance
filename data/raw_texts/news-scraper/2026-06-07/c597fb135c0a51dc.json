@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20320-liberia-regulator-fines-orange-liberia-over-unauthorised-sim-card-swap.html",
+  "title": "Liberia regulator fines Orange Liberia over unauthorised SIM card swap",
+  "raw_text": "Liberia Telecommunications Authority (LTA) fined Orange Liberia LRD4 million (US$20,000) after finding the operator liable for the unauthorised issuance of a customer’s SIM card to a third party, resulting in a privacy and communications breach.\nAccording to the regulator, the case involved customer Zelah Johnson, whose mobile number stopped working in February 2024 after the SIM card was allegedly reassigned without her consent. The third party later gained access to accounts linked to the SIM card, permanently locking her out.\nThe LTA said its investigation found Orange Liberia improperly issued the SIM card in violation of company procedures and licence conditions.\nThe regulator ruled that the operator failed to adequately protect customer information and breached provisions of Liberia’s Telecommunications Act of 2007 relating to customer confidentiality, data protection and unauthorised access to telecoms systems.\nAs part of the ruling, the LTA ordered Orange Liberia to disclose the identities of both the employee involved and the individual who obtained the SIM card.\nThe authority said the case highlights the importance of protecting consumer privacy and warned that operators would be held accountable for actions that compromise customer security.",
+  "published_at": "2026-05-29T10:36:42Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-07T03:04:10.369317Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

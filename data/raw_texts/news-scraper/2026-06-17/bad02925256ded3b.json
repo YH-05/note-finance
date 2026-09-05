@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/zscaler-zs-earnings-q3-2026.html",
+  "title": "Zscaler tanks 31% for worst day ever on 'prudent' guidance, sales shakeup",
+  "raw_text": "Zscaler's stock plummeted more than 30% on Wednesday for its worst day ever after issuing underwhelming guidance that overshadowed better-than-expected fiscal third-quarter results.\nThe cybersecurity company guided for 16% to 17% year-over-year annual recurring revenue growth for the 2027 fiscal year, falling short of StreetAccount estimates. Zscaler expects $875 million to $878 million in revenue this quarter, coming up slightly short of the $878.6 million expected by FactSet.\nZscaler projected ARR of $3.74 billion to $3.75 billion in FY2026, or year-over-year growth of approximately 24%.\nDuring the quarter, Zscaler said it lost two sales leaders, and finance chief Kevin Rubin said the company is taking a \"prudent approach\" to guidance amid the transitions.\nThe company also said the memory crunch, spiking prices, and costs will hike capital expenditures as a percentage of revenues by 200 basis points during the 2027 fiscal year.\n\"We are disciplined in our approach to really projecting, but see tremendous opportunity out there,\" CEO Zscaler CEO Jay Chaudhry told CNBC's Jon Fortt on Wednesday. \"Mythos is playing a big role in further fueling the fire because the need for cybersecurity has never been bigger.\"\nZscaler is among the companies working with Anthropic on Project Glasswing, which is aimed at testing the model's capabilities and vulnerabilities before it rolls out to the public.\nInvestor sentiment has soured toward software stocks on concerns that artificial intelligence will upend their business models. Cybersecurity stocks have also suffered from that narrative, but the rise of AI-powered cyber threats is also ramping up bets that businesses will spend more on scaling their defenses.\nOver the last year, Zscaler has shed half its value.\nDespite the lackluster outlook, Zscaler topped fiscal third-quarter estimates, posting adjusted earnings of $1.08 per share on $850 million in revenue. Analysts anticipated adjusted EPS of $1.01 on about $835 million in revenue\nFollowing the report, Evercore ISI downgraded shares to in line from outperform and cut its price target on the stock, noting the weak FY2027 outlook, leadership shakeup and potential for disruption.\n\"We expect the stock to remain range bound for the next few qtrs and out of favor as the company works through these changes,\" they wrote.\n— CNBC's Seema Mody contributed reporting",
+  "published_at": "2026-05-27T20:36:47Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.557875Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

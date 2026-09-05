@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934628/google-io-2026-android-ai-studio-widgets-shortcuts",
+  "title": "Vibe coding is coming to your phone",
+  "raw_text": "“There’s an app for that” was the promise of the App Store from the very beginning. The app that will get your phone to do the thing you want it to? It’s just a few taps away. The tagline wasn’t strictly true — I’m still waiting for that one perfect grocery list app. Still, apps shaped the modern smartphone into what it is today. We spend all day, every day inside of apps — scrolling, listening, and tapping until we find what we want. But your next favorite app might just be one that you made yourself.\nVibe coding is coming to your phone\nPersonal tech is about to get a lot more personal.\nPersonal tech is about to get a lot more personal.\nIf you weren’t familiar with the concept of “vibe coding” at the beginning of 2026, you probably are now. As AI coding tools have become better and more accessible, more and more non-developers are finding success creating apps that fulfill a niche need. Vibe coders are mostly working with desktop software, but signals from this Google I/O and beyond indicate that mobile will be the next frontier.\nFor starters, Google is making it easier to just straight up vibe-code a whole Android app. At I/O the company announced an update to its AI Studio vibe-coding tool, allowing you to create a native Android app and export it to a phone in a matter of minutes. The feature is limited to “personal utility” apps to start with, and the rules for putting an app on the Play Store remain the same. But if you’re the kind of person looking for a particular feature from a habit tracking app that none of them seem to offer, you might just be able to build it yourself.\nIf a whole app feels too ambitious, then maybe a widget is more your speed. At last week’s Android Show, Google announced an upcoming feature to create your own widgets with a prompt — Google’s examples include widgets that highlight certain weather metrics or suggest new recipes to try.\nThese tools draw on Gemini’s knowledge base, so the possibilities are pretty wide open. Naturally it all depends on this feature actually, you know, working. But the idea of putting the very specific information I want where I want it on my phone is awfully compelling. Not to make too much out of some widgets, but stuff like this has kind of been the whole premise of personal computing for the past couple of decades. If it works as advertised — again, emphasis on if — it kind of unlocks a whole new level of personalization for your phone.\nGoogle calls the AI-generated widgets a first step toward something called a “generative UI,” where your phone creates an interface and apps on the fly based on what you need in the moment. Sounds great in theory! But it also sounds like it could get messy fast. Android president Sameer Samat acknowledges that there’s a pretty obvious way to take the concept too far. “While I don’t think we want to wake up every morning and have our devices have different UI, I do think there’s a level of personalization and customization to the user that could be delightful,” he tells me.\nIt seems like Apple might be taking steps toward a more personal iPhone, too. Bloomberg’s Mark Gurman reports that the company is working on a way to create shortcuts based on prompts. Shortcuts are automations you can program within the dedicated Shortcuts app, either by putting them together from preassembled bits or figuring it out on your own. They seem simple in theory but get complicated fast, which has deterred me from ever seriously getting into shortcuts. But the prospect of prompting my way into a shortcut that opens the transit app when I get to the bus stop, or sets a particular focus mode when I connect to my home Wi-Fi, is pretty appealing.\nI’ve heard a lot of promises over the past few years from tech company execs about how AI will fundamentally change how we interact with mobile devices. So far, we have an upgraded voice assistant in Gemini, a Siri that will go ask ChatGPT for you, and… basically the same phones we’ve been using for the past decade. Being able to prompt an app, widget, or automation into existence isn’t exactly a platform shift, but it could actually help our phones become a little more personal.",
+  "published_at": "2026-05-20T17:40:00Z",
+  "author": "Allison Johnson",
+  "collected_at": "2026-05-20T21:00:16.759948Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Android",
+      "Google",
+      "Google I/O 2026",
+      "Mobile",
+      "Tech"
+    ]
+  }
+}

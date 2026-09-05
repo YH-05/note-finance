@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/us-government-takes-2-billion-equity-stake-in-nine-quantum-computing-firms/",
+  "title": "US government takes $2 billion equity stake in nine quantum computing firms",
+  "raw_text": "The US government will take equity stakes worth a total of $2 billion in a slew of quantum computing companies, including a startup backed by a firm with links to the Trump family and one taken public by a Pentagon official.\nThe announcement by the commerce department that it had signed letters of intent with nine companies—including GlobalFoundries and IBM—sent shares in quantum specialists soaring on Thursday.\nBoth IBM, which is set to get $1 billion, and GlobalFoundries, which will receive $375 million, were up more than 6 percent in pre-market trading. D-Wave Quantum, an awardee that was taken public in 2022 by Emil Michael—now a top Pentagon official—was up more than 20 percent.\nAmong the recipients was also PsiQuantum, which last year raised money from a group of investors including 1789 Capital, the venture capital firm at which Donald Trump Jr is a partner.\nThe company, which has sealed partnerships with Democratic and Republican administrations, is set to receive $100 million, by far its largest US government award to date.\nA person close to the company said 1789 was a passive minority investor with no involvement in PsiQuantum’s operations. A spokesperson for Trump Jr previously told the FT he had no involvement in negotiations with the government on behalf of 1789’s portfolio companies.\nOther companies set to receive $100 million are Atom Computing, Infleqtion, Quantinuum, and Rigetti. Another startup, Diraq, will receive up to $38 million, the commerce department said.\n“With today’s CHIPS Research and Development investments in quantum computing, the Trump administration is leading the world into a new era of American innovation,” said US commerce secretary Howard Lutnick.",
+  "published_at": "2026-05-21T13:48:38Z",
+  "author": "Joe Miller and Michael Peel, Financial Times",
+  "collected_at": "2026-05-21T21:00:30.525806Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Tech",
+      "D-Wave",
+      "GlobalFoundries",
+      "ibm",
+      "quantum computing",
+      "syndication"
+    ]
+  }
+}

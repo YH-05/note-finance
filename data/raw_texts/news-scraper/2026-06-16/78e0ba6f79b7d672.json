@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/spacex-acquires-cursor-ai-60-billion-deal-coding-agent-race-heats",
+  "title": "SpaceX Acquires Cursor AI In $60 Billion Deal As Coding Agent Race Heats Up",
+  "raw_text": "SpaceX has agreed to acquire AI coding startup Cursor for $60 billion, giving Elon Musk's artificial intelligence empire a leg up in the chatbot coding race currently led by frontier AI labs such as OpenAI, Anthropic, and Google.\nThe Cursor acquisition was announced in a SpaceX 8-K filing with the SEC on Tuesday morning. Details of the deal show that Cursor shareholders will receive SpaceX Class A common stock, implying a Cursor equity value of $60 billion.\nThe SpaceX-Cursor deal is expected to close in the third quarter of 2026, subject to regulatory approvals and other closing conditions.\nAI coding tools are among the fastest-growing segments in the AI chatbot race. Over the last eight months, coding technology has rapidly matured and can now build everything from large software projects to websites using plain-language prompts.\nThere are reasons to believe AI coding could be one of the quickest pathways to achieving artificial general intelligence, or AI systems that are generally as smart as humans.\nThe deal bolsters SpaceX's AI capabilities just days after the company launched an unprecedented initial public offering.\nOvernight, SPCX shares nearly hit $230 per share, giving it a $3 trillion market cap and surpassing MSFT in value.\nAs of Tuesday morning, shares were trading around $209.\nSPCX options begin trading today, which could result in a strong gamma squeeze, potentially sending the stock to $400 or even $420 in the near term (read report).",
+  "published_at": "2026-06-16T11:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-16T15:00:36.381797Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

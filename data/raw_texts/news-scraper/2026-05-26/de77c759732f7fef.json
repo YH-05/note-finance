@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/937378/govee-white-supremacy-book-promotional-image",
+  "title": "Govee included a book on ‘white supremacy’ in its website imagery",
+  "raw_text": "Companies often include background props in their product imagery that serve as set dressing, but one of Govee’s decorative choices is raising some eyebrows. An eagle-eyed Verge reader spotted that two copies of a book with “white supremacy” plastered on the spine were included in a lifestyle image on Govee’s website, in a scene that seemingly depicts a child’s bedroom.\nGovee included a book on ‘white supremacy’ in its website imagery\nIt’s a study on white supremacy, but another company ended up in hot water for using the same asset.\nIt’s a study on white supremacy, but another company ended up in hot water for using the same asset.\nYou’d be forgiven for assuming that this is the result of some failed generative AI experiment, or the work of a rogue designer. (The image didn’t contain any C2PA and SynthID data when we checked, but that doesn’t necessarily rule out that something was generated with AI tools.) But according to Govee, the image was actually sourced from an undisclosed “third-party licensed library.”\n“However, we recognize that our internal review and approval process did not meet the standard required,” Govee PR manager Connie Liu said in a statement to The Verge. “We are taking immediate steps to strengthen our processes to ensure this does not happen again.”\nA cursory look at archived versions of the website suggests the image had been live since at least April 11th. It has since been pulled from Govee’s website, shortly after we sent our inquiry.\n”We sincerely apologize for the offensive content contained in this image. As soon as we became aware of the matter, the image was immediately removed from the Govee website,” said Liu. “We are committed to ensuring all content on our platforms aligns with our core values of respect and integrity, and we take this matter extremely seriously.”\nThe book in question does appear to be a real publication, resembling a collection of essays titled State of White Supremacy: Racism, Governance, and the United States. That’s far less nefarious than presumed, but still a wildly unfortunate and questionable cover to include without such context about its content. Especially on an image that’s promoting pretty decorative lighting for a kid’s room? For what it’s worth, the other book in the image (titled Another Art Book) is also a genuine book by Jefferson Hack, despite the cover being displayed backward.\nMore bizarrely, this isn’t the first time that this exact book has caused similar controversy. British hardware retailer B&Q issued an apology back in 2023 after the book was featured on its website for a radiator cover listed by a third-party vendor. B&Q said at the time that the product image “was not picked up by our screening process.”\nUpdate, May 26th: Added a statement from Govee.",
+  "published_at": "2026-05-26T15:07:40Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-26T21:00:16.503108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "News",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/does-nnsa-removes-enriched-uranium-venezuela-and-japan",
+  "title": "DOE's NNSA Removes Enriched Uranium From Venezuela And Japan",
+  "raw_text": "The Department of Energy's National Nuclear Security Administration (NNSA) has coordinated with Japan and Venezuela to remove enriched uranium from both countries.\nThe U.S. has secured its largest-ever HALEU fuel shipment, working in partnership with Japan. This significant transfer advances President Trump’s strategy to restore America's energy dominance and power next-generation nuclear reactors. https://t.co/h5Oc6f5kRq pic.twitter.com/EG7kA9Eopg\n— NNSA (@NNSANews) May 7, 2026\nThe NNSA coordinated with Japanese government and nuclear agencies to transfer 1.7 metric tons of high-assay low-enriched uranium (HALEU) from Japan to the US. The material comes from excess supplies at the recently shut-down test reactor in Japan.\nJapan has not completely ceased research into new reactor technology, and instead will focus on the Joyo research reactor. There is a long-standing coordination between the US and Japan to offload excess quantities of enriched uranium due to proliferation concerns.\nTypical commercial reactors run on low-enriched uranium (LEU) which is typically enriched to 3-5%. The percentage of enrichment indicates how much of the fuel is actually usable for fission; the amount of U-235 isotopes present in the uranium mix.\nSome of the advanced reactors and currently operating research reactors across the world use HALEU, enriched up to 20%. Enrichment levels beyond that are considered weapons grade and only used for military reactors and nuclear weapons development.\nThe HALEU that was imported from Japan will be repurposed and utilized in advanced reactors being developed under the DOE's Reactor Pilot Program and other research efforts.\nFor context, the amount of enriched uranium brought over from Japan is likely enough to fuel only one microreactor for one full operating cycle. Centrus Energy also currently produces 900kg/year of HALEU at their Piketon facility, with a massive expansion effort currently underway.\nImmediately following the Japan announcement, the NNSA declared all the highly enriched uranium (HEU) was successfully removed from Venezuela. The material was left over from a research reactor program in Venezuela that shut down in 1991.\nThe HEU has been transported to the Savannah River Site for processing and reuse, potentially to also be included in future DOE programs",
+  "published_at": "2026-05-09T02:10:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-09T03:01:36.839393Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

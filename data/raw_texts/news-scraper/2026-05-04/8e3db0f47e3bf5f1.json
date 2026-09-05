@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/why-alphabet-won-the-big-tech-earnings-night.html",
+  "title": "Why Alphabet won the Big Tech earnings night",
+  "raw_text": "As four of the Magnificent Seven tech giants rolled out results late Wednesday, Alphabet is distinguishing itself as the big winner in the cloud space. Shares popped more than 6% in extended trading. Alphabet's stock outperformed those of its Big Tech peers Amazon , which was up 3%, and Meta Platforms , down more than 6%. Microsoft was little changed. All four of the companies posted quarterly earnings after the bell. These companies are competing through various artificial intelligence products, pipelines and partnerships, but their hugely capital-intensive cloud businesses are the arena where they're coming head-to-head. Not only was Google's cloud revenue bump the biggest in this growing market — it surpassed $20 billion in the first quarter, reflecting a 63% increase year over year — analysts also think the company's cloud platform is taking business from its competitors. \"It looks like Google's taking market share across all these clouds,\" Brent Thill, Jefferies senior software analyst, told CNBC. \"Google really stood out.\" Dan Nathan, principal of RiskReversal Advisors, concurred. \"They are taking market share,\" he told CNBC after the close. As the massive capital expenditures push among the hyperscalers continues, Wall Street wants to see solid monetization of the clouds, comprising Amazon Web Services, Google Cloud Platform, and Microsoft Azure. Amazon's cloud unit reported 28% revenue growth in the first quarter, compared to the year-ago period. AWS segment sales reached $37.59 billion. Microsoft's cloud revenue increased by 40%, with the Intelligent Cloud segment that includes Azure notching $34.68 billion in revenue for the fiscal third quarter. Google cloud sales were $20.03 billion versus an $18.05 billion StreetAccount consensus estimate. The result is up from $12.3 billion a year ago. Alphabet said this growth was led by an increase \"across enterprise AI Solutions and enterprise AI Infrastructure, as well as core [Google Cloud Platform] services.\" This means that demand for AI service from the largest businesses in the world, which analysts say is essential to the long-term viability of the sector, seems to be materializing. \"As I've looked at the cloud, numbers continue to accelerate across the board – Azure, Google Cloud, as well as AWS. I think that's really what the market is looking for,\" Jason Snipe, chief investment officer of Odyssey Capital Advisors told CNBC. \"If the spend is justified in terms of the revenue growth, I think the market will be OK – absolutely.\" Analysts were also impressed with Alphabet's cloud backlog nearly doubling quarter on quarter to over $460 billion.",
+  "published_at": "2026-04-29T23:23:54Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.077362Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

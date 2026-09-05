@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260609a.htm",
+  "title": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.",
+  "raw_text": "June 09, 2026\nFederal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.\nFor release at 4:00 p.m. EDT\nThe Federal Reserve Board on Tuesday announced that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.\nThe Board's stress test is one tool used to measure whether banks have adequate capital to absorb losses so that they can lend to households and businesses even in a severe recession. It evaluates banks' resilience by estimating losses, net revenue, and capital levels—which provide a cushion against losses—under a hypothetical recession scenario.\nThis year, 32 large banks were subject to the Board's stress test. The scenario includes a severe global recession with heightened stress in both commercial and residential real estate markets, as well as in corporate debt markets.\nThese stress test results will not impact large bank capital requirements. This follows the Board's February announcement that it would maintain the current stress test capital buffer requirements until 2027, when new requirements can be calculated based on loss-estimating models that take public feedback into consideration.\nAdditional information can be found here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-06-09T20:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:00:31.099611Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

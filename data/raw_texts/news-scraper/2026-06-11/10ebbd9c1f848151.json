@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606111140",
+  "title": "チャットプラスは７月１５日に東証グロース市場に新規上場",
+  "raw_text": "チャットプラス<\n598A>は７月１５日に東証グロース市場に新規上場する。上場に際して６５万株の公募と５０万株の売り出し、需要状況に応じて１７万２５００株のオーバーアロットメントによる売り出しを実施する。公開価格決定日は７月６日。問い合わせ対応を支援するチャットボットシステム及びＦＡＱシステムを開発・提供する。主幹事は丸三証券。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-11T08:02:00Z",
+  "author": null,
+  "collected_at": "2026-06-11T09:00:22.175136Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040022",
+  "title": "欧州株　ユーロストックス５０先物は０．３４％高、週明け堅調に取引開始へ",
+  "raw_text": "欧州株 ユーロストックス５０先物は０．３４％高、週明け堅調に取引開始へ\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-04T07:02:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.718222Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

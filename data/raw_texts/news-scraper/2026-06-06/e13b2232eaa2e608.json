@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/asian-technology-stocks-sk-hynix-samsung-tsmc-advantest.html",
+  "title": "Asia tech stocks drop after Broadcom rattles AI trade and drags Wall Street names lower",
+  "raw_text": "Asian tech shares on Friday tracked losses in U.S. chip stocks after a downbeat earnings report from Broadcom sparked a rotation out of artificial intelligence-linked names into more defensive sectors.\nThe weakness was pronounced in South Korea's chip-heavy market. Samsung Electronics fell 6.4%, while SK Hynix dropped more than 9%. Other tech-related names also came under pressure, with Samsung SDI down over 6.43%, LG Display falling 5.65%.\nJapanese technology stocks also fell. Tokyo Electron and Advantest dropped over 6% and 5% respectively. Murata Manufacturing, manufacturer of electronic components, fell 2.11%. Fanuc, manufacturer of industrial robotics, lost 1.95%.\nIn Taiwan, Apple supplier Hon Hai Precision Industry declined 2.9%, contract manufacturer Pegatron was down 0.1% and iPhone camera lens maker Largan Precision lost more than 3%. Chip giant Taiwan Semiconductor Manufacturing Co, or TSMC fell 0.84%.\nThe broader decline followed a sell-off in U.S. semiconductor stocks overnight after Broadcom tumbled more than 12% following a fiscal second-quarter revenue miss. The weakness spread across the sector, dragging the VanEck Semiconductor ETF down more than 1%, while Arm Holdings lost over 4% and Micron Technology slid nearly 8%.\n\"After such massive gains a 'correction' for recent winners was (and still is) sorely needed for a reset,\" Andrew Jackson, equity strategist at Ortus Advisors, said on Friday.",
+  "published_at": "2026-06-05T08:16:02Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.794302Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

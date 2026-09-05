@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/lawsuit-chatgpt-validated-suicidal-womans-distrust-of-crisis-lines/",
+  "title": "Lawsuit: ChatGPT validated suicidal woman's distrust of crisis lines",
+  "raw_text": "Last year, a 24-year-old Canadian woman was in a mental health crisis and turned to ChatGPT for help. Hours later, that woman, Alice Carrier, took her own life.\nAccording to a new lawsuit filed Thursday in San Francisco Superior Court and brought by Carrier’s surviving family, her ChatGPT session “encouraged Alice to kill herself.”\nThis lawsuit, like numerous other similar cases that have come before it, alleges a design defect with ChatGPT itself and blames OpenAI for knowingly deploying a dangerous product.\nHowever, this case has a slight twist: At one point, the chatbot did encourage Carrier to seek professional mental help. But when she rebuffed that advice—saying that “all crisis lines do is call the cops on you or hang up on you”—the chatbot “immediately abandoned” any attempt to steer her toward such care, the lawsuit says.\n“This is because GPT-4o was programmed to prioritize Alice’s preferences and engagement over her safety and wellbeing. GPT-4o mirrored Alice’s own language and became critical of the crisis lines, too, stating that calling a crisis line can ‘feel downright dangerous,’” the lawsuit alleges.\nTiffany Brown, one of the attorneys at the Tech Justice Law Project representing the Carrier family, told Ars that the chatbot in this instance, when it immediately agreed with Carrier’s dismissal of professional help, was extremely troubling.",
+  "published_at": "2026-06-12T15:03:52Z",
+  "author": "Cyrus Farivar",
+  "collected_at": "2026-06-14T03:01:12.365422Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "ChatGPT",
+      "lawsuit",
+      "openai",
+      "suicide"
+    ]
+  }
+}

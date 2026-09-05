@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/01/inside-the-wealth-management-boom-heres-what-to-know.html",
+  "title": "Inside the wealth management boom: Here's what to know",
+  "raw_text": "watch now\nInside the wealth management boom: Here's what to know\nThere is a $30 trillion battle raging between firms looking to manage investments for the wealthy. CNBC's Robert Frank joins 'Squawk Box' with the details.\n03:38\nWed, Apr 1 20267:43 AM EDT",
+  "published_at": "2026-04-01T11:43:39Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.390827Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

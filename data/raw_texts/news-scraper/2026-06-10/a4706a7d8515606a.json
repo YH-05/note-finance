@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/avalanches-desktop-fusion-reactor-delivers-blistering-hot-plasma/",
+  "title": "Avalanche’s desktop fusion reactor delivers blistering-hot plasma",
+  "raw_text": "No one has made a fusion reactor capable of generating power, but physicists have a pretty good road map for how to get there. One major milestone is heating fusion fuel up above 10 million degrees Celsius — nearly as hot as the center of the Sun.\nAvalanche exclusively told TechCrunch that its desktop-scale fusion prototype has exceeded the milestone, heating a plasma to roughly 11 million degrees C. Only a handful of companies have accomplished the feat.\nMost fusion startups burned through more cash to get there, too. Avalanche said it had spent less than $50 million of venture investment to hit the mark.\nPlasma physicists don’t measure the temperature using a thermometer, but instead study the energy of the particles inside the plasma using a metric known as the kiloelectron volt, or kEV.\nThe fusion world is always on the lookout for experiments that exceed 1 keV. “That’s hot enough that the world will take notice,” Bob Mumgaard, CEO of Commonwealth Fusion Systems, has said.\nPlasma temperatures are one of the key variables that physicists study when assessing a fusion experiment. If a plasma does not get hot enough, its particles have a lower chance of hitting each other, reducing the chances of them fusing into a new atom. But if a plasma is hot enough — and dense enough for long enough — then fusion reactions will occur, releasing large amounts of energy.\nThe milestone isn’t a guarantee of success, but it does suggest that the startup is on the path toward generating conditions in its reactor that could spark fusion reactions capable of producing more power than they need to start.\nAvalanche’s small-scale prototypes suggest that fusion power might work at smaller scales than its competitors are pursuing. Most fusion startups are designing large reactors capable of generating dozens or hundreds of megawatts of electricity. But if Avalanche can develop a smaller, less expensive fusion power plant, it could challenge a number of other energy technologies, from diesel generators to natural gas turbines.\nAvalanche hasn’t published the results in a peer-reviewed journal, though it said the report was validated by a plasma physicist at MIT.\nMost fusion reactors are large devices, but Avalanche decided to go small, in part because smaller devices are easier to iterate. The fusion core of the startup’s recent device, Jyn, is only five inches in diameter. The company said it has updated the device 25 times since last fall.",
+  "published_at": "2026-06-10T12:15:00Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-10T15:00:21.905049Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "Exclusive",
+      "fusion power",
+      "Avalanche Energy"
+    ]
+  }
+}

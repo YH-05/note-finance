@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/20/rivians-factory-damaged-by-tornado-amid-crucial-r2-ev-launch.html",
+  "title": "Rivian's factory damaged by tornado amid crucial R2 EV launch",
+  "raw_text": "A tornado damaged part of Rivian Automotive's factory in central Illinois over the weekend, according to a message sent to employees Sunday night by CEO RJ Scaringe that was viewed by CNBC.\nThe tornado touched down on the plant, Scarigne said. The affected area was being used for parts storage and logistics for Rivian's upcoming R2, which is a crucial product for the company that's expected to be on sale this spring.\nScaringe said operations in the damaged area are expected to resume this week, while other major portions of the plant, such as its assembly lines, are operating as planned. No injuries have been reported as a result of the incident, according to a company spokeswoman.\n\"While Building 2 has sustained damage and is closed for the time being as we complete our assessments, I am incredibly relieved to share that there were no injuries at our plant,\" Scaringe said in his message to employees.\nScaringe said the company would \"share more information as it becomes available, but for now, our priority is ensuring our Normal [Illinois] team is safe and supported.\"\nApparent photos posted online of the aftermath, which was first reported by TechCrunch, showed damage to the roof and at least one wall of the recently constructed building.\nThe National Weather Service reports the factory was hit amid a \"significant tornado outbreak\" that occurred Friday across the upper Midwest. Confirmed tornadoes near the factory Friday night were classified as EF1, with estimated peak winds of 100 mph, according to NWS.",
+  "published_at": "2026-04-20T17:53:05Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.398327Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

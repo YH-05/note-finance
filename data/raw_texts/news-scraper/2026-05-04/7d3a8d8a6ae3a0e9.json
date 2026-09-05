@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/economics/core-us-factory-orders-surged-march-best-yoy-growth-nov-2022-0",
+  "title": "Core US Factory Orders Surged In March To Best YoY Growth Since Nov 2022",
+  "raw_text": "Headline Factory Orders rose 1.5% MoM in March (dramatically better than the 0.6% MoM expected) - the best since November. February's data was also revised higher. However, overall, orders were only up 2.1% YoY - the lowest since JUly 2025\nSource: Bloomberg\nCore Factory Orders surge 1.6% MoM (also better than the 1.3% MoM expected) and up for the 5th straight month. That dragged the YoY growth in core orders up 4.09% YoY - the best since Nov 2022...\nSource: Bloomberg\nGiven the surge in ISM Manufacturing's New Orders sub-component...\nSource: Bloomberg\n...there is a notable divergence between the 'soft' survey data and the 'hard' data.",
+  "published_at": "2026-05-04T14:05:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-04T15:00:42.591685Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

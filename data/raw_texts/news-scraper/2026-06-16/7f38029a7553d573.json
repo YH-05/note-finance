@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/saylors-strategy-buys-another-100-million-bitcoin",
+  "title": "Saylor's Strategy Buys Another $100 Million Of Bitcoin",
+  "raw_text": "Michael Saylor’s Strategy, the world’s largest public Bitcoin holder, added to its cryptocurrency reserves last week as BTC continued to trade below the company’s average cost basis of about $75,700.\nStrategy acquired 1,587 Bitcoin (BTC) for $100 million between June 8 and Sunday, according to Monday's 8-K filing with the US Securities and Exchange Commission.\nSource: SEC\nThe purchase was made at an average price of $63,024 per Bitcoin, bringing the company’s overall average cost basis slightly lower to $75,656.\nWith the latest buy, Strategy now holds 846,842 BTC, accumulated at a total cost of $64.07 billion.\nAt the current price of about $66,216 per bitcoin, those holdings are worth roughly $56.1 billion, according to CoinGecko data.\nMSTR sales behind the purchase\nSimilar to the previous 1,550 BTC acquisition announced last Monday, Strategy funded the latest acquisition through sales of its Class A common stock (MSTR).\nIn the filing, the company said it raised about $209 million by selling 1.73 million MSTR shares during the period. Preferred share programs, including STRC, STRF, STRK and STRD, showed no activity during the week.\nAccording to STRC.live, a tracker of Strategy’s preferred stock programs, STRC traded below its $100 par value for a fourth consecutive week as of June 12. The stock remained in the mid-$96 range, marking its longest stretch below par since launch.\nSTRC closed at $94.80 on Friday, down around 1%, according to TradingView data.\nSource: STRC.live\nStrategy executive chairman Saylor hinted at the latest purchase in a post on X on Sunday, writing, “Still adding dots,” a phrase investors have come to associate with the company’s upcoming Bitcoin acquisitions.\nSource: Michael Saylor\nThe latest buy comes about two weeks after Strategy disclosed the sale of 32 BTC on June 1, its first reported Bitcoin sale in years. While the transaction represented only a tiny fraction of the company’s holdings, the sale ignited debate in the community, with some industry observers questioning whether the company was moving away from its long-standing buy-and-hold approach.\nSaylor recently defended the sale, telling Cointelegraph that Bitcoin treasury companies must retain the ability to sell holdings to support dividend-paying securities.",
+  "published_at": "2026-06-15T19:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-16T03:00:41.957277Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

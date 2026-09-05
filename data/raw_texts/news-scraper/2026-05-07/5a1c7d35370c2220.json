@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/coinbase-coin-earnings-q1-2026.html",
+  "title": "Coinbase posts steep first-quarter loss after slide in crypto prices, shares fall 4%",
+  "raw_text": "Coinbase posted lower-than-expected results for the first quarter as crypto prices fell, weighing on one of the companies' major revenue drivers — spot trading in digital assets .\nHere's how Coinbase performed in its quarter ended March 31, compared with what Wall Street was expecting, based on a survey of analysts by LSEG:\n- Earnings per share: $1.49 loss vs. 27 cent profit (estimated)\n- Revenue: $1.41 billion vs. $1.52 billion (est.)\nCoinbase shares were recently down 4% in postmarket trading.\nThe company, which operates the largest cryptocurrency marketplace in the U.S., posted transaction revenue of $755.8 million versus $805.2 million expected by analysts. Subscription revenue came in at $583.5 million versus $619.3 million estimated.\nInvestors were bracing for a sharp slowdown in trading volume given the crypto price slump at the start of the year. Bitcoin rose 12% in March, but posted a 22% decline in the first quarter.\nCoinbase, known largely for its cryptocurrency trading platform, is trying to diversify its revenue streams through subscription and services businesses, which includes revenue from stablecoins and staking.\nInvestors are looking to signs of whether Coinbase can still make money when crypto trading pulls back. Crucial to that effort is Coinbase's success in strengthening non-transaction businesses in order to offset the cyclicality of transaction fees during slowdowns.\nMore than a crypto company\nWhile top and bottom line results missed expectations, Coinbase saw promising growth in its diversified offerings, including event contracts and support for trading of crypto derivatives and tokenized real-world assets.\nThe New York-based firm recorded roughly $4.2 billion in first-quarter derivatives trading volume, a 169% increase over the same period a year ago.\nCoinbase also forecast that its prediction market business would see $100 million in annualized revenue by the end of this year. The business segment launched in late January, in partnership with Kalshi.\nMoves to diversify away from crypto underscore Coinbase's effort to create an \"everything exchange\" – an initiative unveiled a year ago by CEO Brain Armstrong to make the less dependent on the trading of tokens such as bitcoin, ether and XRP.\nInvestors will listen during the Coinbase management call with analysts, set for 5:30 p.m. ET, for updates on the trading platform's margins and operating discipline following this week's announcement that Coinbase will cut roughly 14% of its workforce, or 700 jobs. Coinbase pointed to the layoffs as part of a broad, AI-driven restructuring effort, and cited the crypto downturn as a catalyst.\nThe job cuts underscored Wall Street expectations that subdued trading conditions could persist into the second quarter.\nRead Coinbase's full shareholder slide deck here.\nThis story is developing. Please check back for further updates.",
+  "published_at": "2026-05-07T20:38:37Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:18:32.568136Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

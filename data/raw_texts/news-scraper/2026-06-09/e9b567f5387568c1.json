@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.apple.com/apple-events/event-stream/",
+  "title": "Apple WWDC 2026",
+  "raw_text": "WWDC26\nNew Siri AI powered by Apple Intelligence. Expanded child safety features. And helpful updates all around.\nComing later this year\nNew Siri AI powered by Apple Intelligence. Expanded child safety features. And helpful updates all around.\nComing later this year\nExpress yourself with next-level intelligent photo editing tools and an updated Image Playground, and save time in more of your favorite apps, including Photos, Messages, and Safari.2\nNew and expanded child safety features help make it easier for parents to keep kids safe online.\nDiscover a wide range of performance enhancements that make your devices more responsive, reliable, and delightful to use.\nGet to know the next generation of iPhone — iPhone 17 Pro, iPhone 17, and iPhone Air. Explore AirPods Pro 3 featuring the world’s best in-ear Active Noise Cancellation. And discover the latest Apple Watch family.\nIntroducing iPhone 16 Pro and iPhone 16 with Apple Intelligence, Apple Watch Series 10, and AirPods 4. New colors for Apple Watch Ultra 2 and AirPods Max. AirPods Pro 2 with hearing health features.",
+  "published_at": "2026-06-08T17:14:24Z",
+  "author": "nextstep",
+  "collected_at": "2026-06-09T03:00:56.066719Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

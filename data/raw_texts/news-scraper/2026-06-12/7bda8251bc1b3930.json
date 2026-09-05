@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942658/summer-upgrade-week-2026",
+  "title": "Summer Upgrade Week",
+  "raw_text": "The sun is out, the sky is clear. It’s time to get outside and disconnect — from work, at least. This summer, we’re looking at all the ways to upgrade our free time indoors and out, from smart lights for the backyard to great gadgets to bring camping to ways to wind down at the local library.\nSummer Upgrade Week\nAll the gear we’re bringing outdoors, on trips, and to relax inside.",
+  "published_at": "2026-06-12T12:30:00Z",
+  "author": "Verge Staff",
+  "collected_at": "2026-06-12T15:00:11.508644Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Tech"
+    ]
+  }
+}

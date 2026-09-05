@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/the-stock-market-just-did-something-eerily-similar-to-the-dotcom-bubble-top-in-2000.html",
+  "title": "The stock market just did something eerily similar to the dot-com bubble top in 2000",
+  "raw_text": "The S&P 500 closed at a record on the last trading day of May, but only a handful of stocks — focused mostly in the AI area — hit their own all-time highs.\nThis strange occurrence echoes what happened at the top of dot-com bubble 26 years ago.\nOn Friday, just 20 of the index members hit a record. Of those 20, just seven were not directly related to artificial intelligence.\nMichael Hartnett at Bank of America pointed out in a note to end last week that it was just 20 stocks that hit new highs at the very top of the internet bubble in March 2000.\nWhile the widely followed strategist said the \"speculative price action\" is likely not over yet, this occurrence is the latest sign that it is nearing. Hartnett believes central banks and rising interest rates will ultimately spell the end, giving clients a \"post-bubble\" road map.\nThe May stock boom was driven largely by semiconductors, specifically memory chip makers like Micron Technology, Advanced Micro Devices, SK Hynix and Samsung, which are all valued at or near a trillion dollars. AMD soared 46% on the month, Micron jumped 88%, Samsung 44% and SK Hynix 81%.\nThe tech-heavy Nasdaq Composite jumped 25% in April and May, its best two-month stretch in more than two decades.\nA growing number of strategists and investors are concerned that if this bull market doesn't start to broaden out, it will ultimately be its undoing.\nAdvance-decline lines, which show the number of stocks rising compared with the number falling, have exhibited a similar trend, surging at the end of March and then falling back in a bearish sign since the middle of April.\n\"Internals have lagged since the initial April surge,\" Ari Wald wrote in a May 23 technical analysis for Oppenheimer.\nOnly about 55% of S&P 500 constituents were trading above their 200-day moving average as of May 20, according to BCA Research.\n\"Even though the U.S. and [emerging market] equity indexes have reached new highs, their advances have been extremely narrow. Poor breadth is often a sign of underlying stock market vulnerability,\" BCA strategists led by Arthur Budaghyan said in a May 20 report.\nHartnett is advising clients to flip soon to a defensive posture.\n\"Post-bubble investor roadmap since 1929 is long bonds, and long combo of defensives and/or sectors which dramatically underperformed in the last months of the bubble,\" he wrote.\nCorrection: AMD soared 46% on the month, Micron jumped 88% and Samsung 44%. An earlier version misstated the percentages.",
+  "published_at": "2026-06-01T14:14:19Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.583095Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/fcc-slightly-relaxes-foreign-router-ban-allows-software-updates-until-2029/",
+  "title": "After banning foreign routers, FCC says existing ones can get updates until 2029",
+  "raw_text": "The Federal Communications Commission is relenting a bit on its restrictive router rules, saying it will allow foreign-made routers to receive software and firmware updates until at least January 1, 2029. The FCC also expanded the waiver to cover more types of software updates.\nPreviously, the FCC said routers currently on the market or already sold to consumers could receive security patches and other updates only until March 1, 2027. On Friday, the agency announced a waiver extension that lets devices receive updates until January 1, 2029, and said the waiver may eventually become permanent.\nThe software-update cutoff date is part of a sweeping set of rules the FCC announced in March. Claiming that restrictions are needed for national security reasons, the FCC imposed a ban on new hardware and related limits on software updates for routers that were authorized for sale before the ban was implemented.\nSpecifically, the FCC said in March that it would stop approving consumer-grade routers made outside the US, an action that affects virtually every router maker (with the possible exception of Starlink). The Trump administration is handing out exemptions to hardware makers that it decides are safe enough, with Netgear and the Amazon-owned Eero among those receiving exemptions so far.\nThe hardware ban is only for new devices, so all routers previously approved for sale in the US can continue to be imported and sold without obtaining a special exemption. But previously approved routers were hit with a separate rule that would prohibit software and firmware updates—unless the FCC keeps extending the cutoff date after which no updates can be installed.\nDrone and router extensions\nThe new 2029 cutoff date announced Friday applies to foreign-made routers and foreign-made drones, which were both added to the Covered List. Devices on the Covered List “are deemed to pose an unacceptable risk to the national security of the United States or the security and safety of United States persons,” the FCC says.",
+  "published_at": "2026-05-11T20:48:33Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-13T03:00:30.640060Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "routers",
+      "wi-fi routers"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605011462",
+  "title": "４月のＩＳＭ製造業景気指数は５２．７",
+  "raw_text": "【経済】４月のＩＳＭ製造業景気指数は５２．７\n結果 52.7\n予想 53.2 前回 52.7\n株探ニュース",
+  "published_at": "2026-05-01T14:01:00Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:00:22.185642Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

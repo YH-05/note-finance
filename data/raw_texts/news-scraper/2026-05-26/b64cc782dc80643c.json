@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20285-togo-and-poland-sign-drone-deal.html",
+  "title": "Togo and Poland sign drone deal",
+  "raw_text": "Togo and Poland have signed a EUR24 million (about US$27.85 million) financing agreement to support the local development of next-generation drones.\nBacked by Cyber Defense Africa, a cybersecurity company established in 2019 through a public-private partnership between the Togolese government and European technology group Asseco Data Systems, Togo plans to launch what it calls the Africa Drone Company to build national capabilities in drone design, assembly and deployment.\nAccording to the Togo First news service, the initiative will focus on drone design, assembly and deployment in sectors including security, agriculture, logistics, industry and the monitoring of critical infrastructure.\nThe project aims to support agricultural modernisation, strengthen security systems, improve environmental management and accelerate Togo’s digital transformation.\nIt also includes a training programme to develop local expertise and support the sector’s long-term growth, alongside cybersecurity measures aimed at protecting critical infrastructure and countering disinformation.\nThe funding is provided by Poland’s state-owned Bank Gospodarstwa Krajowego under the European Union’s Global Gateway initiative.\nTogo’s Ministry of Public Service Efficiency and Digital Transformation says the partnership reflects the government’s ambition to strengthen control over strategic technologies and develop infrastructure aligned with the country’s long-term priorities.\nThe agreement was apparently signed early this week in Lome during a visit by Poland’s Deputy Prime Minister and Minister of Digital Affairs, Krzysztof Gawkowski.",
+  "published_at": "2026-05-22T11:29:55Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-26T03:01:25.904619Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

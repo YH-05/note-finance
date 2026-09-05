@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20242-maxis-taps-lg-uplus-ai-calling-platform-in-first-overseas-deal.html",
+  "title": "Maxis taps LG Uplus AI calling platform in first overseas deal",
+  "raw_text": "Malaysian operator Maxis has signed a deal to deploy LG Uplus’ AI voice calling assistant ixi-O, marking the Korean operator’s first international agreement for the platform.\nLG Uplus outlined ambitions to expand its AI services globally at Mobile World Congress Barcelona 2026 and has since been pursuing overseas partnerships.\nThe operator said the ixi-O platform can be customised to suit the needs of mobile operators and local markets. In Malaysia, the service will support multilingual processing and adapt to commonly used local English expressions to improve the user experience.\nThe companies are aiming to launch the service in Malaysia later this year. Maxis, which serves around 10 million mobile subscribers, has been pushing further into AI, cloud and cybersecurity as part of its strategy to become a broader digital solutions provider.\nThe agreement was signed at Maxis headquarters in Kuala Lumpur, attended by LG Uplus CEO Hong Beom-sik and Maxis CEO Goh Seow Eng.\nBeyond AI calling services, both operators are also exploring opportunities in areas such as smart home offerings and B2B solutions.\nHong Beom-sik said LG Uplus is entering the implementation stage of its ambition of commercialising AI services.\nMaxis’ chief Goh Seow Eng added the ixi-O platform has been “impressive” and the operator is eager explore other partnerships with LG Uplus.",
+  "published_at": "2026-05-13T10:15:02Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-19T03:01:21.885758Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

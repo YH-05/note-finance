@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/20/jeff-bezos-taxes.html",
+  "title": "Jeff Bezos says there is ‘no truth’ to the ‘buy borrow die’ tax strategy",
+  "raw_text": "Amazon executive chairman Jeff Bezos said a controversial tax strategy used by the wealthy to borrow against assets to lower their income taxes is largely a \"myth.\"\n\"There's no truth to this 'buy, borrow, die' thing,\" Bezos told CNBC's Andrew Ross Sorkin Wednesday in a wide-ranging interview. \"I don't even know where this comes from.\"\nThe \"buy, borrow, die\" strategy refers to the practice of wealthy founders or investors borrowing against their assets and using the loan proceeds as income. Since the loan isn't considered taxable income, their income stream avoids tax. Thanks to the step-up in basis tax provision, any gain in the value of their assets during their lifetime is also erased upon their death, avoiding any capital gains tax.\nThe most famous practitioners of the strategy are Oracle co-founder Larry Ellison and the world's richest man, Elon Musk. Ellison doesn't take a taxable salary at Oracle but has pledged more than $30 billion of his stock as collateral for loans. Musk has pledged billions of Tesla shares over the years as similar collateral, although he said he paid $11 billion in federal and state income taxes in 2021 when he exercised Tesla options.\nBezos is the world's fourth-richest man, with a net worth around $269 billion, according to Forbes.\nThe \"buy, borrow, die\" strategy has come under attack by Democratic Sens. Elizabeth Warren and Ron Wyden, among others, who have proposed targeting the practice by taxing wealth instead of income.\nBezos said he pays taxes on the Amazon stock he regularly sells to fund his Blue Origin rocket company and other ventures.\n\"Whenever I sell, I pay taxes on it,\" he said.\nBezos also said he could support tax reforms taking aim at the practice, but didn't give specifics.\n\"I'm a little skeptical that that's a true loophole,\" he said. \"But if it is, and we can fix it, then we should. I don't think such a loophole should exist.\"\nHe cautioned, however, that closing the loophole wouldn't solve the underlying issues of government spending, inequality and supporting those at the bottom of the economy.\n\"If you fix that loophole, it's not going to solve the full problem, Bezos said, using the hypothetical example of a nurse in Queens, New York, facing a high tax burden. \"It's not going to help her at all.\"",
+  "published_at": "2026-05-20T15:42:05Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.631716Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606051545",
+  "title": "日経225先物：5日22時＝200円安、6万6470円",
+  "raw_text": "【市況】日経225先物：5日22時＝200円安、6万6470円\nTOPIX先物期近は3964.5ポイントと前日比10ポイント高、TOPIXの現物終値比は15.41ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 66470 -200 5383\n日経225mini 66470 -200 108794\nTOPIX先物 3964.5 +10 5596\nJPX日経400先物 35880 +145 188\nグロース指数先物 765 +7 355\n東証REIT指数先物 1752 +5 4\n株探ニュース",
+  "published_at": "2026-06-05T13:00:41Z",
+  "author": null,
+  "collected_at": "2026-06-05T15:00:17.498491Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20281-kasi-cloud-datacenters-completes-hyperscale-ai-data-centre-in-lagos.html",
+  "title": "Kasi Cloud Datacenters completes hyperscale AI data centre in Lagos",
+  "raw_text": "Nigeria’s Kasi Cloud Datacenters said on Tuesday that it has flagged off its planned hyperscale, AI-ready, carrier-neutral data centre in Lagos that it’s positioning as a sovereign alternative to global platforms.\nKasi said the new LOS1 facility – which began construction in 2022 – has been engineered to support high-density AI and accelerated computing environments alongside enterprise cloud and connectivity platforms, delivering sub-50ms latency for in-country workloads.\nLOS1 is the first phase of Kasi’s data centre campus, which occupies four hectares of land in the Maiyegun area of Lekki in Lagos. The Kasi campus is designed to scale to approximately 100MW of IT load capacity upon full development. The site is adjacent to six subsea cable landing stations, including Equiano and 2Africa.\nJohnson Agogbua, founder and CEO of Kasi Cloud Datacenters, said that LOS1 provides the first institutional-grade, AI-ready domestic alternative for Nigerian enterprises that currently spend an estimated US$850 million annually on foreign cloud infrastructure – all of which flows out of the local economy and sits under foreign legal jurisdiction.\n\"For too long, Africa's data has powered someone else's economy. Today, that changes,” Agogbua said in a statement. “This flag-off marks the transition from development into commissioning and operational readiness – as we deliver world-class sovereign cloud and AI infrastructure, built in Lagos, for Africa's digital future.\"\nAgogbua added that LOS1 aligns with Nigeria’s National Cloud Policy 2025 (NCP2025), which mandates in-country hosting for sensitive government and financial data.",
+  "published_at": "2026-05-21T04:54:31Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-23T03:01:23.002181Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

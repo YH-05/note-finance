@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081650",
+  "title": "今夜の海外イベント・スケジュール(8日)",
+  "raw_text": "【経済】今夜の海外イベント・スケジュール(8日)\n★米国4月雇用統計(21:30)\n□米国5月ミシガン大学消費者信頼感指数(23:00)\n□米国3月卸売在庫[確報値](23:00)\n□米国3月卸売売上高(23:00)\n株探ニュース",
+  "published_at": "2026-05-08T12:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.838632Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

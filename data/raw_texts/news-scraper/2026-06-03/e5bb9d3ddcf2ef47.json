@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/historic-stock-rally-faces-key-test.html",
+  "title": "Historic stock rally faces key test",
+  "raw_text": "The S&P 500 has rallied nearly 20% in the last nine weeks, an historic surge that has made even the most bullish investors blush. And while its nine-day winning streak appears at risk, two key tech companies reporting earnings after the bell could determine the next move higher or lower: Broadcom, the chipmaking giant that doubles as a software provider, and Crowdstrike, a cybersecurity leader that's helping lift cloud stocks out of a bear market.\nAt more than $2 trillion, Broadcom is now bigger than two of the \"Magnificent Seven\" stocks and is up just shy of 40% year-to-date, far outperforming any of its mega-cap peers in the top 10 stocks of the S&P 500. That brings its 1-year move to 88%, compared to 29% in the Mag-7 ETF (MAGS).\nTraders are preparing for an 8% swing in AVGO after earnings, according to the options-implied move. That's about standard for the stock, which has moved a median 9.9% after earnings over the past two years, according to Cboe LiveVol data.\nCall volume outpaced puts in Broadcom almost two-to-one Wednesday, with about an even level of call selling versus buying, and more than $400 million of total $520m in options premium traded in calls, according to SpotGamma. Of the top 20 contracts by volume, 18 expire on Friday. The most popular by volume and dollar amount as of writing is the 500-strike call.\nOptions volumes are much lower in Crowdstrike and the flows don't lean notably in either direction. Still, pressure is on for the cybersecurity stock that's more than doubled in price off March lows and now trades at a market cap of almost $200 billion, just shy of Palo Alto Networks, which dropped 6.5% today despite reporting earnings Tuesday that beat most analysts' estimates.\nCrowdstrike traders are also bracing for an 8% move, notably steeper than the median 4.6% swing over the past two years of reports. The stock's actual move on earnings has underperformed the implied move for the last 7 quarters.",
+  "published_at": "2026-06-03T18:32:24Z",
+  "author": null,
+  "collected_at": "2026-06-03T21:19:03.452945Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

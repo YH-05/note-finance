@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://twitter.com/lemire/status/2062880075117113739",
+  "title": "Nvidia is proposing a beast of a CPU system for Windows PCs",
+  "raw_text": "Something went wrong, but don’t fret — let’s give it another shot.\nSome privacy related extensions may cause issues on x.com. Please disable them and try again.",
+  "published_at": "2026-06-06T12:52:18Z",
+  "author": "tosh",
+  "collected_at": "2026-06-07T03:00:47.082964Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

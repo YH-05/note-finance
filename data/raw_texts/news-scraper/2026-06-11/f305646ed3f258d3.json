@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/streaming/948256/youtube-brings-back-private-messaging-feature-availability",
+  "title": "YouTube is introducing DMs (again)",
+  "raw_text": "YouTube is reintroducing private messaging after testing new ways for users to share videos and “have conversations about them” last year. In an announcement on its official blog, YouTube says it’s now starting to expand the in-app video sharing and messaging feature to users in the US and “other global regions” who are 18 or older.\nYouTube is introducing DMs (again)\nThe platform scrapped its previous private messaging feature in 2019.\nThe platform scrapped its previous private messaging feature in 2019.\nThe video sharing platform had previously introduced private messaging in 2017, before discontinuing it just two years later to focus on public conversations like the Instagram-like Stories feature — which it also killed in 2023. When it started testing its latest in-app messaging capabilities in November 2025, YouTube said it was a “top feature request.”\nThere are some differences with the new messaging system, however: YouTube users are required to verify their age before accessing the feature, and can only talk with a person after sending them an invitation link via third-party messaging platforms. The chat feature can be accessed by tapping the “Messages” icon at the top right of the YouTube app, which will then provide an invitation link. The way this system is set up suggests that it’s trying to keep you chatting with people you already know, instead of encouraging conversations between random YouTube users.\n“Our community loves to share videos with their friends and family, and we want them to be able to do it in one place,” YouTube said in the announcement. “Whether it’s a new music video, a helpful tutorial, or a funny Short, this update will give users a new way to share right where they’re watching.”\nYouTube says its community guidelines will apply to all shared content and messages that are exchanged using the feature and that it’s looking to expand “even further soon.”\nMost Popular\n- Xbox warns of a ‘reset’ as it prepares for layoffs\n- Microsoft restricts Claude Fable for employees over data retention concerns\n- Nearly a million passports and photo IDs were left unprotected on the public internet\n- Claude Fable won’t answer basic biology questions\n- iFixit Trump phone teardown confirms it’s an HTC dupe",
+  "published_at": "2026-06-11T10:08:24Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-11T15:00:11.309078Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Streaming",
+      "Tech",
+      "YouTube"
+    ]
+  }
+}

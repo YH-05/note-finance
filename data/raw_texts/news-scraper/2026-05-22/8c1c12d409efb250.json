@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605221275",
+  "title": "サイバーセキが２５万株を上限とする自社株買いを発表",
+  "raw_text": "サイバーセキ ＜日足＞ 「株探」多機能チャートより\nサイバーセキュリティクラウド<\n4493>がこの日の取引終了後に、自社株買いを実施すると発表した。上限を２５万株（自己株式を除く発行済み株数の２．４３％）、または４億５０００万円としており、取得期間は５月２５日から７月３１日まで。今後の経営環境の変化に応じた機動的な資本政策の遂行を可能とするためとしている。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-22T08:05:00Z",
+  "author": null,
+  "collected_at": "2026-05-22T09:00:21.895937Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

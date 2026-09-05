@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/scorpions-go-terminator-mode-and-reinforce-their-weapons-with-metal/",
+  "title": "Scorpions go terminator mode and reinforce their weapons with metal",
+  "raw_text": "Scorpions are armed with dual front pincers (technically known as chelae or pedipalp appendages) and a venom-injecting telson, or stinger, on the posterior of their tail. These things look dangerous enough on their own, but a chemical examination showed they contain metals like zinc, manganese, and iron.\n“That the metals are there has been known since the 1990s,” said Sam Campbell, a biologist at the University of Queensland, Australia. “What we didn’t know was whether scorpions evolved to be like that or if it was accidental and they were just picking the metals up from the environment.”\nTo answer this question, Campbell and his colleagues examined how metals are distributed across the stingers and pincers of different scorpion species. Based on their data, detailed in a recent study published in the Journal of The Royal Society Interface, there was nothing accidental about it.\nMapping the weapons\nCampbell’s team focused on 18 scorpion taxa selected from a large collection at the Smithsonian National Museum of Natural History. To map the molecular structure of the scorpions’ weaponry, the researchers used high-resolution scanning electron microscopy coupled with micro-X-ray fluorescence imaging. These methods allowed them to build color-coded maps of all the stingers and pincers, with individual metals localized in extremely high detail. Based on these maps, the team could reconstruct metal enrichment patterns within the weapons.\nIn most of the studied specimens, zinc was highly concentrated at the extreme tip of the aculeus, the needle-like envenoming structure. “Zinc has all to do with hardness and ensuring that we retain the strength of the tip of the stinger,” Campbell explained. Just below this zinc-fortified tip, manganese often became the dominant metal in a distinct region lower in the aculeus.",
+  "published_at": "2026-05-01T16:24:45Z",
+  "author": "Jacek Krywko",
+  "collected_at": "2026-05-03T03:00:31.303166Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Biology",
+      "Biomechanics",
+      "biomineralization",
+      "metals",
+      "scorpions"
+    ]
+  }
+}

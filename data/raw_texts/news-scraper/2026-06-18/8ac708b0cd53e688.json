@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/allbirds-bird-ai-smartbird-ceo.html",
+  "title": "Allbirds continues AI pivot with name change and CEO hire, sending stock soaring",
+  "raw_text": "Two months after its unexpected artificial intelligence rebrand, Allbirds is changing its name to Smartbird and appointing a new chief executive.\nThe shoemaker-turned-AI infrastructure firm on Wednesday named Nadia Carlsten as CEO and board member, replacing current CEO Joe Vernachio.\nCarlsten previously led Amazon Web Services' quantum computing center and worked at the U.S. Department of Homeland Security. Most recently, she was CEO at DCAI, an AI infrastructure company that recently partnered with Nvidia and is home to a supercomputer known as Gefion.\nShares of BIRD soared 39% on Wednesday.\nAllbirds surprised investors in April with plans to shift from making shoes to AI compute infrastructure and hardware. At the time, the company rebranded to NewBird AI and its market cap surged sevenfold.\nA month earlier, the company sold its footwear assets to the brand management company American Exchange Group for $39 million. Allbirds also shuttered its U.S. full-priced stores in February.\nAllbirds is among the latest crop of companies pivoting to AI in a bid to capitalize on the burgeoning tech boom set off by ChatGPT's debut in late 2022. A day after Allbirds' rebrand, social media platform provider Myseum shifted to AI.\nRefocusing efforts on new tech trends isn't a new phenomenon on Wall Street. Several companies announced their own cryptocurrencies or pivoted to blockchain during the height of crypto mania.\nAI infrastructure company CoreWeave, which went public last year, started in crypto mining before a successful pivot to AI.\nFormer professional soccer player Tim Brown and renewable resources expert Joey Zwillinger founded Allbirds in 2015, seeking to build sustainable shoes from natural materials. The company launched its debut shoe a year later and quickly transformed into a household name.\nIn 2021, Allbirds went public on the Nasdaq surging 90% in its market debut. The company also rapidly expanded its brick-and-mortar footprint.\nOver the years, shares have slumped nearly 99% from a November 2021 high of $577.80 due to mounting competition and slowing trends.",
+  "published_at": "2026-06-17T20:00:27Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.783334Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

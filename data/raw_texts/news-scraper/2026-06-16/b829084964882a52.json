@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=48542064",
+  "title": "Hetzner increased dedicated server prices 3-4x",
+  "raw_text": "A few months after raising prices ~30%, Hetzner has increased bare metal pricing again, this time by 3-4x:\nAX102: €124 -> €454\nAX162 (256GB): €244 -> €844",
+  "published_at": "2026-06-15T14:44:02Z",
+  "author": "enescakir",
+  "collected_at": "2026-06-16T03:01:23.844822Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

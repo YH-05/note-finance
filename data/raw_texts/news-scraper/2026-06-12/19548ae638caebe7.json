@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/spacex-ipo-primed-for-double-digit-pop-on-first-day-perpetual-futures.html",
+  "title": "SpaceX primed for double-digit pop on first day, if 'perps' trading is any guide",
+  "raw_text": "Crypto traders in the SpaceX pre-IPO perpetual futures are expecting a big first day for Elon Musk's much-hyped space company.\nThe perpetual future contract is currently trading around $162 on the Hyperliquid trading platform, a market dominated by highly active, leverage-seeking crypto traders. That's about 20% above its fixed IPO price of $135 per share, but down sharply from the peak levels exceeding $220, reached shortly after its May launch. SpaceX perpetual futures on Binance were trading at a similar level.\nMusk's rocket company is reportedly running four times oversubscribed, meaning demand from investors is roughly four times greater than the number of shares available in the offering.\nSpaceX is set to begin trading Friday on the Nasdaq. At a valuation of $1.77 trillion, Musk's venture would instantly rank as the seventh-largest public company in the United States, surpassing Tesla, which currently has a market capitalization of roughly $1.6 trillion.\n\"Perpetuals on Hyperliquid suggest there's interest in the SpaceX IPO, but it's far from euphoric,\" Eric Chen, co-founder and CEO of Injective Labs, a decentralized finance infrastructure company. \"These markets are dominated by very active, risk‑tolerant traders, and they aren't pricing in a massive premium versus other pre‑IPO names. It's a useful signal, but not a guarantee of how the broader market will react once SpaceX actually lists.\"\nThe risk is that the most optimistic participants still aren't extremely bullish, which raises the question of how durable that demand is once real liquidity and price discovery kick in, according to Chen.\nPerpetual futures contracts, known as \"perps,\" are a type of futures contract that let investors speculate on an asset's price without an expiration date and utilizing leverage, without ever owning the underlying asset.\nThey're one of the most popular ways to trade in crypto, accounting for more than 70% of all the volume on centralized global crypto exchanges, according to CoinGecko.\nThe decline in the SpaceX perp coincides with the slide in crypto prices broadly. Bitcoin and ether are down 20% and 23%, respectively, in the same period from when the perp was launched on May 18.",
+  "published_at": "2026-06-10T15:48:01Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.784372Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

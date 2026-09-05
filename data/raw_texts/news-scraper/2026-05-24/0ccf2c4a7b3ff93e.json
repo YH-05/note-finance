@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605240070",
+  "title": "明日の経済スケジュール ─ 外食売上高など",
+  "raw_text": "5月25日(月)\n赤口・月齢8.3\n「8勝2敗」(過去10年の日経平均の陰陽星取)\n【国内】\n□4月外食売上高(14:00)\n□4月全国百貨店売上高(14:30)\n□5年クライメート・トランジション利付国債入札\n【国内企業】\n○ジェネレーションパス <\n3195> ：東証Ｇ→東証Ｓ\n【海外】\n★米国(メモリアルデー)、英国(バンクホリデー)、韓国、香港、スイス、ノルウェー市場休場\n【海外決算】\n[中]トリップ・ドット・コム・グループ<\nTCOM>\n株探ニュース",
+  "published_at": "2026-05-24T11:05:00Z",
+  "author": null,
+  "collected_at": "2026-05-24T15:00:22.451742Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

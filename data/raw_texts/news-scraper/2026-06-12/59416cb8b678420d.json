@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/26/autozone-stock-on-pace-for-worst-trading-day-since-march-2020.html",
+  "title": "AutoZone stock has worst day in four years, despite retailer beating Wall Street estimates",
+  "raw_text": "AutoZone Inc. on Tuesday recorded its worst trading day in more than four years despite the retailer beating Wall Street's estimates for its third-quarter fiscal results.\nAutoZone stock closed off 9%, marking its worst decline since a 9.5% fall on May 18, 2022. Shares continued to fall during after-hours trading.\nThe company reported earnings per share of $38.07 for its latest fiscal quarter compared with $36.28 per share expected, according to average estimates compiled by LSEG. Its $4.84 billion in revenue was in line with LSEG estimates of $4.83 billion. The company's fiscal quarter ended May 9.\nAnalysts on the company's quarterly call Tuesday were concerned about lackluster growth internationally and margin compression that was more in line with competitors. They also questioned slowing sales year over year, which the company said was due to cooler weather.\n\"This slowdown in sales was caused by unseasonably cool weather impacting our heat-related categories, which normally begin to ramp this time of year as summer heat begins to take hold,\" AutoZone CEO Philip Daniele said Tuesday.\nWall Street analysts also questioned executives Tuesday about continued pressures on the business from inflation, energy costs and potential supply chain disruptions caused by the Iran war, specifically possible shortages of motor oil.\nAutoZone executives said they expect inflationary pressures to continue but be \"slightly muted\" due to year-over-year comparisons. They also weren't overly concerned about potential problems with supplies of lubricants such as motor oil that are reportedly impacting dealer operations at Toyota Motor and Nissan Motor.\n\"The issue around lubricants, I know there's a lot of noise out there. We're going to leave that up to the oil specialists to really say what that means. We think there's probably going to be some constraints, but we don't think that it's going to be that material,\" Daniele said.\nAutomotive website The Drive reported both Nissan and Toyota have recently issued service bulletins to dealers with instructions on rationing motor oil stocks due to an impending shortage.\nA Toyota spokesman said the company has \"nothing more to add on this issue at this time.\" A spokeswoman for Nissan said the automaker \"is navigating supplier constraints affecting lubricant availability.\"\n\"Currently, we are maintaining current pricing and have implemented temporary allocation measures to help ensure consistent supply across our dealer network. We're also working with supplier partners to identify additional sourcing. Our priority remains supporting our dealers to ensure an exceptional customer experience,\" the Nissan spokeswoman said in an emailed statement.",
+  "published_at": "2026-05-26T20:16:13Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.825831Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

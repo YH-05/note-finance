@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/openai-president-explains-to-jury-why-his-diary-entries-sound-greedy/",
+  "title": "OpenAI president forced to read his personal diary entries to jury",
+  "raw_text": "Greg Brockman never wanted to discuss his personal journal in public. But the OpenAI president has been stuck for days doing exactly that, while testifying in a trial in which Elon Musk has alleged that OpenAI abandoned its nonprofit mission to instead focus on personally enriching leaders like Brockman and Sam Altman.\n“It’s very painful,” Brockman told OpenAI lawyer Sarah Eddy during his second day on the stand.\nAlthough he’s not “ashamed” of any of the journal entries, he considers them to be deeply personal, he said. Rather than serving as a straightforward log of his actions or feelings, the entries reflect a stream of consciousness that meanders as it explores alternate viewpoints.\nSometimes, Brockman explained, he would jot notes reflecting another person’s thoughts, just to feel them out for himself. Because of this, Brockman can appear self-contradictory at times, he testified.\nOther times, he recorded text messages or Signal messages from people to capture and mull their ideas, he noted. And that supposedly makes it harder to parse his entries out of context.\nIn total, Brockman estimated that his journal has about 100 pages of entries. He started the journal in school and continued using it to mull over big decisions in his professional life, he testified.\nNo one was ever supposed to read the journal but Brockman, he said. But there was no keeping them private after his journal entries were revealed in court filings in January. OpenAI submitted the journals as evidence in October that was initially sealed and then unsealed in January. The entries, Musk’s legal team alleged, show the moment when OpenAI leaders decided to abandon the nonprofit mission, with Brockman explicitly discussing stealing a charity from Musk and hoping to earn a billion for his contributions at OpenAI.\nUltimately, the OpenAI president had to read some of the most embarrassing entries aloud in front of a jury and a packed courthouse, as well as over a YouTube livestream that peaked at around 1,200 viewers.",
+  "published_at": "2026-05-05T22:28:12Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-06T03:00:31.372150Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "artificial general intelligence",
+      "Elon Musk",
+      "openai",
+      "xAI"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://openwarp.zerx.dev",
+  "title": "OpenWarp",
+  "raw_text": "<p>Article URL: <a href=\"https://openwarp.zerx.dev\">https://openwarp.zerx.dev</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47970622\">https://news.ycombinator.com/item?id=47970622</a></p>\n<p>Points: 144</p>\n<p># Comments: 105</p>",
+  "published_at": "2026-05-01T02:10:46Z",
+  "author": "zero-lab",
+  "collected_at": "2026-05-01T15:00:51.843257Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

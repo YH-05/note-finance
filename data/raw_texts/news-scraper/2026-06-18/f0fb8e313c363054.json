@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-devices-platforms/20407-telegram-challenges-india-block-over-exam-leak-allegations.html",
+  "title": "Telegram challenges India block over exam leak allegations",
+  "raw_text": "Telegram is challenging an Indian government order blocking access to its messaging platform, arguing the move violates constitutional protections for free speech and access to information.\nThe app has been suspended until June 22 after authorities linked several Telegram channels to the alleged leak of questions from India’s national medical entrance examination. The exam was annulled last month amid allegations that papers had been circulated in advance, despite millions of students having already sat the test.\nIn a 200-page court filing seen by Reuters, Telegram argued that upholding the block would “enable indiscriminate suspension of digital platforms, severely undermining constitutional protections of free speech and access to information.”\nThe company also said the order was issued on the “impermissible premise that misuse by a subset of users justifies blocking of an entire platform.”\nTelegram has long attracted scrutiny from governments and law enforcement agencies due to its emphasis on privacy and its historical reluctance to share user data. The platform has frequently been accused of enabling the spread of illegal content, misinformation and criminal activity through public channels and encrypted communications.\nHowever, Telegram maintains that it cannot be held responsible for the actions of individual users and has argued that blanket restrictions on the platform are disproportionate. The company said targeted enforcement against offending accounts would be a more appropriate response than blocking access for millions of legitimate users.\nThe case is likely to become a closely watched test of the balance between online free speech and government efforts to combat fraud and criminal activity on digital platforms in one of the world’s largest internet markets.",
+  "published_at": "2026-06-18T08:52:43Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-18T15:01:18.645137Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Devices & Platforms"
+    ]
+  }
+}

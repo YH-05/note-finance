@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/crypto-mutiny-on-strategy-shorts-target-mstr-in-bitcoin-bloodbath.html",
+  "title": "Crypto mutiny on Strategy: Shorts target 'MSTR' in bitcoin bloodbath",
+  "raw_text": "Options traders are storming into bets against crypto's most vocal evangelist Michael Saylor. Call it mutiny on Strategy.\nFlows around Saylor's Strategy (MSTR) and the company's variable-rate preferred stock STRC are turning bearish this week after traders had been more balanced in the preceding month despite a steady decline in bitcoin that began in mid-May.\nMore than twice as many puts traded versus calls in Strategy Friday and more than three times as many puts were bought than calls, on almost three times the daily average volume the past month. Of the $335 million in premium traded as of writing, $250 was tied to puts.\nSome of the biggest put-buying was tied to spread strategies used in the YieldMax Short MSTR Option Strategy ETF (WNTR), a fund that shorts Strategy stock while collecting income in put spreads, according to sources familiar with the trading. WNTR shares are up 30% since May 11 as Strategy stock has struggled.\nSTRC, the bond-like preferred stock Saylor describes as \"digital credit\" that he's presented as an alternative to money market funds, fell 3.6% Thursday to $92, the lowest price since November last year.\n\"There's a higher Michael Saylor risk factor being priced in right now after he touted STRC as a strategy to avoid selling bitcoin but then moved away from that, spending cash he said would be on the balance sheet to buy back bonds, and then selling bitcoin,\" said David Dziekanski, CEO at Quantify Funds, who runs a hybrid bitcoin-stocks strategy. \"It's now going to take a significantly higher yield for STRC to get back to 100.\"\nOptions volumes in STRC amounted to just over 6,000 contracts, but the most popular directional trades were selling calls and buying puts, according to data from ThinkOrSwim.\nA selloff in Treasury bonds and rising yields isn't helping as the odds of a rate-hike this year moved above 40% after solid employment data Friday morning, according to CME's FedWatch tool. Crypto prices have struggled during past regimes of rising interest rates, and can particularly stress a credit instrument like STRC.\nBitcoin broke below $60,000 for the first time since late 2024 on Friday.",
+  "published_at": "2026-06-05T18:14:15Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.786102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081691",
+  "title": "ハイテク株高の流れもあってアームは堅調推移＝米国株個別",
+  "raw_text": "半導体のアーム・ホールディングス<\nARM>は６日の急騰後、昨日は大きく下げて始まる動きを見せていた。今日はしっかりでスタートと、ボラタイルな展開を見せている。\nアーム・ホールディングス<\nARM> 218.53（+5.22 +2.45%）\n株探ニュース",
+  "published_at": "2026-05-08T13:52:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.837088Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/nj-transit-cuts-world-cup-train-fare-after-backlash-over-150-ticket-price",
+  "title": "NJ Transit Cuts World Cup Train Fare After Backlash Over $150 Ticket Price",
+  "raw_text": "After getting roasted over its $150 World Cup train fare, NJ Transit is backing off, lowering the roundtrip ticket to $105 for rides between Penn Station and MetLife Stadium, according to Bloomberg.\nThe agency had defended the original price as necessary to handle massive game-day crowds, with roughly 40,000 extra riders expected per match. That explanation didn’t land well, considering the same trip usually costs about $13.\nBloomberg writes that Mikie Sherrill pushed for a cheaper option and told the agency to look for outside funding, while also arguing that FIFA should help pay for moving its fans around.\nThe price cut comes as frustration grows over the broader cost of attending the tournament, from match tickets to parking and travel. And despite Gianni Infantino hyping the event as an economic bonanza, hotel bookings in host cities like New York City, Boston, Toronto, and Vancouver are looking weaker than expected.\nFIFA maintains it already worked out financial responsibilities with host cities years ago and never agreed to cover transit costs. A bold stance from an organization expecting cities to roll out the red carpet — and apparently pick up the tab for it too.\nThis year’s tournament will be the biggest World Cup yet, with 48 national teams playing 104 matches across the U.S., Canada, and Mexico — the first time the event has returned to North America since the 1994 FIFA World Cup.\nMetLife Stadium will host several marquee matches, including the final, putting the New York/New Jersey region squarely in the global spotlight. Which is exciting — assuming fans can actually afford to get there once they’ve paid for tickets, hotels, and a small fortune in stadium beer.",
+  "published_at": "2026-05-08T21:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-09T03:01:36.844986Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

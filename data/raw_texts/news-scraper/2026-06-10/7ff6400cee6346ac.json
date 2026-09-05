@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606101181",
+  "title": "明日の為替相場見通し＝米５月ＣＰＩが相場左右",
+  "raw_text": "【通貨】明日の為替相場見通し＝米５月ＣＰＩが相場左右\n米５月ＣＰＩは前年同月比で４．２％の上昇が予想されている。４月の同３．８％上昇からは加速が見込まれている。市場でのインフレ懸念が高まれば、先行きの米利上げ観測を一段と強めることなり、ドル高・円安要因に働きそうだ。４月３０日につけた円の年初来安値の１６０円７２銭近辺を更新した場合、政府・日銀による為替介入も意識されるだけに、米ＣＰＩ発表後は神経質な値動きとなることも予想される。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-10T08:30:00Z",
+  "author": null,
+  "collected_at": "2026-06-10T09:00:22.314671Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

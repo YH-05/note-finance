@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/etsy-launches-its-app-within-chatgpt-as-it-continues-its-ai-push/",
+  "title": "Etsy launches its app within ChatGPT as it continues its AI push",
+  "raw_text": "Etsy announced Tuesday the launch of its native app within ChatGPT, opening up a new way for shoppers to explore its catalog of over 100 million listings.\nThe new experience is designed to move beyond the limitations of traditional keyword queries. Instead of typing something like “wooden coffee table,” then scrolling and adjusting filters, users can now express what they’re looking for in natural language. For instance, “Help me find a Mother’s Day gift under $100 for my mom who loves gardening.”\nNow live in beta, the feature allows users to tag @Etsy directly within a prompt. From there, the Etsy app in ChatGPT surfaces relevant product listings that users can browse, compare, and click through to Etsy for additional details or purchase.\nThis isn’t Etsy’s first experiment inside ChatGPT. Back in September, Etsy became an early partner in ChatGPT’s Instant Checkout integration, which let users buy products directly inside the chat interface. However, the initiative ended in March, suggesting it didn’t perform as OpenAI had hoped. It was reported that Etsy didn’t see a large volume of sales from the integration, leading Etsy to start building a native app within ChatGPT instead.\nAlongside this launch, Etsy also revealed it’s testing a beta conversational search experience within its platform, specifically geared toward helping users find gifts. The gift assistant acts as a personal shopper, offering a guided, conversational way to discover ideas, narrow down preferences, and surface relevant products.\nThis builds on Etsy’s broader AI push, which includes an AI-powered discovery experience featuring curated collections and a suite of seller tools, including a tool that helps generate product titles and descriptions, as well as a writing assistant to help draft messages to buyers. In 2024, Etsy introduced a new “Designed” label to identify AI content, part of an effort to increase transparency as AI-generated artwork becomes more prevalent on the platform.\nThe news of a ChatGPT integration comes a week after Etsy reported its Q1 2026 earnings, surpassing revenue expectations with $631 million, and marketplace gross merchandise sales were up 6% year over year. Notably, active buyers increased for the first time in two years to 86.6 million. Etsy also touted 5.6 million active sellers on the platform.\nIn February, the company announced it was selling Depop to eBay for $1.2 billion in cash, a move aimed at doubling down on its core marketplace.\nEtsy joins a growing list of companies building native apps within ChatGPT, including Angi, SeatGeek, Tubi, and Wix. Developers have been able to build apps within the chatbot since October.",
+  "published_at": "2026-05-05T15:31:37Z",
+  "author": "Lauren Forristal",
+  "collected_at": "2026-05-05T21:00:26.375137Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Commerce",
+      "ChatGPT",
+      "Etsy",
+      "Generative AI"
+    ]
+  }
+}

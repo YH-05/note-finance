@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/google-ordered-to-put-clearer-links-in-ai-search-and-let-uk-publishers-opt-out/",
+  "title": "Google ordered to put clearer links in AI search and let UK publishers opt out",
+  "raw_text": "UK regulators today ordered Google to put clearer attributions and links to publishers’ content in its AI-generated search features. The UK’s Competition and Markets Authority (CMA) also said Google must give publishers a way to opt out of AI features in search.\n“In a world first, publishers will now have effective tools to prevent their content being used to power AI features in search, such as AI Overviews,” the CMA said today. “This will put publishers, like news organizations, in a stronger position to negotiate content deals with Google. To boost consumer trust, Google is also now required to make sure that publisher content is properly attributed, using clear links, in AI‑generated search results.”\nThe CMA ruled that Google may not penalize publishers for opting out of AI, meaning that Google can’t downrank opted-out publishers in general search results. The CMA said Google will have nine months to comply with all requirements but that the agency “expects important parts of the controls to become available to publishers well before that deadline. Google will also be required to submit and publish compliance reports, supported by key data and metrics, explaining changes it has made and how it has complied.”\nGoogle’s AI Overviews tend to give confident-sounding responses to search queries, but the links to sources in the AI Overviews may or may not support those confident responses. Clearer attribution and links could make it easier for searchers to determine the accuracy of AI Overview summaries.\nThe CMA applied the rules to Google after determining that it has “strategic market status” in general search services, and has ongoing investigations into Apple and Microsoft. Google today said it will comply with the CMA decision.",
+  "published_at": "2026-06-03T20:26:51Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-04T03:00:31.488253Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Policy",
+      "ai overviews",
+      "google"
+    ]
+  }
+}

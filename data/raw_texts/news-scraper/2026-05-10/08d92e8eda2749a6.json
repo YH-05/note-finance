@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20214-new-partnership-supports-industrial-wireless-deployments-in-africa.html",
+  "title": "New partnership supports industrial wireless deployments in Africa",
+  "raw_text": "South African network planning and installation specialist Duxbury Networking has announced a new distribution partnership with Northwest Towers, a manufacturer of hardened, mission-critical network infrastructure designed for deployment in demanding environments.\nThe partnership, says Duxbury, expands its ability to support industrial wireless deployments with infrastructure specifically engineered to withstand harsh operating conditions. Northwest Towers’ portfolio includes ruggedised antennas, POE switches, mesh radios, POE injectors, mobile and fixed tower systems, and integrated network solutions designed to operate in environments exposed to dust, vibration, temperature extremes, and limited on-site support.\nAs sectors such as mining, logistics, ports and agriculture continue to adopt digital technologies, the ability to deploy resilient, field-ready network infrastructure is becoming a key factor in project success.\nHowever, as Duxbury points out, for many organisations operating in these sectors, traditional network infrastructure is not designed for the realities of the field. Equipment failure can disrupt operations, impact safety systems, and introduce costly downtime. As wireless connectivity becomes more central to these environments, the supporting infrastructure must meet the same reliability expectations.\nTeresa Huysamen, Business Unit Manager at Duxbury Networking, explains: “In industrial environments, the network is often deployed far from controlled conditions. Equipment needs to perform consistently in locations where maintenance access is limited and operational continuity is critical. This partnership allows us to extend our solutions beyond connectivity and ensure the supporting infrastructure is built for those conditions.”\nThis agreement also benefits Northwest Towers’ distribution footprint. The appointment of Duxbury provides regional representation in Africa, where demand for industrial-grade connectivity continues to grow.\nNorthwest Towers’ solutions are typically deployed as part of broader industrial wireless environments, supporting applications such as real-time monitoring, autonomous operations, safety systems, and asset tracking. In these scenarios, infrastructure is required to support not only network performance but also physical resilience.\nAnd of course the partnership complements Duxbury’s existing networking portfolio, particularly in environments where high-performance wireless solutions are already in place. By adding hardened infrastructure to its offering, Duxbury says it can support a more comprehensive deployment model, from network design through to physical installation in challenging environments.",
+  "published_at": "2026-05-07T13:10:21Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-10T03:01:30.724490Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

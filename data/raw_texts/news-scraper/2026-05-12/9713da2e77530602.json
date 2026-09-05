@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/f1-set-for-another-engine-tweak-in-2027-and-whats-this-about-v8s/",
+  "title": "F1 set for another engine tweak in 2027, and what's this about V8s?",
+  "raw_text": "Formula 1’s on-track racing might look a bit different in 2026 than it did in 2006 or 1986, but it’s reassuring to know that the sport’s off-track action remains as engrossing as ever. Right now, that involves F1’s stakeholders trying to get out of a corner they painted themselves into with the introduction of new V6 hybrid power units for 2026. We saw the first stab of that in Miami, with small tweaks meant to return some of the spectacle to qualifying, which succeeded. But it seems the sport is in a proactive mood, and further changes are coming to the power balance for 2027. But as we’ll see, trade-offs remain.\nF1’s current technical regulations, which came into effect at the beginning of this year, have been in the works for a while. As far back as 2022, we knew there would be a greater emphasis on the electric side, a near-50:50 split with an all-new, supposedly less complex V6 turbo powered by carbon-neutral fuels, and active aerodynamics to cut drag. Two years later, the Fédération Internationale de l’Automobile (which organizes the sport) published the final regulations.\nA greater emphasis on the electrical side of the hybrid system was put in place as a sop to the auto industry, and it indeed succeeded in attracting new OEMs. But there were early concerns that the battery capacity would be too small to feed the powerful electric motor for most of a lap. And because there can only be an electric motor at the rear axle, not the front—supposedly out of fear that new entrant Audi would have too much of an advantage—cars could regenerate just a fraction of the total energy possible under braking.",
+  "published_at": "2026-05-11T15:20:09Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-12T03:00:31.805479Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Formula 1"
+    ]
+  }
+}

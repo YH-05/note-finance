@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/softbank-masayoshi-son-ai-revolution-investment.html",
+  "title": "AI revolution is ‘50x bigger’ than the dot-com boom: SoftBank's Masayoshi Son to CNBC",
+  "raw_text": "The AI revolution is 50 times bigger than the dot-com revolution in the 2000s, SoftBank CEO Masayoshi Son told CNBC Monday.\n\"I think this is like more than 10x, probably 50x bigger than dot-com,\" Son told CNBC's Arjun Kharpal in Paris, a day after the company announced that it's investing 75 billion euros ($87 billion) to build AI infrastructure in France, including 5 GW of AI data center capacity.\nThe SoftBank chief said the dot-com crash experienced a painful burst, which proved to be just a small bump in a much bigger long-term growth story.\n\"This is the biggest revolution of technology and realization that mankind ever experienced, so this is just like the beginning of the internet,\" Son added.\nSon referenced the fall of auto and electronics stocks in the 1929 Wall Street crash, saying, \"There's always a correction.\"\nHe said: \"Now, if you look at the history, electronics and motorization crashed in 1929, but went up for many, many years, for the next 100 years after that… so there may be some correction, but that will be the best investment opportunity to me.\"\nSoftBank partnered with OpenAI last year on the Stargate project, a joint venture building AI infrastructure in the United States.\nSon said he doesn't think Softbank is over exposed to OpenAI in its investment portfolio as the AI startup makes up just over 20% of the group's net asset value, while British semiconductor design firm Arm is its largest holding, making up over 50% of its net asset value.\nHe added that OpenAI \"will be very successful\" amid talks of the company planning to IPO soon.\nSoftbank's investment, which marks the company's largest AI infrastructure investment in Europe, involves building 3.1 GW of AI data centers in the northern Hauts-de-France region by 2031, including in Dunkirk, Bosquel and Bouchain. The Tokyo-listed company closed 14% higher.\n\"It's a massive size of investment coming,\" Son told reporters during a Monday press briefing with French President Emmanuel Macron. \"We are doing that in the U.S. already, we are expanding a lot in the U.S., so we have the momentum, which we can make France the center of Europe, and Europe needs this kind of AI technology.\"\nThe firm will largely rely on project financing rather than its own capital for the investment, Son said, referencing the company's 10-gigawatt project in Ohio, which will soon secure long-term take-off agreements with customers.\n\"Our own money that we need is very, very condensed, so I'm confident that we're going to get big purchase orders from our customers that we already have relationships [with], so we can extend that momentum into France,\" Son said.\nThe Japanese investment giant is partnering with French engineering company Schneider Electric to establish a large-scale industrial production hub in Dunkirk as part of the broader buildout.",
+  "published_at": "2026-06-01T12:51:42Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.706117Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

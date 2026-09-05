@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/cybersecurity/20347-vodafone-idea-launches-silent-mobile-verification-for-meta-apps.html",
+  "title": "Vodafone Idea launches silent mobile verification for Meta apps",
+  "raw_text": "Indian telco Vodafone Idea (Vi) announced on Thursday it has launched silent mobile verification (SMV) capabilities for users of Meta’s WhatsApp, Facebook and Instagram, which promises to make it simpler and more secure to use them.\nSMV is a network-based authentication technology that uses network APIs to verify a user's mobile number in the background without requiring manual entry of verification credentials, switching between apps, or waiting for verification messages.\nFor Vi subscribers, this means that whenever they access WhatsApp, Facebook and Instagram using Vi’s network, the verification request is validated through the network itself, delivering a faster and frictionless experience.\nVi said this translates into a smoother and easier experience for scenarios like new user registration, mobile number verification, login and re-login, account recovery, and authentication during security checks. For Vi, this means faster onboarding, fewer manual steps, and enhanced protection against phishing and digital identity risks.\nVodafone Idea CEO Abhijit Kishore said that network-based verification technologies like SMV are emerging as important enablers to improve trust in digital services in India, where scam and fraud prevention have become serious issues.\n“Telecom networks are increasingly playing an important role in enabling safer digital experiences. With millions of consumers relying on Vi’s secure telecom network every day, we can build these experiences on a scale,” Kishore said in a statement. “Through our partnership with Meta, we are enabling SMV capabilities that enhance cyber safety and reduce fraud risks, while creating seamless authentication experiences for users across some of the country’s most widely used digital platforms.”\nVi said it plans to expand network-based verification in the future across additional applications and ecosystem partners, as well as other trust-based use cases, including enhanced authentication, fraud prevention and intelligent risk- based verification solutions.",
+  "published_at": "2026-06-05T03:43:06Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-11T03:01:35.755380Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cybersecurity"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932970/google-search-ai-update-io-2026",
+  "title": "Google Search is getting its biggest changes ever",
+  "raw_text": "Google Search is entering the next phase of its AI evolution. During Google I/O 2026, the company showed off a reimagined search box that makes it easier to flow between AI Overviews, the AI-generated summaries that appear at the top of search results, and AI Mode, Google’s chatbot-like search experience.\nGoogle Search is getting its biggest changes ever\nA reimagined search bar, AI information agents, and built-in widgets are part of a new future of Search.\nA reimagined search bar, AI information agents, and built-in widgets are part of a new future of Search.\nPowered by the new Gemini 3.5 Flash model, Google’s updated search box expands for longer queries, while offering a new AI-powered autocomplete feature to build on your question. Robby Stein, Google’s vice president of product for Search, told The Verge you’ll “reliably” see AI Overviews if you ask a natural-language question. Asking follow-up questions in an AI Overview will redirect you to AI Mode, but you can just jump straight into AI Mode by attaching documents, photos, videos, and Chrome tabs to the search box and entering a question.\nLiz Reid, Google’s vice president of Search, said during a briefing that the company wanted to eliminate the “friction” between AI Overviews and AI Mode. “We really work to make that much more seamless and simplified, so that for most users, they don’t have to think about where to go, they can just go to the search box they’re familiar with and it feels like they get the best experience afterwards,” Reid said.\nThe updated search box is rolling out across desktop and mobile devices globally starting on Tuesday. You can still view traditional results only by selecting the “Web” tab in Google Search.\nGoogle is also moving toward a future where it does the googling for you. This summer, it will roll out new AI information agents for AI Pro and AI Ultra subscribers that can monitor topics when you’re not online. If you want to keep track of when your favorite band is going on tour, for example, Google’s AI agents can look for upcoming shows in the background and then notify you of an update. “You could be asleep, and it’s researching, finding information, doing tasks for you,” Stein said.\nThese new AI agents can connect to your other Google accounts using Personal Intelligence, allowing them to pull information from apps like Gmail to personalize their response. The updates provided by agents look a bit like the responses you’d get in AI Mode, complete with text, links to the web, and videos. Google is expanding its AI-powered booking feature this summer as well, which will soon be able to schedule local experiences and services on your behalf. The feature can also call certain businesses for you, such as pet groomers, beauty businesses, and home repair services.\nSearch is becoming even more capable in other ways, too, as a new “generative UI” feature arriving in the coming months will help you build custom widgets and apps directly in the search engine. Google’s AI Overviews can now code interactive visualizations, such as a diagram showing how a black hole works, and include them in its response.\nGoogle AI Pro and AI Ultra subscribers will also gain access to a new feature that allows them to create “super apps” directly in Search. Subscribers can ask Search to create a home fitness tracker, for instance, and connect it with real-time information, like the weather and your calendar. Google will use AI to whip up an app that users can revisit and share with others.\n“This is really the next generation of what it means to be Search,” Stein said. “This is really a moment for AI Search itself to be available to everyone and easy to use for the world, so that they can really ask anything right within Google now.”",
+  "published_at": "2026-05-19T17:45:00Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-19T21:00:19.856330Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Google I/O 2026",
+      "News",
+      "Tech"
+    ]
+  }
+}

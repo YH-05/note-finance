@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/the-suborbital-space-tourism-industry-is-on-life-support/",
+  "title": "Virgin Galactic reveals new ship, but it's running out of time and cash",
+  "raw_text": "On Thursday, the publicly traded spaceflight company Virgin Galactic shared on social media a new photo of its next-generation spaceship being towed outside of its factory in Mesa, Arizona.\nYou remember Virgin Galactic, right? The space tourism company was founded 22 years ago by Sir Richard Branson to bring spaceflight to the masses. Hundreds of people began buying tickets to space nearly two decades ago. And after a long, and at times deadly, development campaign, the company reached outer space (defined, somewhat controversially, as an altitude of 80 km and above) in December 2018.\nThe company began flying passengers in May 2021 with its VSS Unity spacecraft, and impressively completed six spaceflights in 2023. But a few months later, in June 2024, Virgin Galactic stopped flying VSS Unity to focus on the development of its next-generation vehicle capable of more frequent, lower-cost spaceflights.\nSince then, the company has been largely quiet, making this week’s revelation of new hardware notable. So Virgin Galactic is still pressing ahead, but the question is where it’s going, and along with it, the entire suborbital space tourism industry.\nDifficult to make a profit\nSpaceflight remains an expensive and dangerous business, even for companies focused on relatively simple suborbital flights.\nThere was a time, about five years ago, when the market appeared poised to break through. During the summer of 2021, both Virgin Galactic and its US-based competitor, Blue Origin, began commercial flights. Famously, Branson and Blue Origin founder Jeff Bezos both went to space within weeks of one another.\nBoth companies have had robust demand for their services.",
+  "published_at": "2026-05-01T14:42:45Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-02T03:02:27.298842Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "blue origin",
+      "space",
+      "suborbital space tourism",
+      "Virgin Galactic"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/",
+  "title": "Amazon CEO reportedly raised Anthropic model concerns before government crackdown",
+  "raw_text": "Amazon CEO Andy Jassy may have been the source of security concerns that led Anthropic to cut off worldwide access to two models on Friday.\nThe Wall Street Journal reports that Jassy told Treasury Secretary Scott Bessent and other government officials that Amazon researchers used Anthropic’s Claude Fable 5 to obtain information that could be used in cyberattacks. The government subsequently imposed an export control ban on the Fable 5 and Mythos 5 models.\nAn Amazon spokesperson said in a statement that while it’s “not uncommon for governments to seek our counsel on potential security risks,” the company does not “share the details of those discussions.”\nThe spokesperson also pointed to an update stating that AWS has been affected by the model cut off.\nThe Information and Reuters similarly reported that Amazon (a major Anthropic investor) had communicated concerns about the security of Anthropic’s models.\nDavid Sacks, Trump’s former AI czar who now co-chairs the President’s Council of Advisors on Science and Technology, offered his own account of the discussions, claiming that “a highly credible trusted partner of both Anthropic and the USG […] came forward with a jailbreak.”\nSacks added, “The Admin asked [Anthropic CEO Dario Amodei] to fix the jailbreak or de-deploy the model. Dario refused.”\nAnthropic said in a blog post that the capabilities apparently causing government concern are already available in other publicly accessible models.\nThis post has been updated with a statement from an Amazon spokesperson.",
+  "published_at": "2026-06-13T19:11:41Z",
+  "author": "Anthony Ha",
+  "collected_at": "2026-06-14T03:01:18.011067Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Government & Policy",
+      "Security",
+      "Amazon",
+      "Andy Jassy",
+      "Anthropic",
+      "david sacks",
+      "Scott Bessent"
+    ]
+  }
+}

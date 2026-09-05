@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20392-grameenphone-starts-deploying-700-mhz-band-across-bangladesh.html",
+  "title": "Grameenphone starts deploying 700-MHz band across Bangladesh",
+  "raw_text": "Grameenphone announced on Sunday it has launched nationwide deployment of its recently acquired 700-MHz spectrum band across Bangladesh.\nGrameenphone said the deployment is expected to significantly enhance indoor coverage and strengthen nationwide mobile coverage, particularly in rural areas, which will help bridge Bangladesh’s digital divide.\nThe band will also enable the telco to expand its network coverage faster and more cost-effectively, due to the lower band’s wider propagation characteristics, said Grameenphone CEO Yasir Azman.\n“[The 700-MHz band] will play an essential role in enhancing 4G performance and enable us to prepare for future-ready technologies such as 5G, AI, and IoT by supporting higher data speeds, lower latency, and a higher-quality user experience across diverse environments,” Azman said in a statement.\nGrameenphone acquired 10 MHz of 700-MHz spectrum in an auction held by the Bangladesh Telecommunication Regulatory Commission (BTRC) in January this year at the base price of BDT23.7 billion (around US$193.8 million). Grameenphone was the only bidder for the band, as Robi Axiata withdrew from the auction, while Banglalink and state-owned Teletalk declined to take part.",
+  "published_at": "2026-06-16T00:24:01Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-18T03:01:19.517258Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

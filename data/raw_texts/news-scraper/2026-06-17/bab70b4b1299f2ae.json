@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260611a.htm",
+  "title": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
+  "raw_text": "June 11, 2026\nFederal Reserve Board announces final rule that establishes data standards for certain information collections\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Thursday announced a final rule that establishes data standards for certain information collections submitted to financial regulatory agencies. In addition to the Board, the standards have been approved by several other federal financial regulatory agencies.\nThe standards are designed to promote interoperability of financial regulatory data across agencies by establishing data standards for identifiers of legal entities and other data elements. The final rule is generally similar to the proposal from August 2024, with changes reflecting feedback received from the public. It is part of the implementation of the Financial Data Transparency Act of 2022.\nFor media inquiries, please e-mail [email protected] or call (202) 452-2955.",
+  "published_at": "2026-06-11T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:00:30.965354Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

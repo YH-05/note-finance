@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/used-car-prices-gas.html",
+  "title": "Used car prices fall for the first time this year and EV interest rises as gas prices spike",
+  "raw_text": "DETROIT — Used car prices fell in April for the first time since October as gas prices rose amid the Iran war.\nCox Automotive's Manheim Used Vehicle Value Index — which tracks prices of used vehicles sold at its U.S. wholesale auctions — decreased 1.6% last month compared with March and was up 1.8% compared with the same month a year earlier.\nCox said affordability remains a key concern for buyers and that concern is driving increased demand for older vehicles and all-electric vehicles at Manheim auctions.\nGas prices at the end of April were up $1.12 per gallon compared with a year earlier to a national average of $4.30 a gallon, according to AAA. They've continued to rise since, with the national average hitting $4.56 as of Thursday.\n\"The conflict in the Middle East has now been ongoing for two months, and while energy prices backed off a bit in mid-April, they have reaccelerated to the upside: the price of gas just hit a high for the year and is up 47% since the end of February,\" Cox Automotive chief economist Jeremy Robb said in a release. \"Those higher prices are soaking up a lot of the extra money in consumers' pockets, and currently there's no end in sight.\"\nRetail prices for consumers traditionally follow changes in wholesale prices, which Cox forecasts to rise at a historically stable rate of about 2% this year. The average listed price of a used vehicle was $25,390 as of March, according to Cox. That was up roughly $100 from February.\nThe average listing price for a used EV remains more than $9,200 higher than the overall market, but new and used vehicle retailers have said the rapid rise in gas prices has led to higher EV sales following a slowdown after the end of federal incentives last year by the Trump administration.\nManheim's electric vehicle index was up 7.2% year over year and up 1.4% from March.\nThe report of April's lower pricing follows a strong start to the spring selling season, fueled by many consumers spending higher tax refunds to purchase or finance used vehicles, Cox said.",
+  "published_at": "2026-05-07T16:31:01Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.269733Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

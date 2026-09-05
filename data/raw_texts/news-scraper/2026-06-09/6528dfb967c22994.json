@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/946458/instagram-is-finally-letting-everyone-reorganize-their-grid",
+  "title": "Instagram is finally letting everyone reorganize their profile grid",
+  "raw_text": "Nearly a year after it was announced, Instagram says it’s delivering the ability to rearrange the posts in your profile grid. It had been available to some people in test groups, but as of June 8th, it’s rolling out widely via the Android and iPhone mobile apps.\nInstagram is finally letting everyone reorganize their profile grid\nClick and drag.\nClick and drag.\nUntil now, the posts on your Instagram profile have been locked in chronological order beyond the ability to pin three posts at the top, but once the feature is live on your account, you can long-press and drag posts freely, no matter how old they are. Any posts that are pinned will remain at the top.\nInstagram boss Adam Mosseri announced the change in January of last year, with an apology to users whose carefully crafted profile pages had been wrecked when the app switched from square thumbnails to taller, more vertically oriented ones. His post today simply says “Finally,” even though the comments would suggest there are a few other changes Instagram users would like to see that they’ve been waiting to see, even longer than the release of a native iPad UI.",
+  "published_at": "2026-06-08T23:58:30Z",
+  "author": "Richard Lawler",
+  "collected_at": "2026-06-09T03:00:17.075148Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Instagram",
+      "Meta",
+      "News",
+      "Tech"
+    ]
+  }
+}

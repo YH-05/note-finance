@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/15/housing-market-index-misses-estimates-to-the-downside.html",
+  "title": "Housing market index misses estimates to the downside",
+  "raw_text": "CNBC's Rick Santelli reports on the latest housing data to cross the tape.",
+  "published_at": "2026-04-15T14:10:19Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.403987Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

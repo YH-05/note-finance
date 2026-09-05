@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/17/how-to-turn-off-ai-in-your-google-docs/",
+  "title": "How to turn off AI in your Google Docs",
+  "raw_text": "It happened to me: I opened a Google Doc to write an article, and I was immediately confronted with a text box inviting me to “write with Gemini.” I looked for some button to swipe away the garish AI display, but I could not find it. It made me mad.\nNow, instead of writing the article I’m supposed to be working on, I am writing about how to get the AI pop-ups off of your Google Docs screen, since it took me some time to figure out. You’re welcome.\nThe first fix is pretty straightforward:\n- Click “Gemini” on the top menu bar above your document.\n- On the drop-down menu, select “bottom bar preferences.”\n- You can choose to turn off that bottom bar, which will get rid of that AI box at the bottom of your screen.\nFull disclosure: I was so enraged when I set out to find “bottom bar preferences” that I initially missed it entirely. Instead, I clicked “Ask something else” and asked Gemini to help me remove itself from my life. AI may not be human, but Gemini seemed to have some sort of survival instinct, because it told me to click the “X” icon. That does not remove Gemini. It simply closed the conversation, the one in which I was asking it how to turn itself off. Suspicious!\nOther aggrieved Google Docs users have reported features that I have yet to encounter, like a “help me write” feature that hovers over your cursor while you work. This seems like something that would upset me, so it’s probably worth nipping that in the bud before it’s too late. Benjamin Franklin once said, “An ounce of prevention is worth a pound of cure.” (He was talking about fire safety. I am talking about product design.)\nInstead of turning off each individual AI feature like a game of whac-o-mole, we can disable “smart features” across our Google workspace via Gmail.\n- First, navigate to your Gmail inbox.\n- From there, find the gear icon for Settings and click it.\n- Then, at the top of the menu, click “See all settings.” (But while you’re here, you should pick out a fun theme for your inbox. Would a little bit of whimsy kill you?)\n- After clicking “See all settings,” scroll about half way down the page to find “Google Workspace smart features,” then click “Manage Workspace smart feature settings.”\n- Here, you’re presented with two options: one that lets you toggle off smart features in Google Workspace (like those annoying Gemini pop-ups in Google Docs), and one that applies to other smart features (which I personally find less annoying). I only toggled off the first option, but if for some reason you hate when Gmail automatically makes calendar events for your flights, this is where you can fix that.\nYou should now be safe from annoying Gemini pop-ups that disrupt your writing process in Google Docs. You can rest easy.",
+  "published_at": "2026-06-18T01:23:51Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-06-18T03:00:26.907336Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "evergreen"
+    ]
+  }
+}

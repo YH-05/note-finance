@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20391-orange-jordan-brings-insurance-to-its-mobile-money-service.html",
+  "title": "Orange Jordan brings insurance to its mobile money service",
+  "raw_text": "Operator Orange Jordan, on behalf of Orange Money, has announced a new strategic partnership with insurance company MetLife to provide seamless access to insurance solutions via an e-wallet application, giving users tailored, digital coverage designed around their needs.\nUsers will now be able to choose from a range of customised insurance bundles that include life insurance and personal accident insurance, in addition to unlocking easy, secure e-payments through Orange Money app.\nThe service also delivers what is described as an instant and comprehensive digital journey, eliminating any need for physical transactions. It offers users the option to select either silver or gold tiered packages directly through the app, with the ability to manage payment preferences transparently by opting to receive real-time notifications and control the payment mechanism flexibly. Indeed, the partners claim it will guarantee reliable and seamless insurance coverage anywhere around the world.\nThere are eligibility criteria, however, notably that the customer must be between 18 and 55 years old with an active and verified Orange Money wallet.\nLaunched in January 2020 by Orange Jordan’s subsidiary Petra Mobile Payment Services, Orange Money is described as Jordan’s leading electronic wallet and largest payment service provider (PSP). It operates under the supervision and regulatory framework of the Central Bank of Jordan.\nOrange Money’s e-wallet application is available to subscribers of all local mobile networks through free self-registration. The app offers a comprehensive digital financial ecosystem that encompasses various features, including bill settlements, local and international transfers, QR payments, e-vouchers, savings sub-account, business APIs, and a companion Visa card for global shopping.",
+  "published_at": "2026-06-15T22:13:10Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-17T03:01:24.678983Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}

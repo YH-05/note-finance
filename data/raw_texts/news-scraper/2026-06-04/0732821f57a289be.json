@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606050040",
+  "title": "トランプ大統領、自動車業界は消費者が自分で車を修理することを禁止する法案を求めている＝米国株個別",
+  "raw_text": "（NY時間15:54）（日本時間04:54）\nＧＭ<\nGM> 82.96（+1.26 +1.54%）\nフォード<\nF> 15.27（-0.45 -2.83%）\nトランプ大統領は前日に、ＧＭ<\nGM>およびフォード<\nF>の首脳陣と「素晴らしい会談」を行ったことを明らかにした。大統領によると「自動車業界は、消費者が自分で車を修理することを禁止する法案」を求めているという。大統領は「すべてうまく整理するつもりだ」と述べた。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-04T19:55:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T21:00:22.331597Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

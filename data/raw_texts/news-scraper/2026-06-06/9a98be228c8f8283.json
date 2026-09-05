@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/tesla-robotaxi-fleet-texas-one-tenth-size-of-waymos-filings-reveal.html",
+  "title": "Tesla Robotaxi fleet in Texas less than one-tenth size of Waymo's, filings reveal",
+  "raw_text": "Tesla now has 42 autonomous vehicles authorized for driverless ridehailing in Texas, a fleet that's less than one-tenth the size of Waymo's in the state.\nWaymo, Alphabet's self-driving vehicle business, has 577 authorized robotaxis in Texas, according to new records available on the state's Department of Motor Vehicles website.\nThe records were published in an online database on May 28, as a new law took effect giving Texas greater power over commercial driverless vehicle operators. Texas law previously allowed for AV testing and operations on roadways, \"as long as they meet the same safety and insurance requirements as every other vehicle on the road.\"\nThe new law requires operators of driverless vehicles, including Tesla, Waymo and others, to self-certify that their AVs are level 4 autonomous vehicles, per the standards established by SAE. Level 4 generally means an AV can operate in normal weather and on typical roads, without a a human driver on board.\nWaymo has long counted their robotaxis as level 4, but Tesla has told regulators that most of its cars feature level 2 driver assistance systems.\nTesla has been operating its Robotaxi-branded service in Texas since June 2025, but hasn't disclosed details about how it came to self-certify any of its vehicles in the fleet as level 4. The company didn't immediately respond to a request for comment.\nTesla is counting on driverless cars to fuel much of its future growth as the company faces dramatically increased competition in the electric vehicle market and as CEO Elon Musk tries to prove he's at the forefront of artificial intelligence and robotics.\nBut Tesla is far behind Waymo, which has an existing commercial fleet of close to 4,000 vehicles across the U.S. and is rapidly expanding its paid service to new markets.\nIn Texas, Tesla also trails smaller player AV Ride, which had 317 automated vehicles authorized in the state, according to the DMV, while Amazon's Zoox had 35.\nTesla's Austin fleet experienced 17 known incidents between July 2025 and April 2026, two of which involved minor injuries, with one requiring hospitalization, according to records filed with the National Highway Traffic Safety Administration. Those incidents occurred while human safety supervisors were on board.\nTesla has filed for driverless testing permits in Arizona, Nevada and Florida, but has yet to begin paid driverless rides in those states.\nWATCH: Waymo introduces new generation of vehicles, the Ojai",
+  "published_at": "2026-05-29T00:03:40Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.830403Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

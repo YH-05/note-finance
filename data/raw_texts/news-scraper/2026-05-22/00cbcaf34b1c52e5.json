@@ -1,0 +1,30 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/as-grok-flounders-spacex-bets-future-on-beating-big-tech-at-ai/",
+  "title": "As Grok flounders, SpaceX bets future on beating Big Tech at AI",
+  "raw_text": "Elon Musk’s SpaceX has highlighted AI as the tentpole of the company’s future, projecting a multi-trillion-dollar market opportunity that rivals the total value of all US economic activity. But the company must first win over customers who generally favor AI models from competitors such as OpenAI and Anthropic.\nSpaceX described its traditional space launch and satellite business as playing a supporting role to its fledgling AI business in financial disclosures that preceded an expected initial public offering of company stock. That stems from SpaceX having formally acquired Musk’s company xAI earlier this year—the SpaceXAI division now oversees the Grok AI models and the associated Grok chatbot previously developed by xAI.\nThe SpaceX S-1 filing claimed that the company has “the largest actionable total addressable market in human history” and highlighted AI as representing most of that opportunity at an estimated $26.5 trillion market—a number that comes close to rivaling US nominal GDP that stood at nearly $32 trillion in the first quarter of 2026.\nIt is unclear what timeframe SpaceX is using for its addressable market estimate, but that is significantly larger than third-party estimates for the global AI market. For comparison, Gartner estimated that worldwide spending on AI will reach $3.3 trillion by 2027. Similarly, Citigroup has suggested that the global AI market may surpass $4.2 trillion by 2030.\nTo fulfill its ambitions, SpaceX must first fight to catch up in the ongoing AI race against well-financed competitors backed by Big Tech. Musk himself described xAI prior to its SpaceX merger as “the smallest of the AI companies” during court hearings for his lawsuit against OpenAI, according to The Wall Street Journal.\nLooking for a comeback\nThe Grok AI chatbot developed by xAI has lagged behind other AI services in terms of usage, despite being heavily integrated with Musk’s social media site X. An AppMagic survey of 260,000 US consumers and workers who use AI found that just 0.174 percent paid to use Grok in the second quarter of 2026, The Wall Street Journal reported. The same survey showed more than 6 percent of respondents paying for OpenAI’s ChatGPT.",
+  "published_at": "2026-05-21T21:51:26Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-22T03:00:31.371109Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ai chatbots",
+      "ai data centers",
+      "AI models",
+      "Colossus",
+      "Elon Musk",
+      "grok",
+      "orbital data centers",
+      "spacex",
+      "spacex ipo",
+      "xAI",
+      "xAI Grok"
+    ]
+  }
+}

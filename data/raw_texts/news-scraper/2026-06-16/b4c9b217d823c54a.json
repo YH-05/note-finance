@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://status.claude.com/incidents/xmhsglsz3h3w",
+  "title": "Claude: Elevated errors across many models",
+  "raw_text": "Elevated errors across many models\nResolved\nThe incident has now been resolved. We had two phases:\n* between 10:23 PT / 17:23 UTC to 11:00 PT / 18:00 UTC -- all Sonnet and Opus models were affected, reaching an error rate of around 10%\n* after 11:00 PT / 18:00 UTC and until 12:20 PT / 19:20 UTC -- Opus 4.8 had an average error rate of 10%\nThe incident is now resolved.\nMonitoring\nA fix has been implemented and we are monitoring the results.\nUpdate\nWe are continuing to work on a fix for this issue.\nUpdate\nWe are continuing to work to resolve an elevated rate of errors on requests to Claude Opus 4.8, and will provide an additional update as soon as possible.\nIdentified\nWe are still seeing errors on Opus 4.8 and Haiku 4.5.\nMonitoring\nA fix has been implemented and we are monitoring the results.\nInvestigating\nWe are currently investigating this issue.\nThis incident affected: claude.ai, Claude API (api.anthropic.com), Claude Code, and Claude Cowork.",
+  "published_at": "2026-06-16T17:30:30Z",
+  "author": "forks",
+  "collected_at": "2026-06-16T21:00:45.878167Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/amazon-trucking-expansion-freight-stock-selloff.html",
+  "title": "Amazon trucking expansion sparks freight stock sell-off",
+  "raw_text": "Shares of several large freight carriers slumped Wednesday after Amazon announced it's opening up its trucking services to companies beyond its own network.\nThe e-retailer said it will offer less-than-truckload shipping to all businesses, not just those who ship goods into its warehouses and fulfillment centers, and deliver to any destination in the U.S., as part of its nascent Amazon Supply Chain Services program.\nLess-than-truckload refers to a service where companies carry shipments from multiple customers on a single trailer, instead of full truckloads from one customer.\nOld Dominion Freight Line's stock tumbled more than 6%, while shares of ArcBest sank 4%. Saia and XPO Logistics slid 5% each. Shares of FedEx Freight, which started trading earlier this month after it was spun off by FedEx, fell about 3%.\nAmazon has built up a logistics empire over the past several years and reduced its reliance on external carriers, largely to service its own needs and meet its increasingly faster shipping speeds. That includes a fleet of Amazon-branded cargo planes, tens of thousands of delivery vans and a growing freight service that includes 80,000 trailers and 24,000 containers.\n\"The feedback from Amazon selling partners using our LTL service was clear: the technology, visibility, and reliability were exactly what they needed — and they wanted to use it more broadly,\" Jim Ruiz, director of Amazon Freight, said in a statement. \"Now Amazon LTL can move your freight wherever it needs to go, servicing destinations nationwide for businesses of all sizes.\"\nAmazon has been spinning out more of its in-house logistics offerings for others to access, posing a growing threat to industry incumbents.\nLast month, Amazon unveiled an \"end-to-end\" supply chain service that combines several of its logistics and freight offerings into a single package. The announcement sent shares of rival carriers UPS and FedEx lower.",
+  "published_at": "2026-06-10T14:11:05Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.371813Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

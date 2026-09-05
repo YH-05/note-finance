@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/nasa-ends-mars-mission-6-months-after-losing-communication-spacecraft",
+  "title": "NASA Ends Mars Mission 6 Months After Losing Communication With Spacecraft",
+  "raw_text": "After more than a decade of service, unlocking treasure troves of insights into Mars's atmosphere, NASA announced on June 3 that its MAVEN mission has come to an end after a still unknown anomaly threw the spacecraft off course and drained its battery.\nShort for \"Mars Atmosphere and Volatile Evolution,\" NASA's MAVEN mission launched in November 2013 to study the Red Planet's atmosphere, specifically how it interacts with solar flares and other types of space weather, as well as readings of the dust storms. The mission was supposed to last one year, but the hardware continued to operate for another decade, providing insights crucial to sending a human crew there with the right protection in the future. It was also able to give ground systems early warning of incoming coronal ejecta from the sun.\n\"MAVEN has profoundly advanced our understanding of Mars's atmosphere, climate history, and habitability, making it a cornerstone of NASA's exploration of Mars for over 11 years,\" Tiffany Morgan, director of NASA's Mars Exploration Program, said during a press call. \"MAVEN's findings have helped shape future mission designs and have strengthened our understanding of Mars as a system.\"\nMAVEN additionally served a crucial communication role as part of NASA's Mars Relay Network, working alongside the Mars Reconnaissance Orbiter and other spacecraft to pass along priceless data collected by rovers on the Martian surface back to Earth. It was also recruited to help observe the interstellar comet 3I/ATLAS as it passed through the solar system.\nMission leaders last heard from the spacecraft on Dec. 6, 2025, just before it made a routine pass behind the Red Planet - similar to how NASA lost signal with the Artemis II crew as they flew around the far side of the moon. Loss of signal was only supposed to last 30 minutes.\nMission leaders then explained that \"a brief fragment of telemetry data\" was able to be recovered by analyzing radio signals picked up by open-loop receivers on NASA's Deep Space Network. That data showed the MAVEN spacecraft was in \"safe mode\" and caught in a spin when it emerged from behind Mars.\nThe spin indicated that there was a disruption in the spacecraft's trajectory, and a review board concluded that the rotation caused batteries to drain, rendering it unrecoverable.\nAn anomaly review board was created in February to determine what happened to the spacecraft while it traveled around the far side of the planet. Mission leaders expected more questions to be answered in the coming months and declined multiple requests to share their own speculation of what happened.\nAs for MAVEN's fate, NASA officials said that the spacecraft will continue to orbit Mars for 50 to 100 years.",
+  "published_at": "2026-06-06T02:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-06T03:00:41.667195Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

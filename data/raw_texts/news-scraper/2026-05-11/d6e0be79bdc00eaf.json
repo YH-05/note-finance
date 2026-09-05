@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20217-ooredoo-taps-du-to-land-its-fig-subsea-cable-in-the-uae.html",
+  "title": "Ooredoo taps du to land its FIG subsea cable in the UAE",
+  "raw_text": "Qatar’s Ooredoo Group announced on Thursday it has signed a partnership deal with du to land Ooredoo’s planned Fibre in the Gulf (FIG) subsea cable system in the UAE.\nThe FIG cable project – which Ooredoo first revealed in January 2025 – aims to connect all six countries in the Gulf Cooperation Council (Qatar, the UAE, Oman, Bahrain, Saudi Arabia and Kuwait) as well as Iraq.\nThe FIG system is designed to deliver up to 720 Tbps of capacity across 24 fibre pairs to meet sustained demand from hyperscalers, cloud providers, AI platforms and data centre operators. Ooredoo has contracted Alcatel Submarine Networks (ASN) to build the cable.\nThe project is led by Ooredoo Fibre Networks (OFN), which Ooredoo spun off as an independent company in February this year to manage and scale the group’s international connectivity and subsea infrastructure investments.\nDu CEO Fahad Al Hassawi said that the FIG cable will support more diversified data routing and strengthen the overall efficiency of regional and intercontinental connectivity between the Middle East, Europe and Asia, as well as boost the UAE’s status as a global hub for data, cloud and AI.\n“Our partnership with Ooredoo enables the scale, resilience and performance required to support hyperscalers, enterprises and digital ecosystems as demand for advanced connectivity continues to grow,” he said in a statement. “This initiative aligns with the UAE’s digital transformation and economic agenda, supporting the nation’s vision to build a globally competitive, knowledge-based digital economy.\"\nOoredoo Group CEO Aziz Aluthman Fakhroo added that the partnership with du marks another key step in the project’s execution.\n“Combined with the progress already made across other landing points, it reinforces the role of international connectivity in supporting the region’s long-term digital growth,” he said.\nThe landing agreement with du is the third such deal Ooredoo has secured for FIG so far. Ooredoo previously signed FIG landing agreements in March 2025 with Iraqi Telecommunications and Post Company (ITPC) in Iraq, and the Communications and Information Technology Regulatory Authority (CITRA) in Kuwait.",
+  "published_at": "2026-05-08T03:57:51Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-11T03:01:18.875947Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/mercedes-benz-anti-drone-vehicles.html",
+  "title": "Mercedes-Benz joins Europe’s defense push with anti-drone vehicle deal",
+  "raw_text": "Mercedes-Benz announced a partnership with German startup Tytan Technologies to produce anti-drone vehicles on Wednesday, becoming the latest automaker to join forces with the defense industry.\nThe German carmaker signed a memorandum of understanding at ILA 2026, the International Aerospace Exhibition, under which it will produce vehicles for a mobile air-defense system to target small drones.\nMercedes will focus on \"vehicle-based drone defense and mission platforms for the protection of people and critical infrastructure,\" based on the G-Class and Sprinter models, according to a company statement.\nIt makes the Stuttgart-based firm the latest European carmaker to turn to the defense industry, as the auto industry struggles.\nIn March, Renault announced it was developing a ground-based drone for military and civilian use and, in January, announced a partnership with defense group Turgis Gaillard to produce aerial drones in France.\nMeanwhile, Volkswagen has signed a letter of intent with Israeli defense firm Rafael to produce parts for missile defense systems, Reuters reported on April 30.\nThe European car industry has found itself mired in a structural crisis, with slowing demand for electric vehicles, lost market share to Chinese competitors and higher borrowing costs.\nThe defense sector has boomed after Russia launched a full-scale invasion of Ukraine in 2022 and necessitates Europe to become more self-sufficient in its defense production.\nThe transition is achievable in part because many of the underlying skills of employees are highly transferable.\nGermany's Ministry of Defence has launched a matchmaking platform, which is \"bringing established defense companies together with start-ups and companies from the civilian sector,\" a spokesperson for the ministry told CNBC on Wednesday.\nAutomakers have been here before. During World War II, automotive companies across the world halted civilian production to focus on their nations' respective war efforts — producing military vehicles, aircraft engines, as well as guns and ammunition.",
+  "published_at": "2026-06-11T06:23:42Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:37:30.192250Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

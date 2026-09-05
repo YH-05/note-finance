@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/fcc-angers-small-carriers-by-helping-att-and-starlink-buy-echostar-spectrum/",
+  "title": "FCC angers small carriers by helping AT&T and Starlink buy EchoStar spectrum",
+  "raw_text": "The Federal Communications Commission yesterday approved EchoStar’s sales of spectrum licenses to AT&T and Starlink operator SpaceX. The deals are worth $40 billion in total.\nThe orders, issued by the agency’s Wireless Telecommunications Bureau and Space Bureau, aren’t surprising given that FCC Chairman Brendan Carr essentially forced EchoStar to sell the licenses. Last year, Carr threatened to revoke the licenses after SpaceX alleged that EchoStar subsidiary Dish Network “barely uses” the spectrum to provide mobile service to US consumers.\nDish had obtained a deadline extension for its network deployment obligations from the Biden-era FCC, and Carr objected to the agreement made with the previous administration. After Carr’s threat, the Charlie Ergen-led EchoStar struck deals to sell spectrum licenses to SpaceX for $17 billion and to AT&T for $23 billion.\nAT&T is set to acquire 30 MHz of nationwide spectrum licenses in the 3.45 GHz band and 20 MHz in the 600 MHz band, giving it new options for both mid-band and low-band spectrum in its 5G and fixed wireless networks. SpaceX is buying 65 MHz of nationwide spectrum licenses in a few chunks between 1.695 GHz and 2.2 GHz, which it can use to boost the Starlink satellite mobile service that is available for T-Mobile phones.\nThe deals may still have a problem despite yesterday’s approvals. EchoStar objected to an FCC-imposed condition requiring it to fund an escrow account of $2.4 billion to compensate construction companies that were hired to build the Dish network.\nControversial approval and condition\nEchoStar’s Boost Mobile subsidiary will continue to provide wireless service, but over the AT&T network rather than EchoStar’s own. Boost Mobile will also have access to Starlink’s mobile network through a deal with SpaceX. EchoStar, which has said it had to scale back its network-construction plans to resolve the FCC’s complaint, issued a statement yesterday suggesting it may fight the escrow requirement.",
+  "published_at": "2026-05-13T20:44:38Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-14T03:00:28.566681Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "AT&T",
+      "EchoStar",
+      "FCC",
+      "spacex",
+      "starlink"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515b.htm",
+  "title": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
+  "raw_text": "May 15, 2026\nFederal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency\nFor release at 4:30 p.m. EDT\nThe Federal Reserve Board on Friday announced that it did not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency (OCC).\nThe Dodd-Frank Act requires the Board to not object to the conversion when a state member bank, which is a bank supervised by the Federal Reserve, that is subject to certain enforcement actions issued by the Board proposes to convert to a national bank. As required by law, the OCC submitted a supervisory plan to the Board for addressing the matters underlying the enforcement action between United Texas Bank, the Board, and the Texas Department of Banking, to which the Board also did not object.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-15T20:30:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:00:30.690424Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

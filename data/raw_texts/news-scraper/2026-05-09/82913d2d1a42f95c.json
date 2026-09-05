@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/shake-shack-shak-shares-drop-earnings-report.html",
+  "title": "Shake Shack shares crater 30% after burger chain reports operating loss",
+  "raw_text": "Shake Shack stock tumbled roughly 30% in afternoon trading Thursday after the burger chain reported an operating loss of $2.6 million.\nThe company's earnings and revenue also fell short of Wall Street's expectations, based on a survey of analysts by LSEG. Shake Shack said its earnings per share broke even, well below Wall Street estimates of 12 cents per share. The chain also reported quarterly revenue of $367 million, missing estimates of $372 million.\nOn Shake Shack's earnings conference call, its CEO, Rob Lynch, said that winter storms and an increase to its projections for store openings this year weighed on the company's quarterly earnings before interest, taxes, depreciation and amortization. The burger chain has also dealt with higher beef costs, although prices aren't rising as fast as they were a year ago.\nFor the full year, the company broadened its outlook for EBITDA to a range of $230 million to $245 million. It reiterated its revenue forecast of $1.6 billion to $1.7 billion.\nShake Shack also expects the war in the Middle East will weigh on its results this year. The chain has several dozen licensed locations in the region.\n\"The conflict has led to business disruptions ranging from temporary closures to reduced operating hours and delivery-only operations for periods of time,\" Lynch said. \"Beyond these impacts, inbound tourism has slowed substantially, which has further pressured sales, particularly at high-traffic locations.\"",
+  "published_at": "2026-05-07T17:51:15Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.685438Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

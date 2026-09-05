@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/oil-prices-today-us-iran-missile-middle-east-israel-opec.html",
+  "title": "Oil prices ease after Iran says military operations against Israel are over",
+  "raw_text": "Oil prices pulled back from session highs Monday as the dust settled after Iran and Israel traded a barrage of military strikes.\nBrent crude futures, the international benchmark, rose 1.25% to close at $94.25 per barrel. U.S. West Texas Intermediate futures added 0.84% to settle at $91.30.\nIran's Foreign Ministry told CNBC that Tehran had ceased strikes against Israel, but warned it would resume hostilities if Jerusalem continues attacks on Lebanon. Prime Minister Benjamin Netanyahu said Israel has halted strikes for now but said its fight against Iran and Hezbollah are not over.\nOil prices spiked more than 5% earlier after Iran launched missiles at Israel in retaliation for its military campaign in Lebanon. It was the first such attack since the April ceasefire agreement. Israel responded by hitting military targets in western and central Iran, Israel Defense Forces said in post on X.\nPresident Donald Trump tried to keep the violence from escalating. Trump said earlier on social media that Iran and Israel were looking to agree to a ceasefire. He said U.S. negotiations with Iran on a final deal were proceeding.\nAn Iranian official involved in peace talks with the U.S. told MS NOW earlier that \"a deal with President Trump is no longer feasible at this stage.\"\nIran's parliamentary speaker MB Ghalibaf said the U.S. naval blockade and Israeli strikes in Lebanon are violations of the April ceasefire. U.S. and Israel assets in the region are now \"legitimate targets,\" he said.\nMeanwhile, OPEC+ agreed to increase targets by 188,000 bpd from July, according to an OPEC statement, making this the fourth oil output quota hike approval since the closure of the Strait of Hormuz.\nThis increase is on par with June's, which was lowered from monthly increases of 206,000 bpd in May and April due to the exit of the UAE from the organization.\n—CNBC's Garrett Downs contributed to the report.",
+  "published_at": "2026-06-08T19:15:30Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.795146Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

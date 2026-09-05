@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20303-digicel-png-becomes-starlinks-first-reseller-in-papua-new-guinea.html",
+  "title": "Digicel PNG becomes Starlink’s first reseller in Papua New Guinea",
+  "raw_text": "Digicel PNG announced on Wednesday it is now authorised to resell Starlink’s LEO satellite broadband services to businesses across Papua New Guinea, a month after a government ban on Starlink operations was rescinded.\nUnder an agreement signed by Starlink and Digicel PNG’s parent company Telstra, Digicel PNG will distribute Starlink connectivity to enterprises, providing them with additional connectivity options – particularly in remote and hard-to-reach areas where traditional infrastructure is limited.\nDigicel PNG acting CEO Brett Goschen said the telco has completed initial testing of Starlink, and is pleased with the network’s performance.\n“The results from our Starlink testing have been very positive, particularly for businesses operating outside traditional fixed and mobile network coverage areas,” Goschen said. “Reliable connectivity is critical for businesses today. By expanding our portfolio, we are better positioned to support our customers wherever they operate across the country.”\nDigicel PNG expects to start offering Starlink services later this year.\nStarlink has a convoluted history in Papua New Guinea, where it received a five-year licence from the National Information and Communications Technology Authority (NICTA) to operate in the country at the start of 2024. Two months later, the Ombudsman Commission blocked the licence, arguing that existing regulations didn’t address potential reliability issues with Starlink’s service.\nNICTA spent the next two years fighting the Commission’s ruling in court. During that time, Starlink terminals were still being illegally imported and used, prompting NICTA to order Starlink to switch off its service in PNG, which it did in mid-December 2025.\nThe PNG National Court ruled in NICTA’s favour last month, overturning the Commission’s Starlink ban and paving the way for NICTA to approve Starlink’s operator license.\nThe decision was widely welcomed, partly because of the impact of Tropical Cyclone Maila that hit PNG earlier that month, killing at least 22 people and highlighting the limitations of terrestrial telecoms infrastructure in PNG to support rescue and recovery efforts.",
+  "published_at": "2026-05-27T03:14:55Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-03T03:01:28.512727Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/running-the-numbers-on-a-zero-emission-way-to-make-cement/",
+  "title": "Making cement from a different type of rock could clean up emissions",
+  "raw_text": "Cement production alone currently accounts for about 8 percent of global CO2 emissions, so considerable effort is going into lowering that number. Efficiency can be increased, and energy sources can be swapped for cleaner ones, but a stubborn reality remains: The byproduct of turning limestone into lime during cement production releases CO2 gas. These “direct process emissions” are actually slightly larger than the emissions from burning fuel to heat the kilns and drive this process.\nA new paper in Communications Sustainability suggests a route to eliminating direct process emissions by removing a bedrock assumption. What if we don’t have to use limestone cement?\nGet out of Portland\nThe material we call “Portland cement” was developed in the 1800s. It simply requires heating limestone (calcium carbonate) and adding something like clay or coal ash. This gives you the calcium oxide (lime) you’re after but also releases the CO2 that results when you pull an oxygen atom from carbonate.\nThe authors of the new paper include the CEO and an engineer from a company that says it has made Portland cement from silicate rocks like basalt—at the lab scale. Basalt contains a mix of minerals that include calcium, aluminum, iron, magnesium, sodium, silicon, and oxygen. (Note the absence of carbon from that list.) The basic idea is that you don’t need limestone to get calcium oxide.\nThe process of freeing these components from basalt looks more like a refining or recycling process than the toss-it-in-the-oven simplicity of the limestone process. Acid can be used to leach elements like calcium out, then a chemical or energetic process precipitates that calcium as calcium hydroxide. Toss that in a kiln with additives of your choice, and with less heating than you need for limestone, you’ve got Portland cement, with only water vapor released.",
+  "published_at": "2026-05-15T17:06:59Z",
+  "author": "Scott K. Johnson",
+  "collected_at": "2026-05-18T03:00:30.994454Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "concrete",
+      "greenhouse gas emissions",
+      "materials science"
+    ]
+  }
+}

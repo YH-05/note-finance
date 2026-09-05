@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/honeywells-quantinuum-raises-1point68-billion-in-us-ipo-as-quantum-computing-heats-up-reuters-reports.html",
+  "title": "Honeywell's Quantinuum raises $1.68 billion in U.S. IPO as quantum computing heats up, Reuters reports",
+  "raw_text": "Honeywell's Quantinuum said on Wednesday it has raised $1.68 billion in its U.S. initial public offering after pricing shares at $60 apiece, as investors flocked to one of the market's fast-growing emerging technology sectors.\nBroomfield, Colorado-based Quantinuum sold 28 million shares in the offering.\nReuters exclusively reported the pricing details earlier in the day.\nThe listing is the latest test of investor appetite for quantum computing companies, as breakthroughs in the technology spur bets that quantum machines could eventually outperform conventional computers on certain complex tasks.\nEarlier this week, the company increased the price range to $53-$55 per share and boosted the number of shares on offer to 26.5 million, typically a sign of strong investor demand.\nThe IPO comes as the U.S. new listings market regains momentum, although investor appetite remains concentrated in technology and other high-growth sectors.\nQuantinuum will begin trading on the Nasdaq on Thursday, under the ticker symbol \"QNT\". J.P.Morgan and Morgan Stanley are the lead underwriters of the offering.\nThe company was formed in 2021 through the merger of Honeywell's quantum computing business and Cambridge Quantum. While still in the early stages of commercial growth, Quantinuum has reported accelerating bookings in recent months as interest in the sector increases.\nDespite growing investor optimism, across the industry quantum computing companies continue to face challenges including high development costs, technological complexity and an uncertain timeline for widespread commercial adoption.\nHoneywell, which has a market capitalization of roughly $150 billion, will retain about 48.1% of the company's combined voting power after the offering is completed, Quantinuum disclosed in its IPO filing.\nAnalysts expect Quantinuum's IPO to have an outsized impact on the quantum computing sector, given the limited number of publicly traded companies in the space.\n\"More quantum names reaching the public markets deepens the universe, improves price discovery, and draws sellside and institutional coverage to a space that has thus far been thinly followed,\" analysts at Wedbush said in a note this week.\n\"We expect Quantinuum's valuation and early share-price action to set the tone in the first day or two of trading, and to ripple across listed peers, particularly in light of the strong cross correlation of quantum asset prices,\" the brokerage said.\nLast month, the Trump administration said it will take $2 billion in equity stakes across nine quantum-computing companies.\nQuantinuum develops quantum computers designed to solve complex problems that would take classical computers thousands of years or longer to process.",
+  "published_at": "2026-06-04T01:59:24Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.444639Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

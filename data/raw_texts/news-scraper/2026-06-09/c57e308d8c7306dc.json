@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606100087",
+  "title": "【恐怖指数】警戒感は上昇",
+  "raw_text": "【恐怖指数】ＶＩＸスポット（NY時間：16:03）\nスポット 19.79（+0.90 +4.76％）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-09T20:34:00Z",
+  "author": null,
+  "collected_at": "2026-06-09T21:00:23.520338Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

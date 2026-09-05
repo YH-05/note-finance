@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20186-ericsson-to-build-5g-network-for-ice-costa-rica.html",
+  "title": "Ericsson to build 5G network for ICE Costa Rica",
+  "raw_text": "The Instituto Costarricense de Electricidad (ICE), the Costa Rican government-run electricity and telecommunications services provider, has awarded a contract relating to its 5G network to tech giant Ericsson.\nThe precise details of the contract have not yet been outlined and Ericson has not formally announced the deal. However, it does not appear to include base station radios, for which a company called Coasin-Nokia has been awarded the contract to supply the equipment and connectivity services.\nThe network is to be commercially launched under the ICE Kölbi brand. ICE estimates that the rollout will be implemented over the next 12 months and says it will employ open RAN standalone architecture, which, it points out, allows multiple manufacturers to be added to provide services and supply equipment, and eliminates dependence on a single company.\nAccording to ICE, the final cost of the award was US$100 million below the originally planned budget, which it had estimated at US$250 million.\nAnnouncing this deal, Marco Acuña, president of Grupo ICE also highlighted the company’s work in increasing international connectivity with the TAM-1 submarine cable as well as its investments in Kölbi to date of more US$220 million.\nAs we reported last year, the Trans Americas Fiber Systems submarine cable (TAM-1), which started commercial operations in the fourth quarter of 2025, travels 7,000 kilometres along the Atlantic coast, from the United States to South America.\nWhile this award is good news for ICE, the country’s private operators are already way ahead with coverage and expansion. As the BNamericas news service points out, both Claro and Liberty already have coverage in the San José metropolitan area and other major cities, and are moving forward with a nationwide rollout.\nClaro began the rollout of its 5G network in the second half of 2025; by the end of December it covered 35.3% of the population.\nLiberty Costa Rica commercially launched the first sites of its 5G network across multiple regions in March using gear from Ericsson, with plans to achieve national coverage before the end of this year.\nAs we reported at the time, Liberty's 5G network will initially focus on tourist and commercial centres in Guanacaste, the Central Pacific and the Northern Zone.",
+  "published_at": "2026-05-01T11:23:11Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-07T03:01:29.919027Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

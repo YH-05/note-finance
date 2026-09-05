@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/treasury-yields-investors-await-warsh-first-fed-meeting.html",
+  "title": "Treasury yields are little changed ahead of Kevin Warsh's first Fed meeting",
+  "raw_text": "U.S. Treasury yields were little changed on Tuesday as investors look ahead to the Federal Reserve's two-day policy meeting, and expectations for inflation and interest rate hikes continue to ease.\nThe yield on the 10-year U.S. Treasury note — the key benchmark for U.S. government borrowing — fell more than 1 basis point to 4.453%.\nThe 2-year Treasury note yield, which more closely tracks short-term Federal Reserve interest rate policy, was less than 1 basis point higher at 4.068%. The longer-dated 30-year Treasury bond yield fell more than 1 basis point to 4.953%.\nOne basis point is equal to 0.01%, and yields and prices move in opposite directions.\nTreasury yields have fallen back after a provisional peace agreement between Washington and Tehran was announced on Sunday, opening a path to extend the U.S.-Iran ceasefire for 60 days and reopen the Strait of Hormuz to all shipping.\nArriving at the G7 meeting, President Donald Trump said the peace framework with Iran has been signed, adding that the Strait of Hormuz will \"completely reopen\" on Friday, free of Iranian tolls. Trump said a formal signing ceremony would take place on Friday in Geneva.\nElsewhere, investors are watching for the two-day Federal Reserve policy meeting that gets underway on Tuesday, the first to be led by new chairman Kevin Warsh. The central bank is set to maintain its benchmark lending rate of 3.50% to 3.75%, according to implied prices used in the CME's FedWatch tool, while traders have pulled back on expectations for rate hikes later this year.\n\"A sustained solution to the Middle East crisis would ease a policy dilemma for leading central banks, which have come under pressure to raise rates to head off the inflationary impact from higher energy prices,\" said Mark Haefele, chief investment officer at UBS Global Wealth Management.\n\"While a wide range of central banks hold policy meetings this week, the Fed is likely to set the tone for markets.\"\nEconomic data on housing and retail sales in May are also due to be reported on Wednesday.\n— CNBC's Hugh Leask also contributed to this report.",
+  "published_at": "2026-06-16T13:40:07Z",
+  "author": null,
+  "collected_at": "2026-06-16T15:23:26.605257Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

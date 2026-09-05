@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20307-will-kenya-tax-mobile-money-transactions.html",
+  "title": "Will Kenya tax mobile money transactions?",
+  "raw_text": "Another plan to tax mobile money transactions is under attack – this time in Kenya, the market that, arguably, pioneered mobile payments.\nKenya's banking and business sectors have reportedly voiced their displeasure at Treasury proposals to apply value-added tax to fees charged by mobile money providers.\nThe Finance Bill 2026 proposes extending 16% VAT to transaction fees levied by payment service providers including M-Pesa and Airtel Money. The idea is to broaden revenue collection, not least because digital payments account for a growing share of commercial activity across the economy. Indeed, official figures suggest that person-to-person mobile money transfers reached an estimated US$67.1 billion in 2025.\nBut, according to the ITWeb Africa news service, the National Assembly Finance Committee has heard industry groups give numerous reasons why the proposed tax is unlikely to work.\nOne is the risk of pushing consumers away from conventional banking and towards informal cash trade, potentially reversing progress in drawing economic activity into formal, traceable financial systems.\nTraceability is important. According to the Kenya National Bureau of Statistics, consumers rely on digital transfers daily for transport fares, supplier payments, salaries and retail transactions, giving authorities far greater visibility into commercial flows which previously moved largely through untraceable cash networks.\nThe transaction chain could also be hit, particularly under proposals affecting merchant payment systems, where the combined tax burden on some digital transaction charges could rise sharply.\nAnd of course, competition, which has helped to bring down prices and encourage adoption among low-income households and small businesses, could also be hit.\nThis proposal is far from certain to be adopted. Parliament's Finance Committee is continuing to collect industry submissions before debate on the legislation proceeds later in the year.\nAnd years of attempting to tax mobile services or revenues in Africa have have not worked, been abandoned, or been strongly criticised, most recently last year in Senegal where a bill taxing digital financial services, including mobile money transactions and merchant payments has attracted criticism.",
+  "published_at": "2026-05-27T14:47:01Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-04T03:01:31.752917Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

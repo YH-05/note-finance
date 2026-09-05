@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20154-mozambique-launches-national-roaming-pilot-to-equalise-mobile-coverage.html",
+  "title": "Mozambique launches national roaming pilot to equalise mobile coverage",
+  "raw_text": "Mozambique’s Communications Regulatory Authority (INCM) has kicked off a national roaming service pilot in a bid to equalise mobile coverage for users.\nIn a statement posted to its website on Thursday, the INCM said the roaming pilot allows users of Tmcel, Vodacom Mozambique and Movitel to access the networks of other operators in areas where their operator's coverage is limited or non-existent.\nThe pilot covers voice and SMS services, but not mobile data. Roaming will be available in Quissico Sede, Ntemangau, Cachembe Sede, Muirrua Nacala a Velha Sede and Chissimbire during the pilot, which runs until May 15.\nINCM and the three telcos will focus on technical monitoring and ensuring service quality and network interoperability to guarantee the continuity of subsequent phases.\nINCM said it’s implementing the pilot under the National Roaming Regulation in Telecommunications (Decree No. 12/2025), which was issued last month with the goal of eliminating “shadow zones” where coverage isn’t provided by all three telcos.\n“This is a fundamental step towards a more connected and digitally inclusive Mozambique,” the INCM statement said.\nThe most recent stats from the International Telecommunication Union (ITU) say that 84% of Mozambique’s population was covered by 4G by the end of 2024, while 86% were covered by 3G and 88% by 2G.\nAccording to Datareportal, citing stats from GSMA Intelligence, there were 19.1 million mobile connections in Mozambique at the end of 2025, which works out to a penetration rate of just over 53%.",
+  "published_at": "2026-04-27T03:54:29Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-01T15:01:21.401569Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

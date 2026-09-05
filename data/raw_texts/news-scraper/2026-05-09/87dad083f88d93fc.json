@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/amd-lisa-su-stock-forecast-earnings.html",
+  "title": "AMD's Su explains what's behind massive forecast change as stock roars 19% on earnings",
+  "raw_text": "Advanced Micro Devices CEO Lisa Su told CNBC on Wednesday that her massive forecast revision was due to the demand surge for central processing units led by the growth of agentic artificial intelligence.\n\"Agents are really driving tremendous demand in the overall AI adoption cycle, and we're very excited to be in the middle of it.\" Su told CNBC's \"Squawk on the Street.\"\nThe company beat analyst estimates on Tuesday for both earnings per share and revenue in the first quarter. Revenue climbed 38% year over year, with Su highlighting the company's data center business as the primary driver.\nShares soared 19% on Wednesday after the report.\n\"The main thing that I can say is that we are seeing a shifting of the workload,\" Su told CNBC, adding that the demand picture became clearer over the last 90 days after talks with the company's largest customers.\nCPUs have seen a resurgence as the compute needs have shifted with the rise of agentic AI. While the company has trailed Nvidia in the market for graphics processing units, AMD has been a leading maker of CPUs, which are needed for inference tasks.\nIn November, AMD forecast the server CPU market to grow about 18% annually over the next three to five years.\nOn the company's earnings call Tuesday, Su revised that estimate to exceed 35% growth each year, with the market topping $120 billion by the end of the decade.\nThe insatiable demand for AI has created capacity constraints for semiconductors like Intel, Nvidia and AMD.\nDespite the rapid growth, Su expects AMD to meet compute demand for its customers.\n\"Yes, it's tight for sure,\" Su said of chip supply. \"When we look at it, there's a lot of demand out there, but we have a world-class supply chain that has been building for this moment.\"\nAnalysts reacted positively to the increased guidance.\nGoldman Sachs hiked its price target from $240 to $450. The bank also changed its rating on the chipmaker from hold to buy.\n— CNBC's Kristina Partsinevelos contributed to this report.",
+  "published_at": "2026-05-06T20:01:17Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.697026Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/avalanche-focused-treasury-firm-launches-on-nasdaq-as-crypto-proxy-trade-evolves.html",
+  "title": "Avalanche Treasury Co set to start trading on Nasdaq as crypto proxy trade evolves",
+  "raw_text": "Avalanche Treasury Co., one of the newest publicly-listed companies built around a crypto treasury strategy, is set to begin trading on the Nasdaq on Thursday under the ticker AVAT.\nThe company, led by former Susquehanna and AllianceBernstein executive Bart Smith, was created to accelerate adoption and growth of the Avalanche ecosystem by allocating capital across the Avalanche network's infrastructure and applications, instead of merely stockpiling the blockchain's native AVAX token on its balance sheet. It merged with special-purpose acquisition company (SPAC) Mountain Lake Acquisition Corp. in a $675 million deal first announced in October.\nThe AVAT listing comes as crypto treasury firms, which boomed onto the market last year, face increasing pressure to differentiate themselves from each other amid a prolonged downturn in crypto prices.\nEarly treasury vehicles focused on accumulating a single token, making them proxies for the price of that token. Newer entrants are attempting to justify premium valuations by generating returns through active capital allocation strategies, staking income and ecosystem investments.\nAvalanche is a six-year-old blockchain built for business. Unlike many networks aimed primarily at retail traders, Ava Labs, the company that helped develop Avalanche, has for years pursued financial institutions interested in tokenizing real-world assets and moving traditional financial infrastructure onto blockchain rails.\nUsers include BlackRock, Franklin Templeton, Apollo, FIFA and the state of Wyoming.\n\"We believe the next phase of institutional adoption will be driven by structured vehicles that put capital to work inside the ecosystems that matter,\" said Rob Hadick, general partner at Dragonfly, an investor in the new company.\n\"Avalanche has earned its place as an enterprise blockchain of choice, and we believe a publicly listed treasury vehicle gives institutions the entry point they've been waiting for. AVAT offers regulated, structured access to blockchain infrastructure that is aiming to rewire global finance,\" Hadick said.\nThe Avalanche network has about 550 projects built on it and more than $1.65 billion in real-world assets tokenized. Its AVAX token is the 33rd largest by market cap, according to CoinGecko.\nAvalanche Treasury Co. owns about 15 million tokens, or roughly 3.5% of the supply in circulation.",
+  "published_at": "2026-06-11T16:25:25Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.794165Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

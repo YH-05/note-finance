@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060515",
+  "title": "米原油在庫は２３１万バレル減",
+  "raw_text": "【経済】米原油在庫は２３１万バレル減\n原油 -231.3万（4億5718万）\nガソリン -250.4万（2億1980万）\n留出油 -129.4万（1億0234万）\n（クッシング地区）\n原油 -64.8万（2912万）\n＊（）は在庫総量\n株探ニュース",
+  "published_at": "2026-05-06T14:35:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T15:00:22.039346Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html",
+  "title": "Broadcom, Micron and ARM sink, leading chip stocks lower",
+  "raw_text": "Chipmakers Broadcom and Micron Technology sank on Thursday, leading a broad sector sell-off as investors fled the semiconductor space.\nBroadcom lost 12% after the company, which designs and makes customized artificial intelligence chips for other technology names, reported weaker-than-expected earnings on Wednesday.\nMicron Technology was down more than 7%. ARM Holdings shares fell 4%.\nJohn Vinh, equity research analyst at Keybanc Capital Markets, said the growing pressure on Broadcom and other semiconductor stocks is warranted.\n\"These stocks have all had very strong runs,\" Vinh told CNBC's \"Squawk Box\" on Thursday, pointing to repeated upward revisions, especially on the AI front. Vinh suggested that the Broadcom reversal indicates that market expectations have caught up with the chip sector run.\nElsewhere, Qualcomm sank 2% and Intel fell nearly 1%, while AMD slipped 3%. Marvell Technology shares initially dropped Thursday, but later turned positive and closed nearly 5% higher.\nIn a note Thursday, HSBC analysts led by Max Kettner, chief multi-asset strategist, flagged a slide in chip prices, coupled with a slowdown in AI spending and rollout, as among their \"biggest worries.\"\nVinh noted that Broadcom has suffered a degree of share loss within its largest customer, Google, which has started diversifying toward other chip suppliers.\n\"The near-term pull-back makes sense,\" Vinh explained, but added he remains optimistic on Broadcom.\nKeith Lerner, CIO and chief market strategist at Truist Wealth, said that a sell-off was normal after a strong run, adding that \"we're due for a rest.\"\n\"We've come a long way. Fundamentals are solid,\" he said on CNBC's \"Closing Bell\" on Wednesday.\n\"Bull market still deserves a benefit of the doubt, but often markets are two steps forward, one step back. We've had three steps forward, so maybe at least a mini step back, or at least some sideways chop,\" Lerner said.",
+  "published_at": "2026-06-04T20:04:22Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.327108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

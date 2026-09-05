@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605260971",
+  "title": "明日の為替相場見通し＝植田日銀総裁の発言など注目",
+  "raw_text": "【通貨】明日の為替相場見通し＝植田日銀総裁の発言など注目\n前日は米国がメモリアルデーの祝日だったこともあり、この日のドル円相場は１５９円ライン前後とする一進一退が続いた。今晩は米５月消費者信頼感指数などの発表があり、その結果が関心を集めている。また、引き続きイラン情勢が相場を左右しそうだ。更に、明日は日銀主催の国際コンファランスで植田総裁が開会のあいさつを行う予定であり、その発言内容などが注目されそうだ。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-26T08:24:00Z",
+  "author": null,
+  "collected_at": "2026-05-26T09:00:22.324159Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

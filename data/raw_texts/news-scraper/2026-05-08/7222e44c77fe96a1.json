@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/thermal-event-triggers-service-disruptions-amazon-aws-cloud-hub-northern-virginia",
+  "title": "\"Thermal Event\" Triggers Service Disruptions At Amazon AWS Cloud Hub In Northern Virginia",
+  "raw_text": "Amazon Web Services said that recovery efforts are still underway after a \"loss of power during a thermal event\" disrupted a Northern Virginia data center on Thursday evening.\n\"Mitigation efforts remain underway to resolve the impaired EC2 instances and degraded EBS volumes in a single Availability Zone (use1-az4) in the US-EAST-1 Region,\" AWS wrote on its Service Health page, indicating that its operational issue for \"Amazon Elastic Compute Cloud (N. Virginia)\" remained \"impacted\" as of early Friday morning.\nAWS shifted traffic away from the affected zone for most services and told customers to use other Availability Zones in US-EAST-1, noting that data centers in other zones were unaffected.\n\"The work to bring additional cooling system capacity online, which will enable us to recover the remaining affected infrastructure in a controlled and safe manner, is taking longer than we had initially anticipated,\" AWS stated.\nThe AWS disruption in Northern Virginia caused Coinbase's services to be affected overnight.\nOn May 7th Coinbase experienced service disruptions. Here’s a quick summary of what happened:\n— Coinbase Support (@CoinbaseSupport) May 8, 2026\n→ Around 8PM ET, Coinbase systems flagged high error rates across multiple services.\n→ We traced these errors to amazon failures in Availability Zone (use1-az4) in the AWS US-EAST-1…\nAWS did not provide details about what caused the \"thermal event\" at one of its data centers in Northern Virginia.",
+  "published_at": "2026-05-08T10:55:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T15:00:41.497043Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

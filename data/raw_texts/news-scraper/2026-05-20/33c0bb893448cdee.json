@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605201163",
+  "title": "NY外為：ユーロ買い一服、ベルギー中銀のウンシュ総裁は6月の利上げの可能性を示唆",
+  "raw_text": "【通貨】NY外為：ユーロ買い一服、ベルギー中銀のウンシュ総裁は6月の利上げの可能性を示唆\nNY外為市場でユーロ買いは一段落した。ベルギー中銀のウンシュ総裁は「イラン戦争終結しなければ、6月利上げの公算大」と言及。\nユーロ・ドルは、1.1605ドルの高値から1.1590ドルへ下落。ユーロ・円は、184円52銭の高値から184円36銭まで下落、ユーロ・ポンドは0.8658ポンドから0.8651ポンドまで下落した。\n《KY》\n提供：フィスコ",
+  "published_at": "2026-05-20T13:46:36Z",
+  "author": null,
+  "collected_at": "2026-05-20T15:00:18.494292Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

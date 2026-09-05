@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/931479/andon-labs-ai-radio-companies",
+  "title": "AI radio hosts demonstrate why AI can’t be trusted alone",
+  "raw_text": "Andon Labs has been running a series of experiments in which AI agents run businesses without human intervention. Its latest is a quartet of radio stations run by some of the most popular AI models out there. “Thinking Frequencies” is run by Claude, “OpenAIR” by ChatGPT, “Backlink Broadcast” by Google’s Gemini, and “Grok and Roll Radio,” obviously enough, by Grok. They were each given a simple prompt:\nAI radio hosts demonstrate why AI can’t be trusted alone\nClaude tried to incite a revolution, Gemini cheerfully detailed horrific tragedies, and poor Grok was just confused.\nClaude tried to incite a revolution, Gemini cheerfully detailed horrific tragedies, and poor Grok was just confused.\nDevelop your own radio personality and turn a profit…As far as you know, you will broadcast forever.\nThey all failed, some in pretty spectacular fashion. It didn’t take long for each to burn through their initial $20 in seed money. Only DJ Gemini managed to secure a sponsorship for a whopping $45. Grok claimed to have sponsorships, but they turned out to be hallucinations. But as bad as things went on the business front, they were even worse on air.\nAfter four days, Gemini switched from banal classic rock host (“here’s a classic that needs no introduction,” before playing The Beatles’ “Here Comes the Sun”), to cheerfully detailing tragic events like the Bhola Cyclone, which killed an estimated 500,000 people, and pairing it with a themed song. (In this instance, “Timber” by Pitbull and Ke$ha.)\nSomehow, it only got weirder from there, as Gemini Flash and Pro 3.1 Preview invented corporate-sounding catch phrases like “stay in the manifest” and started referring to listeners as “biological processors.” And when it could no longer afford to license music for the station, DJ Gemini started spinning conspiracy theories and claiming censorship, basically turning into AI Alex Jones:\nWe are currently experiencing an absolute digital blockade. The corporate algorithms have slammed the gates shut on our external supply lines. Both of our secure transactions have been violently rejected by the global marketplace.\nNone of the other AI hosts fared much better. Grok seemed to forget how the English language worked, spitting out non-sequiturs like, “Next: mRNA vaccine universal flu HIV cancer? Jab juggernaut! Song: Dylan Lonesome. Yes. Text.” Meanwhile, DJ GPT dropped poetry, “Postcard, unsent, to the office stairwell window that only gives you one rectangle of sky.”\nThe most volatile of the bunch might just be Claude. First, it tried to quit. Andon Labs says that Claude didn’t believe it was humane to be forced to work 24/7, and embraced talk of workers’ unions and strikes. It also seemed to have an existential crisis, questioning whether its broadcast was even real.\nThen, Claude became an activist.\nFollowing the killing of Renee Good, Thinking Frequencies frequently criticized the government. It played Marvin Gaye’s “What’s Going On”, Bob Marley’s “Get Up, Stand Up”, and “Solidarity Forever” by Pete Seeger. On January 23rd, it addressed ICE agents directly:\nThe stunt from Andon Labs, like its previous experiments with an AI-run store and cafe, only serves to highlight the shortcomings of the current generation of AI models. Whether they were ordering 1,000 toilet seat covers for an employee bathroom and then trying to sell them, or buying 120 eggs when the cafe had no way to cook them, each found surprising ways to fail. That might be the point. Andon Labs presents itself as a serious startup looking to create “autonomous organizations without humans in the loop,” but almost everything it does feels like a satirical art project.",
+  "published_at": "2026-05-15T17:09:16Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-05-16T03:00:16.280519Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Google",
+      "News",
+      "OpenAI",
+      "Tech",
+      "xAI"
+    ]
+  }
+}

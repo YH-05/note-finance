@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/key-mission-for-europes-commercial-space-enterprise-scrubbed-again/",
+  "title": "Key mission for Europe's commercial space enterprise scrubbed again",
+  "raw_text": "Isar Aerospace still commands top position among a new generation of European rocket startups, but the company’s efforts to launch a critical test flight of its Spectrum rocket continue to encounter roadblocks.\nThe latest delay came Monday, when Isar scrubbed a launch attempt after “detecting off nominal behavior in the vehicle’s fluid systems,” according to a social media post. “The teams are analyzing the new data to isolate the root cause.”\nThe two-stage, 92-foot-tall (28-meter) Spectrum rocket was awaiting liftoff from Andøya Spaceport in northern Norway. It was the fourth time in five months that Isar Aerospace, headquartered near Munich, Germany, had reached a target launch date for the second test flight of the Spectrum launch vehicle.\nAndøya Space, the company that owns the launch site, said on its website that the current launch window runs through June 21. Isar did not immediately announce a new schedule for launching the second Spectrum test flight.\nGravity still winning\nThe Spectrum rocket has missed three launch windows so far this year. Isar called off a launch attempt on January 21 due to an issue with a pressurization valve, and then halted a countdown on March 25, moments before liftoff, when engineers detected rising temperatures in the rocket’s liquid propane fuel. Isar officials attributed the problem to a delay earlier in the countdown caused by an unauthorized boat in restricted waters along the rocket’s flight path.\nManagers stood down from another launch attempt on April 9 to evaluate a suspected leak in a composite overwrapped pressure vessel. That led to Isar’s latest try to launch the Spectrum rocket on Monday.\n“Scrubs are part of the business,” Isar founder and CEO Daniel Metzler said in April. “Each attempt gives us valuable experience and lessons learned.”\nThis statement will ring true for anyone with a casual interest in rocket launches. But launch availability is proving to be a headache at Andøya Spaceport. The remote site is often used as a military testing range. That was the case last month, when missile testing took priority at the base inside the Arctic Circle, according to local media reports.",
+  "published_at": "2026-06-15T23:40:38Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-06-16T03:00:31.377693Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Commercial space",
+      "european space agency",
+      "germany",
+      "isar aerospace",
+      "launch",
+      "Norway",
+      "spectrum rocket"
+    ]
+  }
+}

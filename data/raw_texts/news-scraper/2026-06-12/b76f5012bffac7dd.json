@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/astrazeneca-ceo-says-ai-is-reshaping-drug-development-and-helping-boost-the-odds-of-success.html",
+  "title": "AstraZeneca CEO says AI is reshaping drug development — and helping boost the odds of success",
+  "raw_text": "AstraZeneca CEO Pascal Soriot said artificial intelligence is helping drugmakers develop medicines faster and make smarter decisions throughout the research process.\n\"The value of AI in our industry is productivity improvement,\" Soriot said on CNBC's \"Mad Money\" on Friday. \"In the way you design a new medicine, a new drug, you can actually do it faster, do it smarter.\"\nThe comments come as investors increasingly question whether the massive spending on artificial intelligence is producing meaningful returns in industries like healthcare. Soriot said AstraZeneca is already seeing practical applications across drug discovery and development, from identifying new targets to improving the design of potential medicines.\n\"You can come up with new targets, but also you can optimize your molecule [and] remove what you think is going to be potential side effects from the molecule, and AI helps you do this,\" he said.\nSoriot noted that AI is also helping the company make better decisions about which drugs to advance through the development process. Through its partnership with Tempus AI, he said the company is using AI models to analyze data with the goal of improving drug discovery and increasing the odds of success in late-stage trials.\n\"We have developed an agent that takes all this data together — clinical data, laboratory data — and helps us predict the probability of success of a Phase 3 trial,\" Soriot said.\nThe potential payoff is significant.\n\"We spend $300 million, $400 million, $500 million on a trial,\" Soriot said. \"If you increase the probability of success, the productivity improvement is enormous.\"\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-06-05T22:26:16Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.799240Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

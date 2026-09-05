@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141631",
+  "title": "日経225先物：14日22時＝180円高、6万2900円",
+  "raw_text": "【市況】日経225先物：14日22時＝180円高、6万2900円\nTOPIX先物期近は3907.5ポイントと前日比24.5ポイント高、TOPIXの現物終値比は28.23ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 62900 +180 3175\n日経225mini 62905 +180 75433\nTOPIX先物 3907.5 +24.5 5848\nJPX日経400先物 35620 +180 379\nグロース指数先物 796 +8 426\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-14T13:00:42Z",
+  "author": null,
+  "collected_at": "2026-05-14T15:00:21.629123Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

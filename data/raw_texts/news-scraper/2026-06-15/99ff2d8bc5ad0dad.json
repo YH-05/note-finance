@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606150559",
+  "title": "日製鋼所---自律反発で上値抵抗の25日線を突破",
+  "raw_text": "日製鋼 ＜日足＞ Fastストキャス 「株探」多機能チャートより\n<\n5631> 日製鋼所 7763 +214\n3日続伸。3月3日につけた10620円をピークに調整を継続するなかで、6月11日には6694円まで売られた。その後の自律反発で上値抵抗の25日線を突破してきており、トレンド転換から75日、200日線が位置する9000円近辺が射程に入ってきそうだ。一目均衡表では雲を下回って推移しているが、上値を抑えられていた転換線を上抜け、基準線に接近している。\n《FA》\n提供：フィスコ",
+  "published_at": "2026-06-15T02:43:55Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:00:21.851204Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "テク",
+    "tags": []
+  }
+}

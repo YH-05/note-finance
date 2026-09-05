@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/14/novo-nordisk-openai-ai-drug-discovery-healthcare-nvo.html",
+  "title": "Novo Nordisk partners with OpenAI as AI drug discovery hopes mount",
+  "raw_text": "Novo Nordisk is partnering with OpenAI to \"bring new and better treatment options to patients faster,\" the Danish drugmaker said Tuesday.\nThe partnership will enable Novo to better use AI to analyze complex datasets, identify promising new drugs, and reduce the time it takes for a medicine to move from the research stage to patient use, the company said in a statement.\n\"There are millions of people living with obesity and diabetes who need treatment options, and we know there are therapies still waiting to be discovered that could change their lives,\" said Novo CEO Mike Doustdar. \"Integrating AI in our everyday work gives us the ability to analyse datasets at a scale that was previously impossible, identify patterns we could not see, and test hypotheses faster than ever.\"\n\"AI is reshaping industries and in life sciences, it can help people live better, longer lives,\" said OpenAI CEO Sam Altman.\nThe stock jumped 2.8% shortly after the opening bell.\nIt comes as drugmakers are increasingly turning to AI to improve operations and lengthy processes. While AI could discover new treatments, experts say that the industry is still far from leveraging the technology's full potential and more immediate benefits could come from using it in other areas of drug development. AI can, for example, help companies in the time-consuming task of identifying patients and sites for clinical trials.\n\"We haven't heard the last of it yet... in terms of how clinical trials get designed and run, a lot of it is still very traditional, with certain points where AI is being leveraged,\" Arthur D. Little partner Ben van der Schaaf, told CNBC last month. \"AI is not an end-to-end component yet.\"\nNovo's latest move builds on its current AI initiatives, which also include a collaboration with Nvidia to use the Gefion sovereign AI supercomputer to \"accelerate drug discovery efforts through innovative AI use cases.\" The companies said last year that they aim to create customized AI models and agents that Novo can use for early research and clinical development.\nNovo Nordisk is locked in a race with U.S. rival Eli Lilly for dominance in the lucrative weight loss market, in which it has lost its first-mover advantage. Novo is now trying to claw back market share through its Wegovy pill, launched in January, and next-generation drugs.",
+  "published_at": "2026-04-14T12:33:17Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.466933Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

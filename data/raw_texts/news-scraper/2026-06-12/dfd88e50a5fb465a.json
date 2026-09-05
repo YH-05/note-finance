@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.utexas.edu/2026/06/11/this-jacket-pulls-drinking-water-from-thin-air/",
+  "title": "A jacket that harvests drinking water from the air",
+  "raw_text": "<p>Article URL: <a href=\"https://news.utexas.edu/2026/06/11/this-jacket-pulls-drinking-water-from-thin-air/\">https://news.utexas.edu/2026/06/11/this-jacket-pulls-drinking-water-from-thin-air/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48497576\">https://news.ycombinator.com/item?id=48497576</a></p>\n<p>Points: 105</p>\n<p># Comments: 64</p>",
+  "published_at": "2026-06-11T22:59:22Z",
+  "author": "ilreb",
+  "collected_at": "2026-06-12T09:00:55.097683Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

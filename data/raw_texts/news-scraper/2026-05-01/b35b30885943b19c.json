@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/beef-cattle-grilling-inflation.html",
+  "title": "Cattle prices soar to record highs as grilling season heats up",
+  "raw_text": "Beef climbed to all-time highs on Tuesday, a bad sign for shoppers planning summer barbecues.\nLive cattle futures traded at the CME Group settled at $2.51 per pound on Tuesday, the highest price on record going back to the 1960s, according to FactSet data. Each contract is for 40,000 pounds of live cattle, typically about 30 to 35 head of finished, slaughter-ready cattle.\nThe contract has jumped more than 25% over the past 12 months as ranchers faced rising costs and slashed the size of herds. Cattle prices ticked down marginally in Wednesday's session.\nCattle slaughter is expected to have tumbled to 2.2 million head in March, down from 2.5 million in the year-earlier period, according to Barclays estimates and data from the U.S. Agriculture Department. Beef production slid by 300,000 pounds to 1.9 million over the same time, the bank found.\nThe U.S. cattle herd now stands at its smallest since the 1950s, when the U.S. population was half today's size.\nLimited supply drove the average retail price of ground beef for hamburgers up to about $6.70 per pound in March, the Bureau of Labor Statistics reported in its closely watched consumer price index. That was roughly 12% higher than the same month a year ago.\nThe price of ground beef reached record highs going back to 1984 earlier this year, federal data shows.\nBeef has failed to follow recent declines in the price of eggs and chicken following last year's bird flu outbreak, Bank of America's Sara Senatore said in a Wednesday note to clients.\nBut consumer demand for beef has held steady despite lower production levels and the upward price pressure, Barclays analyst Benjamin Theurer told clients.\nRestaurants may suffer weaker same-store sales growth due to beef inflation, Senatore said, especially chains such as McDonald's, Chipotle, Shake Shack and Cracker Barrel with high exposure to beef.\nRanchers and slaughterhouses are already grappling with rising costs in other areas, such as fertilizer and fuel due to the U.S.-Iran war.\nNearly 60% of U.S. farmers said their finances were worsening as prices jumped, according to a survey released Tuesday by the American Farm Bureau Federation. Many farmers polled said they could not afford all the fertilizer their fields need.\nConsumers cooking burgers for Memorial Day will feel sticker shock in other grocery store aisles too. Tomato prices spiked about 15% in March to levels last seen more than eight years ago, threatening the price of BLTs and salad.",
+  "published_at": "2026-04-15T20:31:04Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.463794Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/chat-is-dead-openai-preps-overhaul-of-chatgpt/",
+  "title": "\"Chat is dead\": OpenAI preps overhaul of ChatGPT",
+  "raw_text": "OpenAI is preparing the biggest overhaul of ChatGPT since its launch kicked off the AI boom, as the $850 billion group hunts for new engines of growth ahead of a planned listing this year.\nThe company intends to transform the chatbot into a “superapp” that combines coding tools and AI agents, adding products that executives believe will generate more revenue.\nThe changes are part of a broader reorganization at OpenAI as the San Francisco-based company shifts resources into trying to win lucrative business customers and compete more fiercely with rival Anthropic, according to more than a dozen current and former employees.\nOpenAI faces growing pressure to drive revenues higher and forge a path to profitability, as it prepares for an initial public offering.\nThe strategy marks a departure for a company, led by chief executive Sam Altman, that became the face of the AI boom and took the technology mainstream when it unveiled ChatGPT in 2022.\nThe changes, which will give greater prominence and resources to OpenAI’s coding product Codex, reflect a growing conviction within the company that the future of AI lies not in chatbots that answer questions but in agents that perform tasks for users.\n“Chat is dead,” said one senior OpenAI employee.\nOpenAI executives increasingly view ChatGPT, which has attracted nearly 1 billion users since its launch, as a gateway to introduce users to higher-value products. The majority of consumers use the chatbot for free.\nThe company is embarking on the changes amid a belief that the advent of AI agents, which can perform multiple tasks for users from booking travel to organizing calendars, will be a more valuable product than the chatbot.",
+  "published_at": "2026-06-08T13:51:16Z",
+  "author": "Cristina Criddle, Financial Times",
+  "collected_at": "2026-06-09T03:00:31.909643Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ChatGPT",
+      "IPO",
+      "openai",
+      "syndication"
+    ]
+  }
+}

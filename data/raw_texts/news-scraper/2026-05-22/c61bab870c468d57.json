@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/policy/935735/live-nation-ticketmaster-states-remedies-request-break-up",
+  "title": "States ask judge to break up Live Nation-Ticketmaster",
+  "raw_text": "A federal judge is officially being tasked with deciding whether to break up Live Nation-Ticketmaster.\nStates ask judge to break up Live Nation-Ticketmaster\nThe requests go far beyond the terms in the DOJ’s settlement.\nThe requests go far beyond the terms in the DOJ’s settlement.\nMore than 30 states are asking Judge Arun Subramanian to order a sale of the ticketing giant, a “sufficient number” of large amphitheaters, and limit its ability to tie access to its remaining amps to the use of its promotions services. In April, a jury found that the company is an illegal monopolist, after more than a month of trial. The initial remedies proposal doesn’t include a further breakup of some other parts of Live Nation’s business that California Attorney General Rob Bonta told The Verge and other outlets earlier this week they were considering, but the states say they reserve the right to make additional requests as they learn more.\nIt’s unclear exactly how far Subramanian will be willing to go in ordering remedies, but the requests go far beyond what the Department of Justice got in its settlement with the company one week into trial. That deal included a promise to offload some exclusive booking arrangements at over a dozen amphitheaters, but not a sale of the venues themselves.\nThe states are also asking for remedies that address specific allegations that came up at trial, like barring retaliation or conditioning the ability for a venue to receive a concert on which ticketing platform they use. They also ask for a range of monetary relief, including paying back overcharges on ticketing fees.\nLive Nation did not immediately respond to a request for comment, though it has promised to fight the verdict.",
+  "published_at": "2026-05-21T22:27:03Z",
+  "author": "Lauren Feiner",
+  "collected_at": "2026-05-22T03:00:16.687712Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Antitrust",
+      "Entertainment",
+      "Policy"
+    ]
+  }
+}

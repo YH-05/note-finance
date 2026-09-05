@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/passengers-from-hantavirus-ship-arrive-in-us-3-people-in-biocontainment/",
+  "title": "Passengers from hantavirus ship arrive in US; 3 people in biocontainment",
+  "raw_text": "The cruise ship rocked by an unprecedented Andes hantavirus outbreak arrived in the Canary Islands off the coast of Tenerife Island over the weekend and is being evacuated. At least one new case has been identified amid the disembarkment.\nAs of Monday morning, officials for the World Health Organization reported that the last of the passengers of the MV Hondius cruise ship are expected to be evacuated today. Thirty crew will remain on board and see the ship back to Rotterdam in the Netherlands. Prior to the evacuation there were 147 people on board.\nAll of those evacuated from the ship are being transported off the island on specially arranged repatriation flights, not commercial flights. The evacuations and flights are being coordinated by Spanish authorities as well as the WHO and other national health officials.\nAmid the evacuations, one new case has been definitively identified in a French citizen who tested positive on the journey home. That brings the outbreak tally to nine cases. Of those cases, three deaths had previously been reported, including a Dutch couple and a German woman.\nUS passengers\nThere may be a 10th case in a US passenger; US health officials reported that a person tested “mildly positive” after being evacuated from the ship. But for now, the WHO is reporting that as “inconclusive” testing and is awaiting confirmation before updating the case count.\nThe information about that possible US case came on Sunday from a statement on social media by the US Department of Health and Human Services. The statement incorrectly said that federal and state officials had transported 17 American citizens who were on board the ship back to the US on a non-commercial flight. The repatriated US passengers were flown to Omaha, Nebraska, where the federal government has its only National Quarantine Unit on the campus of Nebraska Medical Center and the University of Nebraska Medical Center. The Nebraska Medical Center also houses a National Biocontainment Unit.",
+  "published_at": "2026-05-11T18:12:43Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-13T03:00:30.640393Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "hantavirus"
+    ]
+  }
+}

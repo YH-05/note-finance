@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/",
+  "title": "Claude Fable is relentlessly proactive",
+  "raw_text": "<p>Article URL: <a href=\"https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/\">https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48498573\">https://news.ycombinator.com/item?id=48498573</a></p>\n<p>Points: 408</p>\n<p># Comments: 315</p>",
+  "published_at": "2026-06-12T01:06:51Z",
+  "author": "lumpa",
+  "collected_at": "2026-06-12T09:00:55.096069Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

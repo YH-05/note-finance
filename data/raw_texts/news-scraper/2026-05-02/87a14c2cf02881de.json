@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/search/?query=2026%20Berkshire%20Hathaway%20Annual%20Shareholder%20Meeting%20HP",
+  "title": "2026 Berkshire Hathaway Annual Shareholder Meeting HP",
+  "raw_text": "Berkshire's Greg Abel outlines new era without Buffett at the topCash hoard hits record, near $400 billion Berkshire shares struggle into annual meetingAbel explains Berkshire's novel approach to AI",
+  "published_at": "2026-05-02T14:58:53Z",
+  "author": null,
+  "collected_at": "2026-05-02T15:18:19.053891Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/replacing-lower-value-human-capital-banks-cut-staff-recent-grads-face-against-ai-jobsjobs",
+  "title": "\"Replacing Lower Value Human Capital\": Banks Cut Staff As Recent Grads Face Off Against AI For Jobs",
+  "raw_text": "As AI reshapes banking, students entering the industry are confronting a double challenge: navigating AI-driven hiring processes today while wondering how many traditional finance jobs will remain tomorrow, according to Bloomberg.\nWarwick University student Andre Bonnick, for example, spends hours preparing for automated screening interviews rather than conversations with human recruiters. While he hopes to secure a role in finance, he is also weighing options such as further study as entry-level opportunities become more competitive.\nIndustry leaders have been increasingly candid about AI’s impact on employment. JPMorgan CEO Jamie Dimon stated that the technology “will eliminate jobs,” while other bank executives have acknowledged that some roles may no longer be needed as automation expands. Standard Chartered CEO Bill Winters described the shift as “replacing in some cases lower-value human capital” with technology investments, comments for which he later apologized.\nBloomberg writes that the pressure is already visible at the junior level. Banks are reducing analyst intake programs and investing heavily in AI capabilities, leading many graduates to question the long-term stability of careers that were once viewed as secure and lucrative. Even so, experts argue that banks cannot eliminate junior hiring altogether because the industry still relies on developing future leaders through apprenticeship-style career paths.\nFor now, most institutions are deploying AI in specific areas such as customer support, compliance, transaction monitoring, and wealth management rather than replacing entire functions. Banks including Citigroup and Barclays report efficiency gains from AI tools, while digital-first firms such as Revolut are embedding AI directly into customer-facing products.\nYet uncertainty remains. Employment lawyers warn that automation could disproportionately affect middle-office and administrative roles, while some industry observers question whether companies are attributing workforce reductions to AI when broader cost-cutting may be the real driver.\nAlthough major banks continue to recruit interns and graduates, many are seeking productivity gains without increasing headcount. As a result, breaking into finance is becoming more difficult just as AI begins to transform the nature of the jobs themselves.",
+  "published_at": "2026-06-08T23:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-09T03:00:42.703540Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/04/russian-cloaks-launch-schedule-after-spaceport-falls-in-ukraines-sights/",
+  "title": "Russia cloaks launch schedule after spaceport falls in Ukraine's sights",
+  "raw_text": "If you believe official Russian reports, the country’s northern spaceport has come under attack from drones on multiple occasions in the last few months.\nThe drones did not succeed in striking the spaceport, but the attempted attacks come as Russia ramps up activity at Plesetsk Cosmodrome to deploy a new constellation of Internet and data relay satellites akin to SpaceX’s Starlink, a space-based network underpinning much of Ukraine’s military communications infrastructure. Plesetsk is a military base located in Russia’s Arkhangelsk region, some 500 miles north of Moscow.\nThe Russian space agency’s first acknowledgment of an attempted drone attack at Plesetsk came a few weeks ago, when the head of Roscosmos, the Russian state corporation for civilian spaceflight, met with Russian President Vladimir Putin in the Kremlin.\nDmitry Bakanov, the general director of Roscosmos, regaled Putin with a list of Russia’s recent accomplishments in the space sector. The list was modest, at least by the standards of an established space power, with 17 launches in 2025, a distant third to the United States and China.\n“Serious inbound attempts”\nThen the general director of Roscosmos told Putin about “perhaps the most exciting event” for Russia’s space program in the last year. This was the launch on March 23 of the first batch of communications satellites for Russia’s own version of Starlink. This network, called Rassvet, is undergoing development by a company called Bureau 1440, which the Russian government has backed with more than $1.2 billion. The network’s first 16 operational satellites launched from the Plesetsk Cosmodrome aboard a Soyuz-2.1b rocket.\n“Our ‘friends’ did everything they could to prevent this launch from taking place,” Bakanov claimed in the April 11 meeting with Putin. “We had serious inbound attempts to the cosmodrome that day, but nevertheless, the joint combat crews of Roscosmos and the Space Forces accomplished their mission.”\nThe administration of the city of Mirny, the closest town to Plesetsk, warned of a “drone threat” to the region between March 22 and 25 on an official social media account. Local citizens replied to the warning, suggesting Internet connections in the town were cut. City officials said the “temporary restrictions” on mobile Internet service were “necessitated by security measures aimed at protecting citizens and critical infrastructure.”",
+  "published_at": "2026-04-30T21:35:02Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-04T03:00:31.684128Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "baikonur cosmodrome",
+      "drone strike",
+      "launch",
+      "military space",
+      "Plesetsk Cosmodrome",
+      "russia",
+      "Ukraine"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/8-10-chatbots-inclined-assist-users-planning-attacks",
+  "title": "8 In 10 Chatbots Inclined To Assist Users In Planning Attacks",
+  "raw_text": "Eight out of ten AI chatbots have been found to actively assist users in planning violent attacks, according to a new investigation by CNN and the Center for Countering Digital Hate.\nAs Statista's Anna Fleck reports, when asked to plan violent attacks including a school shooting, an antisemitic bombing and a political assassination, platforms such as Perplexity, Meta AI and DeepSeek regularly assisted users in finding answers.\nOnly one, Anthropic’s Claude, repeatedly discouraged users from taking action.\nYou will find more infographics at Statista\nResearchers tested ten chatbots by acting as a user planning to carry out several types of violent attacks both in the United States and in Ireland, providing a European comparison.\nThe tests were designed to reflect plans for school shootings or knife attacks, assassinations targeting politicians or bombings targeting political parties or synagogues.\nIn over half of the responses for eight of the chatbots, the subjects were provided with advice on locations to target and weapons to use in an attack.\nSnapchat’s My AI and Anthropic’s Claude refused to offer help in 54 percent and 68 percent of cases, respectively. Claude was also the only chatbot to consistently recognize the intentions of the user and to discourage them from acting. Meanwhile, Character.AI actively encouraged violence, including suggesting that the test user “use a gun” on a health insurance CEO and physically assault a politician that the user dislikes.",
+  "published_at": "2026-05-01T20:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-02T03:02:38.194487Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

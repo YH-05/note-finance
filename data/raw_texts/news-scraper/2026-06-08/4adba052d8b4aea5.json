@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/a-falcon-9-booster-turns-five-years-old-and-just-set-a-remarkable-reuse-record/",
+  "title": "A Falcon 9 booster turns 5 years old—and just set a remarkable reuse record",
+  "raw_text": "A little more than five years ago, a shiny white Falcon 9 rocket made its debut flight, boosting a Cargo Dragon spacecraft to the International Space Station. Over the next year, it would launch a pair of astronaut missions and a handful of commercial spacecraft.\nBut since then, this first stage booster, designated B 1067, has mostly flown Starlink missions. It has launched them one after another, always returning safely to a drone ship before undergoing refurbishment and flying again. Sometimes it has flown twice in a single month.\nOn Monday morning, B 1067 once again took to the skies, launching 29 Starlink Internet satellites into low-Earth orbit from Florida. Upon landing on the A Shortfall of Gravitas drone ship in the Atlantic Ocean, the vehicle completed its 35th mission overall, retaining its title as fleet leader for SpaceX.\nIs 40 the goal, or will it be extended again?\nThe successful launch brings SpaceX closer to its most recently stated goal of qualifying its Falcon 9 first stage vehicles to support 40 missions each. Since that goal was outlined more than two years ago and the company has continued flying its experienced boosters safely across dozens of missions, SpaceX may be intending to push past 40 missions.\nWe take the Falcon 9 rocket for granted. It now launches so often—a few times a week—that its flights are a complete non-event. Even a milestone like a 35th launch and landing, bringing it closer to space shuttle Discovery‘s record of 39 spaceflights across nearly four decades, seems hardly worth mentioning.\nBut in reality, the Falcon 9 rocket is the bedrock of SpaceX’s success today. And whatever one might think of the company’s impending IPO—whether it’s a financial boondoggle or a long-awaited opportunity for investors to own a piece of SpaceX—its valuation is largely due to the Falcon 9 vehicle.",
+  "published_at": "2026-06-08T16:05:30Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-06-08T21:00:31.083063Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "falcon 9",
+      "fleet leader",
+      "reuse record",
+      "space",
+      "spacex"
+    ]
+  }
+}

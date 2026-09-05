@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.404media.co/ice-appears-to-be-buying-immigrants-tax-identifiers-from-a-data-broker/",
+  "title": "ICE Appears to Be Buying Immigrants' Tax Identifiers from a Data Broker",
+  "raw_text": "Immigration and Customs Enforcement (ICE) appears to be purchasing records related to immigrants’ tax identifiers from a data broker, potentially skirting a court order that banned ICE from sourcing such information, according to Senator Ron Wyden and government procurement records reviewed by 404 Media.\nThe contract, worth nearly $10 million, is related to ITINs, or Individual Taxpayer Identification Numbers, which is the identifier many undocumented people use to file their taxes rather than a Social Security number (SSN).\n“It looks for all the world like Trump is trying to skirt the law and a court order to fuel his mass-deportation campaign,” Senator Wyden told 404 Media in an emailed statement after reviewing the procurement records. “A court has already struck down an agreement between the IRS and Homeland Security to illegally share ITINs and other personal information. A contract to buy that same information from private data brokers is a clear end-around both taxpayer privacy laws and a court order.”",
+  "published_at": "2026-06-17T14:06:09Z",
+  "author": "ilreb",
+  "collected_at": "2026-06-17T21:00:49.207846Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

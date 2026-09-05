@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/949584/microsoft-spinning-off-xbox",
+  "title": "Microsoft hasn’t ruled out spinning off Xbox",
+  "raw_text": "Microsoft is preparing to lay off a significant chunk of its Xbox division and is reevaluating the plans for its next-generation Project Helix console. It’s apparently also considering dramatically restructuring its relationship with Xbox, and hasn’t ruled out spinning it off into a separate company.\nMicrosoft hasn’t ruled out spinning off Xbox\nNothing is imminent, but nothing is off the table.\nNothing is imminent, but nothing is off the table.\nA new report from The Information suggests that Microsoft has considered some dramatic measures to make its Xbox unit more sustainable. That includes turning it into a wholly owned subsidiary, a joint venture, or even spinning it off entirely, with the possibility of selling the business. The report doesn’t suggest anything is imminent, but it does seem that new Xbox CEO Asha Sharma and Microsoft CEO Satya Nadella haven’t taken anything off the table when it comes to the future of Xbox.\nSharma has won approval to invest heavily in tentpole titles like Halo and Fallout. The former hasn’t seen a new release since 2021, and the last mainline Fallout title was Fallout 4 in 2015. She has also said that major upcoming releases Gears of War: E-Day and Clockwork Revolution would be Xbox exclusive. Though this investment in its most popular franchises is likely to come at the expense of smaller studios and games that have failed to live up to sales expectations.",
+  "published_at": "2026-06-13T16:29:47Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-13T21:00:16.156078Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Business",
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20239-orange-reveals-plans-for-new-subsea-cable-linking-europe-to-south-africa.html",
+  "title": "Orange reveals plans for new subsea cable linking Europe to South Africa",
+  "raw_text": "Orange Group announced on Tuesday that it is part of a consortium of telcos and carriers that have signed an MoU to build a new subsea cable linking the UK and Europe to South Africa.\nThis new system, dubbed “Via Africa”, will run from the UK, France and Portugal along Africa's west coast to South Africa, with landing points also slated for the Canary Islands, Mauritania, Senegal, Guinea, Côte d'Ivoire and Nigeria.\nThe consortium is also planning additional extensions for the system further south to support increased connectivity diversity and better resilience for countries along the route.\nApart from Orange Group, investors in the Via Africa project include neutral subsea cable operator Canalink, Equatorial Guinean telecoms infrastructure provider Guinéenne de Large Bande (GUILAB), International Mauritania Telecom, Orange Côte d'Ivoire, Axian’s wholesale arm Silverlinks and Senegalese telco Sonatel.\nOrange said in a statement that the Via Africa cable is designed to contribute to greater diversity and resilience of international connectivity serving Africa, by providing a different subsea route than existing infrastructure and strengthening the robustness of regional connectivity.\nAfrican countries – particularly along the west coast – are keenly aware of the need for more resilient international capacity after the ACE, WACS Main One and SAT3 subsea systems were damaged simultaneously in 2024 by an undersea rock fall near Côte d'Ivoire.\nNo details have been released on the cost of the project or how much capacity Via Africa will pack.\nOrange said the next move for consortium members is to jointly finance a cable route study for the initial phase of the project to identify the optimal cable route that balances resilience, technical feasibility and overall economic efficiency. The consortium is also currently shopping for cable supplier for the project.",
+  "published_at": "2026-05-13T03:40:18Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-13T09:01:22.111808Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

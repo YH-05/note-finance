@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20403-nokia-tapped-by-thailands-symphony-to-upgrade-mct-subsea-cable.html",
+  "title": "Nokia tapped by Thailand's Symphony to upgrade MCT subsea cable",
+  "raw_text": "Nokia announced on Wednesday that it has been selected by Thai telecoms and digital infrastructure provider Symphony Communication to upgrade the optical equipment of the Malaysia-Cambodia-Thailand (MCT) subsea cable system.\nThe project will see MCT’s legacy optical gear replaced with Nokia’s Submarine Line Terminal Equipment (SLTE), powered by its sixth-generation Photonic Service Engines (PSE-6) coherent optics. The resulting upgrade will enable up to 30 Tbps of capacity per fiber pair, three times that of legacy systems, delivering low-latency connectivity between Thailand, Malaysia and Singapore.\nNokia’s Thailand country manager Ajay Sharma said the upgrade enables MCT to support real-time use cases such as AI inference, cloud bursting and mission-critical enterprise applications, as well as reduce its carbon footprint by lowering network power consumption by 60%.\n“This upgrade will help deliver advanced, trusted connectivity across Southeast Asia and support Thailand’s ambition to become a regional hub for AI and cloud-driven digital services,” Sharma said in a statement.\nThe 1,300-km MCT cable – which began operatons in 2017 with an initial capacity of 1.5 Tbps – lands in Sihanoukville in Cambodia, Cherating in Malaysia and Rayong in Thailand. Along with Symphony, MCT is co-owned by Telcotech (a subsidiary of Cambodia’s Ezecom) and Telekom Malaysia.\nMCT is the only subsea system landing in Rayong, which sits in Thailand’s Eastern Economic Corridor (ECC), the country’s main hub for AI-driven data centre investment. Symphony CEO Alex Loh said that Thailand’s emergence as a regional digital infrastructure hub is attracting several global hyperscalers seeking trusted, high-capacity connectivity routes in Southeast Asia.\n“With Nokia’s submarine network solution, we will deliver unmatched capacity and reliability and become the connectivity partner of choice for hyperscalers and enterprises, building next-generation digital infrastructure hub in Southeast Asia,” he said.",
+  "published_at": "2026-06-17T05:27:40Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-18T03:01:19.515011Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

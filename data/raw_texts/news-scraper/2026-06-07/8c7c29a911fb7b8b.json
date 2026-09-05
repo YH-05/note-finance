@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/945088/gog-apologizes-email-nazi-symbols-the-end-of-the-sun",
+  "title": "GOG apologizes for emailing people Nazi symbols",
+  "raw_text": "GOG sent a newsletter about the game The End of the Sun on June 5th that included symbols associated with the Nazi SS. The Steam competitor issued a statement attributing the inclusion to a “series of mistakes,” including miscommunication with the German QA team, inconsistent font rendering, and being understaffed during a bank holiday, among other things.\nGOG apologizes for emailing people Nazi symbols\nThe company sent a newsletter that included the double-S symbol associated with the Nazi Schutzstaffel.\nThe company sent a newsletter that included the double-S symbol associated with the Nazi Schutzstaffel.\nThe game is a fantasy title set in a universe based on Slavic mythology and culture. So GOG included Slavic runes in its email promoting the title, including the Sowilō symbol, which means “sun.” According to one of GOG’s multiple explanations, some platforms, including mobile phones, rendered the rune as ϟ.\n“I also recognize that placing two such runes next to each other could create an unfortunate association with symbols used by the Nazi regime. This was noticed before distribution, and out of respect for local sensitivities, the material was not sent to the German community.”\nThis has led many users to question why the newsletter was sent out to other localities or why the symbol was even doubled up in the first place.\nThe developers of the game have also expressed confusion, posting in a Reddit thread, “We don’t know why GOG used symbols in their newsletter. Really, we were also totally surprised when we saw the logo in the newsletter (the old logo) and the symbols next to the newsletter title.”",
+  "published_at": "2026-06-06T17:59:37Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-07T03:00:16.722327Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News"
+    ]
+  }
+}

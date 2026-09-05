@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928289/yarbo-remove-robot-lawn-mower-backdoor",
+  "title": "Yarbo says it will remove the intentional backdoor from its robot lawn mower",
+  "raw_text": "The company behind the robot lawn mower that ran me over has changed its tune. Yarbo now plans to completely remove the remote backdoor access that could have let bad actors reprogram the robot over the internet. Yarbo customers will be able to decide whether that feature even gets installed in the first place, co-founder Kenneth Kohlmann pledges to The Verge.\nYarbo says it will remove the intentional backdoor from its robot lawn mower\nWe spoke to Kenneth Kohlmann, Yarbo co-founder.\nWe spoke to Kenneth Kohlmann, Yarbo co-founder.\nYarbo had already promised on Friday that it would tackle many security issues head-on, closing the holes that let security researcher Andreas Makris easily hijack any of the bladed robots from the other side of the globe, while also exposing email addresses and GPS locations. But when it came to the most concerning vulnerability, Yarbo stopped short at the time. The company said it would keep a remote backdoor open so “authorized internal company personnel” can help remotely troubleshoot devices — only now with more protections around it.\nShouldn’t Yarbo’s customers get to decide whether their robots have a persistent backdoor at all? When we asked last week, the company initially suggested the answer was no. “Completely removing remote diagnostic capability would reduce our ability to help customers resolve safety, connectivity, and service issues quickly, especially in cases where physical inspection is not practical,” spokepeople Showan Hou and Maggie Zhou told us on Saturday. The company suggested it was still considering solutions and might let users opt out.\nBut by Monday, when Kohlmann called me from the airport, the company had decided to go a step further. The company’s making it an opt-in feature that you can install if and only if you want remote help. “In the future there should be no remote backdoor unless the user decides to opt-in,” he tells The Verge.\nAbove: my original video about the Yarbo robot lawn mower.\nKohlmann warns it’ll take some time to remove the tunnel, and the required files to install a new version may still technically be loaded on each robot’s internal storage. “It would most likely be a setup script that sits on the machine and doesn’t do anything unless the user triggers it,” he says. “If the user triggers it, then it installs a temporary one-time tunnel.”\nYou’d probably try uploading your log file to Yarbo tech support before going that far, he suggests. If that’s not enough to diagnose the problem, you could optionally install the remote access feature as well.\nIt may be difficult to tell if Yarbo keeps its promise to remove the remote access tunnel by default, because it’s already locking down its robots (as it should!) following our story. Kohlmann says every device should soon have a unique root password, one that Yarbo won’t provide to end users; firmware updates have already rolled out to the first 1,000 machines and are coming to additional waves of robots.\nBut Kohlmann says the company is now in touch with Makris, and it’s possible the security researcher will be able to validate the changes.",
+  "published_at": "2026-05-11T22:40:20Z",
+  "author": "Sean Hollister",
+  "collected_at": "2026-05-12T03:00:16.887381Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Tech"
+    ]
+  }
+}

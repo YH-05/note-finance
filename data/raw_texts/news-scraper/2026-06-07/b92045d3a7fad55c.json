@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/japan-may-be-hiding-the-best-ai-value-barclays-says.html",
+  "title": "Japan may be hiding 'the best AI value,' Barclays says",
+  "raw_text": "Investors chasing Asia's artificial intelligence rally may want to look beyond the region's top-performing stock markets and consider Japan instead, according to Barclays. While South Korea and Taiwan have emerged as top beneficiaries of the AI-driven semiconductor boom, their equity markets have become increasingly concentrated in a handful of chipmakers, making them more vulnerable to swings in the technology cycle, Barclays strategist Ajay Rajadhyaksha wrote in a recent note. \"The best AI value might be hiding in Tokyo,\" he said, noting that the Japanese market offers exposure to multiple parts of the AI supply chain without relying on a single segment such as memory chips or foundry services. The Nikkei 225 has climbed about 32% this year, lagging Korea and Taiwan but offering broader sector diversification. Semiconductor-related firms such as Advantest and Tokyo Electron are among the benchmark's largest constituents, while other major holdings span retail, telecommunications, pharmaceuticals and chemicals. The top 10 stocks account for about 45% of the index, far below the concentration levels seen in Taiwan and South Korea. Samsung Electronics and SK Hynix account for more than half of the Kospi, while Taiwan Semiconductor Manufacturing Co. makes up roughly 40% of the Taiex. \"The Kospi and Taiex have given the better returns,\" Rajadhyaksha wrote. \"The Nikkei is likely giving the better risk-reward now.\" Japanese companies also occupy critical positions throughout the semiconductor value chain, from fabrication equipment and specialty materials to NAND flash memory production, Barclays said. \"The Nikkei has a preponderance of stocks which are levered or leveraged to the AI thematic. So part of the reason you see a big move in Nikkei is because AI stocks have done well,\" said Chetan Seth, equity strategist at Nomura. \"And if you look at the largest stock now, it's SoftBank.\" \"The AI tech rally still has legs, I think Japan should also benefit,\" Seth told CNBC at the Nomura Investment Forum Asia. Beyond AI, Barclays sees support from a broader transformation in Japan's economy and corporate sector. Governance reforms, rising shareholder returns, accelerating share buybacks and the unwinding of cross-shareholdings are helping improve capital efficiency, while the return of inflation after decades of stagnation is boosting nominal earnings growth.",
+  "published_at": "2026-06-04T00:47:40Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.643651Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

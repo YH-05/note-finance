@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/13/march-existing-home-sales-fall-3-point-6-percent.html",
+  "title": "March existing home sales fell 3.6%",
+  "raw_text": "CNBC's Rick Santelli reports on the latest economic data to cross the tape.",
+  "published_at": "2026-04-13T14:14:46Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.114306Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/apple-says-its-fixed-the-awful-search-function-for-emails-photos/",
+  "title": "Apple says it’s fixed the awful search function for emails, photos",
+  "raw_text": "If you are an Apple device user who has ever tried and failed to find an email message that you know you’ve received, or a photo you know you’ve taken, has Apple got news for you. The company said Monday at its WWDC 2026 event that it realized Search didn’t work well. So, it has completely rebuilt it.\n“We’ve all had that moment where you search for something you know is there, but it just won’t show up,” Stacey Ford, vice president of OS Program Management, said during the WWDC opening keynote. “So on iOS, iPadOS and macOS, we’ve rebuilt the foundation of search that powers Spotlight, Photos, and Mail. At its core is the Search Index, a rich catalog your device builds of all your content, so it can understand what you have and where to find it.”\nFord says that the company re-architected Search so it will reindex both new and older content. Perhaps most hopeful of all, she said that the mail app will get a new “ranking system” that should surface the mail you are looking for, whenever it was sent.\nAs a long-time iPhone user myself, I have my fingers crossed that Apple’s new search system will work as promised. I can’t tell you how many times I’ve tried to find a travel itinerary or an email about something important that my husband (an Android user) sent me, only for the device to confidently present me with an old email that doesn’t even include the terms I’ve searched for.\nAnd, if it can help me find the photo I’m seeking, too, hurrah!",
+  "published_at": "2026-06-08T17:53:29Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-06-08T21:00:26.733692Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Gadgets",
+      "TC",
+      "Apple",
+      "iOS",
+      "iPhone",
+      "wwdc",
+      "WWDC 2026"
+    ]
+  }
+}

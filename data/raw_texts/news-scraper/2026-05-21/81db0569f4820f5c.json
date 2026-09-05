@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20283-major-wind-power-deal-for-brazils-largest-data-centre.html",
+  "title": "Major wind power deal for Brazil’s largest data centre",
+  "raw_text": "Omnia, a Brazilian data centre platform, has signed a 20-year energy supply deal with renewable energy firm Casa dos Ventos to use wind to power a planned data centre, potentially the largest in Brazil.\nThe data centre is sited at the Pecem port complex in the northeastern state of Ceara. The deal, according to Reuters, is worth US$2 billion.\nWe reported in June last year that Casa dos Ventos had been given the go-ahead from the country’s power grid regulator for what was then described as a 300-megawatt data centre project. It is set to host TikTok owner ByteDance. Patria joined the scheme the following month; the firm is expected to act as the main developer on the project, on behalf of Casa dos Ventos.\nThe data centre is said to represent a total investment of more than US$39 billion. It is still some way from start-up, however. Building work began in January this year. Initial operations are expected to commence in Q3 in 2027. Expansion will take place in phases until 2029.\nThe power will be supplied from the 630MW Ibiapaba wind complex and the Dom Inocencio wind farm in Piauí state in northeast Brazil, both of which are owned and operated by Casa dos Ventos. The deal is structured as a self-production model, providing Omnia a stake in Casa’s assets.\nReuters says that environmental groups have raised concerns about water use and potential impacts on nearby indigenous communities. Omnia’s response is that the project meets environmental requirements, is fully licensed and will need 'minimal water use', which it describes as equivalent to that of up to 50 households\nThe Data Centre Dynamics website says Casa dos Ventos is one of Brazil's largest renewable energy developers. It has an operating and under-development portfolio of approximately 33.4GW of wind and solar projects, including 12GW in a joint venture with French energy giant TotalEnergies.\nBrazilian investment firm Patria Investimentos announced the launch of Omnia, a hyperscale data centre platform with a strong focus on the growing demand for artificial intelligence infrastructure, in May last year.",
+  "published_at": "2026-05-21T07:23:34Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-21T09:01:20.474637Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

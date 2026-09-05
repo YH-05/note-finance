@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/political/trump-says-medicare-will-soon-cover-weight-loss-drugs",
+  "title": "Trump Says Medicare Will Soon Cover Weight-Loss Drugs",
+  "raw_text": "President Donald Trump announced on May 1 that Medicare patients will soon be able to obtain coverage for weight-loss drugs for $50 per month.\nSpeaking at an event in Florida, Trump said the coverage for the weight-loss and diabetes medications will begin in July, referencing drugs that contain semaglutide, a GLP-1 receptor agonist.\n“Today, I’m thrilled to announce that starting on July 1, we will also provide Medicare patients with the coverage for weight-loss drugs like Ozempic, Zepbound, Wegovy. Will be available for $50 a month,” he said.\nIn December, the Centers for Medicare & Medicaid Services (CMS) announced a voluntary model known as Better Approaches to Lifestyle and Nutrition for Comprehensive Health to expand access to GLP-1 medications for weight management and metabolic health, allowing Medicare Part D plans and state Medicaid agencies to cover the drugs while negotiating lower prices.\nThe model features CMS negotiating directly with manufacturers for reduced net prices, out-of-pocket caps, standardized coverage criteria, and lifestyle support programs.",
+  "published_at": "2026-05-02T16:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-02T21:00:40.941812Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

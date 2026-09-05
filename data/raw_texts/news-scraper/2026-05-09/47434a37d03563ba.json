@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/us-opens-probe-into-startup-avride-self-driving-crashes-in-texas.html",
+  "title": "U.S. opens probe into startup Avride self-driving crashes in Texas",
+  "raw_text": "The National Highway Traffic Safety Administration said Friday it is opening an investigation into a series of crashes involving startup Avride's autonomous vehicles that raised questions about their performance.\nNHTSA said the vehicles' behavior may indicate excessive assertiveness and insufficient capability, which \"may also constitute traffic safety violations.\" Some of the crashes resulted in property damage and one reported minor injury.\nNHTSA said the vehicles had executed lane changes into other vehicles and failed to avoid vehicles or objects in the road, resulting in crashes.\nNHTSA noted that Avride operates some of its AVs on Uber's platform and has offered passenger services in Dallas since December, where many of the incidents occurred. NHTSA cited 16 crashes of concern.\nAvride said it welcomes \"the opportunity to provide the agency with a deeper understanding of our safety protocols and technology.\" It added that in all cases \"the vehicle was under the supervision of a trained safety operator on board. In most cases, the vehicle was traveling at low speeds and many of the events were precipitated by the actions of other road users.\"\nThe company said it has \"implemented targeted technical and operational mitigations to address our findings from each reported incidents.\"\nAvride, which uses Hyundai's Ioniq 5 platform, said last month it has a fleet of 200 vehicles and is adding dozens more each month.\nNHTSA has opened several investigations into self-driving cars and advanced driver assistance systems in recent years.\nThe agency said a preliminary review of crash videos showed instances of vehicles changing lanes into the path of others, failing to slow or stop for traffic ahead, and striking stationary objects partially blocking lanes.\nThe investigation will assess the scope and severity of potential problems and risks to passengers and other road users, including technical and operational factors and safeguards.\nUber and Hyundai did not immediately respond to requests for comment.",
+  "published_at": "2026-05-08T15:08:49Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.669955Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

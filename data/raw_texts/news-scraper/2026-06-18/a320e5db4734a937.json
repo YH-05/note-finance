@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/stocks-making-the-biggest-moves-premarket-.html",
+  "title": "Stocks making the biggest moves premarket: Intel, SpaceX, Micron, Carnival & more",
+  "raw_text": "Check out the companies making the biggest moves in premarket trading: Intel — The semiconductor company soared nearly 9% after President Donald Trump said in a Truth Social post that Intel struck a deal with Apple to design and build chips in the United States. Shares of Apple gained less than 1%. Chip stocks — Chipmakers rose on the back of the Intel announcement. Marvell Technology rallied nearly 7%, while Lam Research and Applied Materials both rose about 5%. Memory stocks — Shares of memory companies also moved higher. Western Digital gained 5.6%, while Micron Technology and Sandisk each climbed about 4%. Pfizer — The pharma giant fell 1% after it said CFO Dave Denton would step down from his role on Aug. 15. The company named senior vice president of finance Cecile Guegan as interim finance chief. SpaceX — The space company shed 1.2% following its 5% loss on Wednesday. The move follows its more than 40% surge last week after its historic debut. Accenture — The global professional services company tumbled 13% following the announcement it agreed to acquire asset intelligence company runZero and device and software supply chain security company Netrise, as well as a majority stake in cybersecurity company Dragos. The combined deal is valued at approximately $4.175 billion. Cruise operators — Falling oil prices pushed shares of cruise operators higher. Carnival advanced 3%, while Royal Caribbean and Norwegian Cruise Line added roughly 2%. Airlines — Shares of airliners also gained on higher oil prices, with United Airlines , Delta Air Lines and American Airlines all rising about 2%. Smith & Wesson — The gunmaker jumped 14% after it reported an earnings and revenue beat and said its handgun sales to sporting goods retailers jumped 23% year over year. Handguns represented 80% of the units Smith & Wesson shipped in the quarter. Correction: A previous headline misspelled SpaceX.",
+  "published_at": "2026-06-18T11:47:01Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.518496Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/946744/meta-website-activity-personalize-feeds",
+  "title": "Meta will use your activity on other websites to personalize your feeds",
+  "raw_text": "Meta is planning to use the data shared by other businesses to personalize your feed and its AI responses. In a blog post on Tuesday, Meta explains that it already uses your off-platform activity, like the games you play or your purchases on other websites, to serve you ads. But now it’s expanding the scope of the content it personalizes across Facebook and Instagram.\nMeta will use your activity on other websites to personalize your feeds\nBeginning in July, you may start seeing content related to the games you’ve played, your online purchases, and more across your feeds.\nBeginning in July, you may start seeing content related to the games you’ve played, your online purchases, and more across your feeds.\nFor example, Meta says if you bought a tent online recently, you might see camping-related videos in your Reels feed. “We aren’t collecting any new data as part of this update,” the blog post says. “This is about using information that businesses already send to us to further improve your experience.”\nMeta spokesperson Emil Vazquez tells The Verge that the company previously only used the activity across its apps, such as likes, views, and follows, to tailor the content you see. The company also started using conversations with its AI assistant to personalize ads last year.\nAs part of this update, Meta is combining the options that control the company’s access to off-platform data. To prevent Meta from using data shared by other businesses to personalize ads, your feeds, or AI responses, you’ll just need to turn off the “Activity from other businesses” setting.\nVazquez says the update is rolling out globally, but will exclude some locations at launch, including the European region, the UK, Brazil, Thailand, South Africa, Turkey, South Korea, Ecuador, Nigeria, and Kenya.",
+  "published_at": "2026-06-09T15:00:00Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-09T21:00:17.472252Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Facebook",
+      "Instagram",
+      "Meta",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

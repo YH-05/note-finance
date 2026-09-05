@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/stocks-closed-april-at-records-but-bonds-are-signaling-a-warning.html",
+  "title": "Stocks closed April at records. But something's happening that could break the boom",
+  "raw_text": "Just as investors in April looked past the effect of the U.S.-Iran war to focus instead on a reignited artificial intelligence trade and strong corporate profits, a warning signal came from the bond market. On Thursday, the 30-year U.S. Treasury bond yield briefly rose above 5%. In early trading Friday, the 30-year yield stands at 4.979%. The 5% threshold is a level that Bank of America strategist Michael Hartnett calls the \"Maginot Line\" — referring to the French defensive system built to stop a German invasion in World War II — for the long-term bond. The 30-year Treasury bond also flirted with a 5% yield in late March, when stocks were hitting their lows from the war in the Middle East and yields were hitting their highs amid inflation concerns driven by higher oil prices. Then in April, the S & P 500 jumped more than 10%, its best month since November 2020, while the Nasdaq Composite surged 15%, its best one-month performance in six years. But lately the 30-year bond yield has returned to its late-March level as crude oil again pushes higher after dipping when the U.S. and Iran agreed to a ceasefire. While the violence has stopped for now, the Strait of Hormuz remains shut with no signal from Iran on when it might re-open. A U.S. naval blockade of the passageway — through which 20% of the world's oil passed before the war — is still in place. US30Y mountain 2026-02-27 U.S. 30-year treasury bond yield since February 27, 2026. Western Texas Intermediate crude futures are selling for $103 a barrel Friday, renewing concern about an inflation shock, which could push interest rates higher. Gasoline prices nationwide surged to a national average of $4.30 per gallon over the past week, up from $4.03 a week ago . Hartnett thinks that the 5% level on the 30-year bond yield probably won't break. That's partially because Treasury Secretary Scott Bessent said in April the U.S. is considering providing currency swap lines to Middle East and Asian nations taking heavy economic tolls from the war — and which own an estimated $3.8 trillion of U.S. Treasurys, according to Bank of America. President Trump's administration will likely focus on reversing inflation to avoid the political consequences of higher prices, putting downward pressure on bond yields, Hartnett said. But the strategist also warned that typically bubbles burst after sudden, sharp moves in yields, citing experiences in Japan in 1989, the U.S. in 1999 and China in 2007. \"Should 5% Maginot Line break badly,\" Hartnett wrote, \"then the door to doom starts to open.\"",
+  "published_at": "2026-05-01T13:34:20Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.392997Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

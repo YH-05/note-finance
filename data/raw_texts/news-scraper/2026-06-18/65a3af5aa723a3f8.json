@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/poland-moves-tax-fuel-windfalls-earned-during-iran-war",
+  "title": "Poland Moves To Tax Fuel Windfalls Earned During Iran War",
+  "raw_text": "Poland's government has approved a one-off windfall tax on fuel companies that benefited from soaring energy prices during the U.S.-Iran-Israel war, seeking to recover part of the billions spent protecting consumers from higher fuel costs.\nThe proposed levy would impose a 60% tax on excess profits generated between March and December 2026, during the closure of the Strait of Hormuz. The Polish Finance Ministry estimates the measure will raise around 4 billion zloty $1.1 billion.\nUnder the proposal, excess profits would be calculated using fuel sales margins that exceed a company's average 2025 margin by more than 20%, reflecting profits from an extraordinary geopolitical supply shock instead of improved business performance.\n\"Exceptional economic and geopolitical conditions\" created unusually high profits across parts of the fuel sector while imposing significant costs on the state budget, the Finance Ministry said in a statement carried by Polish news outlets.\nState-controlled energy giant Orlen is expected to bear the largest share of the tax burden, accounting for roughly 60% of the projected tax base according to the government's impact assessment.\nThe proposal follows months of emergency measures introduced by Warsaw to shield households and businesses from soaring fuel prices. Poland temporarily reduced VAT and excise duties on fuels and imposed price controls designed to ensure consumers benefited from the tax cuts. According to government estimates, the fuel excise reduction and reduced VAT collections cost Poland around $435 million a month.\nThe measure still faces political hurdles, though. Tusk's coalition controls parliament; however, the legislation must also be signed by President Karol Nawrocki, an opposition ally who has repeatedly blocked government fiscal initiatives.\nThe government initially proposed a 75% windfall tax before reducing the rate to 60% following consultations with industry groups, which warned that the original proposal would have pushed the effective tax burden on some companies to nearly 94%.",
+  "published_at": "2026-06-18T06:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-18T09:00:41.503525Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605211396",
+  "title": "ダウ平均は反落して始まる　２５３ドル安　ナスダックも反落＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は反落して始まる ２５３ドル安 ナスダックも反落＝米国株オープン\nダウ平均 49756.03（-253.32 -0.51%）\nナスダック 26169.14（-101.22 -0.39%）\nCME日経平均先物 61230（大証終比：-310 -0.51%）\n株探ニュース",
+  "published_at": "2026-05-21T13:35:00Z",
+  "author": null,
+  "collected_at": "2026-05-21T15:00:22.439063Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

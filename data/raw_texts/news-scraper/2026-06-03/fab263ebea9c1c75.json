@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/software-stocks-just-passed-a-big-milestone.html",
+  "title": "Software stocks just passed a big milestone",
+  "raw_text": "Could it be \"SaaSpocalypse Never?\"\nSoftware stocks are surging back from an artificial intelligence-driven sell-off that saw the group shed almost 40% from highs last year, rallying about 6% Monday in a surge that brought the year-to-date performance in the iShares Expanded Tech-Software Sector ETF (IGV) into positive territory for the first time. The fund is now less than 9% below its all-time high from September after a 44% rally off its April low.\nCybersecurity stocks are leading the charge, with the Amplify Cybersecurity ETF (HACK) now up more than 30% on the year on the back of gains in companies like CrowdStrike and Palo Alto Networks, up 67% and 63% in 2026, respectively.\n\"AI equals more cybersecurity demand as there is more to secure,\" said Christian Magoon, CEO of Amplify ETFs, which owns HACK. \"We think this also plays into M&A potential for the industry.\"\nSoaring prices are rewarding options traders who had been leaning into the comeback for weeks, pivoting as early as mid-May from the VanEck Semiconductor ETF (SMH) to IGV, where call volumes started outpacing puts. That trend continued Monday as the number of calls traded more than doubled puts, compared to in SMH, where put volume was three times that of calls. In the IGV, about twice as many calls were bought than sold.\n\"This software rally is white-hot like the Knicks in the NBA playoffs, proving the doubters wrong by the day,\" Dan Ives, managing director and senior equity research analyst at Wedbush Securities, said via text.\nBulls have a fresh set of challenges ahead of them: a string of major software earnings in the coming weeks that includes Palo Alto Networks on Tuesday and CrowdStrike on Wednesday, and Oracle later this month.\nBig flows into Oracle, the biggest weighting in the IGV ETF, look encouraging. Options premium reached $1.3 billion in the stock Monday, with $1 billion tied to call contracts. More than three times as many calls traded as puts by volume, and more calls were bought than sold, with more than 114,000 calls likely bought. By comparison, just over 25,000 puts were purchased.\nMore imminently, traders expect a big move around CrowdStrike earnings on Wednesday. Options prices are implying an almost 9% move for the stock heading into the print, but the options market has overpriced the actual move in the last seven quarters, according to Cboe's LiveVol data.",
+  "published_at": "2026-06-02T11:13:29Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.123255Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

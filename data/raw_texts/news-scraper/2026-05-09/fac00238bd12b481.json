@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/startup-propy-real-estate-deals-blockchain.html",
+  "title": "How startup Propy is deploying $100 million to put real estate deals on the blockchain",
+  "raw_text": "Key Points\n- Propy, a Miami-based blockchain technology, has been trying to modernize the closing process for residential homes.\n- It recently secured a $100 million credit facility from Metropolitan Partners Group, a private investment firm.\n- Propy is also using its new funding to develop an AI agent to help facilitate deals.",
+  "published_at": "2026-05-07T15:57:36Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.687002Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

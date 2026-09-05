@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20240-telekom-slovenije-turns-on-5g-sa-network-with-gear-from-ericsson.html",
+  "title": "Telekom Slovenije turns on 5G SA network with gear from Ericsson",
+  "raw_text": "Ericsson announced on Tuesday that Telekom Slovenije has switched on Slovenia’s first 5G Standalone (5G SA) mobile service after completing an extensive modernization and expansion of its 5G network.\nThe 5G SA network is powered by Ericsson’s 5G RAN and a full-stack core network, including Ericsson’s dual-mode 5G core solution and cloud native infrastructure solution.\nEricsson said the deployment also includes its Cloud Core Exposure Server, which enables Telekom Slovenije to expose its standardised network APIs to enterprise customers, partners and developers.\nThe upgraded network features a fully virtualized architecture and supports next-generation fixed wireless access (FWA), Voice over New Radio (VoNR) and network slicing, said Telekom Slovenije management board member Vesna Prodnik.\n“This investment lays the foundation for innovation across key sectors, from transport, logistics, media and public safety, while bringing us closer to our goal of reaching 99% population coverage with state-of-the-art 5G,” Prodnik said in a statement.\n“The network delivers the reliability, low latency, and scalability required to support both consumer, business and mission-critical services,” added Aleksandar Todorovski, country manager of Ericsson Slovenia.",
+  "published_at": "2026-05-13T04:06:53Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-16T03:01:20.490694Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

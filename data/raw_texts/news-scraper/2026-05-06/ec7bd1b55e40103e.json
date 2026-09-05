@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/personal-finance/adp-employment-report-signals-biggest-job-additions-15-months-april",
+  "title": "ADP Employment Report Signals Biggest Job Additions In 15 Months In April",
+  "raw_text": "With non-farm payrolls looming, we get another glimpse at the labor market today from the ADP Employment Report which shows the US economy added 109k jobs in April (a slight disappointment relative to +120k exp). That is the tenth straight month of job additions and strongest monthly addition since January 2025...\nSource: Bloomberg\nUnder the hood, Goods-producing jobs rose 15,000 while Service-providing jobs rose 94,000.\n\"Small and large employers are hiring, but we're seeing softness in the middle,\" said Dr. Nela Richardson Chief Economist, ADP.\n\"Large companies have resources to deploy, and small ones are the most nimble, both important advantages in a complex labor environment.\"\nHealth care's continued strength, along with a rebound in trade, transportation, and utilities, fueled last month's acceleration in hiring.\nPay growth for job-stayers slowed slightly to 4.4 percent, but for job-changers, year-over-year pay gains were steady at 6.6 percent.\nIs the economy transforming from 'no hire, no fire' to 'higher hire, still no fire' gains (see JOLTS' record hiring).",
+  "published_at": "2026-05-06T12:23:16Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-06T15:00:40.905080Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

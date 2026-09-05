@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/trump-wants-1b-to-protect-white-house-ballroom-from-drones-and-other-threats/",
+  "title": "Trump wants $1B to protect White House ballroom from drones and other threats",
+  "raw_text": "President Donald Trump’s latest pitch for using taxpayer dollars to secure his White House ballroom featured a militarized building—including a rooftop hardened against drone strikes and a “drone port” that could potentially house military drones.\nThe remarks came on May 19 as Trump gave reporters a personal tour of the ballroom project that has already involved the demolition of the White House mansion’s East Wing. The president spoke of installing a rooftop drone base “for unlimited numbers of drones” operated by the US military as a “drone port that would protect all of Washington,” according to Reuters. He also highlighted a ballroom roof made from “impenetrable steel” that would supposedly be “drone-proof” against potential drone strikes.\nTo pay for such measures, Trump has been urging Republican lawmakers in the US Congress to approve $1 billion in taxpayer funding to provide a wide variety of “security adjustments and upgrades” for his ballroom project. The taxpayer-backed security enhancements would be separate from the $400 million construction cost for the ballroom project that has been funded by private donors, including companies such as Amazon, Apple, Coinbase, Comcast, Google, HP Inc., Lockheed Martin, Meta, Micron Technology, Microsoft, Palantir, Ripple, and T-Mobile.\nIt’s unclear whether the anti-drone security measures and rooftop drone port will actually be incorporated into the ballroom building design. But Trump’s comments coincide with the US government’s new efforts to protect buildings and crowd events against potential threats posed by drones.\nIn January 2026, the Pentagon issued a “Guide for Physical Protection of Critical Infrastructure” that recommends “hardening” security measures for physically blocking drone access to facilities or events. Such physical obstacles could include “concrete walls, enclosures or hardened roofs” designed to protect against drone surveillance or drone strikes, along with overhead netting and cables. The recommendations for more passive physical protection represent a “notable shift” in the US military’s stance toward anti-drone defenses, The War Zone reported.",
+  "published_at": "2026-05-20T18:59:52Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-20T21:00:31.751498Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Tech",
+      "AI drones",
+      "anti-drone",
+      "drones",
+      "military drones",
+      "President Donald Trump",
+      "trump white house",
+      "White House"
+    ]
+  }
+}

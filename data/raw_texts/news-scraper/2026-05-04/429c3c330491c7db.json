@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/april-fed-meeting-statement-redline.html",
+  "title": "Here's what changed in the new Fed statement",
+  "raw_text": "This is a comparison of Wednesday's Federal Open Market Committee statement with the one issued after the Fed's previous policymaking meeting in March.\nText removed from the March statement is in red with a horizontal line through the middle.\nText appearing for the first time in the new statement is in red and underlined.\nBlack text appears in both statements.",
+  "published_at": "2026-04-29T18:06:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.081628Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

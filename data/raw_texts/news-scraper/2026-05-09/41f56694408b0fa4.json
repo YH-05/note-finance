@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/23/american-airlines-ceo-merger-united.html",
+  "title": "American Airlines CEO says merger with United would be 'bad for customers'",
+  "raw_text": "American Airlines CEO Robert Isom said a potential merger with rival United Airlines would hurt consumers and would be anticompetitive.\nUnited CEO Scott Kirby floated the idea of a possible merger with American to a Trump administration official earlier this year, according to people familiar with the matter, eyeing a global expansion that could take on other international carriers.\n\"Merging the world's two largest airline together, that was a nonstarter from the get-go,\" Isom told CNBC's Phil LeBeau on Thursday, shortly after the company reported first-quarter results. \"At the end of the day there's no way to view that as anything but anticompletive, bad for customers, ultimately bad for American Airlines, bad for our team.\"\nIsom declined to say if United made a formal inquiry to American.\n\"I'm not going to get into details,\" he said. On Friday, American issued a statement saying that it is \"not engaged with or interested in any discussions regarding a merger with United Airlines.\"\nPresident Donald Trump said he was against the idea earlier this week.\n\"I don't like having them merge,\" he told CNBC's \"Squawk Box\" on Tuesday morning. He said he would, however, like someone to buy struggling discount carrier Spirit but he also suggested that the federal government could \"help that one out.\"\nThe Trump administration is currently in advanced talks for a rescue package for Spirit that could give the government a significant ownership stake in the discount carrier, people familiar with the matter told CNBC.\nAmerican has trailed competitors United — where Kirby previously served as president — and Delta Air Lines, and is trying to catch up through investments in premium products, like new planes and lounges.",
+  "published_at": "2026-04-23T14:09:51Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.734172Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

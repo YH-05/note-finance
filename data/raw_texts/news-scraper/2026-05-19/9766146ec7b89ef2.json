@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/civilization-vii-finally-lets-you-build-a-civilization-that-stands-the-test-of-time/",
+  "title": "Civilization VII finally lets you build a civ that stands the test of time",
+  "raw_text": "“Build a civilization to stand the test of time.” That was the promise on the box of Sid Meier’s Civilization, the first in a long-running strategy game franchise that has evolved over 35 years and seven mainline entries.\nCiv 7 introduced a new approach to play wherein players would change civilizations from their initial selection twice by the end of a game. Lots of players said, “Wait a minute: we’re literally not building a civilization to stand the test of time anymore.” After such a negative reception at launch, longtime series fans began to wonder whether the franchise would continue to stand the test of time.\nIt’s clearly not a coincidence that the new, major update for the game reaching players today is titled “Test of Time.” It’s a major reworking of several of the game’s key systems, and it reintroduces the ability to play one civ from beginning to end while retaining some of the big ideas that defined Civ 7 at launch.\nI’ve spent the past week playing the game with the Test of Time update, and I spoke with two of the game’s senior developers—the franchise’s creative director, Ed Beach, and series head of product Matt Schembari—about the choices they made, reacting to player feedback, and competing ideas about what Civ is to players.\nA quick note on ages\nFor those who haven’t been following Civ 7 up to this point: Another major change to the game is that it has been broken into three distinct ages: Antiquity, Exploration, and Modern. Each has its own tech and culture tree, game mechanics, and, until now, civilizations to pick from.\nThe intent behind it was to allow the game’s designers to solve some longtime problems with how traditional Civ games could lag or have balance problems at specific stages. If that in itself is too much deviation from the classic formula for you, it’s unlikely Test of Time will make you like Civ 7 any more than you might have a year ago. It’s still a foundational framework for this game. Test of Time gives players a lot more freedom inside that structure, but it does not remove the structure itself.",
+  "published_at": "2026-05-19T16:00:01Z",
+  "author": "Samuel Axon",
+  "collected_at": "2026-05-19T21:00:34.800150Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "4X",
+      "civilization",
+      "Civilization VII",
+      "Ed Beach",
+      "firaxis",
+      "Game Design",
+      "strategy"
+    ]
+  }
+}

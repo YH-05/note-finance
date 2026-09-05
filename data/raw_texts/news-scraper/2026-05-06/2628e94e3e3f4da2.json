@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/warner-bros-discovery-net-loss-paramount-deal.html",
+  "title": "Warner Bros. Discovery books $2.9 billion net loss tied to Paramount deal, restructuring costs",
+  "raw_text": "Warner Bros. Discovery on Wednesday reported a staggering net loss for the first quarter, but it has an explanation.\nThe company booked a net loss of $2.9 billion, far larger than the net loss of $453 million it reported in the year-earlier quarter.\nThe figure included $1.3 billion of \"pre-tax acquisition-related amortization of intangibles, content fair value step-up and restructuring expenses\" as well as the $2.8 billion termination fee that Warner Bros. Discovery owed Netflix after their pending transaction fell through in February.\nNetflix walked away from its proposed deal to buy WBD's assets after Paramount Skydance came in with a higher offer. Paramount agreed to pay the termination fee as part of its agreement to buy the entirety of WBD, but the cost lives on WBD's books until the close of the deal.\nSince the amount is refundable to Paramount under certain circumstances, such as if it were to terminate the deal with Paramount for a higher offer, the obligation would be shifted to WBD.\nParamount's proposed acquisition received approval from WBD shareholders in April and is currently in the midst of a regulatory review process. On Monday, Paramount said in its earnings release that it has \"made significant progress\" toward closing the deal, which it expects to be completed in the third quarter.\nWBD on Wednesday also reported first-quarter revenue that was down 1% year over year to $8.89 billion. The company's adjusted earnings before interest taxes, depreciation and amortization was up 5% to $2.2 billion. WBD had $33.4 billion in gross debt at the end of the quarter.\nStreaming continued to be a highlight for the company.\nTotal streaming revenue was up 9% to about $2.89 billion as subscriber revenue increased due to the expansion of HBO Max — WBD's flagship streaming platform — in international markets. Advertising revenue for the unit was up 20% due to an increase in customers subscribing to the ad-supported tier.\nThe company said in a shareholder letter it exceeded its guidance of more than 140 million global streaming customers at the end of the first quarter, and it remains on track to surpass 150 million global subscribers by the end of the year.\nWBD's portfolio of pay TV networks, which includes CNN, TBS and the Discovery Channel, continued to weigh on the company. The linear TV networks reported $4.38 billion in revenue, down 8% from the prior year. The company said linear advertising revenue was down 11%, which was primarily driven by the absence of NBA media rights from its portfolio.\nRevenue for the film studio division, meanwhile, increased 35% to $3.13 billion year over year.",
+  "published_at": "2026-05-06T20:50:16Z",
+  "author": null,
+  "collected_at": "2026-05-06T21:18:32.464419Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

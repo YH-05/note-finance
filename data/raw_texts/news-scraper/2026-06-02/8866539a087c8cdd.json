@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://discuss.grapheneos.org/d/36001-grapheneos-speech-services-version-2-released",
+  "title": "GrapheneOS Speech Services version 2 released",
+  "raw_text": "GrapheneOS Speech Services version 2 released:\nhttps://github.com/GrapheneOS/SpeechServices/releases/tag/2\nSee the linked release notes for a summary of the improvements over the previous release and a link to the full changelog.",
+  "published_at": "2026-06-01T18:39:53Z",
+  "author": "pretext",
+  "collected_at": "2026-06-02T15:00:41.659605Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

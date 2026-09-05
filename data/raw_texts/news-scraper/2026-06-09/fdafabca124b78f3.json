@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606091313",
+  "title": "ナスダックが下げに転じる　ダウ平均も伸び悩む＝米国株速報",
+  "raw_text": "【市況】ナスダックが下げに転じる ダウ平均も伸び悩む＝米国株速報\nダウ平均 50941.14（+155.13 +0.31%）\nナスダック 25892.08（-37.58 -0.14%）\nCME日経平均先物 66155（大証終比：+755 +1.14%）\n株探ニュース",
+  "published_at": "2026-06-09T14:17:00Z",
+  "author": null,
+  "collected_at": "2026-06-09T15:00:17.511397Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

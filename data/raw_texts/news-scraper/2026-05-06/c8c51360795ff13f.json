@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070156",
+  "title": "[BYND] ビヨンドミート　1Q減収赤字縮小　売上高15％減5820万ドル、営業赤字4110万ドル、EPSマイナス0.06ドル",
+  "raw_text": "ビヨンド・ミート<\nBYND>の2026年度第1四半期（1月1日-3月28日）の業績は減収、営業赤字縮小だった。\n米現地5月6日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比15.3％減の5820万ドルとなった。営業赤字は4110万ドルと、前年同期の6437万ドルから縮小。1株あたり損失（EPS・希薄化後）は0.06ドルとなった。前年同期は0.80ドルだった。\nビヨンド・ミート<\nBYND>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-06T20:45:03Z",
+  "author": null,
+  "collected_at": "2026-05-06T21:00:21.907389Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

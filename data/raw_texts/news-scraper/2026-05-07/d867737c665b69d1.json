@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html",
+  "title": "China blocks Meta's $2 billion takeover of AI startup Manus",
+  "raw_text": "China's state planner on Monday called for Meta to unwind its $2 billion acquisition of Manus, a Singaporean artificial intelligence startup with Chinese roots.\nThe decision to prohibit foreign investment in Manus was made in accordance with laws and regulations, the National Development and Reform Commission said in a brief statement. It added that it has asked the parties involved to withdraw the acquisition transaction.\nShares of Meta closed 0.53% higher on Monday.\nThe deal had attracted scrutiny from both China and Washington, as lawmakers in the U.S. have prohibited American investors from backing Chinese AI companies directly. Meanwhile, Beijing has increased efforts to discourage Chinese AI founders from moving business offshore.\nThe Chinese government's intervention in the transaction drew alarm among tech founders and venture capitalists in the country who were hoping to take advantage of the so-called Singapore-washing model, where companies relocate from China to the city-state to avoid scrutiny from Beijing and Washington.\nManus was founded in China before relocating to Singapore. The company develops general-purpose AI agents and launched its first general AI agent in March last year, which can execute complex tasks such as market research, coding and data analysis. The release saw the startup lauded as the next DeepSeek.\nManus said it had passed $100 million in annual recurring revenue, or ARR, in December, eight months on from launching a product, which it claimed made it the fastest startup in the world at the time to hit the milestone from $0.\nThe company raised $75 million in a round led by U.S. VC Benchmark in April last year.\nWhen Meta announced the deal late last year, the tech giant said it would look to accelerate artificial intelligence innovation for businesses and integrate advanced automation into its consumer and enterprise products, including its Meta AI assistant.\nBut in January, China's Ministry of Commerce said it would conduct an assessment and investigation into how the acquisition complied with laws and regulations concerning export controls, technology import and export, and overseas investment.\nA Meta spokesperson told CNBC that the transaction \"complied fully with applicable law,\" and that it anticipated \"an appropriate resolution to the inquiry.\"\nWhen asked about China's move to block Meta's acquisition of Manus, APEC Senior Officials Meeting Chairman Chen Xu told reporters that it is \"important that all parties act in a spirit of mutual benefit.\"\nWhile Chen said he did not know the specifics of the issue, he said that \"if such an issue can be handled properly, it can help facilitate more substantive discussions in APEC.\" That's according to an official English translation.\n— CNBC's Anniek Bao and Dylan Butts contributed to this story.",
+  "published_at": "2026-04-28T05:06:24Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.373484Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

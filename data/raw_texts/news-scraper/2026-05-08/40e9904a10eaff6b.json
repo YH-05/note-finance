@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20212-safaricom-profit-hits-kes100bn.html",
+  "title": "Safaricom profit hits KES100bn",
+  "raw_text": "Safaricom posted strong financial results for the year ended March 31, 2026, with group net income rising to KES100 billion (US$774 billion) on the back of customer growth and increased adoption of digital services.\nGroup service revenue grew 5% to KES414.1 billion, while Safaricom Kenya service revenue rose 10% to KES400.8 billion. EBIT increased 15.3% to KES182.3 billion.\nCEO Peter Ndegwa said the company delivered strong execution in the first year of its five-year strategy, with Kenya’s performance helping offset challenges linked to currency reforms and market conditions in Ethiopia.\nSafaricom’s total customer base reached 71.6 million across its markets. In Ethiopia, subscriber numbers climbed to 13.6 million, with the network now covering 60% of the population through 3,504 sites. The Ethiopian business contributed 12.5% to overall group service revenue growth.\nM-PESA revenue increased 4% to KES182.7 billion, supported by 41 million active users in Kenya, while mobile data revenue grew 3% to KES92.9 billion.\nChairman Adil Khawaja said the results showed continued momentum despite ongoing investment in Ethiopia, adding that the company was beginning to benefit from greater scale in the market.",
+  "published_at": "2026-05-07T08:58:27Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-08T03:01:18.582915Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

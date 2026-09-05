@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/spacex-elizabeth-warren-elon-musk-sec-ipo.html",
+  "title": "Sen. Warren calls on SEC to delay SpaceX IPO, flagging concerns about valuation and governance",
+  "raw_text": "Sen. Elizabeth Warren, D-Mass., called for the Securities and Exchange Commission to delay SpaceX's upcoming initial public offering, citing concerns about the rocket maker's valuation and corporate governance in a letter shared with CNBC.\n\"Given the unprecedented threats to investor protection and market integrity posed by the biggest IPO in history, you must delay any eventual acceleration of the registration statement's effectiveness accordingly,\" Warren wrote to the market regulator on Tuesday.\nIn the 12-page letter, Warren flagged the potential for \"inaccurate or misleading accounting or valuation\" around SpaceX's acquisition of Elon Musk-owned xAI, conflicts of interest surrounding Musk's \"uniquely unchecked\" power as its majority shareholder, and that fast-tracking the company into major stock market indexes would carry \"significant risks\" for both active and passive investors.\nWarren's letter comes as SpaceX is set to make its market debut on Friday, with the company aiming to raise a record sum at a historic valuation.\n\"For investors who pick and choose their specific investments, they at least are able to avoid investing in companies that engage in risky or unfair practices,\" Warren wrote. \"But the SpaceX IPO creates a new concern: that major stock market indexes are being rigged in a way that would force millions of investors in passive index funds – a generally lower cost investment option that can be attractive to retail investors – to invest in SpaceX and face exposure to SpaceX's significant risks with no choice in the matter.\"\nSpaceX made the unusual move to set a take-it-or-leave-it price of $135 a share, instead of providing a price range that moves depending on demand, as is customary in IPOs. The company is also reportedly targeting a higher-than-usual 30% allocation for retail investors, amounting to about $22.5 billion for its historic debut.\nCNBC has reached out to SpaceX and SEC Chairman Paul Atkins for comment.",
+  "published_at": "2026-06-10T16:52:57Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.346102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

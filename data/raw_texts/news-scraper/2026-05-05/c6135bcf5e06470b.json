@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/923612/elon-musk-sec-1-5-million-penalty-twitter-x",
+  "title": "Elon Musk will settle the feds’ Twitter lawsuit with pocket change",
+  "raw_text": "Last year, the SEC sued Elon Musk over the way his acquisition of Twitter (now X, and a part of SpaceX) started, and today it announced a settlement that looks like a massive bargain, while Musk’s own lawsuit against Sam Altman continues to play out. A week before the Trump administration took over, the department had alleged that by not disclosing he’d purchased more than $500 million in Twitter stock on time in the spring of 2022, Musk underpaid by at least $150 million, and harmed investors who sold their stock during that time.\nElon Musk will settle the feds’ Twitter lawsuit with pocket change\nThe SEC claimed Musk saved over $150 million by breaking the disclosure rules, now it’s settling for $1.5 million.\nThe SEC claimed Musk saved over $150 million by breaking the disclosure rules, now it’s settling for $1.5 million.\nNow, as reported by Reuters, the SEC has added the Elon Musk Revocable Trust to its lawsuit, which will settle the case by paying a $1.5 million civil penalty without admitting wrongdoing or requiring Musk to cough up any of the money he allegedly saved.\nOn May 4, 2026, the U.S. Securities and Exchange Commission filed an amended complaint to add the Elon Musk Revocable Trust dated July 22, 2003 (the “Revocable Trust”) as a defendant to this action. The amended complaint alleges that the defendants failed to timely file a beneficial ownership report with the Commission after the Revocable Trust acquired beneficial ownership of more than five percent of the outstanding shares of Twitter, Inc. common stock, in violation of the beneficial ownership reporting requirements under the Securities Exchange Act of 1934 (“Exchange Act”).\nThe SEC simultaneously moved for entry of a consent final judgment as to the Revocable Trust. Without admitting or denying the allegations of the complaint as to the Revocable Trust, the Revocable Trust consented to entry of a final judgment, subject to court approval, that would permanently enjoin it from violating Section 13(d) of the Exchange Act and Rule 13d-1 thereunder and order it to pay a civil penalty of $1.5 million.\nAs explained in the consent motion, if the court enters the proposed final judgment as to the Revocable Trust as proposed by the Revocable Trust and the SEC, the SEC will file a stipulated dismissal of Elon Musk in his personal capacity, which will resolve this case in its entirety.\nMost Popular\n- Hisense aggressively cuts the price of its RGB LED TV on release day\n- Homebridge 2.0 is here, and it speaks Matter\n- Tesla hits Musk’s threshold for ‘safe unsupervised’ driving\n- Amazon’s trying to turn its massive shipping operation into another AWS\n- The creator of Roomba is back with a furry robot companion",
+  "published_at": "2026-05-04T22:11:17Z",
+  "author": "Richard Lawler",
+  "collected_at": "2026-05-05T03:00:16.853416Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Elon Musk",
+      "Law",
+      "News",
+      "Policy",
+      "Tech",
+      "Twitter - X"
+    ]
+  }
+}

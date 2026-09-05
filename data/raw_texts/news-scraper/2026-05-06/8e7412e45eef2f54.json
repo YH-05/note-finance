@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060304",
+  "title": "東京為替：米ドル・円は引き続き157円台後半で推移",
+  "raw_text": "【通貨】東京為替：米ドル・円は引き続き157円台後半で推移\n6日午前の東京市場でドル・円は157円80銭台で推移。リスク回避的な米ドル売り・円買いは抑制されているが、原油先物は節目の100ドルを下回っており、米ドルはやや上げ渋り。ここまでは157円94銭から157円54銭で推移。ユーロ・ドルは1.1692ドルから1.1726ドルまで値上り。ユーロ・円は184円52銭から184円93銭まで強含み。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-06T02:50:42Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:00:22.357255Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

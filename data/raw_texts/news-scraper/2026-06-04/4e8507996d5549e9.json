@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606040556",
+  "title": "東京為替：ドル・円は膠着、介入にらみ慎重姿勢",
+  "raw_text": "【通貨】東京為替：ドル・円は膠着、介入にらみ慎重姿勢\n4日午前の東京市場でドル・円は159円90銭付近と、膠着した値動き。米10年債利回りは弱含み、ドル買いは後退。また、NY原油先物(WTI)は1バレル＝95ドルを割り込み、ややドル売り地合いに。日本の為替介入への警戒感も継続し、160円手前でのもみ合いが続く。\nここまでの取引レンジは、ドル・円は159円83銭から160円07銭、ユ-ロ・円は185円56銭から185円69銭、ユ-ロ・ドルは1.1594ドルから1.1612ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-06-04T02:48:12Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:00:22.396459Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

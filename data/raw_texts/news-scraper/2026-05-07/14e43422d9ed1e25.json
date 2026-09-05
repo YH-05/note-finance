@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605071833",
+  "title": "３月の米建設支出は前月比０．６％増",
+  "raw_text": "【経済】３月の米建設支出は前月比０．６％増\n結果 0.6％\n予想 0.2％ 前回 -0.2％（前月比）\n株探ニュース",
+  "published_at": "2026-05-07T14:06:00Z",
+  "author": null,
+  "collected_at": "2026-05-07T15:00:20.104025Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

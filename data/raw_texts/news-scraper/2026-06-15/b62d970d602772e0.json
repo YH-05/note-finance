@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20352-mastercard-telda-collaboration-targets-egyptian-investors.html",
+  "title": "Mastercard-Telda collaboration targets Egyptian investors",
+  "raw_text": "Financial brand Telda and payments giant Mastercard have joined forces to introduce a new integrated solution in Egypt, seamlessly connecting everyday payments and investment wallets within the Telda app, marking what they call a major step towards a fully unified digital ecosystem.\nLeveraging Mastercard’s advanced technology, Telda, which says it was built for millennials and Gen Z to take the pain out of peer-to-peer payments, suggests that it is transforming financial services into an experience that is inclusive, accessible, and seamlessly integrated.\nThis collaboration, the partners say, democratises access to the capital market, empowering new customer segments without requiring advanced financial expertise and advancing Egypt’s vision for digital financial transformation.\nWith just a national ID, users can open an investment account instantly. The platform offers a fully integrated digital ecosystem where they can track market prices, execute transactions, and fund their investment wallets anytime. Profits are immediately available and transferred directly to the Telda card without delays or fees, giving users the flexibility to spend, save, or withdraw cash effortlessly.\nAhmed Sabbah, CEO of Telda, says: “Telda was founded with a bold vision to redefine the financial services experience. Today, the integration of daily payments and the investment wallet within a single app through our collaboration with Mastercard marks a significant leap forward, giving individuals immediate control over their money.”\nMohamed Assem, country manager for Egypt, Iraq, Lebanon and Syria at Mastercard, adds: “By embedding Mastercard’s digital capabilities within Telda’s platform, we are creating a seamless bridge between everyday payments and investment opportunities, empowering users to manage, grow and access their wealth instantly.”",
+  "published_at": "2026-06-08T12:54:09Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-15T03:01:20.542010Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}

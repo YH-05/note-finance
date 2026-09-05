@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://bubbles.town/",
+  "title": "Hacker News but for Independent Blogs",
+  "raw_text": "<p>Article URL: <a href=\"https://bubbles.town/\">https://bubbles.town/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48567155\">https://news.ycombinator.com/item?id=48567155</a></p>\n<p>Points: 295</p>\n<p># Comments: 90</p>",
+  "published_at": "2026-06-17T07:49:44Z",
+  "author": "headalgorithm",
+  "collected_at": "2026-06-17T15:00:51.218593Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

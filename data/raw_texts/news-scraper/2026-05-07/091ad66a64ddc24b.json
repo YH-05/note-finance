@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/925559/google-project-mariner-shut-down",
+  "title": "Google shuts down Project Mariner",
+  "raw_text": "Google has pulled the plug on Project Mariner, an experimental feature designed to perform tasks for you across the web, as reported earlier by Wired’s Maxwell Zeff. The Project Mariner landing page now contains a message that says: “Thank you for using Project Mariner. It was shut down on May 4th, 2026 and its technology voyaged to other Google products.”\nGoogle shuts down Project Mariner\nThe Project Mariner experiment lives on in Gemini Agent and AI Mode.\nThe Project Mariner experiment lives on in Gemini Agent and AI Mode.\nGoogle first revealed Project Mariner in December 2024 and later announced an update allowing it to perform up to 10 tasks at a time. Over the past year, Google has integrated features powered by Project Mariner into its other AI tools, including Gemini Agent, which can do things like archive emails on your behalf or help you book a hotel. Google also folded Project Mariner’s agentic capabilities into its AI-powered search feature, AI Mode.\nEarlier this year, Google showed off a new AI-powered feature, called “auto-browse,” that can perform multi-step tasks in Chrome, like researching flight costs. Though Google doesn’t say whether it’s powered by Project Mariner, it seems like a response to the agentic web browsing tools offered by OpenAI, Perplexity, and OpenClaw.\nWith the removal of Project Mariner, Google may be making room for the other AI features that could make their debut during this year’s I/O, which starts on May 19th. Google didn’t immediately respond to The Verge’s request for comment.\nMost Popular\n- Apple agrees to pay iPhone owners $250 million for not delivering AI Siri\n- Here’s what Microsoft is offering long-serving employees to voluntarily retire\n- Nintendo announces a new Star Fox for the Switch 2\n- The Remarkable Paper Pure is the best digital notepad I’ve ever used\n- Valve just imported 50 tons of game consoles in two days",
+  "published_at": "2026-05-06T21:21:45Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-07T03:00:16.015308Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

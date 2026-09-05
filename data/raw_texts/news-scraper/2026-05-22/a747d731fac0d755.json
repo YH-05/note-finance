@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/ai-users-re-create-dead-pilots-voices-from-crash-investigation-docs/",
+  "title": "US scrambles to stop Internet users re-creating dead pilots’ voices",
+  "raw_text": "Pilots’ voices from the last seconds of a fatal cargo plane crash have been re-created by Internet sleuths using software and AI tools. The spread of reconstructed audio recordings has prompted a US government agency to suspend all public access to its database of civil transportation accidents—because federal law prohibits investigators from publicly releasing audio from cockpit voice recorders.\nThe US National Transportation Safety Board (NTSB) usually shares factual reports and evidence gathered from investigations of aircraft crashes and other civil transportation incidents. But on May 21, the NTSB announced that the online docket system containing such information was “temporarily unavailable” as it reviewed the publicly available materials that had enabled people to re-create cockpit audio recordings from aircraft disasters.\n“The NTSB is aware that advances in image recognition and computational methods have enabled individuals to reconstruct approximations of cockpit voice recorder audio from sound spectrum imagery released as part of NTSB investigations, including the ongoing investigation of the crash last year of UPS flight 2976 in Louisville, Kentucky,” according to an NTSB statement. “The NTSB does not release cockpit audio recordings.”\nUPS flight 2976 was a United Parcel Service MD-11F cargo aircraft that crashed shortly after takeoff from Louisville, Kentucky, on November 4, 2025, following a structural failure that led to an engine physically detaching as the aircraft left the ground. The three pilots aboard the aircraft, including a relief pilot, were killed. Another 12 people on the ground were killed, with 23 people being injured.\nThe US Congress enacted a federal law in 1990 prohibiting the NTSB from publicly sharing any part of a cockpit voice or video recorder to protect the privacy of air crews. That law followed airline pilots’ pushback over the controversial TV station airing of a cockpit conversation relating to the August 1988 crash of Delta Air Lines Flight 1141 at Dallas-Fort Worth International Airport.",
+  "published_at": "2026-05-22T19:39:04Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-22T21:00:31.268706Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Tech",
+      "AI models",
+      "aircraft accidents",
+      "algorithms",
+      "audio recordings",
+      "cockpit voice recorder",
+      "ntsb"
+    ]
+  }
+}

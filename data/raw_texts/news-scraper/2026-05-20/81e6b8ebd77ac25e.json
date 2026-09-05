@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934457/android-17-continue-on-handoff",
+  "title": "Android 17 is getting its own version of Apple&#8217;s Handoff",
+  "raw_text": "Google is adding a new Android feature that resembles Apple’s Handoff, allowing you to start a task on your Android phone and continue it right where you left off from a compatible tablet.\nAndroid 17 is getting its own version of Apple’s Handoff\n‘Continue On’ lets you start tasks on your phone and pick them up elsewhere.\n‘Continue On’ lets you start tasks on your phone and pick them up elsewhere.\n“Continue On” is designed to eventually be bidirectional, but Google says that at launch it will only support tasks moving from a smartphone to a tablet. Android tablet users will see the Continue On icon in the dock suggesting the most recently used app from their phone, assuming it’s also installed on the tablet.\nIt should allow Android users to directly open documents they were working on, or jump straight into the email they just had open. In some circumstances, it can open up the tablet’s browser to the best page to continue a task on the web instead.\nGoogle says that Continue On will be available to test in Android 17’s RC1 build, its first release candidate version, though hasn’t yet detailed when that will arrive. It also didn’t say when tablet-to-mobile handoffs will be supported. Together with last week’s announcement of Android-powered Googlebook laptops, it opens the door to wider Android interoperability that could finally match Apple’s impressive inter-device coordination.",
+  "published_at": "2026-05-20T11:07:33Z",
+  "author": "Dominic Preston",
+  "collected_at": "2026-05-20T15:00:11.420741Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Android",
+      "Google",
+      "Google I/O 2026",
+      "Mobile",
+      "News",
+      "Tech"
+    ]
+  }
+}

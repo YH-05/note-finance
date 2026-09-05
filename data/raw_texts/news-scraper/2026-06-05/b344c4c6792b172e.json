@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/uber-layoffs-people-division-ai.html",
+  "title": "Uber slashes people division by nearly a quarter. CEO says 'changes are necessary'",
+  "raw_text": "Uber is slashing 23% of jobs in its people division as it seeks to streamline operations under the direction of new president Jill Hazelbaker.\nCEO Dara Khosrowshahi said in a memo that the \"changes are necessary to maximize the effectiveness of the People team and the enormous potential ahead of us.\"\nThe affected segments include recruitment and human resources staff. Uber did not disclose the number of employee cuts, but a spokesperson for the ride-hailing giant said they account for \"well under 1%\" of its 34,000 employees.\nIn a note to affected teams, Hazelbaker, who was promoted to president and chief corporate affairs officer last month, said the layoffs aim to build a \"more connected, modern, operationally excellent organization.\"\nSome segments have become \"complex and fragmented, with overlapping responsibilities, unclear ownership, and teams operating too far from the businesses and partners they support,\" she added.\nBloomberg was the first to report the news.\nUber joins a growing list of companies laying off employees, with many firms citing the benefit of artificial intelligence in automating workloads and improving efficiency.\nThe food delivery and ride-hailing company said the cuts did not result from AI.\nThis week, Uber confirmed it put tiered caps on spending for employees' agentic tools, following a Bloomberg report. The base tier is at $1,500 per month, and the limits go up from there, the company said.\nUber's tech chief previously said that the company exceeded its 2026 AI budget within four months, The Information first reported.\nIn an email to CNBC, a spokesperson said these are \"soft limits\" geared toward agentic and coding tech, and budgets are set per tool.\n\"We have had spend tiers on some agentic AI tools for several months,\" they wrote.\n— CNBC's MacKenzie Sigalos contributed to this article.",
+  "published_at": "2026-06-03T18:39:25Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.687123Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

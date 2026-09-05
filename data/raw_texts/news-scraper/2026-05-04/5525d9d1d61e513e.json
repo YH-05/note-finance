@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040009",
+  "title": "東京為替：米ドル・円は底堅い動き、原油先物の高止まりを意識",
+  "raw_text": "【通貨】東京為替：米ドル・円は底堅い動き、原油先物の高止まりを意識\n4日午前の東京市場でドル・円は156円90銭台で推移。原油先物（WTI）は101ドル台で推移し、高止まりが続いているため、米ドルは156円台後半で下げ渋っている。ここまでは156円69銭から156円94銭で推移。ユーロ・ドルは1.1750ドルから1.1722ドルまで値下がり。ユーロ・円は184円38銭から183円93銭まで弱含み。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-04T01:14:37Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:00:22.725040Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

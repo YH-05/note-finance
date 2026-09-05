@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/28/ups-ups-q1-2026-earnings.html",
+  "title": "UPS beats Wall Street estimates on top and bottom lines",
+  "raw_text": "United Parcel Service on Tuesday posted first-quarter earnings results that beat on the top and bottom lines.\nShares of the delivery giant closed down roughly 4% on Tuesday.\nHere's how the company performed in its first quarter, compared with what Wall Street was expecting, based on a survey of analysts by LSEG:\n- Earnings per share: $1.07 adjusted vs. $1.02 expected\n- Revenue: $21.2 billion vs. $20.99 billion expected\nFor the quarter ended March 31, UPS reported net income of $864 million, or $1.02 per share, compared with $1.19 billion, or $1.40 per share, a year prior. Adjusting for one-time items, the company reported a profit of $906 million, or $1.07 per share. Revenue fell to $21.2 billion from $21.5 billion a year ago.\n\"The first quarter of 2026 marked a critical transition period for UPS in which we needed to flawlessly execute several major strategic actions and we delivered,\" CEO Carol Tomé said in a statement. \"With that behind us, we expect to return to consolidated revenue and operating profit growth, and adjusted operating margin expansion in the second quarter of this year.\"\nFor its full-year 2026 outlook, the company reaffirmed its consolidated financial estimate of $89.7 billion in revenue and non-GAAP adjusted operating margin of 9.6%.\n\"It is early in the year to raise [guidance],\" Tomé said on a call with analysts on Tuesday, adding that there are no indications to be concerned about the health of the business.\nIn its domestic segment, UPS said revenue dropped 2.3%, primarily due to an expected decline in volume.\nUPS is also in the midst of a turnaround plan and enhancing the automation in its network. In the first three months of the year, UPS said it achieved $600 million in cost savings from its network efficiency program, with expectations to reach $3 billion in year-over-year savings in 2026.\nCompany executives added on the call with analysts that fuel surcharges have not had a material impact on UPS' business and that it remains too early to determine exact impacts from the war in the Middle East.",
+  "published_at": "2026-04-28T20:00:45Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.438194Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

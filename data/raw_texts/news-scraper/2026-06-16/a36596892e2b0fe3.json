@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/vendor-news/20397-indian-authorities-increase-scrutiny-of-tata-iphone-plant.html",
+  "title": "Indian authorities increase scrutiny of Tata iPhone plant",
+  "raw_text": "Indian authorities have intensified inspections around Tata Electronics’ iPhone components facility in Hosur following concerns that wastewater discharge from the site may have contaminated groundwater in nearby agricultural areas.\nAccording to a report by Reuters, officials from Tamil Nadu’s pollution control authority previously warned Tata Electronics it could face a shutdown unless it addressed findings from inspections conducted between December 2025 and May 2026. The regulator alleged wastewater discharged from the plant had affected open wells on adjacent farmland.\nOn Monday, district officials overseeing agricultural land issues were seen inspecting fields surrounding the factory alongside local farmers who have raised concerns about water quality and crop yields.\n“We are here to assess the situation,” district official N. Velu told Reuters.\nOne farmer, P. Pushparaj, said he had lodged a complaint after observing wastewater discharged from the facility was “dirty and had a bad smell”. He added that while farming activities continued, crop yields had suffered.\nTata Electronics has disputed the allegations, stating an independent assessment found the company was operating within regulatory requirements. The company said it remains committed to responsible business practices and protecting local communities and the environment.\nThe Hosur facility, located near Bengaluru, is a key part of Apple’s efforts to diversify iPhone manufacturing beyond China, producing back panels and other components for the device.\nThe latest scrutiny adds to a series of challenges within Apple’s India supply chain. A fire at the same Tata facility temporarily disrupted production in 2024, while a separate fire at a former Pegatron-operated iPhone plant in 2023 also caused manufacturing delays. Reuters additionally reported in 2024 that Apple supplier Foxconn had excluded married women from some iPhone assembly roles in India, allegations the company said were inconsistent with its employment policies.",
+  "published_at": "2026-06-16T13:32:26Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-16T15:01:23.212339Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Vendors"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/google/2026/05/google-will-put-more-links-to-websites-in-ai-overviews/",
+  "title": "Course correction: Google to link more sources in AI Overviews",
+  "raw_text": "The top of a Google search page is prime real estate, but it has primarily been the domain of AI Overviews for the past two years. Websites that spent years optimizing for Google search haven’t exactly loved being pushed down the page by a chatbot and may blame AI Overviews for recent traffic drops. Google is not admitting fault, but it is rolling out a number of changes that will place more links to websites inside AI answers.\nGoogle says many AI Overviews are “just the beginning of exploring a topic you’re interested in.” To support this supposed yearning to know more, AI Overviews and AI Mode will soon get a new section at the bottom called “Further Exploration.” The new exploration box will link to articles and analysis that is relevant to the query in a bullet point list. In the example below, a search for urban green spaces produces suggested links to content about specific projects in New York and Singapore. This is also where you may see the bait questions that are so common at the end of AI outputs.\nSimilarly, AI Overviews may include a section of “Expert Advice” that offers a snippet of content from around the web that is relevant to your search. This can include news and reviews from around the web, as well as discussions from public-facing forums and social media. Each one will include a link so you can “jump to the full conversation.”\nGoogle also promises that AI answers will include more links generally. These will continue to appear as small pills at the end of paragraphs. Clicking on them will show a list of sources that supposedly formed the foundation of the AI output. Hovering over links in AI Overviews and AI Mode will also produce a pop-up that gives you more information about the site before you click.",
+  "published_at": "2026-05-08T19:43:47Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-08T21:00:31.411480Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "generative ai",
+      "google",
+      "search"
+    ]
+  }
+}

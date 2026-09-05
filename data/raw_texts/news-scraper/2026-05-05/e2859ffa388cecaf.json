@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/924063/openai-phone-rumors-2027-ming-chi-kuo",
+  "title": "OpenAI is reportedly launching a phone for ChatGPT",
+  "raw_text": "OpenAI’s first hardware product might be a phone instead of a mysterious Jony Ive gadget. As reported by MacRumors, supply chain analyst Ming-Chi Kuo shared details about the rumored phone, claiming OpenAI is “fast-tracking” it and aiming to start mass production in early 2027.\nOpenAI is reportedly launching a phone for ChatGPT\nThe phone is being “fast-tracked” for mass production starting early next year, according to analyst Ming-Chi Kuo.\nThe phone is being “fast-tracked” for mass production starting early next year, according to analyst Ming-Chi Kuo.\nAccording to Kuo, the phone will run on a “customized version of the [MediaTek] Dimensity 9600,” which is expected to launch this fall and follow up the Dimensity 9500 currently powering phones like the Vivo X300 Pro and the Oppo Find X9 Pro.\nThe custom chip’s “headline spec” will be its image signal processor (ISP), which will have “enhanced HDR” that Kuo says will improve the phone’s real-world visual sensing capabilities. The OpenAI phone could also include LPDDR6 memory, UFS 5.0 storage, and a “dual-NPU architecture” for running different kinds of AI computation simultaneously, like language and vision tasks.\nKuo also states that the phone’s “combined 2027–2028 shipments could reach around 30 million units.” That would put the OpenAI phone’s sales near those of a typical Samsung flagship — a lofty goal for the company’s first hardware product.",
+  "published_at": "2026-05-05T14:54:00Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-05T15:00:11.189569Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Gadgets",
+      "News",
+      "OpenAI",
+      "Phones",
+      "Tech"
+    ]
+  }
+}

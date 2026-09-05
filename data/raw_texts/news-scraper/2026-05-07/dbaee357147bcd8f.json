@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/deepseek-could-hit-45b-valuation-from-its-first-investment-round/",
+  "title": "DeepSeek could hit $45B valuation from its first investment round",
+  "raw_text": "DeepSeek is in talks to raise its first round of venture capital, and in just a few weeks, its potential valuation has soared from $20 billion to $45 billion, the Financial Times and Bloomberg reported.\nThe Chinese AI lab came to prominence in early 2025 after launching a large language model that trained on a fraction of the compute power and at a fraction of the cost of the big U.S. models like those from OpenAI and Anthropic. It has since kept reasonable pace with the top models in the world in areas like reasoning and coding while remaining open weight (versions are freely available on Hugging Face).\nFounded by Chinese hedge fund billionaire Liang Wenfeng, who controls nearly 90% of the company, the lab has not previously sought out investors, the FT reports. However, faced with competitors poaching DeepSeek’s researchers, Liang opted to raise funds in order to offer employees shares in the company, sources tell the FT.\nThe round is said to be led by the state investment vehicle China Integrated Circuit Industry Investment Fund, Bloomberg reports. China is seeking to fund homegrown AI technology to sidestep the difficulty of obtaining U.S. technology, particularly chips. DeepSeek has been optimized to run on chips made by China’s hardware giant Huawei Technologies. That combo is considered a powerful duo for the nation to develop its own AI to rival the United States. The country’s cloud giants Tencent and Alibaba are also reportedly in talks to participate, per Bloomberg.\nDeepSeek could not be immediately reached for comment.",
+  "published_at": "2026-05-06T17:20:34Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-05-07T03:00:27.002669Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Startups",
+      "China",
+      "deepseek",
+      "In Brief"
+    ]
+  }
+}

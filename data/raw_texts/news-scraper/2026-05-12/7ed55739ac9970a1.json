@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/929009/meta-teen-accounts-algorithm-parental-controls",
+  "title": "Meta will tell parents when their teens add new interests to their Instagram algorithm",
+  "raw_text": "Starting Tuesday, parents can get more details about what their teens are up to on Instagram. Meta is adding a feature to its Teen Accounts that shows parents the “general topics their teens engage with,” like “basketball” or “fashion.” Meta also says it will soon start notifying parents when their teen adds a new interest to their algorithm.\nMeta will tell parents when their teens add new interests to their Instagram algorithm\nMeta is also moving parental controls for all of its apps to a central hub in Family Center.\nMeta is also moving parental controls for all of its apps to a central hub in Family Center.\nIn December, Meta announced its “Your Algorithm” feature, which lets users choose topics they want to see more or less of in Instagram. Meta noted in its Tuesday blog post that users with Teen Accounts are already limited in what topics they can add to their algorithm — content shown to users with teen accounts is supposed to be similar to content in a PG-13 movie.\nMeta also announced on Tuesday that it’s “consolidating” the parental controls for Instagram, Meta Horizon, Facebook, and Messenger into a single hub in Family Center. Parents can now also “send a single invitation to supervise their teen” across all of these apps. Meta says Family Center will get more supervision tools in the coming months, such as “aggregated time spent” by their teens in Meta’s apps.",
+  "published_at": "2026-05-12T19:56:50Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-12T21:00:16.461150Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Instagram",
+      "Meta",
+      "News",
+      "Social Media",
+      "Tech"
+    ]
+  }
+}

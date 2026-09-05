@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/13/2b-test-for-the-art-market-heres-what-to-know.html",
+  "title": "$2B test for the art market: Here's what to know",
+  "raw_text": "watch now\n$2B test for the art market: Here's what to know\nThe art market about to give a glimpse into the wealthy. CNBC's Robert Frank joins 'Squawk Box' with the details.\n03:32\nWed, May 13 20267:01 AM EDT",
+  "published_at": "2026-05-13T11:01:09Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.505237Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

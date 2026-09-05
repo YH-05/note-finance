@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/06/microsoft-atom-computing-eeroq-update-their-quantum-computing-progress/",
+  "title": "Microsoft, Atom Computing, EeroQ update their quantum computing progress",
+  "raw_text": "With dozens of companies, from small startups to tech giants, pursuing quantum computing, there’s a steady flow of results as they try to find a path to utility. We typically focus on new technologies and major landmarks, which can obscure the fact that any big success will inevitably have been built on a lot of incremental progress.\nThe past few weeks have seen a number of companies release progress reports on how they’re trying to get the technologies closer to general use. None of these represents a major breakthrough, but all are absolutely necessary for the technology to advance. The idea here is to convey the hard work required to move us closer to something useful.\nMicrosoft does material science\nMicrosoft is one of the few companies working on topological qubits, based on the distinct physics that occurs when particles are confined. Microsoft’s system relies on a thin superconducting wire placed on top of a semiconductor. In superconductors, groups of two electrons form Cooper pairs. But if the wire contains an odd number of conducting electrons—meaning there’s a single unpaired electron—it will end up delocalized to both ends of the wire. (Because quantum mechanics is weird.)\nThat’s the behavior that theorists had described, at least. Before the company could build qubits based on the behavior, it had to confirm that the behavior actually occurred as theorists predicted. It was not smooth sailing. Some of the early work in the area was later retracted, and Microsoft’s attempts to show the physics were solid were met with some skepticism, as the system it was showing off was very noisy. Despite that, the company laid out a roadmap based on building qubits out of pairs of these nanowires.",
+  "published_at": "2026-06-03T22:09:41Z",
+  "author": "John Timmer",
+  "collected_at": "2026-06-04T03:00:31.486634Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "atom computing",
+      "Computer science",
+      "Error correction",
+      "microsoft",
+      "Physics",
+      "quantum computing",
+      "quantum mechanics"
+    ]
+  }
+}

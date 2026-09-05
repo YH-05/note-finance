@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/spacex-ipo-hype-has-traders-flocking-to-this-mid-cap-stock.html",
+  "title": "SpaceX IPO hype has traders flocking to this mid-cap stock",
+  "raw_text": "Hype for the biggest IPO of all-time is at a fever pitch and traders can't wait – literally.\nOptions volume is picking up in Nasdaq-listed Echostar, a $35-billion networking business based in Colorado that owns an estimated 3% of SpaceX stock, which it acquired through a deal providing wireless spectrum to Starlink in September.\nTrading activity on Wednesday was more than three times the daily average the past month, according to data from Cboe LiveVol, with more than 60,000 options contracts traded for a total premium of just shy of $50 million.\nAbout five times as many calls traded in the name than puts, but almost three times as many calls were sold compared to bought, according to ThinkOrSwim data. That might reflect traders hedging bullish bets via spreads, with the stock up 650% the past year but in the midst of a 11% pullback the past month.\nLast year's spectrum purchase by SpaceX allows the company to start building and deploying upgraded, laser-connected satellites that the company said will expand the cell network's capacity by \"more than 100 times,\" according to earlier reporting by Reuters.\nSpaceX will aim to raise $75 billion at a $1.77 trillion valuation at a share price of $135, according to the company's IPO filing with the Securities and Exchange Commission late Wednesday.",
+  "published_at": "2026-06-04T11:28:53Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:19:00.561080Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

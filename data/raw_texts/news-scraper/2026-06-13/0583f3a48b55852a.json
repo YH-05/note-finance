@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://koenvangilst.nl/lab/claude-fable-shepherds-dog",
+  "title": "Shepherd's Dog: A Game by the Most Dangerous AI Model",
+  "raw_text": "A few days ago, Anthropic released the model that was supposedly too dangerous for the world to see. I wanted to give it a try using my personal benchmark: can it build a game idea I've had for years, in a single shot?\nThe model started with a very long reasoning session, and after 45 minutes and more than €20 worth of tokens (!), it happily reported that \"Shepherd's Dog is complete — a single 2,319 line index.html with zero dependencies.\"\nYou can watch the video below or give the game a try It's really fun and exactly how I imagined it. For me this is the first time an AI model is able to create this for me in one go:\n- Play the game here: vnglst.github.io/when-ai-fails/shepards-dog/claude-fable-5/index.html\n- Other attempts with earlier models: github.com/vnglst/when-ai-fails/blob/main/shepards-dog/README.md",
+  "published_at": "2026-06-13T05:44:46Z",
+  "author": "vnglst",
+  "collected_at": "2026-06-13T15:00:53.616514Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

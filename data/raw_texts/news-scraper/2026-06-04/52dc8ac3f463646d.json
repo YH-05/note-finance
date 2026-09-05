@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20326-ddsp-secures-green-financing-for-data-centre-campus.html",
+  "title": "DDSP secures green financing for data centre campus",
+  "raw_text": "DDSP, a developer of hyperscale digital and decarbonised energy infrastructure across Asia-Pacific, has announced the successful financial close of a US$283 million green financing for the company’s hyperscale data centre campus in Johor, Malaysia, incorporating AI-ready liquid cooling technology.\nThe financing, says DDSP, marks an important milestone in its strategy to build next-generation, AI-ready digital infrastructure across Asia-Pacific.\nThe financing supports the development of a 45MW built-to-suit hyperscale campus located within Sedenak Tech Park, one of Southeast Asia’s fastest-growing digital infrastructure corridors, designed with closed loop liquid-cooling and an AI-ready high-density compute environment. The campus’ capacity has apparently already been fully contracted to a leading global hyperscale customer.\nDDSP adds that the transaction represents a landmark green financing for advanced hyperscale digital infrastructure in Southeast Asia and further strengthens the company's long-term commitment to Malaysia, including the continued expansion of its Johor operations.\nStructured as a green loan, the transaction also reflects increasing institutional demand for sustainable digital infrastructure investments across Asia-Pacific, particularly as cloud and AI-related capacity requirements continue to accelerate.\nThe Johor campus forms part of DDSP’s broader Asia-Pacific 1.1GW development pipeline; it has multiple hyperscale digital infrastructure and decarbonised energy projects across key regional markets, including Thailand, Malaysia, Singapore, Indonesia and Taiwan.\nFrederic Devos (CEO of DDSP) says: “We are pleased to have secured support from a high-quality banking group and believe the transaction positions DDSP strongly as we continue expanding our hyperscale infrastructure platform across Asia-Pacific.”",
+  "published_at": "2026-06-01T14:05:40Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-04T03:01:31.749254Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

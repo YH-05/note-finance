@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050186",
+  "title": "東京為替：ドル・円は小高い、上値に重さも",
+  "raw_text": "【通貨】東京為替：ドル・円は小高い、上値に重さも\n5日午後の東京市場でドル・円は小高く推移し、一時157円30銭台まで上値を伸ばした。中東情勢の不透明感から原油相場は高止まり、ドル買いに振れやすい。ただ、足元の水準では日本政府の為替介入への警戒感画強まるため、一段の円安後退により上値が重い。\nここまでの取引レンジは、ドル・円は157円17銭から157円30銭、ユ-ロ・円は183円69銭から183円85銭、ユ-ロ・ドルは1.1676ドルから1.1693ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-05T05:13:14Z",
+  "author": null,
+  "collected_at": "2026-05-05T09:00:51.875681Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

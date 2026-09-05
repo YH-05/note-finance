@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-devices-platforms/20288-latam-smartphone-market-grows-despite-memory-price-pressures.html",
+  "title": "LATAM smartphone market grows despite memory price pressures",
+  "raw_text": "The Latin American smartphone market recorded 34.8 million smartphone shipments in Q1 2026, representing 3% year-on-year growth, defying broader global declines driven by rising memory component costs.\nAccording to analyst house Omdia, the growth was largely supported by retailers building up inventory ahead of expected price increases tied to more expensive DRAM and NAND memory chips. Smartphone vendors also leaned toward lower-storage models, such as 128GB variants, to keep devices affordable and soften the impact of rising costs on consumers.\nWhile demand for premium smartphones remained resilient, buyers in the entry-level segment faced increasing affordability pressures.\nSamsung remained the region’s largest smartphone vendor by shipments, recording 12.9 million units in Q1 2026. The company posted 9% year-on-year growth, increasing its market share to 37% - its highest quarterly level since Q1 2023.\nXiaomi ranked second with 6 million shipments, growing 3% year-on-year and marking its sixth consecutive quarter of growth in Latin America. The vendor captured a 17% market share.\nMotorola secured third place despite a 5% decline in shipments to 4.9 million units, giving it a 14% market share. Omdia attributed the drop primarily to a 37% fall in shipments of devices priced between US$100 and US$200.\nHonor consolidated its position in fourth place after posting 30% year-on-year growth to 3.4 million units and securing a 10% market share. Growth was driven largely by the success of its entry-level Play 10 device, which sold around half a million units during the quarter.\nApple rounded out the top five vendors with 31% year-on-year shipment growth, supported by strong demand in Mexico for its iPhone 17 range.\nLooking ahead, Omdia expects the Latin American smartphone market to face increasing pressure as retailers gradually pass rising component costs onto consumers, particularly in the sub-US$300 segment.",
+  "published_at": "2026-05-22T12:57:53Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-23T03:01:22.999688Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Devices & Platforms"
+    ]
+  }
+}

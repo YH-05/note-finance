@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://jp.reuters.com/markets/japan/DFKU2PME7VL2XBJJWPBPIVGW6Q-2026-05-04/",
+  "title": "情報BOX：ＦＲＢ年内利下げ見通し、大手銀の見方二分　インフレ懸念で後退基調",
+  "raw_text": "［４日 ロイター］ - 複数の大手証券会社が、年初に見込んでいた米連邦準備理事会（ＦＲＢ）による２回利下げ観測を徐々に後退させている。インフレリスクの高まりと当局者の慎重姿勢を背景に、年内に金利が若干緩和されるか、引き下げが全く行われないかを巡り見方は大きく分かれている。\n以下は２０２６年の利下げに関する大手金融機関の予測。\n私たちの行動規範：トムソン・ロイター「信頼の原則」",
+  "published_at": "2026-05-04T21:00:06.254140Z",
+  "author": null,
+  "collected_at": "2026-05-04T21:00:35.300453Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "reuters_jp",
+    "category": "markets",
+    "tags": []
+  }
+}

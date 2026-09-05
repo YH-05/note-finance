@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/943066/tsmc-ai-demand-struggles",
+  "title": "TSMC struggles to keep up with AI demand: &#8216;We can only support so much&#8217;",
+  "raw_text": "Taiwan Semiconductor Manufacturing Co. — the world’s biggest semiconductor-maker — is struggling to meet demands from American customers even with its factory buildout in the US, according to reports from Reuters and Bloomberg. “Customer demand is so high, and we can only support so much,” TSMC CEO C.C. Wei said after a shareholder meeting on Thursday, Reuters reports. “We are doing our best to ensure TSMC does not become a bottleneck.”\nTSMC struggles to keep up with AI demand: ‘We can only support so much’\nThe world’s biggest chipmaker says it could take a ‘very long time’ to fulfill customers’ needs with US-based production.\nThe world’s biggest chipmaker says it could take a ‘very long time’ to fulfill customers’ needs with US-based production.\nThe surge in AI use has already put constraints on the memory industry, with the widespread shortage of RAM and NAND Flash memory expected to last for years. The AI boom is boosting the sale of semiconductors as well, which could become a $1 trillion industry by 2027, according to research from Deloitte. While Wei said he’d “like” to raise TSMC’s prices, the company wouldn’t issue an abrupt increase like we’ve seen with DRAM and SSDs, as reported by Reuters.\nWei added it could take a “very long time” to fulfill its customers’ needs with US-based production, according to Reuters. TSMC has already opened a factory in Arizona and plans to invest $165 billion to build three additional plants in the US, alongside two advanced packaging facilities and a research and development center.\nMost Popular\n- Microsoft and OpenAI broke up — now they’re ready to fight\n- A first look at Microsoft’s Surface Laptop Ultra and Surface Dev Box\n- PlayStation is getting back to what it’s good at\n- Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet",
+  "published_at": "2026-06-04T14:15:44Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-04T15:00:11.674292Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Business",
+      "News",
+      "Tech"
+    ]
+  }
+}

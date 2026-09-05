@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/949683/jackery-fridgeguard-worlds-slimmest-fridge-battery",
+  "title": "Jackery announces ‘world’s slimmest’ fridge battery",
+  "raw_text": "Jackery is jumping on the fridge-battery trend with what it says is the “world’s slimmest.” FridgeGuard also looks nice; a break from power stations that tend to look more at home at a job site than the kitchen or living room.\nJackery announces ‘world’s slimmest’ fridge battery\nA battery that’ll keep food from perishing during a power outage.\nA battery that’ll keep food from perishing during a power outage.\nMeasuring just 2.63 inches (67mm) thick, the Jackery FridgeGuard power station is meant to be tucked on top of, beside, or behind your refrigerator and automatically spring to life with a 10ms UPS switchover during a power outage. Its modest 800W of AC output (1600W peak) and 1kWh LFP battery will keep the typical US fridge / freezer combo running for about 10 hours — or double that if you add a 1kWh expansion battery. Jackery says its cooling fans operate at 40dB, or about as loud as a standard fridge.\nWhile designed for fridges, there’s nothing preventing you from installing it in a bedroom to keep a CPAP breathing machine operational during a blackout, or in the living room to power lifesaving devices like a game console and TV until the grid returns.\nJackery’s FridgeGuard joins a growing list of slim batteries designed to keep food from perishing during power outages. Biolite was one of the first (it’s finally shipping in August), followed by Bluetti and fancy newcomers like Pila.\nFridgeGuard is available initially as a Costco exclusive in the US starting on June 22nd. It’s priced at $559.99 for members.",
+  "published_at": "2026-06-17T13:00:00Z",
+  "author": "Thomas Ricker",
+  "collected_at": "2026-06-17T15:00:11.304750Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Energy",
+      "News",
+      "Science",
+      "Smart Home",
+      "Tech"
+    ]
+  }
+}

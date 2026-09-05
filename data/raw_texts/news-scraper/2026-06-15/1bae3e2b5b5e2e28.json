@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/salesforce-ai-customer-service-fin-acquistion.html",
+  "title": "Salesforce to buy AI customer service platform Fin for $3.6 billion to boost agentic offerings",
+  "raw_text": "Salesforce on Monday said it is buying AI customer service platform Fin for about $3.6 billion as businesses accelerate their agentic offerings for enterprises.\nThe deal, expected to close in the fourth quarter of the company's fiscal 2027 year, will complement its flagship Agentforce platform, offering additional ways to deploy agentic artificial intelligence, the company said in a release.\nFin's primary offering is an AI agent capable of resolving chat, email, WhatsApp, text message, phone, and Slack queries, Salesforce said. The agent is powered by its proprietary AI model known as Apex.\n\"Together, we'll help companies of every size seize this opportunity — accelerating time to value with trusted agents that deliver measurable outcomes at scale,\" said Salesforce CEO Marc Benioff in a release.\nLike many software-as-a-service companies, Salesforce is grappling with concerns that new AI tools will render its business model obsolete. Against this backdrop, Salesforce shares have shed more than a third of their value in 2026.\nAt the same time, the rise of agentic AI is heightening competition and forcing companies to beef up and invest in more autonomous tech for customers.\n\"Over the past few years we've been shipping intensely,\" CEO Eoghan McCabe wrote in a post to social media platform X. \"Including recently our groundbreaking model, Apex, and our paradigm-defining internal agent, Operator. With the resources of Salesforce, this will only accelerate.\"\nMcCabe has publicly endorsed President Donald Trump and posted photos with the president and his administration on social media.\nIn its nearly three-decade history, Salesforce has made several multibillion-dollar acquisitions. Its largest was a more than $27 billion deal for chat software company Slack, which closed in 2021.\nIn its recent quarterly earnings report, Salesforce topped Wall Street's estimates, but its backlog came up short.\nJoining Jim Cramer's \"Mad Money\" following the results, Benioff shot down concerns that the company is getting disrupted by AI. He said the company saw \"record\" transactions in the first quarter, and Slack experienced strong growth due to AI.\n\"We've never seen this many large transactions happen, and also I think we're going to see in the second quarter — attrition is probably coming down,\" he said.",
+  "published_at": "2026-06-15T13:50:11Z",
+  "author": null,
+  "collected_at": "2026-06-15T15:38:34.535032Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

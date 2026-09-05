@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/electrical-utility-megamerger-is-all-about-the-data-centers/",
+  "title": "Electrical utility megamerger is all about the data centers",
+  "raw_text": "A proposed merger of the largest utility in the country by market value, NextEra Energy, with the sixth-largest, Dominion, would create a megacompany at a time when data centers and rapid increases in electricity demand are reshaping the industry.\nThe proposal, announced Monday morning and contingent on state and federal regulatory approval, would result in a company that leads in nearly every aspect of the US power and utility industry, including overall electricity generation, natural gas generation, and renewables.\nThe $67 billion deal combines NextEra’s size and reach with Dominion’s positioning as the local utility for the world’s largest concentration of data centers in northern Virginia. But the results are likely bad for consumers and the environment, creating a company with enormous financial and political strength that will be difficult to effectively regulate, according to consumer advocates and analysts.\nFor perspective, only Exxon Mobil and Chevron would be larger based on market value among US-based energy companies.\n“Mergers are not about consumers; they’re about shareholders,” said Ari Peskoe, director of the Electricity Law Initiative at Harvard Law School. “For the Dominion shareholders, they are selling their shares at a premium. The executives are getting massive payouts for facilitating this, assuming it all goes through, and obviously NextEra believes the transaction is going to add value to the company. Ratepayers are all an afterthought.”\nThe deal makes financial sense for both companies, said Andrew Bischof, an equity analyst for Morningstar.\n“We view the transaction as allowing NextEra to accelerate its data center ambitions, which had trailed those of its regulated peers, by using Dominion’s expertise and relationships to expedite NextEra’s data center hub plans,” he said in a note to clients.\nNextEra, based in Juno Beach, Florida, includes Florida Power & Light, the largest regulated electricity utility in the state, and NextEra Energy Resources, a wholesale electricity supplier that owns power plants across the nation. Dominion, based in Richmond, Virginia, includes regulated utilities serving much of Virginia, parts of North Carolina and South Carolina, and other assets across the country.",
+  "published_at": "2026-05-19T13:45:31Z",
+  "author": "Dan Gearino, Amy Green, and Charles Paullin, Inside Climate News",
+  "collected_at": "2026-05-20T03:02:21.420355Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "data centers",
+      "electricity",
+      "renewables",
+      "syndication",
+      "utlities"
+    ]
+  }
+}

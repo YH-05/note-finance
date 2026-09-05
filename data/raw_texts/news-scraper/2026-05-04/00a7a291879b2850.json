@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/apples-stock-has-gone-nowhere-for-6-months-traders-expect-a-wild-ride-thursday-night.html",
+  "title": "Apple's stock has gone nowhere for 6 months. Traders expect a wild ride Thursday night",
+  "raw_text": "For a stock that's gone nowhere for six months, Apple sure has options traders excited.\nImplied volatility in the stock suggests a 3.5% swing after earnings tonight, compared to an average move of just 1.8% following the last four quarterly reports. For context, among last night's big four tech reports, Amazon and Microsoft are underperforming their implied moves, while Alphabet and Meta are exceeding theirs.\nCall volumes and premiums are outpacing puts in Apple options, but the message is not necessarily bullish. More calls are now trading at the asking price than the bid price, meaning more traders are buying calls than selling them. That has shifted since the market open this morning when the spread was about even.\nA few of the biggest individual trades of the day were in this vein, with one trader collecting almost $1 million of premium by selling both $290 and $300-strike calls in the December 18 expiry. A similar trade collected more than $3 million by selling both the 240 and 250-strike calls expiring May 15.\nBears in the stock may be looking to recent history as a guide: Apple stock has fallen after five of its last six earnings reports and after seven of the last ten.\nStill, the options flows are not as one-directional as they were ahead of other recent reports. At least one big trader felt the need to pay above the market asking price for $330,000 of 320-strike calls expiring July 17.",
+  "published_at": "2026-04-30T17:38:34Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.065689Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

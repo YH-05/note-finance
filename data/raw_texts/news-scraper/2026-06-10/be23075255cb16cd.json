@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947836/google-search-privacy-settings-images-audio",
+  "title": "Google will save your Lens photos, Search Live recordings, and Translate audio for AI training",
+  "raw_text": "Google is making some changes to how it saves your interactions with Search. In an email sent to users, Google says it will save the images, files, audio, and video you use to search under a new “Search Services History” setting.\nGoogle will save your Lens photos, Search Live recordings, and Translate audio for AI training\nYou can turn off this option under a new ‘Search Services History’ setting.\nYou can turn off this option under a new ‘Search Services History’ setting.\nThat includes the images you search for with Google Lens, recordings from its real-time Search Live tool, voice searches, and phrases spoken into Translate, according to an update on the company’s website. You can switch off the Search Services History setting and disable the “Save Media” option if you don’t want Google to save these interactions.\nGoogle says it will use your Search Services History to “provide, develop, and improve its services,” including its AI models, as well as offer personalized suggestions and ads if you have the new “Personalized Recommendations” setting switched on. These two settings will now be separate from Google’s Web & App Activity option, which previously included search-related interactions and some toggles for saving audio recordings and visual searches.\nIf you’ve already blocked Google from saving your search history through Web & App Activity, Google will keep Search Services History switched off following the transition. It will also carry over your personalization preferences when these settings roll out over the “next few months.”",
+  "published_at": "2026-06-10T16:18:45Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-10T21:00:16.766149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Privacy",
+      "Tech"
+    ]
+  }
+}

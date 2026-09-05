@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/blackstone-largest-asia-private-equity-fund.html",
+  "title": "Blackstone closes its largest Asia private equity fund at over $13 billion",
+  "raw_text": "Blackstone said Tuesday it had raised $13.1 billion for its latest Asia private equity fund, marking its largest PE fundraise in the region.\nThe alternative asset manager said that Blackstone Capital Partners Asia III exceeded its $10 billion target, with the fund raising more than double the amount of its predecessor vehicle.\n\"Asia Pacific is the fastest-growing region in the world, presenting compelling opportunities to invest at scale behind our high-conviction themes,\" Joe Baratta, global head of Blackstone Private Equity Strategies, said in a statement.\nBlackstone said it has invested more than $7 billion across 12 deals in Asia over the past 24 months, reinforcing its presence in key markets including India and Japan.\nRecent investments include Indian AI cloud platform Neysa, Japanese engineering services provider TechnoPro and South Korean hair salon franchise JUNO.\nThe firm has also had 15 exits in the region as public markets recover, including the listings of International Gemological Institute and Aadhar Housing Finance in India, as well as the exit of Japan's Alinamin Pharmaceutical.\nThe fundraising comes amid a boost in Asia-focused private capital activity, and follows EQT's recent $15.6 billion Asia buyout fund raise.\nAmit Dixit, Blackstone's head of Asia private equity, said the firm's \"control-oriented strategy\" and regional scale has helped differentiate its investment approach.\nThe private equity industry has been grappling with tougher fundraising conditions amid elevated interest rates and geopolitical uncertainty, with capital raised by Asia-focused funds falling last year to the lowest level in more than a decade, according to Bain & Company.",
+  "published_at": "2026-06-02T03:18:25Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.480529Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/935204/uber-av-lab-self-driving-data-collection",
+  "title": "Uber is deploying its own self-driving cars again, just not as robotaxis",
+  "raw_text": "Uber is putting its own autonomous vehicles back on the road as part of its new AV Lab project to collect data for its dozens of robotaxi partners. The cars will be fitted with all the sensors typical of self-driving cars, like cameras, lidar, and radar. But notably the vehicles will not be operating as robotaxis, just gathering data for Uber’s dozens of robotaxi partners.\nUber is deploying its own self-driving cars again, just not as robotaxis\nThe company has one vehicle with all the hardware typically associated with autonomous driving. It will be gathering data for Uber’s many robotaxi partners.\nThe company has one vehicle with all the hardware typically associated with autonomous driving. It will be gathering data for Uber’s many robotaxi partners.\nThat’s an important distinction, especially if you know anything about Uber’s fraught history with self-driving cars. Uber sold off its AV division in 2020 after one of its self-driving cars killed a woman in Tempe, Arizona. Since then, the company has formed partnerships with dozens of AV startups, preferring instead to be the go-to platform for the technology rather than a developer.\nBut those startups are hungry for data, so Uber is hitting the road. The company is deploying a fleet of vehicles with all the necessary hardware for autonomous driving on its ridehail network. These vehicles, which will be manually driven, will generate revenue and complete regular Uber trips, Balaji Krishnamurthy, the company’s chief financial officer, said on X. More importantly, they’ll be “getting exposure to the variety of ‘edge’ cases our network handles countless times each day, as we fulfill 40M trips daily,” Krishnamurthy said.\nAV operators need at least 10 million miles of data to reach their first public driverless launch, Krishnamurthy theorized. To that end, Uber’s new AV lab fleet will generate at least 2 million miles each month by the end of this year, “and will scale further from there in 2027,” he said.\nThe project is starting small with just one Hyundai Ioniq 5, though Uber executives tell TechCrunch they’re not wedded to that model. The driving data will be provided for free to any of Uber’s partners, which include companies like Wayve, WeRide, Nuro, Waabi, and others. It’s an acknowledgement that many AV developers aren’t as cash rich as Waymo, Tesla, and other leading AV developers, and could use some help defraying many of the costs associated with launching a commercial service.\nEarlier this year, the company announced a new project called Uber Autonomous Solutions to provide a variety of services to its robotaxi partners. One of those services was training data from the company’s fleet of thousands of test vehicles that are out driving in dozens of cities. Uber said this data can help its partners improve their own autonomous vehicles as they seek to scale their robotaxi business more quickly.",
+  "published_at": "2026-05-21T16:59:45Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-05-21T21:00:16.067812Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Ride-sharing",
+      "Transportation",
+      "Uber"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/tesla-fsd-other-european-regulators-skeptical-despite-dutch-approval/",
+  "title": "Musk's Europe gamble: Will others follow the Dutch and approve FSD?",
+  "raw_text": "Following last year’s Tesla shareholder vote, CEO Elon Musk’s near-incomprehensible wealth is now inextricably linked in part to the number of active “FSD” subscriptions his electric car company can sign up. And last month, the Dutch vehicle regulator RDW made that a little easier by approving FSD for use on its roads. Now, the RDW will ask the rest of the European Union to follow suit, opening up a new market of 450 million potential new customers for the driver assist. But it’s no foregone conclusion: Tesla faces plenty of skepticism from other European regulators, according to a report published today by Reuters.\nAmong the goals Musk must meet if he wants all 423.7 million shares in his new contract—current market value $1.7 trillion: Over the next decade Tesla needs at least 10 million subs on the hook. Those kinds of numbers are unachievable if he has to rely just on North American users; Tesla needs Europe and China to say yes, too.\nBut neither China nor the EU has quite the same attitude toward consumer safety that we do in the US, where our government has decided to implicitly trust companies like Tesla at their word when they say a new product is safe. Instead, Chinese and European regulators require premarket approval before letting something loose on their roads.\nFSD or sparkling driver-assist?\nIndeed, the differences between what Tesla is calling FSD in Europe and what it calls FSD in the US go beyond the $99/month versus 99 euro/month price tags. The Dutch-approved build of FSD drives more conservatively, monitors its human driver more frequently, and requires they be ready to put their hands on the wheel at a moment’s notice; American FSD lets drivers take their hands off the wheel on the highway and does not (yet?) comply with UN R-171 regulations. Some other features are absent as of now—there’s no summon, and it’s not meant for use on most urban roads.",
+  "published_at": "2026-05-05T15:09:58Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-05T21:00:30.499210Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Tesla FSD"
+    ]
+  }
+}

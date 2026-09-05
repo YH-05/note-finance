@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070031",
+  "title": "トランプ大統領、イランは核兵器を持たないことに同意した",
+  "raw_text": "【注目】トランプ大統領、イランは核兵器を持たないことに同意した\n・われわれは勝利した。\n株探ニュース",
+  "published_at": "2026-05-06T19:11:00Z",
+  "author": null,
+  "collected_at": "2026-05-06T21:00:21.910972Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

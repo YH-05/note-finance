@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605181253",
+  "title": "米中農業協定にアナリストらが疑問",
+  "raw_text": "【注目】米中農業協定にアナリストらが疑問\nアナリストは、中国の購入計画が米国の農業に真に新たな需要を生み出すのか、それとも単に世界の貿易フローを方向転換させるだけなのかをトレーダーらが議論していると指摘。\nただ、この方向転換は中国がブラジルやアルゼンチンから購入する量を減らす可能性があるという点で有益かもしれないとも述べている。\n株探ニュース",
+  "published_at": "2026-05-18T14:35:00Z",
+  "author": null,
+  "collected_at": "2026-05-18T15:00:21.769011Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

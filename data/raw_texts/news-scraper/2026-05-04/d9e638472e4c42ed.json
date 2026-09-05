@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/apple-may-take-several-months-to-catch-up-to-mac-mini-and-studio-demand/",
+  "title": "Apple may take \"several months\" to catch up to Mac mini and Studio demand",
+  "raw_text": "Apple’s Mac mini and Mac Studio desktops have been increasingly difficult to buy over the course of the year—multiple configurations are listed on Apple’s site as “currently unavailable,” which almost never happens, and others will take weeks or months to ship if you order them today. A top-end version of the Mac Studio with 512GB of RAM was delisted from Apple’s store entirely.\nCurrent Apple CEO Tim Cook addressed the situation on Apple’s Q2 earnings call yesterday as part of a larger conversation about how Apple is navigating component shortages, and he partly blamed the shortage on the popularity of those desktops among users looking to run AI agents and other tools locally.\n“Both [the Mac mini and the Mac Studio] are amazing platforms for AI and agentic tools, and the customer recognition of that is happening faster than what we had predicted, and so we saw higher-than-expected demand,” said Cook. “We think looking forward that the Mac mini and the Mac Studio may take several months to reach supply-demand balance.”\nCook wasn’t specific about what components were driving the Mac mini and Studio shortages, though he did say that generally, “availability of the advanced [manufacturing] nodes our SoCs are produced on” was constrained, and “we have less flexibility in the supply chain than we normally would.” In other words, it has become harder for Apple to go to TSMC and ask for more chips because TSMC doesn’t have the spare manufacturing capacity. Cook said these constraints “primarily” affected the iPhone, though, and only affected the Mac “to a lesser extent.”",
+  "published_at": "2026-05-01T14:10:48Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-04T03:00:31.682943Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Tech",
+      "apple",
+      "Apple silicon",
+      "Mac mini",
+      "Mac Studio"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/advanced-micro-devices-to-give-up-gains-on-predictable-earnings-report-hsbc-says.html",
+  "title": "Advanced Micro Devices to give up gains on predictable earnings report, HSBC says",
+  "raw_text": "Advanced Micro Devices stock has jumped over the past month, but shares are poised to give up some of those gains as the company prepares to report first-quarter earnings that will likely meet, but not exceed, Wall Street's expectations, according to HSBC. The investment bank has downgraded the semiconductor stock to hold from buy. It raised its price target on shares to $340 from $335, but the target suggests shares could fall roughly 6% from Friday's close. Shares were down nearly 3% in the way of the downgrade on Monday. \"AMD's recent share price rebound … has significantly raised market expectations over its server central processing unit (CPU) growth momentum,\" analyst Frank Lee said Monday in a note to clients. \"Despite a strong server CPU product line-up, we do not believe AMD will be able to deliver upside in 2026e server CPU revenue to meet unexpected server CPU demand.\" Shares of the semiconductor firm have risen roughly 66% over the past month, fueled by an artificial intelligence-linked surge in demand for CPUs and graphics processing units, or GPUs. Hyperscalers such as Meta and Google plan to use those chips for the data centers that will power their AI ambitions, which have been at the center of billions of dollars worth of investments since the beginning of the year. AMD 1M mountain Shares have risen 66% in the past month. However, Lee expects AMD is constrained in its ability to meet the strong demand, unlike competitors such as Intel that have capacity to ramp up production. \"AMD remains dependent on TSMC 's foundry capacity, which is going to see even tighter capacity constraints throughout 2026e, especially in 3nm nodes,\" he wrote. \"We believe there remains potential for further server CPU ASP upside from the CPU shortage, but 2026e unit growth upside remains capped.\" HSBC predicts that AMD will log $10.1 billion in revenue in the first quarter, roughly in line with analysts' consensus estimate of $9.9 billion. HSBC estimates second-quarter revenue of $10.5 billion, matching the Street's expectations, according to the analyst's note. HSBC's call goes against consensus on Wall Street. Of the 55 analysts covering the stock, just 12 have a hold rating on shares, LSEG data shows.",
+  "published_at": "2026-05-04T14:05:07Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.697584Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

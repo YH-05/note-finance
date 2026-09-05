@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050033",
+  "title": "原油は４．３９％高＝ＮＹ原油終値",
+  "raw_text": "NY原油先物6 月限（WTI）（終値）\n1バレル＝106.42（+4.48 +4.39%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-04T18:47:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T21:00:22.136210Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

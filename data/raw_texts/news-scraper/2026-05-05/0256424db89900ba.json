@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050195",
+  "title": "欧州株　総じて堅調、休み明け英株は軟調も",
+  "raw_text": "【市況】欧州株 総じて堅調、休み明け英株は軟調も\n東京時間17:45現在\n英ＦＴＳＥ100 10282.95（-80.98 -0.78%）\n独ＤＡＸ 24228.17（+236.90 +0.99%）\n仏ＣＡＣ40 8024.49（+48.37 +0.60%）\nスイスＳＭＩ 13085.35（+82.02 +0.62%）\n※仏ＣＡＣ40、スイスSMIは15分遅れ\n米株価指数先物 時間外取引\n東京時間17:45現在\nダウ平均先物JUN 26月限 49215.00（+136.00 +0.28%）\nＳ＆Ｐ500先物JUN 26月限 7255.00（+24.75 +0.34%）\nＮＡＳＤＡＱ100先物JUN 26月限 27926.50（+150.50 +0.54%）\n出所：MINKABU PRESS",
+  "published_at": "2026-05-05T08:55:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T09:00:51.873620Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

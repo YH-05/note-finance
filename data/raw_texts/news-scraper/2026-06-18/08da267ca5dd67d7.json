@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/google-gemini-co-lead-noam-shazeer-leaves-for-openai.html",
+  "title": "Google Gemini co-lead Noam Shazeer leaves for OpenAI",
+  "raw_text": "Google's vice president of engineering and a co-lead of its Gemini AI models Noam Shazeer announced Wednesday that he was leaving the company to join OpenAI.\n\"I'm excited to share that I'll be joining OpenAI and look forward to working with the exceptional team there,\" Shazeer said in a post on X.\n\"It was a difficult decision to move on. I'm incredibly proud of the amazing team at Google and everything we've built together. It has been an honor and a pleasure to work with all of you,\" he added.\nShazeer's departure comes less than two years after he returned to Google. In August 2024, Google brought back Shazeer and fellow researcher Daniel De Freitas to its DeepMind AI unit as part of a partnership with startup Character.AI, which the pair founded after leaving Google in 2021.\nThe two had left Google after it declined to aggressively pursue a chatbot project they had championed. They subsequently founded Character.AI, one of the most prominent AI startups.\nThe latest move underscores the intense battle for top AI talent, which has become a key front in competition among technology companies.\nThe departure also comes weeks after Google unveiled new AI products, including its Gemini 3.5 Flash model and Gemini Spark AI agent, at its annual I/O developer conference.\nOpenAI, the maker of ChatGPT, confidentially filed for an initial public offering earlier this month, setting the stage for one of the most closely watched technology listings in recent years.\n— CNBC's Jennifer Elias contributed to this report.",
+  "published_at": "2026-06-18T03:21:21Z",
+  "author": null,
+  "collected_at": "2026-06-18T09:35:13.194804Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

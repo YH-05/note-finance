@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20340-de-cix-upgrades-ix-connectivity-between-mexico-and-dallas-ahead-of-world-cup.html",
+  "title": "DE-CIX upgrades IX connectivity between Mexico and Dallas ahead of World Cup",
+  "raw_text": "Internet exchange (IX) operator DE-CIX says it has upgraded connectivity between its locations in Mexico and Dallas in preparation for what it says will be the unprecedented six-billion-strong audience anticipated for the FIFA World Cup this summer.\nIt explains that the upgrade was triggered by very strong demand for connectivity between the two locations as Mexico-based networks seek simplified access to international data pathways.\nThe upgrade is now live, bringing together Mexican and US networks to enable seamless data exchange for live sports, online gaming, content distribution and enterprise solutions.\nEstablished last year, DE-CIX Mexico connects close to 30 networks and, says DE-CIX has experienced more than 400% traffic growth since the beginning of 2026, now achieving peak levels of almost 300 gigabits per second (Gbit/s).\nAlongside streaming World Cup gameplay, the upgraded connectivity to Dallas can be used by Mexican networks for remote peering and cloud connectivity in Dallas and beyond, having other ecosystems like DE-CIX New York and DE-CIX Frankfurt in reach.\nDE-CIX adds that the solution offers direct connections to content, online games, clouds and networks in Dallas and further afield in the US that are not currently available locally.\nOmar Vega, Country Sales Director at DE-CIX Mexico, explains: “The establishment of DE-CIX Mexico in 2025 was a game changer for Mexican connectivity, and this latest upgrade enables direct, secure and high-bandwidth data exchange with networks across the North American continent.”\nLaunched in 2025, DE-CIX Mexico recorded 24 petabytes (PB) of traffic within its first months of operation. The IX already has a healthy mix of national and international networks, including ISPs, cloud, content and gaming networks, and content delivery networks (CDNs), with close to 30 networks connected or connecting.\nDE-CIX Mexico provides a neutral, carrier and data centre-neutral platform that enables networks to exchange traffic locally, reduce latency, and improve routing efficiency. The distributed architecture between Mexico City and Querétaro enhances redundancy and resilience for ISPs, carriers, content providers, and cloud service providers operating nationwide – and, of course, the availability of direct access to DE-CIX Dallas and all DE-CIX locations in the US and globally enables Mexican networks to extend their reach internationally.",
+  "published_at": "2026-06-03T22:15:45Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-08T03:01:22.779491Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

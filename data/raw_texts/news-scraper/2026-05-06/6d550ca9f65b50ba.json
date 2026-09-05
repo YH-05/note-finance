@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/06/ai-boom-pushes-samsung-to-1t/",
+  "title": "AI boom pushes Samsung to $1T",
+  "raw_text": "Samsung reached a $1 trillion valuation on Wednesday as shares of the South Korean tech giant surged more than 10%, driven by the ongoing artificial intelligence frenzy fueling demand for chips. The milestone makes Samsung only the second Asian company to cross the trillion-dollar threshold, after TSMC.\nThe news comes on the heels of a blockbuster earnings report last week, in which Samsung posted profits eight times higher than the same period a year ago.\nEvery company building AI right now needs chips, and Samsung makes the memory chips that power those AI systems. Demand is surging while supply struggles to keep up, pushing prices higher and boosting Samsung’s profits.\nThere’s another reason shares surged on Wednesday. Reports came out yesterday that Apple has been in talks with both Samsung and Intel to manufacture chips for Apple devices on U.S. soil. Apple has long relied almost exclusively on TSMC in Taiwan for its chip production. If Samsung lands the deal, it would mark a significant shift in the global semiconductor supply chain.\nAt the heart of Samsung’s profit boom is high-bandwidth memory (HBM), a type of chip critical to running AI systems, which has dramatically improved the company’s margins. But the competition is intense. Rival SK Hynix, a South Korean semiconductor giant, is aggressively vying for the same market, keeping the pressure on Samsung to maintain its edge.\nThe AI boom is driving a chip shortage across the semiconductor industry, as the world’s three largest memory chip makers, Samsung, SK Hynix, and Micron, struggle to meet runaway demand from AI data centers. All three companies have pulled investment away from their consumer chip businesses to ramp up production of HBM, which carries substantially higher margins and has become essential to powering large-scale AI infrastructure.\nDespite Wednesday’s historic surge, Samsung still faces headwinds. Workers are threatening an 18-day strike later this month, demanding a bigger slice of the AI-driven profits. Meanwhile, the company’s phone and TV divisions, which also need to buy those same memory chips to build their products, are paying a steep price for the same chips powering Samsung’s record profits.",
+  "published_at": "2026-05-06T13:54:09Z",
+  "author": "Kate Park",
+  "collected_at": "2026-05-06T15:00:27.646742Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Enterprise",
+      "artificialintelligence",
+      "Samsung Electronics",
+      "south korea"
+    ]
+  }
+}

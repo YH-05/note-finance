@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/mortgage-rates-surge-iran-markets.html",
+  "title": "Mortgage rates surge to nearly four-week high as Iran headlines impact markets",
+  "raw_text": "After basically flatlining for the last few weeks, mortgage rates moved decidedly higher Wednesday after President Trump said he would maintain the U.S. naval blockade against Iran until they agreed to a nuclear deal. That sent oil prices higher, and bond yields followed.\nAs a result, the average rate on the 30-year fixed mortgage, which began climbing Tuesday, rose seven more basis points to 6.45% according to Mortgage News Daily. That is the highest rate since April 3. Mortgage rates loosely follow the yield on the U.S. 10-year Treasury.\n\"Just over a week ago, rates had been positioning themselves for another de-escalation in the Iran war. When that didn't happen, a gentle upward drift began,\" said Matthew Graham, chief operating officer at Mortgage News Daily. \"Now this week, that pace is becoming more brisk as de-escalation hopes have been replaced by re-escalation fears.\"\nHigher rates since the start of the war had been keeping homebuyers on the sideline, but mortgage applications to buy a home surged higher last week, up 1% for the week and up 21% from the same period a year ago, according to to the Mortgage Bankers Association.\nMore supply is coming on the market, and home prices in some markets are starting to ease. Real estate brokerages have been reporting higher traffic among buyers recently, suggesting consumers may be digesting the higher rate environment and the ongoing uncertainty in the economy from the war.\nIt remains to be seen if this latest rate surge will continue and what effect that may have on the rest of the spring housing market. The Federal Reserve is not expected to change interest rates at its meeting Wednesday.",
+  "published_at": "2026-04-30T14:32:45Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.722382Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

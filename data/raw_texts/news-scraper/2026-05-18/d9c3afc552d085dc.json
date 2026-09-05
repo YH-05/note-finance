@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932375/amazon-alexa-plus-ai-podcasts",
+  "title": "Amazon Alexa Plus can now create AI-generated podcasts",
+  "raw_text": "Alexa Plus, Amazon’s upgraded AI assistant, can now generate podcasts on “virtually any topic,” according to an announcement on Monday. With the update, Amazon says you can give Alexa Plus a topic, and the AI assistant will offer an overview of what its AI hosts plan to talk about, allowing you to steer the conversation and adjust its length before it starts generating the episode.\nAmazon Alexa Plus can now create AI-generated podcasts\nWith Alexa Podcasts, a pair of AI-generated hosts break down the topic of your choice.\nWith Alexa Podcasts, a pair of AI-generated hosts break down the topic of your choice.\nSome “Alexa Podcast” examples shared by Amazon have two AI-generated hosts talking about the history of the Roman Empire, new music, and expectations for the World Cup. Amazon says you can also ask Alexa Plus to generate audio lessons about the Apollo missions, or create a podcast episode about a new hobby, like photography. The feature is similar to the AI-generated podcasts you can create using NotebookLM, a capability Microsoft Edge also snapped up in a recent update.\nAmazon says the AI-generated podcast episodes will draw information from the 200 news publications the company has partnered with, including Reuters, the Associated Press, the Washington Post, Vox, and Politico. Amazon rolled out Alexa Plus to all users in the US in February and has since embedded the assistant into its online marketplace.\nYou’ll receive a notification on your Echo Show device and the Alexa app once the episode is finished. You can tap the notification to play the episode, as well as access it through the Music and More section on the Echo Show, or with the Alexa app.",
+  "published_at": "2026-05-18T15:55:25Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-18T21:00:16.426392Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Amazon",
+      "Amazon Alexa",
+      "News",
+      "Tech"
+    ]
+  }
+}

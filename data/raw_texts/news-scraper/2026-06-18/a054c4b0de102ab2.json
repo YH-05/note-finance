@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/952173/epilogue-gb-operator-game-boy-camera-ios-android-app-iphone",
+  "title": "You can now use the Game Boy Camera with your phone",
+  "raw_text": "The $50 GB Operator is an accessory that lets you connect, play, and authenticate Game Boy, Game Boy Color, and Game Boy Advance cartridges on PCs and other devices. Now it’s getting some new functionality for the Game Boy Camera. After turning the Game Boy Camera into a charmingly awful desktop webcam two years ago, device-maker Epilogue has just released an iOS/Android mobile app so you can take photos while the Game Boy accessory is connected to your smartphone through the GB Operator.\nYou can now use the Game Boy Camera with your phone\nA new mobile app for the GB Operator lets you snap terrible 2-bit, 128 x112 photos without the need for a Game Boy.\nA new mobile app for the GB Operator lets you snap terrible 2-bit, 128 x112 photos without the need for a Game Boy.\nThe Game Boy Camera was a terrible camera even by 1998 standards when it was released. It captured 0.01434-megapixel images in just four shades of gray and images were trapped on your Game Boy unless you printed them or bought a third-party cable to extract them. But it was accessible and affordable at $90, which is also part of the appeal of Epilogue’s solution to using the camera with modern devices.\nThe GB Operator isn’t free, but paired with the new Flashback app and your phone it’s a cheaper alternative to devices like the $240 Analogue Pocket that also work with the Game Boy Camera. The app reads the data straight from the Game Boy Camera’s aging Mitsubishi M64282FP sensor so the images you capture with the accessory attached look exactly the same as they would have decades ago. But the app’s experience is better than what was offered on the original Game Boy with options to make adjustments to settings like shutter speed, gain, exposure, sharpness, dither, and grain, plus the ability to apply one of 32 different color palettes.\nIf you don’t own a Game Boy Camera or the GB Operator, Epilogue’s Flashback app also features a software mode that simulates the accessory’s capabilities. Photos captured by your smartphone’s camera are processed and output as low-res 128 x 112-pixel images with dithering and a minimal color palette. When using the real Game Boy Camera hardware or the app’s simulation mode, images you create are stored in your phone’s Camera Roll so they’re easily accessible and shareable.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T20:22:46Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-06-18T21:00:16.390088Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Gaming",
+      "News",
+      "Tech"
+    ]
+  }
+}

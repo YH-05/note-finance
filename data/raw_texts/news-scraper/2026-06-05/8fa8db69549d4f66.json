@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/coinbase-launches-pre-ipo-perps-starting-elon-musks-spacex",
+  "title": "Coinbase Launches Pre-IPO Perps, Starting With Elon Musk's SpaceX",
+  "raw_text": "Cryptocurrency exchange Coinbase is rolling out a perpetual futures product for pre-initial public offering (IPO) companies, allowing traders to speculate on a company's valuation before its debut.\nThe first pre-IPO company to be traded on the platform is Elon Musk's aerospace company, SpaceX.\nThe SpaceX pre-IPO will be settled using the USDC stablecoin, can be traded 24/7, and all positions will automatically translate when the IPO is complete.\nThat means traders could make massive profits or losses depending on the difference between the pre-IPO valuation and the debut stock price.\n\"Pre-IPO perps are great to get exposure to private companies before they go public (outside the U.S. only for now) and to help with price discovery,\" Brian Armstrong, co-founder and CEO at Coinbase, tweeted.\nIt is worth noting that the pre-IPO perp product is not available for users from the United States. The Coinbase blog post explained that more pre-IPO listings will be announced \"soon,\" including companies in technology, AI, energy, and space.\nPre-IPO perps are great to get exposure to private companies before they go public (outside the U.S. only for now) and to help with price discovery.\n— Brian Armstrong (@brian_armstrong) June 4, 2026\nNow on Coinbase with SpaceX as our first listing. https://t.co/bQLLymd9wb\nThis news comes the same day that Forbes reported that SpaceX's estimated IPO price of $135 per share would make Musk the first-ever trillionaire. Reuters reported that the IPO is targetted for June 12.\nOn prediction market Myriad, owned by Decrypt’s parent company Dastan, users place a 91% chance on Musk reaching the milestone net worth before July.\nPerpetual futures, or simply perps, allow traders to speculate on the direction of an asset via a \"long\" or \"short\" position, without needing direct exposure to the underlying asset. Unlike traditional futures contracts, perps do not have an expiration date—making them a useful tool to hedge bets across a prolonged period of time.\nLast year, perps became the crypto degen's new favorite way of investing with the rise of decentralized exchange Hyperliquid, which allowed anyone to use the investment tool.\nCoinbase's new product combines this popular trading method with pre-market trading—another common offering in crypto. Often, exchanges offer users the opportunity to speculate on the price of a soon-to-debut crypto token in what's called pre-market trading.\nHowever, traders be warned: pre-market prices are often inaccurate and extremely volatile as new information emerges.",
+  "published_at": "2026-06-04T16:00:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-05T03:02:52.905229Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20329-rostelecom-and-vimpelcom-integrate-network-access-processes.html",
+  "title": "Rostelecom and VimpelCom integrate network access processes",
+  "raw_text": "Russian telcos Rostelecom and VimpelCom announced on Monday they have completed the integration of their respective IT systems to automate coordination of access to Rostelecom's line and cable infrastructure.\nState-owned Rostelecom said the project is a continuation of efforts to digitalise a streamline resource-leasing processes between both telcos, which in the past required a complex paper workflow.\nTo automate this process, the telcos said they created a digital bridge between Rostelecom’s CRM and VimpelCom’s fixed network construction management system, enabling VimpelCom to request access to the infrastructure and receive answers directly through the construction control system, eliminating all the paperwork previously involved.\n“VimpelCom can now submit requests in real time, track their status, and receive decisions without additional approvals or manual processes,” said Alexey Kuleshov, Rostelecom’s B2O IT leader in a joint statement.\nThe solution automatically routing requests, tracking their status at every stage and eliminating manual operations. Data is transmitted via a secure channel.\nRostelecom said this setup minimizes the risk of errors – particularly human errors – which speeds up approval times and ensure reliable interaction between systems.\nRostelecom also said that with the automated application and approval process in place, the average time and labour costs for submitting and processing applications has been reduced by 30%. Meanwhile, transparency for all participants has increased, and inter-operator coordination in developing network infrastructure has improved.\n\"When building optical communication lines, operators actively use each other's infrastructure, access to which is regulated by the rules of non-discriminatory access,” said Denis Makarov, director of fixed network construction at VimpelCom. “This step was the first on the market, significantly increasing the efficiency of interaction between operators and infrastructure owners\".\nThe telcos intend to expand the integration to new business processes in the near future, said Kirill Karasev, director of federal telecom operator and content provider relations at Rostelecom.\nThis isn't just a reduction in manual labour; it's the creation of transparent, predictable, and secure interactions that set new standards for speed and reliability for the entire market,” he said.",
+  "published_at": "2026-06-02T04:50:02Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-05T03:05:49.414398Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

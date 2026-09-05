@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/kalshi-is-building-a-bloomberg-terminal-for-prediction-markets.html",
+  "title": "Kalshi is building a prediction markets 'Bloomberg Terminal' for high-end traders, source says",
+  "raw_text": "Prediction market platform Kalshi is developing a new interface for its highly engaged traders to track the company's prediction markets, according to a source familiar with the plans.\nThe product, which the source compared to the \"Bloomberg Terminal\" for traditional equities and derivatives, is currently in alpha testing with a select group of traders on the platform and has been in development for about a month.\nSome of the features of the interface, which were shown to CNBC, include tracking popular contracts by 24-hour volumes across various categories, the ability to see all trades as they're actively placed and also to view individual contracts' order books. Users can customize their interfaces to see event contracts related to their own portfolios and are able to manage multiple positions in varying markets at the same time. Traders also can enable an option to reduce the friction to place trades.\nKalshi declined a request to comment.\nThe source said the company is creating the software to establish a singular product for its highest engaged retail traders, colloquially known as \"sharps,\" who typically use custom workflows to enhance their trades and gain an edge. The source didn't know if Kalshi plans to monetize the platform, either at a potential launch or in the future.\nIn April, Fortune reported that venture capital firm Paradigm, a major Kalshi investor, was building its own prediction markets data platform. However, the report said that platform was in development for market makers and professional traders.\nLong-term, the Kalshi source said the company's platform may include research and other external information, similar to that of Bloomberg's popular product serving Wall Street traders and investors. Kalshi's market data is currently accessible on Bloomberg's platform.\nBloomberg's system is still referred to as a \"terminal\" even though it switched from a closed computer system to a software package long ago.\nWhile the Kalshi product will focus on its prediction markets, the source added that a goal is to extend it to the company's other asset classes. On Friday, Kalshi announced it received approval to offer perpetual futures on cryptocurrencies.\nThat announcement came one day after the company launched another product, its American Power Index, which it calls a real-time measure of political power using Kalshi's data.\nThe source did not include a timeline for an official launch of the new terminal product.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-04T12:47:27Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.622363Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

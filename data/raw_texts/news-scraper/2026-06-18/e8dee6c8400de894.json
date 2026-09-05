@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/this-ai-infrastructure-stock-up-more-than-200percent-this-year-has-more-room-to-run-keybanc-says.html",
+  "title": "This chipmaker stock up more than 200% this year has more room to run, KeyBanc says",
+  "raw_text": "Marvell Technology is likely to get a considerable boost from its efforts to provide critical infrastructure for the artificial intelligence boom, making it a good addition to investors' portfolios, according to KeyBanc. The bank has an overweight rating on the AI infrastructure name. It also hiked its price target on shares to $385 from $260, suggesting 33% upside from Wednesday's close. \"We recently hosted investor meetings with MRVL and left [increasingly] more constructive around the [data center] networking opportunity,\" analyst John Vinh said Wednesday in a note to clients. AI networking refers to the construction and implementation of specialized, high-performance infrastructure to power computing tasks. MRVL YTD mountain MRVL YTD Marvell's plan to acquire semiconductor firm Celestial AI, unveiled late last year, should differentiate the firm from its competitors, potentially boosting its shares, according to the analyst. Celestial AI has developed a so-called \"Photonic Fabric\" platform that links AI processors and memory through light technology, replacing traditional copper wires. The technology aims to be faster and more equipped to handle higher memory loads, allowing it to power large AI initiatives. Vinh's bull case sees the stock soaring to $450 — 55% above Wednesday's close. For that scenario to play out, Marvell needs the following, the analyst said: \"Stronger than expected custom silicon ramps, or program share gains across roadmaps.\" \"Stronger AI demand for its networking driving upsides to growth.\" \"Quicker and more efficient integration of new subsidiaries, driving faster than expected synergies.\" KeyBanc's call falls in line with consensus on the Street. Of the 44 analysts covering Marvell, 38 have a buy or strong buy on the stock, LSEG data shows. Shares have risen 241% this year. They popped another 5% in the premarket Thursday.",
+  "published_at": "2026-06-18T11:25:46Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.519622Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

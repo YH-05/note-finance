@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/931122/openai-chatgpt-financial-accounts-plaid-connection",
+  "title": "OpenAI now wants ChatGPT to access your bank accounts",
+  "raw_text": "Your trust in AI is about to be put to the test: OpenAI will soon let you give the chatbot direct access to your bank accounts. The new feature announced in preview today will allow users to “securely connect” ChatGPT with Plaid — the bank-to-app bridging platform used by 12,000 financial institutions, including Schwab, Fidelity, Chase, Capital One, and more.\nOpenAI now wants ChatGPT to access your bank accounts\nAfter your health records, anything goes.\nAfter your health records, anything goes.\n“More than 200 million people are already going to ChatGPT every month with finance questions – from budgeting to tips on how to cut back on spending,” OpenAI said in its announcement. “Now, users can securely connect their financial accounts with Plaid to get the full view of their financial picture in the context of their personal goals, lifestyle, and priorities that they’ve shared with ChatGPT, powered by OpenAI’s advanced reasoning capabilities.”\nWhen financial accounts are connected, OpenAI says that ChatGPT users can view a dashboard that details their spending history, including any active subscriptions. Users can also ask it to help with financial decisions like buying a house or signing up for credit cards and flag any changes in spending habits.\nThis financial feature will be initially available to users in the US who subscribe to ChatGPT’s $200-per-month Pro tier. “We’ll learn and improve from early use before rolling it out to Plus, with the goal of making it available to everyone,” says OpenAI.\nThis launch follows OpenAI introducing ChatGPT Health in January, a service designed for health-related questions that is “not intended for diagnosis or treatment.” Health, like money, requires a tremendous amount of trust that OpenAI will keep user data private and secure.\nTo assuage concerns, OpenAI promises users “control over their data,” including the ability to disconnect their bank accounts from ChatGPT at any time, though the company has up to 30 days to delete your data from its systems. You can also view and delete “financial memories” like goals or financial obligations saved by the chatbot. User control extends to whether your data is fed back into AI models — users can enable the option to “Improve the model for everyone” to allow financial data in their ChatGPT conversations to be used for training AI, for example. OpenAI also says ChatGPT can’t make any changes to your bank accounts or see “full account numbers.”\nBut it can see your balances, transactions, stock portfolio, and liabilities like a mortgage and credit card debt. And OpenAI — a company that eventually needs to turn a profit — doesn’t specify what the company itself will do with all that financial information outside of AI training, or if there are any additional protections in place to protect users’ financial data from a system hack. What could possibly go wrong?",
+  "published_at": "2026-05-15T16:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-15T21:00:15.760751Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "OpenAI",
+      "Tech"
+    ]
+  }
+}

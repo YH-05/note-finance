@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/10/musks-xai-draws-more-opposition-over-mississippi-power-plant-permit.html",
+  "title": "Elon Musk’s xAI faces fresh opposition after landing permit for Mississippi power plant",
+  "raw_text": "Elon Musk's xAI, now owned by SpaceX, is facing a new legal challenge from environmental groups in Mississippi, where the company plans to build a massive, methane gas-burning power plant in the town of Southaven.\nNonprofits including the NAACP, Young, Gifted & Green, and the Safe and Sound Coalition want Mississippi to revoke the permit that the state's environmental regulator granted to xAI last month allowing it to build the plant. Members of the groups live near xAI's local operations.\nThe power plant will \"worsen the region's ongoing ozone problem,\" the groups' lawyers wrote in a petition filed to the state on Thursday, and result in \"significant increases of pollutants like nitrogen dioxide and, relatedly, fine particulate matter,\" that would harm air quality and threaten the health of residents.\nMusk's company obtained the permit from the Mississippi Department of Environmental Quality on March 10, enabling it to install 41 natural gas-burning turbines permanently in DeSoto County, Mississippi, in order to power its nearby data centers.\nXAI currently operates a data center called Colossus 2 in Memphis, Tennessee, just across the state line, and is building out a new facility dubbed Macrohardrrr in Southaven.\nMusk, the world's richest person, is counting on the Memphis area to serve as the backbone for xAI's buildout, as he tries to compete with OpenAI, Anthropic and Google in the booming AI market. SpaceX acquired xAI in February in a transaction that values the combined entity at $1.25 trillion, ahead of what's expected to be a record IPO in the coming months.\nAcross the U.S., communities have grown concerned about the financial and environmental risks associated with the buildout of the power-intensive infrastructure that underpins AI models and the apps and services that work on top of them.\nRepresented by the Southern Environmental Law Center, the groups opposing xAI's development argue that the company, via its local subsidiary MZX Tech LLC, and the state's regulator didn't use accurate pollution estimates while considering the power plant.\nThey also say xAI wasn't required to use the cleanest possible turbines or purchase environmental offsets, and that local stakeholders were cut out of key meetings, while government emails revealed the regulator was rushing the process under pressure from xAI.\nThe authorization that xAI obtained is known as a Prevention of Significant Deterioration (PSD) permit — a federal air quality standard that applies to significant sources of pollution like utility-sized power plants. Such permits are typically granted after years of correspondence between the Environmental Protection Agency, state regulators and the public.\nRepresentatives for xAI didn't respond to a request for comment. The MDEQ told CNBC by email on Friday that it had received the groups' \"request for an evidentiary hearing regarding the permit,\" and that xAI would have the chance to join the proceeding as a party.",
+  "published_at": "2026-04-10T23:05:01Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.469073Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

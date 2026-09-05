@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942302/google-search-ai-overviews-uk-cma-publisher-opt-out",
+  "title": "Google must let publishers opt out of AI Search features, rules UK",
+  "raw_text": "Online publishers are getting more control over whether their websites appear in Google’s AI Search features, thanks to a UK regulatory ruling. The new conduct rule imposed by the Competition and Markets Authority (CMA) requires Google to let website owners keep their content out of features like AI Overviews, and prevent it from being used for the “fine-tuning” of Google’s AI models.\nGoogle must let publishers opt out of AI Search features, rules UK\nWebsite owners can also prevent their content from being used to ‘fine-tune’ Google’s AI models.\nWebsite owners can also prevent their content from being used to ‘fine-tune’ Google’s AI models.\n“In a world first, publishers will now have effective tools to prevent their content being used to power AI features in search, such as AI Overviews,” the CMA announced. “This will put publishers, like news organizations, in a stronger position to negotiate content deals with Google.”\nGoogle will also have to ensure that publisher content is “properly attributed, using clear links,” in AI‑generated search results. According to the CMA, these requirements will “secure a fairer deal for publishers and consumers and improve Google’s search services in the UK.” Google has already started to roll features out to a “subset of website owners in the UK” in response to the ruling, and plans to make them available globally after testing.\nThe first feature is a new toggle in the Search Console that allows publishers to manage how their content is used in AI Search tools, including AI Overviews, AI Mode, or AI Overviews in Discover. Websites that opt out entirely won’t receive traffic or impressions from generative AI features, and Google says this control won’t be used as a ranking signal for search results outside of AI Search features. New Search Console insights are also rolling out for website owners that contain metrics and information about which webpages are appearing in AI responses, and which countries they’re appearing in.\n“The legally enforceable Conduct Requirements for Google Search published today are a significant step towards leveling the playing field and building a fair, transparent digital economy where premium content is properly respected and fairly compensated,” News Media Association CEO Theo Bamber said in a statement responding to the ruling. “Their success now relies on efficient implementation, robust enforcement and the ability to adapt and strengthen the rules if they are not working properly, in a fast-moving technological environment.”\nGoogle had reportedly previously rejected the idea of giving publishers more control over how website data would be used in AI Search features, because it’s “evolving into a space for monetization.”\nMost Popular\n- Gemini Spark is the most impressive and terrifying AI experience I’ve had yet\n- PlayStation State of Play June 2026: All the news and trailers\n- Microsoft’s new developer-optimized Windows embraces Linux even more\n- Microsoft Build 2026: The 7 biggest announcements\n- Microsoft created the mini Surface dev box that Qualcomm couldn’t",
+  "published_at": "2026-06-03T08:45:48Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-03T09:00:16.805682Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "News",
+      "Policy",
+      "Politics",
+      "Regulation",
+      "Tech"
+    ]
+  }
+}

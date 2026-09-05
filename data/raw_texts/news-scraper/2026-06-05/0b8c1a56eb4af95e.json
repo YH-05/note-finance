@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.jeffgeerling.com/blog/2026/i-tested-every-ip-kvm/",
+  "title": "I tested every IP KVM in my Homelab",
+  "raw_text": "<p>Article URL: <a href=\"https://www.jeffgeerling.com/blog/2026/i-tested-every-ip-kvm/\">https://www.jeffgeerling.com/blog/2026/i-tested-every-ip-kvm/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48413072\">https://news.ycombinator.com/item?id=48413072</a></p>\n<p>Points: 185</p>\n<p># Comments: 52</p>",
+  "published_at": "2026-06-05T14:30:50Z",
+  "author": "vquemener",
+  "collected_at": "2026-06-05T21:00:41.651510Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

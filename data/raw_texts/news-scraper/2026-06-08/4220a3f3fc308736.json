@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/goolsbee-iran-energy-inflation-asia-stagflation-shock-ai-artificial-intelligence-jobs.html",
+  "title": "Energy inflation has been more persistent than expected, Fed's Goolsbee tells CNBC",
+  "raw_text": "Energy inflation tied to the war in Iran has lasted longer than expected, creating a \"stagflationary shock\" for Asian economies, Chicago Federal Reserve President Austan Goolsbee said Thursday.\nSpeaking to CNBC's Kaori Enjoji at the Bank of Japan-IMES Conference, Goolsbee said that initial estimates in the futures markets had expected energy prices to be \"a lot lower\" than current levels.\nWhile oil prices have eased recently on signs of progress in U.S.-Iran peace talks, prices remain well above levels seen before the war.\nBrent crude futures, the international benchmark, gained over 1.81% to $96 per barrel, while the West Texas Intermediate futures gained 1.71% to $90.21 per barrel.\nThat compares with $72 price for Brent, and $67.02 for WTI the day before the U.S. and Israel launched strikes on Iran.\nGoolsbee also sounded a warning for Asian economies, saying that, because they are energy importers, \"it's more just a stagflationary shock of the old-fashioned variety.\"\nThe Chicago Fed President, who voted against the Federal Reserve's final rate cut in 2025, said he dissented because he wanted evidence that inflation would not be persistent.\n\"I don't regret dissenting at that meeting, because the inflation has not proved as temporary as was advertised at the beginning,\" he added.\nStill, Goolsbee said that if inflation starts moving back toward the Fed's 2% target, interest rates would \"ultimately settle at some place well below where they are today.\"\nAsked about the possibility that artificial intelligence could boost productivity, Goolsbee said he was concerned financial markets may run ahead of the actual economic benefits from AI adoption.\n\"My concern is that future increases in productivity that make us rich may fuel high equity prices that they are a increase in your wealth today, to know that you're going to be rich sometime in the future,\" Goolsbee said.\n\"That can encourage people to spend out of this wealth in the stock market or others, and before the AI has actually increased the productivity, you can overheat the economy in the near term.\"\nGoolsbee said policymakers should watch for signs that stock market gains linked to AI are spilling into broader inflation pressures.\n\"I want people to just pay attention to, are you seeing big increases in consumer spending fueled by stock market wealth increases? Are you seeing data center investment driving up the cost of electricity of construction workers and having this short-run impact upon inflation in the U.S.?\"\nHe added that the same dynamic could eventually affect Asian economies because new technologies rarely remain concentrated in one country.\n\"If there is productivity growth to be had from AI, it will be coming soon to Asian countries too,\" he said.",
+  "published_at": "2026-05-28T06:08:44Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.655425Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

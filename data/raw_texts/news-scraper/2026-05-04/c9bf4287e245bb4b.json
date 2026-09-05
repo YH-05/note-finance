@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040067",
+  "title": "ノルウェージャン、決算受け時間外で下落＝米国株個別",
+  "raw_text": "（NY時間08:42）（日本時間21:42）時間外\nノルウェージャン<\nNCLH> 17.75（-1.06 -5.64%）\nクルーズのノルウェージャン<\nNCLH>が決算を受け時間外で下落。ガイダンスを嫌気しており、第２四半期の１株利益の見通しが予想を下回ったほか、通期のＥＢＩＴＤＡの見通しを下方修正した。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-04T12:45:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:00:21.857036Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

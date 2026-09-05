@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/09/anthropics-fable-5-can-make-weirdly-fun-video-games-with-the-click-of-a-button/",
+  "title": "Anthropic’s Fable 5 can make weirdly fun video games with the click of a button",
+  "raw_text": "Anthropic has released Claude Fable 5, the first publicly available version of its closely watched Mythos model. What can Fable actually do? All kinds of things, it turns out.\nEthan Mollick, a notable AI researcher and University of Pennsylvania scholar, has been playing around with the model and seems to be having a lot of fun.\nIn his testing, Fable consistently “outperformed basically every other public model I have used by a considerable margin,” Mollick wrote Tuesday on his Substack. He added that it was “capable across many problems and produced some startling results — it would work up to a dozen hours executing on multi-page specifications.”\nPerhaps most strikingly, Mollick used Fable to create a variety of video games — all of which were generated via “one initial prompt” in Claude Code, the researcher says.\nAmong these, Snake is exactly what it sounds like. You’re a Pac-Man-like snake and you roam around eating apples. The snake never stops moving, and if you run off the screen, you die. It’s very 1980s arcade but, like many of those old games, it’s weirdly addicting. I played it longer than I’d like to admit before remembering I am a gainfully employed writer and not, in fact, a serpent who likes fruit.\nThen there was Strata, where you’re roaming around in a seemingly endless network of subterranean tunnels and the goal is just to light as many lanterns as possible. The graphics look like a degraded version of Myst — they aren’t great — but the fact that the game exists at all, generated from a single prompt, is impressive.\nMollick even managed to create Duino, a game based on the Duino Elegies, the celebrated cycle of poems by German poet Rainer Maria Rilke. I like the animation here best — the player is a lone figure in a nocturnal landscape — although there isn’t much to the gameplay other than walking around while Rilke passages materialize on the screen.\nAside from the variety of instant games Mollick produced, he also used Fable to create an isochronic map — a visualization showing how long it takes to travel between any two locations. The accuracy and detail is arresting.\nThe implications are pretty clear. Software projects that once required entire teams — games, mapping tools, highly complex specifications — are now being spun up from a single prompt. It’s reason for vibe coders of the world to rejoice. As for founders and operators watching AI capability curves, it’s a useful data point about how quickly the floor is rising.",
+  "published_at": "2026-06-09T20:37:49Z",
+  "author": "Lucas Ropek",
+  "collected_at": "2026-06-09T21:00:27.992489Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Claude",
+      "Fable 5"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.orangecrumbs.com/",
+  "title": "Show HN: Discover Wikipedia articles popular on Hacker News",
+  "raw_text": "<p>Article URL: <a href=\"https://www.orangecrumbs.com/\">https://www.orangecrumbs.com/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48530382\">https://news.ycombinator.com/item?id=48530382</a></p>\n<p>Points: 111</p>\n<p># Comments: 26</p>",
+  "published_at": "2026-06-14T17:54:17Z",
+  "author": "octopus143",
+  "collected_at": "2026-06-15T09:00:48.697667Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

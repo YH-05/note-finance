@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/929667/sony-alpha-a7rvi-mirrorless-camera-price-specs",
+  "title": "Sony ups its new A7R VI to 66.8 megapixels and jumps the price to $4,500",
+  "raw_text": "Sony announced its new flagship high-resolution camera, the A7R VI. The standout feature is its fully stacked full-frame sensor with 66.8 megapixels of resolution and up to 16 stops of dynamic range. That’s only an increase of about six megapixels for the VI model, but its stacked architecture means a much faster readout speed for higher burst rates, better silent shooting with the electronic shutter, and improved video performance. The other increase comes to the price, as the A7R VI will cost $4,499.99 when it launches in June — $600 more than when the A7R V launched in 2022.\nSony ups its new A7R VI to 66.8 megapixels and jumps the price to $4,500\nIt now features a fully stacked sensor for faster shooting and 8K video, making it a more do-it-all high-resolution camera.\nIt now features a fully stacked sensor for faster shooting and 8K video, making it a more do-it-all high-resolution camera.\nThe new A7R camera has a slew of new features and ones it’s inherited from other Alpha models. The A7R V debuted Sony’s AI-based autofocus system, and the VI is claimed to improve on it with Real-time Recognition AF+. There’s also a new 9.44 million dot OLED viewfinder, similar to the one on the A1 II, and backlight illumination for the camera’s buttons. The grip design (one that I’ve often bemoaned) is slightly chunkier to accommodate a new, higher capacity battery.\nA new battery is a big change for Sony shooters, as Alpha cameras have been using the NP-FZ100 for years. And if you’re like me you probably own a bunch, but sadly the A7R VI isn’t backwards compatible. The new NP-SA100 battery promises up to 710 shots on a charge in the A7R VI. It’s got a 2670mAh capacity compared to the 2280mAh of the old battery (a 17 percent increase).\nThe stacked sensor of the A7R VI and new Bionz XR2 processor enable continuous blackout-free burst shooting of up to 30 frames per second. For video, it can record 8K in the full sensor width (no cropping) at up to 30p, running for up to two continuous hours thanks to its heat management. It can also record 4K at up to 120p, also without any cropping. High-resolution cameras usually aren’t the best choice for video, but the new sensor makes the A7R VI much more versatile. It’s also the first Sony Alpha to support dual gain shooting for reduced noise and minimizing loss of shadow detail.\nThe A7R VI also takes other benefits from recent Sony Alpha cameras, including in-body image stabilization up to 8.5 stops and dual USB-C ports for both charging and data.\nAs usual for a high-end Sony Alpha, it’s a lot. You’re also paying a lot, especially if you have to reinvest in new $120 batteries. But the price increase over the A7R V’s original debut price isn’t far off from the outright price jump Sony’s flagship A1 II and A9 III bodies received last year — likely from US tariffs. Those models cost nearly $7,000, so compared to them the A7R VI is a better proposition if you’re a general purpose, portrait, or nature photographer who values resolution most of all.",
+  "published_at": "2026-05-13T15:30:14Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-05-13T21:00:16.563128Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Cameras",
+      "Gadgets",
+      "News",
+      "Sony",
+      "Tech"
+    ]
+  }
+}

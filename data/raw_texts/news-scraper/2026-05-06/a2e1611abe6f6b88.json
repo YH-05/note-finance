@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/googles-gemma-4-open-ai-models-use-speculative-decoding-to-get-up-to-3x-faster/",
+  "title": "Google's Gemma 4 AI models get 3x speed boost by predicting future tokens",
+  "raw_text": "Google launched its Gemma 4 open models this spring, promising a new level of power and performance for local AI. Google’s take on edge AI could be getting even faster already with the release of Multi-Token Prediction (MTP) drafters for Gemma. Google says these experimental models leverage a form of speculative decoding to take a guess at future tokens, which can speed up generation compared to the way models generate tokens on their own.\nThe latest Gemma models are built on the same underlying technology that powers Google’s frontier Gemini AI, but they’re tuned to run locally. Gemini is optimized to run on Google’s custom TPU chips, which operate in enormous clusters with super-fast interconnects and memory. A single high-power AI accelerator can run the largest Gemma 4 model at full precision, and quantizing will let it run on a consumer GPU.\nGemma allows users to tinker with AI on their hardware rather than sharing all their data with a cloud AI system from Google or someone else. Google also changed the license for Gemma 4 to Apache 2.0, which is much more permissive than the custom Gemma license Google employed for previous releases. However, there are inherent limitations in the hardware most people have to run local AI models. That’s where MTP comes in.\nLLMs like Gemma (or Gemini) generate tokens autoregressively—that is, they produce one token at a time based on the previous token. Each one takes just as much computing work as the last one, regardless of whether the token is just a filler word in an output or a key piece of information in a complex logical problem.\nThe problem with rolling your own AI is that your system memory probably isn’t very fast compared to the high bandwidth memory (HBM) used in enterprise hardware. As a result, the processor spends a lot of time moving parameters from VRAM to compute units for each token, and compute cycles are going unused during this process.\nMTP uses that time to bypass the heavy model and generate speculative tokens with the lightweight drafter. While the draft models are smaller (just 74 million parameters in Gemma 4 E2B), they’re also optimized in several ways to speed up speculative token generation. For example, the drafter shares the key value cache (essentially the LLM’s active memory) so it doesn’t need to recalculate context the main model has already worked out. The E2B and E4B drafters also use a sparse decoding technique to narrow down clusters of likely tokens.",
+  "published_at": "2026-05-06T15:44:20Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-06T21:00:30.780080Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "gemma",
+      "generative ai",
+      "google"
+    ]
+  }
+}

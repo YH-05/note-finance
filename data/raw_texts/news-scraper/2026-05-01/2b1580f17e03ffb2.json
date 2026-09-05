@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/starbucks-launches-beta-app-in-chatgpt-to-fuel-new-drink-discovery.html",
+  "title": "Starbucks launches beta app in ChatGPT to fuel new drink discovery",
+  "raw_text": "Starbucks has launched a beta app in ChatGPT to provide inspiration for customers' drink orders, the company said Wednesday.\nTo use the beta app, customers need to enable the Starbucks app through ChatGPT's app directory and then enter a prompt on the chatbot that includes \"@Starbucks.\" While they can customize their orders and even select what location to order from, consumers will need to complete their order on the Starbucks app or website — a key distinction for a company that relies heavily on its loyalty program.\n\"Over the past year, one thing has become clear: Customers aren't always starting with a menu,\" Paul Riedel, Starbucks' senior vice president of digital and loyalty, said in a statement. \"They're starting with a feeling .... We wanted to meet customers right in that moment of inspiration and make it easier than ever to find a drink that fits.\"\nThe announcement on Wednesday marks the latest way that Starbucks is trying to find ways to entice U.S. customers back to its cafes. Under its \"Back to Starbucks\" turnaround strategy, the company has added seating back to its cafes, trimmed its menu and reintroduced tiers to its loyalty program.\nIt also helped customers find new drinks on its mobile app, through its trending beverage category or the secret menu under its \"offers\" tab. Drink discovery is also important for winning over Gen Z consumers, who have shown more of an affinity for unique beverages at U.S. restaurant chains than members of older generations.\nSo far, Starbucks' turnaround strategy looks like it is taking hold. After two years of traffic declines, the chain finally reported rising customer transactions in its fiscal first quarter ended Dec. 28.\nWednesday's announcement is not Starbucks' first foray into using generative artificial intelligence or partnering with OpenAI. Last year, the coffee company unveiled Green Dot Assist, an AI assistant for baristas created with Microsoft Azure's OpenAI platform.\nOther consumer companies have also been partnering with OpenAI to boost sales. Walmart, Etsy and Booking.com are among the big names that are testing shopping and purchasing through ChatGPT's interface.",
+  "published_at": "2026-04-15T17:17:08Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.464368Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "retail",
+    "tags": []
+  }
+}

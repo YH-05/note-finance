@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606070067",
+  "title": "明日の経済スケジュール ─ 国際収支など",
+  "raw_text": "【経済】明日の経済スケジュール ─ 国際収支など\n6月8日(月)\n友引・月齢22.3 下弦の月\n「4勝6敗」(過去10年の日経平均の陰陽星取)\n【国内】\n□1-3月期GDP[改定値](8:50)\n□4月国際収支(8:50)\n□月間対外及び対内証券売買契約等の状況(8:50)\n□5月景気ウォッチャー調査(14:00)\n□マレーシア首相が来日(～10日)\n【海外】\n□オーストラリア市場休場\n□ドイツ4月製造業新規受注(15:00)\n□米アップル<AAPL>の年次開発者会議「WWDC」(～12日)\n株探ニュース",
+  "published_at": "2026-06-07T11:05:00Z",
+  "author": null,
+  "collected_at": "2026-06-07T21:00:22.051862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

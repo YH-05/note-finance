@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20202-new-subsea-cable-branch-lands-in-mauritania.html",
+  "title": "New subsea cable branch lands in Mauritania",
+  "raw_text": "The EllaLink submarine cable system and Mauritania have announced the successful landing of a new subsea cable in Nouadhibou, giving the country a second direct, diverse and secure connection to European and international digital hubs.\nThe second largest city in Mauritania, Nouadhibou is located not far from the border between Mauritania and the Western Sahara.\nThe EllaLink submarine cable system is an advanced optical platform offering secure high-capacity connectivity on a unique low-latency transatlantic route serving the growing needs of the Latin American and European markets.\nThe company of the same name is privately funded, independent and committed to providing products and services on a carrier-neutral and open-access basis.\nThis new branch extends more than 670 kilometres from the main EllaLink trunk to the new Nouadhibou cable landing station. Equipped with two fibre pairs and state-of-the-art optical technology, it delivers multi-gigabit connectivity from day one, scalable to multi-terabit capacity, with significant headroom to accommodate decades of traffic growth.\nThe project is co-funded by the Mauritanian State and the European Union through the Connecting Europe Facility (CEF), reinforcing Europe’s commitment to secure, high-capacity digital links with Mauritania and the wider Atlantic region. In Nouadhibou, EllaLink has built a new neutral cable landing station, enabling national operators to access the infrastructure via two diverse routes.\nBy providing Mauritanian operators, public institutions and innovators with a trusted, direct, low-latency path to European cloud, AI and data services, the partners say the new route strengthens national digital security and serves as a key enabler for the development of strategic sectors including e-government, education, health, agriculture, transport and energy.\nAhmed Salem Bede, Minister of Digital Transformation and Modernisation of Administration of Mauritania, explains: “Through this connection, Mauritania strengthens its capacity to secure its communications with the world, diversifies its international access points and guarantees the stability of its digital services.“\nIndeed, EllaLink says the Nouadhibou landing positions Mauritania as a strategic node on the Atlantic digital map. The new route reduces the risk of service outages, opens regional extension opportunities towards the Sahel and the wider Atlantic corridor, and reinforces Nouadhibou’s emergence as an industrial and economic centre.",
+  "published_at": "2026-05-05T14:27:45Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-08T03:01:18.584407Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

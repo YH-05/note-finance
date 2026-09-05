@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606081095",
+  "title": "８日香港・ハンセン指数＝終値２４６５７．０６（－３０４．８９）",
+  "raw_text": "８日の香港・ハンセン指数の終値は前営業日比３０４．８９ポイント安の２４６５７．０６と４日続落した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-06-08T08:28:00Z",
+  "author": null,
+  "collected_at": "2026-06-08T09:00:22.077002Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

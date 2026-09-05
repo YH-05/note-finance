@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947871/amazon-sleep-studio-echo-kids-smart-speakers-calm-moshi-headspace",
+  "title": "Amazon’s Echo speakers can now help kids wind down and fall asleep",
+  "raw_text": "Amazon has launched a new feature for its Echo and Echo Kids smart speakers called Sleep Studio that’s designed to make the daily transition to bedtime more enticing for kids and less stressful for parents and caregivers. The feature uses a combination of bedtime stories, relaxing sounds, and guided meditations along with scheduling and customization options accessible only to adults.\nAmazon’s Echo speakers can now help kids wind down and fall asleep\nSleep Studio is a new Amazon Kids Plus feature that plays relaxing stories, meditations, and sounds before bed.\nSleep Studio is a new Amazon Kids Plus feature that plays relaxing stories, meditations, and sounds before bed.\nSleep Studio is now available to those with a $5.99 per month Amazon Kids Plus subscription at no extra cost. Amazon offers a free one month trial of the service, but purchasing an Echo Kids device will also get you a complementary six or 12-month subscription.\nCurated playlists and sleep schedules can be configured for kids using the Amazon Kids Parent Dashboard, which is available as a standalone iOS/Android mobile app and a dedicated website. A half-hour wind-down routine will be automatically triggered on Echo devices 30 minutes before a child’s scheduled bedtime, but kids can also start it themselves anytime they’re feeling sleepy by saying “Alexa, play Sleep Studio.” The Echo Glow, which doubles as a night light, will also illuminate with color-coded lights so kids can see when they should be dozing and when it’s time to get out of bed.\nThe soothing content available through Sleep Studio comes from platforms including Headspace, Moshi, and Calm. “A good night’s sleep is important for a healthy, rested mind for everyone. That’s why Calm has created a sprawling library of meditations, lullabies, soundscapes, and Sleep Stories for kids,” says Fergal Walker, the vice president of partnerships at Calm, in a release from Amazon.",
+  "published_at": "2026-06-10T16:54:17Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-06-10T21:00:16.765560Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

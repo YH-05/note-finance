@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20293-dialog-axiata-launches-sri-lankas-first-5g-fwa-solution.html",
+  "title": "Dialog Axiata launches Sri Lanka’s first 5G FWA solution",
+  "raw_text": "Sri Lankan telco Dialog Axiata launched its “Air Fibre” 5G fixed wireless access (FWA) service on Sunday, the first such service to be offered in Sri Lanka.\nDialog said the Air Fibre home router delivers ultra-fast Wi-Fi connectivity in the home, backhauled by its 5G network, and is engineered to support multiple devices simultaneously without compromising speed.\nThe Air Fibre router is also equipped a built-in battery providing up to six hours of continuous usage to guarantee uptime during power outages.\nDialog said Air Fibre promises a substantial improvement in speed and performance over 4G-based FWA services, which will ensure smooth streaming, video conferencing, online gaming, and remote working experiences. The telco is also bunding its Dialog Play video streaming service with Air Fibre packages.\n“By combining innovation with practicality, we are enabling customers to enjoy reliable, high-speed 5G broadband through a convenient plug-and-play Wi-Fi solution, without traditional constraints,” said Dialog Axiata group COO Lim Li San in a statement.",
+  "published_at": "2026-05-25T00:52:30Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-25T03:01:24.580239Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

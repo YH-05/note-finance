@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/925338/openai-musk-v-altman-mira-murati",
+  "title": "Mira Murati tells the court that she couldn’t trust Sam Altman’s words",
+  "raw_text": "Mira Murati, OpenAI’s former CTO, has testified under oath that CEO Sam Altman lied to her about the safety standards for a new AI model. In a video deposition shown during the ongoing Musk v. Altman trial on Wednesday, Murati said Altman falsely stated that OpenAI’s legal department determined a new AI model did not need to go through the company’s deployment safety board. “As you understand it, was Mr. Altman telling the truth when he made that statement to you?” Murati was asked in the deposition. “No,” Murati said.\nMira Murati tells the court that she couldn’t trust Sam Altman’s words\nOpenAI’s former CEO testified under oath that Altman lied to her.\nOpenAI’s former CEO testified under oath that Altman lied to her.\nMurati said that during her tenure at OpenAI, Altman made her work more difficult. Her criticism “is completely management related,” she said. “I had an incredibly hard job to do in an organization that was very complex. I was asking Sam to lead, and lead with clarity, and not undermine my ability to do my job.”\nThe safety situation around one of OpenAI’s GPT models was an example. Murati testified that after speaking with Altman, she checked with Jason Kwon, who joined OpenAI in 2021 as its general counsel and is now the company’s chief strategy officer. Murati said that there was “misalignment” between what Kwon and Altman; “I confirmed that what Jason was saying and what Sam was saying were not the same thing.” To be safe, she said, she made sure the model went through the board.\nIt’s not the first time Altman has been accused of lying. Cofounder Ilya Sutskever, in part of a 52-page memo to OpenAI’s board that was read in a deposition, said that Altman “exhibits a consistent pattern of lying, undermining his execs, and pitting his execs against one another.” Former OpenAI board member Helen Toner, in a 2024 podcast where she discussed Altman’s brief firing in November 2023, also said that OpenAI executives had shared evidence with the board of Altman “lying and being manipulative in different situations.” Murati agreed with descriptions of Altman as pitting executives against each other and undermining her.\nThe board, when it fired Altman, said that he “was not consistently candid in his communications with the board, hindering its ability to exercise its responsibilities. The board no longer has confidence in his ability to continue leading OpenAI.” (When Altman was asked by The Verge why he thought the board lost trust in him, Altman said that “That will be a better question for them.”)\nMurati was briefly appointed interim CEO after OpenAI’s board fired Altman. However, in testimony, she criticized the board’s decision and said “OpenAI was at catastrophic risk of falling apart.” She left OpenAI in 2024 and later founded her own OpenAI rival, Thinking Machines Lab.\nMost Popular\n- Apple agrees to pay iPhone owners $250 million for not delivering AI Siri\n- Here’s what Microsoft is offering long-serving employees to voluntarily retire\n- Nintendo announces a new Star Fox for the Switch 2\n- The Remarkable Paper Pure is the best digital notepad I’ve ever used\n- Valve just imported 50 tons of game consoles in two days",
+  "published_at": "2026-05-06T17:55:53Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-07T03:00:16.016181Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "News",
+      "OpenAI"
+    ]
+  }
+}

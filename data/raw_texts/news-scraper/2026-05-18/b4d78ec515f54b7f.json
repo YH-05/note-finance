@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/932642/walmart-onn-new-core-pro-kids-tablets",
+  "title": "Walmart launches new budget-friendly Android tablets starting at $97",
+  "raw_text": "Walmart’s Onn brand just launched a whole line of budget-friendly Android tablets that, all together, cost less in total than a single iPad Pro. As spotted by 9to5Google, the six new tablets ship with Android 16 and all but one cost less than $200.\nWalmart launches new budget-friendly Android tablets starting at $97\nThe six new Onn tablets ship with Android 16 and include kids’ tablets, Core models, and a 13-inch Pro model.\nThe six new Onn tablets ship with Android 16 and include kids’ tablets, Core models, and a 13-inch Pro model.\nThe little Onn Core 7 is the most affordable of the bunch at just $97, which gets you a 7-inch 1040 x 600 IPS LCD display, 4GB of RAM, 64GB of storage that’s expandable with a microSD card, and, according to Walmart, up to 10 hours of battery life.\nA step above that are two larger Core tablets. The Core 8.1 costs $138 and includes an 8.1-inch 1524 x 1000 IPS LCD display, 6GB of RAM, 64GB of storage (also expandable with microSD), and up to 15 hours of battery life. The Core 11 for $167 is a bit bigger, similar to a base iPad, featuring an 11-inch 1840 x 1280 IPS LCD display, 6GB of RAM, 128GB of storage that’s expandable with a micoSD slot, and up to 17 hours of battery life. There are also two affordable kids’ tablets available in 8-inch and 11-inch sizes for $118 and $136, respectively.\nThe priciest of the new tablets is the Onn Pro, which costs $288 and includes a 13.2-inch 2400 x 1600 IPS LCD display, 8GB of RAM, 256GB of storage, and an unnamed 2.6GHz MediaTek processor. Unlike the iPad Pro it’s imitating, it also includes a folio case and a stylus.",
+  "published_at": "2026-05-18T18:44:07Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-18T21:00:16.425174Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

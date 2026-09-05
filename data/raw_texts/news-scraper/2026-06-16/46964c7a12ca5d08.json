@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/12/openai-says-its-engaging-constructively-with-state-ags-.html",
+  "title": "OpenAI says it's engaging 'constructively' with state AGs about concerns",
+  "raw_text": "OpenAI on Friday said it intends to \"engage constructively\" with state attorneys general and will take their concerns \"seriously,\" a spokesperson told CNBC.\nThe company's statement landed after The Wall Street Journal reported that a coalition of state attorneys general opened an investigation into the artificial intelligence company. OpenAI was reportedly served with a subpoena seeking information about its approach to advertising, consumer and health data, minor and senior users and models, among other activities.\n\"AI is a new and powerful technology, and we work every day to safely bring its benefits to people in a responsible way,\" the spokesperson said.\nOpenAI rocketed into the mainstream in 2022 following the launch of its chatbot ChatGPT, which now supports more than 1 billion monthly active users.\nThe company has ballooned into one of the most valuable private companies on the planet, reaching a valuation of $850 billion earlier this year. OpenAI is now gearing up for an IPO that could land as soon as this year, announcing on Monday that it confidentially filed its prospectus with the Securities and Exchange Commission.\nBut along with the company's meteoric rise has come mounting legal woes over purported harms caused by its technology.\nFlorida Attorney General James Uthmeier sued OpenAI earlier this month, alleging that the company knowingly released an unsafe product, namely ChatGPT, that could harm users. Uthmeier said during a press conference at the time that he expected other states to take similar action.\nThe company is being sued by seven families of the victims of the Tumbler Ridge mass shooting, which took place in Canada in February. The families allege that the attacker used ChatGPT to plan the attack, and that the company did not do anything to stop it.\nOpenAI is also facing a number of wrongful death lawsuits, which allege that ChatGPT drove users to experience harmful delusions and, in some cases, to commit suicide.\n\"Today's ChatGPT includes a more protective experience for minors and people experiencing difficult situations, with safeguards that direct them to real-world resources and trusted human contacts,\" OpenAI's spokesperson said Friday.\nIf you are having suicidal thoughts or are in distress, contact the Suicide & Crisis Lifeline at 988 for support and assistance from a trained counselor.",
+  "published_at": "2026-06-13T00:29:18Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.296499Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

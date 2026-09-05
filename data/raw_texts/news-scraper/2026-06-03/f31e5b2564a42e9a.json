@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/cftc-sues-rhode-island-over-actions-against-prediction-markets.html",
+  "title": "CFTC sues Rhode Island over actions against prediction markets",
+  "raw_text": "The Commodity Futures Trading Commission announced on Thursday that it was suing Rhode Island, one week after the state took action against two prediction market platforms.\nIt marks the seventh state the CFTC has sued in a dispute over who has the authority to regulate prediction markets.\nRhode Island Attorney General Peter Neronha sued Kalshi and Polymarket last week, saying that the companies were violating the state's sports-betting laws through their sports-related event contracts, an argument other states have also made. However, the CFTC asserts that the right to regulate these markets falls under the federal agency's jurisdiction over swaps and derivatives, which it says includes event contracts.\n\"CFTC-registered exchanges have faced an onslaught of lawsuits seeking to limit Americans' access to event contracts and undermine the CFTC's sole regulatory jurisdiction over prediction markets,\" CFTC Chairman Michael Selig said in a press release announcing the lawsuit. \"This power grab ignores the law and decades of precedent.\"\nThe CFTC is seeking to intervene in the state's existing lawsuit against the platforms and has also filed its own complaint against Rhode Island.\nIn all, 18 states are currently engaged in litigation over prediction markets. One of those states, Minnesota, has moved to ban them outright.\nIn a social media post on Tuesday, President Donald Trump said it was critical that the commission's exclusive jurisdiction over prediction market regulation is maintained.\nWhile authorities in the states involved in legal proceedings over prediction markets are on both sides of the aisle, the CFTC has only gone after ones with Democratic attorneys general. Neronha, Rhode Island's attorney general, is also a Democrat.\n\"We allege that Kalshi and Polymarket are operating outside of our sports betting laws, and ultimately, Rhode Islanders will be footing the bill for their actions. Federal intervention in this lawsuit doesn't change that,\" Neronha said in a statement. \"We are confident in our case and are ready to go on behalf of Rhode Islanders.\"\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-05-28T19:57:39Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.157190Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

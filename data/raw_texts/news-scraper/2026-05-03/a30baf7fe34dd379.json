@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20178-awcc-launches-afghanistans-first-5g-trial-in-kabul.html",
+  "title": "AWCC launches Afghanistan’s first 5G trial in Kabul",
+  "raw_text": "Afghan Wireless Communication Company (AWCC) has reportedly launched Afghanistan’s first trial of 5G in Kabul, six weeks after the telco began testing the technology.\nAccording to several local media reports, the Ministry of Communications and Information Technology announced on Wednesday that AWCC has upgraded 74 base stations in Kabul to 5G on a trial basis.\nMinistry spokesperson Enayatullah Alokozai said AWCC will extend 5G services to other provinces after technical preparations and testing are completed.\nThe announcement followed a meeting between Minister of Communications and Information Technology Hamdullah Nomani, and AWCC head Aliullah Sarwari to discuss expanding telecom coverage, improving service quality and connecting remote regions.\nSarwari also reportedly said that AWCC has built and activated 46 base stations using its development budget since the beginning of this year, and is working on another 186 sites nationwide.\nAWCC previously announced on March 15 that it had begun testing 5G technology, making it the first telco in Afghanistan to do so. The telco offered no details at the time in terms of the scope of the tests or rollout plans.",
+  "published_at": "2026-04-30T02:18:20Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-03T03:01:18.551826Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

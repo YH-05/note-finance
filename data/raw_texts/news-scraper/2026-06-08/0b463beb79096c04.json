@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/massachusetts-votes-to-pass-new-privacy-rights-bill-that-bans-sale-of-precise-location-data/",
+  "title": "Massachusetts votes to pass new privacy rights bill that bans sale of precise location data",
+  "raw_text": "Massachusetts lawmakers have voted to pass privacy protections that grant the state’s residents new rights over accessing and deleting their data held by big tech giants. The bill also bans companies from selling their users’ precise location data.\nLawmakers in the Massachusetts House passed the state’s Consumer Data Privacy Act in a unanimous 146-0 vote on Thursday, months after all of the Senate’s 40 lawmakers voted in favor of advancing its own bill in September. Now, the bills will be combined in the Senate, and sent to the state governor’s office, where it is expected to be signed into law. It’s not immediately clear when that will happen.\nThe move makes Massachusetts the latest U.S. state to push for stronger consumer privacy rights after years of documented abuses by the wider technology, advertising and social media industries. While the United States does not have a nationwide privacy law, unlike many of the world’s major democracies, U.S. states have filled the void of legislation by bringing their own patchwork of privacy rules that apply to their states.\nThe bill, if passed into law, will apply to companies that handle or process the personal data of more than 100,000 consumers. It will largely affect medium-sized startups as well as Silicon Valley technology titans.\nThe law would block the sharing or sale of sensitive information without a user’s explicit consent. This data includes biometrics (such as health data, genetic information, and fingerprints), their precise geolocation data, and other markers about their religion, immigration status and sexual orientation.\nThe collection and sale of people’s location data has been a major flashpoint in privacy debates for years. Data brokers have for years relied on app developers selling their users’ location data to repackage and sell it to anyone who can pay, including stalkers, governments and militaries. In many cases, the government says it does not need a warrant to purchase data that’s commercially available on the open marketplace.\nThe Biden administration came close to banning the sale of sensitive Americans’ data at the federal level, but the Trump government has since scrapped the change.\nBy applying the location data ban to both residents and visitors, the Massachusetts law will effectively blanket ban the sale of location data across the state. The bill is anticipated to have a broad effect on startups that collect, share and sell location data in Massachusetts, as well as advertising companies that use location data to target people with ads.\nAccording to local media WBUR and Massachusetts newspaper Lynn Journal, state lawmakers worked across party lines under the belief that privacy is a fundamental right to Massachusetts state residents.\nThe bill was generally praised by privacy groups and advocates.\nEvan Greer, director of the Fight for the Future advocacy group, said the Massachusetts bill “took a major step toward cracking down on Big Tech’s surveillance abuses,” while the ACLU praised the landmark bill as positioning the state as a “leader in protecting personal privacy and curbing digital surveillance.”",
+  "published_at": "2026-06-08T13:26:03Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-06-08T15:00:27.163872Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Privacy",
+      "Security",
+      "cybersecurity",
+      "location data",
+      "massachusetts",
+      "privacy"
+    ]
+  }
+}

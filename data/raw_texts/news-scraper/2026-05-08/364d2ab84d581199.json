@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/french-prosecutors-probe-of-elon-musk-x-now-a-criminal-investigation.html",
+  "title": "French prosecutors escalate probe of Elon Musk and X to criminal investigation",
+  "raw_text": "French cybercrime authorities have escalated an investigation of Elon Musk and his social network X to a criminal probe, the Paris prosecutor's office said Thursday.\nMusk and former X CEO Linda Yaccarino were issued summons by French authorities for April 20. Both of them declined to appear and answer questions, according to the prosecutor's office.\nIn February, Musk called the probe a \"political attack,\" after French authorities raided the Paris office of X.\nThe probe, requested by French Member of Parliament Éric Bothorel in early 2025, has focused on complaints of algorithmic manipulation by X to influence and interfere in French politics, and allegations that Musk and X knowingly allowed users of the AI chatbot Grok to create and spread Holocaust denials and nonconsensual sexually explicit deepfake images on X.\nGrok is developed by xAI, Musk's artificial intelligence company that acquired X (which he already owned) and earlier this year merged with SpaceX, his reusable rocket company. A version of Grok is also integrated into electric vehicles made by Tesla, Musk's automaker.\nOther international jurisdictions are also investigating X and Grok, as is the California attorney general's office.\nThe probes generally focus on whether Musk and his companies deliberately allowed for the creation and spread of deepfake explicit images, including child sexual abuse materials, based on photos or videos of nonconsenting individuals.\nIn April, the U.S. Department of Justice reportedly told French authorities it wouldn't help investigate Musk or X, and accused France of inappropriately interfering with an American business.\nRepresentatives for Musk and SpaceX didn't immediately respond to a request for comment. The Justice Department and the Paris prosecutor's office weren't immediately available to comment.",
+  "published_at": "2026-05-07T20:54:17Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.263535Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

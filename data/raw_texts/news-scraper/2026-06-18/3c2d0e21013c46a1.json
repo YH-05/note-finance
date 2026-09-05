@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/gadgets/951602/amazon-echo-dot-max-early-prime-day-deal-sale",
+  "title": "The Echo Dot Max is cheaper than ever in an early Prime Day sale",
+  "raw_text": "We’re seeing good early Prime Day deals ahead of the event next week, and unsurprisingly, some of the best deals are on Amazon’s own devices. Several Echo speakers have dropped to new low prices, including the Echo Dot Max, which is on sale for $64.99 ($35 off) at Amazon.\nThe Echo Dot Max is cheaper than ever in an early Prime Day sale\nThe Max is Amazon’s best all-around speaker and doubles as an excellent smart home hub.\nOur smart home reviewer Jennifer Pattison Tuohy named the Echo Max her top pick among Alexa speakers, calling it “Amazon’s best all-around smart speaker.” The elegant, fabric-wrapped speaker delivers plenty of bass, and comes with its own dedicated tweeter and woofer that provide crisper sound than its predecessor. It’s also faster and more responsive, with Amazon’s AZ3 Neural Edge processor helping it hear voice commands more accurately, even if you’re speaking from across the room or over background noise.\nThe Echo Max also doubles as a capable smart home hub with support for Zigbee, Matter, and Thread, allowing you to connect and control a wide range of compatible smart home devices from brands beyond Amazon. It also supports Alexa Plus, Amazon’s more context-aware AI-powered voice assistant, which can handle multiple requests at once. That means you can do things like dim the lights and lock the doors without having to issue separate commands. In our reviewer’s testing, Alexa was even able to turn off the hallway lights, adjust the upstairs thermostat, and start a robot vacuum in the kitchen all at once.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Apple’s smart home camera service is starting to impress me\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- The Google / Xreal Aura XR glasses are now available to preorder\n- Snap is finally about to ship AR glasses — and they cost a fortune",
+  "published_at": "2026-06-17T16:47:43Z",
+  "author": "Sheena Vasani",
+  "collected_at": "2026-06-18T03:00:16.379621Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Deals",
+      "Gadgets",
+      "Prime Day",
+      "Tech",
+      "Verge Shopping"
+    ]
+  }
+}

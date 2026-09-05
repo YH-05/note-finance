@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040064",
+  "title": "セルキュイティ、時間外で１４％高＝米国株個別",
+  "raw_text": "（NY時間08:39）（日本時間21:39）時間外\nセルキュイティ<\nCELC> 144.00（+18.35 +14.60%）\nセルキュイティ<\nCELC>が時間外で大幅高。「ＶＩＫＴＯＲＩＡ－１」の第３フェーズ試験で、ＰＩＫ３ＣＡ変異乳がん患者を対象としたゲダトリシブとフルベストラントの併用療法が主要評価項目を達成した。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-04T12:42:00Z",
+  "author": null,
+  "collected_at": "2026-05-04T15:00:21.857160Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

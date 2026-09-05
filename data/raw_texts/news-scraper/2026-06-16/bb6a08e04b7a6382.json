@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://9to5google.com/2026/06/15/google-chromes-next-update-will-mark-the-end-of-popular-ad-blockers/",
+  "title": "Google Chrome update will close the door on ad blockers",
+  "raw_text": "Google Chrome’s move to Manifest V3 for extensions is closing its final loophole and, with it, bringing the end of many ad blocker tools.\nThe move to Manifest V3 has been in the works for years at this point, with one of the main points of criticism from users being that the change would break most ad blockers due to the new permissions structure and Google’s focus on privacy. The impacts of that were felt broadly in 2024 and, now, Google is closing the book on Manifest V2 and, in turn, popular ad blockers such as uBlock Origin.\nCyberNews points out a Chromium commit that removes support for the “kExtensionManifestV2Disabled” flag, which is referred to as “dead code” seeing as Chrome no longer supports Manifest V2 extensions. This removal acts as the final stop for many Manifest V2-based ad blocker extensions that were still in use today – the flag was effectively a loophole to continue using these extensions.\nA Googler on the commit explains:\nMV2 extensions are no longer allowed in any supported version of Chrome, and we are removing support for them and the associated functionality. We won’t be able to provide / maintain this functionality indefinitely due to the complexity and tech debt, as well as the security risks it entails (we’ve actually found a number of bugs that are specific to MV2 lately). Of course, other browsers can continue supporting these if they so desire.\nThis will also impact other Chromium-based browsers, though the comment notes that “other browsers can continue supporting these if they so desire.” Neowin points out that Microsoft Edge and Opera are likely to follow suit.\nChrome 150, set to be released later this month, will remove this flag, while other leftover bits of Manifest V2 will be removed in the v151 release as AllAboutCookies details:\n- Chrome 150 (expected June 30, 2026): Removes the primary technical workaround power users had kept in their toolkit (\nExtensionManifestV2Disabled\n). A limited DevTools method persists, but it requires manually patching page elements each session and isn’t practical for daily use.- Chrome 151 (expected July 2026): Will remove the remaining flags (\nExtensionManifestV2Unsupported\n,ExtensionManifestV2Availability\n, andAllowLegacyMV2Extensions\n). The W3C WebExtensions Community Group documented the Chrome 150 removal on May 20, 2026, citing a Chromium code review in which a Google engineer confirmed: “MV2 extensions are no longer allowed in any supported version of Chrome, and we are removing support for them.” PiunikaWeb reported the Chrome 151 flag removals on June 8; PCWorld confirmed the timeline a day later.\nMore on Chrome:\n- Gemini in Chrome rolling out to Latin America, Africa, & Middle East\n- Google is adding AI detection for photos, videos, and audio to Search and Chrome\n- Chrome for Android adding full Gemini integration and auto browse\nFollow Ben: Twitter/X, Threads, Bluesky, and Instagram",
+  "published_at": "2026-06-16T13:46:19Z",
+  "author": "speckx",
+  "collected_at": "2026-06-16T21:00:45.885901Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

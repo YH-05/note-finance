@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/952582/valve-steam-controller-reservations-orders-behind-estimated-date",
+  "title": "Valve is so behind on Steam Controller orders that some won&#8217;t ship until 2027",
+  "raw_text": "Valve has some good news and bad news about Steam Controllers. The good news: if you make a reservation for a Steam Controller, the company will now show you one of three estimates of when you’ll be able to actually order your gamepad: by September 2026, by December 2026, or sometime in 2027. The bad news: any reservations made today “indicate a 2027 date for shipping,” Valve says.\nValve is so behind on Steam Controller orders that some won’t ship until 2027\nAny reservations made today ‘indicate a 2027 date for shipping.’\n“We have no plans to stop making Steam Controller,” according to Valve. “But as we look at the current demand compared to how many we know we can make by the end of the year, we want to manage expectations as much as we can with regards to when folks can expect to receive their order.”\nValve’s very good new Steam Controller went on sale in early May, and the initial rush led some people to run into frustrating problems with trying to check out ahead of the controllers eventually going out of stock. A few days later, the company announced that it would be implementing a reservations queue for interested buyers so they could get on a waitlist. If you’re on the waitlist, when you get notified that a Steam Controller is ready for you to buy, you have 72 hours to actually make the order.\n“When we launched Steam Controller last month, we quickly saw that initial demand exceeded our expectations,” Valve says. “Switching to a reservation queue has (hopefully) cut down on the headaches on the customer side, and for us it’s also been helpful as we plan ahead and try to get as many out as quickly as we are able.”\nAll three of Valve’s big hardware products were delayed from a planned early 2026 launch because of the component crisis, Valve still hasn’t announced when the Steam Machine PC or Steam Frame VR headset might go on sale. However, just yesterday, Valve officially launched its big SteamOS 3.8 update with support for the Steam Machine. It’s also been importing a lot of hardware into the US as of late.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T20:26:06Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-06-18T21:00:16.387790Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Gaming",
+      "News",
+      "PC Gaming"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/new-cftc-prediction-market-proposal-would-ban-war-and-terrorism-bets-while-allowing-sports",
+  "title": "New CFTC Prediction Market Proposal Would Ban War And Terrorism Bets While Allowing Sports Markets",
+  "raw_text": "The Commodity Futures Trading Commission (CFTC) has unveiled a proposed framework for prediction markets that would prohibit contracts tied to violent or harmful events, including terrorism, war, and political assassinations, while largely preserving sports-based markets, according to Bloomberg.\nUnder the proposal, \"gaming\" would be interpreted more narrowly, focusing on activities driven primarily by chance. As a result, most existing sports event contracts would remain permissible.\nAccording to CFTC Chairman Michael Selig, the agency's goal is to \"protect the integrity of our regulated markets without standing in the way of responsible innovation.\"\nThe proposal is intended to modernize and clarify how event contracts are evaluated, replacing broad restrictions with a more targeted approach. Dorothy DeWitt, a former CFTC market oversight official, said the framework \"provides clarity as to what types of contracts are unlikely to be readily susceptible to manipulation.\"\nBloomberg writes that the regulator also signaled concern about contracts whose outcomes can be influenced by a single individual or specific in-game actions, suggesting those markets may face heightened scrutiny.\nThe initiative follows the rapid expansion of prediction markets after legal victories opened the door to election and sports-related contracts. As trading activity and investor interest continue to grow, the industry has sought clearer guidance on which markets are acceptable under federal oversight.\nSupporters view the proposal as a step toward a more predictable regulatory environment that could encourage further investment and participation. Critics argue it risks legitimizing gambling-like activity within financial markets and could divert the agency from its traditional mission.\nThe proposal marks another milestone in the ongoing debate over how prediction markets should be regulated and where the line between investing and wagering should be drawn.",
+  "published_at": "2026-06-11T20:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-11T21:00:42.093126Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928420/anker-solix-s2000-power-station",
+  "title": "Anker fixes the two worst things about power stations",
+  "raw_text": "Anker’s Solix S2000 solves two major pain points with power stations: idle power draw that can leave a battery unexpectedly dead, and the large footprint required to hold so much energy. Impressively, it achieves this at an incredibly low introductory price that works out to just $0.29 per Wh.\nAnker fixes the two worst things about power stations\nThe Solix S2000 is also priced aggressively at launch.\nUnlike most other power stations in the 2kWh range, Anker says the S2000 won’t suddenly die after a few days due to phantom power draw if you accidentally leave the AC output running. It’s also much smaller than most competing mid-range systems designed for vanlifers, job sites, or home backup where a power station can keep AC devices like a fridge or CPAP breathing machine running after a power outage.\nAnker says that the S2000 only pulls about 6W when idle, far less than most power stations built around 2kWh LFP batteries. It achieves this through efficiencies gained with technology it calls “OptiSave.” It’s also likely helped by choosing a less powerful 1500W inverter that turns all that stored energy into AC power.\nOther 2kWh power stations from competitors like EcoFlow, Bluetti, and Jackery tend to use inverters that produce over 2400W of AC power, with idle power draw that can exceed 30W — enough to fully deplete the battery in just a few days. That compares to almost two weeks for the Anker Solix S2000, but only if the 6W figure is to be believed.\nDespite Anker’s smaller inverter, 1500W is enough to run most household appliances and networking gear. It’ll also power most of the AC devices you carry in a camper, including a coffee maker, water boiler, and small induction cooktop. The S2000 can temporarily peak at up to 3000W to also power some high-draw devices like hair dryers. Its 2kWh battery capacity is enough to keep a large fridge / freezer combo running for more than a day when the power goes out.\nThe other interesting thing about the Solix S2000 is its size. At 208 x 282 x 323mm, its energy density comes out to about 106Wh/L, which easily bests larger 2kWh power stations like the EcoFlow Delta 2 Max, Bluetti AC200L, or Jackery 2000 Plus. That makes the S2000 a really interesting power station for space-challenged vanlifers.\nThe Solix S2000 features a bevy of inputs and outputs, including two USB-C jacks (100W max), one USB-A, and one 400W solar panel input to keep the battery charged when off grid. I like that it has three AC jacks on the front and two on the back so you don’t have to move the 35.7 pound (16.2kg) unit around too much.\nEarly reviews of the US model look very promising:\nThe Anker Solix S2000 is launching with heavy discounts for early adopters: just $579 if you preorder before June 1st — a fantastic deal for a power station that seems to live up to Anker’s claims. After that the price will climb to somewhere between $679.99 and $1,199.99 because the makers of power stations absolutely love coupons. EU pricing and shipping dates will be announced in the weeks ahead.",
+  "published_at": "2026-05-19T13:56:47Z",
+  "author": "Thomas Ricker",
+  "collected_at": "2026-05-19T15:00:16.056895Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Energy",
+      "Science",
+      "Tech",
+      "Work anywhere"
+    ]
+  }
+}

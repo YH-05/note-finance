@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20400-viasat-and-indias-wisig-networks-collaborate-on-5g-satellite-iot-chipset.html",
+  "title": "Viasat and India’s WiSig Networks collaborate on 5G Satellite IoT Chipset",
+  "raw_text": "Satellite communications giant Viasat and Indian deep-tech company WiSig Networks say they have officially launched global testing of a newly developed Made in India 5G satellite Internet of Things (IoT) chipset.\nThe partners say that this development, announced at the Bharat Innovates 2026 deep-tech showcase in Nice, France from 14-16 June 2026, marks a major step forward for the global standardisation of the direct-to-device (D2D) ecosystem,\nThe Satnews website says the hardware module has entered advanced evaluation at Viasat’s specialised laboratories in the UK. The testing will validate the chipset’s ability to communicate directly with Viasat’s globally positioned L-band geostationary satellite fleet.\nHistorically, the website points out, satellite IoT systems have relied on highly proprietary, closed hardware architectures. The Viasat-WiSig collaboration aims to dismantle these technological silos by introducing a device class built entirely around 3GPP Release 17 standards – standards specifically designed for narrowband-IoT non-terrestrial networks (NB-IoT NTN).\nWiSig says it developed the entire technology stack from the ground up, including the baseband processor, the radio-frequency system-on-chip (RF SoC), and the compact communication module.\nBy ensuring the chip supports both L-band and S-band satellite frequencies, WiSig claims to have engineered a highly adaptable component capable of delivering secure two-way messaging, real-time location streaming, and low-rate telemetry.\nBecause the chipset relies on narrowband protocols, it is engineered for ultra-low power consumption, with all that this means for the life of connected field devices utilising the module.\nIf laboratory validation proves successful, Viasat plans to integrate the WiSig module as a low-cost, mass-producible entry point into its expanding global connectivity portfolio, including maritime operations, industrial telemetry and disaster response.\nThe Made in India element should not be underestimated. The development of the WiSig chipset was heavily backed by Indian government-led initiatives under the Department of Telecommunications (DoT) and the Ministry of Electronics and Information Technology (MeitY).\nThe validation of an indigenous chip on a premier global satellite platform means – or could mean – that India can position itself as a primary architecture contributor to the underlying technologies shaping the future 5G-Advanced and upcoming 6G NTN frameworks.",
+  "published_at": "2026-06-16T22:15:07Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-17T03:01:24.676675Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

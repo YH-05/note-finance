@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20185-veon-overshoots-ukraine-investment-pledge-hits-1-3bn-ahead-of-schedule.html",
+  "title": "Veon overshoots Ukraine investment pledge, hits $1.3bn ahead of schedule",
+  "raw_text": "Veon Group says it has fulfilled and exceeded its commitment to invest $1 billion in Ukraine, delivering $1.3 billion ahead of schedule.\nTogether with its Ukrainian subsidiary Kyivstar, the company deployed the funds between 2023 and April 2026. The original pledge, made in 2023, was to invest $600 million over three years, a target that was later scaled up and ultimately surpassed by 30%.\nThe capital has been channelled into strengthening and expanding Ukraine’s connectivity backbone, with a focus on resilience as the war with Russia continues. Key projects include the rollout of Starlink direct-to-device satellite connectivity, expansion of fixed network infrastructure, and the deployment of backup power and energy systems designed to maintain service during disruptions.\nAlongside network investments, Veon has also broadened its digital ecosystem through acquisitions, including ride-hailing platform Uklon, medicine ordering service Tabletki.ua, and solar energy firm SUNVIN 11.\nVeon Group CEO Kaan Terzioglu said the sustained investment demonstrates that businesses in Ukraine can continue to commit long-term, responsible capital despite the ongoing conflict.\nKyivstar CEO Oleksandr Komarov added that the $1.3 billion investment reflects both the resilience of the company’s operations and its confidence in Ukraine’s digital future, highlighting continued support for millions of consumers and businesses relying on its services.",
+  "published_at": "2026-05-01T10:16:29Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-06T03:01:21.262308Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

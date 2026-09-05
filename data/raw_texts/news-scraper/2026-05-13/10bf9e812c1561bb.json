@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/google-says-android-is-getting-a-big-ai-overhaul-in-2026/",
+  "title": "Android is getting a big AI overhaul in 2026",
+  "raw_text": "Google’s I/O conference is next week, and we expect to hear a lot about the company’s AI endeavors. The company says there’s so much to talk about that it’s spilling the Android beans a little early, and yes, a lot of AI is involved. In the coming months, Google will roll out more smartphone AI features under the Gemini Intelligence banner, bringing more automation and customization to your phone.\nApp automation will be a major element of Android going forward, Google says. Automation for apps is expanding after Google began testing it earlier in 2026 with DoorDash and Uber on Pixel and Samsung phones. It was a very frustrating experience at launch, but Google says it has spent the intervening months fine-tuning the system.\nGoogle promises that Android will be able to handle more complex automations across apps. For example, the robot could find a course syllabus in Gmail and then hop to a shopping app to add the necessary books to your shopping cart. Google also suggests taking a picture of a travel brochure and telling Gemini to book something similar in the Expedia app.\nThis could theoretically reduce busy work, but that’s only true if it works and your task takes advantage of the right apps. Android won’t just automate any old app on your phone. The automation will only work in select apps, mostly limited to food and grocery ordering and ride-hailing. For everything else, there’s Chrome.",
+  "published_at": "2026-05-12T17:00:41Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-13T03:00:30.639154Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Tech",
+      "android",
+      "Artificial Intelligence",
+      "gemini",
+      "generative ai",
+      "google",
+      "smartphones"
+    ]
+  }
+}

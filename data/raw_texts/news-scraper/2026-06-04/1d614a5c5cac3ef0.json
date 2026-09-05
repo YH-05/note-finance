@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/sdny-prosecutors-looking-valuation-discrepancies-private-credit-market",
+  "title": "SDNY Prosecutors Looking At Valuation Discrepancies In Private Credit Market",
+  "raw_text": "In a move that is long overdue, Jay Clayton, the US attorney for the Southern District of New York, said his office is looking at possible valuation discrepancies in the private credit marketplace.\nWall Street’s top prosecutor addressed the issue Wednesday while speaking at the Bloomberg Global Credit Forum in New York.\nClayton said the difference between the price at which assets are marked on one balance sheet versus others was at the heart of blowups at First Brands Group, Tricolor Holdings and 777 Partners.\n“Where you look is when you have a market where there’s a bunch of participants and a large portion of them have it marked at say 75 and one or two have it marked at 95,” Clayton said.\n“That’s a place where you say, okay, I need to ask some questions about the folks who are marking it at 95, particularly if they’re making fees off it,” he added. “To be clear, I’m asking my people to look at that question across the marketplace.”\nAn example of how furiously marks can move - lower - in private credit, back in March, we reported that Blackrock slashed the value of one of its private loans from par to 0 in just months, Infinite Commerce Holdings, sparking a selloff in the shares as the market was stunned by how quickly a loan from the world's most iconic asset manager can go from par to 0 in just days.\nAt the same time, however, Clayton warned against “pearl-clutching” about private credit and suggested that it had been a boon to the US economy. He said he didn’t currently see a “transmission mechanism” by which issues in the private credit sector could affect the broader economy.\nClayton had previously expressed concern about how Wall Street firms value private assets. The Justice Department’s Manhattan outpost in recent months has been seeking information about BlackRock TCP Capital Corp. - most likely in relation to the abovementioned loan - Bloomberg reported in May.\nClayton, chairman of the Securities and Exchange Commission during Trump’s first presidency, took over the Manhattan US attorney’s office after his re-election. In between those roles, he was chairman of private-markets powerhouse Apollo, which has recently been touting its push to price some $830 billion of credit assets daily in a bid to boost transparency.",
+  "published_at": "2026-06-03T17:25:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T03:00:42.257485Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

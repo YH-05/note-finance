@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/07/russian-drone-hits-nuclear-fuel-storage-facility-near-chornobyl-ukraine-says.html",
+  "title": "Russian drone hits nuclear-fuel storage facility near Chornobyl, Ukraine says",
+  "raw_text": "Russian forces deliberately struck a storage facility for spent nuclear fuel near Ukraine's Chornobyl power plant, President Volodymyr Zelenskyy said on Sunday, in an \"extremely vile\" attack that did not lead to a spike in radiation.\nThe strike significantly damaged a fuel-reception building meters away from where \"large amounts of nuclear material\" are stored, according to the International Atomic Energy Agency, which said it had been briefed by Ukraine.\nKyiv's state atomic agency Energoatom said no spent fuel had been stored in the building at the time of the attack. A resulting fire was extinguished, and no injuries were reported.\nRussia has not publicly commented on the alleged strike on the facility, which is located around 15 km (9 miles) from the Chornobyl plant, the site of the world's worst nuclear disaster.\n\"An extremely critical infrastructure facility — and an extremely vile Russian strike,\" Zelenskyy wrote on X, adding that Russia had used a Shahed attack drone.\n\"As of now, there are no readings exceeding normal background radiation levels. But there is certainly an increase in Russia's brazenness, which long ago went off the charts.\"\nIn a statement, the IAEA said a team would soon visit the site \"to inspect the impact.\"\nIn February 2025, a Russian Shahed drone damaged a containment arch over the Chornobyl reactor that was destroyed in the April 1986 explosion and meltdown. Russia, which regularly attacks Ukrainian cities and infrastructure with drones and missiles, denied responsibility.\nKyiv and Moscow have also traded accusations of attacking the Russian-occupied Zaporizhzhia Nuclear Power Plant in southeastern Ukraine, Europe's largest.",
+  "published_at": "2026-06-07T10:21:25Z",
+  "author": null,
+  "collected_at": "2026-06-07T15:18:58.191901Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

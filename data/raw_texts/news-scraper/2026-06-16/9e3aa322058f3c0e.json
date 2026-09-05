@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://forgottenbytes.net/commander_keen.html",
+  "title": "Game Engine White Papers Commander Keen",
+  "raw_text": "March 28, 2026\nGame Engine White Papers Commander Keen\nFinally, The Game Engine White Papers: Commander Keen is here, more than 35 years after the original game was released in December 1990. The book is available in two formats:\n- Paper version on Amazon (USA, NL, and many more).\n- Digital high-res PDF here, free of charge.\nFor anyone interested, I also made the books' source code available on GitHub.\nIt took me over three years to complete the book, and the entire experience was immensely rewarding. It felt like returning to my early teenage years, debugging and experimenting with C and assembly code on a MS-DOS computer. I learned a great deal about the hardware of that era and the challenges developers faced in getting everything to work together. The result is a 214-page, full-color book that explains in great detail what it was like to develop games in the late eighties and early nineties. It covers topics such as hardware (80286, EGA video cards, sound cards, keyboards, and more), game assets, the engine itself, and even the creation of the CGA version of the game.\nErrata\nI did my best to make sure the book is 100% accurate. However, if you spot any errors, please open an issue on GitHub.",
+  "published_at": "2026-06-15T17:52:39Z",
+  "author": "mfiguiere",
+  "collected_at": "2026-06-16T03:01:23.838840Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20195-ooredoo-qatar-launches-wi-fi-analytics-service.html",
+  "title": "Ooredoo Qatar launches Wi-Fi analytics service",
+  "raw_text": "The continuing drive to use smart data analytics to improve network performance has again been in the news, this time thanks to telecommunications and ICT provider Ooredoo Qatar, which has announced the launch of a service called Smart Wi-Fi Analytics.\nThis is a new service that transforms Wi-Fi networks into a source of real-time operational intelligence across large-scale environments such as shopping malls, universities and large office buildings.\nAs Ooredoo points out, by converting Wi-Fi data into actionable insights the service enables organisations to move beyond reactive troubleshooting and to take a proactive, data-driven approach to network management and performance optimisation.\nThis is described as an add-on to Ooredoo’s Smart Wi-Fi portfolio, one that introduces a unified analytics dashboard that provides a comprehensive view of network health, user behaviour and application performance. It extends capabilities for organisations already using the solution, enabling business and IT leaders to understand how connectivity is experienced across their environments, and does so in real time.\nThe service also delivers indoor location insights, helping organisations analyse movement patterns, optimise space utilisation, and make more informed operational decisions across their facilities.\nDesigned for increasingly digital and Wi-Fi-dependent environments, the Smart Wi-Fi Analytics service enables early issue detection through proactive monitoring and rapid root-cause analysis. By reducing manual intervention and accelerating resolution, organisations can minimise downtime and improve operational efficiency.\nHassan Ismail Al Emadi, Chief Business Officer at Ooredoo Qatar, explains: “With Smart Wi-Fi Analytics, we are enabling our customers to gain real-time visibility, take control of their networks, and deliver consistently high-quality digital experiences at scale.”",
+  "published_at": "2026-05-04T10:55:36Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-05T03:01:21.280575Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

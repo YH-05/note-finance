@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/asia-tech-stocks-rebound-after-wall-street-chip-shares-recover-.html",
+  "title": "Asia chip-linked shares recover after U.S. peers bounce back",
+  "raw_text": "Asian technology stocks rebounded Tuesday, tracking Wall Street's gains, as investors returned to artificial intelligence-linked names.\nSouth Korean memory chip giant SK Hynix climbed 6.44%, while Samsung Electronics gained 3.38%. Seoul Semiconductor jumped over 12%.\nJapanese semiconductor equipment makers also advanced, with Tokyo Electron rising 5.65%, Advantest adding 1.51%, and Renesas Electronics gaining 2.54%.\nHowever, shares of Japanese tech investment giant SoftBank extended their slide, dropping 2%.\nIn the U.S., chip stocks powered gains on Monday, helping the S&P 500 gain 0.3%, while the tech-heavy Nasdaq Composite advanced 0.86%, clawing back some of last week's losses amid a broader rout in technology shares.\n\"The rotation back to domestic defensives we saw yesterday will be short lived for now,\" said Andrew Jackson, an equity strategist at ORTUS Advisors.\nWhile it remains unclear whether the recent pullback will be enough to reset valuations, Jackson said markets were likely to remain volatile through the week as investors brace for the pricing of SpaceX's highly anticipated initial public offering on Thursday and the start of trading on Friday.\nInvestor attention is also turning to a potential wave of blockbuster AI listings after OpenAI said it had confidentially filed for an initial public offering, following a similar move by Anthropic and coming just days before SpaceX shares are expected to begin trading.\nJackson added that capital could become more constrained after OpenAI's IPO filing. The artificial intelligence company, which is valued at more than $850 billion, has been gearing up to go public as soon as the fourth quarter of this year.",
+  "published_at": "2026-06-09T14:20:24Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.436691Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

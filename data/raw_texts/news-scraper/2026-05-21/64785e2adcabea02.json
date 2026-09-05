@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20263-safaricom-gets-major-boost-with-award-of-25-year-operating-licence.html",
+  "title": "Safaricom gets major boost with award of 25-year operating licence",
+  "raw_text": "Kenyan operator Safaricom has secured what is described as a landmark 25-year operating licence from Kenya’s Communications Authority (CA). It’s certainly unusual; the CA has historically issued licences only lasting ten years.\nThe licence, granted under the regulator’s Unified Licensing Framework, replaces a temporary two-year permit that Safaricom had been operating under while regulators and telecoms operators negotiated spectrum allocation, licensing fees and penalties linked to service outages.\nThe new framework consolidates multiple authorisations, including spectrum usage rights, into a single licence instrument.\nThe long-term regulatory certainty this licence gives Kenya’s leading service provider will be a definite plus as it accelerates network investment and regional expansion and expands into Ethiopia. The company serves more than 46 million subscribers and processes the majority of the country’s mobile money transactions through the M-Pesa service. However, there may be a downside to its present market situation.\nAccording to the ITWeb Africa news service, Safaricom’s regulatory costs have been climbing sharply. It says that, according to disclosures in the company’s FY2026 financial results, direct licence-related costs rose to approximately US$126.7 million for the year ended March 2026, up from around US$113.4 million the previous year.\nThis does not include the amount paid for the new 25-year licence, which has not yet been revealed. Safaricom’s interim two-year licence alone cost around US$12.6 million, highlighting a sharp rise in the value of spectrum and operating rights in Kenya’s increasingly competitive telecoms market.\nKenya’s Unified Licensing Framework forms part of broader regulatory reforms aimed at shifting the market away from administrative spectrum allocation towards an auction-based system — a move expected to reshape spectrum pricing and competition dynamics in the country’s telecoms sector.\nMeanwhile there is an ongoing ownership restructuring process going on for Safaricom. Under a deal announced in December, valued at approximately US$2.1 billion, pan-African operator Vodacom will increase its shareholding in Safaricom from 40% to 55%, giving it majority control of the company.\nThe Kenyan government is said to be planning tp plans to reduce its stake in Safaricom from 35% to 20% through the sale of roughly six billion shares.",
+  "published_at": "2026-05-18T14:32:17Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-21T03:01:26.729748Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

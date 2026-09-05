@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/the-slate-trucks-price-may-have-leaked-starts-at-24950/",
+  "title": "The Slate Truck's price may have leaked, starts at $24,950",
+  "raw_text": "One of the most hotly anticipated electric vehicles makes its formal debut next week. It’s the Blank Slate, a refreshingly simple pickup truck EV designed by Slate Auto, which is trying to take some of the soaring cost out of a new car with a back-to-basics approach that means even electric windows are an optional extra. Of course, a crucial aspect of this pared-back approach is pricing.\nPlenty of people are attracted to the idea of a truck with a compact footprint, no infotainment system or embedded modem, and the option to upconvert it later into an SUV or fastback. In the abstract, at least, people aren’t going to jump at the prospect of a truck with 150 miles (241 km) of range if it costs too much.\nWhen Slate broke cover in 2025, it was targeting a price of around $20,000, assuming the $7,500 IRS clean vehicle tax credit would remain in effect, but it was abolished later that year.\nWell, if a leak on the Slate website earlier is to be believed, the starting price for that standard range truck will be just $24,950. The price was live for several hours earlier today, and screenshots were posted to the Slate forums, along with some updated specifications. These include a slightly less powerful electric motor for the rear wheels—now 181 hp (135 kW) instead of 201 hp (150 kW), but a tow rating that’s been doubled to 2,000 lbs (907 kg).\nThat pricing and those specs are gone from the Slate website, but we’ll have official pricing and a first-ride impression on June 24.",
+  "published_at": "2026-06-17T18:23:21Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-17T21:00:31.611173Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Slate Auto"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/home-sales-surged-in-may-to-the-highest-level-since-december.html",
+  "title": "Home sales surged in May to the highest level since December",
+  "raw_text": "Sales of previously owned homes rebounded more than expected in May, after mortgage rates pulled back slightly in April.\nExisting home sales in May rose 3.2% from April to a seasonally adjusted, annualized rate of 4.17 million units, according to the National Association of Realtors. Economists were expecting less than a 1% gain. Sales were also up 3.2% from a year earlier, the strongest pace since December.\nThis count is based on closings, so the contracts were likely signed in April, when mortgage rates came down a bit from the sharp jump at the start of March, due to the war with Iran.\n\"Improving affordability is helping drive this momentum,\" said Lawrence Yun, chief economist for the Realtors, in a release. \"Even with mortgage rates ticking up compared to earlier in the year, they remain lower than a year ago and are essentially at the long-term historical average. Income gains are also outpacing home price growth by a small margin in most parts of the country.\"\nInventory in May rose 3.3%, month to month, to 1.55 million units for sale and was up a little less than 1% from a year ago. At the current sales pace, that is a 4.5 months' supply. Six months is considered balanced between buyer and seller.\nWith a still tight supply, prices continue to rise. The median price of an existing home sold in May was $429,300, an increase of 1.3% from the year before and a record high price for the month.\n\"Only 1% of all home sales involved a foreclosure or an underwater situation in which the sale price could not cover the outstanding mortgage balance. This shows that homeowners are on solid financial footing,\" Yun added.\nSales continue to be strongest on the higher end of the market, where there is more supply and buyers are less sensitive to mortgage rates. Sales of homes priced above $1 million were 11% higher than the year before, while sales of homes priced between $100,000 and $250,000 were down 5%.\nFirst-time buyers returned to the market, making up 35% of sales, an increase from 33% in April and just 30% the year before. Homes stayed on the market an average of 29 days, down from 32 in April but up from 27 in May 2025. About a quarter of all sales were made in cash, down slightly from a year ago.\nCorrection: Homes stayed on the market an average of 29 days, down from 32 in April. An earlier version misstated the month.",
+  "published_at": "2026-06-09T15:46:21Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.216477Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/analyst-on-chinas-spent-rocket-stages-things-only-continue-to-get-worse/",
+  "title": "Analyst on China's spent rocket stages: \"Things only continue to get worse\"",
+  "raw_text": "Up until a decade ago, China had never launched as many as 20 orbital rockets a year. But beginning in 2022, the Asian country launched 64 rockets and last year reached a record total of 93, marking it as the second-most productive space power in the world.\nFurther growth is anticipated from both the company’s state-owned enterprises as well as a rapidly expanding number of private launch companies. There is nothing wrong with this, as China’s rapid growth in launch has been mirrored by the United States and, in particular, SpaceX.\nHowever there is an issue with these launches, as China appears to be ignoring long-established norms about disposing of the upper stages of rockets. These are the parts of the vehicle that separate from the first stage of a rocket and push a satellite or spacecraft into orbit.\nMoving toward best practices\nIn the early decades of spaceflight, the Soviet Union, the United States, and other spacefaring species paid little heed to these upper stages, also known as “rocket bodies.” They were ejected into all manner of orbits, there to remain for decades before ultimately succumbing to the slow pull of Earth’s gravity at higher altitudes.\nBut in the last 20 years or so, most countries (and the private companies operating within their borders) have taken a more responsible attitude toward disposing of these upper stages. This is because, as it turns out, having large, multi-ton blocks of metal spinning uncontrollably around low-Earth orbit becomes a problem over time.\nThe Soviet Union, and later Russia, is the biggest offender, with about 800 metric tons of rocket bodies in long-lived orbits between 600 km and 2,000 km above the Earth’s surface, according to data from the European Space Agency’s Space Debris Office as well as Jonathan McDowell’s General Catalog of Artificial Space Objects. The United States, by comparison, has about 57 metric tons of spent upper stages in these orbits. However these numbers are more or less holding steady or, in the case of Russia, slowly declining as stages fall out of orbit.",
+  "published_at": "2026-05-26T13:57:30Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-26T15:00:31.445052Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "china",
+      "rocket bodies",
+      "space",
+      "upper stages"
+    ]
+  }
+}

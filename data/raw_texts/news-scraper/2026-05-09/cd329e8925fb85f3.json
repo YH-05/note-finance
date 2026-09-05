@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/information-technology/2026/05/mozilla-says-271-vulnerabilities-found-by-mythos-have-almost-no-false-positives/",
+  "title": "Mozilla says 271 vulnerabilities found by Mythos have \"almost no false positives\"",
+  "raw_text": "The disbelief was palpable when Mozilla’s CTO last month declared that AI-assisted vulnerability detection meant “zero-days are numbered” and “defenders finally have a chance to win, decisively.” After all, it looked like part of an all-too-familiar pattern: Cherry-pick a handful of impressive AI-achieved results, leave out any of the fine print that might paint a more nuanced picture, and let the hype train roll on.\nMindful of the skepticism, Mozilla on Thursday provided a behind-the-scenes look into its use of Anthropic Mythos—an AI model for identifying software vulnerabilities—to ferret out 271 Firefox security flaws over two months. In a post, Mozilla engineers said the finally ready-for-prime-time breakthrough they achieved was primarily the result of two things: (1) improvement in the models themselves and (2) Mozilla’s development of a custom “harness” that supported Mythos as it analyzed Firefox source code.\n“Almost no false positives”\nThe engineers said their earlier brushes with AI-assisted vulnerability detection were fraught with “unwanted slop.” Typically, someone would prompt a model to analyze a block of code. The model would then produce plausible-reading bug reports, and often at unprecedented scales. Invariably, however, when human developers further investigated, they’d find a large percentage of the details had been hallucinated. The humans would then need to invest significant work handling the vulnerability reports the old-fashioned way.\nMozilla’s work with Mythos was different, Mozilla Distinguished Engineer Brian Grinstead said in an interview. The biggest differentiating factor was the use of an agent harness, a piece of code that wraps around an LLM to guide it through a series of specific tasks. For such a harness to be useful, it requires significant resources to customize it to the project-specific semantics, tooling, and processes it will be used for.\nGrinstead described the harness his team built as “the code that drives the LLM in order to accomplish a goal. It gives the model instructions (e.g., ‘find a bug in this file’), provides it tools (e.g., allowing it to read/write files and evaluate test cases), then runs it in a loop until completion.” The harness gave Mythos access to the same tools and pipeline that human Mozilla developers use, including the special Firefox build they use for testing.",
+  "published_at": "2026-05-07T19:18:16Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-09T03:01:26.279769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Biz & IT",
+      "Security",
+      "firefox",
+      "Mythos",
+      "vulnerabilities"
+    ]
+  }
+}

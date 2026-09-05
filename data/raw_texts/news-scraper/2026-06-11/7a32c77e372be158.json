@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/",
+  "title": "SpaceX officially prices shares at $135 in the largest IPO ever",
+  "raw_text": "For once, SpaceX is ahead of schedule: Elon Musk’s space and AI conglomerate officially confirmed that it has raised $75 billion from the sale of its shares to its underwriters, who are set to begin marketing the company on the Nasdaq stock exchange Friday.\nSpaceX priced its 555.6 million shares at $135 each, the company said in an update on its website. That makes SpaceX officially the largest IPO in history, easily eclipsing the $24.9 billion in funds raised by Saudi Aramco during its 2019 public markets debut. At this price, the deal also looks set to make Musk the world’s first trillionaire.\nThe company, officially known as Space Exploration Technologies Corp., will trade under the SPCX ticker symbol.\nAs active trading gets underway tomorrow, SpaceX’s share price may sink or rise. But anecdotal reports suggest that big institutional investors and individual buyers are lining up to purchase shares in the 24-year-old technology company.\nIf the sale is as oversubscribed as the talkative bankers make it out to be, they have an option to bring an additional 83.3 million shares to market, which would raise another $11 billion at the company’s opening price.\nHyperliquid, a crypto betting market that attempts to offer synthetic exposure to SpaceX stock, currently prices the shares at $167, suggesting that market participants expect a classic 20% IPO pop on the first day of trading.\nIn the longer term, there are big open questions about how SpaceX will be able to justify its eye-popping valuation. The company’s outstanding engineering projects, from the world’s largest reusable rocket to a new American chip fab, fill up a daunting to-do list.\nThis story is developing …",
+  "published_at": "2026-06-11T20:33:10Z",
+  "author": "Tim Fernholz",
+  "collected_at": "2026-06-11T21:00:26.244334Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Space",
+      "Elon Musk",
+      "SpaceX",
+      "spacex ipo"
+    ]
+  }
+}

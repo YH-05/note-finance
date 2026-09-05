@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/945898/apple-parental-controls-child-accounts-wwdc2026",
+  "title": "Apple is redesigning Screen Time and overhauling child controls",
+  "raw_text": "At WWDC 2026, Apple announced an overhaul to its Screen Time parental control features that aim to improve its safeguarding features to protect children who use iPhone, iPad, and Mac devices. Some of the new features coming with Apple’s iOS 27, iPadOS 27, and macOS 27 updates include giving parents and guardians more control over who their kids can talk to in Messages, and what content or apps they can access, alongside recommendations for essential apps and time allowances in Screen Time.\nApple is redesigning Screen Time and overhauling child controls\nRecommended time allowances for apps and ‘Ask to Browse’ are coming to Apple’s devices.\nRecommended time allowances for apps and ‘Ask to Browse’ are coming to Apple’s devices.\nThe guidelines that Apple is following for these features are based on recommendations from the American Academy of Pediatrics, with Apple saying that experts have warned that children under 13 shouldn’t have access to social media apps. “We’re giving parents powerful, easy-to-use tools to help manage what kids can see, who they can talk to, and when they have access,” Apple software engineering chief, Craig Federighi, said during the keynote.\nWhile parents could already set time limits on apps, the new Screen Time redesign provides suggested time allowances that are specific to app categories, including Entertainment, Games, and Social Media, based on expert recommendations. Apple says these recommendations serve as “a helpful starting point for parents” to determine what time allowances are best for their child, and can be adjusted as needed.\nThe redesigned Screen Time experience will provide parents with a better overview of their children’s most-used apps and average device usage, and allow them to adjust app and web access “with just a tap.” Apple’s Communication Safety feature, which blurs nudity in Messages and FaceTime calls, has been expanded — now it’ll also block any gore or violent content it detects in images and videos that are shared with minors.\nApple is also introducing a new Ask to Browse feature for iPhone, iPad, and Mac that requires children to ask for parental permission to access new websites in Safari. Similarly, parents can also manage who their children are connecting with over the Messages, FaceTime, and Phone apps, requiring their approval before kids can communicate with new contacts.\nTo assist parents with implementing these features or keeping up to date with child safety announcements, Apple has launched a dedicated website with guides on setting up Child Accounts, helpful resources, and answers to frequently asked questions about parental controls and safety features. The new parental control features announced today will be available when the Screen Time update launches in iOS 27, iPadOS 27, and macOS 27 later this year.",
+  "published_at": "2026-06-08T17:55:30Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-08T21:00:16.240229Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Apple Event",
+      "Tech"
+    ]
+  }
+}

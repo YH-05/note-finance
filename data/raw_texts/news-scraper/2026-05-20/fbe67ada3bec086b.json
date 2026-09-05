@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/inside-the-fight-to-force-vizio-to-share-linux-based-source-code-for-its-tvs-os/",
+  "title": "Yearslong fight over users' right to tweak smart TV software heads to trial",
+  "raw_text": "For years, owners of Vizio smart TVs have had little control over the software running on their sets—software that can track viewing habits, push ads, and generally shape the experience of using the device.\nThe Software Freedom Conservancy (SFC), a US nonprofit that promotes and provides legal support for free and open source software projects, isn’t happy about that—so much so that it has spent eight years trying to force the release of the complete source code for Vizio’s Linux-based smart TV operating system.\nNow, after numerous delays since the SFC filed suit in 2021, a California jury will decide in August whether Vizio must provide that code in executable form to SFC and any Vizio TV owner who wants it.\nThe outcome could reverberate across the industry. Because many of today’s popular smart TV operating systems are Linux-based, the case may help determine how much control many owners have over their sets. Access to the full code would allow users to make meaningful changes to how their TVs work, including limiting ads or deactivating automatic content recognition.\nAhead of the trial, we spoke with an SFC executive about why it’s suing Vizio and what it hopes the case will accomplish.\nVizio and its parent company, Walmart, did not respond to multiple requests for comment. We reviewed filings from Vizio to understand why it doesn’t think the GNU’s General Public License (GPL) and its “Lesser” version (LGPL) require it to share the source code for Vizio OS (formerly Smart Cast).\nSoftware Freedom Conservancy sues Vizio\nThe Software Freedom Conservancy argues it has the right to Vizio OS’s source code because it owns several Vizio TVs and because the operating system is based on Ubuntu, a Linux distribution. (SFC employees bought seven Vizio TVs from 2018 to 2021 after getting complaints about Vizio not sharing its TVs’ source code, according to the complaint.) In general, the Linux kernel is provided under the terms of GPLv2, as noted by kernel.org, which is run by the Linux Kernel Organization.",
+  "published_at": "2026-05-20T13:32:49Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-20T15:00:26.084669Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Tech",
+      "ads",
+      "Linux",
+      "software",
+      "TVs",
+      "Vizio",
+      "walmart"
+    ]
+  }
+}

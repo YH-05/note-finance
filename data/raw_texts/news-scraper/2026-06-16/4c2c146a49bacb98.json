@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/950632/florida-tiktok-lawsuit-social-media-ban",
+  "title": "Florida sues TikTok for allegedly violating its social media ban for kids",
+  "raw_text": "The state of Florida is suing TikTok over claims the company isn’t complying with the state’s child safety law, which bans kids under 14 from creating social media accounts, as reported earlier by Reuters. The lawsuit, filed on Monday, alleges that TikTok still allows 13-year-olds in Florida to use the platform and is “actively deceiving” parents about its risks.\nFlorida sues TikTok for allegedly violating its social media ban for kids\nTikTok says it has notified users under 14 in Florida that their accounts will be suspended.\nTikTok says it has notified users under 14 in Florida that their accounts will be suspended.\nTikTok is also accused of failing to require 14- and 15-year-olds to obtain parental consent before signing up to the platform, in violation of Florida’s social media law. The law (HB3) initially came into force on January 1st, 2025, but a federal judge blocked it in the midst of a legal battle. An appeals court reversed this ruling late last year, allowing it to take effect. Florida filed a similar lawsuit against Snap when HB3 first came into effect last year.\nWhen reached for comment, TikTok US spokesperson Jamie Favazza says the company has been engaging constructively and in good faith with Florida’s attorney general, adding that the platform “notified users under 14 in Florida that their accounts will be suspended.”\nIn addition to violating the social media law, Florida Attorney General James Uthmeier claims TikTok doesn’t comply with consumer protection laws by “lying” to parents about the content inside its app. “Even though videos with alcohol, tobacco, and drug content are readily available on TikTok, Defendants tell consumers in the App Store that ‘alcohol, tobacco, and drug . . . references’ are ‘infrequent/mild’ on the platform,” the lawsuit claims. It also alleges TikTok designs its app to be “addictive” to children and teens. TikTok, along with Meta and YouTube, is also facing dozens of other lawsuits alleging it failed to protect kids.",
+  "published_at": "2026-06-16T14:06:56Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-16T15:00:11.850688Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Creators",
+      "News",
+      "Policy",
+      "Tech",
+      "TikTok"
+    ]
+  }
+}

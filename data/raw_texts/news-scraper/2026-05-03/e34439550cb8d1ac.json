@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/oil-hits-125-prompts-warnings-iran-risks-underpriced.html",
+  "title": "Markets are still underpricing Iran war risks, investors warn as oil fluctuates around four-year high",
+  "raw_text": "Key Points\n- Fresh concerns about the trajectory of the U.S.-Iran war sent Brent crude futures to a four-year high on Thursday.\n- The oil market remains in a state of backwardation, signaling a broad expectation of an impending resolution to the conflict.\n- But market watchers told CNBC on Thursday that investors may be underpricing the long-term implications of the war for the economy and markets.",
+  "published_at": "2026-04-30T11:00:33Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.523623Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

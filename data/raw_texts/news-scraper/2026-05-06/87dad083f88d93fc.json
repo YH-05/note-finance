@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/amd-lisa-su-stock-forecast-earnings.html",
+  "title": "AMD's Su explains what's behind massive forecast change as stock roars 15% on earnings",
+  "raw_text": "Advanced Micro Devices CEO Lisa Su told CNBC on Wednesday that her massive forecast revision was due to the demand surge for central processing units led by the growth of agentic artificial intelligence.\n\"Agents are really driving tremendous demand in the overall AI adoption cycle, and we're very excited to be in the middle of it.\" Su told CNBC's \"Squawk on the Street.\"\nThe company beat analyst estimates on Tuesday for both earnings per share and revenue in the first-quarter. Revenue climbed 38% year-over-year, with Su highlighting the company's data center business as the primary driver.\n\"The main thing that I can say is that we are seeing a shifting of the workload,\" Su told CNBC, adding that the demand picture became clearer over the last 90 days after talks with the company's largest customers.\nCPUs have seen a resurgence as the compute needs have shifted with the rise of agentic AI. While the company has trailed Nvidia in the market for graphics processing units, AMD has been a leading maker of CPUs, which are needed for inference tasks.\nIn November, AMD forecasted the server CPU market to grow about 18% annually over the next three to five years.\nOn the company's earnings call Tuesday, Su revised that estimate to exceed 35% growth each year, with the market topping $120 billion by the end of the decade.\nCNBC's Kristina Partsinevelos contributed to this report.",
+  "published_at": "2026-05-06T14:39:39Z",
+  "author": null,
+  "collected_at": "2026-05-06T15:20:38.885152Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

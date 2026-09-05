@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/fda-commissioner-marty-makary-defends-himself-under-pressure-.html",
+  "title": "FDA commissioner defends agency's drug approval decisions after wave of backlash",
+  "raw_text": "U.S. Food and Drug Administration Commissioner Marty Makary defended himself in a CNBC interview aired Tuesday after months of pressure over recent drug rejections.\nThe relentless heat reached a new fever pitch this week with a report from Bloomberg News detailing \"paranoia, turmoil and backlash\" at the agency under Makary's tenure. An opinion piece from The Wall Street Journal asked if any administration official has created more headaches for President Donald Trump than Makary. The editorial specifically cited the FDA's controversial rejection of a drug candidate for melanoma from Replimune.\n\"I think that article in The Wall Street Journal is the ninth article they've posted in that opinion section, begging for Replimune's approval,\" Makary said in an interview with CNBC's David Faber. \"I don't work for Replimune, I work for the American people, and I stand by the scientists at the FDA.\"\nMakary said three independent teams have arrived at the same conclusion, adding that the FDA has not made \"corrupt sweetheart deals.\" Replimune representatives have said the FDA has unfairly treated the company.\nMakary said he stands behind his review teams and that FDA commissioners overruling agency scientists has been a \"disaster\" every time it has happened. He cited examples like the FDA's approval of an Alzheimer's disease drug called Aduhelm and its clearance of a Covid-19 vaccine booster for young, healthy kids.",
+  "published_at": "2026-05-05T16:04:21Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.299017Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

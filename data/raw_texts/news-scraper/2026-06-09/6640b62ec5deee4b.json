@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/jpmorgan-drops-sell-rating-on-tesla-after-years.html",
+  "title": "JPMorgan removes sell rating on Tesla after years, says it's at the 'forefront of physical AI'",
+  "raw_text": "JPMorgan on Friday lifted its sell rating on Tesla — which it's had since July 2023 — touting the company's vertically integrated supply chain and artificial intelligence capabilities. The investment bank raised its rating on the stock to \"neutral\" from \"underweight\" — which is the equivalent of \"sell.\" JPMorgan analyst Rajat Gupta said the crossover between Tesla's business units, including automotive and robotics, was \"under-appreciated and misunderstood.\" \"Using cell and vehicle production factories as a test bed for Optimus/Humanoids should not only lower [costs] for the base automotive business, but more importantly, help validate the product at an industrial scale,\" he wrote in a note to investors. The upgrade comes ahead of the hotly anticipated initial public offering for another one of Tesla CEO Elon Musk's companies, SpaceX. SpaceX is slated to debut on the Nasdaq on June 12 and is targeting a $1.8 trillion valuation and a share price of $135 in what could be the largest IPO ever. Wall Street firms, funds and major stock indexes have been attempting to garner favor with the company ahead of its debut , which will offer an atypically large allocation for retail investors. Stock indexes have been reconsidering their rules for inclusion ahead of the SpaceX IPO and other expected large IPOs from AI companies OpenAI and Anthropic. Usually it takes years for a company to enter a benchmark index like the S & P 500 or the Nasdaq 100 . S & P Dow Jones Indices said Thursday it would not be making any changes to its entry requirements for its major indices, dealing a setback to SpaceX. S & P said it decided that exceptions to its index entry requirements \"should not be granted solely based on market capitalization.\" Nasdaq and FTSE Russell have recently made rule changes that will make expedited index entry easier for large companies. Investors are also looking ahead to the possibility of a merger between Musk-run companies SpaceX and Tesla. \"I think it would be a very smart move,\" Ray Wang, CEO of tech advisory firm Constellation Research, told CNBC Friday. \"That would make them a $3.5 trillion company. \"With 82% control of the stock, it's the way to do it.\"",
+  "published_at": "2026-06-05T16:49:46Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.190093Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

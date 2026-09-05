@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/932430/sony-playstation-plus-subscription-price-raise",
+  "title": "Sony is raising short-subscription prices for PlayStation Plus",
+  "raw_text": "Sony is hiking the starting price of one-month and three-month PlayStation Plus subscriptions in “select regions,” blaming “ongoing market conditions.” Beginning May 20th, 1-month subscriptions will start at $10.99 USD / €9.99 EUR / £7.99 GBP, while 3-month subscriptions will start at $27.99 USD / €27.99 EUR / £21.99 GBP.\nSony is raising short-subscription prices for PlayStation Plus\nOne-month and three-month PlayStation Plus subscriptions are getting more expensive.\nOne-month and three-month PlayStation Plus subscriptions are getting more expensive.\nIn the US, the changes result in a $1 price increase for a one-month Essential tier subscription and a $3 increase for a three-month Essential tier subscription. It’s unclear if other PlayStation Plus tiers will see price hikes as well. PlayStation didn’t immediately reply to a request for comment.\nIf you are a current subscriber, prices will stay the same for you (except in Turkey and India, according to Sony) unless you change your subscription tier or let your subscription lapse.\nThe PlayStation Plus price hikes follow two recent price increases for PS5 consoles. Sony said its April PS5 price hike was due to “continued pressures in the global economic landscape.”",
+  "published_at": "2026-05-18T16:24:40Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-19T03:00:16.197944Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News",
+      "PlayStation"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
+  "title": "An OpenAI model solved a famous math problem that stumped humans for 80 years",
+  "raw_text": "In mid-May, OpenAI announced that an internal AI model had disproved the Erdős unit distance conjecture, a famous problem in discrete geometry that had stumped human mathematicians for the last 80 years.\nOpenAI gave several mathematicians early access to the result and published their reactions. Tim Gowers—who won the Fields Medal, the most prestigious prize in mathematics—wrote that “there is no doubt that the solution to the unit-distance problem is a milestone in AI mathematics.”\nUniversity of Toronto professor Daniel Litt wrote that “this is the first example of a result produced autonomously by an AI that I find exciting in itself, as opposed to as a leading indicator.”\nIt’s arguably the first time that an AI system has found a proof resolving a major open conjecture. That’s impressive, but I don’t view it as a radical break from the previous trajectory of AI progress in mathematics.\nThree years ago, LLMs struggled to solve arithmetic problems. It was only last year that LLMs started acing high school mathematics competitions.\nWhen I attended the Joint Mathematics Meetings—the largest annual mathematics conference in the world—in January, I learned that AI systems were starting to contribute to mathematical research, but only in constrained settings. It took significant human interpretation to turn an AI output into a publishable theorem.\nOpenAI’s new result is the next step in this progression. The AI model cleverly applied existing ideas drawn from several subfields of mathematics to create a full proof. But it didn’t pioneer any genuinely new techniques. The result has since been cleaned up and extended by human mathematicians.\nThis points to a medium-term future where human mathematicians and AI models complement each other: AIs have a broader knowledge of past work than any human alive and much more willingness to grind through tedious proof strategies that aren’t likely to work. But humans can still think more deeply about any one problem and ask more interesting questions.",
+  "published_at": "2026-06-01T11:00:00Z",
+  "author": "Kai Williams",
+  "collected_at": "2026-06-02T15:00:26.369896Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Features",
+      "Science",
+      "math",
+      "openai",
+      "Paul Erdos"
+    ]
+  }
+}

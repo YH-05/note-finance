@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20184-airtrunk-to-develop-two-new-data-centres-in-malaysia.html",
+  "title": "AirTrunk to develop two new data centres in Malaysia",
+  "raw_text": "Hyperscale data centre platform AirTrunk has announced plans to invest about US$3 billion to develop two new data centres in Malaysia, to be called JHB3 and JHB4.\nLocated in Iskandar Puteri in Johor, JHB3 and JHB4 will have a combined capacity of more than 280 megawatts (MW) of IT load and will be located close to the company’s existing JHB1 campus, opened in 2024 and planned JHB2 campus.\nBetween the four campuses in Malaysia, AirTrunk will have more than 700MW of IT load, bringing AirTrunk’s total committed investment in Malaysia to approximately US$6.8 billion.\nThese campuses will be purpose-built to support high-density cloud and AI workloads, featuring a flexible, scalable and resilient design. The designs prioritise energy efficiency, operating at significantly lower power usage levels than conventional data centres. The campuses will also include advanced cooling systems that utilise 100% recycled water, minimising any impact on local resources.\nAirTrunk’s current expansion follows its announcement of JHB2 campus in early 2025, which has already garnered strong commitments from its existing global cloud and AI customers. The existing JHB1 and JHB2 campuses (totalling more than 420MW of IT load) are almost 100% contracted and tracking well ahead of investment plans. AirTrunk is planning further expansion in Malaysia post JHB3 and JHB4.\nThis expansion follows AirTrunk’s recent announcement of its entry into India, supported by its planned investment of more than US$5 billion into the Indian market in the near term.\nThe development of JHB3 and JHB4 is expected to generate significant economic benefits for Johor and Malaysia, including creating more than 3,000 jobs during construction, ongoing employment to local talent once operational, and partnerships with local suppliers and contractors to support regional industry.",
+  "published_at": "2026-04-30T13:11:10Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-08T03:01:18.586871Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

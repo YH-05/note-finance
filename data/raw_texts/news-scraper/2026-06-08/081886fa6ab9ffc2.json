@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.phoronix.com/news/Firefox-Vulkan-Video-Merged",
+  "title": "Firefox Merges Support for Vulkan Video Decoding",
+  "raw_text": "Firefox Merges Support For Vulkan Video Decoding\nFirefox on Linux has long been focused on the Video Acceleration API (VA-API) that isn't universally supported by Linux graphics drivers. This has left to efforts like NVIDIA-VAAPI-Driver to layer VA-API atop NVIDIA NVDEC interfaces to enjoy GPU-accelerated video playback in Firefox. Smaller Arm/embedded graphics drivers also have been largely left out of the game in the VA-API space. But with Vulkan Video we are beginning to see more adoption and in a cross-platform manner.\nFollowing recent activity in Firefox development, this bug report opened three months ago over the lack of Vulkan Video support in Firefox was closed.\nThe Firefox 153 release due out in July will have Vulkan Video decoding support available. The Vulkan Video activity in Firefox Git culminated this week with the work of NVIDIA engineer Tymur Boiko and Red Hat's Martin Stransky.\nFirefox 153.0 is expected for release on 21 July with this Vulkan Video support assuming no last minute issues.",
+  "published_at": "2026-06-07T22:41:36Z",
+  "author": "Bender",
+  "collected_at": "2026-06-08T15:01:07.665872Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

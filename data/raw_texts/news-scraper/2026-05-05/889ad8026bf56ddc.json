@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20173-airtel-money-ipo-could-raise-up-to-2bn-in-blockbuster-listing.html",
+  "title": "Airtel Money IPO could raise up to $2bn in blockbuster listing",
+  "raw_text": "Airtel Africa is lining up a potentially sizeable IPO of its mobile money business, with the deal expected to raise between $1.5 billion and $2 billion, according to a Bloomberg report citing people familiar with the matter.\nThe listing could value Airtel Money at as much as $10 billion, positioning it as one of the largest European IPOs in recent years if it goes ahead as planned. The London Stock eXchnag is emerging as the preferred bourse for the float, but others on the continent are bing considered, as is the UAE.\nCitigroup is advising on the transaction, with additional banks likely to be brought on to support the deal.\nThe London-listed telecoms group has previously said it is targeting a listing of Airtel Money in the first half of 2026 as it looks to unlock value from its fast-growing fintech unit.\nThe Airtel subsidiary has over 52 million customers on its fintech platform.",
+  "published_at": "2026-04-29T11:08:20Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-05T03:01:21.284076Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}

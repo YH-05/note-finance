@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/05/3d-printable-humanoid-legs-let-robotics-experiments-run-wild/",
+  "title": "3D-printable humanoid legs let robotics experiments run wild",
+  "raw_text": "A $2,500 pair of humanoid robot legs built from 3D-printed parts and off-the-shelf components is not going to win marathons just yet. But such relatively inexpensive hardware could enable researchers to more easily test and train AI-powered robotics software in a physical body during real-world experiments.\nThe newly available LeRobot Humanoid project comes from the machine-learning and AI development platform Hugging Face. The full-stack release gives robot builders and researchers access to a bill of materials, files for 3D-printable parts, wiring documentation, and physical assembly instructions—but it also includes software tools for calibrating and controlling the robot in both the physical body and in simulation.\n“If you are looking for the most advanced humanoid robot, this is not it,” wrote Virgile Batto, a robotics engineer at Hugging Face, in a blog post coauthored with other colleagues. “If you are looking for a humanoid you can build, understand, repair, instrument, simulate, and use for learning experiments, this is the robot we are trying to make.”\nThe Hugging Face team aimed for a “practical balance between affordability, mechanical performance, and ease of assembly.” The design, built around printable parts, off-the-shelf hardware, and affordable actuators and electronics, means the bipedal robotic platform can be easily fixed and modified to enable rapid experimentation and development, rather than being a “one-off prototype useful for a demo.”\nSuch a design also aims to enable a more reproducible “full-robot design loop” in which robots designed in simulation can be tested and validated in physical body experiments, according to Batto and colleagues. In turn, data from the real-world trials can help inform and improve the simulations used for training robot behaviors.",
+  "published_at": "2026-05-26T17:16:07Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-26T21:00:31.019817Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Bipedalism",
+      "Hugging Face",
+      "humanoid robots",
+      "robot training",
+      "Robotics",
+      "robots"
+    ]
+  }
+}

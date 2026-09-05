@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605070779",
+  "title": "東ソー---大幅続伸、データセンター向け光ケーブル量産報道で",
+  "raw_text": "東ソー ＜日足＞ 「株探」多機能チャートより\n東ソー<\n4042>は大幅続伸。2029年にもデータセンター向け光ケーブルを量産すると報じられている。光ファイバー研究で著名な慶大の小池特任教授の成果を活用するもので、主流のガラスではなくフッ素樹脂でできているようだ。比較的低コストで量産化しやすい特徴があるほか、通信速度は従来より2倍速くなるもよう。同報道を受けてAI関連として急浮上、今後の展開力に対する期待感が高まっているようだ。\n《AT》\n提供：フィスコ",
+  "published_at": "2026-05-07T02:37:46Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:00:21.798485Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

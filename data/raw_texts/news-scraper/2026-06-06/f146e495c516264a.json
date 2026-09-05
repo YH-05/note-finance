@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/28/oil-inventory-exxon-strait-hormuz-iran-war.html",
+  "title": "Exxon warns oil inventories will hit dangerously low levels in weeks, forcing prices to shoot higher",
+  "raw_text": "Exxon Mobil warned Thursday that oil inventories will fall to record low levels in coming weeks, forcing prices to spike and curbing demand.\n\"We're approaching unheard of inventory levels,\" said Exxon Senior Vice President Neil Chapman at a conference hosted by Bernstein in New York.\n\"I mean really, really low levels,\" Chapman warned. \"You can debate whether that's going to hit, those really low levels, in two weeks or three weeks. Once you get to that point, then you'll see price shoot up.\"\nThe price of physical Brent oil cargoes will spike to $150 to $160 per barrel when inventories hit all-time lows in coming weeks, the executive said. \"When the price gets to a certain level, demand destruction brings it back into balance,\" he said.\nBrent futures for July delivery, the nearest contract, closed under $94 per barrel Thursday as investors once again held out hope for a settlement between the U.S. and Iran that will reopen the Strait of Hormuz.\nIran's closure of the strait has cost the market more than a billion barrels so far, the largest oil supply disruption in history, according to the International Energy Agency. Oil stockpiles have mitigated the impact so far, but that \"can't last forever,\" Chapman said.\nThe IEA warned earlier this month that inventories are being depleted at a record pace. The organization's members agreed in March to release a record 400 million barrels to lessen the impact of the supply disruption.\nOil industry executives have warned for two months that the crude futures market is not reflecting the scale of the disruption triggered by the war in the Middle East.\n\"I don't know, whether it's two to three weeks or three to four weeks,\" Chapman said. \"What I'm really saying is, once you get to the minimum inventory levels and all-time low inventory levels, there's only one way to go. That's the situation.\"",
+  "published_at": "2026-05-28T22:25:04Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.830640Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

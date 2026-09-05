@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/apple-may-take-several-months-to-catch-up-to-mac-mini-and-studio-demand/",
+  "title": "Mac mini starting price goes up to $799, may be hard to get for \"months\"",
+  "raw_text": "Apple’s Mac mini and Mac Studio desktops have been increasingly difficult to buy over the course of the year—multiple configurations are listed on Apple’s site as “currently unavailable,” which almost never happens, and others will take weeks or months to ship if you order them today. A top-end version of the Mac Studio with 512GB of RAM was delisted from Apple’s store entirely.\nNow, the $599 entry-level Mac mini has also been removed from Apple’s store. The cheapest Mac mini you can currently order from Apple costs $799, which gets you an M4 chip, 16GB of RAM, and 512GB of storage.\nThis isn’t technically a price hike; Apple has charged the same amount for these specs since launching the M4 Mac mini in late 2024. But now that the basic model with 256GB of storage has apparently been discontinued, it’s no longer possible to buy a Mac mini for its original $599 starting price unless you can find stock left over at some third-party retailer somewhere.\nThe last time the Mac mini’s starting price was this high was in 2018, when the last Intel-based version of the desktop was introduced. The system’s cost had been falling in the Apple Silicon era—first to $699 for the Apple M1 version, then to $599 for the M2 version. The M4 iteration increased the starting RAM allotment from 8GB to 16GB, making the entry-level model much more useful and future-proof.\nApple similarly discontinued the 256GB versions of the MacBook Air earlier this year when it introduced the new M5 models, but the company only increased the starting prices of those laptops by $100, rather than $200. A new M5 version of the Mac mini is reportedly coming later this year, and its starting price could land anywhere between $599 and $799, depending on its specs (and how much Apple is paying for memory and storage chips by then).",
+  "published_at": "2026-05-04T14:55:48Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-05T03:00:31.296479Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Tech",
+      "apple",
+      "Apple silicon",
+      "Mac mini",
+      "Mac Studio"
+    ]
+  }
+}

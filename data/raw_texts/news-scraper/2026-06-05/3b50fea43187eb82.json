@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/04/apple-touts-1-4-trillion-in-app-store-billings-and-sales-90-without-a-commission/",
+  "title": "Apple touts $1.4 trillion in App Store billings and sales, 90% without a commission",
+  "raw_text": "Apple on Thursday offered its annual update on the state of the App Store ecosystem ahead of its Worldwide Developers Conference (WWDC) that begins next week. The technology giant said that its App Store facilitated over $1.4 trillion in developer billings and sales in 2025, a figure up from the $1.3 trillion it announced last year around this time.\nThe figure, which includes all business taking place through apps on its platform, is meant to represent how the App Store creates financial opportunities for mobile developers that extend beyond sales from in-app purchases. It also helps to frame Apple’s portion of this business — a commission on in-app purchases of digital goods — as a much smaller portion of the overall pie.\nAs Apple noted in its announcement, 90% of the $1.4 trillion involved transactions where developers didn’t pay any commissions.\nBroken down further, the 2025 total included $1.1 trillion in sales of physical goods and services and $149 billion in billings and sales for digital goods. The latter is largely commissioned at a rate of 15% to 30%, depending on transaction type and the size of the business, and is higher than the $131 billion Apple reported last year. Regardless of how it’s presented, it’s still a multibillion-dollar market that Apple takes a piece of.\nAdditionally, Apple said that in-app revenue from ads was $151 billion in 2025, up from $150 billion the year prior.\nApple also highlighted that the App Store saw over 850 million average weekly users from across 175 countries and regions in 2025.\nNotably, Apple called out AI apps in particular, remarking that 40 of the top 100 apps in 2025 had consumer-facing AI capabilities, and these saw stronger billing growth than the others in the top 100. This could be setting the stage for a WWDC announcement about Apple’s plans to allow AI agents on its App Store, as has been rumored.\nThe company is also poised to make announcements of its own around AI at WWDC, with an anticipated Siri revamp and deeper AI integrations into its operating systems.\nApple’s announcement pointed to the App Store’s growth in China, as well, adding that, in the last six years, billings and sales facilitated by the App Store have more than doubled in the country. Meanwhile, billings and sales in the App Store more than tripled in the U.S. and Europe. Again, most of this is attributable to physical goods and services, like retail, grocery delivery, ride-hailing, travel, and more.",
+  "published_at": "2026-06-04T14:05:58Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-06-05T03:02:29.648279Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Apple",
+      "apple store",
+      "developers",
+      "wwdc"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=48413629",
+  "title": "Ask HN: What is your (AI) dev tech stack / workflow?",
+  "raw_text": "Hello, happy Friday!\nI am looking to do some in-person \"developer boot-up\" workshops, and seek your suggestions for \"modern tooling\".\nThe background of the participants range from motivated newbie (\"I heard you can make your own app with AI!\") to existing software developers who want to get up to speed on modern development for the purposes of building stuff, and getting jobs where AI tools are being used.\nFor those who have been doing software development & \"tech\" lately using AI tools, and feel they have a great setup & flow - I would love to hear what your dev setup is, what tools you're using and what workflow has been working best for you (and your team).\n// My Background\nI have been programming / building for 20+ years, but have not been using AI tools much (aside from hitting up LLM APIs on a few projects).\nI value open-source, and aim for long-term quality and supportability. Techniques like test-driven development (TDD), using proven / well documented tools, customer-centric development (often pairing with clients), make it easy to do the right thing. If you are familiar with Pivotal Labs, agile & XP - that's the style.\nThese are some of the Upcoming uses-cases for the workshop, and my own personal \"IT backlog\":\n- Create a static \"one pager\" personal/professional website\n- Setup a Blog / Static site generator (Pelican), create a simple but stylish theme\n- Create a simple web app / backend API (FastAPI) tool - form-based calculator, convert X data to PDFs, etc.\n- Figure out how to have SyncThing autosync the home folder of 3 Linux computers in the house\n- Backup & archive the photos & video from my iPhone\n// Tech stack I am currently using:\n- Operating system: Linux Mint Debian (LMDE)\n- Editor: VSCodium\n- Code: Python, HTML/CSS\n- Server platform: Amazon AWS\nI am guessing that most workshop participants will be using MacBooks & Windows computers - but a few are on Linux, as I recently did a \"Linux install party\".\nI haven't used any \"AI harnesses\", agents or anything like that - but curious what's a good starting point to take best advantage of these tools.\nThanks for sharing the knowledge!\n// JRO",
+  "published_at": "2026-06-05T15:13:54Z",
+  "author": "dv35z",
+  "collected_at": "2026-06-05T21:00:41.650083Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

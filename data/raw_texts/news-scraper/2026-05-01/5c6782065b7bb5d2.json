@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605020064",
+  "title": "NY原油：続落、一時100ドルを下回る",
+  "raw_text": "【市況】NY原油：続落、一時100ドルを下回る\nNYMEX原油6月限終値：101.94 ↓3.13\n1日のNY原油先物6月限は続落。ニューヨーク商業取引所（NYMEX）のWTI先物6月限は、前営業日比－3.13ドル（－2.98％）の101.94ドルで通常取引を終了した。時間外取引を含めた取引レンジは99.30－106.65ドル。一時100ドルを下回ったが、戦闘終結に向けてイラン側が提示したプランについてトランプ米大統領は同意できないとの見解を伝えており、原油先物の下げ幅は縮小。通常取引終了後の時間外取引では102ドルを挟んだ水準で推移している。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-01T20:52:58Z",
+  "author": null,
+  "collected_at": "2026-05-01T21:00:22.412488Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

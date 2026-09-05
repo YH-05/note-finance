@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/plexs-200-lifetime-pass-price-hike-tries-forcing-users-to-another-subscription/",
+  "title": "Plex's 200% Lifetime Pass price hike tries forcing users to another subscription",
+  "raw_text": "As of July 1, at 12:01 am UTC—or June 30 at 8:01 pm ET—people seeking access to Plex’s media server features through a one-time purchase will have to pay $750. That’s three times the current price of $250.\nThe new price will not affect current Lifetime Plex Pass holders.\nA Lifetime Plex Pass allows you to stream from your own Plex Media Server to a device connected to your own network, to stream from the server remotely, and to allow others to stream remotely from your server.\nWhen first launched in 2012, a Lifetime Plex Pass was $75. In 2014, Plex increased the price to $150 because “at 2.5x the price of a yearly, it was priced in an unsustainable way for us,” Plex said in a blog post at the time. Eventually, lifetime passes were available for $120 for years until March 2025, when the price skyrocketed to $250. That brings us to today’s announcement.\nIn an email and blog post to customers today, Plex said that it sold lifetime passes early in its existence “because we knew many of our customers would rather pay a higher, one-time fee for software that they can depend on every day.” However, as evidenced by several price hikes, Plex has struggled to reconcile lifetime passes with its own financial goals. The company’s message says:\nWe’ve considered eliminating the Lifetime Plex Pass in the past, given that recurring subscriptions help us sustain long-term development, but we know it’s still a valuable option for many in our community. So instead of retiring it, we’re keeping it available at a price that reflects the real, ongoing value of the software we’re committed to building and maintaining for years to come.\nThe 200 percent price hike and Plex’s admission that it has mulled killing Lifetime Passes illustrate Plex’s shifting priorities as it seeks profitability. Notably, Plex didn’t announce any pricing hikes for its monthly or annual subscription tiers.\nIn its blog, Plex offered further reasoning for the upcoming price hike:\nOver the years, as our software and product has evolved, the breadth of features and benefits included with your Plex Pass has expanded. This increase ensures we can continue to invest resources into building and maintaining the Plex personal media software, while continuing to offer a Lifetime option.\nAs noted in the announcement, Plex would rather people pay monthly or annually for its media server features than a one-time fee. With annual subscriptions currently $70, it would take 11 years for a $750 lifetime subscription to be a better value.",
+  "published_at": "2026-05-19T19:52:01Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-05-20T03:02:21.418501Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "Plex",
+      "streaming"
+    ]
+  }
+}

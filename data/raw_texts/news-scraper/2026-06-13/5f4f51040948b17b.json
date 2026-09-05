@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
+  "title": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+  "raw_text": "May 26, 2026\nMinutes of the Board's discount rate meeting on April 20 and 29, 2026\nFor release at 2:00 p.m. EDT\nThe Federal Reserve Board on Tuesday released the minutes from its recent meetings to review and determine the discount rates provided to depository institutions through the discount window. Today's minutes cover the Board meetings that occurred on April 20 and 29, 2026.\nThe Board's process for setting the discount rate is distinct from the process the Federal Open Market Committee follows in setting the target range for the federal funds rate.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-26T18:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-13T03:00:31.100368Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Monetary Policy"
+    ]
+  }
+}

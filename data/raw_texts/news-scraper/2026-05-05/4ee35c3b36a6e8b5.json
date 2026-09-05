@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050374",
+  "title": "ＵＡＥ、ミサイルの脅威に対し防空システムが対応中と発表",
+  "raw_text": "【注目】ＵＡＥ、ミサイルの脅威に対し防空システムが対応中と発表\nＵＡＥの国家緊急危機・災害管理庁はＸへの投稿で、ミサイルの脅威に対し防空システムが対応中だと発表した。ミサイルおよびドローンの脅威に対処中だとしている。火曜日としては初めての警報発令となる。\n株探ニュース",
+  "published_at": "2026-05-05T14:47:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T15:00:16.706678Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

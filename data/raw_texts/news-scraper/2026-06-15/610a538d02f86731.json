@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/15/treasury-yields-peace-deal-investor-fears-interest-rates.html",
+  "title": "Treasury yields slide as Iran deal drives rethink on Fed interest rate hikes",
+  "raw_text": "U.S. Treasury yields fell on Monday as the announcement of a preliminary peace agreement between Washington and Tehran shifted investor expectations for inflation and the outlook for interest rates.\nThe yield on the 10-year U.S. Treasury note — the key benchmark for U.S. government borrowing — fell more than 4 basis points to 4.443%.\nThe 2-year Treasury note yield, which more closely tracks short-term Federal Reserve interest rate policy, was more than 5 basis points lower at 4.031%. The longer-dated 30-year Treasury bond yield lost more than 2 basis points to 4.949%.\nOne basis point is equal to 0.01%, and yields and prices move in opposite directions.\nPresident Donald Trump said late Sunday on social media that a deal with Iran was \"now complete.\" Pakistan Prime Minister Shehbaz Sharif said an official signing ceremony would take place on Friday in Switzerland.\nTrump also said he authorized the reopening of the key Strait of Hormuz passageway, sending oil prices tumbling on Sunday. U.S. crude fell 5% in response.\nThe announcement came after an exchange of fire between Israel and Tehran-backed Hezbollah in Lebanon piled further pressure on the fragile ceasefire between the U.S. and Iran.\nInvestors are watching for economic data on housing and retail sales this week. They will also closely monitor the Federal Reserve policy meeting, which Fed funds futures indicate has a more than 98% chance of ending with rates unchanged, according to CME's FedWatch tool.\n\"Given the recent uptick in inflation, we think Wednesday's Federal Reserve meeting itself in terms of any monetary policy changes will be a snoozer,\" said Michael Landsberg, chief investment officer at Landsberg Bennett private wealth management. \"We will be paying particular attention to Warsh's first press conference as we try to understand what type of communicator he will be and what level of detail he will go into during the press conference.\"\n— CNBC's Alex Harring also contributed to this report.",
+  "published_at": "2026-06-15T14:25:21Z",
+  "author": null,
+  "collected_at": "2026-06-15T15:38:34.531745Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

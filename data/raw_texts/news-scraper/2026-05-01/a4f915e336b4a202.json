@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/energy/china-reopens-fuel-export-spigot-offering-relief-asian-buyers",
+  "title": "China Reopens Fuel Export Spigot, Offering Relief To Asian Buyers",
+  "raw_text": "Beijing is reversing its curbs on refined fuel exports after halting shipments in the opening days of the U.S.-Iran conflict. This move suggests that Chinese domestic inventories are now at comfortable levels, allowing state refiners to reopen the export spigot, even as much of Asia remains gripped by a fuel shock caused by disrupted Gulf energy flows through the Hormuz chokepoint.\nThere was chatter earlier this week that China's state-owned refiners were applying for government permits to resume fuel exports in May. These include China Petrochemical (Sinopec Group) and China National Petroleum Corporation.\nBy late in the week, Bloomberg reported that state-owned refiners had received government approval to export 500,000 tons of fuel next month.\nPeople familiar with the upcoming shipments said the one-off quota would allow gasoline, diesel, and jet fuel to be sent to neighboring Asian countries, providing relief amid a worsening fuel crunch.\nThey said these shipments will be loaded onto tankers and are likely destined for Vietnam, Laos, and other nearby nations.\nChina's U-turn on export curbs comes weeks after the International Monetary Fund, World Bank, and International Energy Agency urged countries to avoid panic hoarding of energy supplies, as JPMorgan analysts warned that Asia would face the most immediate impact from the Gulf energy shock.",
+  "published_at": "2026-05-01T07:30:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-01T15:00:52.991697Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

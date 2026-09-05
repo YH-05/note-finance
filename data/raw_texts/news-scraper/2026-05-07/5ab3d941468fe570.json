@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/sec-is-close-to-ending-mandatory-quarterly-earnings-reports-that-trump-called-for.html",
+  "title": "SEC advances Trump-backed proposal to end mandatory quarterly earnings reports",
+  "raw_text": "U.S. regulators are advancing a proposal that would allow public companies to scrap quarterly earnings reports in favor of a twice-a-year disclosure regime, a change long championed by President Donald Trump.\nThe Securities and Exchange Commission formally proposed a rule change that would allow companies to file semiannual reports on a new form 10-S in place of the traditional quarterly10-Qs. Firms would still submit a full annual report.\n\"The rigidity of the SEC's rules has prevented companies and their investors from determining for themselves the interim reporting frequency that best serves their business needs,\" SEC Chairman Paul Atkins said in a statement Tuesday.\nThe move brings regulators closer to a structural change that Trump has advocated, contending that mandatory quarterly reporting encourages a short-term mindset and distracts executives from long-term strategy. The president previously said a semiannual system would \"save money\" and allow management teams to focus on running their business.\nThe shift is likely to reignite a long-running debate across Wall Street and corporate America. Critics contend that reducing the frequency of mandatory disclosures risks limiting transparency and could disadvantage retail investors, who rely more heavily on public filings than large institutional players. Supporters counter that a less frequent reporting cycle could encourage investment and strategic planning over immediate results.\nThe proposal now goes to a 60-day public comment period. The rules can be changed by a majority vote on the SEC.",
+  "published_at": "2026-05-05T18:05:44Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.337942Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

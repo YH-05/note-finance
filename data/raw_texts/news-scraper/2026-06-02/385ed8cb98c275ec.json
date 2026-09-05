@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/06/asus-gives-the-rox-xbox-ally-the-oled-screen-it-deserves/",
+  "title": "ROG Xbox Ally X20 adds OLED screen, control upgrades",
+  "raw_text": "When the Steam Deck OLED launched three years ago, we were glad to see that the new, more brilliant screen fixed the biggest flaw of Valve’s original handheld hardware. So we’re unsurprisingly excited about today’s announcement that Asus is preparing a new, OLED-equipped ROG Xbox Ally X20 for the coming holiday season. Still, it’s a bit worrying that Asus is positioning the new upgrade as a niche collector’s item rather than its new handheld gaming standard.\nThe X20 expands the 7-inch screen found on last year’s ROG Xbox Ally line to 7.4 inches, matching the display on the Steam Deck OLED and approaching the 7.9-inch screen on the Switch 2. The 1080p HDR panel also increases the maximum brightness from 500 nits on original Xbox Ally models to a full 1400 and adds some new anti-glare coating that should help when playing in direct sunlight. The X20’s 120 Hz display now supports Dolby Vision HDR colors and FreeSync Premium Pro to help smooth frame rates while still providing a larger color gamut.\nOn the control front, the X20 introduces magnetic TMR thumbsticks, replacing the carbon-film potentiometers that made the original Xbox Ally more prone to stick drift and physical wear. A new D-pad on the X20 also introduces a neat little lift-and-twist design that can transform it from a four-direction cross to a more circular eight-direction pad, similar to the convertible D-pad found on some now-classic Xbox 360 controllers.\nPress outlets that got early hands-on time with the X20 reported a few other incidental upgrades, such as quieter, more rounded face buttons and better-feeling rubberized grips on the translucent black-and-gold shell.",
+  "published_at": "2026-06-01T16:04:45Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-06-02T15:00:26.369347Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "ASUS",
+      "microsoft",
+      "ROG Xbox Ally",
+      "X20",
+      "XBox"
+    ]
+  }
+}

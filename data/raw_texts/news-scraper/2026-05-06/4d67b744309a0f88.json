@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/29/mortgage-rates-move-higher-after-latest-iran-war-news.html",
+  "title": "Mortgage rates move higher after latest Iran war news",
+  "raw_text": "CNBC's Diana Olick reports on news regarding mortgage rates.",
+  "published_at": "2026-05-02T13:02:13Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.704108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

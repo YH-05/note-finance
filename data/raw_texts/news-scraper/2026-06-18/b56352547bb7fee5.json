@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/jpmorgan-says-clients-should-be-aggressive-buyers-of-this-chip-stock.html",
+  "title": "JPMorgan says clients should be 'aggressive buyers' of this chip stock",
+  "raw_text": "Broadcom stock is likely to surge as the company remains on track to unveil high-powered chips for artificial intelligence models, and investors should be \"aggressive\" about scooping up shares, according to J.P. Morgan. The investment bank has an overweight rating on the semiconductor and software maker, with a $580 price target on the stock, implying 54% upside from Tuesday's close. \"We think the market continues to underestimate Broadcom's significant dominance/lead (18mos+), chip/advanced packaging design leadership, aggressive cadence of new designs, IP portfolio, and track record of execution (Broadcom has helped Google bring to market 14 of its most advanced chip designs over the past 12 years),\" analyst Harlan Sur said Tuesday in a note to clients. \"We … would be aggressive buyers at current levels.\" Broadcom has fallen nearly 7% in the past month. Shares pulled back as rumors swirled that a planned rollout of a line of custom tensor processing unit AI accelerator chips developed in partnership with Google had been delayed. The TPU v9 chips will be used to power the training and operation of large generative AI models. AVGO 1M mountain Broadcom stock is down nearly 7% in the past month. Despite the rumors, TPU v9 is still likely on track to debut in 2028, keeping with Broadcom's original timeline, according to JPMorgan. And, its progress toward that release should drive upside in the stock, according to Sur. JPMorgan's call matches the consensus on Wall Street, where 47 of 51 analysts covering Broadcom rate it a buy or strong buy.",
+  "published_at": "2026-06-17T17:57:01Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.787257Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

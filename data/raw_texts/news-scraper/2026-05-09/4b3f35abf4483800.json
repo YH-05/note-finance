@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/08/prime-video-follows-netflix-and-disney-by-adding-a-tiktok-like-clips-feed-in-its-app/",
+  "title": "Prime Video follows Netflix and Disney by adding a TikTok-like ‘Clips’ feed in its app",
+  "raw_text": "Amazon is adding a short-form video feed to the Prime Video app called “Clips,” the company announced on Friday.\nRolling out first in the U.S., Clips will include… well, clips of shows on Prime Video that are designed to hook a viewer and get them to give the full show a try. From that clip, users can add a title to their watchlist, share it with a friend, or navigate to rent, buy, or access the title through their subscription.\n“Clips gives customers a whole new way to browse with short, personalized snippets tailored to their interests,” said Prime Video’s director of Global Application Experiences, Brian Griffin, in a press release. “Whether they have a few minutes to scroll or are looking for something to watch when they have more time, entertainment is just a tap away.”\nAmazon first tested this short-form feed during the NBA season, showing highlights that users can scroll through as though they’re watching TikToks.\nIt’s not a surprise to see Prime Video make this change — Netflix, Peacock, Tubi, Disney, and others have recently rolled out similar experiences, which are designed to promote discovery. Netflix’s short-form feed even shares the Clips name.\nClips is first rolling out to select U.S. customers on iOS, Android, and Fire tablets, but it will be available more broadly this summer. Users can navigate to Clips by scrolling down on the Clips carousel on the Prime Video mobile home page, which will surface a full-screen vertical feed.",
+  "published_at": "2026-05-08T20:50:03Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-05-09T03:01:21.931403Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Media & Entertainment",
+      "Amazon",
+      "prime video",
+      "Video"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20174-i-squared-capital-to-acquire-brazils-elea-data-centres.html",
+  "title": "I Squared Capital to acquire Brazil’s Elea Data Centres",
+  "raw_text": "Independent infrastructure investment manager I Squared Capital has announced that it has agreed to acquire Elea Data Centres, one of the largest carrier-neutral data centre platforms in Brazil.\nElea operates a nationwide network of nine interconnected data centre campuses across Brazil in cities that include São Paulo, Rio de Janeiro and Brasília, serving a diversified base of enterprise and hyperscale customers, with over 300MW of powered land and over 1GW currently in development that will require more than US$10 billion of capital to support its delivery.\nI Squared says its investment will support Elea’s planned expansion programme and accelerate the development of large-scale, high-density AI infrastructure across Brazil.\nBrazil, it points out, is the largest data centre market in Latin America and a rapidly emerging global hub for digital infrastructure, supported by more than 180 million internet users and accelerating demand for private and public cloud storage, local inference and training compute demand as well as training for international markets.\nAt the same time, I Squared notes, the market remains structurally underpenetrated relative to more mature economies, with demand expected to outpace supply, presenting a significant opportunity.\nThe country also benefits from a combination of low-cost power, which is predominantly renewable, and established hyperscaler availability zones. In addition, supportive policy initiatives are under discussion.\nGautam Bhandari, Chief Investment Officer at I Squared Capital adds: “The company combines a national colocation footprint, a substantial and well-located powered landbank, including its +3GW Rio AI City development, which provides a strong foundation for capacity expansion. Together with Elea’s founder-led management team, we are focused on building a next-generation platform designed for large-scale hyperscale and AI deployments.”\nElea says it operates entirely on renewable energy and is focused on delivering efficient, low-carbon solutions at scale.\nI Squared Capital has been investing in Latin America since 2015, putting more than US$3 billion into seven investments across the region.",
+  "published_at": "2026-04-29T12:10:01Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-06T03:01:21.263603Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

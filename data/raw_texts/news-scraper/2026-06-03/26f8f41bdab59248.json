@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/substacks-new-reply-rules-feature-lets-creators-control-how-people-respond/",
+  "title": "Substack’s new ‘Reply Rules’ feature lets creators control how people respond",
+  "raw_text": "Substack announced on Wednesday a new feature called “Reply Rules,” designed to give creators greater control over how their audiences are able to respond.\nWith the feature, creators can establish specific guidelines for comments on their posts, in Notes, or in Chat. These guidelines might include requests to eliminate AI slop or profanity, or something silly like only requiring replies in haiku form.\nSubstack explains that the system learns from users’ actions, such as when they hide replies, and will automatically filter out comments that don’t match the creator’s preferences. Creators maintain visibility over these hidden replies and have the option to unhide them if they change their minds.\nCurrently, Reply Rules are available for all English-language publications.\nSubstack has always gone for a decentralized moderation approach, where writers are responsible for policing their own communities. Creators have access to tools such as the option to lock posts or threads to prevent additional comments, comment deletion, and the ability to ban or suspend users when necessary.\nThe new feature may reduce the need for creators to sift through every comment manually.\nHowever, it’s important to note that Substack has faced criticism regarding its content moderation practices, especially regarding far-right newsletters. Critics argue that the platform’s more lenient approach allows harmful rhetoric to thrive. In today’s announcement, Substack seemed to address this and underscored its commitment to fostering diverse online communities, despite the challenges this entails.\nAs Substack puts it, “Since its founding, Substack has sought to create the best possible conditions for cultures of many varieties to flourish online. Achieving this often involves difficult trade-offs, but alongside our core model — where we only earn when writers, artists, journalists, musicians, and others earn — we’ve managed to carve out a unique path relative to other platforms.”\nThis year, Substack has rolled out several updates to its platform, including a built-in recording studio for creators to pre-record and publish videos. It also launched a TV app for subscribers to watch video posts and livestreams on their living room screens.",
+  "published_at": "2026-06-03T19:08:55Z",
+  "author": "Lauren Forristal",
+  "collected_at": "2026-06-03T21:00:27.344440Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "content moderation",
+      "Substack"
+    ]
+  }
+}

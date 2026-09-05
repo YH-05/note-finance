@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/03/recent-inflation-data-was-bad-news-feds-goolsbee-says.html",
+  "title": "Recent inflation data was 'bad news,' Fed's Goolsbee says",
+  "raw_text": "Inflation data last week was \"bad news\" for the U.S. Federal Reserve and means the Fed needs to be cautious about rate cuts until inflation begins to recede, Chicago Fed President Austan Goolsbee said on Saturday.\n\"We have got to get some assurance that we are going back to the 2% inflation target,\" Goolsbee said on Fox News' \"The Journal Editorial Report,\" referring to data last week showing the Personal Consumption Expenditures price index, the central bank's preferred inflation measure, rose at a 3.5% annual rate in March. Goolsbee noted that inflation was rising even in service industries largely insulated from the impact of tariffs and rising oil prices due to the U.S.-backed war with Iran.\nThe composition of inflation now \"doesn't look good,\" said Goolsbee, who is not a voter on rate policy this year but dissented against a Fed rate cut in December because of what he saw then as rising inflation risks, which have intensified in recent weeks as the price of oil has risen.\nThe Fed at its meeting last week held the policy rate of interest steady in the 3.5% to 3.75% range on an 8-4 vote that was the most divided since 1992. Three of the dissents were against language indicating the Fed's next move was most likely a rate cut.\nGoolsbee said the split decision showed the potential complications in offering \"forward guidance\" about the path of monetary policy, in this case prompting dissents from three officials who supported the actual rate decision at the meeting.\nAsked about current Fed Chair Jerome Powell's decision to remain as a Fed governor after incoming Fed Chair Kevin Warsh is confirmed by the Senate in the coming weeks, Goolsbee said he was both glad to have Powell's continued input and \"excited\" for Warsh's arrival. \"I like (Powell) quite a lot. I will be happy he is going to switch to a governor's seat but still be there. He has been judicious and he has insights,\" Goolsbee said. He added about Warsh that he was \"excited to see him come in and see what mark he is going to make.\"",
+  "published_at": "2026-05-03T06:30:53Z",
+  "author": null,
+  "collected_at": "2026-05-03T09:46:02.136581Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/cell-phones-users-cant-stop-incriminating-themselves/",
+  "title": "Cell phone users can't stop incriminating themselves",
+  "raw_text": "“What kind of doctor was dr. pepper,” Utah real estate agent Kouri Richins once asked a search engine. (Sadly, there was no actual Dr. Pepper.)\nBut it was Richins’ less innocuous online searches that helped a jury find her guilty of murdering her husband Eric via fentanyl overdose—and of hoping to collect life insurance policies she had opened in his name but without his knowledge.\nRichins was yesterday sentenced to life in prison without parole; her Internet history played a key role in the trial. A few weeks after Utah police began their investigation into Eric’s March 2022 death, they seized Kouri’s iPhone. Comparisons with records from her cell phone provider suggested that numerous text messages around the time of Eric’s death had been deleted from the device. In addition, cell phone tower pings helped establish where Kouri had been in the days before Eric’s death, which were a key piece of evidence in the state’s case against her.\nBut it was her second iPhone that really made headlines. In April 2022, Kouri bought a replacement for her seized device and soon began searching for things which, at the very least, looked suspicious. Here are the five searches prosecutors decided to present to the jury during opening statements (which you can still watch on CourtTV) at Kouri’s trial earlier this year:\n- “can you delete everytginv off an old iphind without actually having ut” [sic throughout]\n- “can deleted text messages be retrieved from an iphone”\n- “how.to.compleltley.wipe.a.iphkne.clear remotely”\n- “can cops force you to do a lie detector test”\n- “women utah prison”\nLater in the trial, prosecutors called Chris Kotrodimos (watch his testimony on CourtTV) to the stand. Kotrodimos was a cop turned private investigator who specialized in digital forensics, and he created a PowerPoint presentation showing even more relevant searches taken from this second phone. These included:",
+  "published_at": "2026-05-14T19:27:50Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-15T03:00:30.482628Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "crime",
+      "law",
+      "murder",
+      "search engines"
+    ]
+  }
+}

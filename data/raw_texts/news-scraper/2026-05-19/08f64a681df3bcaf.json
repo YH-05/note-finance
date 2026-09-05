@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/933420/apple-iphone-mac-vision-pro-accessibility-2026-apple-intelligence",
+  "title": "Apple’s accessibility features add more AI-powered processing",
+  "raw_text": "Apple’s annual update about accessibility features on its platforms has new additions for the iPhone, Mac, and especially Vision Pro, with a focus on how on-device AI processing is being used in features like VoiceOver, Magnifier, Voice Control, and Accessibility Reader.\nApple’s accessibility features add more AI-powered processing\nApple’s adding AI-generated subtitling for any video.\nApple’s adding AI-generated subtitling for any video.\nOne addition that jumped out to me is the ability to use on-device speech recognition for uncaptioned videos, which will be available on iPhone, iPad, Mac, Apple TV, and Apple Vision Pro.\nOther changes coming later this year will use AI to add more details to VoiceOver’s Image Explorer in descriptions of images (with a warning that they should not be relied on in any number of risky or potentially dangerous situations), and the ability to ask questions about what the camera sees by pressing the Action button. It’s also adding natural language navigation to the Voice Control system, and the Accessibility Reader will be ready to summarize more complex material.\nA non-AI update mentioned is Apple making the MagSafe-compatible Hikawa Grip & Stand available worldwide via the Apple Store starting today in three colors.\nThe Vision Pro will be able to link its eye-tracking system to power wheelchair drive systems, including Tolt and LUCI in the US, and have support for connecting via Bluetooth or hardwired with the Developer Strap. It’s also getting Vehicle Motion Cues to reduce motion sickness for anyone putting on Apple’s $3,499 headset in a moving vehicle. For the other changes, like Larger Text support on tvOS and a new API for bringing sign language interpreters into FaceTime calls, read through the full press release.",
+  "published_at": "2026-05-19T14:58:12Z",
+  "author": "Richard Lawler",
+  "collected_at": "2026-05-19T15:00:16.056679Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "iPad",
+      "iPhone",
+      "macOS",
+      "Tech"
+    ]
+  }
+}

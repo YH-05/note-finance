@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html",
+  "title": "Marvell stock soars 32% as Nvidia's Huang says it could be the next trillion-dollar company",
+  "raw_text": "Nvidia's CEO Jensen Huang hailed Marvell Technology as the next trillion-dollar firm, sending its shares up 32.52% on Tuesday.\nThe stock move is Marvell's biggest one-day gain ever, narrowly topping its previous best set in May 2023.\nThe semiconductor firm, which designs chips for data centers, soared after Huang touted the company's efforts in supplying the AI infrastructure build-out during an onstage appearance with Marvell CEO Matthew Murphy at Computex Week in Taipei on Monday.\nMarvell is set to be the \"next trillion-dollar company,\" Huang said, adding that the company's networking and connectivity chips are essential to data centers where computing tasks are spread across thousands of connected chips that need to share data quickly.\nThe company's market cap was at just over $250 billion as of Tuesday's close.\n\"When you take a computing problem, and you disaggregate it into a lot of parts, and you distribute it across the entire data center, what's necessary is connectivity,\" Huang said. \"That's the reason why Matt's doing so well. That's the reason why Marvel is so essential.\"\n\"We've distributed and disaggregated computing so that it runs across these enormous clusters, so that we could get aggregating the total compute, the total memory, the total bandwidth that we have, and what makes it possible is connectivity,\" the Nvidia CEO added.\nMarvell specializes in designing high-performance chips used in global data infrastructure, including cloud computing, AI, enterprise networking, 5G carrier networks and automotive systems.\nThe company's 2027 first-quarter earnings beat analyst estimates in May. Marvell posted $2.4 billion in revenue, and it forecast continued revenue growth for the fiscal year due to strength in its data center business.\nNvidia recently committed to a $2 billion investment into Marvell. Nvidia is also investing billions into other firms developing photonics technology, which use light to transmit data. That process is said to be more efficient than the current method of transferring data with electricity.",
+  "published_at": "2026-06-02T20:59:27Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.110838Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

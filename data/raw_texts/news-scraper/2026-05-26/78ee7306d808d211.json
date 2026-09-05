@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/936127/sennheiser-momentum-5-wireless-headphones-anc-lossless-bluetooth",
+  "title": "Sennheiser’s new Momentum 5 headphones have upgraded ANC and a replaceable battery",
+  "raw_text": "Nearly four years after the last version of Sennheiser’s Momentum headphones debuted with a redesign that traded a retro aesthetic for a more contemporary and comfortable design, the company has announced its Momentum 5 Wireless headphones. They look very similar to their predecessors, the Momentum 4, with large ear cups and a design that doesn’t quite stand out from the competition. But under the hood there are welcome upgrades, including improved ANC and, for the first time, a user-replaceable battery to extend their life.\nSennheiser’s new Momentum 5 headphones have upgraded ANC and a replaceable battery\nDouble the microphones means better noise canceling and call quality.\nDouble the microphones means better noise canceling and call quality.\nThe Momentum 5 Wireless will be available starting on June 30th for $399.99, a $50 price bump over the Momentum 4. The headphones feature the same 42mm drivers as the Momentum 3 and 4 models, but Sennheiser is introducing “Hi-Res Audio certification” and expanding the Momentum 5’s Bluetooth codec support to include AptX Lossless. That allows the headphones to stream 16-bit/44.1kHz CD-quality sound, but only from devices with a Qualcomm processor supporting that codec through the Snapdragon Sound platform. Smartphones from Sony and Motorola should be compatible, however Samsung, Google, and Apple devices won’t be.\nSennheiser has also doubled the number of microphones on the Momentum 5, which now feature four on each side to improve noise cancellation. The company claims its latest headphones are up to three times more effective at reducing the sound of voice chatter and the drone experienced in airplane cabins. The upgraded ANC and added mics also help improve call quality, both when it comes to picking up your voice and ensuring you can hear the person you’re talking to.\nThe Momentum 5’s battery life lasts up to 57 hours. It’s a small hit from the Momentum 4’s 60 hours, but still nearly double what you’ll get from the Sony WH-1000XM6, which can only muster up to 30 hours with ANC turned on. Other Momentum 5 upgrades include a new carrying case that’s 20 percent smaller, support for Dolby Atmos and spatial audio with head tracking, and the ability to upgrade from Bluetooth 5.4 to Bluetooth 6.0 with a future firmware update, although Sennheiser didn’t share a timeline for that.\nMost Popular\n- Google’s new anything-to-anything AI model is wild\n- Ferrari reveals its first EV, with design help from Jony Ive\n- Apple’s latest MacBook Air is $200 off in both sizes for Memorial Day\n- If I could only have one laptop for work and gaming, I’d get this one\n- Sennheiser’s new Momentum 5 headphones have upgraded ANC and a replaceable battery",
+  "published_at": "2026-05-25T22:00:00Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-26T03:00:16.902909Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Audio",
+      "Gadgets",
+      "Headphones",
+      "News",
+      "Tech"
+    ]
+  }
+}

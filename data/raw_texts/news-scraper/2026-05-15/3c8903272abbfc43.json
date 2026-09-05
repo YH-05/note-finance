@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605160029",
+  "title": "NY外為：ドル高止まり、NY原油先物は105ドル台",
+  "raw_text": "【通貨】NY外為：ドル高止まり、NY原油先物は105ドル台\nNY外為市場でドルは高止まりとなった。ホルムズ海峡封鎖の長期化懸念にNY原油先物は続伸し105ドル台で推移し、4日来の高値で推移。米利上げ観測も強まり、米国債相場は続落。10年債利回りは4.593％まで上昇した。\nドル・円は158円75銭まで上昇し、4月30日来の円安・ドル高。ユーロ・ドルは1.1638ドルから1.1619ドルまで下落。ポンド・ドルは1.3363ドルから1.3316ドルまで下落した。\n《KY》\n提供：フィスコ",
+  "published_at": "2026-05-15T18:46:37Z",
+  "author": null,
+  "collected_at": "2026-05-15T21:00:21.438556Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

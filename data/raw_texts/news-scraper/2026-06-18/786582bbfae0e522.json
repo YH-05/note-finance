@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/prediction-market-ban-congress-house-stock-bryan-steil.html",
+  "title": "GOP Rep. Steil pushes bill curbing members of Congress from prediction market betting",
+  "raw_text": "A Republican House member on Thursday is set to introduce a provision that would ban congressional lawmakers and their families from placing bets on prediction markets on topics including policy, politics, and elections.\nThe provision by Rep. Bryan Steil of Wisconsin is being added to a pending bill that would ban members of Congress from purchasing new shares of individual stocks other than those that are bought with dividends from existing holdings.\nGOP lawmakers have already promised that the bill, which is backed by House Speaker Mike Johnson, R-La., and President Donald Trump, will get a vote on the House floor.\nSteil chairs the committee that oversees the rules governing House lawmakers and their staffers.\nUnder Steil's measure, which his office shared with CNBC, lawmakers who bet on events that they have insider knowledge of would need to pay a fee of $2,000 or 10% of the value of the transaction, whichever is greater, and any gains.\nThe provision does allow lawmakers and their families to place bets on events outside the political sphere, such as sports.\n\"Some avenues of prediction markets I don't think create the ethical complications that other areas do,\" Steil told CNBC.\n\"If an individual or their spouse or dependent child ... wants to predict the winner of the Super Bowl, I don't think that that is a unique ethical challenge in the House,\" he said.\nThe new proposal limiting the kinds of bets members of Congress can make comes as scrutiny of prediction markets like Kalshi and Polymarket increases.\nThe Senate adopted a rule change earlier this year that bars senators and their staffers from making bets on prediction markets.\nThe House bill will need Senate passage as well. That is a high bar if it is attached to the larger stock trading ban, which lacks Democratic support because it focuses only on lawmakers and not on Trump.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-18T14:30:39Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.509762Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

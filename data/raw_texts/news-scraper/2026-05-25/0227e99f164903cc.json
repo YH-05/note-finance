@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/uss-big-bet-on-quantum-computing-may-not-be-entirely-legal/",
+  "title": "US's big bet on quantum computing may not be entirely legal",
+  "raw_text": "Last week, the US government announced $2 billion in investments in quantum computing companies, allocating $100 million each to a range of startups in exchange for equity in the companies. Those could be make-or-break investments for many companies that are likely years away from a product that could see widespread use. But a member of the US Congress is now arguing that those deals are illegal, as Congress did not allocate the money for this purpose—instead, it was meant to support public research in semiconductors.\nBut the biggest chunk of money would go to a company that likely wouldn’t exist if it weren’t for the government’s backing. Anderon will be set up with a billion dollars each from IBM and the government and will inherit personnel and IP from IBM. It will serve as a foundry for fabricating quantum processing units and will contract its services out to IBM and any other company that wants access to cutting-edge hardware.\nIs any of this legal?\nZoe Lofgren (D–Calif.), the ranking member of the House Science, Space, and Technology Committee, made it clear that she is not happy with how the government is using its money to support this technology.\n“This announcement is illegal and troubling on so many levels,” Lofgren said one day after the announcement, pointing out that the money being used for the deal comes from the CHIPS and Science Act, which was passed during the Biden administration and was allocated “specifically for microelectronics R&D, with a focus on semiconductor technology.”\nThat technology overlaps only partially, at best, with what’s used in quantum processors. In addition, Lofgren says the money was allocated to foster public/private research partnerships, which these deals most decidedly are not. Finally, she noted that the largest sum of money will go to IBM, and she suggested that a former IBM executive (Dario Gil, current Under Secretary for Science at the Department of Energy) was involved in the negotiations that led to this deal.\nNone of this, she noted, means that quantum processing technology is a bad investment or that any of these companies are unworthy of support. She just argues that doing so would require Congress to allocate the money to do so.",
+  "published_at": "2026-05-25T12:00:15Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-25T15:00:31.427975Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Policy",
+      "foundry",
+      "funding",
+      "government",
+      "ibm",
+      "quantum computing",
+      "starups"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/927863/gm-settles-california-lawsuit-claiming-it-sold-driving-habit-data-to-insurance-companies",
+  "title": "GM settles California lawsuit claiming it sold driving habit data to insurance companies",
+  "raw_text": "General Motors has agreed to pay $12.75 million to settle a California data privacy lawsuit that accused the automaker of selling driver location and driver data, as reported earlier by Reuters. In a proposed settlement filed on Friday, GM agreed to stop selling customer information to data brokers for five years and must give California drivers the ability to stop its OnStar service from collecting location data.\nGM settles California lawsuit claiming it sold driving habit data to insurance companies\nUnder the settlement, GM must stop selling driver information to data brokers for five years.\nUnder the settlement, GM must stop selling driver information to data brokers for five years.\nGM became the subject of several lawsuits after a 2024 report by The New York Times revealed that automakers, including GM, had been sharing driving data — such as speed, hard braking, and rapid acceleration — with data brokers and insurance companies, which reportedly adjusted pricing based on this information.\nThe Federal Trade Commission finalized its settlement with GM and its OnStar subsidiary in January, preventing the companies from disclosing driver data to third-party brokers for five years.\nUnder its settlement with California, GM must provide “clear and conspicuous” privacy notices about data collection when drivers enroll in OnStar. The automaker is also required to delete all driver data covered by the lawsuit and ask for customer consent before collecting or using a person’s driving data.\n“This agreement addresses Smart Driver, a product we discontinued in 2024, and reinforces steps we’ve taken to strengthen our privacy practices,” GM spokesperson Charlotte McCoy says in an emailed statement to The Verge. “Vehicle connectivity is central to a modern and safe driving experience, which is why we’re committed to being clear and transparent with our customers about our practices and the choices and control they have over their information.”\n“Today’s settlement requires General Motors to abandon these illegal practices and underscores the importance of the data minimization in California’s privacy law — companies can’t just hold on to data and use it later for another purpose,” California Attorney General Rob Bonta says in the press release.\nUpdate, May 11th: Added a statement from GM.",
+  "published_at": "2026-05-11T15:11:23Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-11T21:00:16.092607Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "GM",
+      "News",
+      "Privacy",
+      "Tech",
+      "Transportation"
+    ]
+  }
+}

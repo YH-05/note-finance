@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/22/mortgage-rates-sink-again-and-home-buyers-jump-back-in.html",
+  "title": "Mortgage rates sink again, and homebuyers jump back in",
+  "raw_text": "Mortgage rates dropped for the third straight week, boosting demand from both homeowners and homebuyers. The spring housing market had been looking like a letdown, but there appears to now be new life.\nTotal mortgage application volume rose 7.9% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, decreased to 6.35% from 6.42%, with points falling to 0.61 from 0.62, including the origination fee, for loans with a 20% down payment.\n\"Mortgage rates declined last week as financial markets responded positively to the Middle East ceasefire and the lower trend in oil prices,\" said Mike Fratantoni, MBA senior vice president and chief economist, in a release.\nApplications for a mortgage to purchase a home rose 10% for the week and were 14% higher than the same week one year ago. This, after buyer demand had briefly sunk below year-ago levels. The increase was led by conventional purchase loans, up 11% over the week.\n\"Despite the geopolitical uncertainty, housing demand is being supported by a still resilient job market, and homebuyers are experiencing a buyer's market in most of the country given the higher levels of inventory relative to last year,\" said Fratantoni.\nRefinance demand, which is most sensitive to weekly rate moves, rose 6% for the week and was 52% higher than the same week one year ago. Last year at this time, the 30-year fixed was 55 basis points higher.\nMortgage rates rose slightly to start this week, according to a separate survey from Mortgage News Daily, but continue to be volatile amid mixed signals from President Donald Trump on the war with Iran.\n\"There was some upward pressure on rates from stronger employment data in the morning [Tuesday], but the market was even more focused on the uncertain status of US/Iran peace talks,\" wrote Matthew Graham, chief operating officer at Mortgage News Daily.",
+  "published_at": "2026-04-22T12:26:33Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.576892Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

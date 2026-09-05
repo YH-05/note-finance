@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050157",
+  "title": "シカゴ日経平均先物　大取終値比 70円高　（5月4日）",
+  "raw_text": "【市況】シカゴ日経平均先物 大取終値比 70円高 （5月4日）\nシカゴ日経225先物 (ドル建て) 59505 ( +85 )\n※( )は大阪取引所終値比\n株探ニュース",
+  "published_at": "2026-05-04T22:38:18Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:00:22.527119Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

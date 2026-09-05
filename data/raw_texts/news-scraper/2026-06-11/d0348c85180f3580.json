@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/google-announces-gemini-3-5-live-translate-for-instant-voice-to-voice-translation/",
+  "title": "Google announces Gemini 3.5 Live Translate for instant voice-to-voice translation",
+  "raw_text": "Google has been chasing real-time translation for years, which it says has been one of its “pioneering machine learning experiments.” We’ve seen numerous demos on stage at Google events in the past, but you needed Google phones, earbuds, or some other specific setup. Last year, Google brought real-time translation to more users in the Translate app, and now it’s expanding availability more. With the release of Gemini 3.5 Live Translate, you’ll have access to instant translation in more places and with lower latency than ever before.\nThe new AI model is part of the version 3.5 family that launched at I/O. Before today, Google had only rolled out the Flash version, but we’re expecting a Pro model to drop in the coming weeks. Gemini 3.5 Live Translate is a speech-to-speech model tuned to automatically detect and translate in more than 70 languages.\nGoogle says Gemini 3.5 Live Translate is fast enough to keep up with a normal conversation, following just a few seconds behind the speaker while also matching intonation, pacing, and pitch. In short, the voice sounds more like you than a generic robot. The demos, which are all being recorded under controlled conditions, do sound impressive. You won’t have to wait long to verify the model’s abilities for yourself, though.\nGemini 3.5 Live Translate is rolling out across several parts of the Google ecosystem. Developers can begin building with a public preview in the Gemini Live API or AI Studio. The model processes speech continuously and handles all the multilingual inputs automatically, saving developers from manually configuring settings. It also filters out background noise in busy environments.",
+  "published_at": "2026-06-09T18:57:25Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-06-11T03:00:31.556149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "AI translation",
+      "gemini 3.5",
+      "google"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606121418",
+  "title": "スペースＸ、気配値が１６５ドルに低下",
+  "raw_text": "本日はマスク氏率いるスペースＸ<\nSPCX>がナスダックに上場し、市場の注目が集まっている。一部では好調なスタートを切るとの見方も出ているが、ＩＰＯ価格１３５ドルに対して、一時１７５ドルで初値を付けそうな気配が出ていたが、現在は１６５ドルまで低下している模様。\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-06-12T14:51:00Z",
+  "author": null,
+  "collected_at": "2026-06-12T15:00:25.279025Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

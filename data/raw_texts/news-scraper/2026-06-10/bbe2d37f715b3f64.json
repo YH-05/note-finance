@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/jim-cramer-says-sovereign-ai-is-nvidias-powerful-new-growth-driver.html",
+  "title": "Jim Cramer says sovereign AI is Nvidia's powerful new growth driver",
+  "raw_text": "CNBC's Jim Cramer said Monday that Nvidia's growing business with sovereign nations could help ease investor concerns about the company's dependence on a handful of hyperscale customers.\n\"Nvidia does not want to be hostage to customers that are trying their best to get off Nvidia,\" the \"Mad Money\" host said. \"It wants to try to get everyone to be a customer.\"\nInvestors have started to worry that major cloud providers such as Amazon and Alphabet could eventually reduce their reliance on Nvidia by developing their own AI chips. But Cramer said Nvidia is increasingly finding a new source of demand through sovereign AI initiatives, as governments around the world race to build domestic artificial intelligence infrastructure.\nCEO Jensen Huang has spent much of the past year promoting those efforts globally. According to Cramer, countries including Singapore, India, Japan, Switzerland, Germany, Taiwan, Israel, Qatar, the United Arab Emirates and Saudi Arabia are investing in sovereign AI projects powered by Nvidia technology.\nUnlike hyperscalers, these customers are not necessarily focused on generating an immediate financial return, Cramer said.\n\"We keep hearing that the hyperscalers buying Nvidia's chips are losing money on the purchase,\" he said. \"But all of these countries are buying Nvidia's wares too, and they're not looking for a quick return.\"\nThat distinction is important because it broadens Nvidia's customer base at a time when some of its largest buyers are working to develop competing chips. Sovereign AI already accounts for roughly 14% of Nvidia's business, according to Cramer, and he believes the opportunity could become even more meaningful as projects currently in development come online.\n\"Countries are buying these chips in droves for their sovereign AI programs and that alone will lessen Nvidia's dependence on a handful of major hyperscalers,\" Cramer said.\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-06-08T23:00:01Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.445108Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

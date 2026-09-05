@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.ghost.charity/",
+  "title": "Show HN: GhostBox – Borrow a disposable little machine from the Global Free Tier",
+  "raw_text": "Temporary machines for work.\nGhost a small machine that won’t haunt you.\nBorrow a disposable little machine from the Global Free Tier. SSH in. Run the thing. Do the work. Let it disappear.\nWhat it’s for\nFor work you don’t want on your laptop.\n- Clone like you’re home.\n- Run the weird build.\n- Open a shell from anywhere.\n- Expose a web app without touching DNS.\n- Give an agent a real machine.\n- Keep working when one tunnel flakes.\n- Give the machine back when you’re done.\nFor agents\nDon’t let agents work on your laptop.\nCoding agents need a real machine: shell, repo, packages, network, preview URL, and sometimes secrets. Ghostbox gives them one that goes away.\n- Run agents in a disposable workstation.\n- Pass only the secrets the job needs.\n- Expose a preview without opening your laptop to the internet.\n- Keep logs, sessions, and cleanup in one place.\n- Let the machine expire when the work is done.\nThe Global Free Tier\nThere are spare machines everywhere.\nGitHub Actions is only the first place ghosts come from. There are strange little pockets of temporary compute all over the internet. Ghostbox makes them feel like one small machine.\nNo platform.\nNo sysadmin.\nNo server left behind.\nA ghost machine for the moment. Give it back when you’re done.\nCycle of ghosts\nThe unofficial country club for temporary machines.\nAll energy is borrowed, one day you have to give it back. Every ghost returns to the clouds. If you love something, set it free…",
+  "published_at": "2026-05-01T14:52:07Z",
+  "author": "keepamovin",
+  "collected_at": "2026-05-01T21:01:00.256094Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

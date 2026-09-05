@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605090053",
+  "title": "米国株終値　ダウ平均ほぼ横ばい",
+  "raw_text": "NY株式8日（NY時間16:16）（日本時間05:16）\nダウ平均 49609.16（+12.19 +0.02%）\nナスダック 26247.08（+440.88 +1.71%）\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-08T20:26:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T21:00:22.727704Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

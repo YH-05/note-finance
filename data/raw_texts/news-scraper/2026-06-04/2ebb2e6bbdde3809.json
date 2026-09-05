@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/treasury-yields-edge-higher-as-traders-await-economic-data.html",
+  "title": "10-year Treasury yield nears 4.5% again after strong jobs data, rise in oil",
+  "raw_text": "U.S. Treasury yields moved higher on Wednesday after the latest ADP report came in stronger than expected and as oil prices saw gains.\nThe yield on the 10-year Treasury note — the main benchmark for mortgages, auto loans and credit card debt — was more than 3 basis points higher at 4.489%. The yield on the 2-year Treasury note, which typically reacts in line with short-term Federal Reserve interest rate decisions, rose more than 2 basis points to 4.078%.\nThe 30-year Treasury yield, which traditionally moves on geopolitical events, was up more than 2 basis points at 4.989%.\nOne basis point equals 0.01%, or 1/100th of 1%, and yields and prices move inversely to one another.\nThe rise in bond yields comes after borrowing costs fell during Tuesday's session.\nInvestors continue to grapple with the increasingly uncertain direction of the Middle East peace negotiations after U.S. and Iranian forces once again exchanged missile fire overnight, further threatening the already fragile ceasefire.\nEnergy prices rose Wednesday, with U.S. West Texas Intermediate futures closing up 2.41% at $96.02 a barrel. International price benchmark Brent crude rose 1.89% to close at $97.81.\nOn the domestic data front, ADP reported that private payrolls rose by 122,000 in May — the strongest month since January 2025. That figure marked an increase from the downwardly revised 105,000 in April and was above the 110,000 that economists polled by Dow Jones had called for.\nIt comes after new employment data published by the Bureau of Labor Statistics on Tuesday showed that job openings rose by 731,000 in April to reach 7.6 million, the highest level since May 2024.\nTraders also assessed the Institute for Supply Management's latest service sector data. In May, the ISM services index stood at 53.6, which signified a decrease of 0.4 points from April and was below the Dow Jones consensus for 53.9.\nCorrection: The BLS reported this week the highest number of job openings since May 2024. A previous version misstated the month.",
+  "published_at": "2026-06-03T20:02:45Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.455300Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

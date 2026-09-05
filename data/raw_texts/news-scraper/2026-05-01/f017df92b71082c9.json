@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/senate-prediction-markets-trading-ban-kalshi-polymarket.html",
+  "title": "U.S. senators ban themselves from prediction markets trading",
+  "raw_text": "The U.S. Senate on Thursday unanimously passed a rule barring senators from trading on prediction markets effective immediately.\nThe move came amid rising concern about insider trading on prediction market platforms such as Kalshi and Polymarket, and about event contracts that can involve death or violence.\nOn April 22, Kalshi said it had suspended and fined one U.S. Senate candidate and two candidates for the House of Representatives for political insider trading on their own campaigns.\nOn April 23, a U.S. Army Special Forces soldier, Master Sgt. Gannon Ken Van Dyke, was arrested on an indictment accusing him of classified information to make bets on Polymarket related to the American military mission that captured Venezuelan leader Nicolás Maduro.\nVan Dyke, who was involved in that mission, won nearly $410,000 on those wagers, according to the Department of Justice.\nEarlier on Thursday, a group of Democratic members of Congress called on the Commodity Futures Trading Commission to issue a rule \"that prevents insider trading and corruption in the market and prohibits event contracts on the outcome of elections, war and military actions in the U.S. or abroad, sports, and government actions without a valid economic hedging interest.\"\nKalshi and Polymarket both praised the Senate's action.\n\"I applaud the Senate for passing this resolution to ban Senators and their offices from trading on prediction markets,\" Kalshi CEO Tarek Mansour wrote in a post on X.\n\"Kalshi already proactively blocks members of congress and enforces against insider trading. This is a great step to increase trust in our markets by making it an industry standard,\" Mansour said. \"Now, let's pass this in the House!\"\nPolymarket, in its own post on X, said, \"We're in full support of this. Our Rulebook & Terms of Service already prohibit such conduct, but codifying this into law is a step forward for the industry. Happy to help move this forward however we can.\"\nDisclosure: CNBC and Kalshi have a commercial relationship that includes a CNBC minority investment.",
+  "published_at": "2026-04-30T21:37:12Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.406688Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

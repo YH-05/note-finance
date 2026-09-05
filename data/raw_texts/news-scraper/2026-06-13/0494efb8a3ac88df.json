@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/ted-cruz-and-ron-wyden-try-to-fight-censorship-with-bipartisan-jawbone-act/",
+  "title": "Ted Cruz and Ron Wyden try to fight censorship with bipartisan JAWBONE Act",
+  "raw_text": "US Senators Ted Cruz (R-Texas) and Ron Wyden (D-Ore.) today introduced the JAWBONE Act, a proposed law that could fuel lawsuits against federal officials who try to coerce broadcasters or tech platforms into restricting speech.\nThe Justice Against Weaponized Bureaucratic Overreach to Networked Expression Act would prohibit federal agencies and employees from coercing or trying to coerce broadcasters and providers of online services or AI services into changing content. The bill could apply to Federal Communications Commission Chairman Brendan Carr’s repeated attempts to pressure TV networks and broadcasters, or government pressure imposed on social media firms and AI chatbot makers.\nThe bill would create a private right of action for victims of “jawboning,” letting people recover compensatory damages in court. Individuals whose speech is stifled could bring cases against government officials, and the proposed law could be enforced by state attorneys general through civil actions.\n“Jawboning occurs when the government pressures private companies to censor speech protected by the First Amendment,” said a press release issued by Cruz and Wyden today. The JAWBONE Act is “legislation to hold the government accountable for censorship and violations of the First Amendment,” it said.\nThe bill is bipartisan, and the Republican Cruz previously criticized the Republican Carr for coercing ABC into suspending Jimmy Kimmel. A quote from Cruz in today’s press release focuses only on actions taken by the Biden administration, though.\n“The Biden administration weaponized the Cybersecurity and Infrastructure Security Agency to pressure Big Tech into ‘canceling’ Americans who spoke out against vaccine mandates and election fraud. Holding the government accountable and giving Americans the tools to fight back is essential,” Cruz said.\nWyden calls out “blatant” Trump threats\nThe joint press release has a quote from Wyden criticizing Trump for trying to censor late-night TV. “The most blatant example is Trump threatening cable companies because he doesn’t like their late-night shows, but jawboning isn’t partisan, and it isn’t new,” Wyden said.\nWyden said that “nearly all of Americans’ speech—including TV news, online streams and social media—flows through private corporations that are highly susceptible to government pressure.” A spokesperson for Wyden told Ars that the bill would apply to other scenarios not mentioned in the bipartisan press release, like the Trump administration pressuring app stores to take down apps such as ICEBlock.",
+  "published_at": "2026-06-11T19:31:37Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-06-13T03:00:31.509200Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "brendan carr",
+      "FCC",
+      "Ron Wyden",
+      "ted cruz"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/a-new-us-military-wargame-series-began-by-simulating-a-nuclear-weapon-in-orbit/",
+  "title": "A new US military wargame series began by simulating a nuclear weapon in orbit",
+  "raw_text": "US Space Command is inviting commercial companies to participate in a new series of classified wargames. The first exercise simulated a scenario involving a potential nuclear detonation in orbit.\nGen. Stephen Whiting, the senior officer in charge of Space Command, discussed the new wargame series Tuesday in a discussion hosted by the Mitchell Institute for Aerospace Studies. Space Command is responsible for military activities in space and is separate from the Space Force, which provides the people and equipment to support those operations.\nThe new wargames, called Apollo Insight, combine military and commercial expertise to respond to simulated threats in space. Space Command plans to conduct four Apollo Insight “tabletop exercises” this year.\n“We’ve done one already,” Whiting said. “We did one focused on a nuclear payload on orbit, which, of course, is a future we do not want to see, and that would violate the Outer Space Treaty. But we brought 60-something companies together at the classified level to share insights into what such a detonation might do, and then get their good ideas about how we could leverage capability to have today or future technologies that might help us going forward.”\nThe wargame presented a “notional worst-case scenario” and also included participation from US allies in Australia, Canada, New Zealand, and the United Kingdom. “While the event was classified, discussions covered a range of topics including the importance of domain awareness for detection and characterization and the threats facing US and allied space superiority,” Space Command said in a press release.",
+  "published_at": "2026-05-13T18:04:33Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-14T03:00:28.568251Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "Commercial space",
+      "military space",
+      "Nuclear weapons",
+      "space command",
+      "space force",
+      "Stephen whiting",
+      "us space command",
+      "US Space Force"
+    ]
+  }
+}

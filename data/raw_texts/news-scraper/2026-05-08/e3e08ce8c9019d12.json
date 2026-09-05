@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/08/akamai-stock-ai-cloud-infrastructure-deal.html",
+  "title": "A cloud computing stock is soaring 16%. Here’s what’s driving the rally",
+  "raw_text": "Akamai's stock jumped Friday after it announced a $1.8 billion deal with an AI company and posted first-quarter earnings that were in line with estimates.\nThe stock was up 16% just after the opening bell, and shares are up 37% over the past 12 months.\nA \"leading frontier model provider\" has committed to $1.8 billion over seven years for cloud infrastructure services, Akamai's CEO Tom Leighton said in the press release Thursday. He did not name the provider.\nThe American cybersecurity and cloud computing firm reported Thursday that first-quarter revenue rose 6% to over $1 billion.\nThe company's cloud infrastructure services revenue jumped 40% to $95 million, and security revenue was up 11% to $590 million. Meanwhile, its delivery and other cloud applications revenue fell 7% to $389 million in the quarter.\nAkamai said it expects revenue in the second quarter of between $1.08 billion and $.1.1 billion and adjusted net income per share between $1.45 and $1.65.\n\"We operate the world's most distributed platform, and we have our infrastructure in 4,300 places, 700 cities in 130 countries, and we've used that for delivering content and for providing security to intercept all the attacks, and now we're using it to support AI so our customers, agents and AI apps can run right near their users, and the data provide a much faster experience,\" Leighton told CNBC's \"Squawk Box\" on Friday.\nThe company has been scaling its cloud infrastructure business to meet rising demand for AI workloads and carve a name for itself alongside leading AI model developers like OpenAI and Anthropic, Akamai's Chief Technology Officer Robert Blumofe told CNBC last week.\nBlumofe explained that the company has three key pillars: content delivery, cybersecurity, and cloud infrastructure services.\n\"The third pillar of our business, which is more recent, is what we call cloud infrastructure services... and that's actually the fastest growing part of our business, though it's the smallest of the three,\" Blumofe said.\nHe added that Akamai already runs an AI-operated inference cloud which provides computing power, data storage, and the tools needed to run AI applications.\nIt currently operates in several locations where it can secure strong connections to users. The company plans to expand further and improve how it manages resources across its network.\n\"I think we've been undervalued for a while, and investors have been looking for some real validation that our different approach is going to pay off, and now we're getting that validation, and we have a very strong pipeline of major enterprise customers, including some that have very large cloud needs,\" Leighton told CNBC on Friday.\n\"We're going to be in a great position to enable and secure the new AI economy.\"\n— CNBC's April Roach helped contribute to this report.",
+  "published_at": "2026-05-08T14:01:31Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:18:05.923371Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

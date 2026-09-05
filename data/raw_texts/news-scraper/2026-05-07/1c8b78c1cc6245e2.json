@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/03/30/sen-bernie-sanders-holds-tax-the-rich-rally-heres-what-to-know.html",
+  "title": "Sen. Bernie Sanders holds 'tax the rich' rally: Here's what to know",
+  "raw_text": "CNBC's Robert Frank joins 'Squawk Box' with the latest news.",
+  "published_at": "2026-03-30T12:41:36Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.390925Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/legal-fail-dont-use-ai-to-sue-facebook-users-for-calling-you-a-bad-date/",
+  "title": "Legal fail: Don’t use AI to sue Facebook users for calling you a bad date",
+  "raw_text": "An attempt to pressure Meta into removing a critical post from a Chicago Facebook group called “Are We Dating the Same Guy” may end in sanctions for lawyers whose takedown arguments appeared to rely on fake AI citations to support doxing claims.\nThe case had already been dismissed with prejudice by a district court, which ruled there was no way to amend the complaint to possibly save it. But Nikko D’Ambrosio—who accused more than two dozen women of defaming him and blamed Meta for supposedly boosting the post to profit off its “entertainment value”—appealed anyway.\nPerhaps he felt confident despite his likely tough odds because he was relying on MarcTrent.AI, a law firm that claims to use AI to “uncover legal opportunities traditional firms miss” and “increase legal success rates by 35 percent through predictive modeling.”\nIn a 2025 blog discussing the case, founder Marc Trent confirmed that the firm had “utilized our tech team to draft” the initial complaint. He boasted that the “evolved” firm uses “everything related to AI now,” suggesting that “even Meta can’t beat us” and claiming that a win would make Facebook safer for everyone.\nLaying out the case, Trent said that he assumed that Meta “would quickly distance itself by removing the post.” But when Meta didn’t, he figured that overcoming Section 230 claims would be his biggest hurdle in the fight. However, he insisted that “his firm’s technological capabilities” would level the playing field, making it possible to beat Meta’s well-resourced legal teams who are deeply schooled at defending against Section 230 claims.\nHowever, during the appeal, judges agreed that the case was so weak that Section 230 didn’t even factor in. And the firm’s seeming reliance on AI to “execute” arguments “with precision” apparently did not help matters at all.",
+  "published_at": "2026-05-18T20:27:15Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-20T03:02:21.421148Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "ai lawyer",
+      "Artificial Intelligence",
+      "defamation",
+      "doxing",
+      "Facebook",
+      "fake citations",
+      "meta"
+    ]
+  }
+}

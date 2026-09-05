@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260515a.htm",
+  "title": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
+  "raw_text": "May 15, 2026\nFederal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Friday announced the termination of the enforcement actions listed below:\nUBS Group AG, Zurich, Switzerland, Credit Suisse AG, Zurich Switzerland, Credit Suisse Holdings (USA), Inc., New York, New York and Credit Suisse AG, New York Branch, New York, New York\nCease and Desist Order dated July 21, 2023 (PDF)\nTerminated May 12, 2026\nAdditional enforcement actions can be searched for here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-05-15T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:00:30.690791Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Enforcement Actions"
+    ]
+  }
+}

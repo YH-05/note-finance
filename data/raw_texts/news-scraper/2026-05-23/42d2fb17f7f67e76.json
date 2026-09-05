@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/rocket-report-starship-launch-delayed-german-launch-company-may-aid-canada/",
+  "title": "Rocket Report: Starship launch delayed, German launch company may aid Canada",
+  "raw_text": "Welcome to Edition 8.42 of the Rocket Report! SpaceX nearly launched its Starship rocket on Thursday amid much pomp and circumstance in South Texas, only to be foiled by a ground system issue. Such delays are to be expected, with almost entirely new hardware on both the rocket and the ground side of things. The company will try again as soon as Friday evening, and as we discuss in this week’s report, the stakes are quite high for SpaceX and much of the rest of the US spaceflight enterprise.\nAs always, we welcome reader submissions, and if you don’t want to miss an issue, please subscribe using the box below (the form will not appear on AMP-enabled versions of the site). Each report will include information on small-, medium-, and heavy-lift rockets as well as a quick look ahead at the next three launches on the calendar.\nFirefly expands Central Texas footprint. Firefly Aerospace on Tuesday announced that it has moved into a new headquarters, expanded its cleanroom space, and added an innovation lab to support its growing workforce and accelerate spacecraft production. The expansion includes two new buildings adjacent to Firefly’s existing spacecraft facility in Cedar Park, Texas, enabling a single campus with 144,000 total square feet for spacecraft assembly and testing, mission control, avionics and component production, engineering, and business operations.\nEverything’s bigger in Texas … The new campus is twice the size of Firefly’s former Cedar Park facilities and is less than 30 miles from Firefly’s 200-acre Rocket Ranch in Briggs, Texas, where the company operates six test stands and 217,000 square feet of facilities for launch vehicle engineering, manufacturing, and integration. The overall goal is to move from developing space vehicles to producing them at scale.",
+  "published_at": "2026-05-22T11:20:43Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-23T03:00:30.808283Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "rocket report",
+      "space"
+    ]
+  }
+}

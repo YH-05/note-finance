@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20248-inter-venezuela-taps-harmonic-for-pon-based-mobile-backhaul.html",
+  "title": "Inter Venezuela taps Harmonic for PON-based mobile backhaul",
+  "raw_text": "Venezuela’s largest private ISP Inter Venezuela is using Harmonic’s virtualised core and fibre solutions to power its nationwide XGS-PON-based mobile backhaul service.\nThe agreement will allow Inter Venezuela to deliver a carrier-grade mobile backhaul service, providing a more cost-effective option compared to traditional dedicated cellular links. The ISP expects this to create new revenue opportunities as regional mobile network operators prepare for upcoming 5G densification.\n“The new XGS-PON mobile backhaul service marks an important step forward supporting the evolution of mobile networks in Venezuela,” said Marco Baptista, CEO of Inter Venezuela. “With Harmonic’s fiber solution, we can efficiently scale our infrastructure and provide mobile network operators with a flexible backhaul option. This will help them reduce congestion and deliver faster speeds to subscribers with growing data demands.”\nInter Venezuela is leveraging Harmonic’s cOS virtualized core, Fin 10G SFP+ based OLT and high-density Pier OLT shelf to deliver XGS-PON-based mobile backhaul across both cell sites and aggregation nodes. The Harmonic solutions enable Inter Venezuela to move beyond traditional point-to-point links and deploy demand-based fibre services supporting current 4G services and future 5G requirements. This approach ensures that Inter Venezuela can offer a cost-effective and rapidly deployable backhaul alternative to mobile operators that scales efficiently with mobile network growth.\nHarmonic’s fibre solutions offer scalable architecture to enable seamless service expansion, as well as centralised management via Harmonic’s cOS core to provide continuous visibility, real-time telemetry and analytics across all sites, boosting quality of experience.",
+  "published_at": "2026-05-14T09:39:02Z",
+  "author": "James Barton",
+  "collected_at": "2026-05-15T03:01:22.104134Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

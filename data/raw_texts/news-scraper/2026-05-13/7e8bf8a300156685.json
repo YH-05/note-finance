@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/929454/microsoft-xbox-game-pass-china-expansion-rumors",
+  "title": "Microsoft’s Xbox PC app hints at China expansion for Game Pass",
+  "raw_text": "Microsoft appears to be working on expanding its Xbox Game Pass subscription to China. References to “Project Saluki” have been discovered in a recent update to the Xbox PC app this week, with Microsoft describing the codename as “China market expansion for Game Pass, Rewards, and subscription tiers.”\nMicrosoft’s Xbox PC app hints at China expansion for Game Pass\nMicrosoft might also be working on a disc-to-digital conversion for Xbox games.\nMicrosoft might also be working on a disc-to-digital conversion for Xbox games.\nWhile Microsoft offers a variety of games in China through Activision Blizzard, it does not currently make Xbox Game Pass available in the country. Microsoft does sell Xbox consoles in China, and first launched the Xbox One in China in 2014, becoming the first video game console to do so after a 14-year government ban on game consoles.\nThe Chinese Xbox store has a much smaller catalog of games in the country, as titles have to be approved by Chinese regulators. This has complicated any plans to bring Xbox Game Pass to China in the past, but Project Saluki may well offer a smaller selection of games tailored for this unique market. We asked Microsoft to comment on Project Saluki, and we’ll update you accordingly.\nMicrosoft’s Xbox PC app also mentions the Positron codename, which is said to “enable Disc2Digital.” It’s not clear exactly what Positron is, but it could be the return of Microsoft’s original plan to convert disc games into digital licenses. Microsoft was planning to do this with the Xbox One, but a backlash from publishers and game resellers forced the company to abandon the plans.\nWindows Central speculates that Positron could be in preparation for Project Helix, Microsoft’s next-gen Xbox console. Microsoft has increasingly been pushing towards discless consoles, after launching an entirely all-digital Xbox Series S console in 2020 and a discless Xbox Series X console in white in 2024.",
+  "published_at": "2026-05-13T11:53:48Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-13T15:00:16.518429Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

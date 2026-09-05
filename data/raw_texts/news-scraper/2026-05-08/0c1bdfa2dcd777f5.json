@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/spacex-is-starting-to-move-on-from-the-worlds-most-successful-rocket/",
+  "title": "SpaceX is starting to move on from the world's most successful rocket",
+  "raw_text": "It is far too soon to mention retirement, but astute observers of the space industry have noticed SpaceX’s workhorse Falcon 9 rocket is not launching as often as it used to.\nThe decline is modest so far, and it does not signal any problem at SpaceX or with the Falcon 9. Rather, it is a manifestation of SpaceX’s eagerness to shift focus to the much larger Starship rocket, an enabler of what the company wants to do in space: missions to land on the Moon and Mars, orbital data centers, and next-gen Starlink.\nElon Musk’s SpaceX conducted 165 launches with the Falcon 9 rocket (no Falcon Heavy missions) last year, up from 134 Falcon 9 and Falcon Heavy launches in 2024 and 96 Falcon flights in 2023. The company plans “maybe 140, 145-ish” Falcon launches in 2026, SpaceX President Gwynne Shotwell told Time earlier this year. “This year we’ll still launch a lot, but not as much,” she said. “And then we’ll tail off our launches as Starship is coming online.”\nLetting off the gas\nWe’re beginning to see what the long, slow tail-off will look like. The changes are most apparent at Cape Canaveral, Florida, where SpaceX has launched the lion’s share of its rockets. Until last December, SpaceX launched Falcon 9s with regularity from two pads on Florida’s Space Coast—one at NASA’s Kennedy Space Center and another a few miles to the south on military property at Cape Canaveral Space Force Station.\nSpaceX is transitioning the site at Kennedy, known as Launch Complex-39A, to launch Starships. LC-39A is out of the rotation for Falcon 9 launches, although it remains available for occasional flights of the more powerful triple-core Falcon Heavy. SpaceX launched the first Falcon Heavy in a year and a half last week from LC-39A, and a handful more Falcon Heavy flights are on tap for later this year.\nActivity at SpaceX’s oldest launch site, Space Launch Complex-40 at Cape Canaveral, is also waning. Last month, SpaceX retired one of its two Florida-based seagoing landing platforms from service for future use as a transporter to ferry Starships and Super Heavy boosters from SpaceX’s factory in South Texas to Florida. SpaceX is constructing a second Starship factory at Kennedy Space Center, but officials want to begin Starship flights from Florida before the factory is operational.",
+  "published_at": "2026-05-06T22:28:47Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-08T03:00:30.549999Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "falcon 9",
+      "launch",
+      "spacex",
+      "starlink",
+      "starship"
+    ]
+  }
+}

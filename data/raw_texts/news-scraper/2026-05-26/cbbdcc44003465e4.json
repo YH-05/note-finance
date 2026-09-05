@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605261144",
+  "title": "ダウ平均は上昇して始まる　１０６ドル高　ナスダックも上昇＝米国株オープン",
+  "raw_text": "【市況】ダウ平均は上昇して始まる １０６ドル高 ナスダックも上昇＝米国株オープン\nダウ平均 50686.10（+106.40 +0.21%）\nナスダック 26553.09（+209.12 +0.80%）\nCME日経平均先物 65470（大証終比：+330 +0.50%）\n株探ニュース",
+  "published_at": "2026-05-26T13:34:00Z",
+  "author": null,
+  "collected_at": "2026-05-26T15:00:22.307341Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

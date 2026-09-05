@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/pompeii-victim-idd-as-a-likely-doctor/",
+  "title": "Pompeii victim ID'd as a likely doctor",
+  "raw_text": "Archaeologists used a combination of advanced CT scans and 3D digital reconstruction to identify one of the Pompeii victims who died in 79 CE during the eruption of Mount Vesuvius as most likely having been a Roman doctor, according to an announcement by the Pompeii Archaeological Park.\nAs previously reported, the eruption of Mount Vesuvius released thermal energy roughly equivalent to 100,000 times the atomic bombs dropped on Hiroshima and Nagasaki at the end of World War II, spewing molten rock, pumice, and hot ash over the cities of Pompeii and Herculaneum in particular. The vast majority of people in Pompeii and Herculaneum—the cities hardest hit—perished from asphyxiation, choking on the thick clouds of noxious gas and ash. But at least some of the Vesuvian victims probably died instantaneously from the intense heat of fast-moving lava flows, with temperatures high enough to boil brains and explode skulls.\nIn the 19th century, an archaeologist named Giuseppe Fiorelli figured out how to make casts of those frozen bodies by pouring liquid plaster into the voids where the soft tissue had been. Some 1,000 bodies have been discovered in the ruins, and 104 plaster casts have been preserved. Restoration efforts on 86 of those casts began about 10 years ago, during which researchers took CT scans and X-rays to determine whether complete skeletons were present.\nThe CT scans and X-ray images revealed that there had been a great deal of manipulation of the casts, depending on the aesthetics of the era in which they were made, including altering some features of the bodies’ shapes or adding metal rods to stabilize the cast, as well as frequently removing bones before casting. Ancient DNA analysis in 2024 of four victims found in what is known as the “House of the golden bracelet” revealed that all four bodies were male and none were genetically related—challenging the pre-existing preferred narratives and suggesting those may reflect certain cultural biases.",
+  "published_at": "2026-05-18T18:03:32Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-18T21:00:31.128276Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Archaeology",
+      "Pompeii"
+    ]
+  }
+}

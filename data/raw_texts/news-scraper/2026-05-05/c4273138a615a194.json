@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260319a.htm",
+  "title": "Agencies request comment on proposals to modernize the regulatory capital framework and maintain the strength of the banking system",
+  "raw_text": "March 19, 2026\nAgencies request comment on proposals to modernize the regulatory capital framework and maintain the strength of the banking system\n- Federal Deposit Insurance Corporation\n- Federal Reserve Board\n- Office of the Comptroller of the Currency\nFor release at 12:30 p.m. EDT\nThe federal bank regulatory agencies today requested comment on three proposals to modernize the regulatory capital framework for banks of all sizes. The proposals would streamline capital requirements and better align regulatory capital with risk while maintaining the safety and soundness of the banking system.\nFollowing the global financial crisis, the agencies substantially increased the resiliency of the banking system by increasing the quantity and quality of required loss-absorbing capital and introducing stress testing requirements for large banks. Experience over the past decade has demonstrated that certain elements of the framework could be improved without reducing safety and soundness.\nThe first proposal, which would primarily apply to the largest, most internationally active banks, would improve the capital framework by enhancing risk sensitivity, reducing burden, and improving consistency across banks, as well as implementing the final components of the Basel III agreement. The framework would be streamlined by having these banks use one rather than two sets of calculations to determine compliance with risk-based capital requirements. Additionally, the proposal would improve the calibration of the framework to better capture credit, market, and operational risks. All other banks could choose to adopt this proposed approach. The market risk aspect of the framework would apply only to banks with significant trading activity.\nThe second proposal, which would generally apply to all but the largest banks, would better align capital requirements for traditional lending activities with risk, while maintaining the framework's simplicity. Consistent with the first proposal, the second proposal would reduce disincentives for mortgage lending by modifying capital requirements for servicing and originating mortgages. Proposed modifications for mortgage servicing would also apply to banks that apply the community bank leverage ratio framework. This proposal would also require certain large banks, subject to a transition period, to reflect unrealized gains and losses on certain securities in their regulatory capital levels.\nThe third proposal, from the Federal Reserve Board, would improve how systemic risk is measured in the framework for determining the additional capital requirement for the largest and most complex banks.\nWhile the agencies anticipate that the amount of overall capital in the banking system would modestly decrease as a result of these proposals, capital levels would still be substantially higher than they were before the financial crisis. In aggregate, the proposals would modestly reduce capital requirements for large banks and moderately reduce requirements for smaller banks, reflecting their more traditional lending activities.\nThe Federal Reserve is also publishing aggregated data used by the agencies to inform the proposals.\nComments on all three proposals must be received by June 18, 2026.",
+  "published_at": "2026-03-19T16:30:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:00:31.164056Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

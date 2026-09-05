@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/transportation/936129/waymo-freeway-suspend-atlanta-san-antonio-flood-pause",
+  "title": "Waymo suspends freeway driving amid safety concerns",
+  "raw_text": "On Thursday, Waymo customers opened up the app and noticed something unusual: no more freeway service. Trips that would normally take a few minutes on the freeway were suddenly projected to last much longer via local roads.\nWaymo suspends freeway driving amid safety concerns\nThe Alphabet company said it was also pausing service in Atlanta and San Antonio over concerns about flooded roads.\nThe Alphabet company said it was also pausing service in Atlanta and San Antonio over concerns about flooded roads.\nThe company later confirmed that it had suspended freeway driving across all of its US markets over concerns about construction zones. It had also paused service in Atlanta and San Antonio over lingering issues regarding flooded roads. The news comes after several of the company’s robotaxis were spotted driving through flooded roads at elevated speeds in Texas, forcing Waymo to issue a software recall for its entire fleet.\nThe suspensions come as the Alphabet-owned company has sped aggressively into new markets with the goal of reaching 1 million paid rides a week. (It’s currently doing about 500,000 rides a week.) Waymo is also on the cusp of deploying a brand-new vehicle, the Zeekr-built Ojai electric van, that will debut the company’s sixth-generation autonomous driving software.\nThe decision to suspend freeway driving was made over concerns about construction zones, Waymo spokesperson Chris Pappas said, adding that local road driving remains unaffected. Pappas didn’t clarify what kinds of problems Waymo’s vehicles were having with construction zones.\n“We are committed to being good neighbors for our riders and our communities,” Pappas said in a statement. “As part of that commitment, we make proactive decisions including temporarily pausing aspects of our service. We know riders count on us to get around, and we appreciate their patience as we work to get them where they’re going safely and reliably.”\nHighway trips are important because they help reduce trip times and open up financially important routes, like to and from airports. Waymo has framed highway driving as a crucial ability as it seeks to scale its business and compete more aggressively with human-powered rideshare services like Uber and Lyft. At present, Waymo’s freeway trips were only available in San Francisco, Los Angeles, Phoenix, and Miami.\nIt’s the latest in a string of bad headlines for the robotaxi company, which despite its incredible progress in reducing traffic crashes and injuries, still suffers from frequent edge-case mishaps. Last week, a neighborhood in Atlanta was overwhelmed by empty Waymos that caused a traffic jam in a cul-de-sac. And a driver in Dallas caught a Waymo blazing through a red light at a busy intersection.\nRight now, there’s no word on when Waymo will return to highway driving, or resume service in Atlanta and San Antonio.\nUpdate May 22nd: Updated to include a statement from Waymo spokesperson Chris Pappas.\nMost Popular\n- GitHub faces a fight for its survival at Microsoft\n- If I could only have one laptop for work and gaming, I’d get this one\n- Anker’s new earbuds have the best call quality I’ve ever heard\n- ‘Fuck you, Bambu’: How one private message could change the face of 3D printing\n- Microsoft starts canceling Claude Code licenses",
+  "published_at": "2026-05-22T16:17:54Z",
+  "author": "Andrew J. Hawkins",
+  "collected_at": "2026-05-23T03:00:16.360922Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Autonomous Cars",
+      "News",
+      "Transportation",
+      "Waymo"
+    ]
+  }
+}

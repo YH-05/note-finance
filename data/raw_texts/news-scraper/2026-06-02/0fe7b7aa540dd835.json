@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/29/feds-bowman-warns-against-hiking-interest-rates-due-to-inflation-spike.html",
+  "title": "Fed Governor Michelle Bowman warns against hiking interest rates because of inflation spike",
+  "raw_text": "Federal Reserve Governor Michelle Bowman on Friday cautioned against raising interest rates to address the current spike in prices.\nWith inflation running well above the central bank's 2% target, markets are expecting the Fed to stay on hold this year then possibly start raising rates in early 2027. Current pricing is indicating virtually no chance of cuts anytime through at least 2027.\nBut Bowman said adjusting policy to offset energy-driven inflation surges has proven ineffective.\n\"Reacting to temporarily elevated energy price inflation would add unwarranted policy restraint, weighing unnecessarily on economic activity and labor market conditions,\" the policymaker said at a conference in Reykjavík, Iceland.\nBowman added that research shows that when reacting to temporary energy shocks, \"policy should not be overly aggressive.\"\nThe remarks come one day after the Commerce Department reported that the personal consumption expenditures price index — the Fed's benchmark inflation gauge — rose 3.8% in April and 3.3% when excluding food and energy prices.\nHowever, measures that strip out extremes in components within the gauges show inflation running closer to target. The Dallas Fed's \"trimmed mean\" inflation index puts the 12-month rate at 2.3%.\nConsistent with remarks from her fellow central bankers, Bowman noted that the policy reaction depends on the duration of the conflict with Iran. Should the fighting be prolonged and inflation pressures steepen, \"the more likely I will consider shifting my approach to thinking about the balance of risks.\"\nBowman added that she supported maintaining phrasing in the most recent post-meeting statement from the central bank that indicated the next rate move could be a cut. Three members of the Federal Open Market Committee voted against the statement, based on the inclusion of the so-called forward guidance language.",
+  "published_at": "2026-05-29T16:39:46Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.599395Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

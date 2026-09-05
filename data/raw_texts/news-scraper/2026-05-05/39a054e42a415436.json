@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/amd-q1-2026-earnings-report.html",
+  "title": "AMD tops estimates for first quarter as data center revenue jumps 57%",
+  "raw_text": "Advanced Micro Devices reported first-quarter earnings Tuesday that topped expectations, while the company's revenue forecast also exceeded estimates as demand soars for chips to power artificial intelligence workloads.\nThe stock jumped about 5% in extended trading.\nHere's how the chipmaker did versus LSEG consensus estimates for the quarter ended in March:\n- EPS: $1.37 vs. $1.29 adjusted expected\n- Revenue: $10.25 billion vs. $9.89 billion expected\nRevenue jumped 38% from $7.44 billion a year ago, the company said in a release on Tuesday. Data center sales climbed 57% to $5.8 billion from $3.67 billion in the same period a year earlier.\nFor the second quarter, AMD said it expects about $11.2 billion in revenue, versus expectations of $10.52 billion, according to LSEG.\nAMD CEO Lisa Su said in the statement that the data center unit is now the \"primary driver of our revenue and earnings growth.\"\n\"Looking ahead, we expect server growth to accelerate meaningfully as we scale supply to meet demand,\" Su said.\nNet income climbed to $1.38 billion, or 84 cents per share in the quarter, from $709 million, or 44 cents per share, a year ago.\nAMD's stock has been on a tear, more than tripling over the past year, including a 66% jump so far in 2026. While the company has trailed far behind rival Nvidia in the market for graphics processing units (GPUs) to power AI data centers, investors have poured into AMD's stock more recently on optimism that the opportunity is large enough for multiple players.\nUnlike Nvidia, AMD has long been a leading maker of central processing units, or CPUs, which are enjoying a major renaissance as agentic AI shifts compute needs. AMD shares popped last week when AMD and Intel announced they'll pair up on a new instruction set for x86 CPUs. The new feature, called AI Compute Extensions, aims to increase performance and energy efficiency by boosting compute density by 16 times.\nThe chip industry has faced a global memory shortage because of insatiable AI demand as well as capacity constraints for both manufacturing and advanced packaging, and supply chain challenges due to the war in Iran.\nThat's all contributing to a frenzy in a number of semiconductor-related names. Intel just had its best month ever in April, with shares more than doubling as the company reported first-quarter results that trounced analysts' estimates. Shares of memory maker Micron are up more than 700% in the past year, pushing the company's market cap past $700 billion.\nIn addition to CPUs and GPUs, AMD is also expected to ship its first full rack-scale system for AI data centers, Helios, later this year. It's meant to rival Nvidia's Grace Blackwell and Vera Rubin systems that sell for upwards of $3 million.\nBoth OpenAI and Meta have already signed up for shipments of Helios, marking AMD's system as a viable second option for AI giants and hyperscalers scrambling to secure enough compute.\nWATCH: How advanced packaging could be the next big bottlneck for AI",
+  "published_at": "2026-05-05T20:25:38Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:17:45.114473Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

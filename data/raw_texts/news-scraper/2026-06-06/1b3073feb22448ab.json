@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/arm-ibm-and-hewlett-packard-nvidia-chip-extends-software-rally.html",
+  "title": "Arm, IBM and HPE soar as Nvidia chip 'reinvention' extends software rally",
+  "raw_text": "Software stocks spiked on Monday after Nvidia CEO Jensen Huang unveiled plans for a new chip that will power personal computers.\nInvestors piled into a range of computer-related names on the first trading day of June, with Nebius leading the way with an 18% surge.\nARM was up 14.7%, while ServiceNow was last seen 8.4% higher, having led the premarket rise, soaring 14.4%. IBM surged 8.1% and Hewlett Packard Enterprise rose 5.8%.\nSpeaking at Taiwan's Computex conference on Monday, Huang unveiled the new N1X processor, made alongside Microsoft, which he said will spark a \"reinvention of the computer….as big of a deal as the reinvention of the phone into what we now know as the smartphone.\"\nIn contrast, Nvidia's historic push into the PC chip space sent shares in rival Intel into retreat. Intel, in which the U.S. government holds a near-10% stake, was more than 3% lower in morning trade.\nEarlier, a rally in South Korean tech stocks helped guide the Kospi to a 3.7% gain. LG Electronics ended the session up 29.9%, while Samsung Electronics shares rose about 10.1%.\nSamsung and LG executives are expected to meet with Jensen Huang later this week, raising the possibility of collaboration on AI and robotics.",
+  "published_at": "2026-06-02T14:16:51Z",
+  "author": null,
+  "collected_at": "2026-06-06T03:19:33.819207Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

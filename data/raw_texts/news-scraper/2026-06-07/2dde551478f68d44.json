@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://ataraxy-labs.github.io/sem/",
+  "title": "Sem: New primitive for code understanding – not LSPs, but entities on top of Git",
+  "raw_text": "Semantic understanding on top of Git.\nDiff, blame, impact, log. Functions, not lines.\nLeft: what git shows you. Right: what actually happened.\ndiff --git a/src/auth/login.ts b/src/auth/login.ts @@ -12,6 +12,18 @@ +export function validateToken(token: string) { + const decoded = jwt.verify(token, SECRET); + if (!decoded.exp || decoded.exp < Date.now()) { + throw new TokenExpiredError(); + } + return decoded; +} + @@ -24,8 +36,10 @@ export async function authenticateUser( - const user = await db.findUser(email); - if (!user) return null; + const user = await db.findUser(email); + if (!user) throw new UserNotFoundError(); + await rateLimiter.check(email); @@ -45,12 +59,0 @@ -export function legacyAuth(user, pass) { - return db.query('SELECT * FROM users - WHERE email = ? AND password = ?', - [user, pass]); -}\n┌─ src/auth/login.ts ──────────────── │ │ ⊕ function validateToken [added] │ ∆ function authenticateUser [modified] │ ⊖ function legacyAuth [deleted] │ └──────────────────────────────────── 3 entities changed across 1 file",
+  "published_at": "2026-06-06T20:03:55Z",
+  "author": "rohanucla",
+  "collected_at": "2026-06-07T09:00:50.504499Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

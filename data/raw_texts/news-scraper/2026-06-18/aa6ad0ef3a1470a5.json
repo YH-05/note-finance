@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/rare-earth-stocks-pop-after-g7-unveils-plan-reduce-dependence-china-critical-minerals",
+  "title": "Rare Earth Stocks Pop After G7 Unveils Plan To Reduce Dependence On China For Critical Minerals",
+  "raw_text": "Rare earth stocks spiked on Wednesday after G7 leaders agreed to strengthen coordination on critical minerals as they seek to reduce dependence on China-dominated supply chains, according to a new report from Reuters.\nWithout naming China directly, the group set a goal of limiting reliance on any single external supplier of rare earths and permanent magnets to less than 60% by 2030, with a longer-term target of 50%.\nReuters reports that to support that effort, the G7 plans to align critical mineral stockpiling strategies, beginning with lithium and nickel, and establish a new platform for policy coordination, data sharing, market monitoring, and crisis response. The platform will work closely with the International Energy Agency, which will provide analysis and early warnings of supply disruptions and market distortions.\nThe group also pledged to support investment across the entire critical minerals supply chain—from mining and processing to manufacturing—through development finance institutions, export credit agencies, and private-sector partnerships. Since the start of 2026, governments have announced 195 related projects totaling €64 billion ($74 billion) in investment.\nNeha Mukherjee, research manager at consultancy Benchmark Mineral Intelligence commented: \"The G7 statement is an important signal of intent, but the pace of diversification will ultimately depend on whether policy support translates into investment across the midstream and downstream parts of the value chain.\"\nDespite the commitments, analysts note that diversification will be difficult, particularly because China controls about 90% of global processed rare earth and permanent magnet production. The G7 is also exploring measures such as joint procurement, subsidies, quotas, and price-support mechanisms, while expanding domestic stockpiles and increasing recycling capacity to make recycled materials a significant share of critical mineral consumption by 2030.",
+  "published_at": "2026-06-17T22:00:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-18T03:00:42.087025Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

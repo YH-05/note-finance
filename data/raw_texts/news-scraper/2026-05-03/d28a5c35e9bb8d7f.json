@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/crypto/tether-reports-104b-profit-q1-treasury-holdings-top-140bn",
+  "title": "Tether Reports $1.04B Profit In Q1 As Treasury Holdings Top $140BN",
+  "raw_text": "Stablecoin issuer Tether (USDT) reported $1.04 billion in net profit for the first quarter of 2026, as its excess reserves rose to a record $8.23 billion, according to its latest attestation on Friday.\nThe company said its reserves remain heavily concentrated in US Treasuries, with around $141 billion in direct and indirect exposure, while total assets of about $191.8 billion exceeded liabilities of approximately $183.5 billion as of March 31.\nTether said this level of exposure makes it the 17th largest holder of US Treasuries globally. Beyond Treasuries, reserves included about $20 billion in physical gold and $7 billion in Bitcoin (BTC).\nUSDT circulating supply remained broadly stable at about $183 billion at the end of the first quarter. After the period, CEO Paolo Ardoino said supply has increased by more than $5 billion into April.\nTether said its proprietary investments are held separately from reserves backing USDT (USDT) and are funded through excess capital and profits.\nThe report was prepared by accounting firm BDO. The company also said it has begun the formal audit process.\nTether is the issuer of USDT (USDT), the largest stablecoin by market capitalization. According to DefiLlama data, the total stablecoin market is valued at about $320 billion, with USDT accounting for roughly 59% of the sector.\nTotal stablecoins market cap. Source: DefiLlama\nDemand for digital dollars rises in emerging markets\nArdoino said in a post on X on Friday that USDT’s user base reached an all-time high of about 570 million in the first quarter, citing demand for dollars across emerging markets.\nIn Latin America, stablecoins accounted for 40% of crypto purchases in 2025, surpassing Bitcoin’s 18% share, according to a report released by Bitso this week based on data from its nearly 10 million retail users. The report described the trend as “digital dollarization,” as users turn to stablecoins for savings and everyday transactions.\nSource: Paolo Ardoino\nStablecoins are also gaining traction in Africa for remittance payments. Speaking at the World Economic Forum in January, former UN official Vera Songwe said traditional transfers can cost about $6 per $100 sent, while stablecoins allow funds to move more quickly at lower cost.\nSongwe also said stablecoins can help users preserve value in high-inflation environments, noting that inflation has exceeded 20% in several African countries since the pandemic.\nFSB annual report for 2025. Source: FSB\nHowever, stablecoin adoption has drawn scrutiny from global regulators. The Financial Stability Board warned in its 2025 annual report that widespread use of US dollar-denominated stablecoins could pose risks to emerging economies, including currency substitution and reduced effectiveness of domestic monetary policy.",
+  "published_at": "2026-05-02T21:30:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-03T03:00:41.519236Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

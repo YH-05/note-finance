@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/09/apple-brings-streaming-style-subscription-bundles-to-the-app-store/",
+  "title": "Apple brings streaming-style subscription bundles to the App Store",
+  "raw_text": "For the first time, Apple will allow developers to partner with one another to offer subscription bundles through the App Store that would give users access to multiple apps at a lower price than if they subscribed to each separately.\nAt its Worldwide Developers Conference, the iPhone maker announced an expansion to its App Bundles feature, which had typically allowed a developer with multiple apps to sell them in bundles.\nNow, Apple says developers will be able to team up with each other to offer users “more for less.” Instead of only bundling apps within their own catalog, developers can partner with each other to create bundles of apps, which would cost less than if a user were to buy subscriptions to each app separately.\nThe new bundles borrow from a strategy that’s become increasingly common in streaming and media, where companies like HBO and Disney package together their subscriptions to boost their perceived value and retain customers.\nBundles could similarly make sense for developers who have overlapping customer bases, but aren’t direct competitors. For instance, you could imagine a creativity-focused app bundle containing a camera app, photo and video editing tools, and perhaps an app for publishing content across social media platforms.\nSimilarly, productivity app devs could team up with others to fill in gaps that their own products miss, allowing users to buy bundles that include one developer’s to-do list with another’s calendar app, for instance.\nApple says developers will also be allowed to create “Suites,” which are subscription packages that aren’t available as standalone purchases.",
+  "published_at": "2026-06-09T14:55:36Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-06-09T15:00:21.993389Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "app bundles",
+      "app store",
+      "Apple",
+      "developers",
+      "wwdc"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/business/948083/kalshi-prediction-markets-insider-trading",
+  "title": "Kalshi adds required employment verification for some prediction market bets",
+  "raw_text": "The CFTC is considering its first regulation for prediction markets, as arrests over “insider trading” on everything from military operations to Google Search data continue to stack up. As CoinDesk reports, a notice of proposed rulemaking says “the proposal would establish a structured framework for evaluating whether such contracts involve an activity enumerated in Section 5c(c)(5)(C) of the Commodity Exchange Act —activity that involves terrorism, assassination, war, gaming, or conduct that is unlawful under federal or state law—and, if so, whether that contract is contrary to the public interest.”\nKalshi adds required employment verification for some prediction market bets\nIt announced new ‘integrity’ measures just as the CFTC released a proposal for prediction market regulation.\nIt announced new ‘integrity’ measures just as the CFTC released a proposal for prediction market regulation.\nSeparately, Kalshi announced on Wednesday that it’s introducing new market integrity measures following the release of an “independent” audit committee report it commissioned a few months ago.\nThe changes, which it says will be effective immediately, include a system for scoring a market’s risk of manipulation or insider trading, new whistleblower reporting tools, and employment verification for certain markets:\n“For markets with heightened insider or manipulation risk, we now collect employment information before traders can participate. This lets us identify presumptive insiders – people who have material, non-public information about a market’s outcome – and screen them out before a trade is ever placed.”",
+  "published_at": "2026-06-10T20:18:16Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-10T21:00:16.762963Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Business",
+      "News",
+      "Policy",
+      "Tech"
+    ]
+  }
+}

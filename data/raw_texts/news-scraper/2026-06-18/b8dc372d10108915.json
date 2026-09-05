@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/iran-war-gasoline-price-strait-hormuz-oil.html",
+  "title": "Gas prices fall below $4 per gallon as oil supply fears ease after Iran deal",
+  "raw_text": "Gasoline prices fell below $4 per gallon Thursday, as oil exports through the Strait of Hormuz are expected to increase after President Donald Trump signed a deal to end the war with Iran.\nDrivers in the U.S. paid $3.99 on average, the first time prices have fallen below $4 since March 30, according to data shared by AAA.\nPrices have fallen the past 28 days in a row after peaking at $4.56 on May 21. It is the longest consecutive price decline since November 2023.\nTrump signaled for weeks that a deal with Iran was coming, which has helped keep oil prices for surging higher. The U.S. Navy has also been assisting oil tankers through Hormuz since early May.\nBut gas prices are still 30% higher compared with what drivers paid before the U.S. and Israel attacked Iran on Feb. 28. Tehran effectively closed Hormuz in retaliation by attacking commercial ships.\nThe closure of Hormuz triggered the biggest oil supply disruption in history. About 20% of global oil supplies passed through the strait before the war.\nThe U.S.-Iran deal is expected to gradually increase oil exports through Hormuz, though its unclear when traffic in the strait will return to prewar levels.",
+  "published_at": "2026-06-18T12:54:55Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:33:07.516399Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

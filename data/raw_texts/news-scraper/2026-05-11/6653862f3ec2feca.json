@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/sonys-failed-war-against-internet-piracy-may-doom-other-copyright-lawsuits/",
+  "title": "Sony's failed war against Internet piracy may doom other copyright lawsuits",
+  "raw_text": "Sony and other major record labels recently suffered a thorough defeat at the Supreme Court in their attempt to make Internet service providers pay huge financial penalties for their customers’ copyright infringement. Sony’s loss is certain to have wide-ranging effects on copyright lawsuits, offering protection for ISPs, their customers, and potentially other technology companies whose services can be used for both legal and illegal purposes.\nIn Cox Communications v. Sony Music Entertainment, the Supreme Court ruled that cable Internet firm Cox is not liable under the Digital Millennium Copyright Act (DMCA) when its customers use their broadband connections to download or upload pirated materials. Music copyright holders claimed that once Cox was informed that specific users repeatedly infringed copyrights, it should have terminated their accounts.\nA jury agreed with Sony in 2019, hitting Cox with a $1 billion verdict. While the damages award was overturned by an appeals court in 2024, that court gave Sony a partial win by finding that Cox was guilty of contributory copyright infringement—a type of secondary liability for contributing to others’ infringement.\nCox was facing the prospect of another damages trial until the Supreme Court took up its case and unanimously ruled in its favor on March 25 of this year. The court found that Cox isn’t liable for its customers’ misdeeds because it did not induce them to infringe copyrights and did not “tailor” the broadband service so that it could be used for infringement.\nThe Cox decision was also a loss for record labels Warner and Universal, which joined Sony in the case. The record labels reacted to the ruling by dropping similar cases against ISPs such as Verizon and Altice. and the impact may be felt well beyond the broadband industry.\n“I think it applies to any technology provider”\nSeveral defendants offering other types of tech products and services have filed briefs in lower courts, citing the Cox ruling in their defense against contributory infringement claims. Among them are Google, Meta, Elon Musk’s X social network, and Nvidia. Cox is also being cited by a much smaller entity known as Yout, which operates a website that can be used to convert YouTube videos into downloadable audio files.",
+  "published_at": "2026-05-11T11:00:33Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-11T15:00:27.774008Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Policy",
+      "Cox",
+      "record labels",
+      "Sony",
+      "Supreme Court"
+    ]
+  }
+}

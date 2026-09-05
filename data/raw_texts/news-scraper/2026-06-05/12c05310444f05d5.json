@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/06/trumps-ai-executive-order-may-not-prevent-dangerous-deployments/",
+  "title": "Trump plan to test AI models has a problem—US security teams were gutted by DOGE",
+  "raw_text": "On Tuesday, Donald Trump finally signed his executive order expanding the government’s efforts to conduct voluntary safety testing of frontier AI models. Now, critics are warning that the order may be short-sighted, offering only performative reassurances that the government is actively monitoring for AI risks, while changing very little about how and when models are deployed.\nLast month, Trump abruptly canceled a signing event, where he had hoped to launch an earlier version of the EO with CEOs of leading AI firms in attendance. Invited at the last minute, several CEOs simply couldn’t make the signing but still signaled support for the order. Officially, Trump claimed he postponed the event because he worried that the EO might have gone too far and had become a “blocker” impeding AI innovation. Reports indicated there was infighting in his administration as cybersecurity experts clashed with officials committed to deregulating AI.\nThe watered-down EO that Trump signed promises not “to stifle this innovation with overly burdensome regulation” and establishes no requirements for AI firms. Instead, it sets up a voluntary process for companies to collaborate with the government on safety reviews that Trump’s EO claimed would “ensure that the best and most secure technology is deployed rapidly to confront any and all threats to our country.”\nUnder this order, Trump wrote, “we will continue to lead an America First cybersecurity effort that enhances both our national security and our global AI dominance.”\nHowever, experts reviewing the EO suggest that not much changed between the leaked draft that prompted industry backlash and the order that Trump eventually signed without making a big event involving CEOs.",
+  "published_at": "2026-06-03T18:11:15Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-06-05T03:02:35.615611Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "AI safety",
+      "ai safety testing",
+      "Artificial Intelligence",
+      "Donald Trump",
+      "frontier ai"
+    ]
+  }
+}

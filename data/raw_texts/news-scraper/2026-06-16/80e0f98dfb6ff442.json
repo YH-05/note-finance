@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20383-ntt-data-expands-salesforce-offering-in-kenya.html",
+  "title": "NTT Data expands Salesforce offering in Kenya",
+  "raw_text": "NTT Data announced that it’s expanding its Salesforce services in Kenya, which it says will strengthen local access to global Salesforce expertise and in-region delivery capability.\nThe new Salesforce capabilities on offer include Agentforce Financial Services, Agentforce Marketing, MuleSoft and Data 360. The services include consulting, implementation, integration and ongoing support.\nNTT Data said the new offering – which was announced last Wednesday – builds on its existing applications services in East Africa, and will help Kenyan businesses improve client engagement, data management, AI-enabled insights and revenue growth.\nIt also follows last year's acquisition of EXAH, a Salesforce consulting partner and AI implementation specialist in South Africa, which NTT Data said strengthened its expertise in the region and ability to deliver locally relevant Salesforce solutions backed by global scale.\nLauren Wortmann, NTT DATA’s applications MD for Middle East and Africa, said the company sees significant opportunity to help organisations in Kenya use Salesforce to better understand, serve and grow their customer relationships as financial services, fintech innovation and digital adoption continue to set benchmarks for the region.\n“Kenya is one of Africa’s most innovative digital markets, with a financial services sector that continues to raise the bar for customer experience and technology-led growth,” Wortmann said in a statement. “By extending our Salesforce services in Kenya, we’re bringing together global capability, in-region expertise and deep industry knowledge to help clients turn customer data into meaningful engagement, improved service and measurable business value.”",
+  "published_at": "2026-06-15T04:49:57Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-16T03:01:22.936752Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/nasas-psyche-spacecraft-returns-unfamiliar-views-of-a-familiar-world/",
+  "title": "NASA's Psyche spacecraft returns unfamiliar views of a familiar world",
+  "raw_text": "Not quite halfway through a six-year sojourn through the Solar System, a NASA spacecraft used a close encounter with Mars last week as a dress rehearsal for its arrival at the Solar System’s largest metal asteroid in 2029.\nThe Psyche mission launched more than two-and-a-half years ago, in October 2023, from Kennedy Space Center, Florida, to kick off a journey of some 2.2 billion miles (3.6 billion km) to reach its unexplored namesake, the asteroid Psyche. The robotic research mission got an initial lift from a powerful SpaceX Falcon Heavy rocket. It uses plasma engines to gradually build up the impulse needed to reach its destination in the asteroid belt, between the orbits of Mars and Jupiter.\nA flyby of Mars last Friday gave the spacecraft its most significant boost since launch. Navigators at NASA’s Jet Propulsion Laboratory in California set up the spacecraft for a course taking it 2,864 miles (4,609 km) from the Martian surface, well above the planet’s tenuous atmosphere. Psyche used Martian gravity like a slingshot to gain enough speed to reshape its orbit around the Sun, putting the probe on a path to intercept its asteroid target.\nRight on the money\n“Although we were confident in our calculations and flight plan, monitoring the DSN’s (Deep Space Network’s) Doppler signal in real time during the flyby was still exciting,” said Don Han, Psyche’s navigation lead at JPL, in a statement. “We’ve confirmed that Mars gave the spacecraft a 1,000-mile-per-hour boost and shifted its orbital plane by about 1 degree relative to the Sun. We are now on course for arrival at the asteroid Psyche in summer 2029.”\nThe gravity assist was the main goal of the Mars flyby, but ground teams used the encounter to test the spacecraft’s three science instruments: a multispectral imager consisting of two cameras, a gamma-ray and neutron spectrometer, and a magnetometer. Similar sensors are flying on other spacecraft that are permanently studying Mars, so the real benefit of running the instruments during Psyche’s encounter was for scientists to use the flyby as a practice run for when it reaches the asteroid Psyche.",
+  "published_at": "2026-05-20T21:26:57Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-22T03:00:31.373602Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "asteroids",
+      "jet propulsion laboratory",
+      "Mars",
+      "NASA",
+      "psyche"
+    ]
+  }
+}

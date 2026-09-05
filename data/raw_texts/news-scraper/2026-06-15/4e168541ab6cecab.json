@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606151184",
+  "title": "ツクルバが２６年７月期業績予想を下方修正",
+  "raw_text": "【材料】ツクルバが２６年７月期業績予想を下方修正\n中古・リノベーション住宅の流通プラットフォーム「ｃｏｗｃａｍｏ（カウカモ）」を運営するカウカモ事業の成長に向け、先行費用の投下を継続したものの、その収益寄与が想定よりも遅行していることが要因としている。なお、同時に発表した第３四半期累計（２５年８月～２６年４月）決算は、売上高７９億２００万円（前年同期比３６．６％増）、営業損益３９００万円の赤字（前年同期１億４９００万円の黒字）、最終損益８４００万円の赤字（同収支均衡）だった。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-15T08:25:00Z",
+  "author": null,
+  "collected_at": "2026-06-15T09:00:22.303171Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

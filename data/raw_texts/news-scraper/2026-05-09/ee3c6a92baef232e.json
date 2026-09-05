@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/cleveland-fed-president-hammack-expects-interest-rates-to-stay-on-hold-for-a-good-while.html",
+  "title": "Cleveland Fed President Hammack expects interest rates to stay on hold 'for a good while'",
+  "raw_text": "Cleveland Federal Reserve President Beth Hammack said Wednesday that the central bank is weighing threats to both inflation and employment and should keep interest rates on hold as conditions evolve.\nIn a live CNBC interview, Hammack advocated a patient approach to monetary policy as Fed officials watch incoming data for clues about where the U.S. economy is heading.\n\"My baseline is that we're going to remain on hold for a good while, but I do think that there's two-sided risks to rates,\" Hammack said during the \"Squawk Box\" discussion. \"I think there's risks that we might need to be more accommodative or more restrictive, depending on how the data comes out. But that's why it's a good time for us to stay patient and wait and see how the data flows through.\"\nHammack is a voting participant this year at Federal Open Market Committee meetings.\nAfter cutting three times in the latter part of 2025, the committee has kept on hold for both of its decisions this year. The benchmark federal funds rate is currently targeted in a range between 3.5%-3.75%, which Hammack said is a \"good place\" for monetary policy.\nHowever, she remains wary of an inflation shock now as prices are pressured by the Iran war and tariffs.\n\"All of these successive supply shocks are hard to think about how we're supposed to handle those from monetary policy perspective,\" she said. \"Normally, you like to look through these types of supply shocks, but when it's coming on the back of already-elevated inflation, it may not be the same as it would be had we been entering this period at low and stable inflation.\"\nOn employment, Hammack said the labor market is \"roughly in balance\" though she called it a \"curious balance\" considering the low level of job creation along with modest increases on the supply side.\nThough FOMC officials at the March meeting indicated they still see one rate cut this year, there was considerable disagreement. Markets on Wednesday morning were pricing in about a 1 in 3 chance of a reduction this year, according to the CME Group.",
+  "published_at": "2026-04-15T15:21:07Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.739642Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/producer-price-index-may-2026-.html",
+  "title": "Wholesale prices rose 1.1% in May, more than expected, on surge in energy",
+  "raw_text": "Wholesale prices rose more than expected in May, indicating that pipeline inflationary pressures are percolating higher, the Bureau of Labor Statistics reported Thursday.\nThe producer price index, a measure of final demand costs, increased a seasonally adjusted 1.1% on the month, putting the 12-month wholesale inflation rate at 6.5%. Economists surveyed by Dow Jones had been looking for a monthly move of 0.7%.\nThe annual headline inflation rate was the highest since November 2022. The monthly gain matched the April increase.\nHowever, excluding food and energy, the so-called core PPI accelerated 0.4%, compared with the consensus view of 0.5%, indicating that rising fuel prices are causing much of the inflationary burden.\nTaking out food, energy and trade services, the PPI accelerated 0.8%, the biggest one-month move since March 2022. On a 12-month basis, the core excluding trade services rose 5.1%, the most since October 2022.\nMost of the acceleration in the PPI — nearly 80% — came from a 2.8% surge in final demand goods prices, the biggest increase ever in a data series going back to December 2009. In turn, 80% of that rise came from a 10.7% jump in energy. Gasoline prices rose 23.4% at the wholesale level, the BLS said.\nAnother significant contributor, on the services side, came from portfolio management fees, which increased 4.8% during a strong May for the stock market.\nThe report comes a day after the BLS reported that headline consumer price inflation surged to 4.2% in May, boosted largely by a surge in energy prices due to the Iran war. However, monthly readings indicated a less severe shock, with core prices rising just 0.2%, putting the 12-month reading at 2.9%.\nStill, the current state of inflation is likely to keep the Federal Reserve on the sidelines for the foreseeable future. The central bank's Federal Open Market Committee releases its next interest rate decision Wednesday, and market pricing is indicating a near 100% probability of a hold.\nBeyond that, traders are pricing in no chance of a cut through the year and a better than 60% probability that the next move will be a hike, likely coming in December.\nEarlier in the day, the European Central Bank voted to raise benchmark rates by a quarter percentage point in an effort to head off the inflation surge. Few if any Fed officials have expressed an interest in similar tightening, instead advocating a patient approach to see whether the energy supply shock wears off and inflation heads back to the U.S. central bank's 2% target.\nCorrection: This article has been updated to correct that wholesale prices rose more than expected in May. An earlier version mischaracterized the comparison.",
+  "published_at": "2026-06-11T16:25:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.308392Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

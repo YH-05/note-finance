@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/fda-novo-lilly-glp-1s-compounding.html",
+  "title": "FDA proposes excluding Novo, Lilly weight loss drugs from bulk compounding list in win for the companies",
+  "raw_text": "The Food and Drug Administration on Thursday proposed excluding the active ingredients in Novo Nordisk and Eli Lilly's blockbuster obesity and diabetes medications from the list of drugs that outsourcing facilities can use for compounding in bulk.\nIf that proposal is finalized, the exclusion would likely limit the mass compounding — or the making of custom, often cheaper alternatives — of those medicines unless they appear on the FDA's drug shortage list. The agency said it will consider public comments, which can be submitted until late June, before making a final decision.\nThe FDA finds \"no clinical need\" for outsourcing facilities to compound them from bulk drug substances, the agency said in a release.\nThe proposal includes semaglutide, the active ingredient in Novo's obesity drug Wegovy and diabetes counterpart Ozempic, and tirzepatide, which is in Lilly's weight loss injection Zepbound and diabetes shot Mounjaro. It also covers Novo's older molecule liraglutide.\n\"When FDA-approved drugs are available, outsourcing facilities cannot lawfully compound using bulk drug substances unless there is a clear clinical need,\" FDA Commissioner Marty Makary said in the release.\nThe agency's proposal specifically targets 503B outsourcing facilities, which manufacture compounded drugs in bulk with or without prescription and are largely regulated by FDA guidelines.\nThe proposal does not impact 503A pharmacies, which make compounded drugs according to individual prescriptions for a specific patient and are largely regulated by states rather than the FDA.\nLilly and Novo have invested billions to ramp up manufacturing capacity over the last several years, which has helped alleviate supply constraints. The companies have also pursued efforts to make their branded medications more affordable to win over users who had flocked to cheaper compounded medications.",
+  "published_at": "2026-04-30T15:02:15Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.519998Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

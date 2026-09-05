@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/blue-origin-may-need-external-funding-to-hit-ambitious-launch-targets/",
+  "title": "Blue Origin may need external funding to hit ambitious launch targets",
+  "raw_text": "Blue Origin is weighing its first external fundraising as part of a push by Jeff Bezos’ rocket venture to hit ambitious launch targets and tap investor appetite boosted by SpaceX’s upcoming initial public offering.\nChief Executive Dave Limp told employees at a recent all-hands meeting that the company would require outside investment if it were to significantly increase its launch cadence, according to details of the meeting from two people who attended.\nHe said it would “take a lot of capital” to achieve the number of rocket launches Blue Origin has targeted—more money than would be available with “just one investor,” the people added.\nBlue Origin has set ambitious launch targets after reaching orbit with New Glenn, a 98-meter-tall heavy-lift rocket, for the first time in January 2025. It is competing with SpaceX for large commercial contracts and to develop a lunar lander for Nasa’s Artemis program.\nBlue Origin is considering fundraising as SpaceX, which dominates the space launch market, gears up to list on the public market as early as June, with a valuation in excess of $1.75 trillion.\nLimp told employees Blue Origin would have to demonstrate strong economics but that external funding was one option “on the table,” the people added.\nBlue Origin declined to comment.\nLimp was speaking to employees as he responded to questions on a new stock option plan. He said that similar to OpenAI and SpaceX, the group could use fundraising rounds to help staff exercise stock options. “We wrote this plan intentionally to allow for that,” he said.",
+  "published_at": "2026-05-13T14:20:04Z",
+  "author": "Rafe Rosner-Uddin, Financial Times",
+  "collected_at": "2026-05-14T03:00:28.570429Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "artemis",
+      "blue origin",
+      "new glenn",
+      "super heavy lift rocket",
+      "syndication",
+      "terawave"
+    ]
+  }
+}

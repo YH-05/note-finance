@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20188-pdg-announces-new-data-centre-campus-in-indonesia.html",
+  "title": "PDG announces new data centre campus in Indonesia",
+  "raw_text": "Data centre operator Princeton Digital Group (PDG) has announced the acquisition of a new site in Indonesia for its latest hyperscale data centre campus, JC4.\nWith land secured and power allocated to deliver a total planned capacity of 240 MW, JC4 brings PDG’s total portfolio in the market to 400 MW.\nLocated within the Greenland International Industrial Centre (GIIC) in Bekasi Regency in West Java Province, the JC4 campus is approximately 1.7 kilometres from PDG’s existing JC3 campus. This proximity, says PDG, enables shared power and connectivity infrastructure, supporting operational efficiency and resilience across both sites.\nSpanning 106,217 square metres, the campus will comprise four data centre buildings of 60 MW each. Construction has already commenced.\nThe JC4 campus will support high-density computing and advanced cooling systems, with a focus on operational efficiency and responsible resource management.\nAcross its Indonesia operations, PDG has also implemented initiatives such as on-site solar deployments and refrigerant management programmes to reduce environmental impact within day-to-day operations.\nRangu Salgame, Chairman, CEO and Co-Founder of PDG, says: “Indonesia continues to be a key market for digital infrastructure in the region, and JC4 builds on our established portfolio to deliver reliable, scalable capacity that supports cloud and AI workloads.”\nHeadquartered in Singapore, PDG designs, builds, and operates hyperscale data centres across seven countries in Asia – Singapore, Japan, India, Indonesia, China, Malaysia and South Korea – with a portfolio of over 1.8 GW.\nIn March it announced a strategic multi-site acquisition in India that adds 210 MW of capacity to its current platform.",
+  "published_at": "2026-05-01T13:02:37Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-01T15:01:21.396954Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

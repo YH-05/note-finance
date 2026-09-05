@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/spacex-submits-detailed-financial-filing-ahead-of-going-public-in-june/",
+  "title": "Famously secret about its finances, SpaceX opens its books for the first time",
+  "raw_text": "After nearly a quarter of a century operating as a private company, with its financial accounts a closely guarded secret, SpaceX on Wednesday afternoon released a detailed accounting of its business in a nearly 400-page S-1 filing with the US Securities and Exchange Commission.\nSpaceX, founded in 2002 and still led by Elon Musk, submitted the filing in anticipation of an initial public offering of its stock as soon as June 12.\nThe document revealed no major surprises about the company’s space operations, but there was a trove of details about its sprawling operations, which now encompass launch, spaceflight, space-based Internet, and, thanks to its recent acquisition of Musk’s xAI, social media and AI.\nThe company reported revenues of $18.67 billion in 2025, up significantly from $14.02 billion the year before. However, after turning a small profit in 2024, the company lost $4.94 billion in 2025 largely due to spending on artificial intelligence development.\nThat’s a big market you’ve got there\nSpaceX projects a “total addressable market,” or TAM, of $28.5 trillion across its present and future offerings in space, data, and AI services. However, of this amount, only about $2 trillion is directly related to space or the company’s Starlink network. The remaining $26.5 trillion is believed to come from AI, largely from enterprise applications.\n“We believe we have identified the largest TAM in human history,” the company states on page 171 of the filing. “We believe our next trillion-dollar market is AI compute, which we contemplate will leverage our rockets and satellites for massive orbital deployment.”\nThe company said its estimates for this large market were based on a number of sources.\n“Our AI market estimates are based in part on projections of global data center compute demand from third-party sources, including estimates published by RAND Corporation, together with internal assumptions regarding the portion of global compute capacity that may be utilized for AI workloads and other operational assumptions such as power usage, utilization rates and pricing,” the filing states.",
+  "published_at": "2026-05-20T23:02:49Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-22T03:00:31.373190Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "filing",
+      "IPO",
+      "space",
+      "spacex"
+    ]
+  }
+}

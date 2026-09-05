@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928598/google-aluminium-os-mystic-leaks-video",
+  "title": "Google&#8217;s Aluminium OS revealed in 16-minute leaked video",
+  "raw_text": "Aluminium OS, Google’s upcoming version of Android for PC, may have just leaked a few hours before Google’s Android Show presentation. As Android Authority reports, leaker Mystic Leaks shared a 16-minute video on their Telegram channel that appears to show a lengthy hands-on demo of the new operating system.\nGoogle’s Aluminium OS revealed in 16-minute leaked video\nThe video shows an Android 17-based operating system running on a laptop, with a home screen featuring desktop icons and a Google search bar.\nThe video shows an Android 17-based operating system running on a laptop, with a home screen featuring desktop icons and a Google search bar.\nAfter a loading screen featuring the Android logo, the video shows the setup process for a new device. That process and the UI overall both look very similar to stock Android throughout, only resized to suit a laptop rather than a phone. The taskbar and app drawer are similar to what ChromeOS users will be familiar with, but the default home screen now includes desktop icons and a Google search bar. The settings app even displays the device’s OS as “Android version 17.”\nAlong with Mystic Leaks’s demo video, images showing a new line of “Googlebooks” also leaked on Tuesday, which may be the laptops intended to run the new Android-for-PC OS.\nGoogle is holding its annual Android Show presentation later today at 1PM ET / 10AM PT. It’s starting to look like we may have our first glimpse at some of the announcements.\nMost Popular\n- Logitech’s tiny folding mouse improves upon the laptop trackpad\n- Forza Horizon 6 has been leaked and cracked a week before its release\n- Palantir’s true believers are wearing this jacket\n- Google stopped a zero-day hack that it says was developed with AI\n- Govee’s new portable smart lamp is on sale for the first time",
+  "published_at": "2026-05-12T14:52:58Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-12T15:00:16.361460Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20179-wind-telecom-upgrades-smart-home-offering-with-zte-cloud-platform.html",
+  "title": "Wind Telecom upgrades smart-home offering with ZTE cloud platform",
+  "raw_text": "ZTE announced on Wednesday that Dominican Republic fixed-line telco Wind Telecom has commercially deployed its Smart Cloud Platform (SCP) and intelligent home solutions that it says will deliver a better smart-home experience for residential users.\nZTE said its SCP enables unified access, centralized configuration, collaborative management and intelligent control of devices such as optical network terminals, mesh access points and IP cameras. It also supports remote operations, scenario automation, and intelligent fault diagnosis, significantly enhancing home network automation and intelligence.\nThe SCP solution also leverages a cloud architecture that knits everything together, enabling seamless gigabit-level coverage via mesh networking to eliminate signal dead zones, as well as integrating devices such as cameras and OTT set-top boxes to the home network, which can support use cases like home security and HD entertainment.\nThe solution also allows Wind Telecom to analyze network status in real time using AI algorithms to optimize bandwidth and Wi-Fi coverage, proactively prevent congestion, reduce latency, and ensure stable, efficient device operation. The SCP is integrated with Wind Telecom’s OSS/BSS to provide network quality reports, user behaviour analysis, and precise marketing support, ZTE said.\nThe Wind Telecom implementation includes a tailored cloud storage feature for IP cameras, which allows end users to play back recorded videos and display multiple video feeds on a single screen for enhanced real-time monitoring. ZTE said this enables Wind Telecom to create subscription tiers based on how long camera video is stored.",
+  "published_at": "2026-04-30T02:46:47Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-02T03:03:18.537075Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

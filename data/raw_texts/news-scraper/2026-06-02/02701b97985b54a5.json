@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai",
+  "title": "Can the stockmarket swallow Anthropic, SpaceX and OpenAI?",
+  "raw_text": "Can the stockmarket swallow Anthropic, SpaceX and OpenAI?\nWatch out for indigestion\nThey promise to be the biggest stockmarket debuts ever. On June 11th SpaceX reportedly hopes to raise $75bn from investors, by issuing shares that will begin trading on the Nasdaq exchange the next day. Elon Musk’s rocketry firm will probably soon be followed by two other mammoth listings. Anthropic, an artificial-intelligence lab, filed draft paperwork for its initial public offering on June 1st; OpenAI, a competitor, is expected to do so soon. The two are rumoured to be seeking as much as $60bn apiece. Together, the three giga-IPOs may add as much as $4trn to the market value of listed American companies in a matter of months.",
+  "published_at": "2026-06-01T23:45:46Z",
+  "author": "1vuio0pswjnm7",
+  "collected_at": "2026-06-02T15:00:41.658303Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

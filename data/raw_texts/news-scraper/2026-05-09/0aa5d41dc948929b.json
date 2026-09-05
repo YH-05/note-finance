@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/iren-stock-ai-infrastructure-nvidia.html",
+  "title": "IREN inks AI infrastructure deal with Nvidia",
+  "raw_text": "Data center operator IREN announced a partnership with semiconductor giant Nvidia on Thursday.\nIREN shares were volatile after news broke, but climbed 6% Friday.\nNvidia and IREN will deploy up to 5 gigawatts of the chip maker's DSX-branded infrastructure designs intended to power artificial intelligence workloads throughout the Australian firm's data center facilities across the world.\nThe data center operator will issue Nvidia a five-year right to purchase up to 30 million shares of its ordinary stock at an exercise price of $70 per share, the company said in an announcement. Nvidia will have the right to invest $2.1 billion into the company via the deal.\n\"AI factories are becoming foundational infrastructure for the global economy,\" Nvidia CEO Jensen Huang said in a statement. \"Deploying these systems at scale requires deep integration across the full stack — compute, networking, software, power and operations.\"\nNvidia has bolstered its stack by making similar deals involving multibillion-dollar purchase agreements with companies like Coherent, Lumentum and earlier this week, Corning.\nIn a separate release, IREN said it signed a five-year deal worth $3.4 billion to provide Nvidia with access to managed GPU cloud services \"for its internal AI and research workloads.\" The deployment will be at IREN's existing data centers in Childress, Texas.\nAlthough IREN previously specialized in data centers that were tailored for bitcoin mining, it's been increasingly providing AI-related infrastructure services as part of the AI boom.\nIn Nov. 2025, IREN and Microsoft inked a multi-year $9.7 billion deal \"to deliver GPU cloud infrastructure powered by NVIDIA GB300 GPUs\" at its Childress, Texas. data center, the company said at the time. As part of that deal, IREN said it also \"entered into an agreement\" with Dell Technologies to purchase the GPUs and related computing gear for roughly $5.8 billion.",
+  "published_at": "2026-05-08T17:48:41Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:18:47.665314Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

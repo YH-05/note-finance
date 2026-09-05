@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/jim-cramer-amd-stock-downgrade.html",
+  "title": "Cramer defends AMD after downgrade: 'This stock is going to go up much more'",
+  "raw_text": "CNBC's Jim Cramer said AMD still has significant upside, arguing AI-driven demand for CPUs will keep pushing the stock higher.\nCramer was responding to HSBC's downgrade of AMD to hold from buy.\nCNBC's Jim Cramer pushed back on a downgrade of Advanced Micro Devices , saying the stock still has meaningful upside as demand for its chips continues to surge. \"Advanced Micro has CPUs, and CPUs are what is being used by agents,\" Cramer said Monday during the CNBC Investing Club's Morning Meeting, a daily breakdown of the biggest market stories. \"So if you have them, this stock is going to go up much more.\" The race to build data centers and deploy more complex AI systems that can complete tasks with limited oversight, known as agentic AI, has ignited fervent demand for central processing units, or CPUs. The need for their processing power has surged faster than manufacturers can keep up. AMD makes both CPUs and another kind of chip used for AI computing called GPUs, short for graphics processing units. The advent of agentic systems, in particular, has made CPUs more coveted today than in the earlier stages of the AI spending boom. Cramer's comments come after HSBC downgraded AMD to a hold rating from buy. The firm's semiconductor analysts said while demand remains strong, AMD may struggle to exceed already elevated expectations for server CPU growth. AMD's recent rally has priced in much of that optimism, they argued. Shares of AMD fell more than 4% on Monday, though they're still up roughly 58% over the past month. The downgrade also said AMD's reliance on Taiwan Semiconductor Manufacturing Co. as its manufacturing partner could limit its ability to fully capitalize on demand. TMSC has limited spare capacity to churn out more advanced chips. By contrast, analysts noted that AMD's longtime rival in the data center CPU market, Intel , operates its own chipmaking foundries. That puts Intel in a better position to the deliver the \"upside surprises\" that investors love in the coming quarters, they said. HSBC maintains a buy rating on Intel shares. Cramer brushed off that concern for AMD, contending the supply constraints actually reinforce a broader imbalance that drives demand and pricing power and supports its stock performance . \"I would not sell\" shares of AMD, Cramer said. AMD reports first-quarter earnings after Tuesday's close. Cramer's Charitable Trust, the portfolio used by the CNBC Investing Club, does not currently own shares of AMD. Within the chip sector, it owns Nvidia , Broadcom and Arm Holdings .",
+  "published_at": "2026-05-04T18:14:25Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.332888Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

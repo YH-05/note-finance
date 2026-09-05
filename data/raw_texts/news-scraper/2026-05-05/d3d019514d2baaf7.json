@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/volkswagen-becomes-rivians-top-shareholder-displacing-amazon/",
+  "title": "Volkswagen becomes Rivian’s top shareholder, displacing Amazon",
+  "raw_text": "Volkswagen has pushed Amazon out of the top spot to become Rivian’s largest shareholder, new filings with the U.S. Securities and Exchange Commission show.\nVW Group’s increasing equity stake in Rivian, which has grown from 8.6% to 15.9% in less than two years, is tied to a joint venture with the EV startup. The Rivian and Volkswagen Group Technologies joint venture — officially formed in November 2024 — is focused on the development of electrical architecture and software.\nAnd that stake will continue to grow, as long as Rivian continues to meet its end of the deal.\nVW has committed to invest $5.8 billion into Rivian, capital that is unlocked as certain milestones are reached. The German automaker kicked off the deal with an initial $1 billion investment, followed by another $1 billion in mid-2025.\nRivian received another $1 billion last month after completing winter testing of the VW ID.EVERY1, a small four-door hatchback that will be the first vehicle under the joint venture to be equipped with its software and electrical architecture.\nThe latest SEC documents, filed Monday, show that VW Group now owns 209.7 million shares of Rivian stock.\nAmazon, a longtime backer and customer, holds 12.28% of Rivian. Amazon was an early backer of Rivian, investing $700 million into the company when it was still a privately held upstart. The company disclosed in 2021, ahead of Rivian’s IPO, that it held a 20% stake in Rivian. Amazon is not only an investor in Rivian, but it’s also a customer. In September 2019, Rivian entered into an agreement with Amazon to produce 100,000 electric delivery vans.\nOther top shareholders include Oryx Global with an 8.6% share, and Vanguard with 5.1%. Rivian founder and chief executive RJ Scaringe holds a roughly 1.1% stake in the company.\nVolkswagen’s deal with Rivian came at a critical moment for the EV maker as it poured millions of dollars into R&D and pushed to bring its R2 from the design studio to the assembly line. Rivian started production of the R2 in April and is expected to begin delivering the midsized SUV to customers in the coming weeks.\nIf successful, the VW-Rivian joint venture could lead to future tech licensing deals with other companies or new categories. For instance, the joint venture with VW excludes AI and autonomy, two areas that Rivian has focused considerable capital toward in recent years. Rivian plowed $1.7 billion on R&D in 2025, up from $1.6 billion in 2024, the company’s annual filing shows. Much of that has been directed toward its autonomy efforts — so much that it has prompted the company to push its profitability goal past 2027.\nIn a filing that detailed Rivian’s new partnership with Uber, Rivian disclosed it doesn’t expect to be EBITDA positive next year because of its R&D spending.",
+  "published_at": "2026-05-05T19:58:57Z",
+  "author": "Kirsten Korosec",
+  "collected_at": "2026-05-05T21:00:26.372963Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "Amazon",
+      "Rivian",
+      "SEC",
+      "volkswagen",
+      "VW Group"
+    ]
+  }
+}

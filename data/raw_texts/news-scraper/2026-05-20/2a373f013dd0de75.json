@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/05/rfk-jr-forced-to-withdraw-charter-that-opened-cdc-panel-to-anti-vaccine-quacks/",
+  "title": "RFK Jr. forced to withdraw charter that opened CDC panel to anti-vaccine quacks",
+  "raw_text": "A revised charter document for the Centers for Disease Control and Prevention’s influential vaccine advisory committee has been withdrawn by the Health Department over an administrative error, according to a notice published in the Federal Register Tuesday.\nThe charter’s revisions under anti-vaccine Health Secretary Robert F. Kennedy Jr. would have allowed Kennedy to appoint dubiously qualified anti-vaccine allies to advise the CDC. It also would have directed the CDC panel to focus on alleged vaccine injuries and risks and welcomed fringe groups and anti-vaccine organizations to participate in developing federal vaccine policy.\nKennedy’s move to reshape the CDC panel—the Advisory Committee on Immunization Practices, or ACIP—came amid Kennedy’s many other attempts to undermine it, as well as a court order to undo that meddling.\nIn June 2025, Kennedy summarily fired all 17 experts from ACIP and quickly replaced them with unvetted and unqualified anti-vaccine allies. Kennedy’s ACIP then held several meetings in which they aired anti-vaccine views and misinformation, allowed anti-vaccine activists to give unvetted presentations, and ultimately voted to remove longstanding, evidence-based federal vaccine recommendations based on anti-vaccine rhetoric. That includes the removal of a universal recommendation for a hepatitis B vaccine dose at birth, despite no evidence of any safety concerns or any benefit to delaying the dose. Subsequent modeling studies found that the change will mean more infections, increases in liver cancers and deaths, as well as millions of dollars in healthcare costs.",
+  "published_at": "2026-05-19T18:17:54Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-05-20T03:02:21.419360Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "ACIP",
+      "anti-vaccine",
+      "CDC",
+      "robert f kennedy jr",
+      "vaccine"
+    ]
+  }
+}

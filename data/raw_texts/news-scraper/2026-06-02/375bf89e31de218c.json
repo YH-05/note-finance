@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/06/dozens-of-red-hat-packages-backdoored-through-its-offical-npm-channel/",
+  "title": "Dozens of Red Hat packages backdoored through its official NPM channel",
+  "raw_text": "Official Red Hat NPM accounts have been compromised and used to push a malicious worm that spreads from machine to machine, where it pilfers sensitive credentials in hopes of stealing yet more confidential data, researchers said.\nThe supply-chain attack began Monday and remained active at the time this post went live, according to researchers at security firm Aikido. It’s the result of the threat actor responsible for the hack taking control of @redhat-cloud-services, a legitimate channel in the npm repository that’s reserved for official Red Hat packages. As such, the channel is widely trusted by developers who rely on Red Hat cloud services.\nThe vicious cycle of today’s supply-chain attacks\nIt’s unclear precisely how the threat actor took control of the namespace, but it almost certainly involved the compromise of credentials required to access it, possibly through a previous supply-chain attack. More than 30 packages seem to be affected.\nThe packages execute an obfuscated payload that can run during the npm install process, which occurs before a developer imports or actually uses the package in a production environment. Security firm Socket said an analysis of the malware revealed that it’s designed to collect sensitive credentials, including GitHub action secrets, npm tokens, Kubernetes and Vault material, and credentials for other cloud services. The worm then spreads by republishing backdoored packages to third-party accounts the infected device has access to. Most, but not all, of the packages had been taken down in the hours following the incident.\n“Organizations should treat any system that installed one of the affected @redhat-cloud-services package versions as potentially compromised,” Socket researchers wrote. “The payload executes during npm install, before application code imports or uses the package, so exposure depends on installation or CI execution, not runtime use.”\nOnce a system is infected, it encrypts the credentials and sends them through a web request. A fallback mechanism allows the malware to publish the encrypted data into a compromised GitHub repository, assuming it has possession of the credentials for it.",
+  "published_at": "2026-06-01T19:49:09Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-06-02T15:00:26.368286Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "npm",
+      "red hat",
+      "supply chain attacks"
+    ]
+  }
+}

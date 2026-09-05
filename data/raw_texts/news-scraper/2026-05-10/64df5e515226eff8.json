@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20218-ais-launches-5g-a-with-downlink-uplink-carrier-aggregation.html",
+  "title": "AIS launches 5G-A with downlink/uplink carrier aggregation",
+  "raw_text": "Thai telco AIS has launched its 5G-Advanced service that leverages the 3GPP Release 18 standard, as well as carrier aggregation for faster downlinks and uplinks.\nThe new 5G-A network, which was commercially launched on Wednesday, uses 3CC carrier aggregation to combine the 700 MHz, 2100 MHz, and 2600 MHz bands for downlink connections, and 2CC carrier aggregation the 700 MHz and 2600 MHz bands for the uplink.\nAIS said the 3CC technology will boost downlink 5G speeds by up to 1.5 times, while the 2CC technology will boost uplink speeds up to 2 times.\nAIS said it’s also integrating AI into network traffic management via an autonomous network, enabling the network to analyse, adapt, and respond efficiently to usage conditions in real time.\nThe 3CC implementation of 5G-A is only available in Sathon and Bang Rak, although AIS plans to expand it to key areas across Bangkok and its metro region before the end of this year. In the meantime, AIS is offering a 2CC downlink version of 5G-A in Bangkok, the metroregion, and major city centres across Thailand.\nMeanwhile, AIS said the 2CC uplink is available in major city areas across the northeastern region, Bangkok, and the metro region, and is expected to be available in major city centres nationwide by 2026.\nWasit Wattanasap, AIS’ head of nationwide operations and support business unit, said the upgrade will support greater overall network efficiency as well as faster downloads and uploads, supporting next-gen digital lifestyles and enterprise use cases, while also laying the foundation for future transition toward 6G.\n“Network development today is no longer only about increasing speed, signal coverage, or the number of base stations. It is about building new capabilities for the country and delivering the best digital experience to customers in every use case,” he said in a statement.",
+  "published_at": "2026-05-08T05:27:41Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-10T03:01:30.723977Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/rip-social-media-what-comes-next-is-messy/",
+  "title": "RIP social media. What comes next is messy.",
+  "raw_text": "Last fall, we featured an extensive interview with Petter Törnberg of the University of Amsterdam, who studies the underlying mechanisms of social media that give rise to its worst aspects: the partisan echo chambers, the concentration of influence among a small group of elite users (attention inequality), and the amplification of the most extreme divisive voices. He wasn’t optimistic about social media’s future.\nTörnberg’s research showed that, while numerous platform-level intervention strategies have been proposed to combat these issues, none are likely to be effective. And it’s not the fault of much-hated algorithms, non-chronological feeds, or our human proclivity for seeking out negativity. Rather, the dynamics that give rise to all those negative outcomes are structurally embedded in the very architecture of social media. So we’re probably doomed to endless toxic feedback loops unless someone hits upon a brilliant fundamental redesign that manages to change those dynamics.\nTörnberg has been very busy since then, producing two new papers and one new preprint building on this realization that social media is structured quite differently than the physical world, with unexpected downstream consequences. The first new paper, published in PLoS ONE, specifically focused on the echo chamber effect, using the same combined standard agent-based modeling with large language models (LLMs)—essentially creating little AI personas to simulate online social media behavior.\nThose simulated users were randomly programmed to either hold an opinion or its opposite and then interact randomly with selected members of a simulated online community. And if the proportion of community members who disagreed with those simulated users exceeded a given threshold, those agents were programmed to leave and join a different online community.\nFilter bubbles: Not a culprit, but a cure\nConsistent with last year’s results, it turns out that echo chambers emerge naturally from the basic architecture of social media platforms. “One surprising finding is the fact that we get echo chambers even without any filter bubbles, even if people really love being in diverse spaces,” said Törnberg. “You don’t need an algorithmic nudge. You can still get these highly segregated spaces. The other surprising finding is that filter bubbles, which have been blamed for homogeneity, can be a cure.”",
+  "published_at": "2026-05-07T13:51:50Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-07T15:00:29.107241Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "echo chambers",
+      "online culture",
+      "political polarization",
+      "social media"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/as-crypto-cools-a16zcrypto-raises-a-2-2b-fund/",
+  "title": "As crypto cools, a16z crypto raises a $2.2B fund",
+  "raw_text": "In a blog post that lays out a vision for crypto’s future, ranging from a “new financial system” to warnings about “opaque” AI, a16z crypto announced a new $2.2 billion fund. This is the VC firm’s fifth fund and brings the total raised to date to $9.8 billion, it says.\nIn addition, the fund also promoted its CTO, Eddy Lazzarin, to general partner, bringing the GP investing team to four people. Lazzarin joins Chris Dixon, Ali Yahya, and Guy Wuollet. The fund has backed standout companies like Coinbase, Kalshi, and Solana Foundation.\nThe timing of this news is a bit ironic, with crypto trading in such a slow period that Coinbase announced on the same day it was laying off 14% of its workforce. March was the slowest trading-volume month across crypto exchanges since November 2023, crypto data and news site CoinGecko reported.\nVC investing in crypto startups has cooled, too, landing at nearly $5 billion in the first quarter of 2026, compared to closer to $6 billion in the year-ago quarter, reports DLNews, citing stats from crypto data site DefiLlama.\nThe a16z crypto partners acknowledge this. They describe how crypto highs draw in investment and a fervor of startups, but that “we’re at one of those quieter moments now,” they write. However, they insist that much of what gets built during a downtime “is usually more useful than it looked at the peak, and more durable than it looked at the trough.”\nHot market or not, there is VC money out there for blockchain-related startups that can woo VCs. The part founders will have to overcome is that some of the biggest crypto VCs are now being seduced by AI startups. This is an area swimming in rising valuations.\nFor instance, Paradigm, one of the biggest and most prestigious crypto funds, is reportedly working on raising a fresh $1.5 billion fund to expand its thesis into robotics and AI, The Wall Street Journal reported in February. Plus, Y Combinator, which has cranked out many crypto and blockchain-related startups over the years, didn’t ask for any in its most recent “Requests for Startups” list.\nEarlier this week, former Andreessen Horowitz investor Katie Haun announced that her crypto-focused firm, Haun, has also raised a new $1 billion fund and will continue to invest in this market. But she’s also looking for AI agent tech as it intersects with crypto/blockchain and fintech.\nThe latest a16z crypto fund will not be lured away by hotter markets, a spokesperson tells TechCrunch, promising that it will be “dedicated 100% to crypto entrepreneurs.”",
+  "published_at": "2026-05-05T21:15:56Z",
+  "author": "Julie Bort",
+  "collected_at": "2026-05-06T03:00:27.064850Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Crypto",
+      "TC",
+      "Venture",
+      "a16z crypto",
+      "crypto",
+      "crypto fund",
+      "Startups"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605040016",
+  "title": "東京為替：ドル・円は下げ一服、原油相場は高止まり",
+  "raw_text": "【通貨】東京為替：ドル・円は下げ一服、原油相場は高止まり\n4日午後の東京市場でドル・円は急落し、一時155円72銭まで下値を切下げた。その後は下げが一服し、足元は156円60銭台に持ち直した。NY原油先物(WTI)は1バレル＝101ドル台半ばから後半と高値圏を維持しており、引き続きドル買いが入りやすい地合いに。\nここまでの取引レンジは、ドル・円は155円72銭から157円19銭、ユ-ロ・円は182円81銭から184円35銭、ユ-ロ・ドルは1.1720ドルから1.1742ドル。\n《TY》\n提供：フィスコ",
+  "published_at": "2026-05-04T04:33:08Z",
+  "author": null,
+  "collected_at": "2026-05-04T09:00:21.719943Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

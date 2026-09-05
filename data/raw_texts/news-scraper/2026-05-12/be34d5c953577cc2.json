@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/ebay-rejects-gamestops-56b-offer-your-proposal-is-neither-credible-nor-attractive/",
+  "title": "eBay rejects GameStop's $56B offer: \"Your proposal is neither credible nor attractive\"",
+  "raw_text": "eBay’s board of directors today rejected GameStop’s $55.5 billion offer to buy the company.\n“We have concluded that your proposal is neither credible nor attractive,” eBay Chairman Paul Pressler wrote in a letter to GameStop CEO Ryan Cohen. Pressler said the board and its independent advisors thoroughly reviewed GameStop’s unsolicited bid and found numerous problems.\n“We have taken into account such factors as 1) eBay’s standalone prospects, 2) the uncertainty regarding your financing proposal, 3) the impact of your proposal on eBay’s long-term growth and profitability, 4) the leverage, operational risks, and leadership structure of a combined entity, 5) the resulting implications of these factors on valuation, and 6) GameStop’s governance and executive incentives,” Pressler said.\nGameStop made the surprising offer last week. eBay’s rejection “could lead to a hostile bid” because Cohen has “said he was willing to take the offer directly to eBay shareholders, possibly by calling a special meeting,” Reuters wrote.\nCohen struggled in an awkward CNBC interview to explain how GameStop would pay for the bigger company. eBay’s market capitalization is over four times larger than GameStop’s.\nGameStop said it was on track to secure up to $20 billion in debt and offered to buy eBay for $125 per share, half in cash and half in GameStop stock. But as CNBC hosts pointed out, the numbers provided by GameStop didn’t add up to enough to cover the full $55.5 billion.\nThe rejection letter’s mention of “GameStop’s governance and executive incentives” seems to refer to Cohen’s performance-based stock option award. Cohen receives no salary or other guaranteed pay but could make $35 billion if GameStop hits a $100 billion market capitalization and $10 billion in cumulative earnings. GameStop’s current market capitalization is about $10.2 billion.\nWe contacted GameStop and will update this article if it provides a response.",
+  "published_at": "2026-05-12T17:18:04Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-12T21:00:31.171363Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "eBay",
+      "Gamestop",
+      "ryan cohen"
+    ]
+  }
+}

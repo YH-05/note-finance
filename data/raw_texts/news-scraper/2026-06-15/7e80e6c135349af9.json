@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/vendor-news/20379-tcs-partners-with-anthropic-to-accelerate-enterprise-ai-adoption.html",
+  "title": "TCS partners with Anthropic to accelerate enterprise AI adoption",
+  "raw_text": "Tata Consultancy Services (TCS) has signed a global partnership with AI company Anthropic to help enterprises deploy generative AI at scale, with a particular focus on highly regulated industries.\nAs part of the deal, TCS will establish a dedicated business unit focused on developing industry-specific solutions and services based on Anthropic’s Claude family of AI models. The partnership will target sectors including financial services, healthcare, life sciences, telecoms, aviation and public services.\nTCS said the partnership is aimed at helping enterprises move AI projects beyond the pilot stage, particularly in industries where strict requirements around accuracy, governance and regulatory compliance have slowed adoption.\nThe Indian IT giant will also deploy Claude internally, providing access to 50,000 employees across engineering, finance, legal, marketing and sales functions. The company said the experience gained from its own AI transformation will be used to support customer deployments.\nBeyond enterprise services, the partnership will extend to several TCS platforms and business units. TCS iON, which conducts more than 75 million assessments annually across India, will introduce training and certification programmes focused on Claude AI models.\nThe companies also plan to develop AI solutions for domain-specific workflows, software development, IT operations, customer experience and business modernisation projects.\nTCS CEO K Krithivasan said the partnership combines Anthropic’s AI capabilities with TCS’ industry expertise and large-scale implementation experience to help enterprises deploy AI in production environments rather than limited pilot projects.\nAnthropic CEO Dario Amodei said the agreement strengthens the company’s presence in India, its second-largest market, while expanding access to Claude across global enterprises.",
+  "published_at": "2026-06-12T10:32:56Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-06-15T03:01:20.537170Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Vendors"
+    ]
+  }
+}

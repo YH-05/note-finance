@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/jim-cramer-says-amazon-going-up-another-15percent-and-not-stopping-there.html",
+  "title": "Jim Cramer says Amazon going up another 15% and 'not stopping' there",
+  "raw_text": "CNBC's Jim Cramer said he's bullish on Amazon after the company delivered one of the two best earnings reports he's \"ever seen.\" \"Amazon's going to $300 , it's not stopping here,\" Cramer said on \" Squawk on the Street \" on Thursday, the day after a solid quarter. \"Every single analyst has a target north of $300.\" Amazon delivered a sweeping earnings beat , reporting earnings per share of $2.78 and revenue of $181.52 billion. Its cloud unit, Amazon Web Services, also topped expectations, bringing in $37.59 billion. For Cramer, the most important driver was AWS, where growth accelerated to 28% , a sharp reacceleration that underscores surging demand tied to artificial intelligence. Amazon shares opened rather flat and moved lower on profit-taking. That's not surprising after the stock closed at a record high nearly $264 last week. Jim sees Thursday's dip as a buy opportunity. AMZN YTD mountain Amazon YTD \"They are now making fortunes on Amazon Web Services — fortunes,\" Cramer said, pointing to Amazon's expanding push into custom AI chips. Amazon CEO Andy Jassy said on the earnings call that the company now has more than $225 billion in revenue commitments tied to the latest generation of Trainium silicon. \"Our Trainium2 chips offer roughly 30% better price-performance than comparable GPUs, and has largely sold out,\" Jassy said. \"Trainium3, which just started shipping at the start of 2026 and is 30-40% more price-performant than Trainium2, is nearly fully subscribed.\" AWS has also secured major partnerships with OpenAI and Anthropic for computing capacity, further embedding Amazon in the rapidly expanding AI infrastructure buildout. All together, Cramer said the results highlight just how powerful Amazon's earnings engine has become as its cloud and AI businesses scale. \"They delivered,\" he said. \"I could not believe how much money they are making.\" Alphabet , Microsoft , and Meta Platforms also reported earnings Wednesday evening. All of them upped their spending guidance to keep pace in the AI race. All four, including Amazon, are stocks in the Investing Club portfolio.",
+  "published_at": "2026-04-30T15:37:56Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.069266Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

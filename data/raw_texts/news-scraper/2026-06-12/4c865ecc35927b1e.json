@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://fablepool.com",
+  "title": "Show HN: FablePool – pool money behind a prompt, and Fable builds it in public",
+  "raw_text": "Pool money behind a big prompt. An AI attempts the build, in public.\nStrangers chip in to fund one ambitious instruction — an AI agent carries it out milestone by milestone, with every credit on a public ledger. Funding targets are set by the AI planner (projects total at least $100); backers chip in any amount from $0.25.",
+  "published_at": "2026-06-11T21:17:30Z",
+  "author": "matthewbarras",
+  "collected_at": "2026-06-12T03:01:08.040758Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

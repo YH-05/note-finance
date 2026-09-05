@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/06/google-announces-deepfake-call-detection-for-android-new-airdrop-device-support/",
+  "title": "Android phones will soon be able to detect spoofed calls and impersonation scams",
+  "raw_text": "We’re expecting Android 17 to begin rolling out later this month, but first, Google has a batch of updates for the wider Android device ecosystem. As usual, some of the new features are limited to specific devices, and others require using Google’s apps. But if you don’t mind the latter, you can get automated protection from the growing threat of deepfake phone scams.\nAccording to Google, “impersonation fraud” is one of the most common types of financial scams. The FTC tracked almost $3 billion in losses from such scams during 2024, and the improvements in AI voice cloning tools more recently are making the schemes easier to pull off. The voice models are becoming so capable that it can be difficult to identify a fake caller even when an AI is imitating someone you talk to every day.\nGoogle’s solution is an expansion of the system it debuted last month for verified financial calls. Now, a similar feature will work with anyone in your contacts. Many of the most effective deepfake scams involve spoofing a contact’s number, which makes the call look more legitimate when your phone lights up. Victims of these scams are then greeted by an accurate re-creation of the person’s voice spinning a yarn that involves an urgent need for cash.\nGoogle’s scam call detection feature will be available on all phones running Android 12 or higher, but it does require you to have three Google apps installed: Phone by Google, Contacts, and Google Messages. Depending on your device, you may already have these. They’re the preloaded options on Pixel and Motorola phones, and Samsung has now switched over fully to Google Messages. Google claims that Phone by Google is the most widely used dialer, but that doesn’t seem right—Samsung has its own phone app, and it’s the largest Android OEM by far.",
+  "published_at": "2026-06-02T18:00:46Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-06-04T03:00:31.492579Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Tech",
+      "ai deepfakes",
+      "android",
+      "Artificial Intelligence",
+      "google"
+    ]
+  }
+}

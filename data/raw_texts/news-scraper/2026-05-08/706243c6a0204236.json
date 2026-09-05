@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/stunning-quarter-highest-earnings-growth-over-two-decades",
+  "title": "\"Stunning Quarter\": Highest Earnings Growth In Over Two Decades",
+  "raw_text": "Yesterday, Deutsche Bank's head of thematic research published his latest chartbook, \"The Great 2026 Reset,\" which delves into the market and political implications of the Iran conflict (available here to pro subs).\nOne key topic explored by Reid is the remarkable US Q1 earnings season. As we previewed ahead of the start of reporting seasons, earnings are significantly exceeding consensus estimates across all metrics, despite a high bar.\nS&P 500 earnings growth is projected to accelerate sharply from 13.4% in Q4 to 24.6% in Q1 – a four-year high and a level rarely seen outside of post-shock recoveries. Excluding special factors, this represents arguably the strongest earnings growth in two decades.\nThe AI boom is a clear contributor, but strength is widespread, with double-digit growth seen in average and median companies, and all 11 sectors posting positive growth for the first time in four years. This strong performance has in many places been driven by higher prices amid supply constraints, surging demand within the AI value chain, and other disruptions.\nIn light of these robust Q1 results, DB has raised its 2026 EPS forecast from $320 to $342, driven by strong Q1 beats, gravity-defying performance in MCG & Tech, and higher oil and commodity prices.\nReid says it's worth noting that while the US equity market has outperformed many markets since the start of the Iran conflict, this has only moved it from the bottom quartile to the middle of the global pack year-to-date.\nEven with a surge since the conflict began, tech performance over the past six months (since the end of October) shows only a modest increase.\nGiven current high valuations, strong earnings growth is helping the US market \"grow into\" these valuations, yet other markets have demonstrated notably better performance over the last 18 months.\nMore in the full DB note available here.",
+  "published_at": "2026-05-07T17:55:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T03:00:40.769497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

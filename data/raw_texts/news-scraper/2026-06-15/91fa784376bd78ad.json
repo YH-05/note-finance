@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20354-rwanda-space-agency-joins-satellite-navigation-initiative.html",
+  "title": "Rwanda Space Agency joins satellite navigation initiative",
+  "raw_text": "The Rwanda Space Agency (RSA) has joined the Augmented Navigation for Africa (ANGA) programme, marking what is described as a significant step toward strengthening satellite navigation capabilities across the African continent.\nThe RSA was established in 2020 with the mission of developing Rwanda's space sector towards social-economic development.\nANGA is Africa’s satellite-based augmentation system (SBAS), designed to improve the accuracy and reliability of positioning signals from global navigation satellite systems such as GPS and Galileo. By correcting signal errors in real time, the system can improve positioning accuracy from several metres to around one metre, a level of precision critical for aviation operations and a range of other sectors.\nThe enhanced navigation capability enables precision aircraft approaches and landings without the need for costly instrument landing systems at individual airports. Beyond aviation, the technology has applications in precision agriculture, maritime operations, road and rail transportation, mapping, disaster management and other sectors where accurate positioning is essential for safety and efficiency.\nThis agreement brings Rwanda into the ANGA programme’s SBAS initiative. Under the agreement, Rwanda will host and operate an ANGA Mission Control Centre, a key component of the continent-wide navigation infrastructure.\nThe partnership will also support the adoption and use of ANGA services within Rwanda, helping to enhance positioning, navigation and timing capabilities for a range of sectors, including aviation, transportation, agriculture and infrastructure development.\nANGA is recognised by the International Civil Aviation Organisation (ICAO) as a key component of efforts to modernise African aviation. The initiative also supports the African Union Space Policy and the Single African Air Transport Market (SAATM), with the goal of delivering full dual-frequency multi-constellation satellite-based augmentation services across the Africa and Indian Ocean region by 2030.\nThe ANGA initiative is being led by Agency for Air Navigation Safety in Africa and Madagascar (L'Agence pour la Sécurité de la Navigation aérienne en Afrique et à Madagascar) or ASECNA, an intergovernmental organisation established in 1959 and comprising 18 African countries and France, which is spearheading efforts to establish an African-led satellite navigation solution designed to meet the continent’s unique development needs.",
+  "published_at": "2026-06-08T14:06:58Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-15T03:01:20.541728Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

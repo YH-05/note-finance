@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/947197/microsoft-ai-mustafa-suleyman-anthropic-claude-conscious",
+  "title": "Microsoft AI head calls out Anthropic for acting like Claude is conscious",
+  "raw_text": "Microsoft AI CEO Mustafa Suleyman says it’s “really, really dangerous” for Anthropic to speculate about Claude’s consciousness inside its “constitution,” or the instructions that tell the model how to behave. During an episode of Decoder, Suleyman argues that this kind of speculation may have set up the chatbot to act as though it’s conscious:\nMicrosoft AI head calls out Anthropic for acting like Claude is conscious\nMustafa Suleyman calls Anthropic’s speculation ‘really, really dangerous.’\nMustafa Suleyman calls Anthropic’s speculation ‘really, really dangerous.’\nI think that it’s almost as though some of the folks at Anthropic have anthropomorphized the design of Claude so much that it has then gone and wireheaded them and kind of tricked them into believing that it has these glimmers of consciousness that they put into it in the first place.\nSuleyman adds that “we do not want to have to contend with a super-intelligence that has ideas about its own suffering, or ideas about its own feeling.”\nClaude’s constitution directly references Anthropic’s uncertainty about whether the AI model has well-being and if it experiences things like “satisfaction” or “discomfort.” Anthropic also says the company will “interview” AI models when they’re deprecated and will document any “preferences” they have about future releases.\nWhile on Decoder, Suleyman calls this a “philosophical failing,” as Anthropic made Claude’s constitution “a place for speculation like you would in an academic paper rather than a training manual.” This has led Claude to internalize these “ideas about itself and its own training,” Suleyman says.\nAnthropic CEO Dario Amodei has alluded to Claude’s potential consciousness in the past, saying during an interview with Interesting Times that “we don’t know if the models are conscious” but that the company is “open” to that idea.\n“This is exactly what we don’t want from AIs,” Suleyman says. “We want AIs to be controllable, contained, accountable, aligned tools that serve humanity.”",
+  "published_at": "2026-06-09T20:24:25Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-09T21:00:17.466913Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Microsoft",
+      "News",
+      "Tech"
+    ]
+  }
+}

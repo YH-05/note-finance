@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=47975570",
+  "title": "Ask HN: Who wants to be hired? (May 2026)",
+  "raw_text": "Share your information if you are looking for work. Please use this format:\nLocation:\nRemote:\nWilling to relocate:\nTechnologies:\nRésumé/CV:\nEmail:\nPlease only post if you are personally looking for work. Agencies, recruiters, job boards,\nand so on, are off topic here.\nReaders: please only email these addresses to discuss work opportunities.\nSearchers: try https://nthesis.ai/public/hn-wants-to-be-hired, https://www.wantstobehired.com.",
+  "published_at": "2026-05-01T15:00:07Z",
+  "author": "whoishiring",
+  "collected_at": "2026-05-01T21:01:00.255788Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

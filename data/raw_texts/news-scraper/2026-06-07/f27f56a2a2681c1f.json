@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/india-gdp-economy-oil-middle-east-disruption.html",
+  "title": "India's economy expands at 7.8% over January to March — faster than expected",
+  "raw_text": "In a quarter partially affected by the economic disruptions from the Middle East conflict, India's economy grew at 7.8% year-on-year in the three months to the end of March, a faster-than-expected pace.\nAs per a Reuters poll, the economy was forecast to grow by 7.2% in Jan-Mar, lower than 7.8% in the previous quarter.\nIn the first half of the quarter, India's trade prospects improved sharply as it finalized a \"mother of all deals\" with the European Union and managed to get the U.S. to lower tariffs on its goods from 50% to 18%.\nThese were further lowered to 10% after the U.S. Supreme Court struck down U.S. President Donald Trump's tariffs as illegal.\nBut then the Iran war began at the end of February, which has since become a severe risk to India's economy and is anticipated to hurt growth and raise inflation.\nOn Friday, India's central bank raised its inflation projection for the financial year ending March 2027 by 50 basis points to 5.1%, while tempering the economy's growth forecast to 6.6% for the year, down from 6.9% projected earlier.\nEnergy supply disruptions caused by the conflict have inflated India's import bill, piling pressure on the rupee that has already been hit by record foreign investor outflows.\nThe world's fastest-growing major economy is expected to feel the pinch of inflation as the government has passed on global fuel price hikes to consumers in May, after holding them off for a couple of months.\nAs of April, inflation remains under the RBI target of 4%, but India is widely expected to face weather-related disruptions due to El Nino this year, which could cause crop shortages and push food prices higher.\nThe Reserve Bank of India on Friday said the policy has turned \"cautious\" owing to the deteriorating global economic conditions.",
+  "published_at": "2026-06-05T11:09:09Z",
+  "author": null,
+  "collected_at": "2026-06-07T03:19:24.626329Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

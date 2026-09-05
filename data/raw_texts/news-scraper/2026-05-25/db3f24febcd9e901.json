@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/chinas-shark-finning-could-lead-to-us-seafood-sanctions/",
+  "title": "China’s shark finning could lead to US seafood sanctions",
+  "raw_text": "For migrant workers trapped onboard Chinese distant water fishing fleets, cutting the fins off sharks as they writhe violently on rusted decks in the Indian Ocean isn’t accidental. It’s an intentional and lucrative act that marks the start of a bloody half-a-billion-dollar offshore supply chain, tacitly supported by Beijing yet covertly concealed from port inspectors globally.\nThe Center for Biological Diversity, a nonprofit focused on the protection of endangered species, filed a formal petition this month requesting the U.S. government potentially sanction China for failing to meet American shark conservation standards. Shark populations have declined by more than 70 percent since 1970, with more than one-third of all shark and ray species now threatened with extinction. Yet each year, Chinese-flagged vessels catch, brutally fin, and discard thousands.\nShould the National Marine Fisheries Service identify China as having violated the US Moratorium Protection Act, then President Trump could be expected to ban the import of all $1.5 billion of Chinese seafood.\n“Losing sharks wouldn’t just be an ecological disaster; it would be a profound moral failure,” Alex Olivera, a senior scientist at the Center for Biological Diversity, said in an email. “Sharks have survived for hundreds of millions of years, and it would be a tragedy if they disappeared in a few decades because governments failed to enforce basic conservation rules.”\nSharks are vulnerable to overexploitation because they grow slowly, mature late, and have few offspring. Each year, however, an estimated 80 million are caught and killed either intentionally or as bycatch.\nFinning—which has been outlawed in the US since 2000—sees sharks dumped back in the ocean without their fins, “leading to a slow and agonizing death,” according to the petition. While botched sharks sink slowly to their deaths, the rate of shark finning has increased in recent decades. Demand is largely driven by a growing demand for shark fin soup and traditional medicinal cures in East and Southeast Asia.",
+  "published_at": "2026-05-23T11:00:25Z",
+  "author": "Johnny Sturgeon, Inside Climate News",
+  "collected_at": "2026-05-25T03:00:31.939329Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Science",
+      "deep sea fishing",
+      "illegal fishing",
+      "overfishing",
+      "seafood",
+      "sharks",
+      "syndication"
+    ]
+  }
+}

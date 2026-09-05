@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/stock-market-today-live-updates.html",
+  "title": "Stock futures rise as Fed hints at possible rate hike in 2026; Nikkei hits 71,000 for the first time: Live updates",
+  "raw_text": "U.S. stock futures ticked higher on Wednesday night after the Federal Reserve indicated the possibility of a rate hike this year.\nS&P 500 futures and Nasdaq 100 futures climbed 0.2% and 0.4%, respectively. Futures tied to the Dow Jones Industrial Average rose by 73 points, or slightly more than 0.1%.\nAsia-Pacific markets opened mixed, with South Korea's Kospi and Japan's Nikkei 225 jumping to fresh records.\nThe Kospi rose 0.89%. Index heavyweight SK Hynix advanced 3.45% to notch a fresh high, while Samsung Electronics rose 1.23%. The small-cap Kosdaq declined 0.5%.\nJapan's Nikkei 225 traded 1.79% higher to rise above 71,000 for the first time, while the Topix was up 1.48%. Australia's benchmark S&P/ASX 200 slid 0.29%.\nHong Kong's Hang Seng index was down 0.76%, while the mainland's CSI 300 was flat.\nWednesday marked the first meeting of the Federal Reserve with Kevin Warsh at the helm of the U.S. central bank. At the conclusion of the meeting, the Fed kept the benchmark federal funds rate unchanged and anchored in a range of between 3.5% and 3.75%.\nPolicymakers' \"dot plot\" revealed that several Fed officials now see interest rates increasing in 2026. The median estimate for the year-end interest rate now stands at 3.8%, up from 3.4% in prior projections from March, suggesting that at least one rate hike could be in the picture in 2026.\nComplicating the forecast was Warsh's decision to abstain from submitting a rate forecast.\nFollowing the meeting, stocks fell across the board. The Dow, which had hit a new all-time intraday high earlier in the day, ultimately declined 507.12 points, or 0.98%. The S&P 500 fell 1.21%, while the Nasdaq Composite lost 1.34%.\nOn the other hand, bond yields jumped. The two-year Treasury yield hit a high of 4.22%.\n\"The Fed held rates steady but spoiled the mood with a much more hawkish dot plot. Elevated inflation makes that understandable, but the committee is far from united, with only about half still penciling in rate hikes later this year,\" said Sonu Varghese, chief macro strategist at Carson Group. \"The bigger point is that policy still looks loose for an economy where inflation remains a problem and the labor market is stabilizing.\"\n\"The market doesn't like regime change,\" added David Zervos, chief market strategist at Jefferies, on CNBC's \"Closing Bell: Overtime\" on Wednesday afternoon.\nAccenture and Kroger will report earnings before Thursday's opening bell. Traders will also watch out for May's leading indicators and June's Philadelphia Fed Index reading, alongside initial jobless claims from the week ended June 13.",
+  "published_at": "2026-06-18T01:39:05Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.776092Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

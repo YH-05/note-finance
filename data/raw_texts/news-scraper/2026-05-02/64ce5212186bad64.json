@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/29/savings-rates-drop-even-without-fed-cuts-heres-where-you-can-still-earn-4percent-on-your-cash.html",
+  "title": "Savings rates drop even without Fed cuts. Here’s where you can still earn 4% on your cash",
+  "raw_text": "While the Federal Reserve decision to hold off on any interest rate cuts since December is generally good news for savers, some banks have lowered their payouts anyway. On Wednesday, the central bank again opted to hold the benchmark federal funds rate steady in a range between 3.5%-3.75%. That rate typically drives the yield on products from savings accounts to certificates of deposit, from short-term Treasury bills to money market funds. But while fed funds have held steady, at least three high-profile banks recently dropped annual percentage yields (APYs) on their high-yield savings accounts anyway: Capital One Financial , Synchrony Financial and Marcus by Goldman Sachs , BTIG said in a note Friday. They followed a reduction by Ally Financial the week before. \"We have not been expecting rate cuts considering that Fed Funds Rate expectations are now flat,\" BTIG specialty finance analyst Vincent Caintic wrote. \"Following Ally's cut last week, we had thought that perhaps this was a signal of modest asset growth. However, bank earnings so far this 1Q26 season have pointed to still robust spending and lending among U.S. consumers, and therefore no letup in growth expectations.\" That said, two banks have not abandoned their 4% annual percentage yields: Bread Financial and LendingClub . But that may not last long, Caintic said. \"Looking at the rest of the banks we track, we now expect Bread Financial (BFH, Buy, $105 PT) and LendingClub (LC, Buy, $20 PT) to also cut their rates, given that they are now 55 [basis points] above the peer median,\" he noted. \"These two companies are usually at the top of the rate tables, but we'd expect them to be 20-30bps above the median and not 55bps.\" One basis point equals 1/100th, or 0.01%, of a percent. Still, online bank APYs are still much more attractive than traditional bank savings accounts. Both products' yields fluctuate. For those who want to lock in rates, certificates of deposit can do the job. Just be sure to make sure you don't need the money before the CD matures, or you could wind up paying an early withdrawal fee. A 12-month CD at Marcus by Goldman Sachs currently has a 4% APY. However, shortening your duration may give you a pick up in yield. For instance, Bread Financial's 9-month CD and LendingClub's 11-month option both have a 4.15% APY. Conversely, some online banks pay up for those who want to lock in for longer, like American Express ' 14-month CD and Sallie Mae 's 18-month product that both earn 4%. One option is to build a ladder, which is buying CDs of varying maturities. For instance, a ladder of 3 months to 14 months can give you a hedge if you need cash sooner and allows several different options on when you can pull the cash out. Meanwhile, money market funds are generally under 4%, with the annualized seven-day yield on the Crane 100 list of the largest taxable money funds at 3.47%, as of Tuesday.",
+  "published_at": "2026-04-29T18:35:03Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.554723Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

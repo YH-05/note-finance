@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141650",
+  "title": "ドル円、一時１５７円台前半に急落　介入の可能性も",
+  "raw_text": "【注目】ドル円、一時１５７円台前半に急落 介入の可能性も\n日本の財務省は、連休中も断続的に介入を実施し、連休明けも継続している気配も出ている。下に押し込むまでの介入は行っていないようだが、１６０円を試さないよう上値を抑えるスタイルの介入を実施しているようだ。\n今週、ベッセント財務長官が訪中する前に日本に立ち寄り、高市首相や片山財務相、植田日銀総裁と会談を行っていたが、「過度な為替変動は望ましくない」と介入に一定の理解も示していた。\nUSD/JPY 157.72 EUR/JPY 184.44\nGBP/JPY 212.97 AUD/JPY 114.00\nMINKABU PRESS編集部 野沢卓美\n株探ニュース",
+  "published_at": "2026-05-14T13:57:00Z",
+  "author": null,
+  "collected_at": "2026-05-14T15:00:21.628085Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

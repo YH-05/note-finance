@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/report-spacex-ipo-gives-musk-unchecked-power-and-forbids-investor-lawsuits/",
+  "title": "Report: SpaceX IPO gives Musk unchecked power and forbids investor lawsuits",
+  "raw_text": "SpaceX’s plan to go public will reportedly give CEO Elon Musk “virtually unchecked executive authority” and limit the rights of shareholders to sue the company. The plan, reported by Reuters today, could prevent shareholder lawsuits like the one that held up a lucrative Musk pay package at Tesla.\n“Excerpts of SpaceX’s IPO registration statement reviewed by Reuters show the company is combining supervoting shares, mandatory arbitration, stricter rules on shareholder proposals and Texas corporate law to give Musk and other insiders broad control,” Reuters wrote. “At the same time, it sharply limits investors’ ability to challenge management, sue in court and force votes on governance issues.”\nReuters said the policies “will erode typical shareholder protections in unprecedented ways,” and “the only person who can fire Musk is Musk, who will retain majority control through supervoting shares.”\nSpaceX reportedly plans to enforce a mandatory arbitration clause, taking advantage of a September 2025 policy statement issued by the Securities and Exchange Commission. The SEC’s new position is that mandatory arbitration provisions are not inconsistent with federal securities laws.\nThe SpaceX IPO will prevent shareholder lawsuits by “mak[ing] it clear that anyone who owns shares ‘irrevocably and unconditionally’ waives all rights to pursue a jury trial,” Reuters wrote. “Shareholders will also be prohibited from bringing class actions against the company, its directors, officers, controlling shareholders or bankers tied to the IPO, according to the filing.”\nMusk will reportedly have the power to “elect, remove or fill any vacancy” on the board of directors, and “the power to control other issues requiring shareholder approval, including M&A transactions, potentially making it easier to merge with Tesla later if he wants,” Reuters wrote. He currently owns 42.5 percent of SpaceX’s equity, has 83.8 percent of the voting control, and will maintain over 50 percent of the voting power after it goes public, the article said.",
+  "published_at": "2026-05-06T17:20:06Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-06T21:00:30.777953Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Elon Musk",
+      "spacex",
+      "spacex ipo",
+      "Tesla"
+    ]
+  }
+}

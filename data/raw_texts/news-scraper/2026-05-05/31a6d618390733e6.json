@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/924017/google-microsoft-xai-government-review",
+  "title": "Google, Microsoft, and xAI will allow the US government to review their new AI models",
+  "raw_text": "Google DeepMind, Microsoft, and Elon Musk’s xAI have agreed to allow the US government to review new AI models before they’re released to the public. In an announcement on Tuesday, the Commerce Department’s Center for AI Standards and Innovation (CAISI) says it will work with the AI companies to perform “pre-deployment evaluations and targeted research to better assess frontier AI capabilities.”\nGoogle, Microsoft, and xAI will allow the US government to review their new AI models\nThe Center for AI Standards and Innovation will evaluate new models before they’re released publicly.\nThe Center for AI Standards and Innovation will evaluate new models before they’re released publicly.\nCAISI, which started evaluating models from OpenAI and Anthropic in 2024, says it has performed 40 reviews so far. Both companies “have renegotiated their existing partnerships with the center to better align with priorities in President Donald Trump’s AI Action Plan,” according to Bloomberg.\nThe White House may take these evaluations even further in the future, as a Monday report from The New York Times suggests that Trump is considering an executive order that would “bring together tech executives and government officials” to oversee new AI models.\nHere’s what CAISI director Chris Fall had to say in the press release:\nIndependent, rigorous measurement science is essential to understanding frontier AI and its national security implications. These expanded industry collaborations help us scale our work in the public interest at a critical moment.",
+  "published_at": "2026-05-05T14:26:59Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-05T15:00:11.189897Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Microsoft",
+      "Policy",
+      "Politics",
+      "Tech",
+      "xAI"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/930893/elon-musk-sam-altman-trial-ai-safety-jackass-statue",
+  "title": "Behold, the Elon Musk jackass trophy",
+  "raw_text": "Yesterday, in Musk v. Altman, before the jurors came in, Sam Altman’s team passed up what looked — from a distance — like a little league trophy. It was not. Yvonne Gonzalez Rogers had the lawyers read the inscription aloud for the press: “Never stop being a jackass.” It’s a commemoration OpenAI employees bought for research scientist Josh Ackiam, who testified yesterday.\nBehold, the Elon Musk jackass trophy\nUnfortunately, Musk v. Altman jurors didn’t get to see the trophy for themselves.\nUnfortunately, Musk v. Altman jurors didn’t get to see the trophy for themselves.\nHow exactly did this come up in a trial about nonprofit contract law? Allegedly, when Elon Musk was leaving OpenAI, he talked about wanting to race ahead of Google. Achiam, who worked on AI safety, asked if that was really such a good idea. Musk called him a jackass. Years later, Musk is portraying his lawsuit as an attempt to avoid AI causing serious harm — something that, Altman’s team suggests, wasn’t high on his list of concerns back then.\nDuring his own direct testimony, Musk denied the incident took place, saying that he might have said something like, “Don’t be a jackass.”\nYGR ruled that the jurors would not get to see the trophy unless Musk’s team gave OpenAI a reason to introduce it, so they only heard about it. But now you can see it for yourself.",
+  "published_at": "2026-05-14T20:59:23Z",
+  "author": "Elizabeth Lopatto",
+  "collected_at": "2026-05-14T21:00:16.700551Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Elon Musk",
+      "OpenAI",
+      "Tech"
+    ]
+  }
+}

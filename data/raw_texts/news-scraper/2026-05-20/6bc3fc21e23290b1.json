@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934473/insta360-mic-pro-wireless-e-ink-screen-microphone-array",
+  "title": "Insta360’s Mic Pro uses a three microphone array for improved recordings",
+  "raw_text": "After initially revealing its unique design at NAB 2026 last month with few technical details, Insta360 has announced and launched its new wireless Mic Pro system featuring a couple of industry firsts. While the Mic Pro transmitters that can directly connect to devices over Bluetooth are available individually for $99.99, a more elaborate kit with two microphone transmitters, one wireless receiver, and a charging case is $329.99.\nInsta360’s Mic Pro uses a three microphone array for improved recordings\nA tiny color E Ink screen also lets you personalize the mics with logos, images, or name tags.\nThe Mic Pro transmitters are noticeably larger than other wireless microphones including Insta360’s own Mic Air, but the size accommodates its two key upgrades. Each transmitter features a six-color, 1.22-inch, round E Ink screen that can be used to display logos, names, or as a way to identify each one when multiple are used simultaneously. The screens still display images when the transmitters are powered off and battery life is estimated to be up to 10 hours, which can be extended to 30 using the charging case.\nEach transmitter also houses an array of three microphones that work together along with audio processing software to emulate different pickup patterns. When mounted atop a camera they can function like a shotgun mic to focus their capture on talent in front of the camera. Cardioid mode has a tighter pickup pattern that’s useful for recording voiceovers, while Figure-8 mode captures audio from in front and behind simultaneously when recording conversations.\nThere’s 32GB of storage inside each transmitter that captures a stereo audio backup in addition to what a connected device is recording. The Mic Pro system is compatible with most devices using its wireless receiver with USB-C or audio cables, but a direct Bluetooth connection is easier when pairing with smartphones or Insta360’s various cameras including its X5, Go Ultra, and Ace Pro 2.",
+  "published_at": "2026-05-20T14:04:42Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-20T15:00:11.419201Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Audio",
+      "Gadgets",
+      "News",
+      "Tech"
+    ]
+  }
+}

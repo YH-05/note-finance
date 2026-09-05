@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.com/features/preview/github-app",
+  "title": "GitHub Copilot App",
+  "raw_text": "From issue to merge, in one app\nJoin the waitlist to stay informed and get notified when we expand access to the GitHub Copilot app technical preview—a new desktop experience for agent-driven development built natively on GitHub.\nWhat you get in the technical preview\nThe full dev lifecycle\nPick up an issue or PR from your inbox, put agents on it, review the diff, and merge. Or let an agent close the loop for you.\nParallel agents, fully in view\nRun multiple agent sessions across repos, each isolated and tracked in real time.\nBuilt to adapt to how you work\nAutomate recurring workflows and extend agents with MCP servers and your own custom skills.\nTell us about yourself, and we’ll see if you’re a good fit for the preview.\n* All fields marked with an asterisk are required.\n* The GitHub Copilot app is currently only available to existing Copilot Pro, Pro+, Max, Business and Enterprise users. Access for Copilot Free and new Copilot customers coming soon.\n** Copilot Business and Enterprise availability requires enterprise/organization-level opt-in for preview and Copilot CLI enablement.",
+  "published_at": "2026-06-02T17:58:55Z",
+  "author": "theanonymousone",
+  "collected_at": "2026-06-03T03:00:46.841039Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

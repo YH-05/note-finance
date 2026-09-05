@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/934172/google-io-gemini-ai-trust-personal-data",
+  "title": "Google’s AI future demands trust — and your personal data",
+  "raw_text": "Google has big promises for its AI-powered future — and a lot of it depends on your trust. At I/O 2026, Google described a bunch of new tools that it claims will make your life easier. Gemini Spark, Google’s always-on AI agent, can help organize an upcoming event, while Daily Brief can offer a rundown of what to expect during your day. Google is even expanding access to Gmail’s AI inbox, which can generate custom to-do lists and draft personalized replies based on your emails.\nGoogle’s AI future demands trust — and your personal data\nGemini Spark is giving Google a whole new level of access to your information.\nGemini Spark is giving Google a whole new level of access to your information.\nMany of these features seem genuinely useful, but at the heart of each of them is an AI engine that runs on a trove of personal information. While other AI companies, like OpenAI, Microsoft, and Anthropic, let you connect other apps and data that you use, Gemini’s access to the personal data already stored across Google’s services lies behind a simple opt-in menu — one of its key advantages in the AI race.\nGoogle first started dipping into personalization in 2024, when it integrated Gemini into Workspace apps like Gmail, Docs, Sheets, Slides, and Drive in 2024, allowing its AI chatbot to do things like sift through your files or draft an email. Gemini’s Deep Research feature can even tap into your emails, Drive, and chats and use them as sources for its reports.\nOver the past several months, Google has continued to expand these integrations. It introduced “Personal Intelligence” in January, a feature that allows Gemini to reason across Gmail, Google Photos, Search, and your YouTube history without prompting. That means Gemini can automatically surface details from across your accounts to personalize its responses. “Millions of people are using it [Personal Intelligence] every single day, they found it so helpful for things like personalized product and trip recommendations, or acting as a thought partner for navigating big decisions in life, like a career change,” Josh Woodward, the head of Google Labs, the Gemini app, and AI Studio, said during I/O 2026.\nEven though it’s completely optional to connect your Workspace apps, Search history, Photos, and other information to Gemini, it seems like Google’s AI future hinges on people doing exactly that. Daily Brief, which is rolling out to Google AI Plus, Pro, and Ultra subscribers, scans for updates from your Gmail and flags events from your Calendar.\nBut Gemini Spark is diving deeper into your information, as Google is pitching it as an AI personal assistant that can work across connected Workspace apps 24/7, creating continually updated study guides, generating to-do lists based on meeting notes, and even automatically scanning monthly credit card statements for hidden subscription fees. But the connections to Workspace apps are just the beginning, as Gemini Spark will also be able to plug into third-party services, like Canva, OpenTable, Instacart, Spotify, Expedia, Adobe, and more.\nGoogle is even planning to give Gemini Spark access to local files on Mac computers, similar to OpenClaw, the open-source AI agent platform that poses a range of security risks. During a demo at I/O, Woodward showed how he could use Spark to send an email to a dog boarder in preparation for an upcoming trip. He selected documents across his computer and asked Spark to craft an email using his dogs’ allergies and vaccination records.\nMany people might draw the line at giving an AI system access to their whole computer. But if the rise of OpenClaw tells us anything, it’s that AI is moving from being a novelty to a real productivity tool that demands access to our digital lives. It’s just a matter of whether people trust the companies behind the systems enough to hand over their personal data — and more importantly, where they’ll set a boundary on what’s too private.",
+  "published_at": "2026-05-19T21:00:00Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-20T03:02:06.836290Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Google I/O 2026",
+      "Report",
+      "Tech"
+    ]
+  }
+}

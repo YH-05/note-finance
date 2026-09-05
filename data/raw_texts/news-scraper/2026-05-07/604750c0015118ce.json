@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/jobless-claims-jolts-confirm-higher-hire-no-fire-economy",
+  "title": "Jobless Claims & JOLTs Confirm 'Higher Hire, No Fire' Economy",
+  "raw_text": "With JOLTs data showing record hiring (and ADP signaling acceleration in job additions), today we get some signal on firings as the number of Americans filing for unemployment benefits for the first time was at 200k last week (below the 205k exp) and continuing to languish near multi-decade lows (near 1967 lows!!)...\nSource: Bloomberg\nNon-seasonally adjusted across all the states saw a 299k drop in claims led by Rhode Island and Arizona (California and Michigan saw the biggest increases)...\nContinuing jobless claims also fell, now at 1.766 million Americans receiving unemployment benefits (better than the expected 1.8 million expected) and at its lowest since Jan 2024...\nSource: Bloomberg\nFinally, we note that Challenger, Gray, & Christmas pointed out that in April, Artificial Intelligence (AI) led all reasons for job cuts for the second month in a row, with 21,490 announced during the month, 26% of total cuts. This reason has been cited for 49,135 cuts this year, and it is the third-leading cause of layoff plans.\nAI accounts for roughly 16% of all 2026 job cut plans, up from 13% through March.\n“Technology companies continue to announce large-scale cuts and are leading all industries in layoff announcements,” said Andy Challenger, the company’s chief revenue officer.\n“Regardless of whether individual jobs are being replaced by AI, the money for those roles is.”\nOverall, Challenger, Gray, & Christmas says U.S.-based employers announced 83,387 job cuts in April, down 21% from the 105,441 cuts announced during the same month last year.\nAnother alternative labor market data source, Revelio Labs, shows a sizable rise in jobs this month - best since March 2025 (all adding up to a solid print for tomorrow)...\nLed by a big uptick in Services jobs...\nTaking all of that into account, it appears we have morphed into a 'higher hire, no fire' economy (but tomorrow's payrolls print could throw shade on that idea).",
+  "published_at": "2026-05-07T12:35:01Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-07T15:00:39.801997Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://putt.day/",
+  "title": "Show HN: Putt.day a daily mini golf game",
+  "raw_text": "<p>Article URL: <a href=\"https://putt.day/\">https://putt.day/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48510341\">https://news.ycombinator.com/item?id=48510341</a></p>\n<p>Points: 158</p>\n<p># Comments: 71</p>",
+  "published_at": "2026-06-12T22:56:06Z",
+  "author": "ellg",
+  "collected_at": "2026-06-13T09:01:30.369000Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

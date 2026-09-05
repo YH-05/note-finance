@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/bumble-is-getting-rid-of-the-swipe-ceo-says/",
+  "title": "Bumble is getting rid of the swipe, CEO says",
+  "raw_text": "Will dating app malaise finally kill off the swipe? For Bumble, at least, that seems to be the case.\nIn an interview with Axios on Thursday, Bumble CEO Whitney Wolfe Herd confirmed that Bumble will get rid of swiping, the defining feature of 2010s dating apps.\n“We are going to be saying goodbye to the swipe and hello to something that I believe is revolutionary for the category,” Wolfe Herd said.\nBumble is planning to overhaul its app later this year, following several disappointing quarters in which the app consistently lost paying users. In this year’s first quarter, Bumble’s paid users fell about 21% to 3.2 million, down from 4 million last year.\nRedesigning the app is a pretty serious intervention, signaling to investors that the situation is dire. But like any good CEO, Wolfe Herd has done some verbal gymnastics to argue that Bumble is doing a very good job at losing money.\n“This is a period of real transformation at Bumble over the past few quarters,” she said on this week’s quarterly earnings call. “We have executed a deliberate reset of our member base. We made a clear choice to prioritize quality over quantity, focusing on well-intentioned, engaged members. That decision reduced overall scale, but meaningfully improved the health of our ecosystem.”\nBased on Wolfe Herd’s past comments about Bumble’s new direction, the company is expected to lean into AI — Bumble is even working on an AI dating assistant called Bee, and Wolfe Herd has made many comments over the years about how AI will be “a supercharger to love and relationships.”\nOf course, dating apps already use AI to decide what users should be shown to one another. But Gen Z is trending more negative toward in-your-face AI features, and Wolfe Herd has expressed interest in more extreme futures, like having personal AI bots that date other AI bots for you. So, it’s unclear if these “Black Mirror”-like overtures will effectively attract users in their 20s. Bumble’s overhaul isn’t expected to launch until the last quarter of this year, so users will still be swiping for now.",
+  "published_at": "2026-05-07T19:06:17Z",
+  "author": "Amanda Silberling",
+  "collected_at": "2026-05-07T21:00:27.104531Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "Social",
+      "dating apps",
+      "bumble"
+    ]
+  }
+}

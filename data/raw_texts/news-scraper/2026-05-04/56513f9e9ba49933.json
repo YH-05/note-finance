@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+  "title": "Doordash adds AI tools to speed up merchant onboarding, edit photos of dishes",
+  "raw_text": "DoorDash on Monday added new AI-powered tools that let merchants speed up onboarding, edit photos to make dishes look better, and create websites based on their app listings.\nThe onboarding tool works similarly to the one Amazon launched in 2024. Merchants can point the tool to their website, from which it will automatically fetch information such as photos, store hours, and menu items to create a listing on the app. Merchants can review and edit all of this information before publishing the listing.\nDoorDash has also revamped its video library. The library now lets merchants tag dishes in videos so that customers can order those items directly. The library also shows stats such as total views, video-driven sales, and new customer sales.\nRestaurants are getting a few photo editing tools, too: AI Retouch can replace backgrounds, sharpen images, and optimize lighting without changing the dish; and AI Replate manipulates pictures of dishes so they look like they’re plated professionally, changing lighting and color. Merchants can also provide a reference image to apply a particular style to an existing image.\n“At DoorDash, we’re constantly building tools to help merchants succeed, from their very first day on the platform, to every order after. These new tools reflect our belief that the right technology should remove friction, not add it, so merchants can focus on what they do best: making great food and delivering incredible customer experiences,” Brian Tolkin, head of merchant product at DoorDash, said in a statement.\nThe company is adding new features to its commerce platform as well, one of which lets restaurant owners spin up a website based on existing DoorDash content, such as menu items and photos. The company said during a test of the new feature, merchants saw order conversion rates of nearly 10% on average.\nThe company has also added a new marketing campaign builder that lets merchants automate content creation, email outreach and scheduling.",
+  "published_at": "2026-05-04T13:00:00Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-05-04T15:00:27.679088Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Commerce",
+      "DoorDash",
+      "food delivery",
+      "Restaurants"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/openai-trial-elon-musk-sam-altman-live-updates.html",
+  "title": "OpenAI trial recap: Musk concludes testimony, lawyers spar over second witness",
+  "raw_text": "What you need to know\n- Judge Yvonne Gonzalez Rogers is weighing a request to strike some of the testimony from Jared Birchall, who manages Musk's family office.\n- Musk's lawyers are seeking to eliminate some of Birchall's testimony about xAI's bid to acquire OpenAI.\n- Birchall was also questioned about any possible restrictions on Musk's donor-advised funds.\n- Lawyers from OpenAI and Microsoft wrapped their cross-examination of Musk.\n- Musk said that his for-profit companies Tesla, SpaceX, X and Neuralink were all \"socially beneficial.\"\nElon Musk wrapped up his testimony on Thursday as the trial in his lawsuit against OpenAI CEO Sam Altman continued into its fourth day.\nOpenAI's attorney, William Savitt, cross-examined Musk in the morning. He asked Musk about the capped nature of Microsoft's investments in OpenAI, his involvement in negotiations about the company's structure, and whether he knew about the OpenAI nonprofit's recent initiatives.\n\"I don't know what's going on at OpenAI,\" Musk testified.\nSavitt also asked Musk about his competing artificial intelligence startup, xAI. While not the main focus of the case, Musk said it is \"partly\" true that xAI used some of OpenAI's models to train its own models, a process known as distilling. Musk also suggested that xAI has used OpenAI's technology to help build the company.\nMusk sued OpenAI, Altman, and Greg Brockman, the company's president, in 2024, alleging that they went back on their commitments to keep the artificial intelligence company a nonprofit and to follow its charitable mission. He claims that the roughly $38 million he donated to seed OpenAI, a company he co-founded, was used for unauthorized commercial purposes.\nOnce Musk wrapped up his testimony after roughly two hours of questioning on Thursday, his attorneys called Jared Birchall, who manages Musk's billions at his family office, as their next witness. Birchall testified about his knowledge of Musk's specific donations to OpenAI.\nJudge Yvonne Gonzalez Rogers oversaw the proceedings from federal court in Oakland, California. The trial will resume on Monday.\nCNBC's reporters covered Thursday's proceedings from the courtroom, as well as from CNBC's bureaus in San Francisco and Englewood Cliffs, New Jersey.",
+  "published_at": "2026-04-30T22:01:39Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.405730Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

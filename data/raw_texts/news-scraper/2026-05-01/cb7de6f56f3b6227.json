@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/04/beijing-bans-drone-sales-even-as-rest-of-world-buys-chinese-drones/",
+  "title": "Beijing bans drone sales even as rest of world buys Chinese drones",
+  "raw_text": "China’s new clampdown on drone sales and even the storage of drone components within the capital of Beijing stands out in a country that effectively built the global market for affordable commercial drones. The unprecedented citywide rules taking effect on May 1 come as authorities tighten drone regulations across the country and enforce flight restrictions more strictly.\nChinese officials are refining drone regulations because “enforcement and rules have been uneven or unclear,” said Lizzi C. Lee, a fellow on the Chinese economy at the Asia Society Policy Institute’s Center for China Analysis in New York City. Now it appears that Beijing officials are “experimenting with a more comprehensive, front-end approach” by implementing the citywide ban on drone sales and rentals—not to mention restricting the storage of drones and drone components within the city.\n“What’s pretty notable here is that this is not just about regulating use but also about controlling the entire lifecycle—sales, transport, and storage—of drones,” Lee told Ars. “That’s a much more preventive, system-level approach to eliminating unauthorized drone activity rather than just policing them after the fact.”\nOrdinary Beijing residents and businesses were already finding it difficult to buy drones in the run-up to the May 1 enforcement deadline. For example, the Associated Press reported that Chinese online shopping platforms were preventing customers from purchasing drones for delivery to Beijing addresses as of late April, while some consumer electronics stores were attempting to clear out their drone stocks by the deadline.",
+  "published_at": "2026-04-30T17:47:17Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-01T15:00:30.620269Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "china",
+      "commercial drones",
+      "dji",
+      "drone pilots",
+      "drones",
+      "unmanned aerial vehicles",
+      "unmanned aircraft systems"
+    ]
+  }
+}

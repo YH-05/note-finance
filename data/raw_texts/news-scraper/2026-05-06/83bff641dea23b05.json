@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+  "title": "OpenAI releases GPT-5.5 Instant, a new default model for ChatGPT",
+  "raw_text": "On Tuesday, OpenAI released a new foundation model called GPT-5.5 Instant, which will replace GPT-5.3 Instant as the default ChatGPT model. The company said the model reduces hallucination in sensitive areas such as law, medicine, and finance, while maintaining the low latency of its predecessor.\nOpenAI released the latest GPT-5.5 model last month with the company claiming improvements in areas like coding and knowledge work.\nThe new model also achieved a score of 81.2 in the AIME 2025 math test, compared to 65.4 for the older model. It also outperformed its predecessor on the MMMU-Pro multimodal reasoning benchmark, with a score of 76 vs. 69.2.\nThe release placed a particular emphasis on context management. GPT-5.5 Instant can use its search tool to refer back to past conversations, files, and Gmail to give you more personalized answers. This feature will be available to Plus and Pro users on the web, with plans to roll it out to mobile soon. OpenAI said that it plans to extend access to this feature to Free, Go Business, and enterprise users in the coming weeks.\nWith this update, ChatGPT will also show memory sources across all models to help you understand where it generated the answers from. Users can delete outdated sources or correct them if the answer was wrong. Crucially, the company said that if you share a chat with someone, they won’t be able to see the memory sources.\nFor developers, the GPT-5.5 model will be available through API as “chat-latest,” with 5.3 available as an option for paid users for only three months.\nThe company has faced rebuttal from previous model withdrawal moves. When OpenAI withdrew its GPT-4o model, there was significant backlash from users who related to the model’s “personality.” GPT-4o affirmed users’ choices frequently and that made them feel a connection to that particular model. Users who signed petitions to stop OpenAI from retiring it described the model as their “best friend” or “a mirror.” Despite the outcry, GPT-4o was deprecated in February 2026.",
+  "published_at": "2026-05-05T17:00:00Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-05-06T03:00:27.066599Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "ChatGPT",
+      "OpenAI"
+    ]
+  }
+}

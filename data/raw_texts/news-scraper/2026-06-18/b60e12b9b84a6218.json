@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/jim-cramer-intel.html",
+  "title": "Jim Cramer says this chipmaker is still a buy after soaring more than 200% this year",
+  "raw_text": "Key Points\n- CNBC's Jim Cramer named Intel as his top stock pick, arguing that investors should focus on the company's future AI opportunities rather than its massive rally over the past year.\n- He said growing demand for AI infrastructure and Intel's expanding foundry business could drive years of additional growth for the chipmaker.",
+  "published_at": "2026-06-17T22:17:50Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.778312Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://waymo.com/blog/2026/06/waymo-premier/",
+  "title": "Waymo Premier",
+  "raw_text": "As we scale and bring our fully autonomous ride-hailing service to more people across the globe, we continue to refine the Waymo experience and deliver more for our riders. You spoke, and we listened to how we can offer an even more elevated experience for you, our top riders. Introducing: Waymo Premier.\nWaymo Premier is a new invite-only membership program built for those who rely on us most. For a monthly fee, members gain access to a suite of exclusive benefits designed to make their journey more seamless and rewarding:\nPriority Pickups: Skip the line with prioritized matching\nRide Savings: Earn 10% Waymo Cash back on every trip, and even more during busy times.\nEarly Access: Be among the first to experience Waymo in new cities, as we expand.\nFlexible Cancellations: Peace of mind with up to five free cancellations per month.\n“I never got my driver's license, and I rely on Waymo to commute to an office every day,\" said Sarah Paige Roland, a Waymo rider in Phoenix. \"I get privacy, time back, a safe ride, and I'm not obligated to talk to someone that I don't want to talk to. Adding cash back and priority pickups on top of that makes Premier a no-brainer for someone like me.\"\nWaymo Premier costs $29.99 per month and will be initially offered to select riders in San Francisco, Los Angeles, and Phoenix. Members will have access to greater reliability and value that will travel with them from city to city. We’ll scale the program to offer Premier membership to riders in more cities where the Waymo app is available in the future.\nWhether you're a daily commuter or a weekend explorer, Waymo Premier is our way of helping you get the most out of every ride. Ready to become a member? Keep an eye on your Waymo app for your exclusive invitation.",
+  "published_at": "2026-06-11T16:10:02Z",
+  "author": "boulos",
+  "collected_at": "2026-06-12T03:01:08.044789Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

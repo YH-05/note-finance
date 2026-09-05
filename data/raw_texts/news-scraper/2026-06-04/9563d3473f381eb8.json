@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/942808/nintendo-switch-2-replaceable-battery-eu",
+  "title": "Nintendo confirms it will sell a new Switch 2 with replaceable battery in the EU",
+  "raw_text": "Nintendo is planning to launch versions of Switch 2 hardware in the EU that will let users easily replace the battery. To meet its obligations from a new EU regulation that’s set to go into effect on February 18th, 2027, Nintendo says on its website that it is “implementing measures to comply with these requirements by preparing versions of products to meet the Regulation.”\nNintendo confirms it will sell a new Switch 2 with replaceable battery in the EU\nIt will be available by February 2027, when new EU rules go into effect.\nThanks to EU regulations, gadgets with user-replaceable batteries are making a comeback, as my colleague Dominic Preston wrote recently. Starting on that February 2027 date, EU rules mandate that many types of gadgets, including portable game consoles, must allow users to relatively easily remove and replace their batteries.\nNintendo doesn’t specify exactly what it will change with this new version of the Switch 2 to make battery replacements easier — currently, taking out the battery in the Switch 2 is an involved, multi-step process, as shown by iFixit. It’s also unclear if a revised model with a replaceable battery will be available in other regions. Nintendo didn’t immediately reply to a request for comment.\nOn its website, Nintendo says that, “For current products with model numbers starting with ‘BEE’” — which is used with the Switch 2, as shown in Nintendo’s filings with the FCC — “future compliant versions will have unique model numbers and the additional code ‘OSM’ visible on the packaging, designating them as separate products for regulatory purposes.” Switch 2 controllers like the Pro Controller and the Joy-Cons also carry the BEE moniker, and we’ve asked Nintendo if those will have user-replaceable batteries as well.",
+  "published_at": "2026-06-04T00:04:04Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-06-04T03:00:16.975854Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Gaming",
+      "News",
+      "Nintendo",
+      "Policy"
+    ]
+  }
+}

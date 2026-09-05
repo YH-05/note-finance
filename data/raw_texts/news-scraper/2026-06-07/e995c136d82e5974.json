@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://github.com/ValveSoftware/GameNetworkingSockets/issues/398",
+  "title": "Valve P2P networking broken for more than 2 months",
+  "raw_text": "Major P2P issues in Israel and possibly other middle east countries #398\nDescription\nI am not sure i am in the right place but we are all out of options here since we couldn't get any help from the game or steam support.\nSince around the 13/03, there is a major systemic problem in every game that uses Steam Networking for P2P games.\nFor example, in the game Street Fighter 6, when playing with one Israeli or another with PC to PC the ping between players are ~120ms.\nwhen playing with European players the ping is around 60-80ms which means it works well, it currently affects only Israeli players when playing PC to PC.\nSince Street Fighter 6 supports cross-play we have tried playing PC to PS5 and the ping is a flawless 5-10ms.\nIt currently affects all players in Israel, we have a few dozens in our community with several ISPs, we have of course attempted speaking to our ISPs and port forwarding and we have found no network issues on their part. in other P2P games that don't use steam networking the issue is not existent(for example, Tekken 8).\nWe are currently don't know what we can do with this issue since nothing we have done have helped and 120ms is too high for it to be playable in any P2P game.\nWhile I can't confirm but heard reports from players in other middle eastern countries like Egypt that they also report on this issue so it could be region-wide.",
+  "published_at": "2026-06-07T03:21:52Z",
+  "author": "babuskov",
+  "collected_at": "2026-06-07T09:00:50.503006Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

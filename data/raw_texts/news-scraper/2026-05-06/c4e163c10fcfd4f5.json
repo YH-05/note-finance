@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/astrazeneca-stock-az-fda-panel-cancer-drug.html",
+  "title": "AstraZeneca stock falls after FDA panel votes against new cancer drug",
+  "raw_text": "Shares of AstraZeneca turned lower Friday after U.S. regulatory advisors voted against approving its experimental cancer drug.\nAn advisory panel for the U.S. Food and Drug Administration late Thursday voted 6-3 against AstraZeneca's oral drug camizestrant intended for the treatment of a type of breast cancer tumor, citing concerns around trial design.\nThe FDA generally follows the recommendations of its advisory committees, but isn't bound to.\nAstraZeneca's London-listed shares fell 2% in morning trading.\nThe members voting against the drug's approval weren't convinced that the trial proved that early switching to camizestrant improved long-term survival rates compared to other ways of treating the disease.\nThe vote was based on the Phase 3 results for the clinical trial SERENA-6 presented in 2025, which showed a 56% reduction in the risk of disease progression or death, compared to standard of care.\nWhile the vote outcome is negative for the near-term regulatory path, the debate is nuanced, said Barclays analyst James Gordon.\nThe panel didn't dismiss the drug's efficacy or future potential, it simply concluded that the SERENA-6 trial didn't prove that acting on tumor detection before radiographic progression improves long-term outcome for patients, Gordon said.\nThe panel didn't voice significant concern about the toxicity or overall safety of the drug.\nAstraZeneca said it would continue to work with the FDA as it completes its review of the application for camizestrant. It still believes strongly in the drug, Executive Vice President of Oncology Haematology R&D Susan Galbraith said in a statement.\nDoctors suggested that the data do not support an early change in therapy and instead introduce unknown risks by speeding up the treatment sequence, potentially reducing time on otherwise effective options, noted Jefferies analysts. \"Overall, the group characterised SERENA‑6 as advocating too large a shift in clinical practice for what they viewed as a modest and uncertain benefit,\" the analysts noted.\nEven so, Jefferies said this wasn't part of their Buy thesis on the stock and that SERENA-6 was only a small part of the company's $80 billion 2030 sales goal. Outside of a potential sentiment hit, this should not be a major issue, they said.\nAstraZeneca shares have risen about 25% over the past 12 months, outperforming the U.K. blue-chip index FTSE 100's 20%. It had a string of positive data readouts over recent months, and a catalyst-rich period ahead with 11 more readouts expected in 2026.\nOn Wednesday, the company beat sales and profit expectations for the first quarter and said that it remains on track to reach its mid-term goals.",
+  "published_at": "2026-05-01T09:51:15Z",
+  "author": null,
+  "collected_at": "2026-05-06T03:17:21.709828Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

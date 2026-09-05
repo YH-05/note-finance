@@ -1,0 +1,30 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/video/neas-tiffany-luck-says-enterprises-are-still-figuring-out-their-ai-roi/",
+  "title": "NEA’s Tiffany Luck says enterprises are still figuring out their AI ROI",
+  "raw_text": "Tokenmaxxing was the hottest trend in Silicon Valley earlier this year, with CEOs encouraging employees to push AI usage as far as it would go. Then the bill came due. Uber reportedly blew through its annual AI budget in a few months, some companies cut Claude licenses for parts of their org, and Meta killed its internal leaderboard.\nThis tension between hype and ROI is exactly where NEA partner Tiffany Luck lives these days. She got her start convincing companies that e-commerce was the future, and now she’s all in on AI, especially when it comes to the possibilities for “magic moments” in the consumer business.\nOn this episode of TechCrunch’s Equity podcast, Luck joins Rebecca Bellan to talk about the future of personal agents, her thoughts on this year’s AI IPOs, and how startups are stepping in to help enterprises track return on AI spend.\nSubscribe to Equity on YouTube, Apple Podcasts, Overcast, Spotify and all the casts. You also can follow Equity on X and Threads, at @EquityPod.",
+  "published_at": "2026-06-17T20:17:38Z",
+  "author": "Theresa Loconsolo",
+  "collected_at": "2026-06-17T21:00:27.528739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Venture",
+      "AI",
+      "AI adoption",
+      "AI agents",
+      "AI IPO",
+      "anthropic ipo",
+      "Enterprise AI spend",
+      "Forward deployed engineers",
+      "NEA partner",
+      "OpenAI",
+      "tiffany luck",
+      "venture capital"
+    ]
+  }
+}

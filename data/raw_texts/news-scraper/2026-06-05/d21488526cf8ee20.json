@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/06/robotaxis-dont-cut-traffic-any-more-than-ride-hailing-study-finds/",
+  "title": "Autonomous vehicles were supposed to cut traffic—what if they don't?",
+  "raw_text": "The age of robotaxis, long the preserve of science fiction, is now a reality, at least in a handful of American cities. It took just over a decade to get from the DARPA Grand Challenges to the start of Waymo’s commercial service in California, albeit initially with a safety driver on board.\nProponents of the technology, which has attracted at least $100 billion in investment, say robotaxis will be safer than human-driven vehicles. And last year, Waymo’s data showed its cars were involved in many fewer crashes than human drivers, with much lower insurance claims, although recent issues with school buses and flooded roads show the technology isn’t perfect.\nBut safety isn’t the only selling point: Autonomous vehicles are said to cut traffic. But data from Waymo’s reports to the California Public Utilities Commission shows that, at least in that regard, robotaxis are no better than ride-hailing services like Lyft and Uber.\nIs there anyone in there?\nThe study, published in Transport Findings by MIT Transit Lab Assistant Director of Research Awad Abdelhalim, analyzes data from August 2023 through December 2025, a roughly 1,000-day period. During that time, Waymo’s robotaxis completed 13.8 million trips for 19.3 million passengers over a total traveled distance of 86.3 million miles (138.8 million km), growing at a rate of around 15 percent a month. Abdelhalim wanted to see what proportion of those rides were made by empty robotaxis—known as “deadheading”—and how the number changed over time.\nInitially, only 36 percent of Waymo’s miles were driven with a passenger onboard. But by the end of the study period, that had increased to around 56 percent and then plateaued, Abdelhalim found. So about 44 percent of Waymo’s driven miles are conducted with empty EVs.\nI’m not entirely surprised; on each of my recent visits to San Francisco, the sensor-festooned Jaguar I-Paces have been thick on the ground, but rarely did I spot any humans riding in them.\nIn fact, there are two different kinds of deadheading: empty vehicles driving around waiting to be assigned a ride and empty vehicles driving to collect their passenger(s). And Waymo has been steadily reducing the number of miles driven empty en route to a pickup as it expands its fleet. The number of deadhead miles per trip has also been declining, in part due to Waymo’s introduction of freeway service, the author suggests.",
+  "published_at": "2026-06-03T15:13:03Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-06-05T03:02:35.615962Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "traffic congestion",
+      "waymo"
+    ]
+  }
+}

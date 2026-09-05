@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/safety-officials-finally-have-a-good-idea-of-what-a-big-rocket-explosion-can-do/",
+  "title": "Safety officials finally have a good idea of what a big rocket explosion can do",
+  "raw_text": "Last week’s explosion of a New Glenn rocket at Cape Canaveral, Florida, was clearly a setback for Blue Origin and NASA, but it was a learning experience for safety officials looking to open up the spaceport to hundreds more launches per year.\nThe launch base on Florida’s Space Coast is gearing up for a flurry of new arrivals. SpaceX is building multiple launch pads for its super-heavy Starship rocket, which will operate within a few miles of launch pads operated by SpaceX rivals Blue Origin and United Launch Alliance. Two other companies, Stoke Space and Relativity Space, are also developing launch sites along a narrow stretch of coastline at Cape Canaveral Space Force Station.\nAll of them have, or will soon have, rockets burning methane or liquified natural gas, replacing legacy launch vehicles fueled by kerosene, liquid hydrogen, or solid propellants. There are good technical reasons for making the switch, but until last week, engineers had scant real-world data on the damage that millions of pounds of methane and liquid oxygen would cause if a fully loaded rocket exploded on the launch pad or soon after liftoff.\nBy 2036, the Space Force projects that the spaceport could support up to 500 launches per year, five times last year’s total. The combination of these lofty launch forecasts and the Space Force’s conservative safety protocols has caused some tension at the Cape Canaveral spaceport.\nCompetitors of SpaceX have worried that daily launches and landings of the company’s reusable super-heavy Starship rocket might force evacuations of their own facilities for safety reasons. The US Space Force, which runs the spaceport, maintains strict rules for methane/liquid oxygen, or methalox, rockets. Comparatively, kerosene and hydrogen are known quantities.",
+  "published_at": "2026-06-05T13:55:05Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-06-05T15:00:26.224739Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "blue origin",
+      "launch",
+      "new glenn",
+      "sld 45",
+      "space force"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/stellantis-tells-1point3-million-jeep-owners-to-park-outside-over-fire-concerns.html",
+  "title": "Stellantis tells owners of 1.3 million Jeeps to park outside over fire concerns",
+  "raw_text": "Stellantis is recalling more than 1.3 million Jeep SUVs and trucks worldwide over fire concerns and is urging owners to park outside and away from structures or other vehicles until a fix is completed.\nIn a filing with the National Highway Traffic Safety Administration on Tuesday, Stellantis said the recall covers 2021 through 2025 model-year Jeep Wrangler SUVs and Jeep Gladiator trucks due to an electrical connection issue in the electric-hydraulic power steering pump wiring.\nThe automaker said the issue could, in rare circumstances, cause combustible materials to overheat, potentially leading to a vehicle fire.\nA loose electrical connection can result in melting of the connection, which could ultimately lead to a vehicle fire, added Stellantis, whose brands also include Fiat, Chrysler and Peugeot.\nStellantis said it was aware of customer assistance records and field reports of at least 72 fires that may be tied to the issue, and one injury.\nThe recall includes nearly 1.08 million vehicles in the United States, 106,000 in Canada, 23,000 in Mexico and about 125,000 in other markets around the world, Stellantis said.\nNHTSA opened an investigation in September 2024 into nearly 800,000 Jeep Wrangler and Gladiator vehicles from the 2021-2023 model years over engine fire concerns, saying the hydraulic power steering pump wiring may overheat and cause a vehicle fire, even when the vehicle is parked with the ignition in the \"Off\" position.\nStellantis said in its filing that in 2023 and early 2024, it investigated fires in some Wrangler and Gladiator vehicles but closed the investigation due to the low rate of fires. In August 2024, it reopened the investigation after an increase in incidents originating from the suspect electrical connection.\nIt said it had worked extensively to determine the root cause over more than a year through vehicle buybacks, part return and analysis, CT scans and X-rays, material analysis, investigating vehicle design and other testing before determining in late May the issue posed an unreasonable risk to safety.\nStellantis said on Tuesday the recall will involve inspecting and possibly repairing or replacing the wiring harness or electric hydraulic power steering pump. It said it is working to accelerate remedy availability and anticipates a recall fix no later than July.",
+  "published_at": "2026-06-09T13:40:16Z",
+  "author": null,
+  "collected_at": "2026-06-09T15:27:05.907441Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

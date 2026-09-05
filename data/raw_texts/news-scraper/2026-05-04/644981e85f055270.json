@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/is-your-purosangue-suv-not-sharp-enough-ferrari-has-you-covered/",
+  "title": "Is your Purosangue SUV not sharp enough? Ferrari has you covered.",
+  "raw_text": "Did you know that SUVs now account for 6 in 10 new vehicles sold in Europe? That’s even higher than in the US or China, where market share for lifted hatchbacks currently runs at about 40 percent. So the fact that Ferrari decided to enter the segment with the Purosangue in 2023 should be seen clearly in that context. Anyway, Four-seat Ferraris aren’t entirely unheard of: I remain a big fan of the looks of the shooting brake FF and GTC4Lusso—if not the reliability of the latter.\nBut the test drivers in Maranello (where Ferrari’s factory is) must have found something a little lacking with the way the Purosangue drove because they got to work on an upgrade for the SUV, which debuted this week. It’s a new Handling Speciale option, featuring new active suspension calibration that better resists the body’s roll, pitch, and yaw, something Ferrari says makes the Purosangue feel more compact than its 16.3 feet (4.9 m) might suggest. Expect Ferrari’s always-quick steering to feel even sharper, then.",
+  "published_at": "2026-05-01T15:23:38Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-04T03:00:31.682590Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Ferrari Purosangue"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/elon-musk-loses-trial-accusing-sam-altman-openai-of-stealing-a-charity/",
+  "title": "Elon Musk took too long to sue OpenAI, jury unanimously agrees",
+  "raw_text": "Elon Musk took too long to file his lawsuit that accused OpenAI of stealing a charity, a nine-person jury unanimously decided Monday.\nMusk sued OpenAI in 2024 for making a “fool” out of him after Musk donated $38 million to kick-start OpenAI as a nonprofit, only to later be blindsided when OpenAI created a for-profit arm that he felt gutted funding for the charity while enriching executives like Sam Altman and Greg Brockman.\nBut the jury found that Musk was aware of OpenAI’s restructuring plans as early as 2021 and therefore missed the statute of limitations requiring him to bring the lawsuit within three years, The New York Times reported. Because Musk took too long to file the litigation, the jury deemed Altman and Brockman not liable for any of the claims that Musk brought against OpenAI, the NYT reported. The jury also let Microsoft off the hook, finding no liability for the OpenAI investor after Musk alleged they aided OpenAI’s get-rich scheme.\nJudge Yvonne Gonzalez Rogers almost instantly agreed with the jury’s decision, the NYT reported.\nShe thanked the jury and reminded them that they can talk to “anyone about anything” once they feel comfortable discussing the case, the NYT reported.",
+  "published_at": "2026-05-18T18:09:41Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-05-18T21:00:31.128048Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "Artificial Intelligence",
+      "Elon Musk",
+      "openai",
+      "sam altman",
+      "xAI"
+    ]
+  }
+}

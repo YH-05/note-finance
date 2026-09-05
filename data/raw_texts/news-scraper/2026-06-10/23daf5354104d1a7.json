@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/sam-bankman-fried-files-formal-request-for-presidential-pardon-.html",
+  "title": "Convicted FTX founder Sam Bankman-Fried files formal request for Trump pardon",
+  "raw_text": "Sam Bankman-Fried has formally submitted a request for a presidential pardon to President Donald Trump, according to information listed on the U.S. Department of Justice Office of the Pardon Attorney website.\nThe co-founder of the now defunct FTX crypto exchange is currently serving a 25-year federal prison sentence after he was found guilty of orchestrating a massive fraud scheme that misused billions of dollars in customer funds at FTX and its affiliated trading firm, Alameda Research.\nThe exact date of the filing isn't clear but DOJ records indicate the request for \"pardon after completion of sentence\" was submitted in 2026 and is pending.\nTrump said in a January interview with The New York Times that he has \"no intention of pardoning\" several high-profile people including Bankman-Fried.\nTrump has issued more than 1,400 pardons and commutations so far in his second term, according to the Department of Justice, including more than 1,200 Jan. 6-related cases. During his first term, he granted 238 pardons and commutations in total.\nThe White House declined to comment for this story.",
+  "published_at": "2026-06-08T19:20:32Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.447981Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

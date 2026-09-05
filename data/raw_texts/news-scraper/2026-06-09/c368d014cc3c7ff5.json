@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/deutsche-bank-says-robinhoods-prediction-market-could-boost-its-stock.html",
+  "title": "Robinhood is making a move in prediction markets. Deutsche Bank thinks it could turn the stock around",
+  "raw_text": "Recent moves by trading platform Robinhood into prediction markets could boost the stock, which is down more than 40% from its 52-week high, according to Deutsche Bank. The bank in a Friday note reiterated its buy rating on the stock and hiked its price target to $98. That implies an 11% gain from Thursday's close. On Thursday, Robinhood announced that it was starting to direct some of its event contracts to Rothera, the prediction market it backed in a joint venture with Susquehanna International Group. Select event contracts related to the World Cup and professional baseball will be routed to the platform. That should be a boost to the company, which already processes large volumes of event contracts, analyst Brian Bedell said. HOOD 1Y mountain Robinhood 1-year. \"Today's Rothera launch is strategically timed with the 2026 World Cup to drive engagement on this fast-growing asset class, which has already seen over 16bn contracts traded year-to-date in 2026,\" Bedell wrote. While some contracts will be routed toward Rothera, Robinhood will still feature event contracts from Kalshi and ForecastEx, Interactive Brokers ' prediction market platform. But lower fees on Rothera's contracts could make the platform could be attractive to traders, Bedell noted. Rothera's fees will be capped at 1 cent per contract, similar to ForecastEx's fee structure, but less than Kalshi's maximum of 2 cents per contract. \"The new exchange, combined with a revised lower-fee structure, (albeit maintaining consistent levels of monetization) confirms management's prior message of providing a best-in-class pricing for prediction markets to customers, and we updated our volume forecasts to better reflect potentially greater user participation,\" Bedell wrote. Correction: This story has been revised to accurately reflect the status of the Rothera platform. A previous version misstated that Thursday's announcement did not amount to an official launch of the prediction market exchange.",
+  "published_at": "2026-06-05T17:58:02Z",
+  "author": null,
+  "collected_at": "2026-06-09T03:19:26.188635Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

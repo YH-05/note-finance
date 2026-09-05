@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606081115",
+  "title": "明日の為替相場見通し＝１６０円台前半での一進一退も",
+  "raw_text": "【通貨】明日の為替相場見通し＝１６０円台前半での一進一退も\n米５月雇用統計は、非農業部門雇用者数が予想を上回った。また、イスラエルとイランの攻撃の応酬が伝わり、原油価格は強含む状態が続いている。ただ、ドル買い・円売り姿勢は強いものの、１６０円台後半に向けては政府・日銀による為替介入も警戒されている。このため、依然として１６０円近辺での膠着状態が予想される。１０日の米５月消費者物価指数（ＣＰＩ）の発表を控え、やや様子姿勢も強まりそうだ。\n出所：MINKABU PRESS",
+  "published_at": "2026-06-08T08:38:00Z",
+  "author": null,
+  "collected_at": "2026-06-08T09:00:22.074684Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/kalshi-doubles-valuation-in-5-months-hitting-22-billion/",
+  "title": "Kalshi doubles valuation in 5 months, hitting $22B",
+  "raw_text": "Prediction market startup Kalshi announced on Thursday a $1 billion Series F round, valuing the company at $22 billion. That’s double the $11 billion valuation Kalshi nabbed just five months ago after raising a $1 billion Series E. This latest round was led by Coatue, with participation from Sequoia, Andreessen Horowitz, and Paradigm.\nThe startup told Bloomberg that its annualized revenue exceeds $1.5 billion.\nKalshi, alongside rival Polymarket, ushered in the boom in prediction markets where consumers place bets on everything, from what stars are wearing at the Met Gala, to which sports team will win the next game.\nIn a blog post, Kalshi said that institutional trading on the platform has increased 800% in the past six months and that it hosts 90% of prediction market activity in the U.S. (Polymarket has been working to unroll remaining restrictions on its U.S. operations from a ban imposed in 2022.)",
+  "published_at": "2026-05-07T18:02:59Z",
+  "author": "Dominic-Madori Davis",
+  "collected_at": "2026-05-08T03:00:26.767680Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Startups",
+      "Venture",
+      "In Brief",
+      "Kalshi",
+      "Polymarket",
+      "prediction market"
+    ]
+  }
+}

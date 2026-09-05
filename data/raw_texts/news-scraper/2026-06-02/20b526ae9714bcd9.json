@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/spacex-sets-aside-up-to-5percent-of-shares-in-ipo-for-employees-and-friends.html",
+  "title": "SpaceX sets aside up to 5% of shares in IPO for certain employees and friends",
+  "raw_text": "SpaceX has reserved up to 5% of stock being sold in its initial public offering for purchase by \"certain employees and persons\" in a direct share program, according to an amended filing out Monday.\nThe offering is expected to bring in a record sum, in the range of $75 billion, after SpaceX was valued earlier this year at $1.25 trillion by Elon Musk, when he merged the company with xAI, his artificial intelligence startup. Only two tech companies — Facebook and Alibaba — have been valued at even $100 billion after their first day of trading on U.S. exchanges.\nThrough direct share programs, companies can set aside a certain portion of the offering to employees, customers and even friends. SpaceX said in its filing that participants would be \"selected based on the discretion of our executive officers\" and that the stock would not be subject to lock-up restrictions.\nThe provision allows certain individuals to reap the kind of benefits that are mostly accrued by large money managers with close relationships to their IPO underwriters.\nCompanies including Airbnb, Uber and Rivian have included direct share programs in their offerings. And when Musk led Tesla through the IPO process in 2010, his electric vehicle maker included up to 1.28 million shares of the 13.3 million it sold in the IPO for \"sale to business associates, directors, employees and friends and family members of our employees and Tesla customers who have received delivery of a Tesla Roadster from Tesla,\" according to its prospectus.\nSpaceX's roadshow could start this week, with the company potentially debuting on the Nasdaq as soon as June 12. Goldman Sachs has coveted the lead left position for the offering, followed by Morgan Stanley. However, Morgan Stanley is administering the direct share program, the prospectus says.\nThe company's amended IPO filing also added details about SpaceX's business relationship with Anthropic, which is now both a customer and competitor to the company's AI unit.\nThe disclosure clarifies that a lucrative neocloud deal for SpaceX could end after just six months.\nThe prospectus said that SpaceX is leasing \"compute capacity\" to Anthropic equivalent to \"approximately 325,000 NVIDIA GPUs\" at its Colossus and Colossus II facilities in Greater Memphis.\nAfter an \"initial three-month period,\" the filing said, the agreements the companies made \"may be terminated by either party upon 90 days' notice.\"\nThose agreements included Anthropic paying SpaceX $1.25 billion per month through May 2029, starting after a two-month \"ramping up\" period when it will pay a lower fee.\nMusk had revealed some of the previously undisclosed details in a post on X, the company's social network, before its amended filing was published.\nOn Monday, Anthropic said it confidentially filed its own IPO prospectus with the Securities and Exchange Commission, setting up another potentially historic share sale for investors.",
+  "published_at": "2026-06-01T18:46:19Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.575272Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

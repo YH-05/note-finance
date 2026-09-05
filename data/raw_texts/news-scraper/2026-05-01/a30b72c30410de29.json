@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/01/alphabet-is-winning-the-ai-revolution-heres-how-mike-khouw-is-trading-it.html",
+  "title": "Alphabet is winning the AI revolution. Here's how Mike Khouw is trading it",
+  "raw_text": "Alphabet (aka \"Google\") is clearly firing on all cylinders, more cylinders perhaps than the Street even realized it had. The quarter was frankly a blowout. Surging cloud revenue and raised capital expenditure (capex) guidance demonstrate that the company's enormous investments are potentially paying off more quickly than many—perhaps even many within the company—had anticipated.\nThe takeaway could not have been clearer: Alphabet isn't just surviving the AI revolution — in many ways, it's leading it.\nWhy?\nBecause while their investments are enormous, this company is making money now in this space. Cloud and artificial intelligence were the undisputed stars of the quarter. Google Cloud continues to grow rapidly, capturing enterprise workloads as businesses accelerate their AI buildouts. Demand for Gemini-powered services and AI infrastructure is outpacing even the most optimistic forecasts. In a sign of supreme confidence, management raised full-year capex guidance to as much as $190 billion — a jaw-dropping figure that signals Alphabet is playing for generational dominance, not quarterly optics.\nSo how do you make money on it now using options?\nTHE TRADE:\n• Buy August 400-Strike calls\n• Sell June 350/420 Strangle\n• Level of difficulty: Advanced\nI favor buying the August $400 strike calls which capture the next earnings event, financed in part by selling the June 350/420 strangle. By selling the 350 puts one takes on the risk of being compelled to purchase the stock at that strike price, but that's where the stock was trading before this earnings release. There are probably many investors wishing they had done so - this creates a little pent-up demand at that level. Meanwhile, selling the June 420 calls reduces the cost still further.\nIn fact it's likely that this trade, even though it does require a premium outlay, would actually be marginally profitable at the earlier June expiration even if the stock remained unchanged between now and then.\nSelling the 420s does cap the upside potential for now, but it leaves open the possibility to sell more premium against the August calls after June expiration, maintains a modestly bullish position giving the stock some time to reset before resuming higher.",
+  "published_at": "2026-05-01T15:33:37Z",
+  "author": null,
+  "collected_at": "2026-05-01T21:19:55.136429Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

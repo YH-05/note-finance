@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20208-record-green-lending-claimed-for-thai-data-centre-project.html",
+  "title": "Record green lending claimed for Thai data centre project",
+  "raw_text": "Data centre and fibre solutions provider Digital Edge and private power producer B.Grimm Power have announced the successful signing of a US$880 million green loan to finance the development of the joint venture's 100MW BKK Campus in Chonburi in eastern Thailand.\nThe transaction – described as the largest financing ever secured for a data centre project in Thailand – is the latest stage of Digital Edge's US$1 billion joint-venture investment plan with B.Grimm Power.\nDigital Edge says it is also the third consecutive national record-setting green loan Digital Edge has closed in Asia-Pacific, following what it calls landmark financings in South Korea and Indonesia.\nLocated within Thailand's Eastern Economic Corridor (EEC), the BKK Campus will provide the digital foundation needed to deploy AI and cloud workloads at scale, directly supporting Thailand's national digitisation strategy, which aims to catalyse investment across high-value industries – including digital infrastructure and AI – to drive long-term technological and economic growth.\nThis financing supports investments aligned with the Digital Edge Green Financing Framework, which underpins the company's stated ambition to achieve carbon neutrality by 2030, and aligns with B.Grimm Power's own decarbonisation ambitions in Thailand.\nThe BKK campus has been sustainably designed to deliver resilient, energy-efficient performance at scale, with an annualised power usage effectiveness (PUE) target of 1.25, LEED Silver certification on track for achievement, reduced water consumption through hybrid closed-loop cooling towers, and renewable-ready infrastructure to reduce overall carbon intensity.\nThe BKK Campus will be developed in phases. The first building (BKK1) is scheduled to be ready for service by Q4 2026, with the second building (BKK2) following in Q2 2027.",
+  "published_at": "2026-05-06T14:14:31Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-12T03:01:19.984049Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

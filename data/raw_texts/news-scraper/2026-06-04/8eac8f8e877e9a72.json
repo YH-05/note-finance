@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/investors-can-buy-spacex-early-with-coinbase-perpetual-futures-on-pre-ipos.html",
+  "title": "Investors can 'buy' SpaceX early with Coinbase perpetual futures on pre-IPOs",
+  "raw_text": "Coinbase on Thursday unveiled a new product that lets customers get price exposure to private companies before they go public, starting with a perpetual futures contract –better known as a \"perp\" – tied to SpaceX.\nPre-IPO perps give traders the ability to speculate on the value of a private company without owning shares. Coinbase's first offering is the SpaceX Pre-IPO Perp, a derivative settled in the USDC stablecoin that tracks the private-market valuation of Elon Musk's space company. The product is only available to traders outside the U.S.\nThe unveil comes amid growing demand by retail investors for exposure to high-profile private companies before they reach public markets – an opportunity historically reserved for venture capital firms, private equity funds and accredited investors – at a time when companies are staying private for longer.\n\"Access to high-conviction, non-correlated exposure has never been more valuable to traders,\" said Liz Martin, head of derivatives at Coinbase. \"We've built the most trusted platform for crypto trading — now we're putting those same rails to work on price exposure to some of the world's most exciting private companies, before they ever touch a public exchange. This is a new asset class, built for this era of markets.\"\nBinance, the largest crypto exchange in the world, also entered the pre-IPO perps market with SpaceX last month.\nThe launch also comes against the backdrop of a slump in crypto prices seeing new lows this week. The price of bitcoin Thursday slid to $61,340.71, its lowest level since Feb. 6. Pre-IPO perps give Coinbase a way to expand on its vision of an \"Everything Exchange\" that always offers something users want to trade even when spot prices are under pressure. The idea is that diversification in trading offerings will help the company keep generating revenue even when trading of spot crypto slows.\nPerps are a type of futures contract that let investors speculate on an asset's price without an expiration date and utilizing leverage, without ever owning the underlying asset. They're one of the most popular ways to trade in crypto, accounting for more than 70% of all the volume on centralized global crypto exchanges, according to CoinGecko.\nCoinbase says once SpaceX goes public — which is expected next week — the pre-IPO perpetual future will convert to a regular perpetual future on SpaceX.\nThere's a landgrab underway for perps after the U.S. derivatives regulator, the Commodities Futures Trading Commission, approved the first regulated, U.S.-listed perps last week on Kalshi.\nCoinbase said SpaceX is the first in a planned pipeline of pre-IPO contracts covering hot sectors like AI, energy and space.",
+  "published_at": "2026-06-04T13:30:14Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:19:00.557696Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

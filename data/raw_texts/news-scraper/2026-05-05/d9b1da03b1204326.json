@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/unofficial-vibe-coded-notepad-for-mac-draws-objections-from-original-author/",
+  "title": "\"Notepad++ for Mac\" release is disavowed by the creator of the original",
+  "raw_text": "As its name implies, the venerable Notepad++ text editor began as a more capable version of the classic Windows Notepad, with features such as line numbering and syntax highlighting. It was created in 2003 by Don Ho, who continues to be its primary author and maintainer, and it has been a Windows-exclusive app throughout its existence (older Notepad++ versions support OSes as old as Windows 95; the current version officially supports everything going back to Windows 7).\nI’m not a devoted user of the app, but I was aware of its history, which is why I was surprised to see news of a “Notepad++ for Mac” port making the rounds last week, as though it were a port of the original available from the Notepad++ website.\nApparently, this news surprised Ho as well, who claims that the Mac version and its author, Andrey Letov, are “using the Notepad++ trademark (the name) without permission.”\n“This is misleading, inappropriate, and frankly disrespectful to both the project and its users,” Ho wrote. “It has already fooled people—including tech media—into believing this is an official release. To be crystal clear: Notepad++ has never released a macOS version. Anyone claiming otherwise is simply riding on the Notepad++ name.”\nAn escalating back-and-forth\nFurther communication between Ho and Letov can be found in a Notepad++ GitHub thread, where Ho said he had been contacted by Letov before the Notepad++ for Mac app had launched, but that he hadn’t had time to reply.\n“The problem is that using the official name Notepad++ and its logo gives the impression that your project is an official macOS version maintained or endorsed by the Notepad++ team, which is not the case,” wrote Ho in an email to Letov that he reposted to GitHub. “This create [sic] confusion for users and exposes both you and the project to trademark issues.”",
+  "published_at": "2026-05-04T21:38:37Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-05T03:00:31.294563Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Tech",
+      "Anthropic Claude",
+      "MacOS",
+      "notepad",
+      "vibe coding"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/07/tome-another-goodreads-booktracker-rival-shuts-down/",
+  "title": "Tome, another Goodreads book-tracker rival, shuts down",
+  "raw_text": "Tome, a book-tracking app and book lovers community, is closing its doors.\nBuilt on the back of the sizable and influential BookTok community — creators who discuss and review books on TikTok — the app offered readers a place to chronicle and rate their books, get recommendations, and even add photos of things like favorite quotes or memes, or share playlists that match the book’s vibes.\nThe app was one of many that caters to a growing demographic of Gen Z readers who create book-related content on social media — a group that began mainly as women promoting their favorite “romantasy” titles, but has since grown to include readers of all types.\nBut the space to leverage that community to take on the still-reigning book-tracking champ Goodreads may be a bit too crowded now. Tome, for instance, had to compete against several other book trackers with a similar vibe, such as Fable, Margins, Bookly, StoryGraph, Bookmory, Pagebound, TBR, and others. (TBR’s app not to be confused with the book recommendations site TBR, which is also shutting down in June!)\nIn a blog post announcing the closure, Tome hints at the competitive landscape, noting that its community of 100,000 readers wasn’t able to reach the scale needed to keep up with the expense of running a social app that supported memes, GIFs, and video. The company said that in the end the service “wasn’t financially viable to keep running.”\nTome said that the app will officially shut down on May 29, at which point it will stop working as the servers will have been shut off. The website will also shut down on the day, the company said.\nThe post also advises Tome users on how to download their data, including posts and images and a spreadsheet of their reading updates.",
+  "published_at": "2026-05-07T18:38:58Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-05-07T21:00:27.104719Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Social",
+      "goodreads",
+      "reading",
+      "tome",
+      "booktok"
+    ]
+  }
+}

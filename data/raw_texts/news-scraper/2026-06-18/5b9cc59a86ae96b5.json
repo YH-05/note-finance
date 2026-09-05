@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://rbelmont.mameworld.info/?p=1725",
+  "title": "I need your clothes, your boots, and your motorcycle",
+  "raw_text": "<p>Article URL: <a href=\"https://rbelmont.mameworld.info/?p=1725\">https://rbelmont.mameworld.info/?p=1725</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48582464\">https://news.ycombinator.com/item?id=48582464</a></p>\n<p>Points: 100</p>\n<p># Comments: 83</p>",
+  "published_at": "2026-06-18T08:28:04Z",
+  "author": "ingve",
+  "collected_at": "2026-06-18T15:05:51.225291Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

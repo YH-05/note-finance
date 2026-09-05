@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/944129/apple-visionos-updates-wwdc-2026",
+  "title": "Apple announces visionOS 27 with Siri AI",
+  "raw_text": "Along with new software for Macs and iPhones, Apple announced visionOS 27 during its keynote presentation at WWDC on Monday. Like its other platforms, visionOS 27 will feature Apple’s updated Siri AI assistant and the new dedicated Siri app. While wearing the Vision Pro, you can use visual intelligence to ask Siri “about anything in your physical or digital space, instantly.”\nApple announces visionOS 27 with Siri AI\nThe latest version of Apple’s mixed reality OS can use visual intelligence to let Siri interact with whatever you see, whether it’s real or virtual.\nThe latest version of Apple’s mixed reality OS can use visual intelligence to let Siri interact with whatever you see, whether it’s real or virtual.\nThe visionOS 27 developer beta is available starting today, with a public beta coming next month before its full launch in the fall. Apple says Siri AI will be available as a beta feature starting later this year and will initially only support English. Unlike Siri AI on the iPhone and iPad, it will be available at launch in the EU without a delay.\nWhen it launches, visionOS 27 will add support for using the panoramas you’ve photographed as immersive scenes and environments. Apple said the Vision Pro will be able to connect to Wi-Fi “up to 3x faster,” and a new “extra-small” widget size will allow more customizations. When you get notifications on the Vision Pro, you will be able to expand them by looking at them. The Control Center in visionOS 27 has a new look as well, with three distinct sections: notifications and playback, core controls, and environments.\nApple is also introducing support for curved windows in visionOS that work like curved monitors in real life by bringing the edges of content closer to you without giving up screen space, and wrapping virtual windows around your space. The first apps with support will be Safari, Freeform, and Multiview on Apple TV.\nLast year’s visionOS update added support for PSVR 2 controllers, hands-free scrolling with Look to Scroll, the ability to unlock an iPhone while wearing a Vision Pro, support for relaying calls from an iPhone, and an improved version of Apple’s 3D “Persona” avatars. It also introduced spatial widgets that stay in any spot in the physical world where users “place” them, like a virtual clock in your real living room.",
+  "published_at": "2026-06-08T18:32:00Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-08T21:00:16.240106Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "News",
+      "Tech"
+    ]
+  }
+}

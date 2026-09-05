@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/04/22/nyc-property-tax-controversy-heres-what-to-know.html",
+  "title": "NYC property tax controversy: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-04-22T11:42:59Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.534423Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

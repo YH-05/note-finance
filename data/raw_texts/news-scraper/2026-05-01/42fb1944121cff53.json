@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.macrumors.com/2026/04/30/mac-studio-mac-mini-constrained-months/",
+  "title": "Apple Says Mac Studio and Mac Mini Will Be in Short Supply for Months",
+  "raw_text": "During today's earnings call for the second fiscal quarter of 2026, Apple CEO Tim Cook said that the Mac mini and Mac Studio could be hard to get for months to come.\n\"We think, looking forward, that the Mac mini and Mac Studio may take several months to reach supply demand balance,\" Cook said.\nApple underestimated demand for the Mac mini and the Mac Studio. \"Both of these are amazing platforms for AI and agentic tools and the customer recognition of that is happening faster than what we had predicted, and so we saw higher than expected demand,\" Cook said.\nShipping delays for the Mac mini and the Mac Studio have been increasing over the last few months, and the waits for some models stretch into months. Apple stopped selling the Mac Studio with 512GB RAM entirely, and it stopped accepting orders for some models with higher amounts of RAM. As of last week, the base Mac mini was listed as \"Currently Unavailable\" from Apple's online store because it is out of stock.",
+  "published_at": "2026-05-01T06:20:33Z",
+  "author": "tosh",
+  "collected_at": "2026-05-01T15:00:51.842330Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

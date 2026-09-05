@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606170022",
+  "title": "日経225先物：17日2時＝90円高、6万9460円",
+  "raw_text": "【市況】日経225先物：17日2時＝90円高、6万9460円\nTOPIX先物期近は4020ポイントと前日比21.5ポイント高、TOPIXの現物終値比は28.86ポイント高で推移。\n○主要先物価格・2時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 69460 +90 9247\n日経225mini 69465 +90 167612\nTOPIX先物 4020 +21.5 11745\nJPX日経400先物 36405 +245 306\nグロース指数先物 709 +5 300\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-06-16T17:00:42Z",
+  "author": null,
+  "collected_at": "2026-06-16T21:00:22.465908Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605190465",
+  "title": "東京為替：米ドル・円は底堅い値動きを維持",
+  "raw_text": "米ドル／円 ＜５分足＞ 「株探」多機能チャートより\n19日午前の東京市場でドル・円は158円90銭台で推移。米国金利の先高観は後退していないため、158円75銭から159円03銭まで反発。ユーロ・ドルは1.1662ドルから1.1641ドルまで下落。ユーロ・円は185円03銭から185円21銭まで買われている。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-19T02:36:07Z",
+  "author": null,
+  "collected_at": "2026-05-19T03:00:21.876620Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

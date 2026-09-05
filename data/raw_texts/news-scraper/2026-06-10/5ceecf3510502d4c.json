@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/947741/valve-steam-physical-gift-cards-scammers",
+  "title": "Valve is phasing out physical Steam gift cards due to scammers",
+  "raw_text": "After over a decade, Steam will no longer sell physical gift cards in stores. In a support page spotted earlier by Windows Central, Valve says it will no longer restock its gift cards once they run out, citing scammers who “continue to have an impact on Steam customers and other unsuspecting individuals.”\nValve is phasing out physical Steam gift cards due to scammers\nValve expects Steam gift cards to sell out in stores by the end of 2026.\nValve expects Steam gift cards to sell out in stores by the end of 2026.\nIn its post, Valve links to a Federal Trade Commission article outlining how gift card scammers attempt to convince victims to buy a gift card at a store and give them the code. Valve says it has responded to these scams by working with law enforcement, adding a warning to gift cards, and limiting their availability in stores, but “scammers have adapted.”\nThe company, which began selling physical gift cards in 2012, expects gift cards to sell out by the end of 2026. “Though we will no longer be selling physical gift cards, you will still have the ability to use your existing gift cards on Steam whenever you choose,” Valve says. It will also continue selling digital gift cards.",
+  "published_at": "2026-06-10T14:10:38Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-06-10T15:00:11.386459Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News",
+      "PC Gaming",
+      "Security",
+      "Tech"
+    ]
+  }
+}

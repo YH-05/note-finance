@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.apollo.com/wealth/the-daily-spark/where-is-the-ai-jobs-crisis",
+  "title": "Where is the AI jobs crisis?",
+  "raw_text": "Marc Rowan on how Apollo’s differentiated strategy was built for this moment.\nJune 09, 2026\nWhere Is the AI Jobs Crisis?\nIf AI were triggering a jobs crisis, we would expect job openings to collapse and unemployment to climb, yet the opposite is happening.\nThe number of job openings per unemployed worker has started to rise again and is now back above 1.0, meaning there are still more jobs available than workers to fill them, see chart below.\nThe May jobs report reinforced this with nonfarm payrolls jumping by 172,000, confirming that there are no signs of workers being replaced by ChatGPT.",
+  "published_at": "2026-06-09T17:29:17Z",
+  "author": "bwestergard",
+  "collected_at": "2026-06-10T03:01:27.638665Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/palantir-karp-enterprise-ai.html",
+  "title": "Palantir's Karp says businesses are 'unhappy' with the frontier AI labs",
+  "raw_text": "Palantir CEO Alex Karp said the artificial intelligence software company's enterprise customers are \"unhappy\" with how the frontier labs are operating.\n\"It's not just the man and woman on the street that is unhappy with the frontier labs, it's in private every single enterprise we deal with,\" he told CNBC's Sara Eisen on Wednesday.\nThis is breaking news. Please refresh for updates.",
+  "published_at": "2026-06-10T14:57:12Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.365194Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

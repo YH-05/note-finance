@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605261164",
+  "title": "NY為替：米ドル・円は下げ渋り、159円30銭まで値上り",
+  "raw_text": "【通貨】NY為替：米ドル・円は下げ渋り、159円30銭まで値上り\n26日のニューヨーク市場では、米国とイランの戦争終結への期待はあるものの、原油先物の下げ渋りを受けてドル売りは抑制された。159円19銭から159円30銭まで強含み。ユーロ・ドルは、1.1637ドルから1.1617ドルまで下落。ユーロ・円は185円25銭から185円07銭まで売られたが、185円18銭まで値を戻している。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-26T14:55:12Z",
+  "author": null,
+  "collected_at": "2026-05-26T15:00:22.304394Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

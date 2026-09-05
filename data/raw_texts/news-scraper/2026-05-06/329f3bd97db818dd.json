@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://jp.reuters.com/markets/bonds/DNIARDILFZPT3LJ7RFFM35QEXE-2026-05-06/",
+  "title": "アンソロピック、グーグルに5年で2000億ドル支出へ　クラウド・半導体関連＝報道",
+  "raw_text": "［５日 ロイター］ - 生成人工知能（ＡＩ）モデル「クロード」を開発したアンソロピックは、アルファベット(GOOGL.O)傘下グーグルのクラウド向けに２０００億ドルを支出する方針だ。４月の合意の一環という。米メディアのジ・インフォメーションが関係者の話として５日報じた。\nアンソロピックは４月、グーグルおよびブロードコムと、複数ギガワット規模のテンソル・プロセッシング・ユニット（ＴＰＵ）容量に関する契約を締結した。アンソロピックは、クロードに対する強い需要を背景に、計算能力確保に向け複数社と契約を結んでいる。\n私たちの行動規範：トムソン・ロイター「信頼の原則」",
+  "published_at": "2026-05-06T09:00:06.627789Z",
+  "author": null,
+  "collected_at": "2026-05-06T09:00:34.025893Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "reuters_jp",
+    "category": "markets",
+    "tags": []
+  }
+}

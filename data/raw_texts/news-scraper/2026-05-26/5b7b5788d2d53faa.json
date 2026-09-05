@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/windows-classic-3d-space-cadet-pinball-is-getting-a-physical-re-creation/",
+  "title": "Windows' classic 3D Space Cadet pinball is getting a physical re-creation",
+  "raw_text": "If you owned a Windows computer in the late ’90s or early ’00s, you probably remember 3D Pinball for Windows – Space Cadet, a surprisingly competent virtual table included for free with multiple Microsoft OS releases through Windows XP. Despite the game’s authenticity to real pinball, Space Cadet wasn’t based on an extant physical table, but was merely one part of the Full Tilt! Pinball software collection sold by Maxis starting in 1995.\nIn the intervening years, hobbyists and enthusiasts have discussed the possibility of crafting a homebrew physical table based on Space Cadet many times, without much tangible progress to show for it. A company called Deeproot Pinball went so far as to develop a reskinned prototype of Space Cadet‘s layout for a planned 2021 release before the whole company went under amid fraud allegations.\nWhere Deeproot failed, though, hobbyist CNCDan hopes to succeed in creating a physical Space Cadet table. In a video, he documents the start of his build process, which already includes 3D-printed mechanical flippers, pop bumpers (complete with embedded LEDs), slingshots, and even a raised playfield, all designed to mimic the look and feel of the original Windows table.\nWhile the Windows Space Cadet table didn’t have to deal with any real-world constraints, CNCDan has already run into issues with the size and positioning of table elements. After scaling and skewing the on-screen, perspective-shifted view of the Space Cadet playfield onto a 1-meter-tall table, he ended up with a rectangular playfield just 56 cm wide. That’s on the smaller side for commercial pinball tables and maps to playfield bumpers that are just 53 mm wide—way smaller than any prebuilt bumpers that are commercially available.",
+  "published_at": "2026-05-26T16:24:02Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-26T21:00:31.020030Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "3D space cadet",
+      "hackers",
+      "microsoft",
+      "pinball",
+      "Windows"
+    ]
+  }
+}

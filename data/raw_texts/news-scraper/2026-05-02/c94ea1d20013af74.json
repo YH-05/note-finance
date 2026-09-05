@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://keepthingsopen.com",
+  "title": "An open letter asking NHS England to keep its code open",
+  "raw_text": "<p>Article URL: <a href=\"https://keepthingsopen.com\">https://keepthingsopen.com</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47975785\">https://news.ycombinator.com/item?id=47975785</a></p>\n<p>Points: 225</p>\n<p># Comments: 13</p>",
+  "published_at": "2026-05-01T15:15:36Z",
+  "author": "tvararu",
+  "collected_at": "2026-05-02T03:03:04.299243Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/18/trump-intel-apple-chip-design-deal.html",
+  "title": "Intel rises 9% after Trump says company will partner with Apple on U.S. chip design",
+  "raw_text": "Intel's stock rose 9% in premarket trading on Thursday, after President Donald Trump said the semiconductor company had agreed to a deal with Apple to design and build chips in the U.S.\n\"Stupid Presidents took our Economy for granted, and let Taiwan and others steal our Semiconductor Factories,\" Trump said in a post on Truth Social. \"Apple has agreed to work with Intel to design and build its Chips in America.\"\nIntel's stock has seen significant gains recently after struggling for years, having relinquished its dominant market position. The stock has surged 464% in the past 12 months, with the company hitting a market cap of $608.7 billion.\nIntel shares were last 8.8% higher, while Apple was up 0.6% in premarket trading.\nCNBC has approached Intel, Apple, the White House and the Taipei Representative Office in the U.K. for comment.\nFor years, Intel largely sat out the AI race as it grappled with manufacturing delays and awaited a major customer for its chip fabrication business.\nBut CEO Lip-Bu Tan, who took the helm early last year, has revived Wall Street interest in the struggling chipmaker by drawing investments from Nvidia and the Trump administration.\n\"I decided to help Intel because we need to design and build our Chips right here in America,\" Trump said Thursday on Truth Social.\n\"First, we helped bring in Nvidia, and they agreed to build their first level Chips with Intel,\" he added. \"Next, Elon agreed to build his TerraFab, the largest Chip Factory in the World, designed together with Intel's Technology team.\"\nThe Terafab project is the first major outside commitment for Intel's capital-intensive foundry business, which had only manufactured chips for its own products.\nWhile conflict in the Middle East has disrupted supply chains and seen oil prices skyrocket, the AI boom has so far insulated stocks, especially those tied to infrastructure around the technology.\nNasdaq's PHLX Semiconductor Sector Index — comprising the 30 largest U.S.-traded chip companies — is up 90% so far this year.",
+  "published_at": "2026-06-18T08:45:04Z",
+  "author": null,
+  "collected_at": "2026-06-18T09:35:13.190033Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

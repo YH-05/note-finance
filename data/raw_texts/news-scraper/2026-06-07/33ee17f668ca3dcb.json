@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://performance.dev/how-is-linear-so-fast-a-technical-breakdown",
+  "title": "How's Linear so fast? A technical breakdown",
+  "raw_text": "<p>Article URL: <a href=\"https://performance.dev/how-is-linear-so-fast-a-technical-breakdown\">https://performance.dev/how-is-linear-so-fast-a-technical-breakdown</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48437609\">https://news.ycombinator.com/item?id=48437609</a></p>\n<p>Points: 126</p>\n<p># Comments: 63</p>",
+  "published_at": "2026-06-07T19:01:37Z",
+  "author": "howToTestFE",
+  "collected_at": "2026-06-07T21:00:50.438114Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

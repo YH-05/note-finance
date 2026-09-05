@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/02/farewell-jeeves-ask-com-shuts-down/",
+  "title": "Farewell, Jeeves: Ask.com shuts down",
+  "raw_text": "Ask.com, the search engine and question-and-answer service formerly known as Ask Jeeves, has shut down.\nAsk Jeeves first launched in 1996 and, with its focus on answering conversational questions posed in natural language, was arguably a precursor to today’s AI-powered chatbots. For most of its 30-year history, however, it’s been overshadowed by other search products, especially Google.\nHolding company IAC acquired Ask Jeeves in 2005, quickly dropped “Jeeves” from the name, and by 2010 had scaled back its search product to refocus on Q&A. That same year, IAC Chairman Barry Diller said at TechCrunch Disrupt that Ask.com was not competitive with Google and was not valued in IAC’s stock.\nA message on the Ask.com website currently reads, “As IAC continues to sharpen its focus, we have made the decision to discontinue our search business, which includes Ask.com. After 25 years of answering the world’s questions, Ask.com officially closed on May 1, 2026.”\nNonetheless, the website insists, “Jeeves’ spirit endures.”",
+  "published_at": "2026-05-02T21:11:28Z",
+  "author": "Anthony Ha",
+  "collected_at": "2026-05-04T03:00:27.384563Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Media & Entertainment",
+      "Ask.com",
+      "IAC",
+      "Ask Jeeves"
+    ]
+  }
+}

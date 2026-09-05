@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/vendor-news/20256-nec-completes-acquisition-of-csg-to-bolster-telecoms-software-business.html",
+  "title": "NEC completes acquisition of CSG to bolster telecoms software business",
+  "raw_text": "NEC and its subsidiary Netcracker Technology have completed the acquisition of US software company CSG Systems International, strengthening their telecoms software and digital services portfolio.\nThe deal combines Netcracker’s OSS, BSS and AI-driven automation capabilities with CSG’s customer engagement, payments and business support software business.\nFollowing the acquisition, Netcracker will oversee the integration and operations of CSG, while NEC will provide strategic and governance support. Netcracker chair and CEO Andrew Feinberg has been appointed chairman and CEO of the combined business.\nThe companies said the merged platform will focus on AI-driven automation, cloud-native software and digital service management aimed at telecoms, broadband and digital service providers.\nNEC CEO Takayuki Morita said the acquisition strengthens the company’s global digital services business and enhances its ability to provide end-to-end solutions for operators undergoing digital transformation.\nNetcracker CEO Andrew Feinberg added that the combined business would create a more integrated platform spanning customer engagement, monetisation and operations, while helping operators adopt more AI-driven business models.",
+  "published_at": "2026-05-15T12:51:16Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-15T15:02:07.157138Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Vendors"
+    ]
+  }
+}

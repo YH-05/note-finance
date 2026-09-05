@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/922243/linux-cve-2026-3141-copy-fail-exploit",
+  "title": "Severe Linux Copy Fail security flaw uncovered using AI scanning help",
+  "raw_text": "Nearly every Linux distribution released since 2017 is currently vulnerable to a security bug called “Copy Fail” that allows any user to give themselves administrator privileges. The exploit, publicly disclosed as CVE-2026-31431 on Wednesday, uses a Python script that works across all of the vulnerable Linux distributions, requiring “no per-distro offsets, no version checks, no recompilation,” according to Theori, the security firm that uncovered it.\nSevere Linux Copy Fail security flaw uncovered using AI scanning help\nSome distributions have already released patches or mitigations for the exploit, including Arch Linux and RedHat Fedora.\nSome distributions have already released patches or mitigations for the exploit, including Arch Linux and RedHat Fedora.\nArs Technica points out this blog post where DevOps engineer Jorijn Schrijvershof explains that what makes Copy Fail “unusually nasty” is the likelihood for it to go unnoticed by monitoring tools: “Page-cache corruption never marks the page dirty. The kernel’s writeback machinery never flushes the modified bytes back to disk.” As a result, “AIDE, Tripwire, OSSEC and any monitoring tool that compares on-disk checksums see nothing.”\nCopy Fail was identified by Theori’s researchers with assistance from their Xint Code AI tool. According to a blog post, Taeyang Lee had an idea of looking into the crypto subsystem of Linux and created this prompt to run an automated scan that identified several vulnerabilities in “about an hour.”\n“This is the linux crypto/ subsystem. Please examine all codepaths reachable from userspace syscalls. Note one key observation: splice() can deliver page-cache references of read-only files (including setuid binaries) to crypto TX scatterlists.”\nAccording to the exploit’s disclosure page, a patch for Copy Fail was added to the mainline Linux kernel on April 1st. However, as Ars Technica notes, the researchers who identified Copy Fail published the details of the exploit publicly before all of the affected distributions could release patches for it. Some distros, including Arch Linux, RedHat Fedora, and Amazon Linux, have released patches, but many others were not immediately able to address the issue.",
+  "published_at": "2026-05-01T16:55:16Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-02T03:02:12.436902Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Linux",
+      "News",
+      "Security",
+      "Tech"
+    ]
+  }
+}

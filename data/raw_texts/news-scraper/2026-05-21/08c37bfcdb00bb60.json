@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/fbi-seeks-us-wide-access-to-license-plate-cameras-wants-data-in-near-real-time/",
+  "title": "FBI seeks US-wide access to license plate cameras, wants \"data in near real time\"",
+  "raw_text": "The Federal Bureau of Investigation announced plans to buy nationwide access to a network of license plate readers, saying it will award contracts to one or more vendors that can offer “near real time” information from cameras across the US. The proposed contract is for the FBI Directorate of Intelligence.\n“To evaluate and manage threats to personal safety, property, and law enforcement, the FBI requires professional service firms that can provide License Plate Readers (LPRs) for tracking subjects on roads and highways over the US and its territories,” the FBI said in a Request for Proposals (RFP) published on May 14. The FBI said the winning bidder or bidders “must provide law enforcement and/or commercial license plate reader data provided through the Contractor’s existing platform.” The system must cover 75 percent of locations, the FBI said.\nThe system must offer the ability to search for license plate information “and other descriptive data such as vehicle description information, time/date criteria, and geo-location criteria,” the FBI said. “Additionally, the system must provide search result notifications. The Contractor system must have the ability to access and/or query cameras across the United States and its territories. The Contractor system must be capable of providing this data in near real time.”\nContractors have to be able “to share/create maps depicting camera coverage (i.e. heat mapping),” and “provide the FBI the source of information (i.e. red-light cameras, repossession vendors, speed cameras, etc.),” the FBI said. The FBI said it needs to be able to search the database for partial or full plate numbers, plate states, addresses, locations where a plate was scanned, and vehicle makes and models.",
+  "published_at": "2026-05-19T21:29:33Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-05-21T03:00:31.290284Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "automated license plate readers",
+      "Flock!"
+    ]
+  }
+}

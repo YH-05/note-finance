@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/how-climate-change-makes-your-allergies-worse/",
+  "title": "How climate change makes your allergies worse",
+  "raw_text": "It’s not in your head.\nClimate change is contributing to longer and more severe pollen seasons across the Northern Hemisphere. Dr. Neelima Tummala, an ear, nose, and throat doctor at NYU Langone Health, said her patients tell her every year that their allergies are the worst they’ve ever been—and they might be right.\nAbout a quarter of US adults and 1 in 5 children have seasonal allergies. For those millions of Americans, spring weather brings sniffles, itchy eyes, asthma exacerbation, and other miseries, with effects ranging from mild symptoms to serious medical emergencies.\nNow, rising temperatures and carbon dioxide pollution are contributing to worsened pollen seasons across the country. Climate-change-driven heat waves, air pollution, and natural disasters can exacerbate allergy symptoms, too.\nAlthough experts say it’s too early to fully tell how the 2026 pollen season will compare to past years, the trend over recent decades is clear, and evidence so far points to another tough year for the allergy-prone.\nAccording to the USA National Phenology Network—a group focused on data and research concerning the seasonal patterns of plants and animals—spring bloom arrived early across much of the country.\nAccuWeather meteorologists say this year’s trends fit into the overall pattern of an extending allergy season due to climate change.\nThey predict high tree pollen levels in the Ohio River Valley and parts of the Pacific Northwest this spring and say the Northern Plains and the Great Lakes could see early spikes in grass pollen in June and July, due to a combination of high rainfall and warmer weather. The Rockies can expect an intense weed pollen season, while New England and parts of the Gulf South might see lower than usual tree pollen levels, due to a cooler spring and less rain, they said.",
+  "published_at": "2026-05-08T14:23:23Z",
+  "author": "Keerti Gopal, Inside Climate News",
+  "collected_at": "2026-05-10T03:00:31.217417Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "allergies",
+      "climate change",
+      "syndication"
+    ]
+  }
+}

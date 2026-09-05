@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/nvidia-bets-21-billion-iren-expand-ai-infrastructure",
+  "title": "Nvidia Bets $2.1 Billion On IREN To Expand AI Infrastructure",
+  "raw_text": "Nvidia is expanding beyond chip sales and putting more capital directly into the infrastructure needed to power AI. The company said it could invest up to $2.1 billion in IREN through a deal that gives Nvidia the right to buy as many as 30 million shares at $70 each over the next five years, according to Bloomberg.\nThe agreement is designed to accelerate the buildout of large-scale AI data centers as demand for computing power continues to surge.\nBloomberg writes that a major focus of the partnership is IREN’s Sweetwater campus in Texas, which currently has plans for 2 gigawatts of capacity. The companies said that footprint could eventually grow to as much as 5 gigawatts of Nvidia-powered infrastructure over time. IREN also signed a separate $3.4 billion AI cloud agreement to acquire and deploy Nvidia’s Blackwell processors. Together, the deals signal that both companies are betting demand for AI computing will continue rising for years.\nThe partnership plays to each company’s strengths. Nvidia supplies the chips and networking equipment that dominate the AI market, while IREN specializes in securing land, electricity, and physical infrastructure needed to build large data centers. IREN is also expanding outside the U.S., announcing a deal to acquire Spanish data center developer Ingenostrum as it scales globally.\nThe move fits a broader pattern for Nvidia, which has increasingly invested in companies across the AI ecosystem. It has recently backed OpenAI, Marvell Technology, and Corning, while also funding infrastructure providers such as CoreWeave and Nebius Group. Critics argue these deals are “circular” because Nvidia is investing in companies that later become major buyers of its chips.\nJensen Huang has pushed back on that criticism. Referring to Nvidia’s investment in CoreWeave earlier this year, he said, “It’s a small percentage of the amount of money that they ultimately have to go raise,” and added, “The idea that it is circular is — it’s ridiculous.”\nIREN’s own transformation has made it a notable player in the AI infrastructure race. Founded by Australian brothers Daniel Roberts and Will Roberts, the company originally focused on Bitcoin mining before pivoting toward AI computing. Investors have rewarded that shift: the company’s shares climbed 285% last year and are up another 51% in 2026. Microsoft also signed a $9.7 billion agreement with IREN last year to secure AI computing capacity.",
+  "published_at": "2026-05-08T15:00:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-08T21:00:41.929554Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

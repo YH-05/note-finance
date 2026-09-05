@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/27/deepmind-ineffable-intelligence-record-seed-funding-nvidia-google.html",
+  "title": "Former Google DeepMind researcher's AI startup raises record $1.1 billion seed funding to pursue superintelligence",
+  "raw_text": "A former top researcher at Google AI division DeepMind announced Monday a record $1.1 billion seed round for his months-old startup, Ineffable Intelligence.\nThe startup is pursuing superintelligence and was founded in late 2025 by UCL professor and former lead of DeepMind's reinforcement learning team, David Silver. The seed round is the largest ever in Europe, according to the company, amounting to a valuation of $5.1 billion.\nThe round was co-led by U.S. venture capitalists Sequoia and Lightspeed, with participation from Nvidia, DST Global, Index, Google and the U.K.'s Sovereign AI Fund, among others.\nIneffable Intelligence will focus on reinforcement learning, which is when artificial intelligence models learn from experience as opposed to human data. That compares with many leading AI models that are trained on internet text.\nSilver said the company is aiming to \"transcend the greatest inventions in human history, such as language, science, mathematics and technology.\"\n\"Our mission is to make first contact with superintelligence,\" said Silver in a statement.\n\"We are creating a superlearner that discovers all knowledge from its own experience, from elementary motor skills through to profound intellectual breakthroughs,\" he added.\nSilver is one of several former top researchers at Big Tech companies who've jumped ship to launch their own AI labs in recent months, with investors funneling billions of dollars into the ventures.\nLast week, a months-old startup called Recursive Superintelligence — founded by former Google DeepMind engineer Tim Rocktäschel — was reported by the Financial Times to be raising up to $1 billion. AMI Labs announced a $1 billion raise in March, months after its founder, Yann LeCun, announced he was leaving his role as Meta's AI chief.\nIn the past year, former staff at OpenAI, DeepMind, Anthropic and xAI have also raised hundreds of millions from investors for months-old ventures, including AI labs Periodic Labs and Humans&.\n\"This investment in Ineffable will support a company at the very frontier of AI, with the potential to transform entire sectors, underlining our determination to ensure that the UK isn't just an AI taker but an AI maker,\" the U.K's Science and Technology secretary, Liz Kendall, said in a statement.",
+  "published_at": "2026-04-27T17:33:24Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.443817Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

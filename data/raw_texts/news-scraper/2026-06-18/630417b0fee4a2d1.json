@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20401-iraqs-asiacell-deploys-ipv6-dual-stack-to-support-ipv4-ipv6-transition.html",
+  "title": "Iraq’s Asiacell deploys IPv6 Dual Stack to support IPv4-IPv6 transition",
+  "raw_text": "Asiacell announced on Tuesday it has become the first telecoms company in Iraq to successfully implement IPv6 Dual Stack technology.\nIn a Facebook post, Asiacell said its deployment of IPv6 Dual Stack – which allows both IPv4 and IPv6 protocols to operate simultaneously – will ensure a smoother transition to next-generation internet standards while maintaining service continuity for existing users.\nAsiacell said its subscribers will benefit from the upgrade with faster connectivity, improved cloud performance, and 5G-ready infrastructure. The telco also said the IPv6 Dual Stack reaffirms its commitment to digital transformation and deploying the latest technologies.\nAccording to Google’s IPv6 Statistics page – which tracks adoption of IPv6 around the world – Iraq ranks at no. 186 (out of 262 countries) with an IPv6 adoption rate of 0.56%. APNIC Labs lists Iraq’s IPv6 capability rate at 0.62%.\nAsiacell said the IPv6 Dual Stack upgrade was implemented under the supervision and sponsorship of the Iraqi Communications and Media Commission (CMC).",
+  "published_at": "2026-06-17T02:26:00Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-18T03:01:19.515397Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

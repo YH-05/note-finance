@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/men-use-vocal-fry-more-than-women-counter-to-stereotype/",
+  "title": "Men use \"vocal fry\" more than women, counter to stereotype",
+  "raw_text": "Vocal fry, aka “creaky voice,” is a distinctive drop in pitch, usually at the end of sentences, associated with the speech patterns of young women in particular. Britney Spears is the go-to example of the trend, having famously used it in her 1998 smash hit, “Hit Me Baby (One More Time),” and she’s far from the only one.\nBut what if that popular gender-based stereotype is wrong? Jeanne Brown, a graduate student at McGill University, has found that vocal fry is actually more common in men than women, detailing her experimental findings in a talk at this week’s meeting of the Acoustical Society of America in Philadelphia. Per Brown, we perceive it as more prominent in young women.\nVocal fry is the lowest of the human vocal registers, the others being the modal and falsetto registers, as well as the whistle register. It’s caused when the vocal cords slacken, leading to irregular vibration and an audible cracking or rattling sound as air is released in spurts. Vocal fry is characterized by very low fundamental frequencies of around 70 Hz. (The lowest end of the range of human hearing is 20 Hz.)\nTen years ago, I reported on an experiment by John Nix, a voice professor at the University of Texas, San Antonio, who concluded that singers like Spears, Katy Perry, and Lady Gaga use vocal fry in pop music because it enhances expressiveness. “Unamplified styles, such as classical music, tend to disguise effort and express emotion in more subtle ways,” Nix told me at the time. “Amplified styles, such as popular music, tend to display effort as something genuine, intimate, raw, exciting, and emotional. Fry may be one way to communicate such effort, or honest, raw emotions.” Nor is vocal fry exclusively used by female singers: Justin Bieber, Tim Storms (who holds the world record for lowest note produced by a human), and gospel bassists like Mike Holcomb have also used it.",
+  "published_at": "2026-05-14T21:32:29Z",
+  "author": "Jennifer Ouellette",
+  "collected_at": "2026-05-15T03:00:30.481647Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "acoustics",
+      "gender bias",
+      "Linguistics",
+      "sociolinguistics",
+      "sociology",
+      "vocal fry",
+      "vocalizations"
+    ]
+  }
+}

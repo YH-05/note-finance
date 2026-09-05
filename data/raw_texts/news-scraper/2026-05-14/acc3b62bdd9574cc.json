@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/930502/microsoft-xbox-cloud-gaming-controller-leak",
+  "title": "Leaked images show Microsoft’s new Xbox Cloud Gaming controller",
+  "raw_text": "I revealed earlier this year that Microsoft was working on a new Xbox controller that includes Wi-Fi to connect direct to Xbox Cloud Gaming servers. It now looks like that controller has leaked, thanks to some new images from Brazil’s Anatel regulator.\nLeaked images show Microsoft’s new Xbox Cloud Gaming controller\nA Brazilian regulator has published photos of an unreleased Xbox controller.\nA Brazilian regulator has published photos of an unreleased Xbox controller.\nTecnoblog published the images today, showing a new, smaller Xbox controller that looks similar to third-party options from 8BitDo and HyperX. The controller is made by Microsoft and includes 2.4GHz and 5GHz Wi-Fi connectivity, Bluetooth 5.3, and a USB-C port. There’s also what appears to be some kind of pairing button at the top of the controller, as well as a D-Pad, bumpers, and triggers.\nBoth white and black models are pictured in the leaked photos, and it looks like this new controller will include its own rechargeable 500mAh battery. Microsoft’s existing Xbox controllers, with the exception of the Elite series, use AA batteries or removable rechargeable battery packs.\nA new Xbox controller was originally planned for 2024, alongside a canceled Xbox Series X refresh. But this Xbox Cloud Gaming controller is separate and designed to compliment Microsoft’s expanded cloud gaming efforts with Game Pass. It will connect directly to Xbox Cloud Gaming servers to reduce latency, much like how Google’s Stadia controllers used to work. Microsoft is also still testing free ad-supported access to cloud games and is rumored to be preparing to launch the Xbox Elite Controller Series 3 controller later this year.",
+  "published_at": "2026-05-14T15:49:47Z",
+  "author": "Tom Warren",
+  "collected_at": "2026-05-14T21:00:16.703112Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ]
+  }
+}

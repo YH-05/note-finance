@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/04/oil-prices-today-wti-brent-trump-iran-us-hormuz.html",
+  "title": "Oil prices mixed in choppy trade as Trump plans to 'free' ships stranded due to Mideast conflict",
+  "raw_text": "Oil prices were mixed in choppy trade Monday, as market participants assess U.S. President Donald Trump's announcement to \"free\" ships that have been trapped due to the closure of the Strait of Hormuz, amid lingering tensions between Tehran and Washington.\nJuly futures for international benchmark Brent crude were marginally lower at $101.94 per barrel, while U.S. West Texas Intermediate futures for June were 0.15% at $108.33 per barrel.\nAs the Hormuz Strait continues to face a blockade, traffic via the critical energy waterway that saw about a fifth of the world's energy supplies transit through it prior to the war, has come to a near standstill.\nThe United Kingdom Maritime Trade Operations agency said Monday that a tanker was hit by projectiles north of the city of of Fujairah in the United Arab Emirates, underscoring the dangers for ships navigating the Mideast region.\nTrump said in his Truth Social post Sunday that the U.S. would attempt to \"free\" stranded cargo ships affected by the Strait of Hormuz closure since the start of the Iran war.\nDubbed \"Project Freedom,\" the effort will focus mainly on getting civilian ships flagged in countries not affiliated with the conflict out of the waterway so they can \"freely and ably get on with their business.\" It is set to begin on Monday.\n\"U.S. military support to Project Freedom will include guided-missile destroyers, over 100 land and sea-based aircraft, multi-domain unmanned platforms, and 15,000 service members,\" the U.S. Central Command said shortly after Trump's announcement.\nTraders will also be assessing OPEC+ agreeing to an oil output increase of 188,000 barrels per day, in the cartel's first meeting since the exit of its key member, the United Arab Emirates.\nGaurav Ganguly, head of international economics at Moody's Analytics, warned of the impact of a prolonged Mideast conflict on global economy on CNBC's \"Squawk Box Asia,\" as oil prices stay elevated: \"It doesn't take much from this point for the global economy to sink into recession. We estimate something like $125 for Brent over a sustained period of time will push the global economy into some sort of recession.\"",
+  "published_at": "2026-05-04T02:57:51Z",
+  "author": null,
+  "collected_at": "2026-05-04T03:19:29.034910Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

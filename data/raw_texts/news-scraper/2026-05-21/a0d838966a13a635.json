@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20276-safaricom-vodacom-deal-suspended-by-kenyan-high-court-panel.html",
+  "title": "Safaricom-Vodacom deal suspended by Kenyan High Court panel",
+  "raw_text": "Safaricom’s US$2.1 billion deal to sell a 15% stake to South Africa-based Vodacom Group has reportedly been put on hold after the Kenyan High Court allowed petitions challenging the sale’s constitutionality to go ahead.\nOn Monday, according to media reports, a panel of three judges appointed by Kenya’s Chief Justice issued a conservatory order blocking Safaricom and Vodacom from proceeding with the sale until a ruling is given on the petitions.\nThe panel agreed with petitioners that the deal raises significant constitutional questions around national security, data sovereignty, public participation and prudent use of public resources.\n“Court process is not a mere inconvenience, and the proposed sale isn’t immune from judicial review and supremacy of the Constitution,” the judges wrote, according to a report from MyBroadband.\nTechAfrica News reports that the panel also rejected an application by Vodafone (which owns Vodacom) for both of them to be removed as respondents in the case.\nThe High Court had previously ruled that the challenge itself was constitutional, and rejected the argument that dispute over the deal is purely a commercial issue, the report added.\nVodacom struck a deal in December 2025 to boost its stake in Kenya-based Safaricom from 35% to 55% by acquiring a 15% stake from the Kenyan government as well as a further 5% stake from Vodafone.\nHowever, although the Kenyan Parliament approved the transaction in March, Kenyan opposition leader Kalonzo Musyoka petitioned the High Court last month to block the sale. Two other petitions opposing the sale have also been filed by private citizens, according to media reports.\nCollectively, the petitions argue that the government failed to adequately involve parliament and the public in the decision, citing provisions of Kenya’s constitution, as well as laws governing the selloff of public assets. The petitions also argue that the deal is seriously undervalued.\nThe deal was saddled with strict conditions imposed by the Kenyan government when it was first announced, to include that Safaricom's chairman and CEO must always be Kenyan citizens.\nThe government also said that Vodacom can’t change Safaricom’s corporate brand in any way without its consent, and that any restructuring of the business won’t result in employee layoffs “other than in the ordinary course of business”, the report said.\nVodacom would also be prohibited from making any changes to Safaricom’s existing supplier ecosystem for at least three years, and must consult the government regarding any plans to extend Safaricom’s footprint outside of Kenya, although it wouldn't need the government’s approval to do so.",
+  "published_at": "2026-05-20T05:05:47Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-21T03:01:26.728090Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

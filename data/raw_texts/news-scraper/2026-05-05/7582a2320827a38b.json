@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050365",
+  "title": "３月の米求人件数は６８６．６万人",
+  "raw_text": "【経済】３月の米求人件数は６８６．６万人\n結果 686.6万人\n予想 685.0万人 前回 692.2万人（688.2万人から修正）\n株探ニュース",
+  "published_at": "2026-05-05T14:02:00Z",
+  "author": null,
+  "collected_at": "2026-05-05T15:00:16.708323Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

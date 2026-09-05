@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/private-credit-jitters-kkr-blackstone-blue-owl-ares-partners-group-pressure.html",
+  "title": "KKR, Ares, Blackstone tumble as Partners Group caps private equity fund withdrawals",
+  "raw_text": "Shares in KKR, Blackstone and other sector peers tumbled on Wednesday after Switzerland's Partners Group moved to restrict investor withdrawals from one of its funds, stoking fresh fears over private market valuations.\nShares in Carlyle Group and KKR dropped more than 5% and 4%, respectively. Blackstone and Ares Management each slipped around 4%, while Blue Owl Capital shed more than 3%.\nShares in Partners Group — the Swiss asset management giant active in private equity, private credit, infrastructure and real estate markets — plunged more than 16%, reaching a 52-week low on Wednesday.\nThe Zurich-listed firm has moved to curb investor redemptions in its Global Value SICAV fund, an $8.6 billion so-called 'evergreen' private equity vehicle, at 5% of net asset value, after redemption requests hit 9.8%, according to a Bloomberg report.\nThe fund represents about 4.8% of Partners Group's total asset base.\nDavid Layton, Partners Group CEO, told Bloomberg that the redemption pressure seen in private credit is now spreading into other asset classes.\nThe cap chimes with similar measures taken by several U.S. private equity outfits in recent months, where firms have halted or restricted investors from pulling out their money, amid a growing rush for the exits.\nRetail investors have sought to redeem their money amid growing concerns over liquidity mismatches and deteriorating asset quality in private fund structures.",
+  "published_at": "2026-06-03T20:12:30Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.810627Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

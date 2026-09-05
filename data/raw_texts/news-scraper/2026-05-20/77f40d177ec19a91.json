@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605200488",
+  "title": "東京為替：米ドル買い・円売りはやや一服",
+  "raw_text": "米ドル／円 ＜５分足＞ 「株探」多機能チャートより\n20日午前の東京市場でドル・円は引き続き159円近辺で推移。米国金利の先高観は後退していないものの、159円11銭から158円85銭まで値下がり。ユーロ・ドルは1.1613ドルから1.1594ドルまで下落。ユーロ・円は184円69銭から184円30銭まで値下がり。\n《MK》\n提供：フィスコ",
+  "published_at": "2026-05-20T02:37:24Z",
+  "author": null,
+  "collected_at": "2026-05-20T03:02:12.345564Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

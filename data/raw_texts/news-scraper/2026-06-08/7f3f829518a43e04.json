@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606080544",
+  "title": "ＮＸＨＤ---5000円～5300円辺りでの高値保ち合い継続",
+  "raw_text": "ＮＸＨＤ ＜日足＞ 「株探」多機能チャートより\n<\n9147> ＮＸＨＤ 5183 +21\n続伸。5月29日に5325円まで買われた後は、5000円～5300円辺りでの高値圏での保ち合いを継続している。前週にはボリンジャーバンドの+1σを下回る場面もみられたが、本日のリバウンドで+1σ水準での攻防をみせており、+2σとのレンジが意識されやすい。強いトレンドを継続しており、押し目待ち狙いの買い意欲は強いだろう。\n《FA》\n提供：フィスコ",
+  "published_at": "2026-06-08T02:56:55Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:00:22.763565Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "テク",
+    "tags": []
+  }
+}

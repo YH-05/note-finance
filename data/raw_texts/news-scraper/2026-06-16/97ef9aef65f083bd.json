@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/pentagon-lockdown-air-quality-issue.html",
+  "title": "Some Pentagon workers ordered to shelter in place as air quality issue is investigated",
+  "raw_text": "Some workers at the Pentagon were told to shelter in place on Thursday after systems in the massive building detected an air quality issue, a Defense Department spokesman said.\nEmployees in corridors 4 through 7, on floors 2 through 5, were told in an email to remain in their offices until the results of air tests are completed, according to an email to Pentagon employees, as reported by MS NOW.\nPentagon guards have put on gas masks, according to a person familiar with the situation who told CNBC.\nA hazardous materials team from the Arlington County, Virginia, Fire Department is \"currently operating at the Pentagon in support of [the Pentagon Force Protection Agency's] Hazmat Team during a hazardous materials incident,\" the department said in a post on X.\nMS NOW reported that no law enforcement units were at the Pentagon in connection with the incident.\n\"The Pentagon has sophisticated systems to ensure the safety of the building and its occupants,\" Pentagon spokesman Sean Parnell said in a statement.\n\"Those systems have detected an air quality issue necessitating precautionary measures until we determine its significance,\" Parnell said.\n\"The Department is executing standard protection protocols, including a shelter-in-place order for the affected area. Response teams are in place and ready to support building occupants.\"\nThe Pentagon, which is the world's second-largest office building, is the workplace for thousands of military and civilian employees of the Defense Department.\nThe massive complex sits at the eastern edge of Arlington, across the Potomac River from Washington, D.C.\nThis is developing news. Check back for updates.",
+  "published_at": "2026-06-11T15:55:00Z",
+  "author": null,
+  "collected_at": "2026-06-16T03:19:56.308686Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

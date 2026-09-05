@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/bipartisan-bill-in-congress-includes-130-annual-ev-registration-fee/",
+  "title": "EV drivers will pay $130 a year under Congress' 2026 transportation bill",
+  "raw_text": "The 119th Congress might be one of the most dysfunctional and least productive legislative sessions in the 250-year history of the United States, but it seems there’s one thing it can agree on: Electric vehicles don’t cost their owners enough money. The Transportation and Infrastructure committee has published its bill to fund surface transportation for the next half-decade, and among the provisions in the “Building Unrivaled Infrastructure and Long-term Development for America’s 250th Act” is an annual fee levied against owners of EVs.\n“I’m extremely proud of the historic level of investment in America’s bridges—at more than $50 billion, it’s the largest such investment in our history. And the BUILD America 250 Act ensures that electric vehicle owners begin paying their fair share for the use of our roads,” said committee chairperson Sam Graves (R-Mo.).\nShould the bill pass—and it enjoys support from the Democratic Party, too—you will be required to pay a $130 federal registration fee to drive an EV. And starting in 2029, that fee will increase by $5 each year until it reaches $150. Plug-in hybrids don’t escape untaxed, either; the fee for a PHEV begins at $35 a year and will escalate by $5 each year until it reaches $50 annually. And if state departments of transport don’t collect this federal EV tax, the federal government will “withhold an amount equal to 125 percent of the amount owed from the state’s highway apportionment.”\nWhy?\nRoad funding in the US is a messy business, paid for by a mix of federal and state gas taxes, state vehicle registration fees, and local budgets. And as the percentage of fuel-efficient PHEVs and gas-abstaining EVs grows, the amount of money available to pay for road upkeep drops. So, in the abstract, asking EV and PHEV owners to pay their share is not unreasonable, especially since the slightly higher curb weight of these vehicles will do slightly more damage to the roads, although passenger vehicles are a rounding error compared to a garbage truck, bus, or tractor-trailer.",
+  "published_at": "2026-05-19T16:12:01Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-20T03:02:21.419966Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "EV adoption",
+      "gas taxes"
+    ]
+  }
+}

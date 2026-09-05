@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/bitcoins-brutal-sell-off-sparks-a-flurry-of-trading-in-related-stocks-including-one-big-bullish-bet.html",
+  "title": "Bitcoin's brutal sell-off sparks a flurry of trading in related stocks, including one big bullish bet",
+  "raw_text": "Bitcoin is back above the $60,000 mark after falling below that key level for the first time since October 2024 on Friday.\nThe world's largest cryptocurrency has lost about 27% of its value in 2026, and it's now about 50% off its all-time high. Despite the carnage, traders aren't backing away from this space. The iShares Bitcoin Trust ETF (IBIT) was among the top 20 most popular tickers in the options market by volume, and two of the top 15 largest options trades by dollar amount were in Strategy and Coinbase on Monday.\nEach of those trades painted a very different picture of where this market could be heading next.\nIn Michael Saylor's Strategy, one trader sold 29,425 of the 125/180-call diagonals, collecting about $56 million in the process. Specifically, the trader sold the 125-strike calls expiring Aug. 21 and used the proceeds to buy the 180-calls expiring June 18. It's an options strategy that is most profitable if Strategy shares drop and stay below $125 through August expiration. Ideally, you want both calls to expire worthless, allowing you to pocket the full credit.\nThe bitcoin treasury company's recent sales of the flagship crypto – its first in years – have spooked investors in both the company and the broader cryptocurrency world. But one top expert thinks a rebound is likely.\n\"In the face of the onslaught of AI narratives undermining trust of traditional systems, bitcoin remains the soundest money, and the resilience of its proof of work architecture has been demonstrated,\" said Tom Lee, BitMine chairman and FundStrat head of research.\nThat resilience will be the key to any crypto comeback, and to Monday's other marquee crypto trade in Coinbase, where one trader is betting about $21 million on a sizable comeback for the hard-hit exchange stock.\nThis trader also used a diagonal strategy, selling 10,990 June 18 expiration calls for $4.9 million and buying $26 million worth of Aug. 21 expiration 160-calls. While this setup also profits from time decay, it's a decidedly more bullish position as the trader is hoping the longer-dated calls appreciate.\nThis trade takes advantage of elevated premiums in Coinbase to generate immediate income, while positioning for a longer-term move higher in the name. For those August expiration calls to be profitable, the stock will have to move above $183.40 per share, or about 13% higher than where it was in Monday's session.",
+  "published_at": "2026-06-09T14:41:20Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.359318Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

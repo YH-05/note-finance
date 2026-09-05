@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/tesla-tsla-stock-analyst-upgrade-software-updates.html",
+  "title": "Tesla stock adds nearly 8% as Elon Musk touts chip progress",
+  "raw_text": "Tesla stock closed nearly 8% higher on Wednesday at $391.95 per share after CEO Elon Musk touted progress on the company's forthcoming AI5 chip.\nMusk said in a post on his social network X that the chip has reached a key engineering milestone and is getting closer to production.\nTesla is also planning to build two advanced chip factories in Austin, Texas, in partnership with SpaceX — one to make chips for vehicles and robots, and another to produce chips for use in orbital data centers.\nIntel recently joined the Tesla-SpaceX Terafab project.\nUBS analysts upgraded their rating on the stock from sell to hold on Tuesday, and increased their price target by about a dollar to $352. The stock gained just over 3% on Tuesday and has rallied more than 12% so far this week.\nFlipping from a previously bearish outlook, UBS analysts led by Joseph Spak wrote in their upgrade that news that Tesla is working on a new, smaller SUV is a \"welcome development,\" given the firm's view that Tesla's current light-duty vehicle offerings are \"too limited.\"\nThe company's lineup currently includes its Model 3 sedan, Model Y SUV and angular steel Cybertruck. The company has stopped selling its flagship Model S and X vehicles in order to transition part of its Fremont, California, factory to produce its humanoid robot, Optimus, now in development.\nThe rising share price also comes after Tesla launched the spring update for its in-vehicle software, including features that make it easier for customers to subscribe to the company's premium, Full Self Driving (Supervised) option, and to view statistics in their touchscreens about how often they are using it.\nFSD (Supervised) costs $99 per month currently in the U.S. and can automatically handle some steering, lane changes, and parking, under active driver supervision. FSD (Supervised) does not make Tesla vehicles autonomous.\nThe company is testing a small number of driverless vehicles in its Robotaxi ride-hail service in Austin, Texas.\nThe spring software update also included changes to the in-vehicle capabilities of AI chatbot Grok, made by Musk's xAI, which is now owned by his rocket maker SpaceX. Drivers can now say, \"Hey Grok\" to wake the app and start using it hands-free in Tesla EVs.\nMusk has promised, for more than a decade, that Tesla is on the brink of delivering driverless, or \"robotaxi-ready,\" vehicles to customers. That hasn't happened yet, although its systems have evolved.\n— CNBC's Michael Bloom contributed to this report.",
+  "published_at": "2026-04-15T20:20:39Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.559448Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

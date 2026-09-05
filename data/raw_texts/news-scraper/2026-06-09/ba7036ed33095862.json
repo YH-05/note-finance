@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20330-telikom-becomes-starlinks-second-reseller-in-papua-new-guinea.html",
+  "title": "Telikom becomes Starlink’s second reseller in Papua New Guinea",
+  "raw_text": "Papua New Guinea’s state-owned telco Telikom PNG has joined the Starlink bandwagon after announcing it has signed a deal to become the country’s second authorised Starlink reseller as of last Friday.\nTelikom plans to offer Starlink’s LEO satellite broadband service primarily to government departments, SMEs, verticals such as financial services and mining, and anyone currently using VSAT services.\nIn a Facebook post on Tuesday, Telikom said it will support the service locally via customer service, billing, installation, technical support, enterprise solutions and managed services.\nTelikom CEO Amos Tepi said the Starlink partnership is not about replacing existing services, but complementing and enhancing connectivity options for customers and providing reliable, affordable, and resilient connectivity.\n\"As a country, we must continue to build redundancy across all critical communications infrastructure. Fibre networks, mobile networks, microwave connections, submarine cables, cloud infrastructure, and satellite technologies must work together to ensure our nation remains connected,\" Tepi said in a statement.\nTelikom’s Starlink announcement follows last week’s news that Digicel PNG became the first operator in the country to sign a reseller deal with Starlink.\nBoth announcements came after an April 2026 ruling by the PNG National Court overturned a ban on Starlink operations originally imposed by the Ombudsman Commission in 2024, which enabled the National Information and Communications Technology Authority (NICTA) to approve Starlink’s operator license.",
+  "published_at": "2026-06-02T05:18:19Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-09T03:01:27.645537Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

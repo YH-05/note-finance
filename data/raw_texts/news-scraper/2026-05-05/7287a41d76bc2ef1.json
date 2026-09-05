@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/",
+  "title": "Apple plans to make iOS 27 a Choose Your Own Adventure of AI models",
+  "raw_text": "When iOS 27 is released later this year, iPhone users will reportedly have a lot of choice when it comes to which AI models they want to use on-device.\nA new report from Bloomberg says that Apple plans to give users their pick of a number of third-party large language models that will be capable of powering various functions within the iPhone’s operating system. The new feature, dubbed “Extensions” internally, will allow users to “access generative AI capabilities from installed apps on demand, through Apple Intelligence features such as Siri, Writing Tools, Image Playground and more,” reads a message reportedly shown in test versions of the software.\nThe new capability will also be available for iPadOS 27 and macOS 27, the outlet writes, adding that models from Google and Anthropic are being tested now. Less clear is where ChatGPT stands. Since it is currently the model available to users, one implication is that it will remain a choice.\nTechCrunch reached out to Apple for more information.\nWith long serving CEO Tim Cook soon stepping down, Apple’s incoming top executive, John Ternus, is tasked with charting the future of the company — including its AI strategy. The company is widely perceived to be “behind” on AI, as it is not launching as many new AI services as some of its peers.\nHowever, Apple is still bringing in a generous amount of AI-based revenue and its plan is less about spending money building out AI infrastructure and services than it is about turning its already existing hardware into an AI-centric experience for users.",
+  "published_at": "2026-05-05T20:56:41Z",
+  "author": "Lucas Ropek",
+  "collected_at": "2026-05-05T21:00:26.371947Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Apps",
+      "TC",
+      "Apple",
+      "artificial intelligence",
+      "Google",
+      "iOS 27"
+    ]
+  }
+}

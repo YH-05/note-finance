@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/933204/lg-1000hz-1080p-ultragear-25g590b",
+  "title": "LG will release the first 1000Hz, 1080p gaming monitor this year",
+  "raw_text": "If you just can’t choose between refresh rate and resolution, LG’s next gaming monitor could solve your problem, as the UltraGear 25G590B monitor is the first one announced that will be capable of a native 1000Hz refresh rate at 1,920 x 1,080 resolution. So far, the 1,000Hz models we’ve seen have only been capable of 720p at the most, but this 24.5-inch IPS display does not have that limitation, as the company says it’s ready for esports competitors (whether they’re in an FPS or Excel), who need maximum responsiveness.\nLG will release the first 1000Hz, 1080p gaming monitor this year\nThe 25G590B is a 24.5-inch IPS screen with the highest refresh rate we’ve seen for a 1080p gaming monitor.\nThe 25G590B is a 24.5-inch IPS screen with the highest refresh rate we’ve seen for a 1080p gaming monitor.\nWe were already asking if anyone could feel the effect of higher refresh rates a few years ago when they hovered around 360 and 480Hz, but now the bar has moved higher once again.\nLG hasn’t revealed the 25G590B’s price or release date beyond “second half of 2026,” but said it has a “minimalist” stand, an integrated hook for headset storage, and customizable lighting. More information will be available on LG’s website here.\nOf course, there are also AI-enabled features, too:\nThe 25G590B incorporates on-device gaming AI features designed to boost both immersion and usability. AI Scene Optimization adds visual realism and depth by intelligently adjusting picture settings according to game genre, while AI Sound presents a more authentic spatial audio experience along with clearer in-game communications (when using a compatible headset). These AI-driven capabilities complement the monitor’s ultra-fast performance to create the ideal platform for competitive gaming.",
+  "published_at": "2026-05-19T01:10:12Z",
+  "author": "Richard Lawler",
+  "collected_at": "2026-05-19T03:00:16.195195Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "LG",
+      "News",
+      "PC Gaming",
+      "Tech"
+    ]
+  }
+}

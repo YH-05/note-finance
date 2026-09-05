@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20244-turkcell-and-sateliot-demo-5g-ntn-iot-connectivity-via-satellite.html",
+  "title": "Turkcell and Sateliot demo 5G NTN IoT connectivity via satellite",
+  "raw_text": "Turkcell, Turkey’s leading telecommunications and technology company, and 5G IoT satellite constellation operator Sateliot say they have successfully completed a field demonstration of 5G NTN IoT connectivity via satellite both in Barcelona and Istanbul.\nThe demonstration was carried out to validate standard-based 5G narrowband IoT (NB-IoT) NTN connectivity over Sateliot’s low Earth orbit (LEO) satellite constellation and to demonstrate its seamless integration as an extension of Turkcell’s terrestrial cellular network\nThis test, say the partners, confirms that cellular IoT devices can seamlessly remain connected when they leave terrestrial coverage, switching between mobile and satellite networks without service interruption. They add that this opens the door to new digital applications in remote and hard-to-reach areas where connectivity is currently limited.\nThanks to this integration, sectors such as agriculture, logistics, energy and emergency management – which are growing rapidly in Turkey and adopting digital solutions – can continuously and securely monitor assets and processes. The combination of terrestrial and satellite connectivity allows for extended reach to remote areas without replacing existing devices, thus offering a seamless and uninterrupted experience to the end user.\nFollowing the success of this trial, Sateliot and Turkcell say they will explore future deployments, consolidating a more connected, inclusive IoT ecosystem, ready for the challenges of digitalization.\nGianluca Redolfi, CCO of Sateliot, explains: “This project demonstrates that satellite connectivity can be seamlessly integrated with the mobile network. For the end user, it means that their cellular IoT devices continue to function in both mobile and satellite networks, with the same cellular device.”",
+  "published_at": "2026-05-13T14:07:17Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-17T03:01:28.481951Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

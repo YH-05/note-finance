@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/950264/meta-ai-mode-search-facebook",
+  "title": "Facebook’s new AI Mode search gets its info from public posts",
+  "raw_text": "Your public Facebook posts could help inform AI-generated results in Meta’s new AI Mode. When you search on Facebook, the “AI Mode” option will appear alongside the usual search modes like “People” and “Marketplace.” It’s one of several new AI features Meta is rolling out starting today, including photo presets that swap sports jerseys onto fans and suggestions for collage templates.\nFacebook’s new AI Mode search gets its info from public posts\nMeta’s Muse Spark AI answers questions based on what it’s learned from the social network.\nMeta’s Muse Spark AI answers questions based on what it’s learned from the social network.\nInstead of “just links,” it gives users AI-generated results that pull from publicly-posted content across Meta’s platforms, like the AI search feature in its new Reddit-like Forum app. Users can also ask Meta’s AI follow-up questions in response to the search results it generates.\nGoogle has similarly pulled from Reddit threads for its search results and AI overviews. Now Meta says its feature “uses Meta AI to give you answers grounded in what people are saying publicly across our apps” and has said that the Muse Spark AI model behind it will “over time unlock new features that cite recommendations and content people share across Instagram, Facebook, and Threads.”",
+  "published_at": "2026-06-15T21:15:08Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-16T03:00:17.194843Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Facebook",
+      "Meta",
+      "News",
+      "Social Media",
+      "Tech"
+    ]
+  }
+}

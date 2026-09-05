@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605111077",
+  "title": "１１日香港・ハンセン指数＝終値２６４０６．８４（＋１３．１３）",
+  "raw_text": "１１日の香港・ハンセン指数の終値は前営業日比１３．１３ポイント高の２６４０６．８４と反発した。\n出所：\nMINKABU PRESS",
+  "published_at": "2026-05-11T08:27:00Z",
+  "author": null,
+  "collected_at": "2026-05-11T09:00:22.221200Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

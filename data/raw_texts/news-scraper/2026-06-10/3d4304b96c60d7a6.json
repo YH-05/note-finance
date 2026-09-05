@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/semiconductor-shorts-pile-on-as-winning-trade-reverses.html",
+  "title": "Semiconductor shorts pile on as winning trade reverses",
+  "raw_text": "That escalated quickly.\nInvestors' favorite trade is suddenly the one they can't stop betting against, even as it keeps going lower.\nChip stocks in the VanEck Semiconductor ETF (SMH) are down on Tuesday. The ETF is now off more than 10% from the record high reached last week, and options traders are betting it will get worse.\nPut volume outnumbered call volume by a factor of four as of midday Tuesday, according to data from ThinkOrSwim, and traders bought more than five times as many puts as calls. Of the almost $350 million in premium traded on SMH, $260 million was tied to puts, SpotGamma data show.\nThe price action is a brutal about-face for investors who couldn't get enough of hardware stocks tied to the artificial intelligence buildout. However, for options traders who had been leaning bearish recently, the persistent put-buying in the face of deep selling is a sign some of the sector's biggest cheerleaders are looking elsewhere.\n\"Friday's selloff was never going to be a one-hit wonder,\" Don Kaufman, co-founder of TheoTrade, said by phone. \"All these SMH put-buyers are going to force market-makers to short the stock or sell Nasdaq futures which creates a very similar feedback to loop to what was causing it to go higher, but the downside can be exacerbated when money managers or retail [traders] panic.\"\nThe bearish sentiment around SMH is showing up in the broader tech-heavy Nasdaq 100, where options volumes in the Invesco QQQ ETF also skewed toward puts. Of the $3.7 billion traded in QQQ options Tuesday, about $2.5 billion was in puts.\nThe most popular contract in QQQ by dollar amount and volume is currently the in-the-money 700-strike put expiring on Tuesday, with $44 million in premium exchanged. The runner-up is the 715-strike put expiring next Monday, which traded $35 million as of writing.\nEven trading in the Roundhill Memory ETF (DRAM) – which had been seeing more persistent call-buying and more balanced volumes overall – started to turn sour as Tuesday's session worsened. Traders bought more than 24,000 puts in that fund, compared with under 15,000 calls.",
+  "published_at": "2026-06-09T18:26:25Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.432430Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

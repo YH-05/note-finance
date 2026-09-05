@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/bitcoin-drops-back-under-70000-strategy-extends-its-slide.html",
+  "title": "Bitcoin drops back under $70,000, Strategy extends its slide",
+  "raw_text": "Bitcoin on Tuesday fell below $70,000 for the first time since April amid deteriorating market sentiment.\nThe price of the flagship cryptocurrency was last lower by more than 6% at $67,014.97, according to Coin Metrics. Earlier, it fell as low as $66,954.99, its lowest level since April 5. Ether declined by 4.7%, and stocks across the crypto sector were in the red as well. Strategy fell 9%, Galaxy lost 5.9% and Coinbase was down 4.7%.\nThe moves began on Monday, when bitcoin and crypto stocks fell after bitcoin treasury pioneer Strategy reported it sold a small amount of the bitcoin it was holding — its first sale since 2022. While it was well telegraphed by the company, the reversal from chairman and founder Michael Saylor's \"never sell your bitcoin\" mantra spooked investors.\nThat led to a cascade of long liquidations that accelerated the downside pressure. When leveraged traders betting on higher prices are forced out of their positions, exchanges automatically sell their holdings to cover losses. Crypto exchanges have recorded $594 million in long liquidations over the past 24 hours, according to CoinGlass.\nBitcoin has been struggling to climb back toward its October record of more than $126,000 as uncertainty around the U.S.-Iran war has kept the price under pressure while the stock has risen to new records. This has put both of bitcoin's dominant narratives under scrutiny: that it's \"digital gold\" that should benefit from geopolitical uncertainty, and that it trades like a high beta tech stock.\nOn Monday, bitcoin ETFs registered their 11th day in a row — and longest streak ever — of net outflows, according to SoSoValue.",
+  "published_at": "2026-06-02T20:03:49Z",
+  "author": null,
+  "collected_at": "2026-06-02T21:19:51.126114Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

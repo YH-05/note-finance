@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/ai-driven-cheating-widespread-even-at-elite-schools-like-princeton/",
+  "title": "AI invades Princeton, where 30% of students cheat—but peers won't snitch",
+  "raw_text": "Pity poor Princeton.\nThe ultra-elite university has a mere $38 billion in endowment money. Many of its dorms lack air conditioning. And it’s in New Jersey.\nI kid about New Jersey, of course. Despite not being allowed to pump one’s own gas there, the “Garden State” grew on me during three years spent in the Princeton area. I still keep up with its goings-on, which led me to this week’s article in the Daily Princetonian on how AI was disrupting the university’s long-running traditions.\nAlthough a beautiful place, Princeton is also extremely competitive; before one heads up to New York to become a captain of finance, one needs to succeed in the classroom. And when everyone else in the classroom is a genius, cheating becomes a real option to stay ahead, especially in the sciences.\nIn a 2025 survey of Princeton seniors, 29.9 percent of students admitted to cheating on at least one assignment or exam. (This skews differently by degree. Students seeking a bachelor of science in engineering [BSE] degree admitted to cheating 40.8 percent of the time, compared to “only” 26.4 percent of bachelor of arts [BA] students.)\nAnd according to the data, most of this cheating is done with generative AI.\nCheating is easier at Princeton than at some places because the school does not allow its professors to proctor exams. Thanks to an honor code pact going back to 1893, Princeton profs do not watch their students take in-class tests. Students, for their part, must write, “I pledge my honor that I have not violated the Honor Code during this examination” at the start of each test. Students are also honor-bound to report other students that they see cheating.\nBut thanks to cell phones, AI, and a culture not willing to “snitch” on others, the old system is under significant strain. Cheating is now widespread and is not being reported—even though it bothers many students. As a January opinion piece about the school’s honor code put it:",
+  "published_at": "2026-05-13T19:47:24Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-15T03:00:30.485741Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Policy",
+      "cheating",
+      "education",
+      "Princeton"
+    ]
+  }
+}

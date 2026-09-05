@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/929692/microsoft-musk-altman-openai-trial",
+  "title": "Microsoft doesn’t want any of this",
+  "raw_text": "Maybe I’m just punch-drunk in my third week attending Musk v. Altman, but I have become very, very fond of Microsoft during the course of this trial. They don’t want to be here any more than I do.\nMicrosoft doesn’t want any of this\nAt Musk v. Altman, the software giant is trying to stay above the fray and out of ‘amateur city.’\nAt Musk v. Altman, the software giant is trying to stay above the fray and out of ‘amateur city.’\nTheir opening statement was honestly one of the most Microsoft things I’ve ever seen. More than anything else, it was an ad for Microsoft that listed their products in some detail. The general implication, from that statement, was that this trial was absurd, their involvement was absurd, but you, ladies and gentlemen of the jury, might still enjoy an Xbox game.\nThere’s been a great deal of high drama on the stand, from Musk, his associates, and OpenAI. Microsoft was an early and major funder of OpenAI’s for-profit company, it’s true. We saw internal emails about whether funding OpenAI was a good idea and how to avoid becoming IBM to OpenAI’s Microsoft. (In the context of this trial? Normal!)\nBut Microsoft is notably missing as primary decision-makers in the extensive text message threads, diary entries, and the other embarrassing ephemera. They appeared in a few emails, and there were a few texts from CEO Satya Nadella suggesting OpenAI board members or asking Sam Altman or Mira Murati to call him, but that was about it.\nOn the stand, Nadella was mild-mannered and unperturbed, about as interesting and sensible as a pair of pleated khaki pants. His answers were largely unmemorable, except for one: He felt that OpenAI’s board drama of 2023, when Altman was briefly ousted, “was sort of amateur city, as far as I was concerned.” True! But then this whole trial is kind of amateur city, as far as Microsoft is concerned. The 12AM text threads between Musk lackeys, the wrangling over equity, the Musk “I’ve had enough” email, all of it… just not really adult behavior.\nSo throughout the trial, Musk’s lawyers and OpenAI’s lawyers slugged it out over witnesses. Then the Microsoft lawyers got up, and like the trial’s punchline, they went through a series of events: “And was Microsoft there?” It was not. “Did anyone tell anyone at Microsoft anything about that?” They did not. “Was Satya Nadella there?” He was not. No further questions, your honor.\nI look forward to their closing statement. Perhaps it will be an ad for Microsoft Word.",
+  "published_at": "2026-05-13T15:30:37Z",
+  "author": "Elizabeth Lopatto",
+  "collected_at": "2026-05-13T21:00:16.563006Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Microsoft",
+      "OpenAI",
+      "Tech"
+    ]
+  }
+}

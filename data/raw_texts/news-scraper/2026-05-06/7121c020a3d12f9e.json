@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/how-do-you-design-a-30000-electric-pickup-inside-fords-skunkworks/",
+  "title": "How do you design a $30,000 electric pickup? Inside Ford's skunkworks.",
+  "raw_text": "LONG BEACH, Calif.—2026 is a strange time for electric vehicles in the US. The current administration has no desire to push for their adoption and has rescinded the federal tax credit on which EV sales have depended for years. Tariffs have made vehicles and their constituent components even more expensive, making switching to an EV for the first time an even harder pill to swallow. Manufacturers like Honda, which had three nearly production-ready EVs on deck, just killed them all unceremoniously.\nIt’s bleak out there.\nStill, Ford has decided to stay in the game with its “Universal Electric Vehicle,” which it announced in late 2025. This highly modular platform is designed to underpin all of the Blue Oval’s electric vehicles going forward. The work has been largely conducted at Ford’s Electric Vehicle Development Center (EVDC) in sunny Long Beach, California, and Ars Technica was recently invited to tour the facility to see what makes it different from any of Ford’s other operations.\nThe skunkworks\nInside a bland-looking tilt-up concrete building in a new-ish business park near the Long Beach Airport, Ford is attempting to upend the way it develops new vehicles. The EVDC was conceived of as a “skunkworks,” but what is that, and why is it important for Ford’s future?\nThe first skunkworks was a highly autonomous, secretive division within Lockheed Martin that began in Burbank, California, in the 1940s. It got its name from its proximity to a plastics plant that made the surrounding area stink; the smell was so bad that one of the engineers assigned to the division started referring to the building as the “Skonk Works,” after a fictional product from the “Lil’ Abner” comic strip. The name stuck, but it was changed from Skonk to Skunk to avoid any lawsuits.",
+  "published_at": "2026-05-05T15:39:21Z",
+  "author": "Kyle Hyatt",
+  "collected_at": "2026-05-06T03:00:31.373934Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Ford"
+    ]
+  }
+}

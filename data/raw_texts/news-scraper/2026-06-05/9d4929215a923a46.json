@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/",
+  "title": "Meta steals a tactic from Tesla and builds data centers in tents",
+  "raw_text": "Just when you thought the AI data center boom couldn’t get any crazier, Meta has gone and built data centers in tents. The strategy appears to borrow in equal parts from Tesla and xAI.\nIn a bid to cut construction time in half, Meta has built six tents — or “rapid deployment structures” as the company describes them — outside of New Albany, Ohio, according to Michael Thomas, founder of Cleanview, which tracks data center deployments.\nThomas’ findings aren’t totally new. Meta CEO Mark Zuckerberg spoke to The Information last year about his plan to use weatherproof tents to house the company’s multi-gigawatt data centers.\nBut Thomas’ images and review of local permits showcase the speed of construction and scale of the project. According to city permits reviewed by Thomas, Meta started building five 125,000-square-foot tents between April and June. The satellite images he shared in his post on X show the structures have all been built.\nThe use of tents is reminiscent of those Tesla built in the parking lot of its Fremont, California factory when it was rushing to roll out the Model 3. The site is also powered by 200 megawatts of modular gas turbines nearby, a tactic popularized by competitor xAI.\nInside the tents, AI chips, likely worth billions of dollars, will go about their business.\nThe tents have sprung up as Meta has struggled to release its AI models to developers. A recent report in The Wall Street Journal found that Meta’s latest model, Muse Spark, is complete, but the APIs that developers rely on to access it have been repeatedly delayed.\nMeta has said it intends to spend up to $145 billion on data centers and other capital expenditures. Wall Street hasn’t liked the sound of that, with Meta’s stock trading down 5% this year. Putting AI chips in tents is one way to trim the bill.\nTechCrunch has reached out to Meta for comment and will update this article if it responds.",
+  "published_at": "2026-06-04T19:33:09Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-05T03:02:29.645907Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Climate",
+      "Social",
+      "data centers",
+      "Meta",
+      "Tents"
+    ]
+  }
+}

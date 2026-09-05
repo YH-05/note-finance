@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606041273",
+  "title": "イスラエル軍、レバノン南部の町から撤退",
+  "raw_text": "【注目】イスラエル軍、レバノン南部の町から撤退\nレバノン軍は同地域でがれきの撤去を完了し、道路を再開した。イスラエル軍は撤退についてコメントしていない。レバノンとイスラエルは４日に停戦で合意した。\n株探ニュース",
+  "published_at": "2026-06-04T14:43:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T15:00:17.676841Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

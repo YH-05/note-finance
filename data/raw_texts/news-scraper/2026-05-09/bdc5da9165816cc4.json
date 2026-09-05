@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/thailand-emerges-possible-hub-nvidia-chip-smuggling-channel-alibaba",
+  "title": "Thailand Emerges As Possible Hub In Nvidia Chip-Smuggling Channel To Alibaba",
+  "raw_text": "New details have emerged in the alleged AI chip diversion scheme involving the co-founder of Super Micro Computer.\nBloomberg reports that some of the $2.5 billion worth of servers containing advanced AI chips were allegedly routed through a Bangkok-based company before reaching Chinese AI leader Alibaba.\nThe Bloomberg report noted:\nUS prosecutors this year outlined a scheme in which Super Micro's co-founder allegedly worked with an unnamed Southeast Asian company and a \"rotating cast\" of third-party brokers to divert the AI semiconductors in violation of US trade rules.\nThe Southeast Asian firm the prosecutors didn't name, identified only as Company-1, is Bangkok-based OBON Corp., the people said.\nSome of the $2.5 billion worth of servers sold to OBON allegedly went to Chinese AI leader Alibaba, according to the people, who requested anonymity to discuss a sensitive legal and geopolitical matter.\nIt is important to note that OBON is linked to Thailand's AI infrastructure buildout and the creation of Siam AI, Thailand's sovereign cloud champion.\nNvidia CEO Jensen Huang even appeared at a Siam AI event in December 2024, focused on sovereign AI. Siam AI's CEO, Ratanaphon Wongnapachant, said Siam AI was not involved and that he had left OBON when he launched Siam AI.\nWashington has restricted exports of advanced Nvidia AI chips to China over national security concerns, leaving Chinese firms to either rent overseas computing resources or obtain chips through smuggling channels.\nIn mid-March, U.S. federal prosecutors charged three men: senior executive Yih-Shyan \"Wally\" Liaw, the co-founder; Ruei-Tsang \"Steven\" Chang; and Ting-Wei \"Willy\" Sun, with conspiring to divert $2.5 billion worth of Nvidia chips to China.\n\"OBON's purported involvement in the smuggling arrangement could deal a blow to Thailand's fledgling AI ambitions and reignite calls in Washington for restrictions on chip sales to the region,\" Bloomberg noted.\nShares of Super Micro have since recovered from the mid-March plunge that followed the co-founder's arrest by U.S. authorities.\nToday's report outlines how Thailand's sovereign AI push may have served as a channel to smuggle advanced Nvidia chips to China.",
+  "published_at": "2026-05-08T22:50:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-09T03:01:36.843500Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

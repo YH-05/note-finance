@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606180051",
+  "title": "トランプ大統領、利上げの可能性について「起こり得る」",
+  "raw_text": "【注目】トランプ大統領、利上げの可能性について「起こり得る」\nＦＯＭＣに対するトランプ大統領の発言が伝わっており、「金利据え置きは別に構わない」と述べたほか、利上げの可能性について「起こり得る」と述べた。\n株探ニュース",
+  "published_at": "2026-06-17T19:25:00Z",
+  "author": null,
+  "collected_at": "2026-06-17T21:00:22.635681Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

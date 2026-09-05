@@ -1,0 +1,31 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/spacexs-starship-v3-still-a-work-in-progress-mostly-successful-on-first-flight/",
+  "title": "SpaceX's Starship V3—still a work in progress—mostly successful on first flight",
+  "raw_text": "SpaceX launched the first test flight of its upgraded Starship rocket and Super Heavy booster Friday, with mostly positive results.\nThe powerful rocket, propelled by 33 methane-fueled main engines, climbed away from SpaceX’s Starbase launch facility in South Texas at 5:30 pm CDT (6:30 pm EDT; 22:30 UTC) Friday. Within a few seconds, the 408-foot-tall (124-meter) rocket, the largest ever built, cleared the launch tower and turned onto an eastward heading over the Gulf of Mexico.\nStarship splashed down on target in the Indian Ocean a little more than an hour later to conclude the first flight of the latest version of SpaceX’s stainless steel mega-rocket. Starship V3 fared better on its debut than the first flights of Starship V1 and V2 in 2023 and 2025. Both past versions of Starship broke apart during launch on their inaugural flights.\nSpaceX officials appeared pleased with the performance of Starship V3 on Friday. Elon Musk, the company’s founder and CEO, congratulated his engineers with a post on X: “Congratulations SpaceX team on an epic first Starship V3 launch & landing! You scored a goal for humanity.”\n“Congrats and a huge thank you to the SpaceX team that always delivers,” Gwynne Shotwell, SpaceX’s second in command, wrote in an X post. “This was an incredible first flight of a brand new vehicle. Our collective future flying amongst the stars has become so much closer.”\nLeaders at NASA, relying on SpaceX to provide Starship as a human-rated Moon lander, were closely watching the launch. NASA Administrator Jared Isaacman was in Texas to witness the launch in person. He lauded SpaceX for a “hell of a V3 Starship launch.”\nStarship’s 12th test flight was a long time coming. The last Starship test flight took off last October. The gap of more than seven months was the longest interval between Starship flights since the program’s first full-scale launch in April 2023. SpaceX used the time to complete construction and activation of a second launch pad at Starbase as engineers steered Starship V3 through ground testing, which had its own share of setbacks.",
+  "published_at": "2026-05-23T17:54:54Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-05-25T03:00:31.938852Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "artemis",
+      "Commercial space",
+      "human landing system",
+      "k",
+      "launch",
+      "moon",
+      "NASA",
+      "spacex",
+      "Starbase",
+      "starship",
+      "texas"
+    ]
+  }
+}

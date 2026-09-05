@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20260325a.htm",
+  "title": "Federal Reserve Board releases annual audited financial statements",
+  "raw_text": "March 25, 2026\nFederal Reserve Board releases annual audited financial statements\nFor release at 12:00 p.m. EDT\nThe Federal Reserve Board on Wednesday released annual audited financial statements for the Federal Reserve System for 2025. An independent accounting firm issued unqualified opinions, stating that its audit found no material misstatements in accordance with applicable auditing standards.\nThe Board released audited individual and combined statements for the 12 Federal Reserve Banks, the Board, and one limited liability company (LLC), relating to the Board's response to the COVID-19 pandemic. The audited financial statements provide information about assets, liabilities, and operations as of December 31, 2025.\nThe Federal Reserve Act requires the Board to order an annual independent audit of the financial statements of each Reserve Bank and the Board. A public accounting firm was engaged to conduct these audits. The accounting firm also conducted audits of internal controls over financial reporting for the 12 Reserve Banks and the Board.\nIn addition to annual audited financial statements, the Board also publishes a weekly comprehensive balance sheet and quarterly financial reports.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-03-25T16:00:00Z",
+  "author": null,
+  "collected_at": "2026-05-09T03:01:25.938210Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Other Announcements"
+    ]
+  }
+}

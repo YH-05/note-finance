@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928473/amazons-ultrafast-30-minute-deliveries-are-now-available-in-more-cities",
+  "title": "Amazon’s ultrafast 30-minute deliveries are now available in more cities",
+  "raw_text": "Following a limited test run in parts of Seattle and Philadelphia that started last December, Amazon Now is officially available to millions of Amazon shoppers across the United States. In addition to Seattle and Philadelphia, the 30-minute delivery service is now also widely available in Atlanta and Dallas-Fort Worth, but will soon be expanding to more cities including Austin, Houston, Minneapolis, Orlando, Phoenix, Denver, and Oklahoma City.\nAmazon’s ultrafast 30-minute deliveries are now available in more cities\nThe speedy delivery service expands to Atlanta and Dallas-Fort Worth, in addition to Seattle and Philadelphia.\nThe speedy delivery service expands to Atlanta and Dallas-Fort Worth, in addition to Seattle and Philadelphia.\nThere are currently thousands of items eligible for 30-minute deliveries including fresh milk and produce, over-the-counter medicines, household essentials like laundry detergent, and even small electronics such as AirPods or HDMI cables. In cities where the service is available shoppers will see a “30-Minute Delivery” option on the Amazon home page and mobile app, and eligible items will show up as available with Amazon Now in search results.\nAmazon Now deliveries are discounted to $3.99 per order for those with a $14.99/month or $139/year Amazon Prime membership, or $13.99 without a membership discount. But for orders under $15 there’s an additional $1.99 fee for Prime members, or $3.99 for everyone else.\nThe newly expanded service was created to help Amazon compete with companies like DoorDash and Instacart. Amazon has provided same-day one or two-hour deliveries since 2014. The service was initially offered through its mobile app, then expanded to a dedicated Prime Now website before being folded into the main Amazon website in 2021. In October 2024 Amazon also shut down its Amazon Today service which offered same-day deliveries for products from shopping malls and standalone brick-and-mortar retailers.\nMost Popular\n- Logitech’s tiny folding mouse improves upon the laptop trackpad\n- Forza Horizon 6 has been leaked and cracked a week before its release\n- Palantir’s true believers are wearing this jacket\n- Google stopped a zero-day hack that it says was developed with AI\n- Govee’s new portable smart lamp is on sale for the first time",
+  "published_at": "2026-05-12T13:34:12Z",
+  "author": "Andrew Liszewski",
+  "collected_at": "2026-05-12T15:00:16.362471Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "News",
+      "Tech"
+    ]
+  }
+}

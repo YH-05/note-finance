@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/20205-delloro-predicts-ai-security-market-to-reach-8b-by-2030.html",
+  "title": "Dell’Oro predicts AI security market to reach $8B by 2030",
+  "raw_text": "Analyst company Dell’Oro Group predicted the emerging AI Systems Security (AISS) market will grow from zero to US$8 billion by 2030 as enterprises shift to AI technology across their operations.\nDell’Oro said in a statement that the AISS market has grown from concept to competitive market as nearly 60 vendors spanning model and component security, AI validation and red teaming, AI security posture management, runtime guardrails, and agent security.\nDell’Oro Group senior director of enterprise security and networking Mauricio Sanchez said that budget on enterprise AI has moved on from chat and copilots into systems that are able to retrieve data, call tools, and maintain memory – thus creating a new security category in AI systems.\nHe added that the shift is also creating a new challenge for security teams, who must now govern not only where workloads run, but also how AI systems reason, retrieve information, invoke tools, and take action.\nThe firm added that the wider enterprise AI systems market, which underpins the AISS forecast, is expected to reach nearly US$400 billion by 2030, highlighting that demand for AI security will be driven by real-world deployment rather than cloud spending alone.\nDell’Oro also expects runtime and control layers to become the key battleground for vendors, as organisations look to continuously monitor and enforce how AI systems handle prompts, context, outputs, tool usage, memory, and chains of actions.\nMeanwhile, the cloud native application protection platform market reached nearly US$4 billion in 2025, growing at a five-year CAGR of more than 60%, with Wiz (Google) taking the top revenue share spot, followed by Microsoft, CrowdStrike, and Palo Alto Networks.",
+  "published_at": "2026-05-06T10:18:59Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-10T03:01:30.726032Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Tech"
+    ]
+  }
+}

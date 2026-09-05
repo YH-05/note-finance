@@ -1,0 +1,29 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/everyones-a-loser-in-straight-of-hormuz-game-that-simulates-global-crisis/",
+  "title": "Everyone’s a loser in Strait of Hormuz game that simulates global crisis",
+  "raw_text": "It’s no fun living through the global energy shock and growing economic crisis that has ensued since the conflict choked off shipping through the Strait of Hormuz. But it can be enlightening to play through the new game Bottleneck that forces players to choose among the 2,000 ships still stuck in and around the strait—all while actual news reports and real maritime transit data help tell the story of the unfolding events.\nThe free browser-based game challenges players to act as a fictional maritime coordinator by selecting a handful of ships that get to pass through the strait each day. Most decisions come with serious costs or trade-offs, whether it’s paying the toll imposed by the Iranian government that has claimed authority over the strait or antagonizing Iran or the United States while pushing either side toward widening the war. Failure to push through enough specific shipments can spark individual crises involving the price of oil, food, and water security, and a countdown to famine in many countries.\n“The game does not ask whether you are smart enough to solve the crisis,” said Jakub Gornicki, the journalist and artist who developed the game, in a post. “It asks what kind of damage you choose when every option has a cost.”\nPlayers must also manage relations with factions beyond Tehran and Washington, such as the Gulf States, the United Nations World Food Programme, and the shipping industry. Prioritizing shipments of crude oil and liquefied natural gas may satisfy the US’s interest in keeping energy prices in check, but it will erode the trust of the United Nations, which would rather see more ships carrying fertilizer to stave off future famine.",
+  "published_at": "2026-05-08T11:15:42Z",
+  "author": "Jeremy Hsu",
+  "collected_at": "2026-05-09T03:01:26.279228Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Energy",
+      "fossil fuels",
+      "global food security",
+      "Iran",
+      "natural gas",
+      "oil",
+      "shipping",
+      "ships",
+      "Strait of Hormuz",
+      "USA-Iran War"
+    ]
+  }
+}

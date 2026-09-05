@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/north-carolina-treasurer-passes-on-spacex-citing-valuation-concerns-favors-openai-anthropic.html",
+  "title": "North Carolina treasurer passes on SpaceX citing valuation concerns; favors OpenAI, Anthropic",
+  "raw_text": "North Carolina state Treasurer Brad Briner said the year's hottest IPO is too expensive for his pension fund to own.\nBriner, who oversees roughly $200 billion for North Carolina's teachers, firefighters and police officers, said the state has invested heavily in artificial intelligence startups OpenAI and Anthropic while avoiding a direct stake in SpaceX — expected to go public Friday — because of concerns that the Elon Musk-led company's $1.77 trillion valuation leaves little room for future gains.\n\"There's been a pricing issue that we've been concerned about for the last year or so with SpaceX,\" Briner said on CNBC's \"Squawk Box\" on Wednesday. \"Elon Musk, an amazing entrepreneur, incredible technology to launch business, startling, etc. But at some point, things are fully priced. We're trying to make a high-single-digit, predictable rate of return for our retirees. And we've got to consider valuation when we do that. And so, certainly, SpaceX at $1.75 trillion is a big valuation.\"\nSpaceX is scheduled to price its IPO on Thursday and begin trading on Friday. The rocket maker plans to sell 555.6 million shares at $135 apiece, raising about $75 billion and valuing the aerospace company at roughly $1.8 trillion.\nBriner's comments underscore a growing debate among institutional investors as SpaceX prepares for what is expected to be one of the largest initial public offerings in history. While many money managers view the company as a unique asset with dominant positions in rocket launches and satellite internet, other long-term investors are questioning whether today's valuation already reflects much of that optimism.\nThe state treasurer has instead directed capital toward AI companies that he believes offer stronger risk-reward opportunities. North Carolina invested about $40 million in OpenAI and committed roughly $250 million to Anthropic earlier this year, a position he said is now worth more than $600 million.\n\"We saw an opportunity in Anthropic which we thought was completely mispriced earlier this year,\" Briner said. \"If you use that technology, you see how powerful it is.\"\nRather than buying SpaceX shares in the private market, Briner said North Carolina's pension system expects to gain exposure through index funds once the company goes public.\n\"We will ultimately participate in SpaceX through our index positions in our public equity,\" he said, \"but we don't have any on the private side.\"\nSpaceX didn't immediately respond to CNBC's email asking for comment.",
+  "published_at": "2026-06-10T17:46:32Z",
+  "author": null,
+  "collected_at": "2026-06-14T03:21:25.210681Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

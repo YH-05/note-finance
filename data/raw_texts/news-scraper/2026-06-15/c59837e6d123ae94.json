@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/14/charlie-javice-reportedly-seeking-a-pardon-from-trump-.html",
+  "title": "Charlie Javice reportedly seeking a pardon from Trump",
+  "raw_text": "Charlie Javice, who was convicted of defrauding JPMorgan Chase after selling her company, is seeking a pardon from the Trump administration, The Wall Street Journal reported Sunday.\nJavice founded a startup called Frank that JPMorgan acquired in 2021 for $175 million.\nLast year, she was sentenced to more than seven years in prison for defrauding the bank by overstating the number of customers Frank had. She is appealing the verdict.\nFrank, which helped users apply for college financial aid, said it had more than 4 million customers, but it actually had fewer than 300,000, according to JPMorgan.\nThe Trump administration has been considering a wave of 250 pardons to mark the United States' 250th birthday, the Journal had previously reported.\nA Javice spokesman declined to comment to CNBC, and JPMorgan did not immediately respond to a request for comment on the report.\nRead the full Wall Street Journal report here.",
+  "published_at": "2026-06-14T20:29:12Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.766253Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606050035",
+  "title": "ゼレンスキー大統領、プーチン大統領に和平協議を提案",
+  "raw_text": "【注目】ゼレンスキー大統領、プーチン大統領に和平協議を提案\nウクライナのゼレンスキー大統領は５日、公開書簡の中でロシアのプーチン大統領に対し、戦争終結に向けた和平協議を提案した。ゼレンスキー大統領は書簡で「ウクライナは交渉期間中、全面的な停戦を受け入れる用意がある」と表明。\nその上で「私たちウクライナ国民は恒久的な戦争を望んでいない。戦争のない生活が遥かに良いものであることを十分理解している。そして、それを実現したいと考えている」と訴えた。\n株探ニュース",
+  "published_at": "2026-06-04T19:21:00Z",
+  "author": null,
+  "collected_at": "2026-06-04T21:00:22.332285Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "注目",
+    "tags": []
+  }
+}

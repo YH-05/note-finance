@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/923013/amazon-supply-chain-services",
+  "title": "Amazon&#8217;s trying to turn its massive shipping operation into another AWS",
+  "raw_text": "Amazon might have a part in delivering all kinds of stuff to your door soon, as its massive shipping network opens up to other companies outside its marketplace, more directly competing with giants like DHL, UPS, and FedEx. The new Amazon Supply Chain Services (ASCS) will offer freight, distribution, fulfillment, and parcel shipping to businesses “of all types and sizes,” including Procter & Gamble, 3M, Lands’ End, and American Eagle Outfitters.\nAmazon’s trying to turn its massive shipping operation into another AWS\nThe e-commerce giant’s new supply chain services will deliver for companies across the globe.\nThe e-commerce giant’s new supply chain services will deliver for companies across the globe.\nWith ASCS, Amazon is betting that other companies will pay to use its sprawling fulfillment network — much like they pay to use its web infrastructure, which the e-commerce giant started offering to third-party businesses in 2006. Amazon has spent years building up a fulfillment network for its own deliveries, further decreasing its reliance on the US Postal Service, FedEx, and UPS. In 2023, Amazon launched a new Supply Chain service, allowing other companies to use Amazon to ship products directly from factories.\nThe new service expands on this, giving companies across the automotive, healthcare, electronics, apparel, and food industries the capability to ship their products through Amazon’s delivery network. Companies that use Amazon Supply Chain Services will be able to store their inventory at Amazon’s fulfillment centers across the globe, while taking advantage of its fleet of trucks, aircraft, and delivery vehicles.\n“With the launch of ASCS, we’re confident we can give any other business access to the same cost efficiency, reliability, and speed that we’ve built for Amazon customers,” Peter Larsen, the vice president of ASCS, says in the press release.",
+  "published_at": "2026-05-04T15:16:14Z",
+  "author": "Emma Roth",
+  "collected_at": "2026-05-04T21:00:16.743109Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Amazon",
+      "Business",
+      "News",
+      "Tech"
+    ]
+  }
+}

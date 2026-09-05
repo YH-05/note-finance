@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/veteran-traders-stunned-as-spacex-fans-bet-on-80percent-overnight-gains-ive-never-seen-anything-like-it.html",
+  "title": "Veteran traders stunned as SpaceX fans bet on 80% overnight gains: 'I've never seen anything like it'",
+  "raw_text": "Believers in Elon Musk's astronomic vision for SpaceX are storming options on the stock as punters place cheap bets on massive moves and total premium surpasses trading in monster index ETFs like the State Street SPDR S&P 500 and the Invesco QQQ Trust.\nAbout a million options in SpaceX traded as of this writing, amounting to more than $1.4 billion in premium, according to data from ThinkOrSwim and SpotGamma. By contract volume, it's neck-in-neck with Nvidia for the second-most-traded behind Tesla. By dollar amount traded, it's more than the two combined, and just ahead of the $1.3 billion in QQQ, thanks to SpaceX's sky-high implied volatility.\nCalls are outpacing puts, with almost 600,000 calls trading versus 400,000 puts, and more than 150,000 calls trading at the ask or above, meaning they were likely bought. Bullish bias is showing up in the price of out-of-the-money calls that are twice as expensive as equivalent puts, according to data from Nations Indexes RiskDex index on SpaceX, which compares the prices of one-standard deviation contracts.\n\"I've never seen anything like this,\" Scott Nations, president of NationsIndexes, said in a call. \"Part of this is that they accelerated the timetable. They used to wait at least a week for options. I've never seen volume like this in something new.\"\nOf the top 10 contracts by volume, eight are calls and all expire Thursday June 18. The biggest trades by dollar amount are happening in the near-the-money 210-strike calls, but there's heavy volume in cheaper contracts that need huge moves to pay off.\nMore than 20,000 380-strike calls expiring Thursday traded by midday, a 15-cent contract or $15 per-trade bet that the stock will surge almost 80% in less than 48 hours.\n\"That's crazy so many of those have traded,\" Nations added. \"Clearly buyers are uber-bullish. I'd rather pay $100 to get long the 285s. If you're banking on that sort of rally, that's crazy.\"\nwatch now",
+  "published_at": "2026-06-16T16:34:27Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.494438Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

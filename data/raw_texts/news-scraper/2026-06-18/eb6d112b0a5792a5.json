@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/china-pushes-for-ai-safety-as-g7-summit-wraps-up-without-beijing.html",
+  "title": "China pushes for AI safety as G7 summit wraps up without Beijing",
+  "raw_text": "BEIJING — Senior Chinese officials on Wednesday stressed Beijing's plans to share artificial intelligence globally and safely, the latest sign of how the U.S. and China are promoting different approaches to the tech.\n\"China is accelerating the establishment of a global AI cooperation organization, and welcomes all parties to join,\" Wang Yi, China's top diplomat, told reporters in Mandarin Chinese, according to a CNBC translation. He emphasized the tech should serve the needs of humans.\nWang was speaking at the release of China's global governance whitepaper, which criticized trade wars and emphasized support for the Global South. The category loosely refers to less developed economies, especially countries outside the U.S. and European orbits.\nWang's comments came as the U.S. ramps up efforts to restrict foreign access to leading, U.S.-developed AI models.\nDuring a summit in France this week, the wealthy Group of Seven countries — the U.S., the U.K., France, Germany, Canada, Italy and Japan — discussed a plan to give \"trusted partners\" access to the U.S. AI models, Reuters reported on Tuesday, citing three diplomatic sources. CNBC was unable to independently confirm the report and has reached out to the White House for comment.\nU.S. AI models also tend to be subscription-only, while China's efforts have focused on cheap or free AI models that can often be downloaded in their entirety.\nSpeaking alongside Wang on Wednesday, Zhao Haibing, vice chair of China's top economic agency, pushed back on \"closed, exclusive and monopolistic approaches to tech development.\"\nInstead, Zhao emphasized China's efforts to deepen international AI cooperation through BRICs and the Shanghai Cooperation Organization, an annual gathering of countries including Russia and Iran that was initially focused on security.\nZhao also pointed to China's \"AI Capacity Building for All\" initiative, support for the United Nations in leading global AI governance and efforts to help developing countries with tech and talent.\nThe U.S. and China separately said last month the two sides would work on AI guardrails, but few details have emerged.\nBeijing has made sweeping proposals for global cooperation over the last 12 months.\nChinese President Xi Jinping proposed the \"Global Governance Initiative\" at a China-hosted meeting of the SCO late last summer.\nA few weeks prior, at an annual AI conference in Shanghai, Chinese Premier Li Qiang announced the Chinese government had proposed the establishment of a global AI cooperation organization. Li's remarks came just days after the Trump administration announced an AI action plan that included support for U.S. tech development overseas.",
+  "published_at": "2026-06-17T08:04:21Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.798265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

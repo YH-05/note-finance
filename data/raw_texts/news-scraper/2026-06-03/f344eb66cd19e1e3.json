@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/",
+  "title": "AI costs how much? GitHub Copilot users react to new usage-based pricing system.",
+  "raw_text": "In April, GitHub announced that it was moving subscribers from request-based billing to a usage-based model for its AI-powered Copilot service. As that new pricing model goes into effect today, many GitHub Copilot users are reporting some extreme sticker shock as they realize just how quickly their previous “normal” usage is burning through their newly limited monthly allotment of AI credits.\nAcross social media and forums, many Copilot users are sharing personal statistics showing how just a few hours of AI usage can now account for a large chunk of their new monthly subscription caps. For some users, it reportedly took less than a day to use up a month’s usage quota.\nThat’s a big change from previous months, when GitHub Copilot subscribers were allocated a certain number of “requests” and “premium requests” based on their payment tier. GitHub said that the old system meant that “a quick chat question and a multi-hour autonomous coding session [could] cost the user the same amount,” forcing Copilot itself to “absorb much of the escalating inference cost behind that usage.” Indeed, some Copilot users have been sharing estimates from GitHub’s own tool showing that their previous monthly usage would rack up bills in the thousands of dollars under the new pricing plan.\nUnder GitHub’s new usage-based pricing system, paid Copilot subscriptions instead grant users a certain number of AI “credits” each month, with one credit corresponding to $0.01 of usage. Subscribers also get bonus credits depending on their subscription level: the $10/month Pro plan includes 1,500 credits ($15 worth); the $39 Pro+ plan includes 7,000 credits ($70 worth); and the $100/month Copilot Max plan includes 20,000 credits ($200 worth).",
+  "published_at": "2026-06-01T22:18:09Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-06-03T03:00:30.628886Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "copilot",
+      "GitHub",
+      "microsoft"
+    ]
+  }
+}

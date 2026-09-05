@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/15/mortgage-applications-rise-as-rates-fall-to-one-month-low.html",
+  "title": "Mortgage applications rise as rates fall to one-month low",
+  "raw_text": "Mortgage rates fell to the lowest level in a month, boosting refinance activity and offsetting weak demand from homebuyers. As a result, total mortgage application volume rose 1.8% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, decreased to 6.42% from 6.51%, with points increasing to 0.62 from 0.61, including the origination fee, for loans with a 20% down payment.\n\"Given the evolving situation in the Middle East and its impact on energy and commodity prices, mortgage rates declined last week,\" Joel Kan, an MBA economist, said in a release.\nApplications to refinance a home, which are most sensitive to weekly interest rate moves, increased 5% for the week and were 15% higher than the same week a year ago.\nHomebuyers remain on the sidelines due to continued economic uncertainty. Applications to purchase a home dropped 1% weekly and were 3% lower than the same week one year ago, marking the second consecutive week that applications were below last year's level.\n\"Purchase activity remained subdued as potential homebuyers remained hesitant given the current economic uncertainty, which kept purchase applications below last year's level for the second consecutive week,\" said Kan.\nMortgage rates continued to edge lower this week, hitting a four-week low on Tuesday, as volatility in oil prices tied to the Iran conflict has driven swings in bond yields.\n\"As for the drivers of the market movement, it's the same old story since the beginning of March. The Iran war is the primary source of motivation and oil prices are frequently the best correlated indicator for bond yields and interest rates,\" Matthew Graham, chief operating officer at Mortgage News Daily, wrote.",
+  "published_at": "2026-04-15T11:51:42Z",
+  "author": null,
+  "collected_at": "2026-05-03T03:19:11.560816Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

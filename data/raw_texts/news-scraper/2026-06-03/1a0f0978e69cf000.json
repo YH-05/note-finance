@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606031237",
+  "title": "５月のＩＳＭ非製造業景気指数は５４．５",
+  "raw_text": "【経済】５月のＩＳＭ非製造業景気指数は５４．５\n結果 54.5\n予想 53.8 前回 53.6\n株探ニュース",
+  "published_at": "2026-06-03T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-03T15:00:22.462730Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/pentagon-says-alibaba-baidu-byd-and-unitree-support-chinas-military/",
+  "title": "Pentagon says Alibaba, Baidu, BYD and Unitree support China’s military",
+  "raw_text": "The Pentagon has added Alibaba, Baidu, EV-maker BYD, and buzzy robotics company Unitree to a list of entities it says support the Chinese military.\nThe expansion of the list increases the chance that the Department of Defense could make it harder for U.S. companies to do business with these entities. It’s also likely to further strain the tension between the U.S. and Chinese governments.\nThe list — known as the 1260H list, for the specific section of the 2021 National Defense Authorization Act that created it — is just one tool that the U.S. has used to place restrictions on Chinese tech. President Donald Trump has used tariffs in both of his terms to put pressure on China, including a 100% tax on imported Chinese EVs.\nThis particular update to the 1260H list was briefly published in February, before being pulled from the Federal Register for unexplained reasons, as Bloomberg News notes.\nMost of China’s biggest artificial intelligence players are now on the list, with Tencent added last year. This comes as Trump has said he’s weighing whether the U.S. should take equity stakes in the country’s top AI companies.\nThe updated list now includes 188 companies.\nThe Pentagon added a handful of automotive industry players to the list this year. In addition to BYD, trendy EV company Nio and battery companies CALB Group and EVE Energy were added. Robosense, one of China’s leading maker of lidar sensors, has joined its rival Hesai on the list, too. Baidu is also one of China’s leaders in autonomous vehicles.\nAlibaba, Baidu, BYD, Nio, and Robosense did not immediately respond to requests for comment.",
+  "published_at": "2026-06-08T18:57:49Z",
+  "author": "Sean O'Kane",
+  "collected_at": "2026-06-08T21:00:26.731448Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Government & Policy",
+      "TC",
+      "alibaba",
+      "Baidu",
+      "BYD",
+      "nio",
+      "Unitree"
+    ]
+  }
+}

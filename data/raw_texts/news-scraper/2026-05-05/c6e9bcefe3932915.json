@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/05/05/property-play-homes-become-mini-data-centers.html",
+  "title": "Property Play: Homes become mini data centers",
+  "raw_text": "watch now\nProperty Play: Homes become mini data centers\nThere's been a lot of pushback in local communities against data centers. One company's answer: put small version on the side of your home. Apparently Nvidia and a major public homebuilder are helping them do it. CNBC's Diana Olick joins 'Squawk Box' with the details.\n03:04\n4 hours ago",
+  "published_at": "2026-05-05T11:40:03Z",
+  "author": null,
+  "collected_at": "2026-05-05T15:18:22.333158Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/05/rocket-report-flying-past-peak-falcon-9-rocket-lab-revenue-soars/",
+  "title": "Rocket Report: Alpha Block 2 coming this summer; Falcon sets booster landing mark",
+  "raw_text": "Welcome to Edition 8.40 of the Rocket Report! One of the remarkable things about SpaceX is that, after a quarter of a century and becoming the most important launch company of this era, it remains a disruptive force. Even though the Falcon 9 is the most used rocket of the world, and groundbreaking in its reuse capabilities, SpaceX is actively seeking to make it obsolete with the Starship program. Stephen has a great story in this week’s newsletter highlighting the fact that we’re probably past the peak of the Falcon era of flight.\nAs always, we welcome reader submissions, and if you don’t want to miss an issue, please subscribe using the box below (the form will not appear on AMP-enabled versions of the site). Each report will include information on small-, medium-, and heavy-lift rockets as well as a quick look ahead at the next three launches on the calendar.\nFirefly readies for upgraded Alpha rocket launch. Firefly Aerospace plans to debut the upgraded version of its Alpha rocket late this summer, Space News reports. In a May 4 earnings call about the company’s first-quarter financial results, Jason Kim, chief executive of Firefly, confirmed the company was moving ahead with the Alpha Block 2 rocket after a successful return to flight of the original version of the vehicle in March.\nBlock 2 coming for you … The company announced the Block 2 version of Alpha in January, with stretched first and second stages and upgrades to avionics, batteries, and its thermal protection system. The company said the upgrades were intended to improve the reliability of the vehicle, which suffered two failures and two partial failures in its first six launches. He did not disclose the customer for the Flight 8 mission, but said the company was planning two more launches after that this year.",
+  "published_at": "2026-05-08T11:00:55Z",
+  "author": "Eric Berger",
+  "collected_at": "2026-05-08T15:00:31.322855Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "rocket report",
+      "space"
+    ]
+  }
+}

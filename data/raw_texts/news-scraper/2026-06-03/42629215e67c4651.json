@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/02/polymarket-closes-first-block-trade-in-push-for-institutional-adoption.html",
+  "title": "Polymarket closes its first block trade as prediction markets push for Wall Street adoption",
+  "raw_text": "Prediction market platform Polymarket has completed its first block trade on an artificial intelligence compute infrastructure-related contract, the company shared exclusively with CNBC.\nThe six-figure transaction was between FalconX, a digital asset brokerage, and Anera Labs, a trading technology startup. FalconX and Anera Labs traded on a contract related to the Ornn Compute Price Index, a benchmark that tracks Nvidia's H100 GPU chip rental pricing.\n\"Prediction markets are emerging as one of the most powerful venues for institutional block trades, and this transaction is proof,\" said Brooke Rizzetto, head of institutional liquidity at Polymarket, in a statement. \"Seeing an institutional counterparty use Polymarket to hedge real GPU compute exposure at scale is exactly the future we have been building toward.\"\nBlock trades are large, privately negotiated transactions that are typically executed outside of a public market to avoid price volatility. They are a regular occurrence with equities on big Wall Street trading desks.\nThe announcement comes just over a month after Kalshi, Polymarket's chief rival, completed the first block trade on any prediction market platform. However, Polymarket in a statement noted that this was the first institutional prediction market trade on-chain, as the company's international platform operates on the Polygon blockchain.\nPolymarket's international exchange is separate from its U.S. platform, which launched in December after it was prohibited from operating in the country in 2022 for not properly registering with regulators. The Commodity Futures Trading Commission — the federal regulator for prediction markets — and the Department of Justice in July dropped their investigations into the company without charges. The CFTC regulates Polymarket's U.S. platform.\nWhile individual traders have led to prediction market volumes surging over the past year, platforms are increasingly looking to institutional traders as the next venue for growth. FalconX will serve as a dedicated market maker for future block trades on Polymarket's platforms, the company said.\n\"This transaction highlights the accelerating demand for financial infrastructure in the compute space,\" said FalconX global co-head of markets Ravi Doshi, in a statement. \"We're proud to collaborate with pioneers like Polymarket to deliver deeper liquidity and clearer price discovery to this crucial, rapidly evolving commodity market.\"\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-06-02T12:25:12Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.120888Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://news.ycombinator.com/item?id=48370330",
+  "title": "Please don't spam people looking for employment. It's just cruel",
+  "raw_text": "Earlier I posted in a “Who wants to be hired?” thread, looking for a place where I could apply my experience in hospitality, food tech and automation.\nA couple hours later I received an email:\n“Hi Ilia,\nI saw your comment on the June Who’s Hiring thread. I build production-ready TypeScript and Python systems that integrate LLMs into real workflows, with particular focus on RAG, agent orchestration, and clear blah-blah-blah”\nCome on.\nI am a forced immigrant with a wife, a cat, rent and crushing debt, who’s been unemployed for 6 months.\nI am naturally an extremely optimistic person, but boy is energy on the low by now.\nAnd every e-mail in my inbox, especially one starting with something related to my job search, is a glimmer of hope.\nJust to be crushed by what comes next.\nYes, it’s a minor cut, but those compound.\nPlease just don’t do this.\nMaybe add a skill to your Claude Code called “empathy”?\nYou can have your Claw access a “be considerate of other people’s experiences” MCP server!\nOr just ask your “Daily Grind Reminder” Telegram bot to recommend a good book of fiction from time to time. Just to develop some humanity.\nSorry for venting.",
+  "published_at": "2026-06-02T13:56:46Z",
+  "author": "IliaLitviak",
+  "collected_at": "2026-06-02T15:00:41.655612Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

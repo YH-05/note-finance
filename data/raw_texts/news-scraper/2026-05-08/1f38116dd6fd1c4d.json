@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605081690",
+  "title": "アカンダ、今日は下げて始まる＝米国株個別",
+  "raw_text": "直近上下の動きが大きくボラティリティが激しい医療用大麻など販売のＡｋａｎｄａ Ｃｏｒｐ<\nAKAN>は、大きく下げる展開。昨日は一気に上昇してスタートとなっていた。\nＡｋａｎｄａ Ｃｏｒｐ<\nAKAN> 30.62（-6.57 -17.67%）\n株探ニュース",
+  "published_at": "2026-05-08T13:48:00Z",
+  "author": null,
+  "collected_at": "2026-05-08T15:00:22.837325Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

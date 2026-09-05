@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/943145/apple-watch-watchos-27-wwdc-2026",
+  "title": "Apple announces watchOS 27, now with Siri AI",
+  "raw_text": "Apple just announced watchOS 27, the next version of its Apple Watch operating system, introducing support for Siri AI, a redesigned “dynamic” app grid, and improvements to health and fitness tracking. The watchOS 27 update will be available “this fall,” according to Apple, though support is notably limited — the new OS will only be available for Apple Watch Series 10 models or newer, including the Ultra 2, Ultra 3, and SE 3.\nApple announces watchOS 27, now with Siri AI\nThe upcoming update will be limited to Apple’s more recent Watch models.\nThe upcoming update will be limited to Apple’s more recent Watch models.\nThe biggest update coming to supported Apple Watch models is Siri AI — the next generation of Apple’s virtual assistant, powered by Apple Intelligence. This comes with a new, dedicated Siri app that “brings together all your conversations in one place,” according to Apple, allowing users to start a conversation with the chatbot directly on their Apple Watch, or ask questions on their iPhone and then pick up where they left off from their wrist. Siri can also perform actions in apps, including playing songs, sending emails, or setting new Activity ring goals without the user “having to look around for them,” Apple says.\nSiri AI won’t be available until the beta launches sometime later this year. Using it with watchOS 27 will require Watch users to pair it with an Apple Intelligence-enabled device, though Apple says Siri AI isn’t coming to iOS and iPadOS devices in the EU just yet.\nThere’s also a new dynamic app grid that automatically highlights Siri-suggested apps. The Siri Apple watch app is displayed at the center of this new grid and will be surrounded by your most popular and recently used apps, making them easier to access without hunting around in the app menu.\nNew insights are coming to Workout Buddy — the AI-powered personal trainer feature introduced in watchOS 26— that provide a better look at your pace, distance, and workout duration, and improve run tracking for both outdoor runs and treadmill sessions. Menstrual health support has also been expanded to notify you when logged cycle patterns are suggestive of perimenopause. And after initially launching in English, Workout Buddy will now also be available in Spanish.\nApple has made some general system improvements in watchOS 27 too, including suggestions for more widgets in your Smart Stack, faster music playback, battery optimizations, a more streamlined experience in the Find My app for locating your devices, and a refined Liquid Glass experience that should make text easier to read. There’s also a new gesture that allows you to select a widget in the Smart Stack by tapping your index finger and your thumb together.\nThis is the follow-up to last year’s watchOS 26 update, in which Apple changed the numbering system of its various operating systems to match the upcoming year (switching from the watchOS 11 naming convention it used in 2024). Last year’s update, which rolled out in September, also introduced Apple’s Liquid Glass design language to the Apple Watch, alongside other features, including a wrist-flicking gesture control for dismissing notifications, Apple Intelligence-powered fitness features, and support for Apple’s Notes app.\nThis year’s updates also come after Apple fitness chief Jay Blahnik, the creator behind the three-ring fitness tracking feature on Apple Watches, stepped down in April following allegations that he sexually harassed an employee and fostered a “toxic work environment.” Health and Apple Watch marketing chief Stan Ng also retired in April after 31 years with the company. Incoming Apple CEO John Ternus was put in charge of Apple Watch hardware in late 2022.",
+  "published_at": "2026-06-08T19:34:10Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-06-08T21:00:16.238841Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Apple Event",
+      "Gadgets",
+      "News",
+      "Tech",
+      "Wearable"
+    ]
+  }
+}

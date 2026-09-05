@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/adp-jobs-report-may-2026-payrolls-increase-by-122000.html",
+  "title": "Private payrolls grew by 122,000 in May, stronger than expected, ADP reports",
+  "raw_text": "Private hiring expanded at a brisk pace in May, providing further indication of a stable labor market, ADP reported Wednesday.\nThe payrolls processing firm said companies added 122,000 workers for the month, up from 105,000 in April and better than the Dow Jones consensus estimate for 110,000. May marked the strongest month since January 2025. April's total was revised down by 4,000.\nUnlike prior months, where job growth was concentrated in healthcare and a few other sectors, gains were more broad-based. Eight of the 10 sectors ADP tracks saw gains, and hiring was spread evenly both by company size and geography.\nEducation and health services again led with 57,000 hires, but trade, transportation and utilities added 36,000, professional and business services contributed 11,000, and construction and leisure and hospitality both rose by 8,000.\nInformation services lost 9,000, a possible impact from artificial intelligence growth, while natural resources and mining also reported a loss, down 3,000.\n\"Hiring was more broad-based in May than we've seen in the last few years,\" said ADP's chief economist, Nela Richardson. \"The labor market continues to show sustained momentum going into the summer hiring season.\"\nCompanies with fewer than 50 employees led with 67,000 new hires while those with 500 or more added 40,000 and medium-sized firms contributed 17,000.\nOn salary, annual pay rose 4.4% for those staying in their jobs, the same as April, while job-switchers saw pay growth edge down to 6.5%.\nStock market futures were mixed following the release while Treasury yields were higher.\nThe report comes two days ahead of the Bureau of Labor Statistics' release of nonfarm payrolls for May. The Wall Street consensus is for growth of 80,000 after April's 115,000, with the unemployment rate steady at 4.3%.\nFederal Reserve officials will be watching the jobs numbers closely ahead of their June 16-17 policy meeting. Markets are pricing in a virtual certainty that the central bank will hold its benchmark interest rate in a range between 3.5%-3.75%.",
+  "published_at": "2026-06-03T14:28:44Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.817868Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

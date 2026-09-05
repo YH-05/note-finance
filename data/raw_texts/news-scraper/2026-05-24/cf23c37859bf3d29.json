@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20287-mtn-group-towers-could-become-an-ai-inference-grid.html",
+  "title": "MTN Group towers could become an AI inference grid",
+  "raw_text": "It is being widely reported in the African technology press that pan-African operator MTN plans to turn its African towers into an AI inference grid.\nTo convert its African tower estate into a distributed AI compute fabric, MTN Group will install open GPU infrastructure at base station sites. This, it seems, means the same hardware can run both the cellular network and edge AI inference workloads.\nThis plan does, however, still appear to be at an early stage. According to the South African news service TechCentral, the plan was set out by MTN Group chief technology and information officer Charles Molapisi at an event hosted by law firm Bowmans in Johannesburg on Wednesday.\nEvery cellular tower has a baseband unit at its base to drive the radio access network. Molapisi apparently suggested that MTN will replace these with open GPU configurations capable of running the radio plus AI inference, or what the company has described as a “distributed AI grid”.\nThe ambition is for MTN to become the biggest distributor of edge and inference in the African continent, where it has a presence in 17 sub-Saharan African countries.\nLatency would, apparently, improve. At the moment AI workloads have to go via a central data centre. With the new system they could be processed at or near the tower. With edge compute installed, the workload could be served locally rather than backhauled to a distant data centre and returned, freeing capacity and cutting round-trip time.",
+  "published_at": "2026-05-22T12:28:50Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-24T03:01:19.209519Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

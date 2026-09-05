@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx",
+  "title": "Alphabet announces $80B equity capital raise to expand AI infra and compute",
+  "raw_text": "Alphabet Announces Proposed $80 Billion Equity Capital Raise to Expand AI Infrastructure and Compute\nJune 1, 2026",
+  "published_at": "2026-06-01T20:55:15Z",
+  "author": "gregschlom",
+  "collected_at": "2026-06-02T15:00:41.659132Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20315-smart-zambia-and-huawei-support-ai-data-centre-development.html",
+  "title": "SMART Zambia and Huawei support AI data centre development",
+  "raw_text": "SMART Zambia, an official body mandated to coordinate and implement electronic government, and ICT giant Huawei Technologies have announced the signing of a memorandum of understanding to jointly support the development in Zambia of a National Artificial Intelligence Data Centre.\nThe agreement also outlines a capacity-building programme that will see 5,000 information and communication technology professionals trained by 2028 through Huawei’s Global Academy, aimed at strengthening Zambia’s digital skills pipeline and supporting long-term innovation capacity.\nThe announcement of the MoU was made during the 2026 Zambia Mobile Congress, held on Tuesday in Lusaka, where SMART Zambia National Coordinator Percy Chinyama noted that ongoing investments in digital systems are already generating significant public sector efficiencies, including cost savings, improved transparency, and enhanced service delivery across key areas such as agriculture, healthcare, education and finance.\nThe timing of this annoucement is certainly interesting. We recently reported Huawei plans to reposition itself from a traditional storage hardware supplier into a provider of full-stack AI data infrastructure.\nSMART Zambia has also offered its backing for MTN’s launch of Africa’s first 5G Penta Band indoor solution. It is designed to improve indoor connectivity by addressing common coverage challenges in buildings such as offices, shopping malls, hospitals, hotels and residential complexes.\nAn indoor penta-band system refers to telecommunications hardware designed to support five distinct radio frequency bands simultaneously within a building.\nThis system is expected to deliver faster internet speeds, reduced latency, broader network coverage, and improved quality of service for users.\nMTN Zambia Chief Technology Officer Thomas Ngoma has said that the innovation aligns with the government’s digital transformation agenda under the 8th National Development Plan.\nHuawei Technologies again played a key role in this initiative, this time in enabling the deployment of the solution.",
+  "published_at": "2026-05-28T20:50:36Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-02T15:01:25.291190Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

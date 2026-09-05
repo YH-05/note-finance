@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/17/fed-meeting-today-live-updates.html",
+  "title": "Fed meeting recap: Warsh announces task forces to overhaul major Federal Reserve operations",
+  "raw_text": "Federal Reserve Chairman Kevin Warsh held his first press conference at the helm of the central bank, announcing an overhaul to the Fed's operations.\nHe announced the establishment of five task forces, addressing the Fed's communications, its balance sheet, its reliance on data sources, productivity and jobs, and the central bank's inflation \"frameworks.\"\nWarsh also made a point of abstaining from policymakers' \"dot plot,\" the central bank's projections of where rates will be in the future. He revamped the Fed's policy statement, noting that \"it's a bit shorter, a bit simpler, and it dispenses with some older language.\"\nThe central bank's policy-setting Federal Open Market Committee held rates steady at the conclusion of its June meeting, maintaining its benchmark overnight borrowing rate targeted in a range between 3.5%-3.75%. The move was widely anticipated by markets.\nStocks fell and short-term rates jumped as investors reacted to several Fed officials penciling in a rate hike for 2026.\nHere's what you need to know:\nFollow CNBC's live coverage of the day's events here.",
+  "published_at": "2026-06-17T19:32:54Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.785182Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

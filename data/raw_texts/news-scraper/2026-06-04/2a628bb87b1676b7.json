@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942748/wiim-releases-first-soundbar",
+  "title": "WiiM expands its whole-home ecosystem with a new soundbar",
+  "raw_text": "WiiM, the audio company that’s challenged the idea that audiophile-level performance requires a small loan, is expanding its whole-home ecosystem with the WiiM Bar, which releases in July. Much like its other speakers and audio components, the WiiM Bar supports a bunch of streaming options and expandability at an affordable price — in this case, $479.\nWiiM expands its whole-home ecosystem with a new soundbar\nThe company is known for making high-quality, inexpensive audio products, and the WiiM Bar is its first home theater speaker.\nThe company is known for making high-quality, inexpensive audio products, and the WiiM Bar is its first home theater speaker.\nThe company’s first soundbar has a 3.0.2 Atmos configuration with a total of eight drivers — three front mid-woofers, three front tweeters, and two up-firing full-range height drivers — paired with four passive radiators. That configuration can be expanded to 3.1.2 with the addition of a WiiM Sub Pro for $449, or to a 5.1.2 surround setup by also adding two of the company’s wireless Sound or Sound Lite speakers. It’s compatible with both Dolby Atmos and DTS:X, and includes room correction, dialogue enhancement, and a night mode.\nWhile most current soundbar designs from companies like Sonos, Bose, and Samsung are sleek yet understated, the WiiM Bar stands out with a 2.1-inch round touch display front and center. The Bar isn’t the first WiiM device to incorporate a touchscreen; they can also be found on the WiiM Ultra streamer, WiiM Amp Ultra streaming amp, and WiiM Sound speaker. I’m all for having a display that shows things like volume level, playback information, or album art, and I like that it also offers another way to control the soundbar. But I rarely find myself near a soundbar while I’m listening to it, so I’m not sure how useful that part is. There are also illuminated capacitive buttons for volume, play and pause, and source switching.\nThe Bar can integrate into an existing WiiM multi-room system. It can play audio from more than 20 services from within the WiiM Home app, or connect with Google Cast Audio, Spotify Connect, Qobuz Connect, Tidal Connect, and Amazon Music Cast. There’s also local network support with DLNA or Roon. One major exclusion is Apple AirPlay, which hasn’t been supported by any WiiM products since the Amp was released in November 2023.\nConnections include HDMI eARC, optical, line in, Ethernet, and a USB-A port that is configurable as audio in, audio out, or for media storage. There’s an included remote control if you prefer one to the app or controls on the soundbar.\nI fully expect the Bar, releasing in July, is just the beginning. If WiiM follows its previous strategy, we’re sure to get a step-up option later this year or early next. But even if we don’t, the $479 WiiM Bar looks to be an awfully good deal from a company that knows how to make great-sounding products.",
+  "published_at": "2026-06-03T21:12:51Z",
+  "author": "John.Higgins",
+  "collected_at": "2026-06-04T03:00:16.978060Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Speakers",
+      "Tech"
+    ]
+  }
+}

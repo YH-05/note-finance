@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20282-transtelecom-qazpost-to-connect-remote-kazakh-communities-with-starlink.html",
+  "title": "Transtelecom, Qazpost to connect remote Kazakh communities with Starlink",
+  "raw_text": "Kazakh telco Transtelecom JSC said on Wednesday it has kicked off a project with national postal operator QazPost to install satellite connectivity from LEO satellite operator Starlink in remote settlements in Kazakhstan.\nThe project involves installing and configuring Starlink satellite internet terminals at Qazpost branches in stages in 13 regions of the country. In the initial pilot phase, Transtelecom will connect 210 Qazpost branches.\nTranstelecom said the introduction of Starlink technology will ensure stable internet access in remote settlements, increase the reliability of digital services and improve the quality of service to the population.\nThe project is also aimed at improving the efficiency of operational processes, expanding the availability of online services and developing digital infrastructure in the regions.\nThe project is the latest rural connectivity initivative from Transtelecom and QazPost. Last month, the two organisations signed a framework agreement to connect rural settlements and develop digital infrastructure in Kyzylorda, which sits in the southwest on the Kazakhstan-Uzbekistan border.\nTTC says it’s the official representative of Starlink in Kazakhstan, although rival telco Beeline Kazakhstan has been field-testing Starlink’s Direct to Cell (D2C) satellite service, with plans for a commercial service launch sometime this year.",
+  "published_at": "2026-05-21T05:17:52Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-21T09:01:20.474998Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

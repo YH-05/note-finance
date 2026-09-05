@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/motorola-razr-fold-review-looking-for-an-edge/",
+  "title": "Motorola Razr Fold review: Fits neatly in your pocket but not your budget",
+  "raw_text": "Motorola was early to foldable phones, announcing its first Razr-branded foldable in 2019. Since then, the company has churned out a series of foldable flip phones, but the new Razr Fold is its first attempt at a tablet-style foldable. Samsung, Google, and others have been making devices like this for a while, so we know the formula, and the Razr Fold doesn’t change the game.\nLike the competition, the Razr Fold has flagship specs and a giant foldable display that fits in your pocket. It also comes with a hefty $1,900 price tag. While Motorola has made progress overcoming some traditional shortcomings of foldables, the phone still feels rather impractical, while still being very cool.\nIs “cool” enough reason to spend almost two grand on a phone, though?\nLiving up to the name\nThe Razr Fold lives up to its flip-phone namesake—the device is pretty slim for a foldable, measuring 10.1 mm when closed and 4.7 mm when open. It’s not as svelte as the Samsung Galaxy Z Fold 7, but it beats the Google Pixel 10 Pro Fold. The weight also falls right in the middle at 243 g. Motorola has a lot of experience with hinges, and the Razr Fold reflects that. The movement feels smooth, and the hinge can be held at almost any angle without wobbling. When open, the phone is very nearly flat. It’s a few degrees shy of perfect, but it’s closer than Samsung’s Fold 7.\nThe phone feels solid, but it doesn’t carry the same durability rating as most other flagship smartphones. It’s IP49-rated, which means it’s water-sealed but not resistant to dust and particulates. That could be a problem for a device with a movable hinge.\n| Specs at a glance: 2026 Motorola Razr series | ||||\n|---|---|---|---|---|\n| Razr 2026 ($800) | Razr+ 2026 ($1,100) | Razr Ultra 2026 ($1,500) | Razr Fold ($1,900) | |\n| SoC | MediaTek Dimensity 7450X | Snapdragon 8s Gen 3 | Snapdragon 8 Elite “Pro” | Snapdragon 8 Elite Gen 5 |\n| Memory | 8GB | 12GB | 16GB | 16GB |\n| Storage | 128GB | 256GB | 512GB | 512GB |\n| Display | External: 3.6-inch 1056 x 1066 OLED, 90 Hz, 1700 nits; Internal: 6.9-inch 1080 x 2640 OLED, 120 Hz, 3000 nits | External: 4-inch 1272 x 1080 OLED, 165 Hz, 2400 nits; Internal: 6.9-inch 1080 x 2640 OLED, 165 Hz, 3000 nits | External: 4-inch 1272 x 1080 OLED, 165 Hz, 3000 nits; Internal: 7-inch 1224 x 2992 OLED, 165 Hz, 5000 nits | External: 6.6-inch 2520 x 1080 pOLED, 165 Hz, 6000 nits; Internal: 8.1-inch 2484 x 2232 LTPO OLED, 120 Hz, 6,200 nits |\n| Cameras | 50 MP wide, f/1.7; 50 MP ultrawide, f/2.0; 32 MP selfie, f/2.4 |\n50 MP wide, f/1.8; 50 MP ultrawide, f/2.0; 32 MP selfie, f/2.4 |\n50 MP wide, f/1.8; 50 MP ultrawide, f/2.0; 50 MP selfie, f/2.0 |\n50 MP wide, F/1.6; 50 MP ultrawide with Macro, f/2.2; 50 MP 3x telephoto; 32 MP outer selfie, f/2.4; 20 MP inner selfie, f/2.4 |\n| Software | Android 16 | Android 16 | Android 16 | Android 16 |\n| Battery | 4800 mAh, up to 30 W wired charging, wireless charging | 4500 mAh, up to 45 W wired charging, wireless charging | 5,000 mAh, up to 68 W wired, wireless charging | 6000 mAh, up to 80 W wired charging, 50 W wireless charging (unsupported) |\n| Connectivity | Sub-6 GHz 5G, Wi-Fi 7 | Sub-6 GHz 5G, Wi-Fi 7 | Sub-6 GHz 5G, Wi-Fi 7 | Sub-6 GHz 5G, Wi-Fi 7 |\n| Measurements | Open: 171.30 × 73.99 × 7.25 mm Closed: 88.08 × 73.99 × 15.85 mm, 188g |\nOpen: 171.42 × 73.99 × 7.09 mm Closed: 88.09 × 73.99 × 15.32 mm, 189g |\nOpen: 171.48 × 73.99 × 7.19 mm Closed: 88.12 × 73.99 × 15.69 mm, 199g |\nOpen: 160 height × 144.4 width × 4.55 depth (mm); Closed: 160 height × 73.6 width × 9.89 depth (mm), 243g |\n| Colors | Hematite, Violet Ice, Sporting Green, Bright White | Mountain View | Orient Blue, Cocoa | Blackened Blue, Lily White |\nBecause the Fold has buttons on both edges, you get a somewhat cluttered arrangement when the device is closed. The volume buttons are near the top, and the AI button is right next to them. It’s textured differently, which helps a bit, but I’ve still accidentally pressed it on a few occasions. The power button is below that, so it’s easier to find by touch. It’s not wobbly, but there’s very little tactility, making it hard to know when you’ve pressed it. There’s a fingerprint sensor in the button as well. It’s fast and accurate—no complaints there.",
+  "published_at": "2026-05-14T13:00:28Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-15T03:00:30.484550Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Reviews",
+      "Tech",
+      "Foldables",
+      "motorola",
+      "motorola razr fold",
+      "smartphones"
+    ]
+  }
+}

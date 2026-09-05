@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/942839/macbook-neo-customization-color-mods-official-parts-frankenlaptop",
+  "title": "I customized a MacBook Neo with colorful spare parts",
+  "raw_text": "The MacBook Neo is Apple’s cheapest laptop, its most colorful, and its easiest to repair in years. That means owners can buy replacement parts in all four of its available colors and swap them in on their own. So that got us thinking: What if we bought a Neo just to see how funky we could make it look with official parts?\nI customized a MacBook Neo with colorful spare parts\nAnd I only broke it a little.\nI opted for a replacement trackpad and bottom case in blush, and USB-C ports and keycaps in citrus. My goal was to make it as mishmash-y as possible without changing out more labor-intensive parts — like the top case or lid, which both require taking apart the display.\nPart: | Color: | Price: |\n|---|---|---|\n| Trackpad | blush | $78.32 |\n| Bottom case | blush | $34.32 |\n| Keycaps | citrus | $39 |\n| USB-C boards | citrus | $14 |\n| Total: $165.64 |\nThe four parts we ordered cost $165.64 plus tax, which is nearly 30 percent of the price of a new Neo. So while it’s fun to experiment, buying all these parts purely for aesthetics isn’t cost-effective. But you can end up with something uniquely yours.\nOpening up the Neo is simple. Check out iFixit’s extensive guide and video if you want to see how to tear down the whole thing. Replacing the bottom case is of course the easiest, since you have to open it with a pentalobe screwdriver to access the Neo’s innards anyway. The trackpad and USB-C ports were also quite easy, requiring that I just unplug some ribbon cables and remove several Torx screws to put in the freshly colored parts. After about 40 minutes, I already had a customized Neo.\nThere are lots of fun color combos you could explore with just the trackpad, ports, and bottom plate. But even those three replacement parts will cost you $126.64 — not nothing for a $599 laptop.\nBut then came the keycaps. I was most excited to customize these, as my love for mechanical keyboards and colorful keycaps is well documented. I wanted to give the Neo a touch of the two-tone flair you see on mech keyboards — only changing the alphas, numbers, space bar, and arrow keys to citrus, with the modifiers remaining indigo. Changing out laptop keys is obviously harder than regular keycaps, but I figured I’d be fine.\nReader, I was not fine.\nI didn’t order the little adhesives and plastic removal lever tools Apple sells you to remove the keys. I overlooked the fact that you have to scroll down on each parts page to see if there are tools to buy along with them. In my defense, Apple farmed out the self-service repair store to a third-party logistics company, and the site is pretty spartan.\nYou don’t need the keycap tool and adhesive, but I bet it would be easier and less risky than popping them off with a spudger like I did. But you should definitely not miss the instructions on how to put the keys back in. I managed to damage the fragile hinge clips on a few keys, and a metal fin attaching an arrow key’s scissor switch sheared off before I figured out the proper way to attach the new keycaps, thanks to a couple videos. Notably, the key reassembly instructions are buried in a secondary page linked at the bottom of Apple’s written instructions.\nOnce I had the proper technique, I was able to install the citrus keycaps on the alpha and number keys (minus the A, D, 5, and 8 keys, where I had to use the original undamaged indigo keys, and the W and S, which I kept indigo for the vibes). Sadly, reattaching the arrow key’s scissor switch is probably going to require a trip to the Genius Bar. Maybe I should document how they react to seeing my multicolored Neo.\nDespite my avoidable errors, these mods are very doable if you read the instructions first and don’t get careless or rush through them. It might not be cost-effective to replace all the parts I did, and spending $80 to replace a perfectly good trackpad does feel a bit silly. But just swapping the keycaps for $39 (plus $13 for the removal toolkit) will get you pretty far. Just please learn from my mistakes.\nBut even if I didn’t nail these changes like I hoped, I do love that this is even possible on a MacBook. While I was cursing Apple under my breath during the install for its unintuitive parts site and burying some vital repair instructions, I hope the company continues this trend toward repairability with future MacBook Airs and Pros. And I hope we get more fun colors for those too — including replacement parts to mix and match at our own peril.\nPhotography by Antonio G. Di Benedetto / The Verge",
+  "published_at": "2026-06-05T12:00:00Z",
+  "author": "Antonio G. Di Benedetto",
+  "collected_at": "2026-06-05T15:00:11.523667Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Gadgets",
+      "Hands-on",
+      "Laptops",
+      "macOS",
+      "Report",
+      "Reviews",
+      "Tech"
+    ]
+  }
+}

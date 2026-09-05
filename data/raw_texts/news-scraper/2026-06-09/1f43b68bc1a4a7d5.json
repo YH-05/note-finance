@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606091308",
+  "title": "５月の米中古住宅販売件数は年率４１７万件",
+  "raw_text": "【経済】５月の米中古住宅販売件数は年率４１７万件\n結果 417万件\n予想 407万件 前回 404万件（402万件から修正）\n株探ニュース",
+  "published_at": "2026-06-09T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-06-09T15:00:17.512296Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

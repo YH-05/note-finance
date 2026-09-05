@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/super-micro-stock-tumbles-on-7-billion-financing-plans.html",
+  "title": "Super Micro stock falls 13% on $7 billion financing plans as company touts AI server orders",
+  "raw_text": "Super Micro Computer shares sank 13% on Wednesday after the computer server maker announced $7 billion in equity-related financing deals to help to cover the cost of hardware component purchases.\nThe company said on Tuesday that it's planning $5 billion in underwritten stock offerings and a $2 billion at-the-market offering, starting in July, through arrangements with JPMorgan Chase, Goldman Sachs and Citigroup.\nCompanies often see their share price drop after announcing stock sales, as investors prepare to see their existing holdings diluted in value.\nSuper Micro is the latest company tied to the artificial intelligence boom that's turning to the financial markets for more capital. Earlier this month Alphabet, which offers AI models and cloud infrastructure for model builders such as Anthropic, said it would sell $85 billion in stock, including a $10 billion investment from Berkshire Hathaway.\nSuper Micro said in Tuesday's statement that it's received $39 billion in AI server orders from more than 20 customers during the past few weeks. Demand for AI-ready servers has been climbing sharply, lifting Super Micro's revenue in the March quarter over 100% from a year earlier. Dell said revenue from its Infrastructure Solutions Group grew 181% year over year.\nBefore the after-house drop, Super Micro shares were up about 39% so far this year. In March, the company said a co-founder resigned from its board after he was named in a federal indictment over allegations of smuggling equipment containing Nvidia AI chips into China.\nSuper Micro CEO Charles Liang told analysts on the company's earnings call in May that the cost of memory has more than tripled in recent months.",
+  "published_at": "2026-06-10T13:37:18Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.349463Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

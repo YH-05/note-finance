@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/strategy-shares-fall-after-selling-2point5-million-in-bitcoin-its-first-sale-since-2022.html",
+  "title": "Strategy shares fall after selling $2.5 million in bitcoin, its first sale since 2022",
+  "raw_text": "Michael Saylor's Strategy sold bitcoin last week for the second time ever as geopolitical uncertainty continues to weigh on the bitcoin price and crypto market broadly.\nBetween May 26 and May 31, Strategy sold 32 coins for $2.5 million, and at an average of $77,135 per coin, according to a Monday filing. The company also sold 801,994 shares of common stock, raising $128.3 million, in the same period.\nStrategy shares fell 5.85%. Bitcoin fell 2% on the news to its lowest level since April 13.\nThis is the second time Strategy has ever sold bitcoin and comes soon after the company announced a pivot from Saylor's longstanding \"never sell\" strategy in favor of actively managing its balance sheet. That includes potentially selling bitcoin if it improves bitcoin-per-share metrics, pays dividends or strengthens the company's financial position.\n\"We want to be net aggregators of bitcoin – increasing our total bitcoin, but more importantly, increasing our bitcoin per share because we think that is what is going to be most accretive long term for MSTR,\" Strategy CEO Phong Le said on the company's earnings call in early May.\nA big part of the company's new focus is STRC, a yield-paying security issued by Strategy that lets investors earn income backed by the company's bitcoin-heavy balance sheet instead of buying bitcoin directly. The aim is to turn its bitcoin holdings into a credit engine, where investor demand for income products allows Strategy to grow its bitcoin stack faster than simply buying and holding.\nThe last time Strategy sold bitcoin was in December 2022, during a bitcoin bear market marked by rate hikes, the collapse of FTX and widespread crypto contagion stemming from interconnected lending platforms and hedge funds.\nBitcoin is more than 42% from its all-time high over $126,000. Bitcoin ETFs on Friday posted their 10th day in a row — and longest streak ever — of net outflows.",
+  "published_at": "2026-06-01T21:10:20Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.572866Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

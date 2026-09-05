@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/06/amd-gets-a-big-upgrade-from-goldman-sachs-following-a-blowout-earnings-report.html",
+  "title": "AMD gets a big upgrade from Goldman Sachs following a blowout earnings report",
+  "raw_text": "Advanced Micro Devices has considerable room to run over the next year, largely due to structural agentic artificial intelligence tailwinds following a strong first-quarter report, according to Goldman Sachs. The investment bank upgraded the chipmaker name to buy from hold. It also hiked its price target on shares to $450 from $240, implying 27% upside from Tuesday's close. AMD shares rallied 18% after the company posted first-quarter results that beat analyst expectations. Second-quarter revenue guidance was also well above estimates. AMD 5D mountain AMD rallies \"We expect proliferation of agentic AI in enterprise and consumer workloads to act as a medium-term tailwind to the server central processing unit (CPU) [total addressable market], benefiting AMD,\" analyst James Schneider said Tuesday in a note to clients. \"AMD presents a compelling opportunity for exposure to agentic AI adoption via server CPUs.\" Agentic AI refers to a set of AI-powered tools that can function as assistants in a variety of tasks, interacting with various applications without human supervision. The analyst added that a shift toward \"more inference workloads\" due to booming demand for AI data centers should increase orders of the company's CPUs. Chips with x86, much like those produced by AMD, are likely to get a boost from a rise in enterprise AI agents, he added. Goldman Sachs thinks that AMD will rake in server CPU revenue of $21.1 billion by the end of 2027, or 24% above the consensus estimate on the Street. Most analysts are bullish on AMD. Of the 52 covering the stock, 39 have a buy or strong buy rating, LSEG data shows.",
+  "published_at": "2026-05-06T10:37:36Z",
+  "author": null,
+  "collected_at": "2026-05-07T03:17:26.330309Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

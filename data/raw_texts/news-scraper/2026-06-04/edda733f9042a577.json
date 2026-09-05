@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/constellations-three-mile-island-nuclear-restart-gets-boost-ferc-waiver",
+  "title": "Constellation's Three Mile Island Nuclear Restart Gets Boost With FERC Waiver",
+  "raw_text": "By Ethan Howland of UtilityDive\nConstellation Energy’s plans to restart the Crane nuclear power plant - formerly, and better known as Three Mile Island Unit 1 - were boosted Monday when the Federal Energy Regulatory Commission approved a waiver for the company from PJM Interconnection rules. FERC approved Constellation’s waiver request over the objections of PJM’s independent market monitor.\nUnder the decision, Constellation will be able to transfer 760 MW of Capacity Interconnection Rights, or CIRs, from its Eddystone power plant near Philadelphia to the Crane unit. The transfer will increase the amount of electricity the nuclear unit can deliver to the grid.\nConstellation planned to retire two Eddystone units on May 31, 2025, but the Department of Energy has ordered the company to them to keep running under what the DOE has described as an emergency energy shortage.\nUnder the DOE’s orders, the Eddystone units are not considered capacity resources, making their CIRs free to be transferred, according to Baltimore-based Constellation.\nConstellation’s $1.6 billion plan to restart the 835-MW Crane nuclear unit hit a snag when PJM determined that transmission upgrades were needed to safely deliver all the unit’s power to the grid.\nThose upgrades — including 765-kV and 500-kV projects — aren’t expected to be finished until December 2030 and could be delayed even longer, preventing full deliveries from the nuclear unit, which could restart in the second half of 2027, Constellation said in its March 31 waiver request at FERC.\nConstellation’s request met FERC’s criteria for granting waivers, including that it solves a concrete problem, according to the agency.\n“The requested waiver will allow for the transfer of CIRs between the Eddystone units and Crane, which may reduce or eliminate the number of Contingent Facilities for Crane and thereby potentially increase Crane’s interim deliverability and enable Crane to be fully operational before December 31, 2030,” FERC said.\nAlso, granting the waiver will not have undesirable consequences, such as harming third parties, FERC said.\n“Rather, the requested waiver will provide a more efficient use of CIRs due to the Eddystone units’ current inability to use their CIRs as a result of DOE orders requiring them to operate as energy-only resources,” FERC said.\nConstellation has a 20-year deal to sell all the energy, capacity and clean energy attributes from the nuclear unit to Microsoft for data centers across PJM’s Mid-Atlantic and Midwest footprint.\nIn its waiver request, Constellation said that reaching full deliverability status was especially important for the Crane unit. If run for extended periods below their rated power output, the equipment in nuclear units face risk of elevated vibration and wear, which can pose reliability problems, according to the independent power producer.",
+  "published_at": "2026-06-04T11:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-04T15:00:37.542775Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

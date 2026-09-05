@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/open-ai-ona-acquisition-codex.html",
+  "title": "OpenAI to acquire Ona to support its AI coding assistant, Codex",
+  "raw_text": "OpenAI on Thursday announced it will acquire Ona, a startup that provides secure, pre-configured cloud environments where artificial intelligence agents can access tools, systems and context.\nOna's technology will allow OpenAI's coding assistant, Codex, to take on longer-running tasks, OpenAI said. It will also help more organizations deploy agents, which independently complete tasks on behalf of a user, into production, the company said.\nOpenAI did not disclose the terms of the acquisition, which is still subject to customary closing conditions. Ona's staff will join OpenAI and work on the Codex team once the deal is closed.\n\"I always thought selling the company would feel like an ending. Instead, it feels like our life's work just got bigger and more important,\" Ona CEO Johannes Landgraf wrote in a post on LinkedIn.\nOpenAI kickstarted the AI boom with the launch of its ChatGPT chatbot in 2022, and it's been pouring investment into Codex in recent months as software developers have embraced AI agents as part of their workflows. It's racing against its chief rival, Anthropic, which has experienced a period of explosive growth over the last year, driven in part by the popularity of its own AI coding assistant, Claude Code.\nCodex supports more than 5 million weekly active users, up from 3 million in April. Anthropic does not disclose the number of Claude Code users.\nOpenAI confidentially filed its prospectus with the Securities and Exchange Commission on Monday, just days after Anthropic submitted its own confidential filing with regulators.\nElon Musk's SpaceX, which merged with his AI startup xAI earlier this year, is slated to start trading on Friday in what's expected to be the largest public market debut in history.\nIn an effort to keep an edge over its competitors, OpenAI has made a number of acquisitions in recent months. In March, it announced it would purchase the cybersecurity startup Promptfoo, after acquiring the health-care tech startup Torch for roughly $60 million in January.\nThat deal followed OpenAI's announcement in October that it acquired the startup Software Applications, which made an AI-interface dubbed Sky for Apple Mac users. OpenAI rocked the tech sector in May of 2025 by announcing it bought Jony Ive's AI devices startup io for more than $6 billion.",
+  "published_at": "2026-06-11T16:26:10Z",
+  "author": null,
+  "collected_at": "2026-06-12T03:19:23.767699Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/05/05/coinbase-to-lay-off-14-of-staff-as-part-of-broader-restructuring/",
+  "title": "Coinbase to lay off 14% of staff as part of broader restructuring",
+  "raw_text": "Crypto exchange Coinbase said on Tuesday it is laying off about 700 employees, or 14% of its staff, as part of a broader restructuring aimed at addressing market volatility and increasing the use of AI tools to improve efficiency.\nThe restructuring would see the company flattening its organizational structures to just five layers below the CEO and COO levels, according to an internal email that the company’s CEO Brian Armstrong posted on the company blog.\nThe reorg would implement new requirements for managers to contribute more, and leaders could now have more than 15 direct reports. The company is also focusing on putting together small teams that use AI tools, and will experiment with “one-person teams” that would combine engineering, design and product management roles.\nCoinbase expects to incur approximately $50 million to $60 million in severance costs, it said in an SEC filing.\nIn the email, Armstrong cited the volatility of crypto markets as a reason to reexamine the company’s cost structure.\n“While we’ve managed through that cyclicality many times before and come out stronger on the other side, we’re currently in a down market and need to adjust our cost structure now so that we emerge from this period leaner, faster, and more efficient for our next phase of growth,” he wrote.\nHe also highlighted the need to make the most of AI tools: “AI is changing how we work. Over the past year, I’ve watched engineers use AI to ship in days what used to take a team weeks. Non-technical teams are now shipping production code and many of our workflows are being automated. The pace of what’s possible with a small, focused team has changed dramatically, and it’s accelerating every day […] This is a new way of working, and we need to leverage AI across every facet of our jobs.”",
+  "published_at": "2026-05-05T12:35:46Z",
+  "author": "Ivan Mehta",
+  "collected_at": "2026-05-05T15:00:21.803129Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Crypto",
+      "coinbase",
+      "Layoffs"
+    ]
+  }
+}

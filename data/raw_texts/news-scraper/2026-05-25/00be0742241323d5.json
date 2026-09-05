@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605250931",
+  "title": "日経225先物：25日夜間取引寄り付き＝20円安、6万5260円",
+  "raw_text": "日経平均 ＜日足＞ 「株探」多機能チャートより\n25日17時、大阪取引所の日経225先物期近2026年6月限は日中取引の清算値比20円安の6万5260円で寄り付いた。\n日経平均株価の現物終値6万5158.19円に対しては101.81円高。\n株探ニュース",
+  "published_at": "2026-05-25T08:02:16Z",
+  "author": null,
+  "collected_at": "2026-05-25T09:00:21.868813Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

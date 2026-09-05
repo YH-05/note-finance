@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/26/stocks-making-the-biggest-moves-after-hours-zs-podd-box.html",
+  "title": "Stocks making the biggest moves after hours: Zscaler, Insulet, Box and more",
+  "raw_text": "Check out the companies making headlines after the bell : Box — The cloud-based content management provider slipped 2% after guiding for full-year adjusted earnings of $1.56 per share, while analysts polled by LSEG were expecting $1.63. However, Box did report first-quarter adjusted earnings of 37 cents per share on revenue of $306 million, beating the 36 cents and $304 million analysts were seeking. Zscaler — Shares tumbled 16% after the cloud security company guided for current-quarter revenue of between $875 million to $878 million, falling short of the $879 million analysts were seeking, per LSEG. However, the company's fiscal third-quarter adjusted earnings of $1.08 per share beat forecasts of $1.01 per share, while its $850 million revenue also exceeded the $835 million consensus estimate. Shares of Palo Alto Networks and CrowdStrike both shed 2% in sympathy. Semtech — The semiconductor stock popped 8% after Semtech posted first-quarter adjusted earnings and revenue that beat estimates. The company also guided for current-quarter earnings, adjusted operating margin and EBITDA that exceeded analysts' expectations, according to LSEG. Insulet — Shares dropped about 9% after the medical device company announced a voluntary medical device correction for specific lots of several of its pods. The correction was due to a manufacturing issue that could result in insulin under-delivery to patients. Modine Manufacturing — The manufacturing stock added 1% after Modine reported fiscal fourth-quarter adjusted earnings of $1.71 per share on revenue of $954.5 million. Analysts polled by FactSet were seeking earnings of $1.55 per share and $920.7 million in revenue. Shares of Modine surged nearly 14% on Tuesday after the company said it landed a $4 billion data center cooling deal .",
+  "published_at": "2026-05-26T20:57:46Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.167913Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

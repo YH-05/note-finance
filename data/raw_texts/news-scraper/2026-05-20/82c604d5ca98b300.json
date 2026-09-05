@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/science/2026/05/two-ai-based-science-assistants-succeed-with-drug-retargeting-tasks/",
+  "title": "Two AI-based science assistants succeed with drug-retargeting tasks",
+  "raw_text": "On Tuesday, Nature released two papers describing AI systems intended to help scientists develop and test hypotheses. One, Google’s Co-Scientist, is designed as what they term “scientist in the loop,” meaning researchers are regularly applying their judgments to direct the system. The second, from a nonprofit called FutureHouse, goes a step beyond and has trained a system that can evaluate biological data coming from some specific classes of experiments.\nWhile Google says its system will also work for physics, both groups exclusively present biological data, and largely straightforward hypotheses—this drug will work for that. So, this is not an attempt to replace either scientists or the scientific process. Instead, it’s meant to help with what current AIs are best at: chewing through massive amounts of information that humans would struggle to come to grips with.\nWhat’s this good for?\nThere are some distinctions between the two systems, but both are what is termed agentic; they operate in the background by calling out to separate tools. (Microsoft has taken a similar approach with its science assistant as well; OpenAI seems to be an exception in that it simply tuned an LLM for biology.) And, while there are differences between them that we’ll highlight, they are both focused on the same general issue: the utter profusion of scientific information.\nWith the ease of online publishing, the number of journals has exploded, and with them the number of papers. It has gotten tough for any researcher to stay on top of their field. Finding potentially relevant material in other fields is a real challenge. If you’re focused on eye development, for example, one of the signaling systems used may also be involved in the kidney, and it can be easy to miss what people are discovering about it.",
+  "published_at": "2026-05-19T18:55:56Z",
+  "author": "John Timmer",
+  "collected_at": "2026-05-20T03:02:21.418753Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Science",
+      "Computer science",
+      "FutureHouse",
+      "google",
+      "hypothesis",
+      "hypothesis testing",
+      "large language models",
+      "science"
+    ]
+  }
+}

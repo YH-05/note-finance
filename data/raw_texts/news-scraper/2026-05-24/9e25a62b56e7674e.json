@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20259-edotco-connects-uma-lesong-with-new-rural-wireless-broadband-model.html",
+  "title": "Edotco connects Uma Lesong with new rural wireless broadband model",
+  "raw_text": "Edotco Malaysia said on Friday it has deployed a new fixed wireless access (FWA) solution in Uma Lesong, Sarawak that it’s also pitching as a viable and scalable model for other underserved communities in geographically challenging areas.\nThe solution – which was first piloted in August 2025 – uses a combination of fibre and LEO satellite backhaul for extra flexibility. It also supports mobile-to-Wi-Fi connectivity, which enables user devices to automatically switch from 4G and 5G to Wi-Fi when they move out of cellular coverage range.\nFollowing the successful pilot, residents are now provided with free Wi-Fi internet access of up to 5GB per user monthly, with additional usage options available through affordable top-ups.\nUma Lesong is a longhouse community of around 1,200 residents across 10 blocks within a valley surrounded by dense forest and hills. While the village is located only 1.45 km from the nearest telecoms tower, the terrain creates severe connectivity challenges, said Uma Lesong's chief, Huvat Laing.\n“Most of the villagers here are elderly, while many of our children work and live in other parts of Sarawak. Before this, many of us had to walk or travel more than one kilometre away from the village just to get a mobile signal or internet connection to contact our families. During emergencies, communication was extremely difficult,” he said. “Our grandchildren also struggled with online learning because connectivity was unreliable. This initiative has brought a huge change for our community, and we are very grateful that Uma Lesong is finally connected.”\nThe FWA solution was developed by Edotco and its Sarawak-based partner Kejuruteraan Rasshin, and supported by technology partners VSD Communications and Aminia.\nEdotco group CEO Adlan Tajudin said the project in Uma Lesong reflects a “fundamental shift\" in how rural connectivity challenges are addressed, and presents a scalable, cost-efficient blueprint for nationwide deployment to accelerate rural connectivity across Malaysia.\n“For too long, rural connectivity has been constrained by geography. What we are demonstrating in Uma Lesong is a shift – from building more infrastructure to designing smarter solutions that work even where infrastructure cannot,” he said.",
+  "published_at": "2026-05-18T04:46:42Z",
+  "author": "John Tanner",
+  "collected_at": "2026-05-24T03:01:19.213354Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

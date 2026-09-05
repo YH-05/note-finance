@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/26/oil-prices-today-brent-wti-iran-trump-hormuz.html",
+  "title": "Brent oil jumps more than 3% after Iran vows to retaliate for U.S. strikes",
+  "raw_text": "Brent crude oil prices rose Tuesday as U.S. strikes in southern Iran and President Donald Trump's mixed messaging on talks between Tehran and Washington kept traders on edge.\nBrent crude futures, the international benchmark, gained more than 3% to close at $99.58 a barrel compared to its Monday settlement.\nWest Texas Intermediate futures, which did not close Monday due to the three-day Memorial Day holiday, fell nearly 3% to settle at $93.89 per barrel compared with Friday.\nWTI bounced back Tuesday from session lows in the wake of the U.S. military strikes. Brent and WTI are both lower compared to their Friday settlements, after Trump signaled over the weekend an imminent deal with Iran to open the Strait of Hormuz.\nThe president and his Cabinet will meet at Camp David on Wednesday, a White House official told CNBC. But a deal has not been announced and tensions are escalating again.\nThe U.S. military said it \"conducted self-defense strikes in southern Iran\" early Tuesday, targeting vessels allegedly trying to deploy mines, as well as missile launch locations. The U.S. Central Command said the actions were intended \"to protect our troops from threats posed by Iranian forces.\"\nIran's Islamic Revolutionary Guard Corps on Tuesday said it would retaliate against violations of the ceasefire after it identified and engaged U.S. drones and an F-35 jet fighter that entered the country's airspace.\nThe Islamic Republic's semi-official Tasnim news agency separately described recent talks with the U.S. as \"overall good,\" citing an informed source, but said a memorandum of understanding with Washington would depend on the release of $24 billion in frozen Iranian funds.\nComplicating peace talks further, Trump said in a social media post Monday that he had encouraged Saudi Arabia, Qatar, Pakistan, Turkey, Egypt and Jordan to join the Abraham Accords, aimed at normalizing Arab nations' diplomatic ties with Israel.\nTrump also said negotiations with Iran were \"proceeding nicely,\" but cautioned that the U.S. could resume military action if discussions were to collapse. \"It will only be a Great Deal for all or, no Deal at all,\" Trump wrote.\nSwiss multinational investment bank UBS said Friday the global oil market was showing mounting signs of strain as inventories continue to fall amid continued disruptions to shipments via the Strait of Hormuz. Observed global oil inventories dropped by a combined 246 million barrels in March and April, while cumulative production losses could exceed 1 billion barrels by the end of May, the bank said.\nThe sharp inventory drawdowns suggest the market remains \"strongly undersupplied,\" UBS said, pointing to falling on-land crude and refined product inventories even as oil stored on tankers rose due to rerouted U.S. exports to Asia.",
+  "published_at": "2026-05-26T19:09:45Z",
+  "author": null,
+  "collected_at": "2026-06-03T03:18:24.168404Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

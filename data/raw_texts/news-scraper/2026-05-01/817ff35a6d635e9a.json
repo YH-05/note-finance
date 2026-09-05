@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.appkittie.com",
+  "title": "Show HN: We Rebuilt AppAnne and Created Appkittie",
+  "raw_text": "<p>Article URL: <a href=\"https://www.appkittie.com\">https://www.appkittie.com</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47973203\">https://news.ycombinator.com/item?id=47973203</a></p>\n<p>Points: 348</p>\n<p># Comments: 0</p>",
+  "published_at": "2026-05-01T10:41:31Z",
+  "author": "tadasg",
+  "collected_at": "2026-05-01T15:00:51.839708Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/05/citing-gandalf-pope-leo-says-we-must-disarm-ai/",
+  "title": "Citing Gandalf, Pope Leo says we must \"disarm\" AI",
+  "raw_text": "With the co-founder of Anthropic at his side today in Rome, Pope Leo XIV released a major new encyclical—his first—called “Magnifica Humanitas” (“Magnificent Humanity”). It calls for AI to be “disarmed” in service of the common good.\n“The word is strong,” Leo admits, but he chose the language of “disarmament” deliberately “because this moment needs words capable of attracting attention, awakening consciences, and indicating paths forward for humanity.” AI today must be “freed from logics that turn it into an instrument of domination, exclusion, and death.”\nThe 40,000-word encyclical contains uncompromising critiques of AI-powered autonomous weapons, neo-colonial attitudes towards data collection, and the hoarding of “new forms of property, such as patents, algorithms, digital platforms, technological infrastructure, and data.”\nBut the letter goes far beyond critique, updating Catholic social teaching in a way that calls on everyone to “build”—a favorite term of the Silicon Valley elite. (See venture capitalist Marc Andreessen’s well-known 2020 essay, “It’s Time to Build.”)\nIn Leo’s vision, though, this “building” extends beyond code or startups or factories or housing. He calls for nothing less than the creation of a “civilization of love” in which everyone works for the common good within their own sphere of life and in which technology does not dominate, exclude, or bypass humanity, but instead serves and augments it.\nThat is why, despite releasing it today, Leo actually signed the encyclical on May 15, the anniversary of a famous 1891 encyclical called “Rerum Novarum” (“New Things”). That older document set out Catholic social teaching during an era of capitalist upheaval, largely taking the side of workers and labor unions. Today, Leo updates the church’s social teaching for the age of AI, which he sees as the “res novae of our time.”\nThat new thing\nAs his predecessor did 135 years ago, Leo warns that individual humans and humanity itself must not be left behind by technological advancements or by new forms of power. He is clear-eyed about the sway that technological elites hold today, comparing them to colonial conquerors.",
+  "published_at": "2026-05-25T21:07:42Z",
+  "author": "Nate Anderson",
+  "collected_at": "2026-05-26T03:00:31.799400Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "AI",
+      "Anthropic",
+      "Catholic Church",
+      "morality"
+    ]
+  }
+}

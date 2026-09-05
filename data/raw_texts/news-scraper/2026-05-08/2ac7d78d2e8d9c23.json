@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/heres-how-the-stock-market-may-trade-the-april-jobs-report-according-to-jpmorgan.html",
+  "title": "Here's how the stock market may trade the April jobs report, according to JPMorgan",
+  "raw_text": "As Wall Street counts down to Friday's jobs report, JPMorgan's trading desk sees several potential outcomes that could move the market. Economists polled by Dow Jones expect nonfarm payrolls to have grown by 55,000 in April, down from the increase of 178,000 seen in March. The unemployment rate is expected to hold steady at 4.3%. The monthly ADP National Employment Report on Wednesday reported a better-than-expected, 109,000 job expansion in private payrolls in March. That mirrors the view among economists and monetary policymakers that the labor market is in a \"low-hire, low-fire\" environment. Michael Feroli, chief economist at JPMorgan, anticipates that the economy added 50,000 jobs last month, slightly below the Wall Street consensus. Weather and other factors could weigh on growth, he said. A strong report will be viewed positively by the stock market because it can lessen worries around stagflation, a combination of stagnant growth and elevated inflation, JPMorgan's trading desk wrote to clients. But the team also said that too much expansion could exacerbate fears that the economy is \"overheating.\" Here's the bank's potential scenarios for Friday's report and the possible market outcome, as well as the assigned likelihood: More than 125,000 jobs added, 10% chance: The S & P 500 might suffer a loss of 1% or see a gain of 1%. 85,000 to 125,000 jobs added, 25% chance: S & P 500 might go from little changed to a up 0.75%. 45,000 to 85,000 jobs added, 30% chance: S & P 500 could see a 0.50% decline or rise by 0.5%. 5,000 to 45,000 jobs added, 25% chance: S & P 500 might fall as much as 0.5% or gain 0.25%. Fewer than 5,000 jobs added, 10% chance: S & P 500 could drop anywhere between 0.5% and 1%.",
+  "published_at": "2026-05-07T20:00:01Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.264172Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605261138",
+  "title": "日経225先物：26日22時＝370円高、6万5510円",
+  "raw_text": "【市況】日経225先物：26日22時＝370円高、6万5510円\nTOPIX先物期近は3951.5ポイントと前日比9ポイント高、TOPIXの現物終値比は13.04ポイント高で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 65510 +370 4703\n日経225mini 65515 +370 72143\nTOPIX先物 3951.5 +9 5927\nJPX日経400先物 35875 +110 171\nグロース指数先物 838 +3 201\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-05-26T13:00:51Z",
+  "author": null,
+  "collected_at": "2026-05-26T15:00:22.307923Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://fred.stlouisfed.org/series/IPG33591S",
+  "title": "US battery manufacturing output continues to break records",
+  "raw_text": "May 2026: 239.6250 | Index 2017=100, Seasonally Adjusted | Monthly\nUpdated: Jun 15, 2026 8:31 AM CDT\nMay 2026:\n239.6250\nUpdated:\nJun 15, 2026\n8:31 AM CDT\nUnits:\nIndex 2017=100,\nSeasonally Adjusted\nFrequency:\nMonthly\nFullscreen",
+  "published_at": "2026-06-15T20:28:24Z",
+  "author": "epistasis",
+  "collected_at": "2026-06-16T03:01:23.835252Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

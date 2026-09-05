@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/bitcoin-crypto-ipos-market.html",
+  "title": "Bitcoin hits lowest since February as crypto competes for liquidity with blockbuster IPOs",
+  "raw_text": "Bitcoin declined Wednesday to its lowest levels since February as other asset classes continued to lure investors away from cryptocurrencies.\nThe world's largest cryptocurrency fell to as low as $65,385, dropping 2.3%. That came after the S&P 500 and Nasdaq 100 closed at records on Tuesday. Asian stocks mostly rose with Japan's Nikkei 225 hitting a record high Wednesday.\n\"The broader issue is liquidity rotation,\" according to the trading desk at QCP. \"Crypto is facing competition for capital as equity markets continue to outperform, with both crypto-native investors and traditional asset managers being pulled toward stronger equity narratives.\"\nInvestors may be freeing up liquidity from bitcoin for opportunities in private markets or with initial public offerings such as SpaceX, OpenAI and Anthropic, QCP said. The IPOs in particular are among the most highly anticipated market events of the year.\nAs for levels, experts are watching the mid-$60,000 range for initial action, if bitcoin breaks that support it could see a much sharper fall.\n\"Bitcoin needs to hold around $65,000,\" said Jonathan Krinsky, technical strategist at BTIG. That's \"really the last bastion of support before a test of year-to-date lows around $60,000.\"\nThe QCP expects a similar situation.\n\"We see initial support around $63,000 to $64,000, where bids previously emerged in February and March,\" the digital asset trading firm said. \"A break below that would bring $62,000 into focus, followed by the more important $60,000 psychological level and current cycle lows. Beyond that, $58,000 would be the next major support.\"",
+  "published_at": "2026-06-03T14:15:23Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.464500Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "world_news",
+    "tags": []
+  }
+}

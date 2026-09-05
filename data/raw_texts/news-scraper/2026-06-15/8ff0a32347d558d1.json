@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20372-malawi-and-huawei-in-talks-to-improve-government-services-and-connectivity.html",
+  "title": "Malawi and Huawei in talks to improve government services and connectivity",
+  "raw_text": "Malawi and technology giant Huawei are widely reported to have been discussing strategies to implement a US$180-million national ICT investment, which Huawei has apparently committed to for the next four years.\nShadric Namalomba, the Minister of ICT, visited China recently to engage with Huawei executives. He outlined a four-year roadmap built on two key pillars: a one-stop digital government platform and national connectivity.\nThe platform is a single web portal where citizens can access all government services, including passports, business registration and tax payments.\nThe connectivity strategy comprises a high-speed network connecting all 28 districts of Malawi. It will incorporate ring protection technology designed to reduce service disruptions caused by cable failures.\nAccording to ITWeb Africa, Namalomba has said that the initiative goes beyond infrastructure development and aims to improve the delivery of government services, adding that the goal is to provide citizens with more efficient, transparent and reliable access to public services through digital technology.\nIndeed, the country’s Digital Economy Strategy (2023–2028), of which these plans are to be a component, aims to make Malawi a digitally enabled, self-reliant and upper-middle-income country by 2063.\nDetails on the funding structure, implementation timeline and any specific agreements reached with Huawei have not yet been made public, though Malawi and Huawei have collaborated on projects before, including, in June, the launch of the ICT Training Programme, which aims to upskill 500 young Malawians in advanced digital skills, including cloud technologies, AI, data science and software engineering.\nThe company was also the primary technology partner for the National Fibre Backbone project, which aims to connect major cities and government offices, and provided the technical support for the establishment of Malawi’s first National Data Centre, a key piece of the country's sovereign digital infrastructure.",
+  "published_at": "2026-06-11T13:17:47Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-15T03:01:20.538504Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/treasury-yields-flat-as-investors-monitor-inflation-data-us-strikes-in-iran.html",
+  "title": "Treasury yields steady as investors monitor inflation data, U.S. strikes in Iran",
+  "raw_text": "Treasury yields were unmoved in early Thursday trade after the latest inflation print showed prices in the U.S. moved higher at the fastest pace since 2023, while investors monitored developments in the Middle East conflict.\nYields on the 10-year Treasury note — the main benchmark for mortgages, auto loans and credit card debt — held steady at 4.5384%.\nThe yield on the 2-year Treasury note, which is more sensitive to short-term Federal Reserve interest rate decisions, was also flat at 4.1288%. The 30-year Treasury yield, which typically moves on geopolitical events, was also static at 5.0200%.\nOne basis point equals 0.01%, or 1/100th of 1%, and yields and prices move inversely to one another.\nBonds steadied during Wednesday's session after May's consumer price index rose increased 0.5% for the month, and 4.2% year-on-year, up from April's 3.8% print and in line with market expectations.\nPresident Donald Trump told reporters that \"I love the inflation\" when asked about the annual inflation spike.\nTraders are now watching the latest U.S. producer price index data, due later from the Bureau of Labor Statistics, which is expected show a month-on-month jump of 0.7% in May, according to consensus estimates.\nSpeaking in the Oval Office Wednesday, Trump also said that inflation is \"going to come down like a rock\" once the U.S.-Iran war is resolved.\nOil prices reversed course early Thursday, having early edged higher on the back of fresh exchanges in the Middle East conflict. West Texas Intermediate futures were last seen 0.9% lower at $89.24, while global benchmark Brent crude slipped more than 1% to $92.14.\nTensions reignited overnight after U.S. missiles struck multiple targets in Iran, and Kuwait temporarily closed its airspace in response to what it called \"Iranian aggressions\". Israel, meanwhile, alerted several communities in the north of the country amid projectile strikes from northern Lebanon.",
+  "published_at": "2026-06-11T08:47:38Z",
+  "author": null,
+  "collected_at": "2026-06-11T09:19:34.873433Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

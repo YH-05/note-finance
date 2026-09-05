@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
+  "title": "Ubuntu infrastructure has been down for more than a day",
+  "raw_text": "Servers operated by Ubuntu and its parent company Canonical were knocked offline on Thursday morning and have remained down ever since, a situation that’s preventing the OS provider from communicating normally following the botched disclosure of a major vulnerability.\nAttempts to connect to most Ubuntu and Canonical webpages and download OS updates from Ubuntu servers have consistently failed over the past 24 hours. Updates from mirror sites, however, have continued to work normally. A Canonical status page said: “Canonical’s web infrastructure is under a sustained, cross-border attack and we are working to address it.” Other than that, Ubuntu and Canonical officials have maintained radio silence since the outage began.\nA decades-long scourge\nA group sympathetic to the Iranian government has taken credit for the outage. According to posts on Telegram and other social media, the group is responsible for a DDoS attack using Beam, an operation that claims to test the ability of servers to operate under heavy loads but, like other “stressors,” are, in fact, fronts for services miscreants pay for to take down third-party sites. In recent days, the same pro-Iran group has taken credit for DDoSes on eBay.",
+  "published_at": "2026-05-01T19:12:26Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-05-02T03:02:27.297446Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Security",
+      "DDOS attack",
+      "distributed denial of service attack",
+      "Ubuntu"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/the-indian-government-got-cold-feet-on-starlink-just-before-spacexs-ipo/",
+  "title": "The Indian government got cold feet on Starlink just before SpaceX’s IPO",
+  "raw_text": "SpaceX’s plans to add millions of new subscribers to its satellite internet network could founder over the Indian government’s fears that the company will not obey its laws.\nSpaceX obtained a license to begin operating in India in 2025, after years of lobbying officials in New Delhi. While progress has been made toward a roll-out of the service there, Bloomberg now reports that Indian officials have paused the effort after SpaceX allowed Starlink access inside Iran despite not having legal permission to operate there.\n“Starlink remains in active and productive discussions with the Government of India contrary to misleading stories based upon unsubstantiated claims from anonymous sources,” SpaceX VP of Starlink operations Lauren Dreyer said in a social media post. Bloomberg did not report that discussions had stopped.\nDelays in offering the service in India could present a hiccup ahead of SpaceX’s IPO, where financial disclosures showed that Starlink’s customer growth is slowing.\nThe value of SpaceX’s Starlink network depends on the number of countries where it can offer service; there’s a set cost for building out the global infrastructure, and returns depend on how many subscribers take up the service. Market access is obtained on a country by country basis, with many governments seeking to protect domestic telecoms companies through joint ventures, or to establish direct control over who can access the service and how.\nIndia has set requirements on local data storage and for network security that SpaceX has worked to meet. However, anonymous sources told Bloomberg that the government is concerned that it could not actually exercise control over Starlink, following the unauthorized use in Iran.\nSpaceX’s control over the network has been an issue before. Ukrainian forces using Starlink to fight a Russian invasion complained after being cut off from the service in 2022, when Musk became concerned about their progress. Starlink’s talks with the government of Taiwan haven’t progressed due to Musk’s past claims that the country is part of China, and the company’s apparent refusal to work with local partners there.",
+  "published_at": "2026-06-10T16:43:11Z",
+  "author": "Tim Fernholz",
+  "collected_at": "2026-06-11T03:00:27.240075Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "In Brief",
+      "spacex ipo",
+      "Starlink"
+    ]
+  }
+}

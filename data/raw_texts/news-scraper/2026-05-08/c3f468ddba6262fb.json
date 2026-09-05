@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/openai-rolls-out-new-gpt-5point5-cyber-to-vetted-cybersecurity-teams.html",
+  "title": "OpenAI rolls out new model for cybersecurity teams a month after Anthropic's Mythos debut",
+  "raw_text": "OpenAI on Thursday announced that GPT-5.5-Cyber, a variation of its latest artificial intelligence model, is rolling out in a limited preview capacity to vetted cybersecurity teams, a month after rival Anthropic captivated investors and government officials with Claude Mythos Preview.\nThe preview of GPT-5.5-Cyber is not intended to be a major step up in terms of cyber capability, but is instead trained to be more permissive on security-related tasks, OpenAI said in a blog post. OpenAI announced GPT-5.5 late last month.\nWith the cyber-specific version, vetted teams will have an easier time using OpenAI's latest model for workflows like vulnerability identification and triage, patch validation and malware analysis, the company said. The safeguards built into the generally available GPT-5.5 model would have made that more challenging.\n\"GPT‑5.5‑Cyber lets a smaller set of partners study advanced workflows where specialized access behavior may matter,\" OpenAI said in the blog post.\nIn rolling out Mythos last month, Anthropic decided to limit access to a select group of companies as part of a new cybersecurity initiative called Project Glasswing. Anthropic CEO Dario Amodei met with senior members of the Trump administration to talk about the model and its potential power, even after the company had been blacklisted by the Pentagon just weeks earlier.\nFederal Reserve Chairman Jerome Powell and Treasury Secretary Scott Bessent met with major U.S. bank CEOs to discuss Mythos last month, and Vice President JD Vance and Bessent held a call with leading tech CEOs ahead of the model's release.",
+  "published_at": "2026-05-07T22:06:20Z",
+  "author": null,
+  "collected_at": "2026-05-08T03:18:13.260862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

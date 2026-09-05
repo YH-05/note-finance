@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/your-ai-agent-can-now-trade-for-you-on-robinhood-and-buy-stuff-with-your-credit-card-too.html",
+  "title": "Your AI agent can now trade for you on Robinhood. And buy stuff with your credit card too",
+  "raw_text": "Retail investors may soon be able to hand the keys to their portfolios, and even their wallet, to artificial intelligence.\nRobinhood unveiled tools on Wednesday that let AI agents trade stocks and make purchases on users' behalf, marking one of the first attempts to bring autonomous finance technology to ordinary investors rather than institutions.\nThe new products — Agentic Trading and an Agentic Credit Card — allow customers to connect third-party AI assistants to carry out investing strategies or spending instructions with minimal human involvement. Users can instruct agents to rebalance portfolios, monitor themes such as AI stocks or execute trading strategies automatically.\nSeparate AI agents can also search for deals and complete purchases using designated virtual credit cards.\n\"Our mission has always been to democratize finance for all, and now, that mission extends to AI agents,\" CEO Vlad Tenev said in a statement.\nThe rollout comes as hedge funds and exchange-traded fund providers increasingly deploy AI-driven and quantitative systems to automate investment decisions, but such technology has largely remained out of reach for retail customers.\nThe Robinhood move raises some safety issues, putting autonomous trading in the hands of the less sophisticated smaller trader without the same risk controls as a Wall Street institution. Robinhood tried to address this with some guardrails.\nThe company said the dedicated \"agentic trading\" accounts are separated from their main portfolios, limiting access to only the capital users specifically allocate. The system also provides notifications whenever trades occur and lets customers immediately disconnect an agent if needed. Initial beta support covers stock trading, with plans to add options, cryptocurrency and futures later.\nRobinhood also said investors will retain control through spending limits, manual approvals and fraud-monitoring systems that can review both user instructions and an agent's actions if disputes arise.\n— CNBC's Kate Rooney contributed reporting.",
+  "published_at": "2026-05-27T13:11:43Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.618526Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

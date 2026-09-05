@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/03/27/new-yorks-wealth-tax-battle-heres-what-to-know.html",
+  "title": "New York's wealth tax battle: Here's what to know",
+  "raw_text": "watch now\nNew York's wealth tax battle: Here's what to know\nNew York City will be the latest battleground in the fight to raise taxes on the wealthy. CNBC's Robert Frank join 'Squawk Box' with the details.\n05:09\nFri, Mar 27 20267:55 AM EDT",
+  "published_at": "2026-03-27T12:26:57Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.409347Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

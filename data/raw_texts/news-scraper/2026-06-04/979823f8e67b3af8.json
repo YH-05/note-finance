@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/inside-metas-attempts-to-play-catch-up-with-ai/",
+  "title": "Inside Meta's attempts to play catch-up with AI",
+  "raw_text": "A year after Mark Zuckerberg installed Alexandr Wang to jolt Meta’s artificial intelligence efforts into wartime mode, the $1.5 trillion company has produced Muse Spark, its most credible AI model yet.\nBy handing responsibility for Meta’s AI revival to a then-28-year-old start-up founder rather than a veteran researcher, Zuckerberg bet that an outsider’s urgency and ambition could succeed where the company’s established AI organization had struggled.\nAccording to interviews with current and former Meta employees, and associates of Wang, the billionaire wunderkind has now begun to eke out results, while navigating criticism over his experience, early research challenges, and the esoteric internal politics of working at a Big Tech behemoth.\nIn nearly 12 months, Wang has assembled an elite research group on multimillion-dollar salaries, reshaped parts of Meta’s AI operation, and emerged as one of the most influential executives inside the company—the only Meta leader alongside Zuckerberg to attend a White House dinner with top Silicon Valley figures last year hosted by President Donald Trump.\nIn April, Meta also released Muse Spark, the first major model to emerge from Wang’s secretive research group, known as TBD Lab.\nWang’s proponents view the release of the model as the clearest sign yet that Meta’s AI rebuilding effort is gaining traction and are confident that successor models—expected to launch in the coming months—could further close the gap with OpenAI, Google, and Anthropic.\n“The amount of work the TBD Lab was able to do in a short amount of time is very impressive,” said Russ Salakhutdinov, a computer science professor at Carnegie Mellon University and Meta’s former vice president of AI research. “Alex knows what he doesn’t know and he’s willing to listen.”",
+  "published_at": "2026-06-03T13:35:58Z",
+  "author": "Hannah Murphy, Financial Times",
+  "collected_at": "2026-06-04T03:00:31.490149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Alexandr",
+      "Alexandr Wang",
+      "Facebook",
+      "Mark Zuckerberg",
+      "meta",
+      "muse spark",
+      "TBD Lab"
+    ]
+  }
+}

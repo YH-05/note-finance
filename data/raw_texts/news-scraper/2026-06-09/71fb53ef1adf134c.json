@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/09/-inflation-data-could-derail-the-comeback-how-the-sp-500-may-react.html",
+  "title": "Inflation data threatens to derail market comeback. How the S&P 500 may react",
+  "raw_text": "Key inflation data is set to be released Wednesday when the Bureau of Labor Statistics reports the consumer price index for May. And while headline inflation will be elevated as higher energy prices continue to hit consumers, investors will be watching core inflation closely, according to JPMorgan. Inflation excluding highly volatile items — food and energy — has been on the rise for the last three months, countering the narrative that the rise in prices from the U.S.-Iran war is only transitory, JPMorgan said. But this week's data release could be uniquely important. \"Given the de-risking last week, elevated vol regime, and heightened Equity sensitive to bond yields, this print takes on increased importance as well as more volatile outcomes,\" the bank wrote in a Tuesday note. In the most likely scenario, according to JPMorgan Market Intelligence, core inflation rises month-over-month by 0.25% to 0.3%. This would likely lead to the S & P 500 trading in a range of down 0.5% to up 0.75%, the firm predicts.The current Dow Jones consensus estimates are for a rise in core inflation of 0.3%. However, if core inflation surprises to the upside — rising by more than 0.35% in May — that could lead to the S & P 500 falling 2% to 3%, the bank estimates. But if core inflation is cooler-than-expected on the month, 0.2% or lower, the broad index could jump between 1.5% and 2%. \"We view this print as 'good news is good news' and 'bad news is bad news,'\" JPMorgan analysts wrote. \"Overall, this print has elevated tail risk, which is why the tail scenarios reflect a higher magnitude of move with a hawkish print generating a larger move than a dovish print.\"",
+  "published_at": "2026-06-09T12:58:36Z",
+  "author": null,
+  "collected_at": "2026-06-09T15:27:05.908845Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

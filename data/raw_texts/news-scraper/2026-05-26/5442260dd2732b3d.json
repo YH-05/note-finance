@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/the-most-controversial-ferrari-ever-meet-the-luce-its-first-ever-ev/",
+  "title": "Amazing interior, controversial exterior: Ferrari's first electric car",
+  "raw_text": "ROME—The arrival of any new Ferrari that isn’t a two-seater is usually controversial, but the Luce might be the most divisive yet. It’s Ferrari’s first four-door sedan and first five-seater, but perhaps most importantly—especially for readers of Ars Technica—it’s Ferrari’s first-ever battery-electric vehicle.\nEach of those individually is probably anathema to some Ferrari fans, never mind all three together. But it’s 2026, and the reality is that the manufacturer absolutely needs something emissions-free in its offerings for vitally important markets like China and Silicon Valley. And now, here it is.\nLike some legendary Ferraris of the past, the company chose to work with an outside design team for the Luce, in this case LoveFrom, helmed by Jony Ive and Marc Newson. Many will detect some hints of Apple in the car’s design; more than one journalist said they could imagine it wearing that computer company’s logo rather than the prancing horse shields that dot its exterior. But the almost cab-forward glasshouse perhaps calls to mind the Lotus Etna concept, with some Ferrari F90 (a one-off for the Sultan of Brunei) here and there, too. And the four round tail lights obviously reference ’90s designs like the 360 and 550.\nI will say it looks a little better in the metal than it does in photos or on screen, although some of the shades we saw don’t do the shape many favors. I may even go as far as to say some of the more… unhinged reactions I’ve seen are negatively polarizing me into appreciating the design more, but perhaps that just makes me a contrarian.\nIt’s a drag\nOf course, the Luce looks the way it does for good reason. The initial aerodynamic studies began seven years ago, two years before Ferrari actually greenlit a plan to build a BEV. Their charge? Figure out how to make the lowest-drag Ferrari they could, without sacrificing aerodynamic downforce that keeps its cars planted to the road surface at speed.",
+  "published_at": "2026-05-26T12:56:32Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-26T15:00:31.445567Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Features",
+      "Ferrari Luce"
+    ]
+  }
+}

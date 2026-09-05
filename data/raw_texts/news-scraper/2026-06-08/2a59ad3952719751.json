@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/05/marvell-technology-flex-sp-500-campbells-pool.html",
+  "title": "Marvell Technology and Flex to join S&P 500 index, replacing Pool and Campbell's",
+  "raw_text": "Marvell Technology, a chipmaker that makes several different parts and products needed for the artificial intelligence infrastructure boom, is joining the S&P 500 on June 22, becoming the latest semiconductor company to be added to the benchmark.\nFlex, a contract manufacturer for electronics, will also be added to the index on June 22, according to a press release. The two companies will replace Pool Corp and The Campbell's Company.\nMarvell stock rose 5% in extended trading. The chipmaker was boosted earlier this week when Nvidia CEO Jensen Huang said it could be the \"next trillion-dollar company\" when discussing the two chipmakers' partnership. Nvidia also invested $2 billion into the company.\nFlex rose 4% in extended trading. The company provides manufacturing services to leading technology companies, including Apple and Nvidia.\nThe move highlights the growing importance of the technology sector to the stock market. Veeva Systems, AppLovin, Datadog, DoorDash, and Robinhood are other technology companies that have been added to the index in recent years.\nMarvell, headquartered in Santa Clara, California, was founded in 1995 to produce parts for spinning disk drives. Flex, which was previously known as Flextronics, is headquartered in Singapore but operates factories in both the U.S. and Asia.",
+  "published_at": "2026-06-05T21:36:23Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.602511Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

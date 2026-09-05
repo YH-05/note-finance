@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://eblog.fly.dev/githubbad.html",
+  "title": "GitHub and the crime against software",
+  "raw_text": "<p>Article URL: <a href=\"https://eblog.fly.dev/githubbad.html\">https://eblog.fly.dev/githubbad.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48361064\">https://news.ycombinator.com/item?id=48361064</a></p>\n<p>Points: 235</p>\n<p># Comments: 108</p>",
+  "published_at": "2026-06-01T18:54:55Z",
+  "author": "pplanu",
+  "collected_at": "2026-06-02T15:00:41.659461Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

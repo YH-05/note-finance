@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605050087",
+  "title": "[WMB] ウィリアムズカンパニーズ　1Q減収増益　売上高1％減30.3億ドル、営業益21％増13.2億ドル、EPS0.70ドル",
+  "raw_text": "ウィリアムズ・カンパニーズ<\nWMB>の2026年度第1四半期（1-3月）の業績は減収、営業増益だった。\n米現地5月4日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比0.6％減の30億3000万ドルとなった。営業利益は20.7％増の13億2100万ドル。営業利益率は43.6％へ向上した。前年同期は35.9％だった。1株利益（EPS・希薄化後）は0.70ドル（前年同期0.56ドル）。\nウィリアムズ・カンパニーズ<\nWMB>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-04T20:28:56Z",
+  "author": null,
+  "collected_at": "2026-05-04T21:00:22.134018Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

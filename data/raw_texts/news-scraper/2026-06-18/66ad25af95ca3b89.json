@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/this-cybersecurity-stock-to-soar-on-ai-tailwinds-ubs-says-to-buy-it.html",
+  "title": "This cybersecurity stock could soar on AI tailwinds. UBS says to buy it now",
+  "raw_text": "Dynatrace is poised to rally on a combination of artificial intelligence-related tailwinds, according to UBS. The investment bank upgraded Dynatrace to buy from neutral. It also hiked its price target to $60 from $36, implying 46% upside from Monday's close. \"Our checks cited a deep technical moat around the platform and we picked up no real appetite to move away from Dynatrace,\" analyst Radi Sultan said Monday in a note to clients. \"Overall our check feedback pointed to a modest growth acceleration and healthy demand backdrop driven by strong core [application performance monitoring] demand, logs traction, and an emerging AI lift.\" Dynatrace leverages AI to monitor software applications' performance and security across cloud and hybrid environments, among other services. The global cybersecurity market is projected to nearly triple to $699.39 billion by 2034, according to a report from market research firm Fortune Business Insights. That booming demand for cybersecurity services could especially benefit AI-powered providers such as Dynatrace, per UBS. The bank forecasts Dynatrace will see accelerating annual recurring revenue growth of 16% in fiscal 2027, with that figure rising to 18% by the end of fiscal 2029. By contrast, Wall Street expects the company's ARR to decelerate over the same periods, Sultan noted. UBS' call falls in line with consensus on Wall Street. Of the 37 analysts covering Dynatrace, 25 have a buy or strong buy on the stock, LSEG data shows. Shares are down nearly 5% in the year to date.",
+  "published_at": "2026-06-16T12:05:03Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.810729Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

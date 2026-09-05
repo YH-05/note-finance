@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20309-airtels-5g-slicing-service-reignites-indias-net-neutrality-debate.html",
+  "title": "Airtel’s 5G slicing service reignites India’s net neutrality debate",
+  "raw_text": "Last week’s launch of Bharti Airtel’s Priority Postpaid service has reignited debate in India’s telecoms sector over whether network slicing – a key feature of standalone (SA) 5G – is consistent with the country’s net neutrality policy.\nAccording to a report from ETTelecom on Wednesday, citing unnamed sources, India’s three telcos – Airtel, Reliance Jio and Vodafone Idea – submitted letters to the Department of Telecommunications (DoT) this week following a directive from the DoT and a parliamentary standing committee helmed by BJP MP Nishikant Dubey to look into concerns that the Airtel service violates net neutrality rules set by the Telecom Regulatory Authority of India (TRAI).\nAirtel – whose slicing service targets customers willing to pay extra for uninterrupted connectivity, especially for bandwidth-heavy services such as livestreaming and games – said in its letter that the service is compliant with net neutrality because it doesn’t degrade service for non-slicing postpaid and prepaid customers, and also doesn’t block, throttle or zero-rate certain apps, the report said.\nReliance Jio – which has been trialling network slicing since 2024 and is planning to launch 5G slicing services later this year – said in its letter to the DoT that 5G slicing doesn’t violate net neutrality, but that services should be launched after consulting with the DoT to ensure compliance, the report also said.\nMeanwhile, Vodafone Idea commented in its DoT submission that 5G slicing services should be suspended until the DoT and TRAI provide more regulatory clarity on the matter, the report added.\nEarlier this year, TRAI punted on the question of whether 5G slicing complies with net neutrality, saying it would depend on how the service was implemented, and that it would monitor such services case by case.\nNetwork slicing has been promoted as a key (and monetizable) differentiator for 5G over 4G by the global mobile industry for years. However, India’s take on slicing is coloured by past attempts by telcos to offer differentiated services and zero-rated plans such as Airtel Zero that prioritise specific apps. Facebook’s Free Basics service was banned in India in 2016 for violating net neutrality.\nAccording to the ETTelecom report, government officials are concerned that Airtel’s Priority Postpaid service may discriminate against prepaid customers – which comprise the vast majority of India’s mobile subscriber base – even if their current QoS remains unaffected, as it essentially requires them to switch to postpaid if they want better connectivity.",
+  "published_at": "2026-05-28T05:21:57Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-04T03:01:31.752641Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

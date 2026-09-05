@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/28/ryanair-ceo-oil-europe-airlines-fail-jet-fuel.html",
+  "title": "Ryanair’s O’Leary warns European airlines could fail if jet fuel price doesn't fall",
+  "raw_text": "European airlines will fail if the price of jet fuel remains elevated over the summer, the CEO of budget airline Ryanair warned.\nSpeaking to CNBC on Thursday, CEO Michael O'Leary said that his airline was protected because it had hedged 80% of its fuel but predicted \"real failures\" for other airlines if the price of jet fuel did not fall.\nThe price has surged since the critical Strait of Hormuz was blockaded after the war in the Middle East began on Feb. 28.\n\"Pricing has mushroomed since March. Jet A-1 was about $80 a barrel in March. It's now $150,\" O'Leary told CNBC's Ben Boulos at the Norges Bank Investment Management Conference in Oslo. The average price of jet fuel surged to $179 per barrel for the week ending April 24, according to the International Air Travel Association's Jet Fuel Price Monitor.\n\"If pricing stays higher for longer this summer, we think a number of our airline competitors in Europe are going to face real financial difficulties,\" he said.\n\"I think there will be failures,\" O'Leary added. \"If it continues at $150 a barrel into July, August, September, then you'll see European airlines fail and that, in the medium term, would probably be good for Ryanair's business.\"\nHe added: \"We are the best insulated, most hedged airline in Europe.\"\n\"We can guarantee people there'll be no price increases, no fuel hedging, no fuel surge levy surcharges, regardless of what happens to summer supply,\" O'Leary continued.\nHe said there were concerns about the supply of jet fuel to the U.K. a few weeks ago, but the situation has since improved. The International Energy Agency head told CNBC last week that Europe could feel the sting of jet fuel shortages in as few as six weeks.\nThis depends on \"how much they are able to import from international markets to replace the lost supply from the Middle East, which accounted for 75% of Europe's net imports of jet fuel previously,\" the IEA said in an emailed statement.\nO'Leary said that the Strait of Hormuz must reopen \"as quickly as possible.\"\nEasyJet, another budget European carrier, said it took on £25 million (about $34 million) of additional fuel costs in March and made a headline loss between £540 million and £560 million ($675 million and $700 million) for the six months to March 31.\nIt's hedged 70% of its summer fuel at a price of $706 per metric ton of jet fuel, with the rest still vulnerable to volatile price movements. Easyjet still expects to have to make cuts and increase ticket fares.\nGerman carrier Lufthansa cut 20,000 short-haul flights through to October, to save 40,000 metric tons of jet fuel and cut unprofitable flights.\nScandinavian airline SAS said its cancelling 1,000 flights in April due to fuel costs, while Dutch airline KLM is reducing capacity by 80 flights due to rising kerosene costs.",
+  "published_at": "2026-04-28T15:26:57Z",
+  "author": null,
+  "collected_at": "2026-05-05T03:17:57.382223Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

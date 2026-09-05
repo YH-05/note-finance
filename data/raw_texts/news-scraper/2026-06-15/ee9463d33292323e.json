@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/03/teslas-china-made-ev-sales-surge-in-may-as-domestic-market-rebounds.html",
+  "title": "Tesla's China-made EV sales jump nearly 40% in May as domestic market rebounds",
+  "raw_text": "Sales of Tesla's China-made electric vehicle rose by nearly 40% in May amid a broader recovery in the country's EV market.\nThe automaker in May delivered 85,982 new energy vehicle units from its Shanghai Gigafactory — where it produces Model 3 and Model Y units for China and several overseas markets — according to preliminary data published Tuesday by the China Passenger Car Association. That's a 39.4% year-on-year increase over the same period in 2025.\nIn total, 1.36 million passenger EVs were sold across China's domestic EV manufacturers in May, a 12% growth year-on-year, and 11% higher than April's total, according to the CPCA's report. These figures indicate \"an initial recovery\" in China's EV market, the CPCA said, as sales from several other Chinese EV automakers grew modestly in the month.\nTesla rival BYD halted an eight-month streak of declining sales volumes in May, posting 376,990 deliveries of its new energy passenger vehicles — a category which includes both battery electric and plug-in hybrid electric vehicles — a 0.02% increase over the 376,930 units delivered last May.\nFigures from Stellantis-backed Leapmotor and Geely's Zeekr both surged by more than 80% in May. After releasing its first flagship EV in over two years, Nio saw a 62.3% year-on-year increase.\nXiaomi reported more than 30,000 EV deliveries in May, a 7.1% year-on-year increase. The tech giant launched its YU7 GT SUV — a performance-focused variant of its popular YU7 SUV — which reportedly set a lap record at the Nürburgring racetrack in Germany, making it the fastest production SUV.\nA handful of Chinese automakers also reported year-on-year declines in sales — 18.4% for Li Auto, and 4.1% for XPeng.\nTesla's May sales growth also comes after the EV giant suggested earlier in the month that it was moving ahead with plans for a rollout of its proprietary self-driving technology.\nOn May 21, a week after Tesla CEO Elon Musk joined a delegation of policymakers and business executives from the U.S. on a summit between President Donald Trump and Chinese President Xi Jinping, Tesla announced on X that the company had made its FSD (Supervised) system available in China.\nBefore the announcement, only select users had access to limited versions as the automaker awaited regulatory approval.\nBut it remains unclear whether Tesla's FSD (Supervised) capabilities have already been made available to mainstream consumers in China.\nOn May 29, local media outlet The Beijing News reported that Tesla was facing a lawsuit from a group of 10 Chinese car owners for falsely claiming that its FSD (Supervised) features had were available in China, despite not having received approval from Chinese regulators.\nTesla has not responded to CNBC's requests for comment.\n—CNBC's Evelyn Cheng contributed to this report.",
+  "published_at": "2026-06-03T08:16:42Z",
+  "author": null,
+  "collected_at": "2026-06-15T03:20:51.818875Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

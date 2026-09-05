@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/928141/apple-ios-26-5-rcs-messages-iphone-google-android",
+  "title": "Apple brings encrypted RCS chats to iPhone",
+  "raw_text": "Apple now lets you have encrypted RCS conversations with Android users through the Messages app on iOS. As part of iOS 26.5, which was released on Monday, Apple added support for end-to-end encrypted RCS messaging in beta, meaning that Apple and Google can’t see your messages while they’re sent.\nApple brings encrypted RCS chats to iPhone\nThe feature is in beta as part of iOS 26.5.\nThe feature is in beta as part of iOS 26.5.\nWith iOS 26.5, you’ll see a lock icon and a small “Encrypted” message at the top of the chat to note when you’re having an encrypted conversation with an Android user and are on a carrier that supports the feature. Apple says that encryption will be on by default and “will be automatically enabled over time for new and existing RCS conversations.” Android users will also need to be using the newest version of Google Messages. Apple started testing encrypted RCS chats with Android users earlier this year.\niOS 26.5 also includes new wallpapers and the addition of ads in Maps. “Maps may show local ads based on your approximate location, current search terms, or view of the map while you search,” according to a pop-up shown I saw when I opened Maps with the update installed. Apple says advertising information “is not linked to your Apple account.\nIn addition to iOS 26.5, Apple released iPadOS 26.5, macOS Tahoe 26.5, watchOS 26.5, tvOS 26.5, and visionOS 26.5 on Monday.",
+  "published_at": "2026-05-11T17:57:56Z",
+  "author": "Jay Peters",
+  "collected_at": "2026-05-11T21:00:16.091383Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Android",
+      "Apple",
+      "Google",
+      "iOS",
+      "News",
+      "Tech"
+    ]
+  }
+}

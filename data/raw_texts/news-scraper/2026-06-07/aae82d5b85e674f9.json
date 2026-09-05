@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/945246/virtual-os-museum-dos-windows-mac-os",
+  "title": "The Virtual OS Museum lets you relive over 600 operating systems right on your desktop",
+  "raw_text": "The Virtual OS Museum isn’t a physical place, it’s a collection of over 1,700 distinct installations of over 600 operating systems for over 250 platforms that you can download and run via emulation right on your computer. It’s largely the work of one man, Andrew Warkentin, a developer and OS historian who has been slowly building his collection of OS images since 2003.\nThe Virtual OS Museum lets you relive over 600 operating systems right on your desktop\nFrom mainframes, to Mac OS, and everything in between.\nFrom mainframes, to Mac OS, and everything in between.\nThe library spans nearly the entire history of computing from 1948’s Manchester Baby, the first stored computer program, to early builds of Android from 2011. Unsurprisingly, there are a lot of obscure OSes in there, including countless DOS variants, MOS for the Acorn BBC Master, and a number of hobby OSes like NitrOS-9, which brings a host of modern features to the ‘80s Tandy Radio Shack CoCo line.\nThe images generally aren’t packaged with software beyond what would have come included with the OS (think calculators, file managers, and text editors), so they’re somewhat limited out of the box, and getting your hands on programs for CTSS might prove difficult. But if you want to relive the glory days of Windows 95, this is a solid bet.\nJust be warned, the Virtual OS Museum is a sizable download. The full version with all the images included is 127GB when zipped. Even the Lite edition, which downloads images as needed, weighs in at 14GB.",
+  "published_at": "2026-06-07T14:17:00Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-06-07T15:00:11.644257Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://tcrf.net/Workboy",
+  "title": "GameBoy Workboy",
+  "raw_text": "Workboy\n| Workboy |\n|---|\n|\nDeveloper: Source This game has unused text. This game has a prerelease article This game has a notes page |\n| This game was never completed and/or given a public release. As a result of this, keep in mind that the developers might have used or deleted some of the content featured here, had the game actually been released. |\n| This page or section details content from the September 2020 Nintendo Leak. Check the September 2020 Nintendo Leak category for more pages also sourced from this material. |\nWorkboy converts your Game Boy into a micro workstation, complete with a keyboard, allowing you to keep track of your important appointments, addresses, notes, bank account balance, and telephone numbers as well as convert temperatures, currencies, and words between five languages. Sounds pretty useful, right?\nUnfortunately, it was never released despite numerous advertisements in contemporary video game magazines, though the ROM for its Game Boy cartridge was found among the September 2020 lot check leaks.\nThe keyboard was considered lost too, but in December 2020 the DidYouKnowGaming? YouTube channel published a video made by Liam Robertson that shows himself using a prototype keyboard with the leaked ROM on a Game Boy. The leaked ROM fully works with its keyboard, and the video provides other details about its story, including how Liam obtained it.\nSub-Pages\n| Prerelease Info |\n| Notes |\nVersion 5.74\nThe title screen shows a version number of 8.87, but the strings for it in the code have a version number of 5.74 instead.\nBelow is, for each localization, the text displayed on the title screen extracted directly from the ROM (offsets written below each language):\n| English (0x08072-0x080D6) |\nSpanish (0x08E9A-0x08F09) |\nItalian (0x10075-0x100E2) |\nGerman (0x14078-0x140E1) |\nFrench (0x1C077-0x1C0DC) |\n|---|---|---|---|---|\n(c) 1992 Montague-Weston. Licensed exclusively to Fabtek, Inc. Version 5.74 Licensed by Nintendo |\n(c) 1992 Montague-Weston. Con licencia exclusivamente a Fabtek, Inc. Version 5.74 Licencia dada por Nintendo |\n(c) 1992 Montague-Weston. In Licenza esclusivamente a Fabtek, Inc. Versione 5.74 Sotto licenza di Nintendo |\n(c) 1992 Montague-Weston. Lizenziert exklusiv fuer Fabtek, Inc. Version 5.74 Lizensiert durch Nintendo |\n(c) 1992 Montague-Weston. Sous licence exclusive a Fabtek, Inc. Version 5.74 Octroyee par Nintendo |\nBefore displaying the title screen, the respective text string is copied to RAM, then \"5.74\" is replaced with \"8.87\" by reading it from ROM at offsets 0x00FEA-0x00FED.",
+  "published_at": "2026-06-13T17:43:02Z",
+  "author": "tosh",
+  "collected_at": "2026-06-14T03:01:35.988463Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

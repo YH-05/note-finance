@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/04/blackstone-caps-withdrawals-private-credit.html",
+  "title": "Blackstone restricts flagship fund withdrawals as private asset fears reemerge",
+  "raw_text": "Blackstone is restricting withdrawals from its flagship Blackstone Private Credit, or BCRED, fund following a spike in investor redemption requests, as fears over liquidity pressures rattled private markets.\nThe asset management giant capped investor withdrawals from the $79 billion nontraded business development company at 5% of shares, after redemption requests hit 10% during the second quarter.\nIt comes after U.S. private markets giants sold off on Wednesday after Switzerland's Partners Group said it was curbing redemption requests in one of its European private equity vehicles.\nPartners Group said on Thursday it was prepared to restrict withdrawals in more of its funds, warning that the spike in client withdrawals is now spreading from private credit into private equity.\nShares in Blackstone were up more than 5% in late-morning trading Thursday. They fell about 4% on Wednesday during the sell-off.\nBCRED is one of the first major semi-liquid private credit vehicles updating on investor redemption requests during the second quarter.\nThe cap comes after BCRED saw client redemption requests jump to a then-record of 7.9%, or about $3.8 billion, in the first quarter.\nBlackstone fulfilled 100% of those requests by raising its quarterly cap and using employee capital to cover the remaining amount.\nThe fund drew inflows of about $1 billion during the first quarter, but ultimately recorded a net capital outflow after covering withdrawals.\n\"The idea that there are caps is really a feature, not a bug, of these products,\" Blackstone Chief Operating Officer and President Jon Gray told CNBC in March.\nAs Partners Group issued its update on Thursday, its CEO, David Layton, said, \"Liquidity features are designed to protect long-term investors, and to ensure that returns continue to be driven by the quality of the underlying private assets rather than by short-term flow dynamics.\"\nLast week, Daniel Ivascyn, Pimco's chief investment officer, warned that higher losses were coming for the credit industry.\n\"There's a lot going on beneath the surface,\" he said in a video shared by the company. \"We are, we think, in the midst of the first sustained default or loss cycle in many, many years.\"\n— CNBC's Leslie Picker contributed to this story.",
+  "published_at": "2026-06-04T15:07:22Z",
+  "author": null,
+  "collected_at": "2026-06-05T03:23:14.673742Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

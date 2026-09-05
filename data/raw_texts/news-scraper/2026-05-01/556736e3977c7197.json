@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/jim-cramer-markets-biggest-winners.html",
+  "title": "Jim Cramer says the market’s biggest winners all have one thing in common",
+  "raw_text": "CNBC's Jim Cramer said there are essentially only two sectors in the market these days — the data center stocks and everything else.\n\"The data center, the data center, the data center,\" said the \"Mad Money\" host. \"You probably tempted to say enough already … but this quarter it went mainstream.\"\nThe S&P 500 closed at another all-time high on Thursday, powered by a broad group of stocks benefiting from the massive buildout of artificial intelligence infrastructure. Cramer said the pattern is unmistakable: many of the market's biggest winners are all connected, directly or indirectly, to data centers.\nHe pointed to Quanta Services as a prime example. The company builds power lines and grid infrastructure, which have become critical as utilities scramble to meet soaring electricity demand. Data centers, Cramer said, are \"giant mouths that must be fed with never-ending electricity,\" creating opportunity far beyond semiconductors.\nCramer also explained that Eaton and Vertiv are benefiting from power management and cooling needs, and Carrier Global is seeing a turnaround tied to data center cooling. \"This quarter may be the beginning of a multi-year move,\" Cramer said.\nTeradyne has rallied as increased chip production requires more of its testing services. Cramer noted that chipmaker Qualcomm, which has long traded in connection to the smartphone market, is breaking into the data center market with a new, unnamed customer.\nEven industrial names are being pulled in. Caterpillar is seeing strong demand for its turbines, which are increasingly used to power data centers. \"I worry they don't have enough,\" Cramer said, noting the strength of demand.\nMeanwhile, networking firms like Ciena, Arista Networks, and Cisco are benefiting as data centers require more connectivity to move massive amounts of data.\nEven real estate investment trust Iron Mountain, long known for physical document storage, is now leasing space to hyperscalers seeking more computing power.\nCramer said the breadth of winners shows the data center boom is no longer a narrow tech trade, but a full-scale industrial expansion with lots of opportunity for investors.\n\"What do we see? A manufacturing mosaic,\" he said. \"As far as I am concerned, the data center is a windfall for almost every slice of the economy.\"\nSign up now for the CNBC Investing Club to follow Jim Cramer's every move in the market.\nQuestions for Cramer?\nCall Cramer: 1-800-743-CNBC\nWant to take a deep dive into Cramer's world? Hit him up!\nMad Money Twitter - Jim Cramer Twitter - Facebook - Instagram\nQuestions, comments, suggestions for the \"Mad Money\" website? madcap@cnbc.com",
+  "published_at": "2026-04-30T22:16:50Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.405500Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

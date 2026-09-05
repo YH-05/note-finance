@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://sqltoerdiagram.com/",
+  "title": "Free SQL→ER diagram tool, runs in the browser, nothing uploaded",
+  "raw_text": "Paste SQL, see the schema.\nDrop your CREATE TABLE\nstatements on the left. Drag tables, scroll to zoom, double-click to rename, export when done.\n100% local — your schema never leaves your browser. No accounts, no uploads.\nDrop your CREATE TABLE\nstatements on the left. Drag tables, scroll to zoom, double-click to rename, export when done.\n100% local — your schema never leaves your browser. No accounts, no uploads.\nSQL to ER Diagram is a free, open-source tool that converts a SQL schema into an\ninteractive entity-relationship diagram (ERD) right in your browser. Paste your\nCREATE TABLE\nstatements and instantly visualize tables, columns, primary\nkeys, foreign keys and relationships. Works with PostgreSQL, MySQL, SQLite and SQL\nServer. Drag tables, auto-arrange the layout, add notes, and export to PNG or SVG.\nNothing is uploaded — your schema stays on your machine.\nPaste your SQL CREATE TABLE\nstatements into the editor and SQL to ER\nDiagram instantly renders an interactive entity-relationship diagram. Drag tables to\narrange them, then export as PNG or SVG.\nIt parses standard CREATE TABLE\nand ALTER TABLE\nDDL and works\nwith PostgreSQL, MySQL, SQLite and SQL Server syntax, including primary keys, foreign\nkeys, unique and not-null constraints.\nYes. SQL to ER Diagram is completely free and open source, with no account or sign-up required.\nEverything runs locally in your browser. Your SQL schema is never uploaded to or stored on any server.\nYes. You can export a high-resolution PNG or a vector SVG, save the full project as a file, or copy a shareable link that encodes the diagram in the URL.\nNo installation needed. It runs entirely in your web browser on both desktop and mobile.",
+  "published_at": "2026-06-14T03:43:30Z",
+  "author": "robhati",
+  "collected_at": "2026-06-14T15:00:44.328205Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

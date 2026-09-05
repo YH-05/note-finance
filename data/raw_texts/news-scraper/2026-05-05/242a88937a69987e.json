@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605060178",
+  "title": "[SWKS] スカイワークスソリューションズ　2Q減収減益　売上高1％減9.43億ドル、営業益57％減4210万ドル、EPS0.24ドル",
+  "raw_text": "スカイワークス・ソリューションズ<\nSWKS>の2026年度第2四半期（1月3日-4月3日）の業績は減収、営業減益だった。\n米現地5月5日の通常取引終了後に公開された8-K（重要事項報告書）によると、第2四半期は売上高は前年同期比1.0％減の9億4370万ドルとなった。営業利益は56.7％減の4210万ドル。営業利益率は4.5％へ低下した。前年同期は10.2％だった。1株利益（EPS・希薄化後）は0.24ドル（前年同期0.43ドル）。\nスカイワークス・ソリューションズ<\nSWKS>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-05T20:58:33Z",
+  "author": null,
+  "collected_at": "2026-05-05T21:00:21.933099Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

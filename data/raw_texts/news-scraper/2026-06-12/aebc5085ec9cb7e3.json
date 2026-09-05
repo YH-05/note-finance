@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/ugly-tailing-30y-auction-sees-foreign-demand-tumble-dealer-backtop-bid-jump",
+  "title": "Ugly, Tailing 30Y Auction Sees Foreign Demand Tumble, Dealer \"Backtop\" Bid Jump",
+  "raw_text": "After yesterday's stellar 10Y auction, which saw the 5th highest Indirect take down on record, today's reopening of $22BN in 30Y paper (via Cusip UU0) was a mirror image: ugly, poor foreign demand, and tailing.\nStarting at the top, the auction priced at a high yield of 5.02%, down fractionally from 5.046% last month (which was the first 5% coupon auction in history). And just like last month, today's auction also tailed the When Issued 5.008% by 1.2bps; this was the third tailing 30y auction and was also the biggest tail since August 2025.\nNext, we look at the bid to cover which at 2.328 was a bit higher than last month's 2.303, which however was the lowest this year; it means that the BtC was well below the recent average of 2.43.\nThe internals were even uglier: in contrast to yesterday's surge in Indirect demand, today's Indirects took down just 59.95%, down from 66.6% and the lowest since August 2025. And with Directs rising to 25.31%, above the six-auction average of 23.7%, Dealers were left holding 14.74%, or the highest since July 2025.\nIn summary: this was a very ugly, tailing auction, which saw foreign demand tumble, offset by the biggest \"backstop\" bid from Dealers in almost a year. Whether this was the result of today's red hot PPI, or because investors are allocating capital to SpaceX and have little left to fund US spending, remains to be seen.",
+  "published_at": "2026-06-11T17:41:03Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-12T03:00:41.877623Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

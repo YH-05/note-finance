@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/07/stock-market-today-live-updates.html",
+  "title": "U.S. stock futures mixed as Mideast tensions rise; South Korea's Kospi plunges 7%: Live updates",
+  "raw_text": "Dow futures slipped Sunday night stateside after Iran reportedly fired missiles at Israel, jeopardizing a fragile ceasefire and heightening uncertainty following last week's sharp Nasdaq selloff.\nIsrael retaliated Monday local time, striking western and central Iran, stoking concerns that the Mideast war was taking a turn for the worst.\nFutures tied to the Dow Jones Average lost 151 points, or 0.3%. S&P 500 futures and Nasdaq 100 futures were up 0.04% and 0.34% respectively.\nAsia-Pacific markets opened lower Monday, with South Korea's benchmark Kospi leading losses, down more than 7%. Hong Kong's Hang Seng Index slid 1.92%, while mainland China's CSI 300 was down 1.5%. Japan's Nikkei 225 fell 4.6%.\nThe reported strike by Iran raised fresh concerns about the stability of the ceasefire between Washington and Tehran. The reported missile attack followed a post on X by Iranian Parliament Speaker MB Ghalibaf, who argued that the U.S. naval blockade and alleged breaches of agreements related to Lebanon constitute violations of the ceasefire.\nOn Friday, the Nasdaq Composite fell 4.18% to 25,709.43 — its biggest drop since April 2025. The S&P 500 sank 2.64% to close at 7,383.74, and the Dow lost 695 points to end the week at 50,866.78, a day after hitting a new high. For the week, the S&P 500 dropped more than 2%, the Nasdaq fell 4.7%, and the Dow edged lower.\nThe slide on Friday followed a stronger-than-expected May jobs report that lifted Treasury yields and intensified worries that higher financing costs could weigh on companies investing heavily in AI expansion.\n\"The stock market may be becoming a victim of its own success,\" said Callie Cox, chief market strategist at Ritholtz Wealth Management. \"The job market has turned around, yet the threat of persistently high inflation seems to be the risk looming on everyone's minds.\"\n\"Growth and momentum have outpaced almost everything since the March lows,\" she added. \"That's not what you'd expect in a high-rate, high-inflation environment, and these strategies may be vulnerable to disappointment if cost pressures stay elevated.\"\nIn the week ahead, investors will be focused on inflation data and the public debut of Elon Musk's SpaceX on Friday. The offering is expected to be one of the largest in Wall Street history and could be the market's biggest test yet of the AI valuation narrative.\n\"Blockbuster offerings have marked the peak of excess in past market cycles, so there seems to be an awkward silence around what this could signal for sentiment,\" Cox said. \"Many investors seem restrained and skeptical, but can that temperament exist when the biggest IPO of all time is on deck?\"\nInvestors will also be watching for the May Consumer Price Index and Producer Price Index reports — released on Wednesday and Thursday, respectively — which are expected to indicate ongoing inflationary pressures.",
+  "published_at": "2026-06-08T02:39:17Z",
+  "author": null,
+  "collected_at": "2026-06-08T03:19:25.586237Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

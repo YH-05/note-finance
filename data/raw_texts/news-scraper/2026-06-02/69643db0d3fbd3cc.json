@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606021204",
+  "title": "ダウ平均はプラスに転じる　ナスダックはマイナス圏での推移＝米国株オープン",
+  "raw_text": "【市況】ダウ平均はプラスに転じる ナスダックはマイナス圏での推移＝米国株オープン\nダウ平均 51201.62（+122.74 +0.24%）\nナスダック 26989.84（-96.97 -0.36%）\nCME日経平均先物 66770（大証終比：+20 +0.03%）\n株探ニュース",
+  "published_at": "2026-06-02T13:35:00Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:00:17.347435Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

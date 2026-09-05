@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/amazons-top-health-exec-is-stepping-down-will-be-replaced-by-amwell-co-founder.html",
+  "title": "Amazon's top health exec is stepping down, will be replaced by Amwell co-founder",
+  "raw_text": "Amazon's top health-care boss will step down from his role and be replaced by the cofounder of telemedicine company Amwell, the company announced Wednesday.\nNeil Lindsay, who joined Amazon more than 15 years ago, has served as the senior vice president of Amazon Health Services since 2021. AHS spans Amazon's online pharmacy service and primary care chain One Medical, among other initiatives.\nDr. Roy Schoenberg will succeed Lindsay on July 1, Amazon's worldwide retail chief Doug Herrington wrote in a memo posted to the company's website. Lindsay will stay on as an advisor at Amazon until the end of the year, and plans to continue advising companies on health-care technology.\nIn addition to cofounding and leading Amwell, Schoenberg brings \"a rare combination of clinical expertise, technology vision, and experience building health-care businesses at scale,\" Herrington wrote.\nAmazon has for years been on a mission to crack the multi-trillion dollar U.S. health-care industry, which is notoriously complex and inefficient. Its first big splash came in 2018 with the acquisition of online pharmacy PillPack for about $750 million, which led to the creation of its own offering called Amazon Pharmacy.\nThe company then bought One Medical for $3.9 billion in 2023, among its largest acquisitions ever, giving Amazon access to a chain of brick-and-mortar primary clinics and a robust membership base.\nAmazon launched, then shuttered, a telehealth service. It also experimented with a line of health and fitness wearables, called Halo, before sunsetting the device as part of broader cost-cutting efforts.\nEarlier this year, Amazon launched an artificial intelligence health tool that can analyze medical records, book appointments and answer queries.\nLindsay, who is a member of CEO Andy Jassy's senior leadership team, or S-team, didn't have a background in health-care. He previously led Amazon's Prime subscription business and managed worldwide marketing for its consumer devices.\nIn a separate memo, Lindsay said he took on the role of leading AHS to hire clinicians, operators, technologists, and leaders \"who understood health-care deeply\" and could help Amazon grow its reach in the industry.\n\"Now is the right time to step back and pass the baton to a leader who knows how to navigate the next phase of this journey better than I,\" Lindsay wrote. \"I'm excited to do so.\"\nThe transition marks the latest executive shakeup in Amazon's health-care unit. One Medical lost its CEO last March, while Amazon's chief medical officer departed last May. Amazon's VP of health-care left in December to join Humana.",
+  "published_at": "2026-05-27T22:06:35Z",
+  "author": null,
+  "collected_at": "2026-06-04T03:18:51.512784Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

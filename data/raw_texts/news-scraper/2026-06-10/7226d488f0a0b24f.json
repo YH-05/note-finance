@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606110042",
+  "title": "５月ＣＰＩ報告、住居費のディスインフレの進展に疑問符",
+  "raw_text": "【経済】５月ＣＰＩ報告、住居費のディスインフレの進展に疑問符\nエコノミストによると、この日発表の５月の米消費者物価指数（ＣＰＩ）におけるＦＲＢにとって最大の懸念は、主たる住居の家賃と持ち家の帰属家賃がそれぞれ前月比０．３６％、０．３０％上昇したことであろうと指摘している。\n従来の標準は０．２５％前後だが、それよりもやや強い数字で、住居費のディスインフレがさらに進むとの見方に疑問を投げかける内容だと述べている。\n株探ニュース",
+  "published_at": "2026-06-10T19:11:00Z",
+  "author": null,
+  "collected_at": "2026-06-10T21:00:22.788582Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/google-home-gets-upgraded-gemini-voice-assistant-and-new-camera-controls/",
+  "title": "Google Home gets upgraded Gemini voice assistant and new camera controls",
+  "raw_text": "Google launched its big AI-fueled redesign of Google Home late last year, and it has been adding features here and there ever since. Today, the company announced a bigger update that might take care of some of your smart home woes. Camera feeds will be easier to navigate, and the AI event labeling should be more straightforward. The move to Gemini 3.1 for Home voice assistance should also mean the robot is less obtuse and more reliable.\nAccording to Google, Home users who have signed up for the early access channel should already have the update to Gemini 3.1. Google initially released this AI model on other platforms in February, but that rollout didn’t include Google’s smart speakers. With the expansion to Home, Google says those speakers will be able to take advantage of Gemini 3.1’s “advanced reasoning to better interpret and execute complex, multi-step voice commands.” Of course, it says something like that with every Gemini update.\nGoogle has cited various AI evaluations that show Gemini 3.1 is better at parsing big, complex prompts. It showed gains in tests like ARC-AGI-2 and Humanity’s Last Exam, both of which require tricky logic problems that need domain-specific knowledge. How much that kind of capability will benefit a smart speaker that specializes in brief interactions is unclear, but you can have long conversations with Gemini in your smart home devices if you want. Google notes the improved model can process multiple different tasks in a single prompt, saving you from breaking up tasks into multiple commands.\nThe AI-powered Ask Home feature is also expanding beyond the app with this update. In the near future, the Home-specific Gemini chatbot will be available in the Home web interface, allowing you to conversationally check camera history and create automations. This will start as a preview feature, though.",
+  "published_at": "2026-05-05T17:17:25Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-05-06T03:00:31.373538Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Google",
+      "Tech",
+      "gemini",
+      "google",
+      "Google Home",
+      "smart home"
+    ]
+  }
+}

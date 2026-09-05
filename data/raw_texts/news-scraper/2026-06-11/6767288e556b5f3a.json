@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/supreme-court-rules-against-private-suits-brought-under-securities-law.html",
+  "title": "Supreme Court rules against private suits brought under key securities law",
+  "raw_text": "The Supreme Court sided on Thursday with a group of investment funds affiliated with BlackRock and other asset managers in their bid to fend off certain lawsuits brought by private plaintiffs under a key federal securities law.\nThe justices, in a 6-3 decision, reversed a lower court's ruling that let hedge fund Saba Capital Master Fund sue under the Investment Company Act of 1940 to void fund bylaws restricting the voting power of activist shareholders.\nPresident Donald Trump's administration backed BlackRock, FS Credit Opportunities and other funds involved in the case, including Adams Diversified Equity Fund, Adams Natural Resources Fund and Royce Global Trust.\nThe investment funds at issue are so-called \"closed-end funds,\" which issue a fixed number of shares and frequently trade for less than the value of their underlying holdings. The funds, which are organized under Maryland law, adopted bylaw provisions that restrict the voting power of large shareholders.\nSaba, a hedge fund managed by activist investor Boaz Weinstein that owns shares in the investment funds, brought legal challenges against 11 such funds.\nIt alleged that the disputed bylaw provisions violated part of the Investment Company Act requiring that each share carry equal voting power. It also argued that the law allows private parties - not just the U.S. Securities and Exchange Commission - to bring suits seeking to void corporate bylaws or other contractual terms that violate the Investment Company Act.\nA federal judge in New York sided with Saba, ruling in 2024 that the so-called \"control share bylaws\" violated the Investment Company Act and must be removed. The New York-based 2nd U.S. Circuit Court of Appeals upheld the judge's ruling.\nThis prompted some of the funds to appeal to the Supreme Court, arguing that the Investment Company Act does not contain a so-called \"private right of action\" for such suits.",
+  "published_at": "2026-06-11T14:34:27Z",
+  "author": null,
+  "collected_at": "2026-06-11T15:21:04.931944Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

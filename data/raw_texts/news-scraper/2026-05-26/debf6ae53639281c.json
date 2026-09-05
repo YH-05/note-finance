@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20298-vodacom-m-pesa-tanzania-announces-alliance-with-paypal.html",
+  "title": "Vodacom M‑Pesa Tanzania announces alliance with PayPal",
+  "raw_text": "Mobile money service Vodacom M‑Pesa Tanzania has announced a new partnership with digital payment giant PayPal that will enable customers in Tanzania to seamlessly transfer funds between their PayPal and M‑Pesa wallets through the M‑Pesa Super App.\nThrough this integration, eligible M‑Pesa customers will be able to deposit funds directly into their PayPal wallets and withdraw funds from PayPal back into their M‑Pesa wallets securely and conveniently, simplifying international transactions for freelancers, developers, content creators, entrepreneurs, gig economy workers and other digitally connected customers.\nThis partnership comes at a time when demand is growing for more seamless cross-border payment solutions among Tanzanians participating in international commerce, freelance work and digital services. With PayPal-to-M‑Pesa withdrawals now possible, the partners say, Tanzanians can finally access their global earnings with ease.\nActing M‑Pesa Director Tulisindo Mlupilo, explains: \"Digital connectivity is creating more opportunities for Tanzanians to participate in the global economy, whether through freelancing, online business, content creation or cross-border commerce. Through this partnership with PayPal, we are making it easier for our customers to send, receive, deposit and access funds across platforms with greater convenience and confidence.\"\nCustomers will be able to access the service directly through the M‑Pesa Super App by linking their PayPal accounts to their M‑Pesa wallets through a guided onboarding process designed to support secure and seamless transactions between the two platforms.",
+  "published_at": "2026-05-26T13:32:05Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-26T15:04:22.939394Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}

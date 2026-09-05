@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/05/amd-reportedly-plans-ryzen-5800x3d-re-release-for-upgraders-on-a-budget/",
+  "title": "\"Ryzen 5800X3D 10th Anniversary Edition\" may help you avoid paying for a new PC",
+  "raw_text": "It’s not an ideal time to be buying a new PC or doing a major upgrade. Price crunches for RAM and storage chips are making all kinds of components more expensive, and the shift to DDR5 in modern Intel and AMD CPUs means that a lot of people would need to pay money to replace their current DDR4 kits if they wanted to step up to a significantly newer, faster CPU and motherboard.\nAMD may have something on the horizon for people who are looking to stretch their current PC (and its DDR4 RAM kit) just a little further. Leaks spotted by Tom’s Hardware point to the existence of an “AMD Ryzen 7 5800X3D 10th Anniversary Edition,” a re-release of a 4-year-old out-of-circulation CPU that might nevertheless be an upgrade for people with older Ryzen CPUs in Socket AM4 motherboards.\nThe “X3D” in the chip’s name signifies that it comes with 64MB of extra L3 cache stacked on top of the main CPU die, bringing the total amount of L3 cache to 96MB. Workloads that benefit from extra cache—including most games—will perform much better on the 5800X3D than they do on the vanilla Ryzen 7 5800X.\nThe “10th Anniversary” being celebrated isn’t for the 5800X3D itself, but the AM4 processor socket, which first launched in September 2016. The socket was succeeded by AM5 nearly four years ago, but AMD kept the AM4 socket around to continue to address the budget market. Higher prices for DDR5 RAM kits and AM5 motherboards themselves have helped keep the AM4 socket around since then, and while AMD hasn’t released any new architectures for AM4 boards since late 2020, it has been remarkably persistent in releasing and re-releasing remixed Ryzen 5000-series CPUs for the socket.",
+  "published_at": "2026-05-20T19:19:44Z",
+  "author": "Andrew Cunningham",
+  "collected_at": "2026-05-22T03:00:31.374261Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Tech",
+      "3d V-cache",
+      "AMD",
+      "Ryzen"
+    ]
+  }
+}

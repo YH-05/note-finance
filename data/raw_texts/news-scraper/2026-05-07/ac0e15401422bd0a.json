@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605080110",
+  "title": "[COIN] コインベース　1Q減収赤字転落　売上高31％減14.1億ドル、営業赤字2142万ドル、EPSマイナス1.49ドル",
+  "raw_text": "コインベース・グローバル<\nCOIN>の2026年度第1四半期（1-3月）の業績は減収、営業赤字転落だった。\n米現地5月7日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比30.5％減の14億1298万ドルとなった。営業損益は2142万ドルの赤字に転落。前年同期は7億580万ドルの黒字だった。1株損益（EPS・希薄化後）は1.49ドルの赤字（前年同期0.24ドルの黒字）。\nコインベース・グローバル<\nCOIN>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-07T20:28:21Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:00:22.422855Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

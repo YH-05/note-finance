@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/meta-platforms-gets-a-downgrade-from-jpmorgan-on-massive-ai-spending-forecast.html",
+  "title": "Meta Platforms gets a downgrade from JPMorgan on massive AI spending forecast",
+  "raw_text": "Meta Platform faces a \"challenging path\" to capitalizing on its costly artificial intelligence as competition in the space heats up, according to JPMorgan. The investment bank downgraded Meta to neutral from overweight. It also slashed its price target on shares to $725 from $825, implying 8% upside from Wednesday's close. Meta reported better-than-expected Q1 results Wednesday after the bell. However, the stock shed more than 9% after the company hiked its full-year capital expenditures outlook to a range of $125 billion to $145 billion. That's up from a previous guidance of $115 billion to $135 billion. \"While we're encouraged by META's +33% Y/Y revenue growth which has been supported by AI-driven ad stack optimizations, accelerating impression growth, & engagement gains, we believe full-stack AI competition is intensifying and Meta has a more challenging path to returns on heavy AI capex beyond advertising,\" analyst Doug Anmuth said in a note to clients. \"Shares could remain pressured as investors look for greater clarity on agentic products and how Muse models will help drive incremental revenue beyond advertising,\" Anmuth wrote. META 5D mountain META falls Meta unveiled a sweeping strategy to refashion itself into a leader in the AI industry last June. As part of those efforts, the company has spun up its AI-focused unit Meta Superintelligence Labs , plowing more than $14 billion into acquiring the start up Scale AI and poaching its CEO Alexandr Wang. However, the initiative has raised eyebrows among Meta shareholders, who are concerned that the firm's push trails too far behind those of its peers such as Google and Amazon. Anmuth noted Google and Amazon \"benefit from deep enterprise tech stack integrations, silicon supply, & model diversity,\" which could give them an edge over Meta in the race to become the industry leader in AI. However, the analyst said that Meta's rollout of its Muse Spark AI model in early April could eventually help put it on more even footing with some of its rivals. \"The release of Muse Spark represents the first step towards META's goal of pushing the frontier & delivering personal superintelligence to billions of users,\" Anmuth wrote. \"The rollout of Muse to Meta AI drove +DD% increases in Meta AI sessions per user & Muse demonstrates strong capabilities across visual understanding, health, shopping, social content, creating games, & more.\" JPMorgan's call goes against consensus on the Street. Of the 67 analysts covering Meta, 60 have a buy or strong buy on the stock, LSEG data shows.",
+  "published_at": "2026-04-30T11:21:25Z",
+  "author": null,
+  "collected_at": "2026-05-01T15:21:43.420630Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

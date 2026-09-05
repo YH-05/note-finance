@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/markets/hungary-backs-away-crypto-criminalization-regulatory-u-turn",
+  "title": "Hungary Backs Away From Crypto Criminalization In Regulatory U-Turn",
+  "raw_text": "Hungary is dismantling the restrictive digital asset framework introduced under former Prime Minister Viktor Orbán, a policy overhaul that will decriminalize crypto trading and eliminate the prison sentences that had driven major platforms from the country, government spokesperson Anita Kobol said Thursday, according to Bloomberg.\nThe rollback marks a full reversal of legislation that took effect July 1, 2025, after parliament passed rules criminalizing the use of unlicensed exchanges and certain unauthorized high-value crypto transactions.\nThose transactions — ranging between 50 million Hungarian forints (roughly $162,000) and 500 million forints (roughly $1.62 million) — subjected individuals to prison terms of up to two or five years, depending on the transaction value.\nService providers operating without a central bank license faced sentences of up to eight years.\nThe rules required approved validation for both crypto-to-fiat and crypto-to-crypto conversions, a burden that led platforms including Revolut to suspend crypto services in Hungary and triggered an EU probe into whether the restrictions complied with bloc-wide regulations.\nDomestic trading volumes fell as local firms absorbed steep compliance costs.\nHungary’s politically motivated safeguards against bitcoin\nZoltán Tanács, Hungary’s Minister of Science and Technology, characterized the previous rules as “politically motivated” rather than market safeguards and announced the government’s intent to scrap the penalties.\nThe new administration plans to abolish criminal prosecution for market participants, revise cybersecurity rules affecting approximately 4,000 Hungarian businesses subject to the NIS2 directive, and align national law with the EU’s Markets in Crypto-Assets regulation.\nOfficials have identified Estonia as the template for rebuilding Hungary’s digital regulatory environment. Tanács said the reforms should draw international platforms back to Hungary and reduce friction for domestic operators, according to Bloomberg.\nThe shift carries significance beyond Hungary’s borders. The Orbán-era framework was one of the most restrictive in the European Union, and the EU’s inquiry had put Hungary at odds with the broader MiCA framework that governs crypto activity across the bloc.\nAlignment with MiCA would bring Hungary in line with the regulatory standard now binding all 27 member states.\nHungary’s pivot follows a wider trend of governments reconsidering punitive crypto policies. In April, Pakistan’s central bank lifted an eight-year ban on cryptocurrency operations, part of a broader move toward regulatory openness across emerging markets.\nThe convergence of those shifts suggests that restrictive unilateral frameworks face mounting pressure as institutional adoption of digital assets accelerates globally and cross-border regulatory coordination deepens under frameworks like MiCA.\nThe Hungarian government has not yet set a timeline for when the legislative changes will take effect.",
+  "published_at": "2026-06-13T12:10:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-14T03:01:32.626510Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/07/nvidia-sk-to-detail-cooperation-plan-amid-prolonged-chip-shortage.html",
+  "title": "Nvidia, SK to detail cooperation plan as Huang flags prolonged chip shortage",
+  "raw_text": "Nvidia and South Korea's SK are expected to announce a cooperation plan on Monday, with the boss of the U.S. chipmaker saying the ongoing memory shortage would persist for \"quite a few years.\"\nA spokesperson for SK Hynix said group Chairman Chey Tae-won and Nvidia CEO Jensen Huang plan to brief the media about the plan on Monday morning, confirming a report by Newsis.\nHuang separately said that Nvidia could make announcements with SK on Monday.\n\"We're working across many industries from AI supercomputers to CPUs to new PCs and robotics. So we are here to plan and maybe tomorrow we have some announcements,\" he told reporters, without elaborating further.\nHe also said that he did not see an end to memory shortages.\n\"The whole industry supply chain — everything from wafers to packaging to silicon photonics...everything's in short supply because the demand is so high. It is going to persist for several years.\"\nHuang was meeting with Chey, SK Hynix CEO Kwak Noh-jung, and other SK executives over fried chicken and beer, known as \"chimaek,\" at the Seoul restaurant Kkanbu Chicken.",
+  "published_at": "2026-06-07T12:07:49Z",
+  "author": null,
+  "collected_at": "2026-06-07T15:18:58.190826Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

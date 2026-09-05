@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/11/waymo-launches-premier-subscription-tier-for-29point99-a-month.html",
+  "title": "Waymo launches premier subscription tier for $29.99 a month, starting in select cities",
+  "raw_text": "Waymo is launching a new subscription tier called Waymo Premier, targeting avid users in some of the most popular markets for the robotaxi service.\nThe Alphabet-owned company said in a blog post on Thursday that the plan will cost $29.99 per month, and is invite only to start for select riders in San Francisco, Los Angeles and Phoenix. Subscribers will get prioritized matching, up to five free cancellations per month and will earn 10% back in loyalty credits, or Waymo Cash, for each trip.\n\"You spoke, and we listened to how we can offer an even more elevated experience for you, our top riders,\" the company said in the post. \"For a monthly fee, members gain access to a suite of exclusive benefits designed to make their journey more seamless and rewarding.\"\nAs Waymo plots an aggressive expansion plan, including to London later this year, the company is aiming to capitalize on its power users, particularly in markets where demand is highest. Subscriptions provide an added source of revenue, a key aspect to the business as it reels in outside capital and seeks to stay way ahead of nascent rivals Amazon Zoox and Tesla.\nIn the first quarter, Alphabet's Other Bets segment, which includes Waymo, saw its loss widen to $2.1 billion from $1.22 billion a year earlier. Revenue in the segment dropped to $411 million from $450 million.\nWaymo said in February that it raised a $16 billion funding round that values the company at $126 billion, more than double the valuation in October 2024. Alphabet contributed to the financing, as did outside investors including Andreessen Horowitz, Fidelity and T. Rowe Price.\n—CNBC's Lora Kolodny contributed to this report.",
+  "published_at": "2026-06-11T16:57:05Z",
+  "author": null,
+  "collected_at": "2026-06-18T03:35:33.830834Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

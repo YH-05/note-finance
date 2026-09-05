@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20166-ril-plans-indias-largest-data-centre-cluster.html",
+  "title": "RIL plans India’s largest data centre cluster",
+  "raw_text": "It is being widely reported that Indian multinational conglomerate Reliance Industries (RIL) is planning to invest more than US$17 billion in setting up a 1.5-gigawatt data centre cluster and a captive solar battery storage system in the state of Andhra Pradesh.\nIf this goes ahead it would be India’s largest data centre cluster, eclipsing Google’s 1GW project being set up in the same region with an investment of US$15 billion.\nIndia’s Economic Times says that Andhra Pradesh’s Investment Promotion Committee approved the investment at a meeting at the weekend.\nThe gigascale AI data centre cluster will be built in three phases, starting with a 500 MW data centre expected to start commercial production by October 2028.The second phase, completed by 2030, will bring the total to 1 GW capacity.\nThe entire cluster will be established in sites near Visakhapatnam’s new airport at Bhogapuram. Visakhapatnam, a port city and industrial centre on the Bay of Bengal, is apparently enjoying a data centre boom. Google, RIL and a number of other companies are planning to build data centres in the area, attracted, in part by incentive schemes that include tax breaks and subsidies.\nThe Economic Times says RIL also aims to invest INR513 billion (about US$5.4 billion) in an associated renewable energy project.\nThe State Investment Promotion Committee has apparently cleared a solar project with total direct current panel capacity of 9,000 MW-peak that will generate a maximum 6,600 MW of alternating current.",
+  "published_at": "2026-04-28T11:38:49Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-03T03:01:18.553101Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

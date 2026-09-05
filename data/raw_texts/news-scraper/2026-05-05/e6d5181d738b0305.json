@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/05/nvidia-pulte-span-mini-data-centers-on-homes.html",
+  "title": "Nvidia and PulteGroup are helping this startup put mini data centers on homes",
+  "raw_text": "Key Points\n- Span, a California-based startup, has developed small, fractional data centers, or \"nodes,\" called XFRA units.\n- The idea is to take advantage of unused electrical capacity on local grids, which the Span smart panels can pinpoint.\n- Nvidia GPUs are powering the units, and PulteGroup is testing the systems in a handful of communities.",
+  "published_at": "2026-05-05T14:35:08Z",
+  "author": null,
+  "collected_at": "2026-05-05T15:18:22.323568Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

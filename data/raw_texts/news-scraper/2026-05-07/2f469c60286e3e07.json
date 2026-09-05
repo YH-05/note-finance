@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/existential-fight-survival-msft-may-nuke-green-data-center-climate-pledge",
+  "title": "\"Existential Fight For Survival\": MSFT May Nuke Green Data Center Climate Pledge",
+  "raw_text": "One week ago, Microsoft expected roughly $190 billion in AI data center spending for this fiscal year, highlighting the massive scale of the hyperscaler capex cycle as Big Tech races to build out compute infrastructure. Across the tech space, hyperscalers are expected to spend nearly $700 billion in capex this year alone.\nThe incredible amount of capex being deployed this year has forced some tech giants to slash headcount and trim operating costs to free up capital for data centers. At the same time, Microsoft may now delay or abandon its ambitious 2030 \"100/100/0\" clean-energy target for data centers as costs continue to mount.\nBloomberg reports MSFT is set to nuke its pre-AI-era climate commitment, which aimed to match 100% of its electricity use, 100% of the time, with \"green\" energy by 2030, due to the mounting costs of going green.\nMSFT wanted every hour of electricity used by its offices and data centers to be matched with clean energy purchases. The reality of saving the planet in a pre-AI era has collided with costs and power constraints as renewable energy struggles to keep pace with data center buildouts.\n\"The costly and energy-intensive buildout of data centers is affecting views on the feasibility of climate commitments made before the AI era,\" according to the outlet, citing one person familiar with the matter.\nMSFT is reportedly adding about 1 gigawatt of data center capacity every three months (enough to power 750k homes) and expects to spend about $190 billion on data center buildouts this year. The tech giant recently held talks with Chevron to fund a major natural gas plant in the West Texas Permian Basin.\n\"AI is an existential fight for survival for Big Tech, and so all and any funds at their disposal are being diverted to building as much AI as possible,\" Alexia Kelly of the High Tide Foundation told the outlet.\nMSFT's emissions have already jumped 23% from the pre-AI chatbot era, while Meta, Google, and Amazon have seen similar spikes as well.\nThe possible move by MSFT to dial back its climate pledges comes as data center buildout costs mount, and the tech giant is doing everything possible to trim those costs to ensure it continues to lead the hyperscaler race. Most importantly, it wants to lead the AI race against China, where data centers are predominantly powered by coal.\nThe need for cheaper power costs by MSFT also comes at a very precarious time for the entire AI buildout narrative, as cracks are beginning to emerge. Read the full report here.",
+  "published_at": "2026-05-07T01:20:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-05-07T03:00:41.839453Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

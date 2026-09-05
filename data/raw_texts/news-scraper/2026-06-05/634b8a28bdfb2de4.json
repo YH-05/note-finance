@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.flyingpenguin.com/cloudflare-ceo-is-lying-to-you-about-the-bot-traffic-jump/",
+  "title": "Cloudflare CEO is lying to you about the bot traffic jump",
+  "raw_text": "A magic trick is a trick. It misrepresents reality. What the Cloudflare CEO published as bot traffic increasing, is a trick. He misrepresents reality.\nThe explanation is simple.\n…bots passed human traffic online for the first time in the Internet’s history.\nThe Cloudflare data shows online traffic is still about two thirds human, not the higher amount being claimed. The CEO ignored the all-traffic number, on his own dashboard, and instead published the HTML-only number as a fact about the whole internet.\nThat is a lie about what the data shows, and the “All” selector on his own page proves it.\nThe category Prince points to as the cause contradicts him. Agentic is tiny. What actually fills the AI bucket is training scrapers, like GPTBot and ClaudeBot, pulling text to build models, which have been climbing steadily and predate his announcement. He blamed a friendly, fast-growing sliver of agents fetching pages for people and swapped in unfriendly bulk (mass scraping for training). Why? We can guess, but that is exactly the traffic his pay-to-crawl product exists to bill.\nIt’s a sales pitch.\nAnd it’s based on a lie.\nThe actual data shows search crawlers are the largest bot category by a factor of two, the AI number is padded by counting Googlebot twice, the AI traffic that does exist is mostly training scrapers, and the agentic category Prince points to as the cause is the smallest bucket in his own company’s classification. His “agentic” increase press release is disproven by his dataset.",
+  "published_at": "2026-06-05T17:56:19Z",
+  "author": "speckx",
+  "collected_at": "2026-06-05T21:00:41.644935Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20336-anant-raj-to-expand-data-centre-business-in-india.html",
+  "title": "Anant Raj to expand data centre business in India",
+  "raw_text": "The diversified infrastructure firm Anant Raj has signed a memorandum of understanding (MoU) with the government of the North Indian state of Haryana to invest approximately INR250 billion (about US$2.62 billion) in the development of a large-scale data centre in the state.\nThe company has said the deal is expected to create nearly 6,000 direct jobs and an unspecified number of indirect employment opportunities.\nIn a statement on Monday, Anant Raj said that the MoU “establishes a framework for collaboration and cooperation between the company and various departments of the government of Haryana, aimed at facilitating mutual engagement and supporting investment and development of data centre and cloud services in the State of Haryana.\"\nThis planned investment is in addition to Anant Raj’s existing and ongoing data centre expansion plans and, says India’s Economic Times news service, is expected to strengthen the company’s digital infrastructure footprint.\nAs we reported at the time, late last year Anant Raj, signed an MoU with Andhra Pradesh, a state on the east coast of southern India, for the development of new data centre facilities and an IT park.\nIn fact the company currently operates 28MW of IT load across its campuses in Manesar and Panchkula, both in Haryana, and is expanding its data centre footprint across the state. It apparently aims to achieve a total capacity of 307MW by FY32 across Manesar, Panchkula and Rai, supported by a planned capital expenditure of approximately US$2.1 billion.\nThe group remains on track to achieve an installed IT load capacity of around 117MW by FY28 across its data centre locations.",
+  "published_at": "2026-06-03T12:47:29Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-06-04T03:01:31.747251Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

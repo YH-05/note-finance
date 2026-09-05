@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/technology/global-internet-traffic-has-doubled-2020",
+  "title": "Global Internet Traffic Has Doubled Since 2020",
+  "raw_text": "Global internet traffic has surged in recent years, more than doubling between 2020 and 2025 as digital services, streaming and cloud computing continue to expand worldwide.\nAs Statista's Tristan Gaudiaut details below, according to data from the International Telecommunication Union (ITU), total traffic volumes have increased sharply across both fixed (landline) and mobile networks.\nYou will find more infographics at Statista\nAs the chart shows, landline traffic remains by far the dominant channel, rising from around 3,100 exabytes in 2020 to 7,300 exabytes in 2025.\nMobile data usage has also grown rapidly, climbing from about 560 to 1,500 exabytes over the same period.\nIn both cases, Asia-Pacific accounts for the largest share, at 50 to 60 percent, with traffic more than doubling across fixed networks and reaching over 900 exabytes on mobile alone.\nOther regions have followed a similar upward trajectory, albeit at lower levels.\nThe Americas and Europe remain the second- and third-largest markets, while regions such as Africa and the Arab States have recorded particularly strong relative growth, reflecting rising connectivity and smartphone adoption.\nOverall, the data highlights the accelerating scale of global data consumption, with fixed networks continuing to carry the bulk of traffic even as mobile usage expands rapidly.\nWith one exabyte equivalent to one billion gigabytes, which is roughly equivalent to the storage capacity of about 8 million 128GB smartphones, the figures underscore the massive and growing infrastructure demands of the digital economy.",
+  "published_at": "2026-06-06T11:35:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-07T03:00:43.394367Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

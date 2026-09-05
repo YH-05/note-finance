@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20317-sparkle-adds-new-geant-network-routes-for-eu-africa-and-mena.html",
+  "title": "Sparkle adds new GÉANT network routes for EU, Africa and MENA",
+  "raw_text": "Global operator Sparkle announced on Thursday it has signed three new capacity agreements to expand the reach of European research and education network operator GÉANT across Europe, Africa and MENA.\nThe new routes include a link from the UK to Jordan, which Sparkle said will strengthen connectivity between ASREN (the Arab States Research and Education Network) at its UK PoP and SESAME, a flagship international research facility and the region’s first synchrotron light source, fostering advanced research and cross-border collaboration.\nSparkle has also added capacity from France to Egypt that connects ASREN member ENSTINET (Egyptian National Scientific and Technical Information Network), to the wider ASREN community and to Europe via GÉANT.\nBoth routes were procured and delivered under EUMEDplus, a European Union co-funded project aimed at enhancing digital infrastructure, connectivity, and collaboration between Arab Mediterranean countries and Europe.\nMeanwhile, on the African continent, Sparkle also delivered a new route to WACREN (the West and Central African Research and Education Network), connecting WACREN’s recently established Lagos Global Exchange Point (GXP) in Nigeria to the ZAOXI GXP in Cape Town.\nThis route enables WACREN to interconnect to the UbuntuNet Alliance’s Eastern and Southern African research and education community through two South African national research and education networks (NRENs): SANReN and TENET. Sparkle said this marks the first-ever interconnection between Africa’s Regional Research and Education Networks on African soil.\nSparkle added the new WACREN route was made possible via AfricaConnect3, which supports high-performance connectivity for academic and research communities across the African continent, co-funded by the EU and implemented by WACREN, ASREN, and UbuntuNet Alliance, together with GÉANT.\nGÉANT operates the world’s largest network of its kind, interconnecting Europe’s NRENs and serving over 50 million users across 10,000 scientific institutions in Europe, with reach extending to more than 110 countries worldwide and backbone speeds of up to 1.6 Tbps.\nGÉANT and Sparkle have been collaborating since the early 2010s. Sparkle’s enterprise VP Annalisa Bonatti said the new routes will strengthen connectivity for the global scientific and academic community, which also highlights the strategic role of connectivity in enabling global scientific progress.\n“By leveraging our international backbone, we are helping research and academic communities collaborate, share data, and innovate seamlessly across continents,” she said in a statement.\n“Researchers and students depend on fast, reliable connectivity to collaborate and access critical resources. Our role is to make this possible by working alongside our international research and education networking community,” added Bram Peeters, GÉANT’s chief network services officer. “GÉANT is proud to support WACREN, the UbuntuNet Alliance and ASREN and collaborate with Sparkle to strengthen digital infrastructure around the world.”",
+  "published_at": "2026-05-29T04:12:52Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-03T03:01:28.510854Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

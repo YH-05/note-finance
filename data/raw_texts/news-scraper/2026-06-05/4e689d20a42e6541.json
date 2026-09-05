@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/06/how-data-center-operators-are-tackling-their-water-use-problems/",
+  "title": "How some data center operators are tackling their water use problems",
+  "raw_text": "On Monday, SpaceX amended its initial public offering to state that water conditions—including water scarcity, regulations around water, and drought—could constrain data center development.\nIt isn’t the only tech company trying to assess how water scarcity might impact its business. Water use is emerging as one of the most contentious data center issues. A recent Gallup poll found that seven out of 10 Americans are opposed to data center development, with water scarcity ranking as the top resource concern. Facing increasingly fierce resistance, some tech companies are scrambling to assure the public that they’re facing the issue head-on.\nData centers primarily use water to cool server racks, which throw off massive amounts of heat. One popular technique, known as evaporative cooling, uses fresh water to absorb the heat, which is then pumped to cooling towers where it evaporates outside.\nUsing more water can save money and reduce emissions for big tech companies by reducing the power needed for cooling that relies on energy-intensive pumps to recirculate water. But it can also come with a large water footprint: Google’s facility in Council Bluffs, Iowa, for instance, which uses evaporative cooling, consumed more than 1 billion gallons in 2024.\nLawrence Berkeley National Laboratory predicted in a 2024 report that hyperscale data centers could consume up to 33 billion gallons of water by 2030 if they relied heavily on evaporative cooling. That’s on par or even less than other thirsty industries, like agriculture or oil and gas—a single fracked well can use 1.5 to 16 million gallons of water—but it poses a risk in regions where water is already scarce. The risk is particularly acute in summer, when data center cooling needs tend to skyrocket at the same time as municipal water use.\n“Water is a highly local, highly regional issue,” says Shaolei Ren, a professor of engineering at UC Riverside. “It’s a limited resource, and we have to manage it very carefully.”",
+  "published_at": "2026-06-04T14:11:32Z",
+  "author": "Molly Taft, wired.com",
+  "collected_at": "2026-06-05T03:02:35.613640Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "cooling",
+      "data centers",
+      "google",
+      "spacex",
+      "water use"
+    ]
+  }
+}

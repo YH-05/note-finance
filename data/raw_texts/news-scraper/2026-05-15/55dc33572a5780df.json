@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605151661",
+  "title": "４月の米鉱工業生産、前月比０．７％上昇",
+  "raw_text": "【経済】４月の米鉱工業生産、前月比０．７％上昇\n結果 0.7％\n予想 0.3％ 前回 -0.3％（-0.5％から修正）（前月比）\n＊米設備稼働率（4月）\n結果 76.1％\n予想 75.8％ 前回 75.7％\n株探ニュース",
+  "published_at": "2026-05-15T13:16:00Z",
+  "author": null,
+  "collected_at": "2026-05-15T15:00:21.566616Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

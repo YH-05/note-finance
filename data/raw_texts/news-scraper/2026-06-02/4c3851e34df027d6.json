@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/06/number-of-suspected-ebola-cases-falls-by-hundreds-as-testing-ramps-up/",
+  "title": "Number of suspected Ebola cases falls by hundreds as testing ramps up",
+  "raw_text": "The estimated size of the Ebola outbreak in the Democratic Republic of the Congo has fallen by hundreds of cases as outbreak response efforts have ramped up and increased testing has ruled out illnesses.\nOn Tuesday, a representative for the World Health Organization confirmed to Reuters that Congolese authorities are now reporting 437 cases in the DRC, including 321 confirmed cases and 116 suspected. That’s a significant difference from the case count the WHO relayed Friday, which totaled 1,041 cases, including 135 confirmed cases and 906 suspected. Over the weekend, the director-general of the Africa Centres for Disease Control and Prevention, Jean Kaseya, also wrote in an op-ed that there were more than 1,100 suspected cases.\nThe number of deaths has also been lowered to 48 confirmed deaths. On Friday, the WHO had reported 241 deaths, including 18 confirmed and 223 suspected.\nWhen asked more about the decline in suspected cases and deaths, WHO representative Christian Lindmeier told reporters at WHO’s headquarters in Geneva that the other cases “have been cleared out and have either other diseases or have just had fever and nothing else.”\nThe suspected cases were in those who sought care at health centers and were identified as having matching symptoms of Ebola disease, which can begin with nonspecific flu-like symptoms, such as fever and aches. Confirmed cases are those who have tested positive for the virus.\nOn Tuesday, Uganda’s relatively small number of cases also changed—in this case, upward. The neighboring country reported six new cases among contacts of previously confirmed cases. That brings Uganda’s total to 15 confirmed cases, including one death.",
+  "published_at": "2026-06-02T17:10:56Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-06-02T21:04:33.535918Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "cases",
+      "confirmed",
+      "ebola",
+      "outbreak",
+      "testing",
+      "WHO"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/952354/firefox-home-page-widgets",
+  "title": "Firefox’s new home page widgets are helping me focus",
+  "raw_text": "I launched Firefox this morning to find some new blocks on my home page. The widgets that are currently rolling out add sports scores, time zones, a focus timer, and a checklist, which are already some of my favorite new Firefox features in years. I usually have Focus Friend open on my phone when I need a focus timer, and I use Google Tasks for my checklists. Now I can check in with similar tools every time I open a new Firefox tab instead.\nFirefox’s new home page widgets are helping me focus\nThe browser’s new tabs can have a built-in checklist and customizable focus timer.\nThe browser’s new tabs can have a built-in checklist and customizable focus timer.\nMy phone’s homescreen is full of useful widgets, so it’s a nice addition to have the timer and checklist pop up on my browser — they add some extra functionality and blend in tools I was already using elsewhere. The timer is minimal, but having it on the home page is a good balance for me between having it out of sight so it’s not distracting, but not so buried that I forget about it.\nYou can add or remove any of the widgets from the home page customization tab, and there’s a toggle to expand them. The timer is preset to 25/5 Pomodoro-style intervals, with a 25-minute focus mode and a 5-minute break mode, but you can adjust both. There’s also an optional notification for when the timer ends.\nThe new widgets were mentioned in release notes as an improvement arriving between Firefox 151 and the recently released 152, and just this week, Mozilla launched a roadmap of other changes on the way, like the Project Nova redesign.\nMost Popular\n- Apple’s weird anti-nausea dots cured my car sickness\n- Midjourney goes from generating cat images to full-body ultrasound scans\n- Tim Cook says RAM expenses are ‘unsustainable’ and Apple is going to raise prices\n- Apple’s smart home camera service is starting to impress me\n- Can anyone look cool wearing Snap’s $2,000 glasses?",
+  "published_at": "2026-06-18T17:29:50Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-06-18T21:00:16.391601Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Tech",
+      "Web"
+    ]
+  }
+}

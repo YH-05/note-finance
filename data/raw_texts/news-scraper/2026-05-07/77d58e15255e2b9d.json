@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/07/amazon-to-carry-ozempic-pill-at-us-kiosks-offer-same-day-delivery-.html",
+  "title": "Amazon to carry Ozempic pill at U.S. kiosks, offer same-day delivery",
+  "raw_text": "Amazon.com said on Thursday its pharmacy will stock Novo Nordisk's Ozempic pill to treat type 2 diabetes at its kiosks and offer same-day delivery of the drug.\nNovo's Ozempic uses the active ingredient semaglutide to control blood sugar in people with type 2 diabetes, where the body either fails to produce or resists insulin, the hormone regulating blood sugar.\nAmazon has been stocking Novo's weight-loss drug Wegovy, which uses the same active ingredient as Ozempic, since January. It announced in April it would also stock rival Eli Lilly's Foundayo pill for weight loss.\n\"Amazon Pharmacy continues to provide customers expanded selection and reliable, convenient access to the latest treatments like the Ozempic pill for type 2 diabetes,\" said Tanvi Patel, a vice president at Amazon. \"We are making it easy for customers to get the medication they need to stay healthy.\"\nAmazon began delivering GLP-1 medications, a class of drugs to treat diabetes and obesity, in 2021. It does not stock the injectables in kiosks because they need to be refrigerated, unlike the pill versions.\nHalf of Amazon's U.S. customers have access to same-day delivery and all customers receive their medications within four days. Amazon will offer same-day delivery for Ozempic to about 3,000 locales and will expand access to 4,500 by year-end.\nCustomers with a prescription can order the pill through Amazon Pharmacy for $149 per month for cash or through insurance, the company said. The lowest price with insurance is $25, Amazon said in its release.\nNovo's Wegovy pill is stocked in five kiosks in California, where customers can pick up the drugs at Amazon's One Medical locations following a medical appointment.\nAmazon announced the kiosks to address barriers to access and limit shipping expenses for customers, first targeting drugs like antibiotics, blood pressure medicines and asthma inhalers.\nPatients do not need a One Medical subscription, Amazon's primary and urgent care service, to book an appointment and use the kiosks. A one-year One Medical subscription fee costs $199. Amazon invested over $4 billion last year in an effort to triple its company-wide delivery options in 2026, targeting small towns and rural areas.",
+  "published_at": "2026-05-07T11:45:15Z",
+  "author": null,
+  "collected_at": "2026-05-07T15:17:27.679285Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

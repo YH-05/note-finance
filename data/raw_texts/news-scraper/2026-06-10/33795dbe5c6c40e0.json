@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606101337",
+  "title": "日経225先物：10日22時＝330円安、6万4010円",
+  "raw_text": "【市況】日経225先物：10日22時＝330円安、6万4010円\nTOPIX先物期近は3834.5ポイントと前日比15.5ポイント安、TOPIXの現物終値比は13.1ポイント安で推移。\n○主要先物価格・22時00分時点\n銘柄 清算値(終値) 前日清算値比 出来高\n日経225先物 64010 -330 10167\n日経225mini 64005 -335 165681\nTOPIX先物 3834.5 -15.5 6303\nJPX日経400先物 34695 -110 290\nグロース指数先物 724 +2 461\n東証REIT指数先物 売買不成立\n株探ニュース",
+  "published_at": "2026-06-10T13:00:42Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:00:17.193346Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

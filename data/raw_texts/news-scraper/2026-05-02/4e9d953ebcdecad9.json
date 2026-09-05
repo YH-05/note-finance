@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/04/30/caterpillar-cat-q1-earnings.html",
+  "title": "Caterpillar forecasts higher annual revenue as power equipment benefits from AI buildout",
+  "raw_text": "Caterpillar raised its annual revenue forecast after beating expectations for quarterly profit, as its power equipment business benefited from an AI infrastructure boom, while higher sales to dealers helped its construction unit.\nThe company, seen as a bellwether for the global industrial economy, also trimmed its projection of a tariff hit to a range of $2.2 billion to $2.4 billion for the year from $2.6 billion.\nIts shares were up 5.3% in premarket trading.\nOver the last year, Caterpillar's power and energy segment has seen brisk sales as electricity-hungry data centers spend heavily on power generation and backup equipment to extend AI's reach.\nAnalysts had said in a pre-earnings note that the company's earnings stood to benefit from dealers building fresh inventory of construction equipment as well as strong execution of pending AI orders.\nThe company estimated its full-year revenue would rise in the low double-digit percentage range, compared with about 7% compounded annual revenue growth it previously projected.\nIts first-quarter adjusted profit per share rose to $5.54 in the January-March period, compared with $4.25 a year earlier, beating analysts' expectation of $4.62 per share, according to data compiled by LSEG.\nRevenue grew 22% to $17.42 billion, above expectations of $16.61 billion.\nRevenue from its core construction segment jumped 38%, while the power and energy segment revenue was up 22%. Both segments were helped by strong demand from customers in North America, Caterpillar's biggest market.\nCaterpillar said benefits from higher sales volume and better pricing were partly offset by unfavorable manufacturing costs of $710 million, largely tied to higher tariffs.\nIndustrial firms in the U.S. were among the hardest-hit companies by Trump's U.S. tariffs, which raised costs of imported raw materials and production machinery, while the broader economy took a hit from delayed business activity and sluggish corporate spending.",
+  "published_at": "2026-04-30T14:33:51Z",
+  "author": null,
+  "collected_at": "2026-05-02T03:20:42.544348Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

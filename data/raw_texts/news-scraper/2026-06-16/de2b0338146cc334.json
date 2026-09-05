@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/australia-central-bank-holds-rates-as-cpi.html",
+  "title": "Australia central bank warns hikes are not off the table as it keeps rates steady at 4.35%",
+  "raw_text": "The Reserve Bank of Australia held rates at 4.35% Tuesday, while stating that it was ready to raise rates to manage its mandate for price stability and full employment.\nThe unanimous move was in line with economists polled by Reuters, and comes as Canberra fights to tamp down inflation in the country.\nIn its statement, the RBA said that inflation was \"still too high,\" which warranted keeping the cash rate unchanged as it evaluates \"the response to previous interest rate rises and the impact of the oil supply disruption.\"\nThe Australian S&P ASX/200 was marginally down following the decision, while the Australian dollar weakened 0.3% against the dollar to trade at 0.705.\nWhile the U.S. and Iran have reached an agreement to end the Iran war, the RBA said that resolution was still at an early stage and global oil supply issues will take some time to resolve, keeping energy prices and inflation elevated.\nEarlier this month, Australia reported its GDP expanded by 2.5% in the first three months this year, year on year, missing expectations and at the same rate as in the prior quarter.\nOn a quarter-on-quarter basis, Australia's GDP grew 0.3% compared with 0.5% forecast in a Reuters poll, and decelerating from 0.9% growth in the prior quarter.\n\"A period of prolonged uncertainty may also cause growth to be lower in Australia's major trading partners and in Australia,\" the RBA said.\nWhile growth has been below expectations, inflation has run above the RBA's target. While the April print softened to 4.2% on a year on year basis, it was still above the central bank's target of 2%-3%.\n\"Higher fuel prices have added directly to inflation and there are indications that this is passing through to the prices of other goods and services, so inflation is likely to remain high for some time,\" the RBA wrote.",
+  "published_at": "2026-06-16T06:04:03Z",
+  "author": null,
+  "collected_at": "2026-06-16T09:18:52.447474Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

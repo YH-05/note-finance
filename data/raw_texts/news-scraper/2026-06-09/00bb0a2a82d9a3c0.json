@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/geopolitical/chinese-article-warns-vpn-use-alone-can-trigger-punishment-under-expanding-censorship",
+  "title": "Chinese Article Warns VPN Use Alone Can Trigger Punishment Under Expanding Censorship Regime",
+  "raw_text": "A widely circulated Chinese social media article warning that internet users can be punished simply for bypassing China's online censorship system has drawn attention to what observers say is an expanding clampdown on access to the global internet.\nThe article, published June 2 on Chinese social media WeChat and later archived by California-based nonprofit China Digital Times, which tracks China's state censorship, compiled a series of publicly reported cases of suppression on the use of virtual private networks (VPNs).\nThe cases included fines imposed on users who accessed overseas websites, penalties for selling VPN services, arrests related to the dissemination of overseas political content, and investigations into internet activity dating back several years.\nThe article challenged a common assumption among Chinese internet users that using VPNs for research, accessing foreign websites, or utilizing overseas artificial intelligence (AI) tools is unlikely to attract official scrutiny as long as no sensitive content is shared.\n\"But from publicly disclosed cases, VPN use itself has already become a target of the Chinese Communist Party's (CCP) investigation,\" the article said.\nThe examples highlighted in the article suggest that the CCP is increasingly focused not only on what users do online, but also on how they access the internet.\nOne of the most notable cases involved a resident of Ningde, Fujian Province, who was penalized in 2024 for allegedly using a VPN to browse overseas websites in 2020.\nAccording to the article, police reviewed historical internet records and later imposed an administrative penalty, prompting criticism from some legal observers who questioned whether the action complied with China's statutory limitations on administrative punishment.\nThe case stood out because it appeared to demonstrate the communist regime's ability to revisit years-old internet activity rather than relying solely on real-time monitoring and censorship.\nChinese legal professionals interviewed by The Epoch Times said that the enforcement action raised questions about the scope of retroactive investigations. Under China's Administrative Penalty Law, administrative violations generally cannot be punished if they remain undiscovered for more than two years, although certain exceptions apply.\nThe article also cited cases involving individuals punished for selling VPN services and users fined solely for establishing unauthorized internet connections, when there was no indication they had distributed overseas information.\nThe reported cases come amid broader efforts by the CCP to tighten control over cross-border internet access.\nUnder Chinese regulations, businesses and foreign nationals requiring international connectivity are generally expected to use telecommunications channels approved by the regime, while unauthorized VPNs and proxy services remain subject to censorship.\nWang Xin contributed to this report.",
+  "published_at": "2026-06-09T01:45:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-09T03:00:42.701883Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

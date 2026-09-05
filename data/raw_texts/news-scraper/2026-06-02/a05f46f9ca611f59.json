@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606030042",
+  "title": "[PANW] パロアルトネットワークス　3Q増収赤字転落　売上高31％増30.0億ドル、営業赤字1.83億ドル、EPSマイナス0.22ドル",
+  "raw_text": "パロ・アルト・ネットワークス<\nPANW>の2026年度第3四半期（2-4月）の業績は増収、営業赤字転落だった。\n米現地6月2日の通常取引終了後に公開された8-K（重要事項報告書）によると、第3四半期は売上高は前年同期比31.1％増の30億200万ドルとなった。営業損益は1億8300万ドルの赤字に転落。前年同期は2億1900万ドルの黒字だった。1株損益（EPS・希薄化後）は0.22ドルの赤字（前年同期0.37ドルの黒字）。\nパロ・アルト・ネットワークス<\nPANW>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-06-02T20:16:52Z",
+  "author": null,
+  "collected_at": "2026-06-02T21:00:22.536400Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

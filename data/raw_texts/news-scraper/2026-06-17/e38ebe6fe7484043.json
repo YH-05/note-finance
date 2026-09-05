@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/16/kalshi-traders-think-anthropic-will-restore-access-to-ai-model-quickly.html",
+  "title": "Prediction market traders speculate Anthropic will restore access quickly to AI model after Trump admin directed it to limit reach",
+  "raw_text": "Artificial intelligence giant Anthropic shocked observers when it said Friday evening it disabled access to its Fable 5 and Mythos 5 models to comply with an order by the U.S. government.\nBut traders on prediction market platform Kalshi think it's more likely than not that the Fable model returns to U.S. consumers as soon as July.\nTraders place 58% odds Anthropic will restore access to Fable 5 before July 1. They think it's even more likely it's back by July 10, with a 74% chance it happens by then. For the event contract to resolve to \"yes,\" general access to the model must be restored to U.S. customers.\nAccess to Fable 5 was disabled after the U.S. government told Anthropic to suspend access to the technology for any foreign national, whether inside the country or outside of it. To ensure compliance, Anthropic disabled the model for all of its customers.\nThe decision came just days after the company announced Fable 5. Anthropic previously tussled with President Donald Trump's administration when the Department of Defense in March labeled the company a supply chain risk.\nTraders' bullishness comes after Anthropic reportedly met with the Trump administration on Monday to discuss the model. It is not yet clear if that meeting yielded any progress between the two parties.\nOn Polymarket, traders place 67% odds access is restored to U.S. customers by July 1.",
+  "published_at": "2026-06-16T15:44:01Z",
+  "author": null,
+  "collected_at": "2026-06-17T03:19:38.495057Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

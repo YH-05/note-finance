@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-investment-mergers/20264-afc-commits-100m-to-african-technology-funds-to-boost-digital-economy.html",
+  "title": "AFC commits $100m to African technology funds to boost digital economy",
+  "raw_text": "Africa Finance Corporation (AFC) has approved a commitment of up to $100 million to invest in Africa-focused technology fund managers, as the institution looks to accelerate the continent’s digital industrialisation.\nThe infrastructure financier said the initiative aims to address the shortage of long-term institutional capital available to African technology companies and startups, while also increasing the role of African-owned investment firms in the sector.\nAFC noted that Africa’s digital economy is projected to contribute more than $700 billion to GDP by 2050, driven by growing internet adoption, digital services and enterprise technology demand.\nAs part of the initial rollout, AFC has already made anchor investments into Lightrock Africa Fund II and Future Africa Fund III. The organisation said more commitments to African-focused technology funds are expected in the near future.\nAFC CEO Samaila Zubairu (pictured, third) said digital infrastructure is becoming as important to Africa’s development as transport and energy infrastructure, adding that technology adoption across the continent continues to accelerate despite funding gaps.\nThe move also reflects growing momentum in Africa’s venture capital ecosystem, which raised around $3.8 billion in startup funding during 2025 and has produced several billion-dollar technology companies in recent years.\nAFC said the funding strategy will support businesses operating across sectors including fintech, digital infrastructure, education and consumer technology, while helping mobilise more institutional investment into Africa’s technology ecosystem.",
+  "published_at": "2026-05-18T15:20:35Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-05-18T21:01:24.341695Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Investment"
+    ]
+  }
+}

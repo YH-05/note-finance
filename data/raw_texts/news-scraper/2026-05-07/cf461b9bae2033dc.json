@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605080112",
+  "title": "[DBX] ドロップボックス　1Q増収減益　売上高1％増6.29億ドル、営業益6％減1.72億ドル、EPS0.48ドル",
+  "raw_text": "ドロップボックス<\nDBX>の2026年度第1四半期（1-3月）の業績は増収、営業減益だった。\n米現地5月7日の通常取引終了後に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比0.8％増の6億2950万ドルとなった。営業利益は6.0％減の1億7280万ドル。営業利益率は27.5％へ低下した。前年同期は29.4％だった。1株利益（EPS・希薄化後）は0.48ドル（前年同期0.51ドル）。\nドロップボックス<\nDBX>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-07T20:29:21Z",
+  "author": null,
+  "collected_at": "2026-05-07T21:00:22.422709Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

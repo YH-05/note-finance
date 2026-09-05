@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20159-togo-benin-and-senegal-launch-free-roaming.html",
+  "title": "Togo, Benin and Senegal launch free roaming",
+  "raw_text": "Togo, Benin and Senegal have launched free roaming services. The launch, announced late last week, marks the implementation of two bilateral agreements — one between Togo and Senegal, the other between Senegal and Benin — signed on the sidelines of the ARTAO 23rd annual general assembly.\nARTAO, also known as WATRA, is the West Africa Telecommunications Regulators Assembly, founded in 2002 to create a unified platform for telecommunications and ICT regulators in the West African region.\nSigned in December 2025 in Dakar, the roaming agreements are reportedly a first for the region: two separate agreements aligned on identical terms, reflecting a gradual push toward harmonisation within WATRA.\nThe Togo First news service quotes Michel Yaovi Galley, director general of ARCEP Togo, as saying: “In the digital age, electronic communications have become essential… but one obstacle remained: the high cost of mobile roaming. That obstacle is now removed. Thanks to free roaming between Togo and Senegal and between Senegal and Benin, citizens traveling between these countries will be able to communicate as if they were in their home country.”\nAs Galley implies, the agreements regulate international and local call rates, as well as mobile data, with caps designed to prevent excessive charges.\nBeyond pricing, the agreements are part of a broader effort to harmonise roaming policies across the region. With this deal now in effect with Senegal, Togo brings the number of countries with which it has free roaming partnerships to seven, six of which are already operational.\nA number of other roaming agreements have been announced in the past few years in West Africa, though actual implementation can sometimes be tricky.",
+  "published_at": "2026-04-27T14:37:38Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-05-02T03:03:18.539355Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

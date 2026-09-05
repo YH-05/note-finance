@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/games/927333/asus-rog-strix-xg129c-secondary-display",
+  "title": "Asus chases Elgato with its own secondary touchscreen display",
+  "raw_text": "Asus’s latest gaming monitor is a little smaller than usual. The ROG Strix XG129C, announced on Friday, is a 12.3-inch touchscreen IPS display that’s intended to be a sidekick for a larger main monitor, similar to the 14.1-inch secondary display in the 2020 Asus ROG Zephyrus Duo 15. It’s a slightly smaller competitor to Corsair’s Xeneon Edge, which has a 14.5-inch display, but the same 720p resolution.\nAsus chases Elgato with its own secondary touchscreen display\nAt 12.3 inches, the new Asus ROG Strix XG129C is a little smaller than its competition from Corsair.\nAsus says the XG129C covers 125 percent of the sRGB color gamut and 90 percent of the DCI-P3 color gamut. It also comes with a one-year subscription for the hardware monitoring tool AIDA64 Extreme, which would usually cost $65. Besides acting as a performance monitor for your PC, sidekick displays like this can also be handy as an extension for streaming or editing setups, much like Elgato’s Stream Deck.\nAlong with the little XG129C, Asus also announced the ROG Strix OLED XG34WCDMS, a 34-inch RGB Tandem QD-OLED gaming monitor. It features a 280Hz refresh rate and a 3440 x 1440p resolution, and, according to Asus, covers 99 percent of the DCI-P3 color gamut. Asus has not yet officially announced pricing for either display.",
+  "published_at": "2026-05-08T20:34:24Z",
+  "author": "Stevie Bonifield",
+  "collected_at": "2026-05-09T03:01:11.309228Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "News",
+      "PC Gaming",
+      "Tech"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/03/meet-wander-a-stumbleupon-inspired-tool-for-discovering-the-small-web/",
+  "title": "Meet Wander, a StumbleUpon-inspired tool for discovering the ‘small web’",
+  "raw_text": "As search becomes increasingly dominated by AI summaries and commercial content, people are experimenting and coming up with ways to make the web feel more human like it used to, building everything from “small web” search engines to decentralized social networks.\nOne of the newer efforts in that direction is Wander Console, an open source, self-hosted web console that gives website visitors a way to explore other interesting sites and web pages recommended by a community of indie website owners.\nSusam Pal, the London-based developer of the project, says he was inspired to build the small, decentralized tool after he saw Kagi’s “small web” search tool that limits searches to certain types of content, like blogs, webcomics and YouTube channels.\nBut that still wouldn’t surface the kind of small websites that are maintained by indie developers like Pal himself, nor web projects, mini apps, or games. That led Pal to create Wander, which puts website recommendations back into the hands of users.\n“Not everybody is aware of this beautiful portion of the internet, which is quirky, where we have all kinds of strange websites, where people are expressing their personality, and so on,” he said.\nWander has its roots in older ideas, like the webrings that once connected independent websites and blogs, or website discovery tools like StumbleUpon, which offered serendipitous recommendations as you clicked its “Stumble!” button to discover new websites. It also has elements of blogrolls, as site owners can recommend other websites.\nTo use Wander, you simply upload two files to your website: an index.html file that points to the Wander console, and a wander.js (a plain JavaScript file) that you use to link to other Wander consoles you’re recommending. There’s no server-side code or database, and the console can even be hosted on GitHub Pages or Codeberg Pages, Pal said.\nOnce uploaded, you can add a “Wander” link to your website that allows visitors to jump into the discovery experience. (For example, here’s Pal’s Wander Console demo.)\nThe console has a “Wander” button at the top of the page that you can click to load a random website. You can also click the “Console” button to see information about that person’s Wander setup, including a list of other people’s Wander consoles that they recommend. Wander calls these recommended consoles “Neighbors.”\nSome of these Wander consoles are quite clever and funny. One guy called Josh has made a Wander console that recommends all the other websites made by people named Josh. Someone else has customized their console to turn the cursor into a little creature; another takes you through various pages on Neocities, a web hosting platform focused on bringing back the creativity of the web, like what used to be found on Geocities (hence the name). Many others have changed the color scheme of their console to match their own site or give it a nostalgic look.\nPal said it’s easy to customize the console using CSS or JavaScript without changing the original Wander Console. (If you don’t know how, you can probably get AI to help you with that part.) This way, when Wander ships a new release, that portion of the file can be updated with a simple copy-and-paste.\nPal introduced the project to the Hacker News community this spring, and more recently shared it on Reddit and elsewhere, receiving tons of positive feedback and support. Since those early introductions, Wander has been adopted by over 60 people who are now using it to recommend a total of more than 1,500 websites.\n“I don’t think everybody needs to know about the small web — some people use the web as a utility, and I think it’s totally fine for them. But people who are creative, they might want to know about the small web,” Pal explained.\nHe said many internet users seem to miss StumbleUpon and think of it with a sense of nostalgia. “It’s the element of surprise — you never know what you will find when you click the button,” he added.",
+  "published_at": "2026-06-03T14:00:58Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-06-04T03:00:27.436991Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Media & Entertainment",
+      "Creators",
+      "developers",
+      "StumbleUpon",
+      "web development",
+      "websites"
+    ]
+  }
+}

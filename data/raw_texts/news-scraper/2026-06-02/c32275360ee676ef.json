@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/01/microsoft-could-hit-new-high-amid-homegrown-ai-push-wells-fargo-says.html",
+  "title": "Microsoft could soar to new highs thanks to homegrown AI push, Wells Fargo says",
+  "raw_text": "Microsoft is doubling down on its artificial intelligence-led strategy by debuting a series of homegrown AI models — a move that could catapult shares to new highs, according to Wells Fargo. The bank, which has an overweight rating on the tech giant, hiked its price target on shares to $650 from $625. that suggests 44% upside from Friday's close. \"The [company is] better positioned at software layer than [it's] getting credit for & making right moves to catch up on capacity, models & Copilot,\" analyst Michael Turrin said in a note to clients. \"While MSFT's model development efforts have been somewhat slower than peers … we expect investments at software & model layers [to] pay off in meaningful adoption over time, becoming a greater portion of the mix.\" Microsoft is expected to unveil this week a suite of AI tools, including a model for coding that will complement GitHub Copilot, at its \"Build\" conference in California, The Information reported . It is also likely to introduce models for reasoning, transcription and images, according to the report. The company is also expected to disclose more details about its lucrative partnerships with major AI startups later this week, which could serve as a short-term catalyst for its stock, per the analyst note. Two-thirds of the firm's $37 billion AI business likely comes from OpenAI and Anthropic's Azure consumption as well as a revenue share with the former of those two startups, while the remainder may come from Microsoft 365, Github Copilot and other AI services, according to Wells Fargo. Wells Fargo's call falls in line with consensus on the Street. Of the 60 analysts covering Microsoft, 56 have a buy or strong buy on the stock, LSEG data shows. Shares have fallen nearly 7% since the beginning of this year, underperforming the overall market.",
+  "published_at": "2026-06-01T10:47:45Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.585753Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

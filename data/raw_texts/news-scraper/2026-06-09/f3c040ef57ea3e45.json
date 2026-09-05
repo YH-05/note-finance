@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/08/waymo-bought-apples-self-driving-car-proving-ground-for-220m/",
+  "title": "Waymo bought Apple’s self-driving car proving ground for $220M",
+  "raw_text": "Waymo has acquired a massive 5,500-acre proving ground in Arizona owned by Route 14 Investment Partners LLC, a Delaware shell company associated with Apple, according to documents filed with Maricopa County.\nWaymo acquired the property, which is located near other proving grounds in Wittman, Arizona, for $220 million, according to the filing. The sale was recorded June 5. Waymo confirmed the sale to TechCrunch.\nThe purchase rounds out Waymo’s already robust network of closed test courses. The Alphabet-owned company still uses the Castle Proving Ground in California as well as the Transportation Research Center in Ohio. Both of these are dwarfed by the Arizona location.\nThe Arizona location includes a 115-acre city course, a 35-acre vehicle dynamics area, a four-mile oval track, and a freeway course purpose-built for autonomous vehicle testing. A Waymo spokesperson told TechCrunch the facility will be used to simulate driving scenarios in a controlled environment to continuously test and improve the performance of its self-driving system. Specifically, the company will support rider-only testing, motion control testing, operational training workflows, and future testing expansion over time.\nApple purchased the property in 2021 for $125 million after renting access to it for years. The facility had previously been used as a test facility for Fiat Chrysler. It features different road surfaces, a high-speed oval, and helped the Detroit automaker test cars and their components in hot weather.\nApple used it to put prototype vehicles through their paces as the tech company oscillated through different variations of its car project. That effort — known as Project Titan — was ultimately scuttled in early 2024 after Apple had spent billions of dollars on it.\nThe Phoenix Business Journal was the first to spot the document.\nWaymo is in the middle of a dramatic expansion of its fleet, which currently stands at close to 4,000 vehicles. The company recently started offering the first rides in its new van, which is made by Zeekr. Waymo has said it wants to make tens of thousands of robotaxis per year, including the Zeekr van and the Hyundai Ioniq 5.\nThe Zeekr vehicles are sent to Waymo’s Arizona factory, where they are then outfitted with the company’s self-driving system.\nWaymo has a growing commercial footprint in Phoenix and Maricopa County. The company began testing its autonomous vehicle technology in the Phoenix suburb of Chandler back in 2017. The area would be Waymo’s first market to offer a commercial robotaxi service.\nWaymo has since expanded to more than 10 U.S. cities, including Los Angeles, the San Francisco Bay Area, Austin, and Atlanta.",
+  "published_at": "2026-06-08T20:50:55Z",
+  "author": "Kirsten Korosec, Sean O'Kane",
+  "collected_at": "2026-06-09T03:00:27.338861Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Transportation",
+      "Apple",
+      "autonomous vehicles",
+      "Exclusive",
+      "Mergers and Acquisitions",
+      "Waymo"
+    ]
+  }
+}

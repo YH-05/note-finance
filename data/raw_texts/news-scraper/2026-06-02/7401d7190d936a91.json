@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/27/sk-hynix-shares-ai-chip-rally-1-trillion.html",
+  "title": "SK Hynix hits $1 trillion valuation as AI boom lifts South Korean chip stocks",
+  "raw_text": "Shares of SK Hynix jumped as much as 11% on Wednesday, lifting the South Korean chipmaker's market capitalization above $1 trillion as investors continued to pile into artificial intelligence-linked semiconductor stocks.\nThe rally extended a blistering run that has seen SK Hynix shares skyrocket about 250% since the start of the year, fueled by surging demand for high-bandwidth memory chips used in AI servers and accelerators.\nThe company has emerged as a key supplier to AI chip giant Nvidia, cementing its position at the center of the global AI supply chain.\nSK Hynix pared gains to close 9.21% higher, while Samsung Electronics ended up 2.68%.\nThe rally comes just weeks after domestic rival Samsung Electronics also crossed the $1 trillion market capitalization mark.\nThe two chipmakers account for more than 40% of South Korea's benchmark Kospi, underscoring how closely the index's performance has become tied to global demand for AI-related semiconductors and memory chips.\nThe Kospi index has nearly doubled since the start of the year, according to data from LSEG.\nAnalysts have warned that the concentration could heighten market volatility and leave the benchmark more exposed to risks, including supply chain disruptions and a slowdown in global data center investment.\nSK Hynix's rally may still have room to run, according to Peter Kim, global investment strategist at KB Financial Group. He highlighted that earnings upgrades are outpacing even the stock's meteoric gains.\n\"Fundamentals and valuations of the two twin towers … are still very much intact,\" Kim said, referring to SK Hynix and Samsung Electronics.\nHe said that SK Hynix's valuation has become \"cheaper\" as analysts have raised earnings forecasts faster than share prices have increased.",
+  "published_at": "2026-05-27T07:21:46Z",
+  "author": null,
+  "collected_at": "2026-06-02T15:36:02.620583Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

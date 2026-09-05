@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605141370",
+  "title": "バイセルは今期業績・配当予想を上方修正、買い取り・仕入れ好調",
+  "raw_text": "【材料】バイセルは今期業績・配当予想を上方修正、買い取り・仕入れ好調\n「出張訪問買取セグメント」「店舗買取セグメント」ともに戦略的なリピート施策や単価向上施策が奏功し、足もと買い取り、仕入れが好調に推移しているという。今後も堅調な業績見通しが想定されることから、これを織り込んだ。\n出所：MINKABU PRESS",
+  "published_at": "2026-05-14T08:25:00Z",
+  "author": null,
+  "collected_at": "2026-05-14T09:00:22.106942Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

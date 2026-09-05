@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/vaporware-or-not-aptera-assembles-its-first-five-validation-models/",
+  "title": "Vaporware or not? Aptera assembles its first five validation models.",
+  "raw_text": "Among the many advantages the Chinese auto industry appears to have over foreign competitors is its ability to quickly turn a new idea into a car that customers can buy. At the other end of the spectrum, we have Aptera, which has been trying to bring a three-wheeled, ultra-efficient electric vehicle to market since 2006. Clearly, there have been more than a few stumbles along the way, but this week, the long-running saga got a new verse as the first validation models were assembled, bringing the EV one step closer to the market.\nAptera’s new low-volume assembly line is in Carlsbad, California, and workers there just assembled five EVs, which make their way through 14 stations. “Every vehicle we run through this line teaches us something,” said Chris Anthony, co-CEO of Aptera Motors. “With five vehicles now off the line, we have a growing foundation of data, a team that is getting sharper with every build, and a process that is proving itself in real time. That is what gives us confidence as we move toward our goal of customer deliveries.”\n“What we are building here is not just vehicles but the system to build them well,” said Steve Fambro, co-CEO of Aptera Motors. “Each cycle through the line improves precision, efficiency, and repeatability. This is how we plan to meet our customers’ expectations when they finally get their hands on their own Aptera vehicle.”\nLike nothing else\nShould Aptera succeed and begin delivering vehicles—it says it has “nearly 50,000 reservations on record”—those customers will receive an EV that looks like nothing else on the road. Its front wheels have an open-wheel design; they’re shrouded in aerodynamic pods but mounted out wide from the streamlined cabin, which looks much more aerospace than automotive.",
+  "published_at": "2026-05-14T17:06:23Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-15T03:00:30.483927Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Aptera",
+      "vaporware"
+    ]
+  }
+}

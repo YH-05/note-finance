@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.fidonet.org/inet92_Randy_Bush.txt",
+  "title": "Fidonet: Technology, Use, Tools, and History (1993)",
+  "raw_text": "<p>Article URL: <a href=\"https://www.fidonet.org/inet92_Randy_Bush.txt\">https://www.fidonet.org/inet92_Randy_Bush.txt</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48370291\">https://news.ycombinator.com/item?id=48370291</a></p>\n<p>Points: 127</p>\n<p># Comments: 45</p>",
+  "published_at": "2026-06-02T13:53:52Z",
+  "author": "BruceEel",
+  "collected_at": "2026-06-02T21:00:48.935149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

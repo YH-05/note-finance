@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/05/22/lenovo-shares-jump-15percent-on-record-earnings-as-ai-revenue-nearly-doubles.html",
+  "title": "Lenovo shares jump nearly 20% on record earnings as AI revenue nearly doubles",
+  "raw_text": "Shares of Lenovo surged 19.32% on Friday, after the personal computer and electronics giant posted strong revenue growth powered by its growing artificial intelligence business.\nGroup revenue for the March quarter reached $21.6 billion, up 27% year-on-year — the highest growth rate in five years for the Hong Kong–based Chinese multinational company. Net income grew by nearly a factor of six to reach $521 million. Full-year results reached a record.\nThe standout performer was AI-related revenue, which surged 84% in the fourth quarter to account for more than a third of total group revenue. The category includes devices such as PCs and smartphones with neural processing units, servers with graphics processing units, and services.\nLenovo aims to become a $100 billion company within the next two years, Chairman and CEO Yuanqing Yang said in a statement, with much of the growth plan hinging on AI. Its market cap is currently around $24 billion.\nLenovo's \"Hybrid AI strategy\" encompasses personal AI across its devices, as well as its enterprise AI business, which focuses on helping customers leverage their data for insights and business value.\nLenovo also maintained its position as the world's top PC vendor in the fourth quarter, with global market share reaching 24.4%.",
+  "published_at": "2026-05-22T07:51:12Z",
+  "author": null,
+  "collected_at": "2026-06-11T03:18:23.399578Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/05/pirates-are-already-playing-forza-horizon-6-days-before-its-launch/",
+  "title": "Pirates are already playing Forza Horizon 6 days before its launch",
+  "raw_text": "Playable copies of Microsoft’s Forza Horizon 6 have appeared on game piracy sites more than a week before the game’s official launch, the apparent result of a mistake in uploading the game’s files to Steam over the weekend.\nSince the early days of Steam, players have been able to preload encrypted versions of supported games well ahead of release so the game is ready to play when the encryption key is released on launch day. But early Sunday morning, Microsoft mistakenly uploaded roughly 155 GB of Forza Horizon 6 files to Steam in unencrypted form, as tracked by SteamDB.\nThat unprotected upload was noticed almost immediately across social media sites and Reddit. Within hours, Reddit’s CrackWatch community was reporting that the game’s copy protection had been broken, allowing for easy downloads of pirated versions across multiple piracy sites reviewed by Ars (while that initial CrackWatch post has since been “removed by Reddit’s Legal Operations team,” details of another crack were being discussed on CrackWatch as of Monday morning).",
+  "published_at": "2026-05-11T15:29:16Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-05-11T21:00:30.776630Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "crack",
+      "driving",
+      "forza",
+      "microsoft",
+      "piracy",
+      "Racing",
+      "Steam"
+    ]
+  }
+}

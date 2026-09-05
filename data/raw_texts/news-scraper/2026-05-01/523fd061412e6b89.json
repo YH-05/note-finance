@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/921955/oura-hormonal-birth-control-tracking-update",
+  "title": "Oura adds birth control support to its period tracker",
+  "raw_text": "Oura is launching a new reproductive health feature that takes hormonal contraception into consideration when tracking period cycles. The smart ring maker describes the Hormonal Birth Control update as a “first-of-its-kind experience” inside Oura’s existing Cycle Insights feature, allowing users to see how over 20 combinations of hormonal birth control methods — including pills, patches, IUDs, and implants — can affect their overall biometric data.\nOura adds birth control support to its period tracker\nThe feature is designed to measure the impact of hormonal contraception on temperature, sleep, and recovery.\nThe feature is designed to measure the impact of hormonal contraception on temperature, sleep, and recovery.\nThe feature will begin rolling out globally on May 6th. It’s designed to show the impact that hormonal contraception may have on temperature patterns, sleep, and recovery, and can help users to track bleeding and symptoms over time. That data can then be referenced to distinguish how biometrics shift across hormone and hormone-free days — making it easier for folks who menstruate to determine what a “normal” cycle should be for them, and flag any unexpected health concerns.\nThis is the latest of several products and features in the health tech industry that have jumped on the wellness trend of “hormone optimization.” At least you won’t need to pee on your Oura ring to get these insights, and any effort to expand reproductive healthcare should be commendable. I would caution, however, that the wellness tech industry loves to prey on our anxieties. And in a post-Roe v. Wade United States where people fear period tracking data could be weaponized in court, I can think of many, many reasons to keep your contraceptive methods private.",
+  "published_at": "2026-05-01T13:00:00Z",
+  "author": "Jess Weatherbed",
+  "collected_at": "2026-05-01T15:00:16.310727Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Gadgets",
+      "Health",
+      "News",
+      "Science",
+      "Tech",
+      "Wearable"
+    ]
+  }
+}

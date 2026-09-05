@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202605211392",
+  "title": "[WSM] ウィリアムズソノマ　1Q増収　売上高4％増18.0億ドル、営業益微増2.91億ドル、EPS1.93ドル",
+  "raw_text": "ウィリアムズ・ソノマ<\nWSM>の2026年度第1四半期（2月2日-5月3日）の業績は増収、営業微増益だった。\n米現地5月21日の通常取引開始前に公開された8-K（重要事項報告書）によると、第1四半期は売上高は前年同期比4.4％増の18億545万ドルとなった。営業利益は0.3％増の2億9168万ドルとわずかに増加。営業利益率は16.2％へ低下した。前年同期は16.8％だった。1株利益（EPS・希薄化後）は1.93ドル（前年同期1.85ドル）。\nウィリアムズ・ソノマ<\nWSM>\n発表資料\n原本（英語）\n翻訳版\n株探ニュース",
+  "published_at": "2026-05-21T13:17:33Z",
+  "author": null,
+  "collected_at": "2026-05-21T15:00:22.439497Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "材料",
+    "tags": []
+  }
+}

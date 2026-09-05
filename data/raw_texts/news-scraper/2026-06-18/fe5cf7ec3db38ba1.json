@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606181421",
+  "title": "【市場反応】米5月景気先行指数は予想に一致、ドル高止まり",
+  "raw_text": "【市況】【市場反応】米5月景気先行指数は予想に一致、ドル高止まり\n米5月景気先行指数は前月比＋0.1％と、予想に一致した。4月分は＋0.1％から＋0.2％に上方修正された。\nドル・円は160円88銭で高止まり。ユーロ・ドルは1.1472ドル、ポンド・ドルは1.3239ドルでそれぞれ戻りが鈍い。\n【経済指標】\n・米・5月景気先行指数：前月比＋0.1％（予想＋0.1％、4月＋0.2％←＋0.1％）\n《KY》\n提供：フィスコ",
+  "published_at": "2026-06-18T14:48:49Z",
+  "author": null,
+  "collected_at": "2026-06-18T15:00:25.141258Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "市況",
+    "tags": []
+  }
+}

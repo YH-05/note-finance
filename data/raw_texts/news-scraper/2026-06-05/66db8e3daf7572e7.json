@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/06/rocket-report-blue-origin-explosion-still-making-headlines-impulse-raises-money/",
+  "title": "Rocket Report: Blue Origin explosion still making headlines; Impulse raises money",
+  "raw_text": "Welcome to Edition 8.44 of the Rocket Report! The news this week is decidedly weighted in favor of heavy-lift rockets, largely due to the fallout from last Thursday’s explosion of Blue Origin’s New Glenn on its launch pad in Florida. Blue Origin aims to resume launches at the badly damaged launch facility by the end of the year, but there’s good reason to be skeptical of this timeline. With New Glenn grounded, will Blue Origin founder Jeff Bezos approach Elon Musk’s SpaceX to launch his Blue Moon lander to the lunar south pole? It sure sounds like NASA is pushing for that.\nAs always, we welcome reader submissions. If you don’t want to miss an issue, please subscribe using the box below (the form will not appear on AMP-enabled versions of the site). Each report will include information on small-, medium-, and heavy-lift rockets, as well as a quick look ahead at the next three launches on the calendar.\nSpaceport development moves forward in Canada. There’s been a lot of talk about the Canadian government’s recent commitment to invest in a sovereign launch capability. There was the announcement last year of a federal budget of 182.6 million Canadian dollars ($131 million) over three years to establish a sovereign launch program. In March, the government said it would lease a dedicated launch pad at a commercially developed spaceport in Nova Scotia for national defense purposes, committing 200 million Canadian dollars ($144 million) to the deal. The agreement is a boon for Maritime Launch Services, which is developing Spaceport Nova Scotia after years of slow progress at the coastal site, SpaceQ reports.\nKeeping civil… The initial phases of development focus on civil works, with road construction, utility connections, and construction of a “central hub” that will connect key commodities to the spaceport’s launch pads. Design work on the spaceport’s first launch vehicle integration facility should be complete in July, with construction tendering to start before the end of August, according to Stephen Matier, the CEO of Maritime Launch Services.",
+  "published_at": "2026-06-05T14:20:54Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-06-05T15:00:26.224455Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "blue origin",
+      "china",
+      "long march",
+      "reusable rockets",
+      "rocket report",
+      "spacex"
+    ]
+  }
+}

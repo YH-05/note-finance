@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.zerohedge.com/ai/openai-eyes-massive-10-gigawatt-ohio-data-center",
+  "title": "OpenAI Eyes Massive 10-Gigawatt Ohio Data Center",
+  "raw_text": "OpenAI is moving along in talks to lease a proposed 10-gigawatt data center campus on federal land in Ohio, according to a new report from The Information, in a deal that could include financial backing from Nvidia. This comes as Ohio lawmakers unveiled new legislation aiming to regulate data center build-outs.\nThe massive 10 GW data center would be the largest data center development ever considered, with a potential buildout cost topping $500 billion based on current prices for chips, labor, and construction materials.\nOpenAI in Talks to Lease 10 Gigawatt Ohio Data Center with Backing From Nvidia\n— zerohedge (@zerohedge) June 10, 2026\nOpenAI is in advanced negotiations to lease a proposed 10 gigawatt data center campus on federal land in Ohio as part of a deal that could include financial backing from Nvidia, according to the…\nUnder the proposed deal, OpenAI would control the chip stacks through a long-term lease and begin making payments once the facility starts operations.\nThe first phase is expected to come online in 2028. For some context, 10 GW of power is roughly the output of several large nuclear reactors or about 10 large gas-fired power plants running at full capacity. Each GW can power about 700,000 to 1 million homes.\nThe data center development would require dedicated power generation, substations, transmission lines, cooling infrastructure, access to water or advanced cooling systems, and phased construction over several years.\nSimultaneously, Ohio lawmakers have unveiled Substitute House Bill 646, which aims to regulate data center buildouts in the state.\n\"The Joint Data Center Study Committee has done its job,\" Senate Finance Chair Brian Chavez (R-Marietta), who is also the co-chair of the data center committee, said, and quoted by local outlet ABC News 5.\nBill 646 would create a new electric rate class for data centers to ensure that the costs of generation, transmission, and distribution are entirely paid by hyperscalers.\n\"Make sure the ratepayers are kept harmless, held harmless, and that data centers pay for whatever they're causing,\" Chavez said.\nThis year alone, Goldman calculates that hyperscalers will unleash $800 billion in data center capex.\nLatest data center projects by scale:\nMapping the Buildouts\nThe downside risk for the data center buildout boom is that an alarming share of projects are being delayed, scaled back, or canceled this year as local resistance groups intensify pressure campaigns over power demand, water use, land rights, and grid reliability.\nBeyond NIMBY opposition, there is also growing concern that some anti-data-center movements may be amplified by foreign influence networks operating through left-wing nonprofits, and comes as China prepares to begin its data center buildout strategy.]\nToday's report also comes days after OpenAI submitted a draft IPO prospectus to the US Securities and Exchange Commission, formally kicking off the process for one of the year's most hotly anticipated debuts.",
+  "published_at": "2026-06-10T19:40:00Z",
+  "author": "Tyler Durden",
+  "collected_at": "2026-06-11T03:00:41.430935Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "zero_hedge",
+    "category": "finance",
+    "tags": []
+  }
+}

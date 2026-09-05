@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.admin.ch/en/sustainability-initiative",
+  "title": "Switzerland wil have a referendum to cap population at 10M",
+  "raw_text": "Popular initiative: ‘No to a Switzerland with 10 million! (Sustainability Initiative)’\nOn 14 June 2026, Swiss citizens will vote on the popular initiative: ‘No to a Switzerland with 10 million! (Sustainability Initiative)’.\nThe initiative in brief\nAt the end of 2025, approximately 9.1 million people were living in Switzerland. Since the introduction of the free movement of persons in 2002, the population has grown by around 1.7 million. This is mainly due to immigration. The number of people immigrating depends primarily on the labour market. When the economy is strong, companies struggle to find enough workers within Switzerland. Companies, as well as public institutions like hospitals and care homes, often recruit the skilled workers they need from the EU.\nThe ‘No to a Switzerland with 10 million! (Sustainability Initiative)’ calls for a cap on the permanent resident population: Switzerland’s population must remain below 10 million until 2050. If the permanent resident population exceeds 9.5 million before 2050, the Federal Council and Parliament will need to take measures, particularly in the areas of asylum and family reunification. The Federal Council would also need to invoke or negotiate exemptions and safeguard clauses in international agreements that contribute to population growth. If the 10-million threshold is exceeded, Switzerland would have to terminate these agreements, including the one with the EU on the free movement of persons after two years. This would also render the other agreements under Bilateral Agreements I null and void. Switzerland’s participation in the EU’s Schengen and Dublin agreements would also be called into question, thereby jeopardising close cooperation in the areas of security and asylum.\nFederal Council explanations\nOn the German, French, Italian and Romansh pages, the official explanations of the Federal Council are available in PDF format.",
+  "published_at": "2026-06-08T19:09:48Z",
+  "author": "napolux",
+  "collected_at": "2026-06-09T03:00:56.063711Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

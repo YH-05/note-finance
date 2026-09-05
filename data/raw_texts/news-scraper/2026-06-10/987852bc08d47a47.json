@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/10/two-reasons-for-optimism-after-tuesdays-whipsaw-market-sell-off.html",
+  "title": "Two reasons for optimism after Tuesday's whipsaw market sell-off",
+  "raw_text": "With CPI inflation data in the morning and software giant Oracle reporting earnings after the bell, Wednesday presents a big test for a U.S. stock market trying to find its footing after its worst day in a year and a nail-biting whipsaw session on Tuesday.\nThere's reason for optimism, judging by bullish options flows around stocks that do better when interest-rates stay lower, and call-buyers who are prepared for the biggest move in Oracle since Covid.\nFirst, inflation: despite economists expecting annualized CPI to hit above 4% for the first time in three years, interest-rate sensitive sectors were the best performers on Tuesday. Bonds firmed and regional banks rallied alongside homebuilders as small-caps finished the day higher.\nOptions trading in homebuilding ETFs XHB and ITB was almost entirely in calls. In ITB, traders bought 3,200 calls, compared to just 68 puts, and in XHB, calls outpaced puts almost 10-to-1. In the regional bank fund KRE, traders bought more than three times as many calls as puts.\nOne reason for optimism around interest rates could be that crude oil slipped below $86 per barrel Tuesday, the lowest since mid-April.\n\"Tomorrow's CPI data could surprise with oil prices coming down,\" Ben Emons, CIO and founder at FedWatch Advisors, said by phone. \"The oil price move suggests markets are leaning a little more into the Trump jawbone, love it or hate it.\"\nDespite a renewed threat against Iran by Trump early Wednesday, oil prices were only slightly higher.\nWhether or not a sector rotation comes at the price of big-tech could depend on earnings after the bell from Oracle, the near $600-billion software behemoth that's the biggest weighting in the IGV ETF and leading the group by 15 percentage points on the year.\nOptions traders are pricing in a 12-percent move in the stock, the biggest implied move going into an Oracle earnings since March 2020. That might be nerve-wracking, if it weren't for the bullish bias in the company's options flows over the past week.\nTwice as many calls traded versus puts in Oracle on Tuesday, with traders buying more than 27,000 calls and just under 19,000 puts. Of the $300 million in premium traded, about $220 million was tied to calls, according to SpotGamma data.",
+  "published_at": "2026-06-10T11:26:38Z",
+  "author": null,
+  "collected_at": "2026-06-10T15:19:44.376979Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

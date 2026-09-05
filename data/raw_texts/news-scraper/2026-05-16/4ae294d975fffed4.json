@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/news/931884/youtube-likeness-detection-ai-deepfake-expansion-all-adults",
+  "title": "YouTube is expanding its AI deepfake detection tool to all adult users",
+  "raw_text": "YouTube is expanding its AI likeness detection program to all users over the age of 18 — meaning just about anyone can have the platform hunt for potential deepfakes of themselves.\nYouTube is expanding its AI deepfake detection tool to all adult users\nLikeness detection, which scans YouTube for facial matches, will now be available to anyone 18 years or older with a YouTube account.\nLikeness detection, which scans YouTube for facial matches, will now be available to anyone 18 years or older with a YouTube account.\nThe likeness detection feature uses a selfie-style scan of a person’s face to monitor YouTube for lookalikes. If there is a match, YouTube alerts the user; the person then has the option to request that YouTube remove the content. YouTube has said in the past that it has found the number of removal requests to be “very small.”\nYouTube began testing the feature with content creators, and then expanded it to government officials, politicians, journalists, and finally the entertainment industry. The expansion to any user 18 years or older is a significant shift — it essentially gives the average person the ability to constantly monitor content on YouTube that could use their likeness. Takedown requests are evaluated using YouTube’s privacy policy, and the company says it considers removals based on criteria like whether the content is realistic, is labeled as AI-generated, and if a person can be uniquely identified. There are carveouts for things like parody or satire, and the tool only covers facial likeness, not other identifying features like a person’s voice. Users can withdraw from the program and have YouTube delete their data.\nThe news was announced on YouTube’s creator forum, but spokesperson Jack Malon says there are no requirements on what constitutes a “creator” who is eligible.\n“With this expansion, we’re making clear that whether creators have been uploading to YouTube for a decade or are just starting, they’ll have access to the same level of protection,” Malon said in an email.\nDeepfake content often centers on celebrities, politicians, or other public figures, but the ability to create a convincing digital replica is a concern for private citizens, too. There have been instances of teenagers being deepfaked by classmates, and three teenagers sued xAI alleging that the company’s Grok chatbot generated child sexual abuse material (CSAM) of them.",
+  "published_at": "2026-05-15T22:25:00Z",
+  "author": "Mia Sato",
+  "collected_at": "2026-05-16T03:00:16.279409Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Creators",
+      "Google",
+      "News",
+      "Streaming",
+      "Tech",
+      "YouTube"
+    ]
+  }
+}

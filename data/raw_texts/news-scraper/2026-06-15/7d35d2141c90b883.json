@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20376-omantel-to-deploy-managed-private-5g-sa-network-for-port-of-salalah.html",
+  "title": "Omantel to deploy managed private 5G SA network for Port of Salalah",
+  "raw_text": "Omantel announced on Wednesday it is partnering with the Port of Salalah to deploy a managed private 5G network that will support the port’s ongoing automation program.\nUnder the partnership deal, Omantel will deploy a dedicated 5G Standalone (SA) private core supported by upgraded mobile sites to ensure robust coverage across the port. The solution includes ruggedized CPE designed for harsh industrial conditions, along with 600 SIMs provisioned with monthly data allowances to support the port’s extensive device ecosystem.\nOmantel said the network will be delivered as a fully managed service with 99.9% availability, supported by Omantel’s network operations centre and dedicated business call centre, ensuring continuous monitoring and rapid response capabilities. The solution will also integrate seamlessly with the port’s existing operational systems.\nThe managed private network solution is designed to help the Port of Salalah advance its digital transformation strategy to improve productivity and competitiveness, whilst also ensuring uninterrupted connectivity for critical port operations and enabling real‑time data exchange across cranes, vehicles, equipment, and workforce applications, said Port of Salalah CEO Steven Yoogalingam.\n“As we continue to modernize our operations and embrace automation, reliable and high‑performance connectivity becomes essential to our success,” he said in a statement. “The 5G private network will allow us to validate new capabilities, enhance real‑time decision‑making, and strengthen the resilience of our operations.”\nOmantel CEO Aladdin bin Abdullah Bait Fadhil added that the success of this project will lay the foundation for broader adoption of private 5G networks across Oman’s ports, logistics hubs, and industrial zones.\n“Through the deployment of advanced private 5G infrastructure, we are enabling smarter operations, greater efficiency and sustainable growth while empowering people with technologies and capabilities needed to thrive in a digital economy,” he said.",
+  "published_at": "2026-06-12T04:28:26Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-15T03:01:20.537804Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

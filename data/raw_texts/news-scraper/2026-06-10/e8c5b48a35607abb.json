@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/06/10/why-two-spacex-alumni-are-betting-on-solar-and-batteries-to-power-the-ai-craze/",
+  "title": "Why two SpaceX alumni are betting on solar and batteries to power the AI craze",
+  "raw_text": "Two SpaceX alumni have a pitch to hyperscalers, and it has nothing to do with outer space: They’re building power plants here on Earth that cost less — and get built faster — than a natural gas power plant\nAmbrosia Energy, which has been operating in stealth until now, hasn’t invented a new technology. Instead, it’s pairing solar panels with lithium-ion batteries to keep electrons flowing around the clock for $100 per megawatt-hour.\n“A power plant should be able to be built at any scale in 12 months from contract signing to power on,” Sara Spangelo, co-founder and president of Ambrosia Energy, exclusively told TechCrunch. “Our ambition is to go to gigawatt scale.”\nTo bring costs down, the startup has been able to simplify the battery pack. Most grid-scale batteries cycle in two or four hours, a speed which puts more strain on the system. But Ambrosia trickle charges its batteries throughout the day and slowly discharges them at night.\nThose changes, plus some other engineering refinements, has brought the cost for the entire package down to 1.5-times what the company pays for battery cells, less than the industry standard.\nIf Ambrosia can deliver at scale, the startup could upend the energy world. Today, a new combined cycle gas turbine — the most efficient type — costs around $107 per megawatt-hour to build and operate, according to Lazard. That’s if you can get one — gas turbines currently have a five to seven year backlog.\n“We’re also way more reliable than gas,” Spangelo said.\nSpangelo and her co-founder, CEO Ben Longmier, previously worked on Starlink at SpaceX, which had acquired their startup, Swarm. Swarm had built a low-power, low-bandwidth network for internet of things (loT) devices using dozens of tiny satellites. Before that, Spangelo had worked at Google, and Longmier had worked at Apple and a handful of space-related startups.\nThe pair initially funded Ambrosia with their own money, but the startup recently took an investment from DFJ Growth. Spangelo declined to disclose the size of the investment.\nSpangelo drew several parallels between Ambrosia and the work at SpaceX. “A lot of these challenges are very similar across regulatory, technical, go-to-market. If we can bring some of that experience to this, hopefully we can have an impact,” she said. Plus, she said building the power plant modules has been “kind of like deploying a satellite constellation,” Spangelo said. “You launch four, you learn, you iterate.”\nTo test its thesis, Ambrosia began building a power plant in West Texas in January, one month after the company was incorporated. “After this week, we’ll be almost halfway complete with that power plant,” Longmier said. Six weeks ago, the startup turned on some of the completed sections, and they’ve been operating at 100% capacity since then, he added.\n“Our system is basically infinitely scalable,” Spangelo said, allowing customers to kick the tires before committing the large system. The power plants can be connected to the grid or installed behind the meter.\nThe systems could get quite large. “We have a couple of partners where there’s access to like a million acres,” Longmier said. At that scale, Ambrosia could build a power plant on the order of 30 gigawatts, based on a recent study of solar land requirements.\nBut first, the company is starting smaller, on the order of 20 to 30 megawatts. For now, many of the parts are off-the-shelf, but Ambrosia has plans to gradually replace those with its own custom designs. It’s also planning to build a factory in Austin, Texas, which will allow it to take on larger projects in a shorter time period. The goal is to deliver “gigawatts by the end of the decade,” Spangelo said. “We’re pretty ambitious.”",
+  "published_at": "2026-06-10T12:00:00Z",
+  "author": "Tim De Chant",
+  "collected_at": "2026-06-10T15:00:21.905217Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Climate",
+      "Fundraising",
+      "Ambrosia Energy",
+      "energy storage",
+      "Exclusive",
+      "Solar Power"
+    ]
+  }
+}

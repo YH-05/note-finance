@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/06/08/four-high-yield-savings-accounts-cut-their-rates-where-you-can-still-earn-4percent.html",
+  "title": "Four high-yield savings accounts cut their rates. Where you can still earn 4%",
+  "raw_text": "Four high-yield savings accounts recently cut their rates — even though the market isn't expecting the Federal Reserve to curb rates anytime soon. The accounts, run by Apple , Ally Financial , Capital One Financial and Marcus by Goldman Sachs , all saw reductions over the past week, bringing the peer median savings rate down by 5 basis points to 3.4%, according to BTIG. One basis point equals 1/100th, or 0.01%, of a percent. The yields are typically tied to the federal funds rate, so when the central bank reduces its rate, banks tend to follow. But the Fed hasn't cut rates since last December. Elevated inflation and a hot jobs report last week has pushed back expectations of any further reductions happening this year. Some traders are even pricing in rate increases this year, according to the CME FedWatch tool . \"We're candidly unsure what to make of deposit rate cuts, with the market probabilities calling for one [quarter point] Fed rate hike in December 2026,\" BTIG specialty finance analyst Vincent Caintic said in a note Friday. \"Our intuition would tell us that loan growth must be slowing, which would therefore drive less demand for deposits,\" he added. \"However we haven't heard, from recent competitor financials conferences, that loan growth appears to be decelerating across the board.\" On the other hand, Caintic is hearing from some online banks that competition for deposits will likely increase as the Trump administration approves more bank applications. \"[T]his would make us surprised at significant deposit rate cuts at this time,\" he said. For now, there are still two online banks that pay a 4% annual percentage yield (APY) on their high-yield savings accounts — Bread Financial and LendingClub . In addition, Bread Financial pays a 4% APY on its 1-year certificates of deposit. The remaining 1-year CDs that fall under BTIG's research coverage all pay less than 4%. The benefit of CDs over high-yield savings is that investors are locking in those rates for the duration of the certificate. But if the money is withdrawn before the CD matures, depositors can be subject to penalties.",
+  "published_at": "2026-06-08T19:18:14Z",
+  "author": null,
+  "collected_at": "2026-06-10T03:18:04.448155Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

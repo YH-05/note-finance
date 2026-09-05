@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202606081285",
+  "title": "NY外為：ドル買い再開、米長期金利が上昇に転じる、年内の利上げ織り込む",
+  "raw_text": "【通貨】NY外為：ドル買い再開、米長期金利が上昇に転じる、年内の利上げ織り込む\nNY外為市場でドル売りが後退した。原油が下げ止まったほか、年内の利上げを織り込む動きに米10年債利回りは再び上昇し、4.55％で推移。\nドル・円は159円91銭から160円20銭まで上昇した。ユーロ・ドルは1.1555ドルの高値から1.1538ドルまで反落。ポンド・ドルは1.3370ドルの高値から1.3344ドルまで反落した。\n《KY》\n提供：フィスコ",
+  "published_at": "2026-06-08T14:34:52Z",
+  "author": null,
+  "collected_at": "2026-06-08T15:00:29.656211Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "通貨",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/cybersecurity/20321-ooredoo-qatar-hkbu-and-defence-ministry-deploy-quantum-safe-comms-link.html",
+  "title": "Ooredoo Qatar, HKBU and Defence Ministry deploy quantum-safe comms link",
+  "raw_text": "Ooredoo Qatar announced on Sunday it has established what it claims is the first quantum-safe communications link in Qatar in collaboration with Hamad Bin Khalifa University (HKBU) and the Ministry of Defense.\nThe link, deployed within Ooredoo Qatar’s operational dark fiber infrastructure, uses quantum key distribution (QKD) to deliver a fully operational, end-to-end quantum-safe link that generates and distributes encryption keys using the principles of quantum mechanics.\nOoredoo said the project builds on research led by HBKU in collaboration with quantum-safe security firm ID Quantique (IDQ) to develop a QKD testbed that can run on existing telecoms infrastructure. The testbed leverages single-photo-based key distribution to establish secure links between sites, creating a scalable foundation for future quantum-secure networks.\n“The project validated secure key generation and distribution over multiple fibre-link distances, marking an important step toward metropolitan networks protected by information-theoretic security,” said Mohammed Al-Zaidan, senior director of active and core networks at Ooredoo Qatar, in a statement.\nQKD-based encryption promises to take cybersecurity to new levels by immediately detecting when someone is attempting to intercept communications. Ooredoo said adoption of quantum-safe technologies is becoming critical to protecting high-value data and mission-critical systems as cyber threats become increasingly sophisticated amid the rise of “harvest-now, decrypt-later” risks, as well as the long-term implications of quantum computing.\n“By enabling the deployment of quantum-safe technologies within operational networks, we are supporting the evolution of cybersecurity capabilities that will underpin the next generation of digital infrastructure,” said Ooredoo Qatar’s chief strategy and digital transformation officer Thani Ali Al-Malki.",
+  "published_at": "2026-06-01T03:28:27Z",
+  "author": "John Tanner",
+  "collected_at": "2026-06-05T03:05:49.415342Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cybersecurity"
+    ]
+  }
+}

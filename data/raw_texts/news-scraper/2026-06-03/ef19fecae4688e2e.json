@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.bbc.com/news/articles/c93x0k194yno",
+  "title": "Meta workers can opt out of being tracked at work up to 30 min",
+  "raw_text": "Meta workers can opt out of being tracked at work - but only for half an hour at a time\nMeta is scaling back its plan to start tracking its employees' computer activity, according to an internal memo sent on Tuesday.\nIn April the company received criticism from its own staff after it announced a new tool would log their keystrokes and mouse clicks to train its AI models.\nMeta declined to comment on the record.\nIt follows weeks of backlash from employees, including some who started a petition against the move which now has more than 1,500 signatures.\nDuring the initial announcement of the tool, called the Model Capability Initiative (MCI), Meta told the BBC: \"If we're building agents to help people complete everyday tasks using computers, our models need real examples of how people actually use them.\"\nIt added that the data was \"not used for any other purpose,\" and the tool had \"safeguards in place to protect sensitive content\".\nBut workers were not impressed, with one Meta employee, who asked not to be identified, telling the BBC that having their actions train AI models felt \"very dystopian\" - as workers expected a slew of additional job cuts.\nAnother person who recently left the company told the BBC the tracking tool was \"just the latest way they're shoving AI down everyone's throat\".\nAn internal memo - seen by Reuters - was reportedly authored by Stephane Kasriel, a vice president in Meta's Superintelligence Labs unit.\nIn it, he said the team behind the MCI had introduced \"several optimizations\" to reduce its impact on laptop battery life.\nThis change came after reports that employees were finding the tool consumed so much data it was causing their internet usage to surge when working from home.\n\"While we remain confident in the privacy protections we put in place at launch, which went through several layers of risk review, we have heard your concerns about personal data on work devices, battery life, and wanting more control over when capturing happens,\" Kasriel said in the memo.",
+  "published_at": "2026-06-03T12:42:07Z",
+  "author": "reconnecting",
+  "collected_at": "2026-06-03T15:03:10.093283Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

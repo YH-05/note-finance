@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/cars/2026/05/audis-boss-talks-local-production-wagons-and-maybe-a-new-r8-supercar/",
+  "title": "A global brand but local cars is Audi's future, says CEO",
+  "raw_text": "MUNICH—One of the defining car industry trends of the early 21st century was the global, or world, car. Spread the development costs out across multiple markets, the thinking went, and efficiency takes care of the rest. At least that was the idea; post-COVID, post-Ever Given, and in a world now erupting into trade wars and actual shooting wars, plans need to change.\n“With Audi, we have to be flexible on a global perspective,” said Audi AG CEO Gernot Döllner, and the new Q9 is an example of that. “It’s really the car where US requirements were at the center of the product development process. It’s dedicated to the US for the first time. Global launch, not Europe and then US. And for the Q9, it’s the US first and then it’s also dominated the volume we expect by the US American market. And then after the US, we will have the global launch of that car,” he said.\nYes, that means bigger and better cup holders that can handle the insulated mugs that everyone had to have, as we saw from the Q9’s interior. But it also means paying more attention to things like the JD Power surveys and so on. For example, for the Q9, “we rearranged the smart door panels we have in our A5, A6, and Q5 cars and came back to dedicated switches, optimized the interior cooling, and of course seating, the roof concept, all that with a key customer focus,” Döllner said.\n“We definitely will be able to keep Europe and the US together when it comes to products. And we will do that by listening more carefully to US customers, because I learned that earlier in my career, that’s no problem in Europe to have a product that’s perfect for the US, but sometimes it’s the other way around a little bit difficult, which is absolutely alright,” he said.",
+  "published_at": "2026-05-26T14:21:33Z",
+  "author": "Jonathan M. Gitlin",
+  "collected_at": "2026-05-26T21:00:31.020698Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Cars",
+      "Audi",
+      "Audi R8",
+      "station wagon"
+    ]
+  }
+}

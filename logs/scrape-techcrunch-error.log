@@ -2,3 +2,5 @@
   ed = p(logger, meth_name, ed)  # type: ignore[arg-type]
 /Users/yuki/Desktop/note-finance/.venv/lib/python3.14/site-packages/structlog/stdlib.py:1166: UserWarning: Remove `format_exc_info` from your processor chain if you want pretty exceptions.
   ed = p(logger, meth_name, ed)  # type: ignore[arg-type]
+/Users/yuki/.local/share/uv/python/cpython-3.14.2-macos-aarch64-none/lib/python3.14/asyncio/events.py:94: RuntimeWarning: The executor did not finishing joining its threads within 300 seconds.
+  self._context.run(self._callback, *self._args)
