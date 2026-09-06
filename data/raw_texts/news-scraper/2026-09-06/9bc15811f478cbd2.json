@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/25/openai-russia-chatgpt-influence-campaign.html",
+  "title": "OpenAI bans Russian ChatGPT accounts used in covert misinformation campaign",
+  "raw_text": "OpenAI has banned a cluster of ChatGPT accounts originating in Russia that it said were being used to support a covert online influence campaign to spread misinformation.\nThe company discovered the issue after investigating AI-generated social media posts, which led it to a \"much broader influence operation,\" OpenAI said in a blog post on Tuesday.\nThe campaign was \"built around a website containing copied and misattributed academic work, a 'sovereignty' index that cast Russia in a favourable light, and efforts to disguise the operators' Russian origins,\" the company added.\nIt's the latest incident of pro-Russia actors using AI to spread misinformation. OpenAI does not allow access to its models in Russia, but the company said VPNs were used to disguise location.\nIn February, OpenAI said it had shut ChatGPT accounts that were connected to Rybar, a pro-Russia media company the UK government describes as \"partially co-ordinated by the Presidential Administration,\" funded by Russian state corporation Rostec and working with members of the Russian intelligence services.\nCNBC has contacted the Russian embassy in London and Russia's Foreign Ministry for comment.\nThe operators prompted in Russian to generate social media comments that were posted on Substack, Telegram, X, Facebook and LinkedIn, and instructed ChatGPT to hide any linguistic clues that they were Russian, OpenAI said.\nMuch of the content generated promoted an organization called the International Burke Institute (IBI), the website of which features articles copied from real academic writing, sometimes with false attribution.\nThe influence campaign also created a \"sovereignty index,\" OpenAI said, which praised Russia and denigrated Western countries.\nWhile the immediate impact of the operation appeared limited, the company added, the \"significance of the operation lies less in the audience it reached, however, than in the infrastructure it had built.\"\nChatGPT-produced posts pointed to an \"otherwise credible-appearing institution, complete with purported experts, republished academic work and a purported proprietary risk index,\" OpenAI said.\n\"This illustrates how influence actors can use AI as a supporting tool within a broader effort to manufacture authority, obscure the source of favored narratives, and establish assets that could be scaled over time,\" the company added. \"It also illustrates how their supporting use of AI can lead to the broader operation being exposed.\"",
+  "published_at": "2026-08-25T11:21:09Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.100365Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

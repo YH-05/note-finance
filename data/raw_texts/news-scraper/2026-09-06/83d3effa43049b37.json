@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://usr.lmf.cnrs.fr/lpo/",
+  "title": "Learn Programming with OCaml",
+  "raw_text": "This book on OCaml is an English translation (by Urmila Nair) of this book in French. The translation was funded by The OCaml Software Foundation. The book is openly licensed via CC BY SA 4.0.\nTypos and errors can be reported here.",
+  "published_at": "2026-09-05T16:45:02Z",
+  "author": "elvis70",
+  "collected_at": "2026-09-06T03:03:01.979958Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

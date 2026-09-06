@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/09/musk-wins-court-order-to-block-use-of-twitter-but-not-tweet-and-bird-logo/",
+  "title": "Musk wins court order to block use of “Twitter,” but not “tweet” and bird logo",
+  "raw_text": "On Thursday, Elon Musk’s X won a court order blocking Operation Bluebird from launching a new app taking over the Twitter name.\nIn his opinion, Chief Judge Colm Connolly explained that Operation Bluebird was unlikely to prove that X had entirely abandoned the Twitter name. Therefore, X was likely to succeed on trademark infringement and dilution claims tied to the platform’s former name.\nMost compellingly, X argued that it still uses the Twitter name in the current listing for the X app in Apple’s App Store. In the first sentence of that listing, written in the same size font as the rest of the text, a single clause clinched the early court win for X by stating, “Welcome to X (formerly known as Twitter).”\nX’s legal director, Naser Baseer, testified that X “deliberately” added that clause “to ensure that people who were searching for the Twitter app within the App Store, as well as people who were searching for the Twitter app outside of the App Store, would find the Apple app link and have an understanding that this is one and the same app, same platform,” Connolly said.\nAdditionally, survey evidence showed that people still think Twitter’s a “famous” brand, and X showed that despite wiping the name from its platform, the company still “takes advantage” of the “goodwill” that the “commercially strong” initial brand maintains by associating X with Twitter in the App Store, Connolly wrote.\n“By virtue of the parenthetical, the listing is telling customers that what they knew as Twitter is now X and can be accessed by downloading the X app from the Apple App Store,” Connolly said.\nIt may also strengthen X’s case that twitter.com redirects to x.com, but Connolly did not yet have to weigh that question. Because X could be irreparably harmed if Operation Bluebird benefits from using the Twitter name at X’s expense, Operation Bluebird will be blocked from using the name until litigation is resolved, Connolly ruled.",
+  "published_at": "2026-09-04T15:59:47Z",
+  "author": "Ashley Belanger",
+  "collected_at": "2026-09-06T03:00:30.152400Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "Elon Musk",
+      "operation bluebird",
+      "social media app",
+      "Twitter",
+      "X",
+      "x corp"
+    ]
+  }
+}

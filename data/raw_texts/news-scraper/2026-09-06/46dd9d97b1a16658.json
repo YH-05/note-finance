@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/information-technology/2026/09/trust-not-features-is-the-real-deficit-vmware-tries-to-appease-smbs/",
+  "title": "“Trust, not features, is the real deficit”: VMware tries to appease SMBs",
+  "raw_text": "For many small-to-medium-sized businesses (SMBs), VMware has become too expensive.\nBroadcom’s acquisition of the virtualization firm brought the end of perpetual license sales and the arrival of pricey, stacked, subscription-based bundles that priced out many SMBs.\nThe most obvious is VMware Cloud Foundation (VCF), VMware’s flagship private cloud bundle that has been Broadcom’s primary focus since taking over VMware. Many SMBs find that VCF is unaffordable and stuffed with unnecessary offerings. However, numerous customers have reported online that VMware sales representatives have still pushed them toward VCF, with some claiming that sales reps have told them that the lower-priced edition of VMware’s virtualization platform, vSphere Standard, was no longer available.\nSpeaking with The Register this week, Paul Turner, VCF’s chief product officer, said Broadcom’s new sales incentives encouraged the sales team to push VCF.\n“We corrected this,” Turner told the publication. He admitted that sometimes VMware had “too big a focus on VCF.”\nvSphere Standard update\nVMware will release an “updated version” of vSphere Standard “soon,” The Register reported. More information will likely come in October during VMware’s Explore conference in Frankfurt, Ram Velaga, president of Broadcom’s Infrastructure Software Group, told The Register.\nVMware hasn’t updated vSphere Standard since 2022 despite an updated version of vSphere arriving with VCF 9 in 2025. This was because, Turner said, VMware was prioritizing improving VCF’s security.\nVelaga said that VMware prioritized VCF in an effort to promote private clouds as a more affordable alternative to the public cloud, which are easier to manage. “People could get distracted” if VMware introduced a low-end virtualization product then, the executive said.\nBroken trust\nDean Colpitts, CTO of Canadian managed services provider Members IT Group (MITG), which VMware cut from its reseller program after 19 years of partnership last year, told Ars that MITG is not doing any VMware business now and won’t in the future.",
+  "published_at": "2026-09-04T17:35:02Z",
+  "author": "Scharon Harding",
+  "collected_at": "2026-09-06T03:00:30.151271Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Biz & IT",
+      "Broadcom",
+      "virtualization",
+      "vmware"
+    ]
+  }
+}

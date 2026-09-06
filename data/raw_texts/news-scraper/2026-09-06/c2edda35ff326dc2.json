@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html",
+  "title": "South Korea's semiconductor exports just tripled year-over-year. Is it too much of a good thing?",
+  "raw_text": "South Korea's semiconductor exports have been an absolute boon for Asia's fourth-largest economy, sending overall numbers to a record. But the frenetic pace itself is causing concern about what's next.\nSemiconductor exports surged 209% from a year earlier to a record $46.65 billion in August, accounting for 47.5% of the country's $98.25 billion in goods exports that month, the Ministry of Trade, Industry and Resources reported earlier this week.\nThat was mainly due to AI infrastructure demand as large cloud providers including Google and Amazon expanded capital spending, it said.\n\"In my estimate, semiconductor exports accounted for nearly 80% of export growth in August,\" Jeff Ng, head of Asia macro strategy at Sumitomo Mitsui Banking Corporation, told CNBC. \"Overall export growth was driven by chips, computers, and higher petroleum product prices.\"\nGrowth in such figures is generally seen as a positive. But the extremely rapid pace here also raises concern about what happens if, or when, the boom starts to dissipate.\n\"A gradual slowdown would be manageable. An abrupt stall is a different matter, because the economy already runs at two speeds, and the sectors that would need to take up the slack are the ones under pressure today,\" according to Dave Chia, an economist at Moody's Analytics.\nMonetary policy could also limit the cushion if the cycle turns soon. The Bank of Korea raised its base rate to 3% in August, its second consecutive hike, as core inflation remained elevated.\nChia warned that if chip demand cools while policy is still tightening, \"the windfall fades when domestic demand isn't strong enough to take over.\"\nAnd other, more traditional, sectors are struggling. Automobile exports fell 29.8% from a year earlier in August, although the trade ministry attributed much of the decline to summer-holiday timing and partial strikes. Chia also said factors like U.S. tariffs and a shift toward production in American plants also posed more persistent headwinds.\nStill, the BOK said in its August monetary policy decision that the recovery in consumption is gradually accelerating. MOTIR's data also revealed that non-semiconductor exports climbed 20% in August.\nIf semiconductor momentum faded while other cyclical sectors performed well, he said, South Korea could still sustain annual real growth of around 2% to 3%, according to Homin Lee, senior macro strategist at Swiss private bank Lombard Odier.\nThe analysts' near-term base cases also remain positive. SMBC's Ng expects overall export growth to remain positive over the next 12 months, although it could moderate because of base effects and stabilizing prices.\nSouth Korea's semiconductor and tech export boom has certainly been exceptional, Lee said, though he added that he would not characterize it as \"over-reliance\" because the country has other cyclical sectors that tend to do well when the broader global economy performs well.",
+  "published_at": "2026-09-03T01:11:41Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.071340Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

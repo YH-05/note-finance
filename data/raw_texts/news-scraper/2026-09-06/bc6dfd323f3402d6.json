@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20753-maxis-appointed-to-upgrade-tower-backhaul-in-melaka-to-fibre.html",
+  "title": "Maxis appointed to upgrade tower backhaul in Melaka to fibre",
+  "raw_text": "Malaysian telco Maxis announced that it has officially been appointed by Melaka ICT Holdings (MICTH) as its strategic infrastructure partner to accelerate deployment of fibre backhaul to telecom towers in the state of Melaka.\nUnder the agreement signed on Thursday, Maxis will upgrade MICTH-owned towers, transitioning them from microwave backhaul to advanced high-capacity optical fibre.\nThe agreement is part of Melaka’s plan to strengthen its digital infrastructure by expanding fibre-optic connectivity to 80% of telecoms towers, as opposed to 40% now. The Maxis-MICTH project aims to upgrade 151 towers with an investment of around MYR30 million (US$7.4 million).\nMaxis said the deployment will create a robust digital backbone capable of supporting faster, more reliable, and secure 4G and 5G services while enhancing overall network performance throughout Melaka.\nMaxis and MICTH also intend for the fibre network to transform the towers into key access points for future expansion of broadband services into surrounding residential and commercial areas.\nAs part of the deal, Maxis will also use the fibre network to offer wholesale mobile backhaul services to other mobile operators to foster competition.\n\"By fiberising these sites, we are laying the foundation for a future-proof ecosystem,” said Maxis CEO Goh Seow Eng in a statement. “This network offers the scalability needed to meet the exponential rise in data demand, providing the high-speed, low-latency backbone that mobile connectivity and AI traffic demands.”\nMICTH CEO Dr. Nazdiana binti Ab Wahab said the agreement underscores the importance of public-private collaboration in strengthening Melaka’s digital infrastructure.\n“Strategic collaboration with Maxis will accelerate the migration of MICTH-owned telecommunications sites from microwave-based connectivity to high-capacity fibre networks, enhancing network performance and supporting growing digital demands across the state,” she said.\nThis agreement builds on an MoU signed by MICTH and Maxis in October 2024 to enhance broadband connectivity across Melaka.\nMelika’s Chief Minister Ab Rauf bin Yusoh said the initiative supports the state’s Smart Melaka Blueprint 2035, which calls for development of a “digital highway” as a key foundation for IoT, AI, smart cities and the digital economy.",
+  "published_at": "2026-08-31T05:41:54Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.214586Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

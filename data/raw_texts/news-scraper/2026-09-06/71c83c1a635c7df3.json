@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/09/04/krafton-doubles-down-on-india-with-another-250m-bet-beyond-gaming/",
+  "title": "Krafton doubles down on India with another $250M bet beyond gaming",
+  "raw_text": "Krafton, the South Korean gaming company behind titles including PUBG and Battlegrounds Mobile India (BGMI), plans to invest another $250 million in India over the next three to four years as it pushes beyond gaming into AI, robotics, and deep tech.\nAnnounced Friday, the new commitment will take Krafton’s total planned investment in India to more than $500 million, including the over $250 million it had already invested in the country since 2021. The funds also come in addition to Krafton’s commitment to a $670 million India-focused growth fund it unveiled with South Korean internet conglomerate Naver and investor Mirae Asset in December 2025. At the time, Krafton said it would contribute around $137 million at the fund’s first close. The new $250 million pledge is separate from the growth fund, the company confirmed to TechCrunch.\nIndia has become a key market for Krafton, giving the gaming publisher access to the world’s most populous country, with more than a billion internet subscribers and over 700 million smartphone users. Krafton initially built its India business around gaming, led by BGMI, a revamped and localized version of PUBG that has surpassed 260 million downloads. In recent years, the company has also used investments in Indian startups to broaden its business beyond games.\nKrafton’s run in India has not always been smooth. The Indian government banned PUBG Mobile in 2020, along with hundreds of Chinese-linked apps, as tensions between New Delhi and Beijing escalated. Krafton stepped in after that and introduced BGMI in 2021. The company dropped Tencent Games as the game’s publisher in India and moved its India servers to Microsoft’s Azure cloud, changes that came as Krafton worked to address New Delhi’s concerns.\nHowever, in 2022, BGMI was itself banned in India, before the federal government allowed it to return on a three-month trial basis the following year. Krafton has continued to build around the franchise since its return and plans to launch BGMI Lite in India by the end of 2026.\nDespite the early setbacks, Krafton continued to invest in India and has so far backed about 18 companies, including four to five gaming studios, the company confirmed to TechCrunch. Its investments include Nodwin Gaming, Loco, Pratilipi, Kuku FM, and One Impression, among others.\nThe new investment commitment comes after Krafton chairman Chang Byung-gyu met Indian Prime Minister Narendra Modi in New Delhi earlier on Friday. The two discussed opportunities for India and South Korea to work more closely across gaming, technology, and other emerging sectors, Krafton said.\nKrafton has also been building out its local operations. Last year, it acquired Pune-based Nautilus Mobile, the studio behind the Real Cricket franchise. The company also recently launched KIGI Academy, an industry-academia program aimed at training talent in game development and digital creation.",
+  "published_at": "2026-09-04T14:47:20Z",
+  "author": "Jagmeet Singh",
+  "collected_at": "2026-09-06T03:00:25.396915Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "Startups",
+      "BGMI",
+      "Krafton",
+      "pubg"
+    ]
+  }
+}

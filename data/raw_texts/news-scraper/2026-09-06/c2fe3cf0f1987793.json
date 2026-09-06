@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/australia-gdp-q2-middle-east-rba.html",
+  "title": "Australia posts second-quarter growth of 2.1%, beating expectations",
+  "raw_text": "Australia's economic growth beat expectations in the second quarter, expanding 2.1% year on year, data released Wednesday showed.\nEconomists polled by Reuters had estimated growth at 1.8%, while the economy had expanded by 2.5% in the prior quarter.\nOn a quarter-on-quarter basis, GDP rose 0.4%, also marginally surpassing expectations of 0.3%. The slight growth was driven by private demand and mining exports.\nThe Australian Bureau of Statistics said in its statement that households continued to behave cautiously, with spending remaining subdued and rising just 0.4%. Households reduced fuel consumption due to elevated prices owed to the Middle East conflict, and cut domestic and international travel.\nThe stronger-than-expected GDP print will allow the Reserve Bank of Australia room to go ahead with its policy tightening as it seeks to curb inflation.\nAt its last meeting, some RBA board members had considered the case for additional tightening, saying that inflation in the country was still too high.\nAustralia's July inflation reading surpassed expectations, coming in at 3.5% compared to the 3.3% forecast.\nThe RBA forecast that inflation would decline only gradually, returning to around the midpoint of its 2%-3% target range by late 2027.",
+  "published_at": "2026-09-02T03:05:14Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.080205Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gadgets/2026/09/nearly-impossible-how-fairphone-built-the-ethical-repairable-fairphone-gen-6/",
+  "title": "Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+  "raw_text": "Smartphone longevity didn’t used to matter. In the past, before you could wear out or break a phone, there was always some shiny new thing to buy. Today, we expect our smartphones to go the distance, but they’ve also become less repairable and, in many cases, more fragile. Fairphone, a Dutch smartphone maker that has just entered the US market, thinks about phones differently.\nThe new $650 Fairphone Gen 6+ is designed both for longevity and easy repairability. There are trade-offs to this approach if you’re used to the standard glass and aluminum sandwiches filled with glue, gaskets, and teeny-tiny screws. But the drawbacks could be worth it for the right buyer. Fairphone CTO Chandler Hatton told Ars that Fairphone’s goal is to provide a compelling mobile experience while also enabling the user to “fully own” their device. At the end of the day, this is what a lot of people say they want in a smartphone.\nTake it apart, put it back together\nThese days, Google, Samsung, and Apple support phones with software updates for the better part of a decade, but will the hardware last that long? And what happens when it needs a repair? You may be out of luck or out a lot of money, but Fairphone prioritizes the self-repair experience.\n“We’re doing something that was long thought to be nearly impossible,” said Hatton. “Which is delivering high-performing modular smartphones that can last for a very long time.”\nFairphone designs devices to be sustainable, focusing on avoiding conflict minerals, using recycled materials, and paying workers a living wage. Fairphone says it doesn’t want to sell you a bunch of phones, just one that you can keep using even if something breaks.",
+  "published_at": "2026-09-04T11:00:05Z",
+  "author": "Ryan Whitwam",
+  "collected_at": "2026-09-06T03:00:30.152961Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Features",
+      "Tech",
+      "android",
+      "fairphone",
+      "right to repair",
+      "smartphones"
+    ]
+  }
+}

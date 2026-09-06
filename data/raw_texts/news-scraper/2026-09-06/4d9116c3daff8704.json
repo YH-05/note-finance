@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/09/04/judge-blocks-x-rival-from-using-twitter-name-but-allows-tweet-for-now/",
+  "title": "Judge blocks X rival from using Twitter name, but allows ‘Tweet’ for now",
+  "raw_text": "A federal court in Delaware has ruled on a trademark fight between Elon Musk’s X and a startup trying to launch a rival social network. The startup, Operation Bluebird, originally launched under the name Twitter.now, but the court barred it from using that name, siding with X on the core “Twitter” trademark. However, the court also found that X had likely abandoned two other, related trademarks: the word “tweet” and the Twitter bird logo, making them available to use. Operation Bluebird has since rebranded its website as Tweet.app, using the freed-up “tweet” name, and launched to the public.\nThe story of the Virginia-based startup isn’t really about building something unique; it’s about a company trying to get its hands on abandoned trademarks that X relinquished. Even the homepage for the company clearly states its purpose is to go back and pick up what Elon Musk dropped when he renamed the town square as X, and “threw the bird away on his way out,” it says.\nThe effort is headed up by two lawyers, including founder Michael Peroff, based in Illinois, and Stephen Coates, previously a trademark lawyer at Twitter. Given their legal backgrounds, their assertion that they’re interested in building a new social network seems dubious. It’s more likely they want to acquire Twitter’s trademarks, which have value of their own.\nStill, Tweet.app is at least going through the motions and opening up to users in early testing. The company told TechCrunch that more than 172,000 people requested a handle on the site before launch. This was likely in large part due to the affinity people still have for the brand name “Twitter” — a name the company now can’t use.\nNotably, the startup is charging users $20 to reserve their handle and join the social network, which likely helps cover its legal bills.\nThe court’s decision on the matter is not final, we should note. U.S. District Court Judge Colm F. Connolly issued a split ruling on X’s request for a preliminary injunction that sought to stop Operation Bluebird from using a series of Twitter trademarks that the startup says X had abandoned since its rebrand.\nThe judge granted X’s motion for a preliminary injunction regarding eight Twitter-related marks, but denied it when it came to the Tweet mark and the Twitter bird logo.\nIn the judge’s opinion, he wrote that Bluebird was “likely to succeed in proving both that X Corp. discontinued the bona fide use of the Tweet mark and Bird logo and that it intends not to resume the use of the marks.”\nThe case will proceed to determine whether or not X ultimately still retains rights to any of the Twitter marks, given that the company now goes by X in most places.\n“They kept the word. They let go of the bird, and they let go of the tweet,” wrote Coates, who is president of Operation Bluebird, in an announcement about the rebrand shared via email with TechCrunch. “A tweet was never a corporation. It’s one person saying something. That word survived three years of a company trying to replace it, because the public declined to stop using it. We think that tells you who it belongs to,” he said.",
+  "published_at": "2026-09-04T17:52:05Z",
+  "author": "Sarah Perez",
+  "collected_at": "2026-09-06T03:00:25.395578Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Social",
+      "Twitter",
+      "X"
+    ]
+  }
+}

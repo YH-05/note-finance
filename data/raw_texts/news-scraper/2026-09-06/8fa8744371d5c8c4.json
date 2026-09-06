@@ -1,0 +1,20 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/09/rocket-report-china-debuts-yet-another-new-rocket-nasa-considers-bulk-buys/",
+  "title": "Rocket Report: Engines installed for Artemis III; Long March 6C breakup in LEO",
+  "raw_text": "Welcome to Edition 9.09 of the Rocket Report! This edition includes an update from Blue Origin on the groundbreaking of a new Payload Processing Facility in Florida. It has been about a month since the company offered any meaningful news on its heavy-lift New Glenn rocket, which remains grounded after an on-pad explosion at Cape Canaveral Space Force Station in May. The official line from Blue Origin is that the company is targeting a return to flight with New Glenn by the end of the year, but there’s good reason for skepticism.\nAs always, we welcome reader submissions. If you don’t want to miss an issue, please subscribe using the box below (the form will not appear on AMP-enabled versions of the site). Each report will include information on small-, medium-, and heavy-lift rockets, as well as a quick look ahead at the next three launches on the calendar.\nIsar Aerospace is ready to try again. Isar Aerospace is about to make the next attempt to launch the Spectrum rocket into orbit, with a weeklong launch window set to open Friday at Andøya Spaceport in Norway, the Norwegian Broadcasting Corporation (NRK) reports. The German launch company aims to deliver several small CubeSats to orbit with the two-stage Spectrum rocket. A test flight of the privately funded launcher failed shortly after liftoff last year, and Isar has attempted to launch the second Spectrum rocket several times since January, only to be thwarted by technical problems and the unavailability of the launch range in northern Norway.\nMourning period… This launch window comes as Norway is in a period of national mourning following the death of King Harald V. Isar’s founder, Daniel Metzler, told NRK he hopes to launch before the late king’s funeral on September 9, but the Norwegian government says the mission can go ahead normally during the mourning period. Isar Aerospace won a 200 million euro ($230 million) contract from the European Space Agency last month to support further development of new launch vehicles.",
+  "published_at": "2026-09-04T12:48:36Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-09-06T03:00:30.152786Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "rocket report"
+    ]
+  }
+}

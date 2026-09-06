@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/brent-oil-us-iran-strikes.html",
+  "title": "Brent oil price above $95 as Iran retaliates with strikes on U.S. Gulf allies",
+  "raw_text": "Oil prices rose Wednesday after the U.S. and Iran traded military strikes, ending weeks of relative calm in the Middle East, as they contest control of the Strait of Hormuz.\nBrent crude futures, the international benchmark, gained about 1% to close at $95.63 per barrel. U.S. West Texas Intermediate advanced nearly 1% to settle at $91.01 per barrel.\nThe U.S. military completed a wave of strikes Tuesday against Iran's Islamic Revolutionary Guard Corps, according to a statement from U.S. Central Command. The strikes targeted air defense sites, radar systems, martime assets, mine-laying capabilities and communication sites, Centcom said.\nThe Revolutionary Guard said it targeted U.S. military positions in Jordan, Kuwait, Bahrain, Iraq and the United Arab Emirates in retaliation, according to Iran's state media.\nFighting has broken out between the U.S. and Iran for the first time since July as Washington aims to degrade Tehran's ability to attack ships and disrupt traffic through Hormuz.\nMore than 17 million barrels of oil transited Hormuz on Monday, a record since the war began in late February, U.S. Energy Secretary Chris Wright told CNBC's Brian Sullivan Wednesday. About 20 million barrels per day of crude and products moved through Hormuz before the war.\nThe U.S. oil price has gained 9% this week as the market responds to the renewed hostilities by pricing back in the risk of disruption to Middle East crude exports.\nPresident Donald Trump, meanwhile, indicated he is not interested in negotiationg with Iran. The U.S. has shifted to a strategy of economic pressure on Tehran through a naval blockade and expanded sanctions campaign.\n\"I'm not trying to force Iran to the bargaining table,\" Trump said in a Truth Social post. \"I like our position now much better, with almost total control of the Hormuz Strait, and their economy totally collapsing.\"",
+  "published_at": "2026-09-02T19:26:13Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.075033Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20749-claro-colombia-invests-us-25-5mn-in-data-centres-as-ai-demand-grows.html",
+  "title": "Claro Colombia invests US$25.5mn in data centres as AI demand grows",
+  "raw_text": "Claro Colombia is investing US$25.5 million in 2026 to expand and upgrade its Triara data centre in Bogota and Megacenter facility in Medellin, as demand for cloud, AI and data processing capacity increases.\nAccording to BN Americas, the investment forms part of US$123 million that Claro Colombia has committed to its data centre infrastructure over the past five years.\nAround US$14 million of this year's investment will be used to expand capacity and upgrade infrastructure, while a further US$11.5 million will be directed towards cybersecurity platforms and services.\nThe investment will add technical space, replace critical equipment and increase power capacity at the facilities, with Claro targeting growing demand for cloud services, advanced analytics, artificial intelligence and intensive data processing.\nClaro Colombia president Rodrigo de Gusmao said the company is increasingly positioning itself as a technology provider rather than solely a connectivity operator.\nThe company claims its data centre infrastructure accounts for around 50% of installed capacity in Colombia, with its facilities used by around 80% of financial institutions, 50% of companies and 30% of government entities.\nThe data centres currently host more than 1,500 racks and 14,000 virtual machines, while handling more than 500,000 cybersecurity events each month.\nTriara also hosts Oracle's Colombian cloud region, following a 2022 agreement that included a US$25 million investment from the US technology company.",
+  "published_at": "2026-08-28T09:27:01Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-09-06T03:01:26.215126Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

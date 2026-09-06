@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/27/okta-skyrockets-20percent-and-crowdstrike-surges-15percent-leading-cyber-rally.html",
+  "title": "CrowdStrike posts best day ever, Okta's stock pops nearly 29% as rising AI threat lifts earnings",
+  "raw_text": "CrowdStrike and Okta shares surged on Thursday after earnings showed that artificial intelligence adoption is pushing customers to spend more on cybersecurity tools.\nBoth companies beat Wall Street's estimates for the fiscal second quarter and raised their forecasts, citing the AI agent threat. CrowdStrike's stock gained 20% for its best day ever, while Okta's surged nearly 29%.\nThe broader cyber sector rallied as well, with shares of Palo Alto Networks, SailPoint, Zscaler and Rubrik up at least 10% each.\n\"We're in an arms race,\" CrowdStrike CEO George Kurtz said during an earnings call with analysts on Wednesday. \"AI is driving more cyberattacks. AI is driving more cyber spending. AI is driving a clear divide between the cybersecurity companies that solve problems and those that compound problems.\"\nTune in at 6 p.m. ET for \"Mad Money\" as Kurtz joins CNBC's Jim Cramer. Watch in real time on CNBC+ or the CNBC Pro stream.\nThe company's flexible Falcon platform offering, which lets customers switch out security tools, doubled year over year, he said.\nThe release of advanced AI models like Anthropic's Mythos, and hacks such as the OpenAI-Hugging Face incident, have raised the stakes for the cybersecurity sector in recent months, forcing businesses to scale their security stacks to combat mounting attacks orchestrated by AI agents.\nOne clear winner has been identity security tools that help businesses secure and manage the explosion in AI agents. Amid this backdrop, cybersecurity stocks have rocketed to fresh highs, with both CrowdStrike and Okta up more than 80% each.\nWednesday's earnings marked the unofficial start of the reporting season for the cyber sector, with Palo Alto Networks and Zscaler among the companies set to report next week,\nAnalysts at Deutsche Bank remain \"optimistic\" about the sector's growth in the AI era, but are waiting on upcoming reports to solidify near-term demand trends.\nOkta CEO Todd McKinnon touted the company's early success with new products, which accounted for nearly a third of total bookings.\n\"While adoption remains in its early stages, momentum is growing, and those advantages are translated into customer demand reflected in the dozens of AI deals we won in Q2,\" he said on a Wednesday earnings call.\nFollowing the results, analysts at Bank of America upgraded shares to neutral from an underperform rating on accelerating AI growth, but warned of limited upside ahead.\n\"We are increasingly encouraged by Okta's AI opportunity and early customer traction,\" the firm wrote. \"However, adoption remains very early, disclosed metrics remain limited, and management continues to view AI as immaterial to FY27 results.\"",
+  "published_at": "2026-08-27T20:08:43Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.095180Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

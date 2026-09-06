@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/new-york-feds-williams-says-yield-surge-due-to-strong-economic-prospects.html",
+  "title": "New York Fed's Williams says yield surge due to strong economic prospects",
+  "raw_text": "New York Federal Reserve President John Williams said Wednesday that the recent surge in Treasury yields is the product of a strong economy, not market dysfunction.\nThe central bank policymaker added in a CNBC interview that he's still absorbing economic data, and did not commit on whether he thinks an interest rate hike is necessary.\n\"I think that we have to wait and see,\" Williams told CNBC's Steve Liesman during a \"Squawk Box\" interview from the New York bank's headquarters in lower Manhattan. \"There's no clear signs right now whether monetary policy currently is sufficient to make sure we bring inflation back to target in the next year or two, or whether you need to see further action to do that.\"\n\"The [inflation] data recently have been encouraging towards that, but again we can't just look a month or two. We've got to get a full picture and and look at all the ... different pieces of information we have,\" he added.\nIn financial markets, the biggest story recently has been a jump in Treasury yields to multiyear highs, particularly at the long end where investors price in expectations for inflation and economic growth.\nWhile that has been going on, traders have raised expectations for a Fed rate hike at the Sept. 15-16 meeting, putting odds Wednesday morning around 66%, according to the CME Gr oup's gauge.\nThough investors are worried about inflation, Williams said he sees the Treasury market action as a result of solid economic prospects.\n\"What's driving it, in large part, is ... really a strong U.S. economy and a strong economic outlook fueled by big investments in AI and data centers and technology in general,\" he said. \"So, I think it's not really about financial conditions affecting the economy. It's more about the economy affecting financial conditions.\"\nWilliams added that he sees inflation expectations as \"well anchored\" despite the run-up this year in prices linked to tariffs and the Iran war.\nAs New York Fed president, Williams is a permanent voter on the rate-setting Federal Open Market Committee.",
+  "published_at": "2026-09-02T17:21:59Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.075785Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

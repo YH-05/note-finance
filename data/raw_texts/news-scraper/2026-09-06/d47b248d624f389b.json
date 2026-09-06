@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/stocks-making-the-biggest-moves-premarket-cvx-pcg-gme-more.html",
+  "title": "Stocks making the biggest moves premarket: Chevron, PG&E, GameStop and more",
+  "raw_text": "Check out the companies making the biggest moves premarket: Aon — The insurance broker slipped 1.8% after it announced it will buy rival USI Insurance Services from KKR for $17 billion. Aon said the merger will create \"the premier U.S. middle-market platform.\" Energy stocks — U.S. oil prices rose more than 3% after the U.S. and Iran exchanged strikes in the Middle East for the first time since July. Energy companies were higher in premarket trading Monday, with Halliburton up more than 2.5% and Chevron up 2%. Valero Energy and Occidental Petroleum were also up 2%, while Exxon Mobil rose more than 1.5%. PG & E — The utility company sunk 16% after California lawmakers blocked a proposal that would have limited the amount of money individuals could seek from utility companies whose equipment ignited wildfires. After the legislative result, several Wall Street analysts downgraded the stock, with Mizuho analysts writing that investors are better-positioned in utility companies that have few issues with wildfire liability. Pinterest — Shares were off more than 3% after the company on Friday revealed that CFO Julia Brau Donnelly will leave at the end of October. The company's vice president for finance and business operations, Vikram Naidu, will replace Donnelly on an interim basis. GameStop — The video game retailer jumped 4% after it reported preliminary second-quarter financial results. Net sales are expected to fall on an annual basis in the quarter, but the company estimates that both operating and net incomes will jump compared to the same period. Deere — The tractor builder rose 1% after Baird upgraded the stock to outperform from neutral . Analysts at the firm see the stock as a way to gain exposure to potential increased demand for farm equipment as farmers see growing margins thanks to higher crop prices.",
+  "published_at": "2026-08-31T11:35:09Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.088045Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

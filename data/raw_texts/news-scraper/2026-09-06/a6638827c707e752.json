@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/09/04/feds-launch-investigation-into-teslas-cybercab-deployment/",
+  "title": "Feds launch investigation into Tesla’s Cybercab deployment",
+  "raw_text": "The United States’ top automotive safety regulator has opened an investigation into Tesla’s decision to launch its new Cybercab on public roads with no steering wheel or pedals.\nThe National Highway Traffic Safety Administration (NHTSA) announced Friday morning that it opened the probe mere hours after Tesla put the first Cybercabs on the streets of Austin, Texas. Federal vehicle safety regulations require manual controls like brake pedals, though the Department of Transportation recently proposed removing those requirements for vehicles that are designed to be autonomously driven.\n“NHTSA fully supports the safe development and deployment of automated vehicles. But as the federal regulator, we need to ensure that all of our laws are followed,” administrator Jonathan Morrison said in a statement. “Our approach of balancing innovation with safety oversight will allow the United States to maintain its global leadership in AV innovation.”\nNHTSA said Friday that Tesla told the agency it self-certified the Cybercab as being compliant with all of the Federal Motor Vehicle Safety Standards (FMVSS). Automakers traditionally self-certify whether their vehicles comply with FMVSS rules.\nIn the filing, the agency said it was opening the investigation to “examine the process and technical data on which Tesla relied when certifying the Cybercab and related issues.” NHTSA said it will consider the extent to which the company’s certification depended on determinations that certain federal motor standards are inapplicable to the Cybercab.\nThere is precedent to NHTSA’s inquiry. In 2022, Amazon-owned autonomous vehicle company Zoox self-certified its cube-like robotaxi, which lacks traditional controls such as a steering wheel and pedals. NHTSA then opened up what it called a “special order” seeking more information from Zoox and formally launched an audit query — the same process it is now using for Tesla — the following the year.\nWhile Zoox was still heavily in its testing phase at that time, the investigation did slow its path to commercialization. Zoox had long maintained that the self-certification process was sufficient and in 2025 the federal agency gave the company an exemption to demonstrate — not commercially operate — its technology. Zoox then went through the official process and filed for a temporary Part 555 exemption from eight Federal Motor Vehicle Safety Standards in hopes it would get the final OK that would allow it to charge for robotaxi rides.\nZoox received final approval for that exemption in July 2026, eliminating one of the last remaining regulatory hurdles the company needed to clear before launching a commercial robotaxi service. The exemption did place some limits on Zoox. Under the temporary exemption, Zoox can add 2,500 vehicles per year to its commercial fleet over the next for two years. Zoox opened its commercial service several weeks later and now charges for rides in Las Vegas.\nWhether Tesla will face a similarly long process is unclear. Zoox navigated the regulatory process under the Biden and Trump administrations.\nOn Friday, NHTSA acknowledged that it is in the process of changing some parts of the FMVSS that relate to manual controls in order to “unleash American innovation and enhance safety on our roads.” The agency said it “looks forward to finishing these critical updates and removing unnecessary barriers to American AV innovation in the coming months. Until that work is completed, however, existing standards remain in force.”\nThis story has been updated with new information from NHTSA.",
+  "published_at": "2026-09-04T12:01:14Z",
+  "author": "Sean O'Kane, Kirsten Korosec",
+  "collected_at": "2026-09-06T03:00:25.397726Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Government & Policy",
+      "Transportation",
+      "cybercab",
+      "Elon Musk",
+      "robotaxis",
+      "Tesla"
+    ]
+  }
+}

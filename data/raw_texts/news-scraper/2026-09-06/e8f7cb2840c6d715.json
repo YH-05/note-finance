@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731b.htm",
+  "title": "Federal Reserve Board requests comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions",
+  "raw_text": "July 31, 2026\nFederal Reserve Board requests comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions\nFor release at 10:00 a.m. EDT\nThe Federal Reserve Board on Friday requested comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions. The proposal updates outdated thresholds while maintaining safeguards against preferential treatment.\nRegulation O has not been comprehensively updated since 1979. The rule addresses a unique challenge for community banks, where board members and executives are often local business owners and civic leaders who provide valuable perspective and expertise to bank governance and information on the local economy.\nThe proposal updates dollar-based thresholds and indexes them to economic growth going forward. It addresses unnecessary applications of the rule to passive interests in companies held by investment funds, codifies other statutory requirements, incorporates long-standing regulatory interpretations, and simplifies the application of the rule.\n\"Today's proposal modernizes Regulation O by updating outdated dollar-based thresholds and ensuring their future relevance, while preserving necessary safeguards,\" said Vice Chair for Supervision Michelle W. Bowman. \"Community banks often face challenges recruiting experienced business leaders to serve as members of bank boards and as bank executives. Many potential board members are business owners whose expertise is invaluable. This rule recognizes that value by providing clearer, more straightforward standards that protect against potential conflicts of interest while supporting effective governance.\"\nComments on the proposal are due 60 days after publication in the Federal Register.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-07-31T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.671643Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/uber-to-cut-10percent-of-workforce-in-bid-to-move-simpler-and-faster.html",
+  "title": "Uber to cut 10% of workforce in bid to move 'simpler and faster'",
+  "raw_text": "Uber on Wednesday announced plans to slash 10% of its workforce in a move to consolidate management layers and trim costs.\n\"The changes we're making today are designed to do two things: make Uber simpler and faster, and create more capacity to invest in our future,\" CEO Dara Khosrowshahi wrote in an email to employees. That includes its previous plans to commit more than $10 billion to autonomous vehicles in the coming years.\nThe ride-hailing company's shares rose nearly 2%.\nUber declined to comment on the number of jobs cut. The company had around 34,000 employees at the end of 2025, according to an annual filing.\nUber is the latest company to flatten management structures to speed up decision-making and improve efficiency. Tech giants like Google have made similar moves in recent years.\nKhosrowshahi did not attribute the cuts to artificial intelligence, which has been responsible for a recent wave of tech layoffs.\nThe changes include cutting small teams consisting of one to two reports by nearly half and trimming employees seven steps away from the CEO by 20%. Khosrowshahi said Uber has outgrown many of these structures at its current size.\nUber is also combining more teams and concentrating more employees in hubs like New York and San Francisco. The company will allow about 1% to continue working remotely, Khosrowshahi said.\n\"A leaner organization will mean clearer ownership, faster decisions, and more time spent building rather than coordinating,\" he said.",
+  "published_at": "2026-09-02T20:00:46Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.074903Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

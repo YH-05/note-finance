@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20759-mobily-taps-ericsson-for-ai-rans-and-level-4-network-autonomy.html",
+  "title": "Mobily taps Ericsson for AI RANs and Level 4 network autonomy",
+  "raw_text": "Ericsson announced on Monday it has signed two MoUs with Saudi Arabian telco Mobily – one for AI-powered RANs, and another to boost Mobily’s network autonomy to Level 4.\nUnder the first MoU, Ericsson and Mobily will explore the use of AI in RAN software functionalities operating across RAN compute, radio, and active antenna systems (AAS), together with centralized AI use cases enabled by rApps on the Ericsson Intelligent Automation Platform (EIAP).\nMobily said that making the network more intelligent, automated and responsive will help create a strong foundation for future AI-native apps and advanced digital experiences, including augmented and virtual reality (AR/VR), autonomous vehicles and physical AI.\nAs part of the deal, Mobily will also join the EIAP ecosystem, giving it access to a community of software vendors, developers and ecosystem partners that could provide rApps that address network requirements in Saudi Arabia.\nMobily said AI RAN capabilities will enable intelligence and automation across the network, from the RAN edge to centralized operations, and advance the telco’s journey toward autonomous networks.\nWhich brings us to the second MoU, under which Ericsson will help Mobily boost its network operations and optimization with the goal of achieving Level 4 network autonomy in key scenarios.\nThe MoU establishes a framework for Ericsson and Mobily to jointly prepare and implement autonomous network use cases using the Ericsson Operations Engine, building on the existing operating model, which has contributed to the development of Mobily’s operations in recent years.\nMore specifically, Ericsson and Mobily will explore use cases across operations automation, self-healing, optimization and energy management across Mobily’s multi-vendor network environment, with a focus on AI-enabled and goal-based autonomous operations within network management and optimization.\nThe two companies aim to explore how greater levels of network autonomy can maximize the value of existing infrastructure, and create new opportunities for Mobily to monetise its network.\nMobily also said the project supports its own strategy to leverage AI and autonomous networks, as well as Saudi Arabia’s digital transformation ambitions in line with Saudi Arabia’s Vision 2030.\nBoth MoUs were signed at the LEAP 2026 event in Riyadh, which kicked off on Monday.",
+  "published_at": "2026-09-01T03:10:25Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.213783Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

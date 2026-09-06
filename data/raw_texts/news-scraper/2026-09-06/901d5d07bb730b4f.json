@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/mortgage-rates-surge-middle-east-attacks-oil.html",
+  "title": "Mortgage rates surge to the highest since June 2025 as new Middle East attacks push oil prices up",
+  "raw_text": "A jump in oil prices after renewed hostilities in the Iran war is pushing bond yields higher, and mortgage rates are following suit.\nThe average rate on the 30-year fixed loan jumped 6 basis points on Monday to 6.87%, according to Mortgage News Daily. That is the highest level since June 2025. It's now up 12 basis points since Thursday and has risen more than 30 basis points in the last two months.\n\"While rates are technically at their highest level in more than a year, they haven't exactly exploded with surprising, new momentum,\" said Matthew Graham, chief operating officer at Mortgage News Daily. \"Instead, it's been more of a slow grind fueled by the usual suspects: inflation expectations, elevated bond issuance, and economic resilience. All three of those factors are subject to at least some variability in the future.\"\nThe expectation had been for falling rates this year, but the war with Iran and its resulting rise in oil prices upended that. The day before the war started, at the end of February, the rate on the 30-year fixed was 5.99%.\nTo put that into perspective, for someone buying a $450,000 home, which is right around the national median, putting 20% down on a 30-year fixed mortgage, the monthly principal and interest payment today would be $2,363. That is $207 a month more than it would have been back at the end of February.\nAnd that's just the payment. When rates go up, fewer borrowers can qualify for a mortgage, as it shifts the debt-to-income ratios that lenders rely on for safe lending.\nThis comes on top of higher home prices, which seem to now be accelerating again in some parts of the country, due to lean supply.\nNationally, prices in June were up 1.5% year over year, up from the 1.2% rise in May, according to the latest S&P Cotality Case-Shiller home price index.\n\"As financing costs are kept high for prospective buyers, current homeowners remain reluctant to give up the low mortgage rates secured in prior years,\" said Rebecca Kaufman, associate director of commodities at S&P Dow Jones Indices, in a news release.",
+  "published_at": "2026-08-31T18:53:36Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.086677Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "business",
+    "tags": []
+  }
+}

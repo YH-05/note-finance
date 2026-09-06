@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20748-jazz-reaches-1-000-5g-sites-in-pakistan-targets-2-500-by-year-end.html",
+  "title": "Jazz reaches 1,000 5G sites in Pakistan, targets 2,500 by year-end",
+  "raw_text": "Pakistani operator Jazz has reached 1,000 5G sites across the country, claiming the largest 5G network footprint in Pakistan as it targets more than doubling its coverage by the end of 2026.\nThe Veon-owned operator said its 5G network currently covers 10 cities, with plans to increase the number of sites to 2,500 by the end of the year.\nJazz GSM president Kazim Mujtaba said reaching the 1,000-site milestone demonstrates the operator's commitment to delivering faster connectivity and improved digital services to customers.\nJazz CTO Khalid Shehzad said the scale of the rollout required a network capable of supporting different connectivity requirements across the country, with the operator combining multi-band spectrum, advanced radio technology and modernised infrastructure to increase coverage and capacity.\nJazz acquired 190MHz of spectrum across four bands - 700MHz, 2300MHz, 2600MHz and 3500MHz - in Pakistan's 5G spectrum auction earlier this year, taking its total spectrum holdings to 284.4MHz.\nThe rollout follows Jazz's pledge to invest US$1 billion in 5G following the auction. The operator said it has invested around US$12 billion in its Pakistani business to date.\nPakistan's telecoms market has also undergone significant consolidation, with Norwegian operator Telenor selling its Pakistani operation to Pakistan Telecommunication Company Limited (PTCL). PTCL subsequently absorbed the Telenor business under its Ufone brand.",
+  "published_at": "2026-08-28T08:39:32Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-09-06T03:01:26.215255Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

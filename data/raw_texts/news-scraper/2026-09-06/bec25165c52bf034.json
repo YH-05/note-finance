@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/nvidia-agrees-to-buy-hugging-face-for-almost-13-billion-ai-expansion.html",
+  "title": "Hugging Face approached Nvidia’s Huang weeks ahead of $12.9B acquisition, CEO tells CNBC",
+  "raw_text": "Nvidia has officially agreed to buy open-source artificial intelligence platform Hugging Face for $12.9 billion, as the chipmaker moves beyond hardware and further up the AI stack.\nWith the deal, which has been expected since The Information reported on it last week, Hugging Face will \"remain an open platform for the entire AI ecosystem,\" Nvidia CEO Jensen Huang wrote in a blog post Thursday.\n\"Together, we will scale Hugging Face's platform, strengthen its infrastructure and expand access to AI for developers and institutions worldwide,\" Huang wrote.\nHugging Face CEO Clément Delangue told CNBC on Thursday that the company approached Huang over the summer about a deal, \"and a few weeks later, here we are.\"\n\"During the summer, I think we realized that Hugging Face and open-source AI in general was at the turning point, and that it needed more, more resources, more scale, more visibility,\" he told CNBC's Becky Quick on \"Squawk Box.\"\nDelangue said he approached first because Nvidia was \"a perfect home\" for his company, adding that discussions went quite fast to get a deal done.\nThe acquisition marks Nvidia's second biggest on record, following the $20 billion purchase of assets from chipmaker Groq in December. Before that, its largest deal was the purchase of Israeli chipmaker Mellanox for almost $7 billion in 2019.\nNvidia has become the world's most valuable company due to the insatiable demand for its graphics processing units, which have powered the generative AI boom. Hugging Face marks a big bet on a popular AI platform, as Nvidia continues to show that it's more than just a chip company.\nHugging Face was recently at the center of a hacking incident that raised concerns about the rapid evolution of powerful AI and cybersecurity tools.\nDelangue, a proponent of open-source models, blamed engineering mistakes for the recent attack on Hugging Face and said his company used an Nvidia version of a Chinese open model to resolve it.\nOn Thursday, Delangue told CNBC that the breach proved the importance of open models and the need for his company to \"double down\" on the proliferation of open-source AI.\nHuang said that the open-source environment can give defenders an \"asymmetric advantage\" over attackers.\n\"When I say asymmetric capability, there are way more people who are protecting than there are people who are attacking,\" he explained. \"And so, the benefit of having the community come together with open models, so that they can collaborate all transparently with each other, gives the defenders an asymmetric advantage.\"\nWATCH: Huang says 'We're at the beginning of an industrial revolution'",
+  "published_at": "2026-09-03T16:43:22Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.066038Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

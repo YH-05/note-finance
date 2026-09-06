@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20750-india-moves-to-reduce-submarine-cable-repair-delays.html",
+  "title": "India moves to reduce submarine cable repair delays",
+  "raw_text": "Underlining the strategic importance of international cable connections to the country, India is reportedly looking at ways to reduce delays in approvals for submarine cable repairs.\nOne of these is a single-window portal platform proposed by the Department of Telecommunication (DoT). The platform would bring agencies involved in the clearance process onto one system, including shipping authorities, the Coast Guard and the Ministry of Home Affairs.\nAs the Moneycontrol news service points out, although telecom operators are the main players affected by cable faults, many repair permissions sit with diverse government bodies.\nThe initiative was announced earlier this week. However, there will be a number of stages to be completed before it becomes a reality. The DoT expects to finish a proposal for the portal in about two months. Then will come approvals, procurement and tendering, with March 2027 identified as a tentative implementation target. An information technology agency under the Centre for Development of Telematics (C-DoT) is expected to participate in the process.\nA number of reports also suggest that India is working to build a domestic submarine cable repair sector. According to Indian news service Communications Today, there are currently no Indian-flagged or Indian-owned cable repair vessels; the country depends entirely on foreign fleets based in Singapore and Dubai. Repair turnaround typically takes four to five months.\nThe DoT has apparently opened discussions with industry players on developing repair capabilities within India, though it reportedly wants the substantial investment in specialised vessels and supporting infrastructure to come from industry rather than from government.\nOne potential option involves retrofitting exist vessels rather than building from scratch, cutting the time taken to commission new vessels, which can be as much as three to four years.\nIn the short term, however, developing a single window portal meant to bring multiple agencies onto a common platform and streamline the repair approval process seems to be the priority.\nThis activity comes at a time when he country’s subsea network has grown to around 19 international cables and roughly 193 Tbps of lit capacity. Demand for high-capacity, low-latency international connectivity is expected to continue growing.",
+  "published_at": "2026-08-28T10:51:22Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.214981Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

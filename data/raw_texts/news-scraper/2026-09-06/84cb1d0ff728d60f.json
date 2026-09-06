@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20757-indian-government-departments-plan-optical-network-test-bed.html",
+  "title": "Indian government departments plan optical network test bed",
+  "raw_text": "India’s Department of Telecommunications (DoT) has signed a strategic five-year agreement with the country’s Centre for Development of Telematics (C-DoT), a telecom research and development centre, to establish a state-of-the-art end-to-end optical network test bed.\nFunded and supported by DoT, this test bed will be located at the C-DoT campus in New Delhi. The partners say it will serve as a critical real-world environment to accelerate the development, testing and commercialisation of optical communication solutions created by Indian startups and industry players.\nThe public-funded project aims to bridge the gap between lab-stage innovation and market readiness. This initiative will further accelerate the development and deployment of home-grown optical communication technologies to further advance the vision of ‘Aatmanirbhar Bharat’ (self-reliant India) and strengthen India’s capabilities in next-generation communication infrastructure.\nBy combining C-DoT’s mature, field-ready products across optical core, access and quantum security technologies, the partners say, the test bed will function as a catalyst for the Indian telecom ecosystem, serving as a platform for skill development and capacity building in advanced optical communications, providing students, researchers, startups and industry professionals opportunities for hands-on training and exposure to next-generation optical networking technologies. It will also be a shared national resource for innovation, testing, validation, skill development and commercialisation.\nA technical blueprint structures the initiative into two phases. The set-up phase, over the first two years, will focus on creating the necessary infrastructure for the test bed, including the various elements of optical core and optical access as well as quantum security besides third party advanced test and measurement tools from trusted vendors, resulting in the formal rollout of the test bed.\nThe operations and maintenance phase (years three to five) will be dedicated to sustained test bed maintenance, direct technical support for ecosystem users, and targeted educational outreach programmes.",
+  "published_at": "2026-08-31T22:16:09Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.214065Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/security/2026/09/once-popular-for-attacking-ai-ascii-smuggling-is-embraced-by-spammers/",
+  "title": "Once popular for attacking AI, ASCII smuggling is embraced by spammers",
+  "raw_text": "A clever technique used to hide malicious prompts in attacks on AI agents has been adopted by spammers to evade filters on email platforms that are designed to flag unwanted messages used in mass campaigns.\nThe technique is broadly known as ASCII smuggling. It gained attention two years ago as a means of making a class of AI attack known as prompt injections more stealthy. Malicious instructions embedded in emails or other untrusted content to be processed by an LLM aren’t written in ordinary text. Instead, they’re rendered by a special range of Unicode tags. For example, the tag point U+E0041 mirrors “A,” and U+E0061 mirrors “a.”\nNo longer just for obscuring prompt injections\nThe block of 128 tags mimics a portion of the American Standard Code for Information Interchange almost perfectly, with one major difference: the characters they encode are readable by computers but, by design, are almost completely invisible to humans. By expressing the malicious prompts in these tags, LLMs detect the instructions, but people reading the email never see them. There’s much more about ASCII smuggling here.\nEarlier this year, Microsoft started seeing a massive increase in spam messages that used the technique. Beginning on one day in early February, the number of ASCII smuggling signatures detected by Microsoft Defender for Office spiked from roughly 21,000 per day to more than 1.3 million. Within four days, signature detections jumped to 2.5 million. The deluge persisted for months and then fell off sharply in mid-May.\n“Because tag characters are invisible to humans but exist at the text-processing level, the same property that makes them useful for smuggling instructions into a model also makes them useful for obfuscating keywords before a detector evaluates them,” Microsoft explained Thursday. “The intent is inverted, but the mechanism is similar, and a user’s suspicions are not raised.”",
+  "published_at": "2026-09-04T17:18:12Z",
+  "author": "Dan Goodin",
+  "collected_at": "2026-09-06T03:00:30.151470Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Biz & IT",
+      "Security",
+      "ascii smuggling",
+      "prompt injections",
+      "spam filter evasion"
+    ]
+  }
+}

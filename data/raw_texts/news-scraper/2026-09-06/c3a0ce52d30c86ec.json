@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/01/waymo-and-zoox-expand-into-more-us-markets-as-robotaxi-race-heats-up.html",
+  "title": "Waymo and Zoox expand into more U.S. markets as robotaxi race heats up",
+  "raw_text": "Alphabet's Waymo is expanding its commercial service, and Amazon's Zoox said it plans to test in more U.S. cities, as the nascent robotaxi market gains momentum.\nWaymo, which has a commanding market lead in the U.S., said it's now offering driverless rides to customers in San Diego, Tampa, Florida, and Denver, the first time the company will have commercial operations in Colorado.\nZoox, meanwhile, said it will begin testing vehicles in Houston and San Diego with human drivers on board using Toyota Highlander SUVs retrofitted with the company's mapping and automated driving systems. The company said it will have a presence in 12 U.S. markets when those two cities open.\nThe announcements come ahead of a planned event on Thursday from Tesla, which is expected to share details about its driverless Cybercab and its Robotaxi ride-hailing service. Goldman Sachs Research forecasts the U.S. robotaxi market will reach $19 billion in 2030, up from about $3 billion next year, before jumping to $48 billion in 2035.\nWaymo now boasts over 4,000 vehicles across 14 U.S. cities. Its fleet includes the newer, roomier Ojai vehicles based on a Zeekr minivan-style chassis. They're assembled at a factory in Arizona and include automatic sliding doors, three large in-car screens, Waymo's sixth-generation driverless technology and an entertainment system with a Gemini integration.\nA Waymo spokesperson said in an email that in each of the three new U.S. cities, the company will have dozens of robotaxis, with plans to reach \"hundreds over time,\" and that passengers will need to hail rides through the Waymo app.\nWaymo provides over 500,000 robotaxi rides in the U.S. each week, and aims to cross the 1 million ride mark by the end of 2026. In some markets, the company offers rides through Uber.\nZoox is far behind Waymo, as its only paid ride-hailing service today operates in Las Vegas. Zoox has a free service in San Francisco for select riders and hasn't said when it will open a paid service there.\nWhile the AV market is rapidly growing, it's encountering criticism from labor leaders who worry that autonomous vehicles will eliminate jobs in transportation, and from vehicle safety advocates who want the companies to disclose and standardize their mileage and crash data.\nAVs can cause safety issues, especially during inclement weather, blackouts and on roads where there's construction or unusual traffic. In some cases, they've caused gridlock or have required first responders to manually move the vehicles.\nCorrection: A prior version of this story included reference to the wrong vehicle type for Zoox.\n— CNBC's Annie Palmer contributed to this report.\nWATCH: Uber and Waymo revive robotaxi rivalry as partnership unravels",
+  "published_at": "2026-09-03T05:14:10Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.070260Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

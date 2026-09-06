@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/01/stocks-making-the-biggest-moves-after-hours-dell-mdb-gtlb-and-more.html",
+  "title": "Stocks making the biggest moves after hours: Dell, MongoDB, GitLab and more",
+  "raw_text": "Check out the companies making headlines in after-hours trading. Dell Technologies — Shares of the computer maker jumped almost 9% after beating expectations on both lines. Dell also lifted its forecast for the fiscal 2027 year, citing strength in the artificial intelligence service business. MongoDB — The data developer shares dropped 12% despite posting better-than-expected earnings and upbeat guidance. MongoDB said it earned $1.90 per share, excluding items, on $772 million in the second quarter, while analysts surveyed by LSEG forecasted $1.61 a share and $734 million. Credo Technology — Shares of the connectivity stock slid almost 4% after its non-GAAP gross margin for the first quarter came in at 68%, while analysts polled by LSEG penciled in 68.3%. However, Credo beat expectations on both lines for the first quarter. GitLab — Shares of the software stock rallied nearly 20% on an earnings beat and upbeat full-year guidance. GitLab earned 24 cents per share, excluding items, on revenues of $286 million in the second quarter, beating estimates for 18 cents and $273 million, respectively, according to LSEG. Palo Alto Networks — Shares of the cybersecurity stock sat around flat after a better-than-expected report for the fourth fiscal quarter. Palo Alto reported $1.02 per share, excluding items, on $3.41 billion in revenue versus respective expectations for 98 cents and $3.35 billion, per LSEG.",
+  "published_at": "2026-09-01T20:52:26Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.081383Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

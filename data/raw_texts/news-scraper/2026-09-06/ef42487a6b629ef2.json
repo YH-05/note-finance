@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/04/teslas-stock-drops-as-cybercab-update-underwhelms-nhtsa-probe.html",
+  "title": "Tesla's stock drops 6% as Cybercab update 'underwhelms' Wall Street",
+  "raw_text": "Tesla shares slid 6% on Friday after the electric vehicle maker's long-awaited Cybercab update failed to impress investors who are betting the company can become a major player in the U.S. robotaxi market currently dominated by Alphabet's Waymo.\nThe Cybercab, which Tesla first showed off almost two years ago, has been in production since April. It's a bronze-colored, two-seat robotaxi with scissor, or butterfly, doors and no steering wheel or pedals.\nTesla held an event Thursday in Austin, Texas, but it was invite-only, wasn't streamed and CEO Elon Musk never made an appearance. The company said users of its Tesla Robotaxi ride-hailing app could now catch a driverless trip in a Cybercab within a \"geofenced\" area around Austin.\nAnalysts at RBC Capital Markets wrote in a note on Friday that Tesla had only \"offered limited new incremental disclosure relative to prior announcements, with key outstanding questions around pricing, production cadence, and regulatory approvals remaining open.\"\n\"The event lacked a public livestream — a notable departure from Tesla's traditionally theatrical product reveals,\" wrote the analysts, who recommend buying Tesla shares.\nAlso on Thursday, the National Highway Traffic Safety Administration initiated an \"audit query\" to determine if Tesla had properly self-certified the Cybercab as safe for use on public roads, and in compliance with applicable federal safety standards.\nThe stock's drop on Friday follows a 5.4% gain on Thursday ahead of the event.\nWells Fargo analysts published a note with the headline \"TSLA Cybercab Launch Event Underwhelms\" and noted that the company's Austin robotaxi service is \"facing early execution issues.\" Users have shared videos and complaints about Tesla Robotaxi routing errors, missed destinations and excessive wait or ride times.",
+  "published_at": "2026-09-04T20:06:13Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.048778Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

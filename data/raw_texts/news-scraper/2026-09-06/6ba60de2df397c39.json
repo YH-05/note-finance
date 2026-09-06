@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/12/ford-lincoln-us-china.html",
+  "title": "Ford says it's increasing Lincoln production in the U.S. in 2030",
+  "raw_text": "Ford Motor said Wednesday that it's increasing production of its Lincoln vehicles in the U.S. beginning in 2030.\nThe company also said it is phasing out imports of the vehicles from China for the U.S. market, which it said will \"further strengthen Ford's position as America's No. 1 auto producer.\"\nFord said in 2023 that its next-generation Lincoln Nautilus would be imported from China, marking the first time the brand was bringing a vehicle from China to the U.S.\nThe company said the Lincoln Navigator and Aviator models are currently assembled at plants in Louisville, Kentucky, and Chicago, respectively, and both will continue to be exported to markets including Canada, Mexico and the Middle East. Ford said it expects the increased production to generate \"thousands of direct and indirect U.S. jobs.\"\n\"Lincoln is a quintessentially American brand, and Ford is America's automaker,\" CEO Jim Farley said in a statement. \"This wasn't necessarily the easiest path. In fact, it's a path most of our competitors aren't choosing to take. But Ford builds in America because we believe in America, and we're betting on that belief again.\"\nThe announcement comes as Ford has been touting its U.S. manufacturing, especially with President Donald Trump's automotive tariffs and uncertainty with the USMCA North American trade deal.\nFarley previously told CNBC that he wants Ford to be awarded for its efforts to largely produce their vehicles domestically, and other automakers that rely on imported vehicles — like General Motors and Toyota Motor — should face more penalties.\nFord reported it assembled over 2 million vehicles in the U.S. last year – more than any other auto manufacturer, including 311,000 units for export to more than 60 international markets.",
+  "published_at": "2026-08-12T22:36:44Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.112862Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "autos",
+    "tags": []
+  }
+}

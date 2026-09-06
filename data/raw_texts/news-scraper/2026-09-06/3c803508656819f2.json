@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/entertainment/990794/cd-sales-are-booming-as-physical-media-continues-its-resurgence",
+  "title": "CD sales are booming as physical media continues its resurgence",
+  "raw_text": "According to the Recording Industry Association of America (RIAA), CD sales exploded in the first half of 2026. A new report from the organization says 17.5 million CDs were sold in the first six months of the year, up from just 12 million during the same period in 2025. That’s a jump of 45.7 percent, and 58.6 percent in dollars, which reached $171.1 million. What makes this all the more shocking is that CD sales actually shrank 22 percent from 2024 to 2025.\nCD sales are booming as physical media continues its resurgence\nBut don’t think that means people are abandoning streaming.\nBut don’t think that means people are abandoning streaming.\nThe RIAA isn’t the only one to notice the boom in CD sales. In July, research firm Luminate released a report saying that 16.3 million units were sold in the first half of 2026. It suggested that much of that increase was due to special editions from K-Pop acts like BTS and that Gen Z and millennials were treating them mostly as collectibles, saying that only about half of buyers actually owned a CD player.\nVinyl continued its resurgence as well, with the number of units sold climbing by nearly 21 percent from last year to 26.5 million. “Other physical” media, which includes CD singles, DVDs, cassettes, SACD, DVD-Audio… basically anything besides “standard vinyl and CD albums,” also surged by over 73 percent, to 1.6 million units.\nDespite the increased interest in physical media and the ongoing iPod revival, people are not leaving streaming in droves. Streaming revenue grew by 4.7 percent to $4.9 billion — dwarfing all physical media combined.",
+  "published_at": "2026-09-05T16:49:33Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-09-06T03:00:15.525559Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Entertainment",
+      "Music",
+      "News"
+    ]
+  }
+}

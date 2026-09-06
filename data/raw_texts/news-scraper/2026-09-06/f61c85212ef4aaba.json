@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/08/hunter-biden-says-joe-bidens-cancer-has-spread-is-very-debilitating.html",
+  "title": "Hunter Biden says Joe Biden’s cancer has spread further and is ‘very painful’",
+  "raw_text": "Former President Joe Biden's prostate cancer has spread further, his son Hunter Biden said in a BBC interview, offering a stark update on the 83-year-old's health.\n\"It's really, really hard, and it's really sad to watch... I wish he would complain more, because it's not good,\" Hunter Biden said in the interview. \"The cancer has spread, is metastasized into his bones and further. It's very painful. It's very debilitating in many respects, but he's still out there. He's still doing his thing... he so believes in this country.\"\nJoe Biden was diagnosed in May 2025 with an aggressive form of prostate cancer. The former president later underwent hormone treatment and a course of radiation therapy.\nIn the wide-ranging BBC interview, Hunter Biden also discussed his father's decision to pardon him in the final weeks of his presidency, saying he remains deeply grateful for the move.\n\"I am the most privileged person, as it relates to that, that there could possibly be,\" Hunter Biden said. \"I was one of one, and I'm eternally grateful for it.\"\nJoe Biden issued a sweeping pardon to his son in December 2024, reversing earlier pledges that he would not use his presidential powers to intervene in Hunter Biden's federal criminal cases. The pardon covered his convictions on federal gun and tax charges.",
+  "published_at": "2026-08-08T17:25:25Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.114263Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

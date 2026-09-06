@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/oss-service-management/20755-syria-takes-big-step-towards-rejoining-global-payment-networks.html",
+  "title": "Syria gets closer to rejoining global payment networks",
+  "raw_text": "Payment giants Visa and Mastercard have carried out their first international card transactions in Syria, indicating that the country is now much closer to reconnecting with global payment networks.\nQatar's QNB Group, a multinational commercial bank, has said that it and Mastercard last week completed what it describes as the world's first end-to-end international card payment in Syria. As we reported last week, Visa recently tested its first live international transaction in the country with Lebanon-based Fransabank.\nThe payments took place last Wednesday, days after Washington removed the country from its state sponsors of terrorism list.\nIn theory this seems to signal Syria's accelerating reintegration into the global financial system after decades of sanctions and isolation, not least because the Syrian President Ahmed al-Sharaa took part in the Visa test, making a card payment at a restaurant in Damascus.\nThe designation of the country as a state sponsor of terrorism dates back over 45 years – to 1979. It has been a major deterrent to international banks and investors ever since – even after comprehensive sanctions on Syria were brought an end in December last year. Targeted measures against specific people and groups, including former President Bashar al-Assad and his associates, remain in place,\nAs Reuters points out, the present government has made restoring access to global finance and attracting foreign investment a central part of its economic strategy since Assad lost power in December 2024.\nVisa has said it plans to enable international visitors to use their cards while in Syria, and described the test as a step towards wider international card acceptance in the country. In fact Syria’s Central Bank (CBS) announced a strategic partnership with Visa in December 2025 to accelerate the country’s integration into the global digital economy\nQNB says its system now allows Syrian merchants to accept international Mastercard credit cards through its point-of-sale (POS) terminals. It will gradually add eligible merchants as part of a phased rollout, subject to regulatory approvals.\nVisa's transaction was carried out in cooperation with Fransabank Lebanon as the acquiring financial institution and Paymera, a Syrian payments technology company owned by the state's sovereign fund.",
+  "published_at": "2026-08-31T16:47:46Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.214335Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Service Management"
+    ]
+  }
+}

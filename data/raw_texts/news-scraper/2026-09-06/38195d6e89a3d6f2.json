@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/09/after-8-years-europes-bepicolombo-mission-is-on-final-approach-to-mercury/",
+  "title": "After 8 years, Europe's BepiColombo mission is on final approach to Mercury",
+  "raw_text": "The BepiColombo mission cleared a major milestone this week in the final stretch of an eight-year interplanetary voyage to Mercury, the hard-to-reach, scorching hot iron world at the Solar System’s innermost frontier.\nThe robotic science mission, with a price tag of nearly $2 billion, is led by the European Space Agency with contributions from Japan and the United States. Since its launch in 2018, BepiColombo has spiraled closer to the Sun using a combination of plasma propulsion and a series of flybys of Earth, Venus, and Mercury. The maneuvers changed the spacecraft’s velocity and steered it toward a final encounter with Mercury later this year.\nNext time it reaches Mercury, BepiColombo will be traveling at just the right speed for the planet’s gravity to capture the spacecraft into orbit. Scientists working on interplanetary missions are accustomed to long waits for scientific payoffs. It took nearly 10 years for NASA’s New Horizons spacecraft to travel from Earth to Pluto. It turns out traveling to fleet-footed Mercury and then entering orbit requires more energy, or delta-v, than sending a probe to fly by Pluto.\nThat’s why BepiColombo’s trajectory required an unprecedented nine planetary flybys, or gravity assists, to set up for the chance to enter orbit around Mercury later this year. BepiColombo also launched with the most powerful electric propulsion system ever put into deep space, with four gridded ion thrusters to reshape its orbit around the Sun in between flybys.\nBepiColombo is now a few months from reaching the end of its journey, and it no longer needs the plasma engines. On Thursday, BepiColombo jettisoned the section of the spacecraft containing the ion the thrusters. This part of the spacecraft, called the Mercury Transfer Module, was responsible for generating power and providing propulsion for BepiColombo throughout the eight-year cruise.",
+  "published_at": "2026-09-04T22:49:17Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-09-06T03:00:30.150208Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Space",
+      "bepicolombo",
+      "european space agency",
+      "Japan",
+      "JAXA",
+      "Mercury",
+      "planetary science",
+      "solar system"
+    ]
+  }
+}

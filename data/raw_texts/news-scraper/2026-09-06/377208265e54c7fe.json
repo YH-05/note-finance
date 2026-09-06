@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/zscaler-zs-q4-earnings-2026.html",
+  "title": "Zscaler beats earnings expectations, issues upbeat guidance but stock falls",
+  "raw_text": "Zscaler stock sank on Friday even though the cloud security company beat Wall Street's fiscal fourth-quarter estimates as rising artificial intelligence risk spurred urgent demand for cyber tools.\nHere's how the company performed compared to LSEG estimates:\n- Earnings per share: $1.19 adjusted vs. $1.09 expected\n- Revenue: $898 million vs. $877 million expected\nRevenue jumped 25% from about $719 million last year. In its Q4 financials issued on Thursday, Zscaler reported a net loss of $3.4 million, a loss of 2 cents per share, up from a net loss of $17.6 million, a loss of 11 cents per share, a year ago.\nCEO Jay Chaudhry highlighted the adoption of the company's Zero Trust cloud security architecture and innovative technology as driving forces behind the quarterly beat.\nHe told CNBC he's \"very bullish\" on the recently launched Zero Trust iteration for AI agents, which is gaining early momentum and is expected to accelerate rapidly into fiscal years 2028 and 2029.\n\"It's a longer-term opportunity, but I think it's a fantastic opportunity with significant barriers to entry,\" Chaudhry said.\nAnnual recurring revenue rose 25% from a year ago to $3.77 billion, beating a $3.75 billion estimate from StreetAccount.\nCybersecurity stocks have skyrocketed this year as increasingly sophisticated cyber models and the rise of agent-led attacks force businesses to adopt new security tools.\nWhile competitors have notched new highs this year, Zscaler shares have plummeted 20%. Last quarter, the stock recorded its worst day ever after management adopted a \"prudent approach\" to guidance following two sales leader departures.\nBut Chaudhry says the market is missing the point on Zscaler's differentiation play.\n\"The core competency we bring to the table is pretty unique, and as the adoption of AI agents happens, the market will recognize more and more that Zscaler is a critical player,\" he said.\nLike other cyber executives, Chaudhry views security for AI as one of the biggest opportunities. Over the last year, bookings totaled $100 million and grew more than 50% this quarter, sequentially.\nZscaler's guidance also beat estimates. For the fiscal first quarter, the company called for $935 million to $939 million in revenue and adjusted EPS of $1.15 to $1.16. That beat a revenue estimate of $927 million and adjusted EPS of $1.08 per share.\nFor the full year, the company anticipates revenue in the range of $3.91 billion and $3.94 billion, above the $3.90 billion estimate. Adjusted EPS is expected to range between $4.86 and $4.90, beating a $4.60 per-share estimate.",
+  "published_at": "2026-09-04T13:37:16Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.055109Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "technology",
+    "tags": []
+  }
+}

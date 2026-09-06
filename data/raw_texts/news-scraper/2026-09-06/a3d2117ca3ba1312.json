@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/08/14/supercars-drive-classic-car-market.html",
+  "title": "Supercars drive classic car market",
+  "raw_text": "CNBC's Robert Frank reports on the highly anticipated classic car auction in Monterey, California with a potential total value of over half a billion dollars.",
+  "published_at": "2026-08-14T14:46:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.112065Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

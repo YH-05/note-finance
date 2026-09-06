@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20754-new-ai-solution-targets-saudi-enterprise-users.html",
+  "title": "New AI solution targets Saudi enterprise users",
+  "raw_text": "AMD, which describes itself as a high performance and adaptive computing leader, and Humain, which delivers global full-stack AI solutions, say they have launched a new ‘AI in a Box’ solution for enterprise users across Saudi Arabia.\nThe partners say the turnkey solution for entry-level use cases brings accessible AI compute to organisations across industries including oil and gas, financial services and manufacturing.\nBuilt by Humain, which is backed by the Saudi Arabian Public Investment Fund (PIF), and leveraging high-performance AMD Instinct GPUs and energy-efficient AMD EPYC CPUs, ‘AI in a Box’ lets organisations begin deploying AI, test new use cases and expand access to AI tools for employees.\nDr Lisa Su, chair and CEO of AMD, explains: “For AI to deliver its full impact, high-performance computing needs to be accessible to businesses of every size.” She continues: “Together with Humain, we are expanding our collaboration to bring advanced computing capabilities to more companies across Saudi Arabia and give them the opportunity to innovate and grow in the AI era.”\nTareq Amin, CEO of Humain, adds: “With AI in a Box, Humain and AMD are taking advanced computing capability and making it practical for enterprises that do not need to begin with hyperscale infrastructure. Start with a workload. Prove the value. Scale from there. We want to make the path from the first AI use case to enterprise-scale deployment dramatically simpler.”\nThe launch builds on a strategic collaboration between AMD and Humain to invest up to US$10 billion to support AI infrastructure initiatives. In addition, through a three-company joint venture, AMD, Humain and Cisco have also planned to deploy up to 1GW of AI infrastructure in Saudi Arabia by 2030.\nWe reported last week that AI solutions company Mistral and Humain had announced a strategic collaboration focused on sovereign AI.",
+  "published_at": "2026-08-31T16:21:13Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.214464Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

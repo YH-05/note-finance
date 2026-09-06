@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.phoronix.com/news/Asahi-Linux-Official-M3",
+  "title": "Asahi Linux Now Officially Supports Apple M3 Macs – With Caveats",
+  "raw_text": "Asahi Linux Now Officially Supports Apple M3 Macs - With Caveats\nThe Asahi Linux developers announced today that the Apple Macs with M3 series SoCs have reached a state now where \"almost\" everything is supported to a state similar to the older M1 and M2 hardware.\nThe biggest exception though is the GPU support, which they acknowledge is not yet performant or power efficient for 3D acceleration. They hope to have more GPU progress in the coming months.\nIn addition to the poor GPU support, Asahi Linux on the Apple M3 also does not currently provide sleep support due to the lack of DCP support. Without DCP support, the HDMI port on M3 MacBooks is also not working. This M3 support should cover all Apple devices with the exception of the Mac Studio M3 Ultra.\nMore details on this official support now for the downstream Asahi Linux on Apple M3 Macs can be found via AsahiLinux.org. The upstreaming of all the M3 support remains ongoing. There is the initial M3 support in the mainline Linux kernel for basic boot support but various other patches remain for upstreaming in Linux 7.4+ before it will reach a state similar to Asahi Linux itself.",
+  "published_at": "2026-09-06T14:08:59Z",
+  "author": "mdp2021",
+  "collected_at": "2026-09-06T21:00:44.294063Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

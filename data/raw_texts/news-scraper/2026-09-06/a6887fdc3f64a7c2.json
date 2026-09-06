@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/kalshi-looks-international-partners-with-brokerage-alpaca.html",
+  "title": "Kalshi partners with brokerage Alpaca as it tries to build its international audience",
+  "raw_text": "Prediction market platform Kalshi is working with brokerage and financial infrastructure startup Alpaca to bring its event contracts to an international audience, subject to local regulatory approval.\nIndividuals and businesses who use Alpaca's brokerage infrastructure will now have access to Kalshi's event contracts using the same technology utilized on the former's platform to trade other assets.\nIt comes after Alpaca registered with the Commodity Futures Trading Commission to become a U.S.-licensed futures commission merchant, a brokerage that facilitates orders to buy or sell derivatives contracts, earlier this month.\nAlpaca moved forward with a move into prediction markets because it has seen demand from its users for access to event contracts, chief brokerage officer Tony Lee told CNBC in an interview.\n\"Our mission is really to open up financial services to as many people around the world as possible, and you really have to go where the customer demand is,\" Lee said.\nThat global potential is what made a partnership with Alpaca appealing to Kalshi, vice president of business development Max Crowley said.\nAlpaca has partnerships with more than 300 financial institutions and reaches 14 million brokerage accounts globally. As Kalshi seeks to go international, Crowley said having Alpaca's technology for brokerages in countries around the world to build on top of will make getting their prediction markets online in other markets happen faster, once local regulatory approval is received.\n\"They're a trusted brand, they're technology forward, their customers love working with them,\" Crowley said. \"It's going to take us a lot of time to build the business globally, but this technical partnership enables that.\"\nThe partnership is Kalshi's latest move to go global. In June, it partnered with Canadian financial firm Wealthsimple to bring its markets north of the U.S. border.\nAlpaca also has 83,000 monthly users of its Application Programming Interface, which allows individual developers to build their own personal software for trading assets. CNBC has reported about the lengths individual prediction market traders go to gain an edge against other traders, many of whom have developed personalized automated software.\nYoshi Yokokawa, co-founder and CEO of Alpaca, also acknowledged that it will take time for Kalshi's event contracts to scale internationally. But he said the potential crop of new traders that may come represents a major opportunity for prediction markets.\n\"As that scales,\" Yokokawa said. \"I think it should be pretty meaningful for event contracts as an asset class in general.\"\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-08-31T18:22:51Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.086803Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

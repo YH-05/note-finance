@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/08/19/california-billionaire-tax-debate-heres-what-to-know.html",
+  "title": "California billionaire tax debate: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-08-19T12:57:25Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.107779Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

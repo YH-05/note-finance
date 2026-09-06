@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/telecom-cloud-virtualization/20746-alibaba-cloud-launches-first-cloud-region-in-brazil-with-agentic-ai-services.html",
+  "title": "Alibaba Cloud launches first cloud region in Brazil with agentic AI services",
+  "raw_text": "Alibaba Cloud announced on Thursday it has launched its first cloud region in Brazil, with two new data centres and an upcoming suite of enterprise-grade agentic AI services in the region.\nAlibaba Cloud said the new Brazil region offers a comprehensive suite of cloud computing products from compute, storage, container, networking, security, and databases, big data, to cloud-native services.\nThe services can help local customers run mission-critical workloads with enhanced availability, operational stability, low latency and disaster recovery capabilities, while adhering to local regulatory frameworks and standards on cybersecurity, resilience and data governance, Alibaba said.\nThe company also aims to meet growing enterprise demand for AI services with Alibaba’s agentic AI services designed to streamline the development and operation of enterprise-scale AI agents.\nAlibaba will offer full lifecycle management of AI agents from development and debugging to deployment, real-world operations and end-to-end security protection.\n“Brazil is one of the world’s most dynamic digital economies and a new market central to Alibaba Cloud's expansion in Latin America,” said Allen Guo, GM of Latin America Region and VP of International Business at Alibaba Cloud Intelligence. “With secure, resilient local infrastructure, our AI+Cloud portfolio, and a growing partner ecosystem, we are supporting Brazilian enterprises as they build their cloud and AI capabilities and connecting them to Asia and the rest of our global network.”\nAlibaba Cloud also said it’s working with local partners to build an inclusive and thriving ecosystem in Brazil across key sectors including e-commerce, fintech, digital-native businesses, AI-native companies, AI startups and independent software vendors. Named partners include technology solution provider Insi and open-source software and enterprise IT services specialist 4Linux.\nAlibaba Cloud said the Brazil launch is its first cloud region in South America, and strengthens its operations in Latin America after the launch of its Mexico region in February 2025. It’s also part of Alibaba Cloud’s previously announced plan in February 2025 to invest US$53 billion globally in AI and cloud infrastructure.\nAlibaba Cloud now operates 106 availability zones across 31 regions worldwide, including its recently launched public cloud region in Johor, Malaysia.",
+  "published_at": "2026-08-28T03:38:51Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.215526Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Cloud & Virtualisation"
+    ]
+  }
+}

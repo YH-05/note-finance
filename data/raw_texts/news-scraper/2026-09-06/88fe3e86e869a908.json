@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/08/26/family-offices-shift-to-stocks-heres-what-to-know.html",
+  "title": "Family offices shift to stocks: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-08-26T11:51:08Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.097636Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

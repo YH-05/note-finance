@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20756-indian-increase-in-emf-limits-will-benefit-5g-rollout.html",
+  "title": "Indian increase in EMF limits will benefit 5G rollout",
+  "raw_text": "In a move that will benefit mobile operators – and potentially save them money – the Indian government has announced that it will increase the electromagnetic field (EMF) limits for mobile networks to global standards, allowing telecom operators to cover larger areas with fewer towers.\nThe new rules double the permitted power density for a 5G base tower station (BTS) to 10 watt per square metre from the present 5 watts. They come into effect next month.\nWith greater power, signals will be able to travel further giving greater coverage from each site. By extension, this will also reduce network expansion costs.\nThe limits on EMF that mobile network equipment can emit have long been an issue for operators, who say that earlier limits were hampering efficient 5G coverage. It also seems as though the Indian government now agrees, though an important consideration may be that the new rule could help to ensure quality of service at a time when demand is likely to push up 5G traffic volume.\nAs Indian news service the Economic Times says, this development is likely to be particularly helpful for Vodafone Idea, which is still rolling out its 5G service, but Bharti Airtel and Reliance Jio, which have already deployed much of their 5G networks, may also benefit – in their cases from lower incremental capital expenditure and more efficient use of existing sites.\nIt is not clear why India has, until now, followed much stricter radiation emission norms than those recommended by the International Commission for Non-Ionizing Radiation Protection (ICNIRP), which advises the World Health Organisation (WHO) and government agencies on the health and environmental effects of EMF.\nICNIRP recommends 10 watts. India has for some time followed a power density limit of 1 watt per square metre, which was revised to 5 watts last year. These limits may have been tolerable for 2G, 3G and even 4G but, the Economic Times suggests, pose problems for 5G rollout due to the significant differences in standards.",
+  "published_at": "2026-08-31T17:09:48Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.214196Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20766-aws-expands-humain-ai-zone-plans-saudi-arabia-cloud-region-on-track.html",
+  "title": "AWS expands Humain AI Zone plans, Saudi Arabia cloud region on track",
+  "raw_text": "Amazon Web Services (AWS) announced on Monday it has expanded its plans with PIF-owned Humain to launch an AI Zone in Saudi Arabia in 2028, whilst also confirming it’s on track to launch its first Cloud Infrastructure Region in the country December 2026.\nThe AI Zone data centre facility – first announced in November 2025 – will pack 50MW of load capacity powered by AWS’s Trainium chips and the latest Nvidia AI infrastructure for customers to run AI training and inference workloads.\nUnder the expanded collaboration agreement, Humain will make its ALLAM Arabic large language model available through Amazon Bedrock. Also, Humain Fabric – the company’s AI-native data infrastructure and platform component of the HUMAIN ONE generative AI operating system – will be available on AWS Marketplace.\nAWS first announced plans for its Cloud Infrastructure Region in Saudi Arabia in March 2024 with a planned cloud infrastructure investment of US$5.3 billion. The launch will expand AWS’ global infrastructure to 40 Regions worldwide.\nSaudi companies including Abdul Latif Jameel, Almosafer, stc Group, Red Bull Mobile, and AWS Partners like ZainTECH, Accenture, and Tamkeen, have commited to running AI workloads on AWS.\nIn February 2025, stc Group signed a collaboration deal with AWS to combine infrastructure resources – including generative AI/ML services such as Amazon Bedrock – to scale cloud-based workloads and AI-powered innovation across the Middle East.\nAccording to an IDC report commissioned by AWS, AI will contribute an estimated US$130 billion to Saudi Arabia’s economy by 2030. AWS CEO Matt Garman said the new Region will help accelerate this potential by empowering organizations to innovate faster and operate more cost-efficiently, while providing access to leading AI services like Amazon Bedrock.\n“Saudi Arabia is home to some of the most ambitious and inventive builders, from startups and enterprises reimagining industries to public sector organizations deploying AI at scale, and the new AWS Region in the country will help them to continue to innovate,” he said in a statement.\nThe expanded AI Zone collaboration is one of several AI-focused projects Humain has announced at this week’s LEAP 2026 event in Riyadh.\nThe company also expanded its partnership with Saudi-based digital infrastructure developer DataVolt to develop 100MW of a 360MW AI-ready data centre at Oxagon, and teamed with AMD to launch a new ‘AI in a Box’ solution for enterprise users across Saudi Arabia.\nLast week, Humain announced a collaboration deal with AI solutions company Mistral to develop sovereign AI infrastructure, model development, and deployment in Saudi Arabia and across the region.",
+  "published_at": "2026-09-02T02:30:47Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.212566Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

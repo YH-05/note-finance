@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20751-vietnam-internet-plagued-by-multiple-subsea-cable-outages-again.html",
+  "title": "Vietnam internet plagued by multiple subsea cable outages again",
+  "raw_text": "Vietnam is reportedly once again facing disruptions to internet connectivity speeds with four out of six international subsea cable connections now suffering from outages.\nAccording to several media reports on Friday, the Southeast Asia–Japan 2 (SJC2) cable and the Asia-Africa-Europe 1 (AAE-1) cable both experienced technical problems on August 25. Vietnamnet Global reports that the SJC2 fault occurred on the S4 segment near Chung Hom Kok in Hong Kong, while AAE-1’s fault affected S1.H2 segment.\nHowever, VN Express reports that the AAE-1 segment has been experiencing problems since February this year.\nMeanwhile, Vietnam’s links to the Asia-America Gateway (AAG) and Tata TGN-Intra Asia (TGN-IA) cables are already down, with repairs for both expected to commence sometime in September.\nThe causes of the faults for each cable have not been reported.\nAAE-1 has been in operation since 2017, while SJC2 went live in July last year. Both the AAG and TGN-IA systems have been in operation since 2009.\nVietnam’s only other international subsea cable connections are the Asia Direct Cable (ADC) and the Asia Pacific Gateway (APG).\nAccording to VN Express, VNPT said it has rerouted traffic to cope with the outages, but admitted internet access would “be affected to some extent” during peak hours, particularly for content hosted overseas.\nViettel said it has added 800 Gbps of international connectivity via the IA cable, plus another 300 Gbps via the APG, as well as rerouted some international traffic via a recently launched terrestrial cable running through Laos to Singapore. It also plans to add capacity to that route, and has the option of boosting its capacity on the ADC to 50 Tbps if necessary, the report said.\nVietnam has been plagued by multiple cable outages before – in 2023, all five of the subsea cables serving the country at the time experienced connecticvity problems.\nVietnam has two additional subsea connections scheduled to be ready for service sometime next year, including the Asia Link Cable (ALC) and the Vietnam-Singapore Cable System (VTS). Another subsea system, MViSTA, which will connect Vietnam to Malaysia, Thailand and Singapore, is slated to go live in 2028.",
+  "published_at": "2026-08-31T04:17:06Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.214841Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

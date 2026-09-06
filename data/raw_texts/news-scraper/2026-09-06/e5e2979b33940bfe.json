@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/04/jobs-report-women-payrolls.html",
+  "title": "Women accounted for almost all of job gains in August. Here's why",
+  "raw_text": "There's a group to thank for August's blockbuster jobs report: women.\nWomen accounted for 158,000 — or around 98% — of the 162,000 jobs added in the month, according to a CNBC analysis of data released Friday by the Bureau of Labor Statistics.\nMen represent the remaining 4,000 net positions added, meaning their contribution to overall payroll growth was nearly 40 times smaller.\nThe Economic Security Project, a progressive nonprofit, first pointed out the anomaly in Friday's data.\nWith Friday's report, the gap between the number of jobs held by women compared with men climbed to levels never before seen, according to Laura Ullrich, director of economic research at the Indeed Hiring Lab.\n\"We are in the midst of a shift,\" Ullrich said. \"It is changing right before our eyes.\"\nFriday's report offers the latest signal of how much momentum women are gaining in an otherwise lackluster job market.\nCompared with 12 months ago, the BLS found that the level of employed women has grown by more than 870,000 on a seasonally adjusted basis. The male gender has lost nearly 1.5 million employed workers over the same timeframe.\nPart of the recent outperformance among women could stem from what sectors are driving labor force expansion.\nHealthcare, considered the engine of labor market growth for more than a year, continued adding positions in August. Upwards of four out of every five workers in the industry are women.\nThe local government and education sector roared back to life in August, accounting for 42,000 jobs — or about a fourth of the total net gain. Women hold close to three-quarters of positions related to education, training and libraries.\nBut Friday's report also showed their hiring prowess in sectors like manufacturing that are considered male-dominated, Ullrich said.\nThe seasonally adjusted unemployment rate for women came in at 3.9% in August, down 0.4 percentage points from the same month a year prior. The male rate jumped to 4.4%, equal to where it sat in August 2025.\nStrength among women helped Friday's overall nonfarm payrolls figure blow past expectations for August. The 162,000-role expansion was more than triple what economists forecasted.\nTo be sure, Heather Long, Navy Federal Credit Union's chief economist, noted that month-to-month data by gender can be volatile in a Friday social media post. Instead, she said to focus on longer-term trends tied to gender.\nLong said those trends show a \"mom-cession,\" a term used to describe the phenomena of mothers of young children leaving the workforce.\nBecause women tend to earn less than men, Ullrich said winning a higher share of jobs could mean companies are focusing hiring on lower-wage roles. Given that women are more likely to have multiple jobs, Ullrich said some of the gains could stem from workers who are stretching themselves thin.\n\"You could look at it and say, 'Yay, women,'\" Ullrich said. But, \"I don't think it's necessarily a positive story for women overall.\"",
+  "published_at": "2026-09-04T18:27:39Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.050335Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/bailey-frontier-ai-financial-stability-risk.html",
+  "title": "Bank of England chief warns new AI models threaten global financial stability",
+  "raw_text": "The growing threat posed by advanced artificial intelligence models could trigger a disorderly correction in global financial markets, according to Bank of England Governor Andrew Bailey.\nIn a two-page letter published Monday to G20 finance ministers and central bank governors, Bailey said the emergence of so-called frontier AI models is showing \"increasingly sophisticated autonomy and problem-solving abilities, as well as threat capabilities.\"\nWriting in his capacity as chair of the Financial Stability Board, an international body that coordinates policy and makes recommendations to national authorities, Bailey identified the potential impact of frontier AI — which refers to the most advanced AI models — on cyber risk as \"the most immediate concern\" for the financial system.\n\"Frontier AI may have the ability materially to alter the speed, scale and economics of cyber risk, which could undermine market confidence system-wide, especially due to highly concentrated third-party service providers,\" Bailey said.\n\"Recent developments have also highlighted to me that many jurisdictions do not have the protocols in place to manage the development, release, and deployment of advanced frontier AI models, heightening risks for the financial sector and beyond,\" he added.\nThe letter adds to a growing chorus of warnings about the dangers associated with advanced AI and comes shortly after a series of high-profile incidents in which flagship models tested by Anthropic and OpenAI breached testing safeguards.\nFinancial institutions and technology providers will need to improve vulnerability management, response and recovery capabilities — \"and prepare for more severe scenarios involving simultaneous disruption across multiple firms or shared technology dependencies,\" Bailey said.\nAlongside new AI models, Bailey cited \"fragilities\" in sovereign debt markets, the growing use of debt by investors in equity markets and stretched asset valuations, particularly AI-related investments, as among his concerns.\nThe U.S. is hosting the Group of 20 summit in Asheville, North Carolina, this week, convening finance ministers, central bank governors and other senior officials from the world's leading economies to discuss global economic priorities.",
+  "published_at": "2026-08-31T13:35:11Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.087929Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

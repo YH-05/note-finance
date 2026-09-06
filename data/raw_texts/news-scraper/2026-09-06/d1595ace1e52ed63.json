@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/06/airbnb-abnb-q2-earnings-report.html",
+  "title": "Airbnb stock soars 12% on earnings and revenue beat, strong guidance for third quarter",
+  "raw_text": "Airbnb reported second-quarter results that topped analysts' estimates and issued a better-than-expected forecast for the current period, citing strong demand \"across all regions.\" The stock jumped 9% in extended trading on Thursday.\nHere's how the company did compared with LSEG's consensus of analyst estimates:\n- Earnings per share: $1.37 vs. $1.25 expected\n- Revenue: $3.61 billion vs. $3.58 billion expected\nRevenue climbed 17% from $3.1 billion a year earlier, Airbnb said in a statement. Net income increased to $816 million from $642 million, or $1.03 per share, a year ago.\nFor the current period, Airbnb said it expects revenue of between $4.69 billion and $4.77 billion, while analysts had been projecting sales of $4.61 billion, according to LSEG. At the midpoint of the range, year-over-year revenue growth would be about 14%.\nAirbnb said that in the U.S. and Canada region and in the area that includes Europe and the Middle East, bookings growth was in the high single digits. For Asia-Pacific, growth was in the high teens, while the Latin America business saw bookings growth of about 20%.\nThe company highlighted particular strength in Brazil and Mexico, but said, \"Overall, we continue to observe market share gains broadly across Latin America, demonstrating the success of our expansion strategy within this region.\"\nFree cash flow jumped 30% to $1.25 billion from $962 million a year earlier, Airbnb said.",
+  "published_at": "2026-08-06T20:53:18Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.115594Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

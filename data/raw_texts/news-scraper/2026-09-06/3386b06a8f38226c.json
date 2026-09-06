@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/04/bitcoin-heads-for-third-winning-week-in-a-row-as-macro-pressures-mount.html",
+  "title": "Bitcoin heads for third winning week in a row as macro pressures mount",
+  "raw_text": "Bitcoin headed for its third straight winning week, as traders searched for refuge amid volatile moves in equities, currencies and bond markets.\nThe token is also up 4.6% week to date and hit a high of $82,272.31 overnight. That marks its highest level since May 11, when bitcoin peaked at $82,499.99. It last traded at $81,151.10.\nBitcoin had been in the doldrums for much of this year, trading roughly within the range of $60,000 to $70,000 since early June. However, the digital asset broke above $70,000 in late August, and it has continued to climb since then as the so-called debasement trade — a strategy in which traders move away from dollars into assets such as crypto or gold — regained momentum.\n\"The price breakout came towards the [end of August] with the re-emergence of the debasement trade re-igniting investor interest in BTC - the U.S. Treasury announced it would increase purchases of longer-dated Treasuries, long yields fell, the dollar weakened, and BTC and gold moved higher,\" Dominika Nestarcova, Goldman Sachs executive director of digital assets, said in a note Thursday.\nOther cryptocurrencies are also rising. Ether hit a high of $2,545.62 on Friday, or its most elevated level since August 27. Solana jumped to as much as about $105.70, marking its highest price since August 31.",
+  "published_at": "2026-09-04T14:36:48Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.053904Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

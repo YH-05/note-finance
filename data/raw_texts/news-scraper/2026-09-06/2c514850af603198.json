@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/traders-pile-into-this-international-stock-market-thats-beating-the-nasdaq.html",
+  "title": "Traders are piling into this international stock market that just pulled ahead of the Nasdaq",
+  "raw_text": "Brazilian stocks are rallying again after a monthslong sell-off from six-year highs reached in April. The iShares MSCI Brazil ETF (EWZ), which is up more than 12% from last month's lows, is now 19% higher on the year. It's ahead of the Nasdaq-100's 15% year-to-date advance.\nThe rally might be tied to the price of commodities, which are also surging, or an expression of optimism around the country's upcoming general election in October. Either way, options traders are piling in, placing uniquely big bets on EWZ that lean more bullish than bearish.\nOptions volume surged to more than six times the 30-day average on Wednesday, according to Cboe LiveVol data. With more than 420,000 contracts traded by midday, EWZ was a top-20 traded security in the options market, alongside Alphabet and the Cboe VIX Index, SpotGamma data show.\nThat's a rare ranking for any non-U.S. stock or ETF, no doubt. Whether or not the options trading signals a strong directional bias is a trickier interpretation.\nCalls dominate the trading in EWZ, with 400,000 calls trading versus less than 30,000 puts, but almost as many calls are being sold as bought, according to ThinkOrSwim. Of the $50 million in premium traded, almost all of it – $48 million – is tied to call contracts, with roughly $26 million of trades likely initiated by buyers, according to SpotGamma.\nOne thing in the bulls' favor: The top 20 contracts traded are all calls — a very rare thing to see in any options flow. While selling of calls is not bullish, it's not necessarily bearish either, and often a part of bullish spread trading or directionally-neutral bets.\nThe call-sellers might just be playing the heightened volatility in the fund. While the price has rallied in the past three weeks, implied volatility has as well, climbing from 0.28 to 0.39, according to ThinkOrSwim data. That means options generally are the most expensive since late June, and traders may be leaning into strategies that collect premium by betting the swings in the fund will dampen.",
+  "published_at": "2026-09-02T19:11:07Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.075165Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "investing",
+    "tags": []
+  }
+}

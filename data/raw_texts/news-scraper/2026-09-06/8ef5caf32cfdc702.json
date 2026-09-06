@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/satellite-communications-networks/20758-starlink-gets-ten-year-licence-to-operate-in-the-uae.html",
+  "title": "Starlink gets ten-year licence to operate in the UAE",
+  "raw_text": "The UAE’s Telecommunications and Digital Government Regulatory Authority (TDRA) has granted LEO satellite operator Starlink a ten-year licence to establish, operate, and manage broadband satellite internet services in the country.\nIn a statement issued Friday, the TDRA said that authorising Starlink to operate in the UAE adds a space-based layer to the country’s national digital infrastructure that will diversify internet access options beyond terrestrial fibre-optic and 5G networks.\nThe scope of the General Space Services licence covers individual consumers, businesses and government entities, as well as satellite connectivity services for the maritime and aviation sectors, in accordance with the UAE’s approved regulatory and technical frameworks.\nTDRA director general Majed Sultan Al Mesmar said Starlink’s satellite network will enhance the resilience, readiness, and continuity of the national network under various conditions, and support critical sectors including maritime and aviation transport, energy, logistics, and emergency response.\n“The introduction of advanced satellite internet services will expand connectivity options, enhance network resilience and business continuity, and support the UAE’s ambition to strengthen its position as a regional and global hub for telecommunications and the digital economy,” he said.\nThe regulator added that while Starlink’s network is approved for operation in the UAE, all services offered via that network are subject to the the country’s regulatory and technical frameworks, “including requirements related to security and the protection of information infrastructure, service quality, reliability and continuity, consumer rights and data privacy, as well as compliance with spectrum-use regulations and technical coordination with relevant authorities.”",
+  "published_at": "2026-09-01T02:35:00Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.213928Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Satellite Networks"
+    ]
+  }
+}

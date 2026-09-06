@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/stock-market-today-live-updates.html",
+  "title": "Dow tumbles more than 260 points after strong jobs report reignites rate hike fears: Live updates",
+  "raw_text": "The Dow Jones Industrial Average fell on Friday as August's hotter-than-expected payrolls reading increased expectations that the Federal Reserve could raise interest rates at its next meeting.\nThe 30-stock Dow was down 271.86 points, or 0.51%, closing at 53,414.25. The S&P 500 slid 0.38% to end at 7,718.60, while the Nasdaq Composite dropped 0.29% to 26,506.99.\nNonfarm payrolls grew 162,000 last month, much more than the 53,000 that economists polled by Dow Jones expected. The unemployment rate held steady at 4.1%, as expected. On top of last month's gain, figures for both June and July saw upward revisions.\nTreasury yields rose following the report, with the 2-year yield hitting its highest level since January 2025. Expectations that the Fed could raise rates in a couple weeks increased, as fed funds futures traders are now pricing in a 58% chance of a hike, per the CME FedWatch tool. Odds were at 49.4% a day ago.\n\"A monster jobs report for August reminds us that this labor statistic has become highly volatile while nudging up the probability of a September hike slightly,\" said Bradford Smith, portfolio manager at Janus Henderson Investors.\nNow, the debate surrounding the Fed \"will sit handily on the incoming inflation data,\" he added. \"After a hawkish appearance from Chairman Warsh at Jackson Hole last week, there is a clear bias at the Fed to take action if the incoming data does not show further progress on disinflation.\"\nThe three major averages rose on Thursday, catching a tailwind as Treasury yields pulled back after Federal Reserve Governor Christopher Waller said he would be \"inclined to support\" keeping rates at their current target range of 3.5% to 3.75% at the central bank's Sept. 15-16 meeting.\nHowever, the Dow dropped 0.3% during the week. The S&P 500 added 0.1% week to date, while the Nasdaq notched a 0.4% gain.",
+  "published_at": "2026-09-04T20:16:09Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.048316Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

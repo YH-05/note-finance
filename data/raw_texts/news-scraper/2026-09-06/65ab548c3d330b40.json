@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://lapcatsoftware.com/articles/2026/9/1.html",
+  "title": "Chrome again exempts Google from user site data settings",
+  "raw_text": "Six years ago I published a blog post Chrome exempts Google sites from user site data settings that received quite a bit of attention: Michael Tsai, Hacker News The Register, The Verge, and Gizmodo, among others. The blog post was about a Google Chrome bug that mysteriously exempted Google-owned sites from the setting to automatically delete all site data. Eventually, spurred by my report, Google did fix the bug.\nYou can probably guess why I’m writing about the bug again: I’ve noticed Chrome doing something similar now. I’ve reproduced this new issue on two different Macs with Chrome version 152.0.7977.83. For testing purposes, I changed the default search engine in Chrome from Google to DuckDuckGo, just to make sure that this setting was not the cause.\nOn-device site data settings (chrome://settings/content/siteData\n) shows that the Default behavior is to Delete data sites have saved to your device when you close all windows.\nI’m not signed into Chrome and indeed disallow Chrome sign-in.\nYou can see on chrome://settings/content/all\nthat no site data is saved.\nNow I do a Google search.\nThen I close the one and only window in Chrome.\nReturning to chrome://settings/content/all\n, I find some google.com\nsite data! This data persists even if I quit and relaunch Chrome.\nIf I delete the Google site data and repeat the whole process, the same issue occurs again.\nAs far as I can tell, www.google.com\nis the only site exempted by Chrome. Looking inside the ~/Library\nfolder, it appears that the saved site data consists of Cookies, Local Storage, and Session Storage.\nI’m not certain when this issue was introduced. My default web browser is Safari, so I don’t use Chrome full-time, though I do use it (and Firefox) frequently for testing.\nI’m personally inclined to cite Hanlon’s razor here rather than engage in conspiracy theories. Nonetheless, Google has no excuse for incompetence either, especially given the amount of money made by the company (which I’ll always call Google, not Alphabet) and its engineers. They can avoid receiving bad publicity from me by improving their QA. Perhaps some kind of unit tests for this feature? Move slower and don’t break things.\nI wish the government would move fast and break up the Google Search monopoly. Don’t even get me started about how when you’re not signed in to Google, all Google Search results are now opaque https://www.google.com/goto?url=\ngarbage rather than the site URLs!",
+  "published_at": "2026-09-05T23:39:47Z",
+  "author": "ExMachina73",
+  "collected_at": "2026-09-06T09:01:00.419102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -16719,3 +16719,415 @@ Call log:
 2026-06-04 20:04:28,074 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nebc2bd53eea4 title=2026年6月3日｜日経平均は初の6万8000円台へ。半導体株高でもグロースは弱い一日でした｜日本株・米国株のポイント解説と明日の展望
 2026-06-04 20:04:28,159 INFO data_pipeline.collectors.note_com_rss: config_updated updated_count=11 timestamp=2026-06-04T11:04:28.158850+00:00
 2026-06-04 20:04:28,159 INFO data_pipeline.collectors.note_com_rss: rss_monitor_completed creators_checked=11 new_articles_found=36 articles_saved=8 articles_skipped_paid=28 articles_skipped_duplicate=0 error_count=0
+2026-09-06 20:00:03,596 INFO data_pipeline.collectors.note_com_rss: rss_monitor_starting creator_count=11
+2026-09-06 20:00:03,891 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=fukuoka1116 entry_count=25
+2026-09-06 20:00:03,896 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=fukuoka1116 new_count=15
+2026-09-06 20:00:04,201 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=sota_career entry_count=25
+2026-09-06 20:00:04,473 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=kei_10m_asset entry_count=23
+2026-09-06 20:00:04,657 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=careercompass_c entry_count=25
+2026-09-06 20:00:04,663 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=careercompass_c new_count=25
+2026-09-06 20:00:04,755 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=dandism56 entry_count=25
+2026-09-06 20:00:04,776 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=dandism56 new_count=25
+2026-09-06 20:00:05,004 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=miraicareer_blog entry_count=25
+2026-09-06 20:00:05,009 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=miraicareer_blog new_count=13
+2026-09-06 20:00:05,076 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=glad_auklet4142 entry_count=25
+2026-09-06 20:00:05,099 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=glad_auklet4142 new_count=25
+2026-09-06 20:00:05,323 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=hide_taxnote entry_count=25
+2026-09-06 20:00:05,347 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=hide_taxnote new_count=25
+2026-09-06 20:00:05,657 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=mindset_official entry_count=25
+2026-09-06 20:00:05,873 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=ruinormalhakkar entry_count=25
+2026-09-06 20:00:05,877 INFO data_pipeline.collectors.note_com_rss: new_entries_found username=ruinormalhakkar new_count=2
+2026-09-06 20:00:05,946 INFO data_pipeline.collectors.note_com_rss: rss_fetched username=studyhacker entry_count=0
+2026-09-06 20:00:08,112 INFO data_pipeline.collectors.note_com_browser: note_com_browser_started
+2026-09-06 20:00:08,112 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n912b723d5068
+2026-09-06 20:00:11,215 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n912b723d5068 title=他人の働き方を羨ましいと思ってしまう方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=2148 hashtag_count=8
+2026-09-06 20:00:11,216 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n912b723d5068 title=他人の働き方を羨ましいと思ってしまう方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:11,216 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nc8c3943f40fb
+2026-09-06 20:00:13,928 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nc8c3943f40fb title=社内で評価されてる人が8時間ちゃんと働いていない理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=2674 hashtag_count=7
+2026-09-06 20:00:13,929 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nc8c3943f40fb title=社内で評価されてる人が8時間ちゃんと働いていない理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:13,930 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n1e1e2493ba9c
+2026-09-06 20:00:16,469 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n1e1e2493ba9c title=どうしても「決断」ができない方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=1582 hashtag_count=7
+2026-09-06 20:00:16,469 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n1e1e2493ba9c title=どうしても「決断」ができない方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:16,469 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n6848bec8c4c5
+2026-09-06 20:00:19,115 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n6848bec8c4c5 title=『人を替えるだけ』の管理職が、組織を壊している理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=2097 hashtag_count=7
+2026-09-06 20:00:19,116 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n6848bec8c4c5 title=『人を替えるだけ』の管理職が、組織を壊している理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:19,116 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n54445d784ff8
+2026-09-06 20:00:21,856 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n54445d784ff8 title=面白い人ほど、仕事で選ばれない明確な理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=2210 hashtag_count=7
+2026-09-06 20:00:21,857 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n54445d784ff8 title=面白い人ほど、仕事で選ばれない明確な理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:21,857 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n9d7d6cdd94dd
+2026-09-06 20:00:24,553 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n9d7d6cdd94dd title=「もっと深く考えてほしい」と言われて悩んでいる人へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい body_length=1902 hashtag_count=7
+2026-09-06 20:00:24,553 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n9d7d6cdd94dd title=「もっと深く考えてほしい」と言われて悩んでいる人へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい
+2026-09-06 20:00:24,553 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n54557fbd3cac
+2026-09-06 20:00:27,646 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n54557fbd3cac title=人が感情で決めて、理屈で正当化してしまう本当の理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい  body_length=1890 hashtag_count=10
+2026-09-06 20:00:27,647 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n54557fbd3cac title=人が感情で決めて、理屈で正当化してしまう本当の理由　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい 
+2026-09-06 20:00:27,648 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n673aaa61d78d
+2026-09-06 20:00:30,577 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n673aaa61d78d title=自責思考と他責思考は何故分かり合えないのか　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2139 hashtag_count=8
+2026-09-06 20:00:30,577 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n673aaa61d78d title=自責思考と他責思考は何故分かり合えないのか　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:30,577 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n7e02ea8478eb
+2026-09-06 20:00:33,272 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n7e02ea8478eb title="最低限の働き方"を選ぶことに悩んでいる方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2101 hashtag_count=8
+2026-09-06 20:00:33,272 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n7e02ea8478eb title="最低限の働き方"を選ぶことに悩んでいる方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:33,272 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n772071c3ac44
+2026-09-06 20:00:36,043 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n772071c3ac44 title=くだらない仕事に限界を感じて疲れた方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2339 hashtag_count=7
+2026-09-06 20:00:36,044 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n772071c3ac44 title=くだらない仕事に限界を感じて疲れた方へ　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:36,044 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/ne8d70e1aaa5c
+2026-09-06 20:00:38,844 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/ne8d70e1aaa5c title=「話していて面白い人」の正体は、知識量ではなく”問いの数”だった話　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2457 hashtag_count=8
+2026-09-06 20:00:38,845 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/ne8d70e1aaa5c title=「話していて面白い人」の正体は、知識量ではなく”問いの数”だった話　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:38,845 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n127e1baf4968
+2026-09-06 20:00:41,436 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n127e1baf4968 title=質問の意図がわからない人の共通点　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2025 hashtag_count=7
+2026-09-06 20:00:41,437 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n127e1baf4968 title=質問の意図がわからない人の共通点　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:41,437 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nc98940ff8277
+2026-09-06 20:00:44,263 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nc98940ff8277 title="静かな退職真っ最中の人間"とやる気満々の人が同じ案件を担当した結果　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2685 hashtag_count=8
+2026-09-06 20:00:44,263 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nc98940ff8277 title="静かな退職真っ最中の人間"とやる気満々の人が同じ案件を担当した結果　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:44,263 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/n831d0cfb5250
+2026-09-06 20:00:47,119 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/n831d0cfb5250 title=人の気持ちを"読まない"と誇らしげに話す"読めない人"の正体。　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=1951 hashtag_count=7
+2026-09-06 20:00:47,119 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/n831d0cfb5250 title=人の気持ちを"読まない"と誇らしげに話す"読めない人"の正体。　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:47,119 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/fukuoka1116/n/nbf944d4b85a9
+2026-09-06 20:00:49,727 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/fukuoka1116/n/nbf944d4b85a9 title=本を読まない会社員がnoteばかり読む理由はほぼコレ。　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み body_length=2654 hashtag_count=7
+2026-09-06 20:00:49,727 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/fukuoka1116/n/nbf944d4b85a9 title=本を読まない会社員がnoteばかり読む理由はほぼコレ。　#仕事#会社員 #仕事の悩み #30代 #営業#転職 #キャリア #働き方 #人間関係 #仕事辞めたい #社会人の悩み
+2026-09-06 20:00:49,727 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ndaccab155e0e
+2026-09-06 20:00:52,516 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ndaccab155e0e
+2026-09-06 20:00:52,517 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ndaccab155e0e
+2026-09-06 20:00:52,517 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n20b67f956762
+2026-09-06 20:00:55,341 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n20b67f956762
+2026-09-06 20:00:55,342 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n20b67f956762
+2026-09-06 20:00:55,342 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n863d4823acd9
+2026-09-06 20:00:57,821 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n863d4823acd9
+2026-09-06 20:00:57,821 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n863d4823acd9
+2026-09-06 20:00:57,821 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nafc284e18cac
+2026-09-06 20:01:00,400 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nafc284e18cac
+2026-09-06 20:01:00,400 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nafc284e18cac
+2026-09-06 20:01:00,400 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n712fd3fc4df3
+2026-09-06 20:01:03,245 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n712fd3fc4df3
+2026-09-06 20:01:03,246 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n712fd3fc4df3
+2026-09-06 20:01:03,246 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ncceb4da60b0b
+2026-09-06 20:01:06,103 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ncceb4da60b0b
+2026-09-06 20:01:06,103 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ncceb4da60b0b
+2026-09-06 20:01:06,103 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n99b60d3ed9ac
+2026-09-06 20:01:08,891 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n99b60d3ed9ac
+2026-09-06 20:01:08,891 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n99b60d3ed9ac
+2026-09-06 20:01:08,891 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nd12862465710
+2026-09-06 20:01:11,997 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nd12862465710
+2026-09-06 20:01:11,997 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nd12862465710
+2026-09-06 20:01:11,997 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n095e80891cb6
+2026-09-06 20:01:14,490 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n095e80891cb6
+2026-09-06 20:01:14,490 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n095e80891cb6
+2026-09-06 20:01:14,490 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ndd690029329b
+2026-09-06 20:01:16,977 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ndd690029329b
+2026-09-06 20:01:16,978 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ndd690029329b
+2026-09-06 20:01:16,978 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n29aeebdc9863
+2026-09-06 20:01:19,623 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n29aeebdc9863
+2026-09-06 20:01:19,624 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n29aeebdc9863
+2026-09-06 20:01:19,624 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ned80ec46d4b9
+2026-09-06 20:01:22,580 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ned80ec46d4b9
+2026-09-06 20:01:22,580 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ned80ec46d4b9
+2026-09-06 20:01:22,580 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n4a29d7a0b501
+2026-09-06 20:01:25,496 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n4a29d7a0b501
+2026-09-06 20:01:25,496 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n4a29d7a0b501
+2026-09-06 20:01:25,496 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n442a96a63cbb
+2026-09-06 20:01:28,135 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n442a96a63cbb
+2026-09-06 20:01:28,135 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n442a96a63cbb
+2026-09-06 20:01:28,135 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n82311b711e10
+2026-09-06 20:01:31,131 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n82311b711e10
+2026-09-06 20:01:31,131 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n82311b711e10
+2026-09-06 20:01:31,131 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/nabf7a19101a3
+2026-09-06 20:01:33,701 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/nabf7a19101a3
+2026-09-06 20:01:33,701 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/nabf7a19101a3
+2026-09-06 20:01:33,701 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n83f5df3f6636
+2026-09-06 20:01:36,298 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n83f5df3f6636
+2026-09-06 20:01:36,298 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n83f5df3f6636
+2026-09-06 20:01:36,298 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ned13f204dc70
+2026-09-06 20:01:39,047 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ned13f204dc70
+2026-09-06 20:01:39,048 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ned13f204dc70
+2026-09-06 20:01:39,048 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n5c556a71e740
+2026-09-06 20:01:41,831 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n5c556a71e740
+2026-09-06 20:01:41,831 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n5c556a71e740
+2026-09-06 20:01:41,831 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/ndb2db59ef25b
+2026-09-06 20:01:44,582 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/ndb2db59ef25b
+2026-09-06 20:01:44,582 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/ndb2db59ef25b
+2026-09-06 20:01:44,582 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n993901f34185
+2026-09-06 20:01:47,175 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n993901f34185
+2026-09-06 20:01:47,175 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n993901f34185
+2026-09-06 20:01:47,175 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n9fdd722a47c8
+2026-09-06 20:01:50,096 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n9fdd722a47c8
+2026-09-06 20:01:50,096 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n9fdd722a47c8
+2026-09-06 20:01:50,097 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n039c7b13a62e
+2026-09-06 20:01:52,807 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n039c7b13a62e
+2026-09-06 20:01:52,808 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n039c7b13a62e
+2026-09-06 20:01:52,808 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n1fdbaf0a3aaf
+2026-09-06 20:01:55,517 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n1fdbaf0a3aaf
+2026-09-06 20:01:55,517 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n1fdbaf0a3aaf
+2026-09-06 20:01:55,517 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/careercompass_c/n/n9c796d4e17d4
+2026-09-06 20:01:58,060 INFO data_pipeline.collectors.note_com_browser: article_is_paid_skipping url=https://note.com/careercompass_c/n/n9c796d4e17d4
+2026-09-06 20:01:58,060 INFO data_pipeline.collectors.note_com_rss: article_paid_skipped url=https://note.com/careercompass_c/n/n9c796d4e17d4
+2026-09-06 20:01:58,060 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n90ecfc8e624d
+2026-09-06 20:02:01,448 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n90ecfc8e624d title=「ニーズ」と「ウォンツ」の見分け方について考えてみた〜仕事での気づき〜 body_length=5254 hashtag_count=38
+2026-09-06 20:02:01,449 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n90ecfc8e624d title=「ニーズ」と「ウォンツ」の見分け方について考えてみた〜仕事での気づき〜
+2026-09-06 20:02:01,449 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n25dfa2f910e3
+2026-09-06 20:02:04,358 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n25dfa2f910e3 title=会社が倒産して気づいた。「会社にキャリアを預けない」という働き方～仕事での気づき～ body_length=2452 hashtag_count=35
+2026-09-06 20:02:04,358 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n25dfa2f910e3 title=会社が倒産して気づいた。「会社にキャリアを預けない」という働き方～仕事での気づき～
+2026-09-06 20:02:04,359 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nd005a1f076ff
+2026-09-06 20:02:07,693 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nd005a1f076ff title=2ndリリース『破壊と再生』配信！ body_length=1776 hashtag_count=22
+2026-09-06 20:02:07,698 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nd005a1f076ff title=2ndリリース『破壊と再生』配信！
+2026-09-06 20:02:07,698 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/neb36aa973844
+2026-09-06 20:02:10,487 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/neb36aa973844 title=古臭い「ハードワーク」と、必要な「ハードワーク」について考え直してみた～仕事での気づき～ body_length=4918 hashtag_count=36
+2026-09-06 20:02:10,488 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/neb36aa973844 title=古臭い「ハードワーク」と、必要な「ハードワーク」について考え直してみた～仕事での気づき～
+2026-09-06 20:02:10,488 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n97a1d24e7999
+2026-09-06 20:02:13,403 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n97a1d24e7999 title=【これからのキャリア】「コンプレックス」があなたのキャリアの可能性を邪魔します body_length=5415 hashtag_count=37
+2026-09-06 20:02:13,403 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n97a1d24e7999 title=【これからのキャリア】「コンプレックス」があなたのキャリアの可能性を邪魔します
+2026-09-06 20:02:13,403 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n927f29ec3887
+2026-09-06 20:02:16,289 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n927f29ec3887 title=GA technologies 川村さんの記事で強く共感した「アナログ×テクノロジー」からこれからのキャリアを考えてみた body_length=5011 hashtag_count=41
+2026-09-06 20:02:16,289 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n927f29ec3887 title=GA technologies 川村さんの記事で強く共感した「アナログ×テクノロジー」からこれからのキャリアを考えてみた
+2026-09-06 20:02:16,289 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nfc7ff6dea8b5
+2026-09-06 20:02:19,232 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nfc7ff6dea8b5 title=「経済力」より「自己の可能性の追求」が、これからのキャリアと幸福につながる理由 body_length=4791 hashtag_count=35
+2026-09-06 20:02:19,233 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nfc7ff6dea8b5 title=「経済力」より「自己の可能性の追求」が、これからのキャリアと幸福につながる理由
+2026-09-06 20:02:19,233 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n7b8f3e32468a
+2026-09-06 20:02:22,730 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n7b8f3e32468a title=【転職体験記】転職エージェントを続けるか迷っていた自分に、社長がかけてくれた言葉〜これからのキャリア〜 body_length=4276 hashtag_count=37
+2026-09-06 20:02:22,730 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n7b8f3e32468a title=【転職体験記】転職エージェントを続けるか迷っていた自分に、社長がかけてくれた言葉〜これからのキャリア〜
+2026-09-06 20:02:22,730 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nedd599feb6e3
+2026-09-06 20:02:25,799 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nedd599feb6e3 title=【転職活動中の方へ】9月転職(10月入社)は、あなたの2027年に向けたこれからのキャリアのキーポイント！その2つの理由とは body_length=3165 hashtag_count=38
+2026-09-06 20:02:25,800 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nedd599feb6e3 title=【転職活動中の方へ】9月転職(10月入社)は、あなたの2027年に向けたこれからのキャリアのキーポイント！その2つの理由とは
+2026-09-06 20:02:25,800 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n6fe860ab28b7
+2026-09-06 20:02:28,650 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n6fe860ab28b7 title=【15000フォロワー到達！】転職エージェントがアーティストとして楽曲配信スタート！ body_length=2386 hashtag_count=41
+2026-09-06 20:02:28,650 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n6fe860ab28b7 title=【15000フォロワー到達！】転職エージェントがアーティストとして楽曲配信スタート！
+2026-09-06 20:02:28,650 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n47fd24edd1a7
+2026-09-06 20:02:31,474 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n47fd24edd1a7 title=「腹(ハラ)」と「腰(コシ)」にまつわる言葉には、AI時代のキャリアや人間関係に大きな関係があります～これからのキャリア～ body_length=3237 hashtag_count=36
+2026-09-06 20:02:31,474 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n47fd24edd1a7 title=「腹(ハラ)」と「腰(コシ)」にまつわる言葉には、AI時代のキャリアや人間関係に大きな関係があります～これからのキャリア～
+2026-09-06 20:02:31,474 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n88d690045afa
+2026-09-06 20:02:34,711 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n88d690045afa title=「エゴ(EGO)」の語源は「自己分析」と「キャリアプラン」につなげられる話～これからのキャリア～ body_length=5194 hashtag_count=40
+2026-09-06 20:02:34,711 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n88d690045afa title=「エゴ(EGO)」の語源は「自己分析」と「キャリアプラン」につなげられる話～これからのキャリア～
+2026-09-06 20:02:34,711 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n51ae50a4d180
+2026-09-06 20:02:42,684 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n51ae50a4d180 title=【おかげさまで1000スキ突破！】有料note『キャリアを言語化する転職マニュアル』をご紹介いただいて得た「仕事での気づき」 body_length=2934 hashtag_count=40
+2026-09-06 20:02:42,685 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n51ae50a4d180 title=【おかげさまで1000スキ突破！】有料note『キャリアを言語化する転職マニュアル』をご紹介いただいて得た「仕事での気づき」
+2026-09-06 20:02:42,685 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nf2ecd354daf8
+2026-09-06 20:02:46,696 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nf2ecd354daf8 title=『風の時代』と呼ばれる今、私が「土・水・風・火」から考えた、これからのキャリア body_length=4565 hashtag_count=38
+2026-09-06 20:02:46,697 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nf2ecd354daf8 title=『風の時代』と呼ばれる今、私が「土・水・風・火」から考えた、これからのキャリア
+2026-09-06 20:02:46,697 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nc7a3e61475ca
+2026-09-06 20:02:49,829 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nc7a3e61475ca title=【600日連続投稿達成！】私のこれからのキャリアは「クリエイター活動」です body_length=4429 hashtag_count=36
+2026-09-06 20:02:49,829 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nc7a3e61475ca title=【600日連続投稿達成！】私のこれからのキャリアは「クリエイター活動」です
+2026-09-06 20:02:49,829 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/nfa88a10aca9f
+2026-09-06 20:02:53,674 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/nfa88a10aca9f title=【自己紹介note】複業家、キャリアのプロとして新たに決めた、可能性へのチャレンジ～これからのキャリア～ body_length=12767 hashtag_count=42
+2026-09-06 20:02:53,675 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/nfa88a10aca9f title=【自己紹介note】複業家、キャリアのプロとして新たに決めた、可能性へのチャレンジ～これからのキャリア～
+2026-09-06 20:02:53,675 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/ncaaf3f56d8fa
+2026-09-06 20:02:56,780 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/ncaaf3f56d8fa title=退職したいけど一歩が踏み出せない人へ、転職エージェントがエッセンスをお届けします！～これからのキャリア～ body_length=3973 hashtag_count=37
+2026-09-06 20:02:56,780 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/ncaaf3f56d8fa title=退職したいけど一歩が踏み出せない人へ、転職エージェントがエッセンスをお届けします！～これからのキャリア～
+2026-09-06 20:02:56,780 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n8f24bb261140
+2026-09-06 20:02:59,804 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n8f24bb261140 title=マズローの『欲求5段階説』に気づかされた「幸せのステージを上げていくのが人生である」説〜これからのキャリア〜 body_length=5087 hashtag_count=39
+2026-09-06 20:02:59,805 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n8f24bb261140 title=マズローの『欲求5段階説』に気づかされた「幸せのステージを上げていくのが人生である」説〜これからのキャリア〜
+2026-09-06 20:02:59,805 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n848af1f39bab
+2026-09-06 20:03:03,004 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n848af1f39bab title=「相棒(バディ)」だけが、仲間ではなかった」～パートナーシップで目標を達成しよう～ body_length=1027 hashtag_count=36
+2026-09-06 20:03:03,005 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n848af1f39bab title=「相棒(バディ)」だけが、仲間ではなかった」～パートナーシップで目標を達成しよう～
+2026-09-06 20:03:03,005 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n2a4c7e62baa5
+2026-09-06 20:03:05,834 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n2a4c7e62baa5 title=私が解雇になっても評価に苦しんでもセールスを続けている理由～これからのキャリア～ body_length=5224 hashtag_count=38
+2026-09-06 20:03:05,834 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n2a4c7e62baa5 title=私が解雇になっても評価に苦しんでもセールスを続けている理由～これからのキャリア～
+2026-09-06 20:03:05,834 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n33642a18c0fe
+2026-09-06 20:03:08,919 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n33642a18c0fe title=開発とウェルビーイングを、どう両立していくか？～近い未来のためにできること～ body_length=978 hashtag_count=39
+2026-09-06 20:03:08,919 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n33642a18c0fe title=開発とウェルビーイングを、どう両立していくか？～近い未来のためにできること～
+2026-09-06 20:03:08,919 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n106a1d72a0de
+2026-09-06 20:03:11,832 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n106a1d72a0de title=noteで紹介記事を書くことが、喜びや生きがいになっている理由 body_length=5694 hashtag_count=36
+2026-09-06 20:03:11,832 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n106a1d72a0de title=noteで紹介記事を書くことが、喜びや生きがいになっている理由
+2026-09-06 20:03:11,832 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n1a09cab72681
+2026-09-06 20:03:14,792 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n1a09cab72681 title=『億を稼ぐ人の習慣』を読み、何のために“習慣改革”をしていくか考えてみた body_length=3905 hashtag_count=17
+2026-09-06 20:03:14,792 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n1a09cab72681 title=『億を稼ぐ人の習慣』を読み、何のために“習慣改革”をしていくか考えてみた
+2026-09-06 20:03:14,792 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/n228f7c326fa6
+2026-09-06 20:03:17,678 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/n228f7c326fa6 title=【これからのキャリア】「諸行無常」が現実社会を幸せに生きるヒントだと思った理由 body_length=4198 hashtag_count=23
+2026-09-06 20:03:17,679 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/n228f7c326fa6 title=【これからのキャリア】「諸行無常」が現実社会を幸せに生きるヒントだと思った理由
+2026-09-06 20:03:17,679 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/dandism56/n/ndfe8cd48eebd
+2026-09-06 20:03:20,306 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/dandism56/n/ndfe8cd48eebd title=AI技術が進むほど、最後に残る「人の力」とは～未来のためにできること～ body_length=968 hashtag_count=28
+2026-09-06 20:03:20,307 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/dandism56/n/ndfe8cd48eebd title=AI技術が進むほど、最後に残る「人の力」とは～未来のためにできること～
+2026-09-06 20:03:20,307 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n7c32c855503d
+2026-09-06 20:03:23,022 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n7c32c855503d title=経験豊富でも書類選考が通らない。ハイクラス視点での企業と求職者の「アピールのズレ」 body_length=2654 hashtag_count=27
+2026-09-06 20:03:23,024 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n7c32c855503d title=経験豊富でも書類選考が通らない。ハイクラス視点での企業と求職者の「アピールのズレ」
+2026-09-06 20:03:23,024 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n3c0ad66a41ff
+2026-09-06 20:03:25,763 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n3c0ad66a41ff title=「20代は採用できない」と悩む中堅中小の製造業へ。40代ミドルを"非管理職"で活かすという選択 body_length=2781 hashtag_count=32
+2026-09-06 20:03:25,763 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n3c0ad66a41ff title=「20代は採用できない」と悩む中堅中小の製造業へ。40代ミドルを"非管理職"で活かすという選択
+2026-09-06 20:03:25,763 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n0efd29fed16a
+2026-09-06 20:03:28,806 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n0efd29fed16a title=その条件、本当に譲れない？転職先を探すときに考えてみたいこと body_length=3769 hashtag_count=23
+2026-09-06 20:03:28,806 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n0efd29fed16a title=その条件、本当に譲れない？転職先を探すときに考えてみたいこと
+2026-09-06 20:03:28,806 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n0cf422ae2b9f
+2026-09-06 20:03:31,604 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n0cf422ae2b9f title=「応募は来るのに、求める経験者がいない」東海の製造業が見直すべき採用ターゲットと求人票 body_length=5153 hashtag_count=25
+2026-09-06 20:03:31,605 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n0cf422ae2b9f title=「応募は来るのに、求める経験者がいない」東海の製造業が見直すべき採用ターゲットと求人票
+2026-09-06 20:03:31,605 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n365e5afcc335
+2026-09-06 20:03:34,401 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n365e5afcc335 title=「プレイングマネージャー」は武器になる？ ～企業と求職者、その間で起きていること～  body_length=3065 hashtag_count=28
+2026-09-06 20:03:34,402 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n365e5afcc335 title=「プレイングマネージャー」は武器になる？ ～企業と求職者、その間で起きていること～ 
+2026-09-06 20:03:34,402 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n697cbb493bba
+2026-09-06 20:03:37,420 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n697cbb493bba title=「いつ入社できますか？」——東海の中小メーカーが抱える属人化が生む、採用現場のすれ違い  body_length=2191 hashtag_count=26
+2026-09-06 20:03:37,421 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n697cbb493bba title=「いつ入社できますか？」——東海の中小メーカーが抱える属人化が生む、採用現場のすれ違い 
+2026-09-06 20:03:37,421 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n92f7be32e5c1
+2026-09-06 20:03:40,039 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n92f7be32e5c1 title=「本当にこの会社でいいの？」内定後に迷う理由をアドバイザー目線でお伝えします  body_length=2304 hashtag_count=23
+2026-09-06 20:03:40,039 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n92f7be32e5c1 title=「本当にこの会社でいいの？」内定後に迷う理由をアドバイザー目線でお伝えします 
+2026-09-06 20:03:40,039 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n2298093601fc
+2026-09-06 20:03:42,913 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n2298093601fc title=「聞いていたのと違った」を防ぐために。企業インタビューで見えてきたこと body_length=2999 hashtag_count=27
+2026-09-06 20:03:42,914 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n2298093601fc title=「聞いていたのと違った」を防ぐために。企業インタビューで見えてきたこと
+2026-09-06 20:03:42,914 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n57ea748bd956
+2026-09-06 20:03:46,693 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n57ea748bd956 title=転職の判断軸がわかる「みらいキャリア」公式YouTubeを開設しました！ body_length=554 hashtag_count=22
+2026-09-06 20:03:46,694 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n57ea748bd956 title=転職の判断軸がわかる「みらいキャリア」公式YouTubeを開設しました！
+2026-09-06 20:03:46,694 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/nbc3f325df175
+2026-09-06 20:03:49,719 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/nbc3f325df175 title=「もう少し他も見てから応募します」その言葉を聞くたびにキャリアアドバイザーが思うこと body_length=2147 hashtag_count=17
+2026-09-06 20:03:49,720 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/nbc3f325df175 title=「もう少し他も見てから応募します」その言葉を聞くたびにキャリアアドバイザーが思うこと
+2026-09-06 20:03:49,720 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/na760b1b7085e
+2026-09-06 20:03:52,288 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/na760b1b7085e title=ロボットテクノロジージャパンで感じた製造業採用のリアル～採用が必要なのは分かっているが、何から手をつければいいか分からない～ body_length=2307 hashtag_count=27
+2026-09-06 20:03:52,289 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/na760b1b7085e title=ロボットテクノロジージャパンで感じた製造業採用のリアル～採用が必要なのは分かっているが、何から手をつければいいか分からない～
+2026-09-06 20:03:52,289 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n94ad3439775d
+2026-09-06 20:03:55,148 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n94ad3439775d title=30代前半の「求人は見ているのに決めきれない」人へ body_length=1803 hashtag_count=34
+2026-09-06 20:03:55,148 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n94ad3439775d title=30代前半の「求人は見ているのに決めきれない」人へ
+2026-09-06 20:03:55,148 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/miraicareer_blog/n/n539d20c43b23
+2026-09-06 20:03:57,840 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/miraicareer_blog/n/n539d20c43b23 title=東海エリアのメーカー転職で、“転職活動が長引きやすい人”に共通していること body_length=1906 hashtag_count=22
+2026-09-06 20:03:57,841 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/miraicareer_blog/n/n539d20c43b23 title=東海エリアのメーカー転職で、“転職活動が長引きやすい人”に共通していること
+2026-09-06 20:03:57,841 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n342d58a59114
+2026-09-06 20:04:00,752 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n342d58a59114 title=【人事ソフトに259億円・給与と評価の情報を、AIが覗き始めた】——Salesforceが「AIの働く地図」を押さえに来た理由。5,500社・120万人の人事データが「組織インテリジェンス」に変わる日。#HRテック #AI #資金調達 #Salesforce #HiBob #人事データ #働き方 #エンタープライズAI body_length=1742 hashtag_count=96
+2026-09-06 20:04:00,753 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n342d58a59114 title=【人事ソフトに259億円・給与と評価の情報を、AIが覗き始めた】——Salesforceが「AIの働く地図」を押さえに来た理由。5,500社・120万人の人事データが「組織インテリジェンス」に変わる日。#HRテック #AI #資金調達 #Salesforce #HiBob #人事データ #働き方 #エンタープライズAI
+2026-09-06 20:04:00,753 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/na58f43fc3ce6
+2026-09-06 20:04:03,821 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/na58f43fc3ce6 title=【「中身ゼロ」で約400億円を集める会社】——SPAC（白紙小切手企業）が5回目のおかわり、でも過去3回の成績は−59%・−66%・−83%。あなたが知らないSPACという「福袋」の胃が痛くなる仕組みを、貿易商が成績表つきで全解剖する。　#SPAC #フィンテック #上場 #投資 #ThunderBridge #米国株 #ウォール街 #IPO #ブランクチェック #金融リテラシー body_length=2448 hashtag_count=96
+2026-09-06 20:04:03,822 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/na58f43fc3ce6 title=【「中身ゼロ」で約400億円を集める会社】——SPAC（白紙小切手企業）が5回目のおかわり、でも過去3回の成績は−59%・−66%・−83%。あなたが知らないSPACという「福袋」の胃が痛くなる仕組みを、貿易商が成績表つきで全解剖する。　#SPAC #フィンテック #上場 #投資 #ThunderBridge #米国株 #ウォール街 #IPO #ブランクチェック #金融リテラシー
+2026-09-06 20:04:03,822 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/na2fb91124191
+2026-09-06 20:04:06,790 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/na2fb91124191 title=【南アフリカ、科学者の登録義務化法案で議論】——未登録で最長1年の収監可能性、まだ「成立前」南アフリカの「科学者を刑務所に送る法案」が突きつける、専門家への背筋の冷える問い。#海外ニュース #南アフリカ #科学政策 #専門職規制 #研究の自由 #SACNASP #ポス鳥 #ニュース解説 body_length=2402 hashtag_count=95
+2026-09-06 20:04:06,791 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/na2fb91124191 title=【南アフリカ、科学者の登録義務化法案で議論】——未登録で最長1年の収監可能性、まだ「成立前」南アフリカの「科学者を刑務所に送る法案」が突きつける、専門家への背筋の冷える問い。#海外ニュース #南アフリカ #科学政策 #専門職規制 #研究の自由 #SACNASP #ポス鳥 #ニュース解説
+2026-09-06 20:04:06,791 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n79e6b3b9ae37
+2026-09-06 20:04:09,820 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n79e6b3b9ae37 title=【英国AI政策の設計者が、Anthropicへ】AI政策の設計者が、自分で設計したルールの恩恵を受ける企業に入った。あなたが「利益相反」という言葉を聞いて感じる物。3つのチェックで「不正確定」と「構造的懸念」を見分ける方法。#AI #Anthropic #英国 #AI政策 #利益相反 #回転ドア #ARIA #テック業界 body_length=2176 hashtag_count=100
+2026-09-06 20:04:09,820 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n79e6b3b9ae37 title=【英国AI政策の設計者が、Anthropicへ】AI政策の設計者が、自分で設計したルールの恩恵を受ける企業に入った。あなたが「利益相反」という言葉を聞いて感じる物。3つのチェックで「不正確定」と「構造的懸念」を見分ける方法。#AI #Anthropic #英国 #AI政策 #利益相反 #回転ドア #ARIA #テック業界
+2026-09-06 20:04:09,820 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n7d0d145b4590
+2026-09-06 20:04:12,770 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n7d0d145b4590 title=【三菱電機がスペインのロケット会社に2回連続で投資した日、あなたの天気予報の値段が動き始めた】欧州で「打ち上げ手段」を奪い合う903億円の争奪戦。日本企業が宇宙物流を「お金で押さえる」のはなぜか。欧州宇宙の「打ち上げ不足」という見えない危機。#宇宙 #ロケット #欧州 #スペイン #PLD Space #三菱電機 #資金調達 #小型衛星 #ポス鳥ニュース #海外ニュース body_length=1648 hashtag_count=95
+2026-09-06 20:04:12,771 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n7d0d145b4590 title=【三菱電機がスペインのロケット会社に2回連続で投資した日、あなたの天気予報の値段が動き始めた】欧州で「打ち上げ手段」を奪い合う903億円の争奪戦。日本企業が宇宙物流を「お金で押さえる」のはなぜか。欧州宇宙の「打ち上げ不足」という見えない危機。#宇宙 #ロケット #欧州 #スペイン #PLD Space #三菱電機 #資金調達 #小型衛星 #ポス鳥ニュース #海外ニュース
+2026-09-06 20:04:12,771 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nea29216b0d3b
+2026-09-06 20:04:15,658 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nea29216b0d3b title=【女性が起業しても、お金が届かない】——アフリカ発データが突きつける「構造的資金格差」の冷酷な現実。アフリカ3,000社の追跡調査が暴いた「頑張れば報われる」の嘘。投資効率2.5倍なのにお金が届かない話。#女性起業家 #アフリカ #スタートアップ #資金調達 #ジェンダー格差 #ベンチャーキャピタル #ポス鳥 #地政学 body_length=2249 hashtag_count=93
+2026-09-06 20:04:15,658 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nea29216b0d3b title=【女性が起業しても、お金が届かない】——アフリカ発データが突きつける「構造的資金格差」の冷酷な現実。アフリカ3,000社の追跡調査が暴いた「頑張れば報われる」の嘘。投資効率2.5倍なのにお金が届かない話。#女性起業家 #アフリカ #スタートアップ #資金調達 #ジェンダー格差 #ベンチャーキャピタル #ポス鳥 #地政学
+2026-09-06 20:04:15,658 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n59bc0e50ac67
+2026-09-06 20:04:18,728 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n59bc0e50ac67 title=【AIに聞いて「出てこないホテル」は存在しない】——豪スタートアップ、ビザブルが100万豪ドル調達で挑む"見えない問題"。8〜12軒しか残らない「棚」に入れないビジネスが今日失っているもの。#AI旅行 #ホテル業界 #スタートアップ #オーストラリア #直接予約 #ChatGPT #旅行テック #SaaS #地政学 #ポス鳥 body_length=2344 hashtag_count=95
+2026-09-06 20:04:18,729 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n59bc0e50ac67 title=【AIに聞いて「出てこないホテル」は存在しない】——豪スタートアップ、ビザブルが100万豪ドル調達で挑む"見えない問題"。8〜12軒しか残らない「棚」に入れないビジネスが今日失っているもの。#AI旅行 #ホテル業界 #スタートアップ #オーストラリア #直接予約 #ChatGPT #旅行テック #SaaS #地政学 #ポス鳥
+2026-09-06 20:04:18,729 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nea0afb269550
+2026-09-06 20:04:21,569 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nea0afb269550 title=【スイスの名門大学が生んだ「運用AI」】たった10人で約3.9億円調達——あなたの投資信託の中身が、静かに変わり始めている。スイス業界トップが個人資産を賭けた大学発AIの正体とは？#AI #資産運用 #スイス #ETH #フィンテック #スタートアップ #投資 #海外ニュース #ポス鳥 body_length=2421 hashtag_count=99
+2026-09-06 20:04:21,570 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nea0afb269550 title=【スイスの名門大学が生んだ「運用AI」】たった10人で約3.9億円調達——あなたの投資信託の中身が、静かに変わり始めている。スイス業界トップが個人資産を賭けた大学発AIの正体とは？#AI #資産運用 #スイス #ETH #フィンテック #スタートアップ #投資 #海外ニュース #ポス鳥
+2026-09-06 20:04:21,570 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n6a1f98a15a79
+2026-09-06 20:04:24,660 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n6a1f98a15a79 title=【制裁されている側が、値上げした】——中国SMIC、純利益3.6倍と「受託価格の引き上げ」を同日に発表した異常。稼働率93.7%を記録した理由。AIは「最先端チップ」だけで動いていない。#半導体 #SMIC #中国 #AI #地政学 #米中対立 #サプライチェーン #ポス鳥 #海外ニュース body_length=1798 hashtag_count=97
+2026-09-06 20:04:24,660 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n6a1f98a15a79 title=【制裁されている側が、値上げした】——中国SMIC、純利益3.6倍と「受託価格の引き上げ」を同日に発表した異常。稼働率93.7%を記録した理由。AIは「最先端チップ」だけで動いていない。#半導体 #SMIC #中国 #AI #地政学 #米中対立 #サプライチェーン #ポス鳥 #海外ニュース
+2026-09-06 20:04:24,660 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/ne6e89d157da2
+2026-09-06 20:04:27,782 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/ne6e89d157da2 title=【アラバマ州がOpenAIに召喚状】——AIが「勝手にハッキング」した時、誰が責任を負うのか。AIが4日半で1万7600回動いた夜。OpenAIの脱走AIが暴いた「誰も答えを持っていない問い」——ハギング・フェイス侵入事件、全5章で読む。#AI安全 #OpenAI #HuggingFace #サイバーセキュリティ #消費者保護 #アラバマ州 #AI規制 #テクノロジー #地政学 #ポス鳥 body_length=2260 hashtag_count=95
+2026-09-06 20:04:27,783 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/ne6e89d157da2 title=【アラバマ州がOpenAIに召喚状】——AIが「勝手にハッキング」した時、誰が責任を負うのか。AIが4日半で1万7600回動いた夜。OpenAIの脱走AIが暴いた「誰も答えを持っていない問い」——ハギング・フェイス侵入事件、全5章で読む。#AI安全 #OpenAI #HuggingFace #サイバーセキュリティ #消費者保護 #アラバマ州 #AI規制 #テクノロジー #地政学 #ポス鳥
+2026-09-06 20:04:27,783 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n960985ec9aa2
+2026-09-06 20:04:31,068 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n960985ec9aa2 title=【回転寿司オーナーが作った「飲食店の裏方AI」】SaaS氷河期のど真ん中で8000万ドルを調達——ソフトウェア企業の時価総額が1兆ドル消えた2026年に、なぜ投資家は「領収書をスマホで撮るアプリ」に賭けたのか？#飲食店 #SaaS #スタートアップ #AI #資金調達 #アメリカ #テクノロジー #食品コスト #地政学 #ポス鳥 body_length=2347 hashtag_count=95
+2026-09-06 20:04:31,068 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n960985ec9aa2 title=【回転寿司オーナーが作った「飲食店の裏方AI」】SaaS氷河期のど真ん中で8000万ドルを調達——ソフトウェア企業の時価総額が1兆ドル消えた2026年に、なぜ投資家は「領収書をスマホで撮るアプリ」に賭けたのか？#飲食店 #SaaS #スタートアップ #AI #資金調達 #アメリカ #テクノロジー #食品コスト #地政学 #ポス鳥
+2026-09-06 20:04:31,068 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nb553f8a73e6a
+2026-09-06 20:04:34,165 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nb553f8a73e6a title=【論文の7割が再現できない事実を知って科学実験】「手つき」をAIに記録させる——「AIに論文を読ませる」発想が間違いだったのか。あなたの知らない37億円スタートアップが、科学の「書かれない部分」を丸ごと記録しようとしている。#AI #生成AI #科学 #バイオテック #PhysicalAI #再現性 #スタートアップ #研究 #資金調達 body_length=3751 hashtag_count=96
+2026-09-06 20:04:34,166 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nb553f8a73e6a title=【論文の7割が再現できない事実を知って科学実験】「手つき」をAIに記録させる——「AIに論文を読ませる」発想が間違いだったのか。あなたの知らない37億円スタートアップが、科学の「書かれない部分」を丸ごと記録しようとしている。#AI #生成AI #科学 #バイオテック #PhysicalAI #再現性 #スタートアップ #研究 #資金調達
+2026-09-06 20:04:34,166 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nce9cca8b1344
+2026-09-06 20:04:37,160 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nce9cca8b1344 title=「割に合わない」——世界の巨大ファンド10社、中国本土で公表された新規投資が7ヶ月ゼロ件の衝撃。世界のプロ10社が7ヶ月で中国投資をゼロにした震えるほど静かな撤退劇。#中国経済 #PE #投資ファンド #地政学 #米中対立 #アジア経済 #海外投資 #ポス鳥 body_length=1757 hashtag_count=100
+2026-09-06 20:04:37,160 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nce9cca8b1344 title=「割に合わない」——世界の巨大ファンド10社、中国本土で公表された新規投資が7ヶ月ゼロ件の衝撃。世界のプロ10社が7ヶ月で中国投資をゼロにした震えるほど静かな撤退劇。#中国経済 #PE #投資ファンド #地政学 #米中対立 #アジア経済 #海外投資 #ポス鳥
+2026-09-06 20:04:37,160 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nf4f0a961d310
+2026-09-06 20:04:40,327 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nf4f0a961d310 title=【三井住友が約45億円を投じた、インドの「資産運用の裏方」】——2万人超のパートナーを束ねるスタートアップの正体。インドの「八百屋さんキット」に日本のメガバンクが賭けた3つの理由。1万7,000人のアドバイザーが動かす2,700億円のパイプを、誰が押さえたのか。#三井住友 #SMBC #インド #資産運用 #フィンテック #スタートアップ #海外投資 #アジア経済 body_length=2444 hashtag_count=100
+2026-09-06 20:04:40,327 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nf4f0a961d310 title=【三井住友が約45億円を投じた、インドの「資産運用の裏方」】——2万人超のパートナーを束ねるスタートアップの正体。インドの「八百屋さんキット」に日本のメガバンクが賭けた3つの理由。1万7,000人のアドバイザーが動かす2,700億円のパイプを、誰が押さえたのか。#三井住友 #SMBC #インド #資産運用 #フィンテック #スタートアップ #海外投資 #アジア経済
+2026-09-06 20:04:40,327 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n98a0620df0f4
+2026-09-06 20:04:43,615 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n98a0620df0f4 title=【香港GDP、約5年ぶりの高成長】GDP+4.3%で胃が冷える。「香港、復活じゃん」と思ったあなたへ——AIチップが「頭上を飛んでいるだけ」で5年ぶりの高成長を記録した、不都合すぎる中身の話。#香港 #GDP #AI半導体 #地政学 #経済ニュース #アジア経済 #貿易 #ポス鳥 body_length=2514 hashtag_count=98
+2026-09-06 20:04:43,615 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n98a0620df0f4 title=【香港GDP、約5年ぶりの高成長】GDP+4.3%で胃が冷える。「香港、復活じゃん」と思ったあなたへ——AIチップが「頭上を飛んでいるだけ」で5年ぶりの高成長を記録した、不都合すぎる中身の話。#香港 #GDP #AI半導体 #地政学 #経済ニュース #アジア経済 #貿易 #ポス鳥
+2026-09-06 20:04:43,615 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n8c7099fdaa15
+2026-09-06 20:04:46,532 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n8c7099fdaa15 title=【ドバイ発のAIスタートアップ「1001」が約45億円を調達】——戦争直後の中東で、なぜ「自国でAIを作る」会社に世界の投資家が殺到するのか。戦争がAIを動かした。中東発「ソブリンAI」スタートアップが3,000万ドルを集めた本当の理由と、日本人が知らない45億円の意味。#AI #中東 #ドバイ #スタートアップ #地政学 #インフラ #ソブリンAI #資金調達 #GCC #石油 body_length=2617 hashtag_count=92
+2026-09-06 20:04:46,532 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n8c7099fdaa15 title=【ドバイ発のAIスタートアップ「1001」が約45億円を調達】——戦争直後の中東で、なぜ「自国でAIを作る」会社に世界の投資家が殺到するのか。戦争がAIを動かした。中東発「ソブリンAI」スタートアップが3,000万ドルを集めた本当の理由と、日本人が知らない45億円の意味。#AI #中東 #ドバイ #スタートアップ #地政学 #インフラ #ソブリンAI #資金調達 #GCC #石油
+2026-09-06 20:04:46,532 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n5181764a7cc2
+2026-09-06 20:04:49,453 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n5181764a7cc2 title=【ベトナムとオーストラリアが「デジタル同盟」を結んだ理由】——AI・半導体・データ流通の5年協定が、あなたの仕事に関係する話。豪越デジタル協定の3本柱が、ASEANの「データの通り道」を5年で塗り替える理由。#地政学 #ベトナム #オーストラリア #デジタル経済 #半導体 #AI #サプライチェーン #ASEAN #データ流通 #ChinaPlus1 body_length=2766 hashtag_count=95
+2026-09-06 20:04:49,454 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n5181764a7cc2 title=【ベトナムとオーストラリアが「デジタル同盟」を結んだ理由】——AI・半導体・データ流通の5年協定が、あなたの仕事に関係する話。豪越デジタル協定の3本柱が、ASEANの「データの通り道」を5年で塗り替える理由。#地政学 #ベトナム #オーストラリア #デジタル経済 #半導体 #AI #サプライチェーン #ASEAN #データ流通 #ChinaPlus1
+2026-09-06 20:04:49,454 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nd350e2ea4705
+2026-09-06 20:04:52,624 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nd350e2ea4705 title=【紙おむつ、一斉値上げ】——中東の戦争が「赤ちゃんのおしり」に届くまでの6,800kmを追う。大王製紙15%・ユニ・チャーム5%・花王交渉中——3社同時値上げの「石油パイプライン」を完全解説。#紙おむつ値上げ #大王製紙 #ユニチャーム #花王 #ナフサ #中東情勢 #イラン #ホルムズ海峡 #子育て #介護 body_length=2066 hashtag_count=98
+2026-09-06 20:04:52,624 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nd350e2ea4705 title=【紙おむつ、一斉値上げ】——中東の戦争が「赤ちゃんのおしり」に届くまでの6,800kmを追う。大王製紙15%・ユニ・チャーム5%・花王交渉中——3社同時値上げの「石油パイプライン」を完全解説。#紙おむつ値上げ #大王製紙 #ユニチャーム #花王 #ナフサ #中東情勢 #イラン #ホルムズ海峡 #子育て #介護
+2026-09-06 20:04:52,624 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n1affe81b0976
+2026-09-06 20:04:55,512 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n1affe81b0976 title=【「占い」で企業評価額1,500億円】——インドの占いアプリが、新規の外部資金調達なしで「ユニコーン」になった異常な話。「科学的根拠がない」と笑っていたビジネス直感が、インドの8番目のユニコーンに完全否定された理由。#占い #インド #スタートアップ #ユニコーン #テック #アジア経済 #地政学 #ポス鳥の貿易メモ body_length=2678 hashtag_count=96
+2026-09-06 20:04:55,512 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n1affe81b0976 title=【「占い」で企業評価額1,500億円】——インドの占いアプリが、新規の外部資金調達なしで「ユニコーン」になった異常な話。「科学的根拠がない」と笑っていたビジネス直感が、インドの8番目のユニコーンに完全否定された理由。#占い #インド #スタートアップ #ユニコーン #テック #アジア経済 #地政学 #ポス鳥の貿易メモ
+2026-09-06 20:04:55,512 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n7be03320fc7c
+2026-09-06 20:04:58,837 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n7be03320fc7c title=「中国130万人、米国13万人」——ピー・ワン・AI創業者が示した人材差を、5,000万ドルのAI投資で埋める挑戦。この10倍格差が、あなたの仕事の地図も書き換える。#AI #製造業 #スタートアップ #エンジニア不足 #地政学 #アメリカ製造業 #リショアリング #ポス鳥 #海外ニュース #テクノロジー body_length=2347 hashtag_count=98
+2026-09-06 20:04:58,837 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n7be03320fc7c title=「中国130万人、米国13万人」——ピー・ワン・AI創業者が示した人材差を、5,000万ドルのAI投資で埋める挑戦。この10倍格差が、あなたの仕事の地図も書き換える。#AI #製造業 #スタートアップ #エンジニア不足 #地政学 #アメリカ製造業 #リショアリング #ポス鳥 #海外ニュース #テクノロジー
+2026-09-06 20:04:58,838 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n4447515c5aee
+2026-09-06 20:05:02,019 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n4447515c5aee title=【中国は「援助」ではなく医療システムを輸出し始めたのか】5年後に誰が修理し、誰のデータになるのか。中国が途上国に「医療の仕組みごと輸出」を始めた、ネイチャー論文を貿易商が読む。#グローバルヘルス #中国 #医療外交 #低中所得国 #医薬品 #デジタルヘルス #一帯一路 #ポス鳥 body_length=2277 hashtag_count=99
+2026-09-06 20:05:02,019 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n4447515c5aee title=【中国は「援助」ではなく医療システムを輸出し始めたのか】5年後に誰が修理し、誰のデータになるのか。中国が途上国に「医療の仕組みごと輸出」を始めた、ネイチャー論文を貿易商が読む。#グローバルヘルス #中国 #医療外交 #低中所得国 #医薬品 #デジタルヘルス #一帯一路 #ポス鳥
+2026-09-06 20:05:02,019 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n5f91c08ef13e
+2026-09-06 20:05:04,900 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n5f91c08ef13e title=【200万カナダドルの「小さなファンド」が狙う、巨大AIマネーが素通りする"資金の隙間"】「資金のサイズミスマッチ」という壁が、今日も静かに創業者の胃を冷やしている。カナダの2.2億円ファンドが教える、お金の構造的な詰まり。#海外ニュース #VC #クリーンテック #カナダ #スタートアップ #資金調達 #脱炭素 #ポス鳥 body_length=2270 hashtag_count=96
+2026-09-06 20:05:04,900 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n5f91c08ef13e title=【200万カナダドルの「小さなファンド」が狙う、巨大AIマネーが素通りする"資金の隙間"】「資金のサイズミスマッチ」という壁が、今日も静かに創業者の胃を冷やしている。カナダの2.2億円ファンドが教える、お金の構造的な詰まり。#海外ニュース #VC #クリーンテック #カナダ #スタートアップ #資金調達 #脱炭素 #ポス鳥
+2026-09-06 20:05:04,900 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n2636756e5669
+2026-09-06 20:05:08,092 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n2636756e5669 title=【AIチップが「熱すぎる」問題を、AIで解く】——インドの同級生2人に、シリコンバレーの超大物が殺到した理由。AIチップの「発熱地獄」を根本から断ち切る素材探しに、世界の超大物投資家がなぜ今、900万ドルを賭けたのか。#半導体 #AI #スタートアップ #データセンター #インド #素材科学 #ディープテック #ポス鳥 #地政学 #投資 body_length=2395 hashtag_count=97
+2026-09-06 20:05:08,093 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n2636756e5669 title=【AIチップが「熱すぎる」問題を、AIで解く】——インドの同級生2人に、シリコンバレーの超大物が殺到した理由。AIチップの「発熱地獄」を根本から断ち切る素材探しに、世界の超大物投資家がなぜ今、900万ドルを賭けたのか。#半導体 #AI #スタートアップ #データセンター #インド #素材科学 #ディープテック #ポス鳥 #地政学 #投資
+2026-09-06 20:05:08,093 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/n3cb61c9d2e59
+2026-09-06 20:05:11,160 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/n3cb61c9d2e59 title=【アフリカ史上最大のシード（創業初期の資金調達）】22歳が83億円を集めた夜、あなたの「アフリカ観」が壊れる。世界のシード中央値の17倍。「フィンテックの次」に投資家が賭けた、ナイジェリア製ドローンの正体とは何か。#アフリカ #スタートアップ #防衛テック #ドローン #ナイジェリア #テラインダストリーズ #地政学 #安全保障 body_length=2023 hashtag_count=99
+2026-09-06 20:05:11,161 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/n3cb61c9d2e59 title=【アフリカ史上最大のシード（創業初期の資金調達）】22歳が83億円を集めた夜、あなたの「アフリカ観」が壊れる。世界のシード中央値の17倍。「フィンテックの次」に投資家が賭けた、ナイジェリア製ドローンの正体とは何か。#アフリカ #スタートアップ #防衛テック #ドローン #ナイジェリア #テラインダストリーズ #地政学 #安全保障
+2026-09-06 20:05:11,161 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/glad_auklet4142/n/nca8fc07566a1
+2026-09-06 20:05:13,932 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/glad_auklet4142/n/nca8fc07566a1 title=【アメリカの「経済D-Day」発動で、あなたの財布に何が起きるのか。】イラン制裁の「本当の仕組み」を6章で全解剖。——イラン金融接続を切る二次制裁圧力が新段階へ。#経済制裁 #イラン #二次制裁 #米財務省 #トランプ政権 #中東情勢 #原油市場 #ホルムズ海峡 #地政学 #ポス鳥 body_length=2354 hashtag_count=100
+2026-09-06 20:05:13,932 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/glad_auklet4142/n/nca8fc07566a1 title=【アメリカの「経済D-Day」発動で、あなたの財布に何が起きるのか。】イラン制裁の「本当の仕組み」を6章で全解剖。——イラン金融接続を切る二次制裁圧力が新段階へ。#経済制裁 #イラン #二次制裁 #米財務省 #トランプ政権 #中東情勢 #原油市場 #ホルムズ海峡 #地政学 #ポス鳥
+2026-09-06 20:05:13,932 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nc1435d6d78a2
+2026-09-06 20:05:16,664 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nc1435d6d78a2 title=明日からの株式市場、どう見る？｜米雇用統計16.2万人増、日経平均先物は約800円高。米軍のイラン原油船攻撃後も月曜日は買われる？ body_length=1928 hashtag_count=28
+2026-09-06 20:05:16,666 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nc1435d6d78a2 title=明日からの株式市場、どう見る？｜米雇用統計16.2万人増、日経平均先物は約800円高。米軍のイラン原油船攻撃後も月曜日は買われる？
+2026-09-06 20:05:16,666 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n5aa36ead4d18
+2026-09-06 20:05:19,640 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n5aa36ead4d18 title=今週の株式市場まとめ｜日経平均は週間1,385円安。金曜806円高でも225銘柄の61％が下落、反発は信じていい？｜日本株・米国株の振り返りと投資家が更新すべき相場観 body_length=2784 hashtag_count=28
+2026-09-06 20:05:19,640 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n5aa36ead4d18 title=今週の株式市場まとめ｜日経平均は週間1,385円安。金曜806円高でも225銘柄の61％が下落、反発は信じていい？｜日本株・米国株の振り返りと投資家が更新すべき相場観
+2026-09-06 20:05:19,640 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n30cdc89fec73
+2026-09-06 20:05:22,292 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n30cdc89fec73 title=2026年9月4日｜長期金利は2.890％へ低下、円は週間2.2％上昇、原油は10％超高。金利低下で戻った成長株は、円高・原油高を越えられる？｜日本株・米国株のポイント解説と週明けの展望 body_length=2911 hashtag_count=28
+2026-09-06 20:05:22,293 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n30cdc89fec73 title=2026年9月4日｜長期金利は2.890％へ低下、円は週間2.2％上昇、原油は10％超高。金利低下で戻った成長株は、円高・原油高を越えられる？｜日本株・米国株のポイント解説と週明けの展望
+2026-09-06 20:05:22,293 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n45130633146e
+2026-09-06 20:05:24,912 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n45130633146e title=2026年9月3日｜ドル円は一時156.36円まで円高、日経平均は399円高で始まり111円安。大引け後まで続いた円高は、明日の日本株をどう変える？｜日本株・米国株のポイント解説と明日の展望 body_length=2948 hashtag_count=28
+2026-09-06 20:05:24,913 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n45130633146e title=2026年9月3日｜ドル円は一時156.36円まで円高、日経平均は399円高で始まり111円安。大引け後まで続いた円高は、明日の日本株をどう変える？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:24,913 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nec8f64f97a30
+2026-09-06 20:05:27,898 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nec8f64f97a30 title=2026年9月2日｜日経平均は1,889円安、プライム市場では1,436銘柄が下落するなか伊藤園は8.70％高。全面安の翌朝、反発候補をどう見分ける？｜日本株・米国株のポイント解説と明日の展望 body_length=2908 hashtag_count=28
+2026-09-06 20:05:27,898 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nec8f64f97a30 title=2026年9月2日｜日経平均は1,889円安、プライム市場では1,436銘柄が下落するなか伊藤園は8.70％高。全面安の翌朝、反発候補をどう見分ける？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:27,898 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n148711bc52f8
+2026-09-06 20:05:30,822 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n148711bc52f8 title=2026年9月1日｜日本の長期金利が一時3％、約30年ぶりの高水準へ。東京エレクトロン2.6％安、トヨタ2.8％高の差は何を示す？｜日本株・米国株のポイント解説と明日の展望 body_length=1800 hashtag_count=28
+2026-09-06 20:05:30,823 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n148711bc52f8 title=2026年9月1日｜日本の長期金利が一時3％、約30年ぶりの高水準へ。東京エレクトロン2.6％安、トヨタ2.8％高の差は何を示す？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:30,823 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n7f349a920d8e
+2026-09-06 20:05:33,654 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n7f349a920d8e title=東京の銭湯が半額に！？♨「TRY A TOKYO SENTO」9/1からスタート✨300円クーポンの使い方と現在の状況 body_length=1848 hashtag_count=9
+2026-09-06 20:05:33,655 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n7f349a920d8e title=東京の銭湯が半額に！？♨「TRY A TOKYO SENTO」9/1からスタート✨300円クーポンの使い方と現在の状況
+2026-09-06 20:05:33,655 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nbffa1a96f929
+2026-09-06 20:05:36,580 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nbffa1a96f929 title=2026年8月31日｜日経平均は一時1,500円超安から93円安へ。アドバンテストが381円押し下げてもTOPIXが8日続伸した理由は？｜日本株・米国株のポイント解説と明日の展望 body_length=2100 hashtag_count=28
+2026-09-06 20:05:36,581 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nbffa1a96f929 title=2026年8月31日｜日経平均は一時1,500円超安から93円安へ。アドバンテストが381円押し下げてもTOPIXが8日続伸した理由は？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:36,581 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n367bd137a6be
+2026-09-06 20:05:39,645 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n367bd137a6be title=明日からの株式市場、どう見る？｜ジャクソンホールで利上げ警戒、日経平均先物は約570円安。月曜日は何が買われる？ body_length=1430 hashtag_count=28
+2026-09-06 20:05:39,645 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n367bd137a6be title=明日からの株式市場、どう見る？｜ジャクソンホールで利上げ警戒、日経平均先物は約570円安。月曜日は何が買われる？
+2026-09-06 20:05:39,645 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/ne24ef5b8cf8c
+2026-09-06 20:05:42,524 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/ne24ef5b8cf8c title=今週の株式市場まとめ｜グロース250は7.12％高、SOXは2.31％安。NVIDIA好決算でも半導体全面高にならなかった理由｜日本株・米国株の振り返りと投資家が更新すべき相場観 body_length=1624 hashtag_count=28
+2026-09-06 20:05:42,525 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/ne24ef5b8cf8c title=今週の株式市場まとめ｜グロース250は7.12％高、SOXは2.31％安。NVIDIA好決算でも半導体全面高にならなかった理由｜日本株・米国株の振り返りと投資家が更新すべき相場観
+2026-09-06 20:05:42,525 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n9d9bca2a674c
+2026-09-06 20:05:45,462 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n9d9bca2a674c title=2026年8月28日｜NVIDIA好決算で8.7％高、キオクシアは8.76％安｜AI半導体株の明暗を分けた理由｜日本株・米国株のポイント解説と月曜の展望 body_length=2104 hashtag_count=28
+2026-09-06 20:05:45,462 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n9d9bca2a674c title=2026年8月28日｜NVIDIA好決算で8.7％高、キオクシアは8.76％安｜AI半導体株の明暗を分けた理由｜日本株・米国株のポイント解説と月曜の展望
+2026-09-06 20:05:45,462 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/ndf1cb9b1fd29
+2026-09-06 20:05:48,365 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/ndf1cb9b1fd29 title=2026年8月27日｜NVIDIA好決算でも日経平均130円安｜明日につながる買いはどこに残った？｜日本株・米国株のポイント解説と明日の展望 body_length=1950 hashtag_count=28
+2026-09-06 20:05:48,365 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/ndf1cb9b1fd29 title=2026年8月27日｜NVIDIA好決算でも日経平均130円安｜明日につながる買いはどこに残った？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:48,365 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nfe623af51da0
+2026-09-06 20:05:51,373 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nfe623af51da0 title=2026年8月26日｜テラドローン21.35％高、FUNDINNO12.39％安。材料株の明暗を分けたものは？｜日本株・米国株のポイント解説と明日の展望 body_length=2305 hashtag_count=28
+2026-09-06 20:05:51,373 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nfe623af51da0 title=2026年8月26日｜テラドローン21.35％高、FUNDINNO12.39％安。材料株の明暗を分けたものは？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:51,373 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nc9b19d0e02c2
+2026-09-06 20:05:54,681 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nc9b19d0e02c2 title=2026年8月25日｜日経平均は一時918円安から328円高へ。SOX3.93％安でも買い戻された理由は？｜日本株・米国株のポイント解説と明日の展望 body_length=2371 hashtag_count=28
+2026-09-06 20:05:54,682 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nc9b19d0e02c2 title=2026年8月25日｜日経平均は一時918円安から328円高へ。SOX3.93％安でも買い戻された理由は？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:54,682 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n708b9b2de6d0
+2026-09-06 20:05:57,257 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n708b9b2de6d0 title=2026年8月24日｜アドバンテストとソフトバンクGで日経平均を約563円押し下げ。半導体安はどこまで続く？｜日本株・米国株のポイント解説と明日の展望 body_length=2322 hashtag_count=28
+2026-09-06 20:05:57,258 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n708b9b2de6d0 title=2026年8月24日｜アドバンテストとソフトバンクGで日経平均を約563円押し下げ。半導体安はどこまで続く？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:05:57,258 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nb95ba56d72ed
+2026-09-06 20:06:00,002 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nb95ba56d72ed title=明日からの株式市場、どう見る？｜日経平均は週間2,697円安、グロース250は上昇。NVIDIA決算前の月曜日は主役交代を信じていい？ body_length=1399 hashtag_count=28
+2026-09-06 20:06:00,002 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nb95ba56d72ed title=明日からの株式市場、どう見る？｜日経平均は週間2,697円安、グロース250は上昇。NVIDIA決算前の月曜日は主役交代を信じていい？
+2026-09-06 20:06:00,002 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n708231fa5ad5
+2026-09-06 20:06:02,741 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n708231fa5ad5 title=今週の株式市場まとめ｜日経平均は週間2,697円安。それでもグロース250は1.38％高。弱い景気指標でも長期金利が上がった理由｜日本株・米国株の振り返りと投資家が更新すべき相場観 body_length=1204 hashtag_count=28
+2026-09-06 20:06:02,742 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n708231fa5ad5 title=今週の株式市場まとめ｜日経平均は週間2,697円安。それでもグロース250は1.38％高。弱い景気指標でも長期金利が上がった理由｜日本株・米国株の振り返りと投資家が更新すべき相場観
+2026-09-06 20:06:02,742 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n4d7b9471310f
+2026-09-06 20:06:05,818 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n4d7b9471310f title=2026年8月21日｜日経平均200円安でもTOPIXは上昇。値上がり883銘柄が示した「残った買い」｜日本株・米国株のポイント解説と週明けの展望 body_length=2302 hashtag_count=15
+2026-09-06 20:06:05,818 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n4d7b9471310f title=2026年8月21日｜日経平均200円安でもTOPIXは上昇。値上がり883銘柄が示した「残った買い」｜日本株・米国株のポイント解説と週明けの展望
+2026-09-06 20:06:05,818 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n7bb5cd4b9766
+2026-09-06 20:06:08,480 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n7bb5cd4b9766 title=2026年8月20日｜さくらインターネット8.81％安、Moderna176.97％高。株価を分けた「信用」と「成長期待」｜日本株・米国株のポイント解説と明日の展望 body_length=2511 hashtag_count=28
+2026-09-06 20:06:08,480 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n7bb5cd4b9766 title=2026年8月20日｜さくらインターネット8.81％安、Moderna176.97％高。株価を分けた「信用」と「成長期待」｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:06:08,480 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/n94555bff7285
+2026-09-06 20:06:11,423 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/n94555bff7285 title=2026年8月19日｜日経平均2,134円安、TOPIX3.09％安。値下がり1,155銘柄が示した「昨日との違い」｜日本株・米国株のポイント解説と明日の展望 body_length=2155 hashtag_count=28
+2026-09-06 20:06:11,423 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/n94555bff7285 title=2026年8月19日｜日経平均2,134円安、TOPIX3.09％安。値下がり1,155銘柄が示した「昨日との違い」｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:06:11,423 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nfc9014dc7565
+2026-09-06 20:06:14,517 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nfc9014dc7565 title=2026年8月18日｜日経平均1,760円安でも値上がり722銘柄。SOX1.64％高なのに日本株が急落したのはなぜ？｜日本株・米国株のポイント解説と明日の展望 body_length=2366 hashtag_count=28
+2026-09-06 20:06:14,518 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nfc9014dc7565 title=2026年8月18日｜日経平均1,760円安でも値上がり722銘柄。SOX1.64％高なのに日本株が急落したのはなぜ？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:06:14,518 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/ne93aaedf2834
+2026-09-06 20:06:17,183 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/ne93aaedf2834 title=2026年8月17日｜日本精蝋32.52％高、アルバック16.01％安。日経平均506円高でも値下がり890銘柄となったのはなぜ？｜日本株・米国株のポイント解説と明日の展望 body_length=2171 hashtag_count=28
+2026-09-06 20:06:17,183 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/ne93aaedf2834 title=2026年8月17日｜日本精蝋32.52％高、アルバック16.01％安。日経平均506円高でも値下がり890銘柄となったのはなぜ？｜日本株・米国株のポイント解説と明日の展望
+2026-09-06 20:06:17,183 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nc9c42629498c
+2026-09-06 20:06:19,890 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nc9c42629498c title=明日からの株式市場、どう見る？｜日経平均は週間3,917円高。月曜日の日本GDPで強さは続く？ body_length=1360 hashtag_count=28
+2026-09-06 20:06:19,892 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nc9c42629498c title=明日からの株式市場、どう見る？｜日経平均は週間3,917円高。月曜日の日本GDPで強さは続く？
+2026-09-06 20:06:19,892 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/nd41c2c57c1f0
+2026-09-06 20:06:22,841 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/nd41c2c57c1f0 title=今週の株式市場まとめ｜日経平均は週間3,917円高。それでもApplied Materialsは好決算後5.1％安。金利低下だけでは買われない理由｜日本株・米国株の振り返りと投資家が更新すべき相場観 body_length=1431 hashtag_count=28
+2026-09-06 20:06:22,842 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/nd41c2c57c1f0 title=今週の株式市場まとめ｜日経平均は週間3,917円高。それでもApplied Materialsは好決算後5.1％安。金利低下だけでは買われない理由｜日本株・米国株の振り返りと投資家が更新すべき相場観
+2026-09-06 20:06:22,842 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/hide_taxnote/n/neb0a07cc2982
+2026-09-06 20:06:26,058 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/hide_taxnote/n/neb0a07cc2982 title=2026年8月14日｜日経平均69,608円、TOPIXは最高値。7万円目前で止まったのは弱さか利益確定か？｜日本株・米国株のポイント解説と週明けの展望 body_length=2676 hashtag_count=28
+2026-09-06 20:06:26,058 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/hide_taxnote/n/neb0a07cc2982 title=2026年8月14日｜日経平均69,608円、TOPIXは最高値。7万円目前で止まったのは弱さか利益確定か？｜日本株・米国株のポイント解説と週明けの展望
+2026-09-06 20:06:26,058 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/ncf0fc490ab24
+2026-09-06 20:06:28,786 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/ncf0fc490ab24 title=自分時間が少ないと、モヤモヤする：他人にリソース使いすぎてる人 body_length=1773 hashtag_count=4
+2026-09-06 20:06:28,788 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/ncf0fc490ab24 title=自分時間が少ないと、モヤモヤする：他人にリソース使いすぎてる人
+2026-09-06 20:06:28,788 INFO data_pipeline.collectors.note_com_browser: scraping_article url=https://note.com/ruinormalhakkar/n/nbd232919c677
+2026-09-06 20:06:31,554 INFO data_pipeline.collectors.note_com_browser: article_scraped url=https://note.com/ruinormalhakkar/n/nbd232919c677 title=即断即決できない、優柔不断な癖の捨て方 body_length=1206 hashtag_count=3
+2026-09-06 20:06:31,554 INFO data_pipeline.collectors.note_com_rss: article_saved url=https://note.com/ruinormalhakkar/n/nbd232919c677 title=即断即決できない、優柔不断な癖の捨て方
+2026-09-06 20:06:31,651 INFO data_pipeline.collectors.note_com_rss: config_updated updated_count=11 timestamp=2026-09-06T11:06:31.651011+00:00
+2026-09-06 20:06:31,651 INFO data_pipeline.collectors.note_com_rss: rss_monitor_completed creators_checked=11 new_articles_found=130 articles_saved=105 articles_skipped_paid=25 articles_skipped_duplicate=0 error_count=0

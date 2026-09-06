@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20776-zain-ksa-announces-data-centre-and-cloud-deals.html",
+  "title": "Zain KSA announces data centre and cloud deals",
+  "raw_text": "Saudi Arabian service provider Zain KSA has had a busy week – one involving announcements of both a major data centre deal and the deployment of cloud services for a major utility.\nThe data centre agreement comes in the form of a non-binding memorandum of understanding (MoU) with DataVolt, a global investor, developer and operator of data centres, for a partnership to develop facilities across Saudi Arabia.\nThe partnership will develop flexible, scalable capacity to meet Zain KSA’s future requirements, while providing additional capacity for government entities, businesses, large enterprises, cloud service providers, digital content companies and digital platforms. It will also deliver the computing power required to run and process advanced AI applications.\nZain KSA says the planned data centres will be designed with a focus on energy efficiency, sustainability, resilience, and scalability. They will also feature infrastructure capable of supporting high-density computing, advanced cooling systems and high-capacity connectivity in line with the requirements of modern cloud services and data and AI-driven applications.\nThis isn’t the only recent data centre deal for DataVolt. As we reported earlier this week, DataVolt has also announced an expanded partnership to develop 100MW of a 360MW AI-ready data centre at Oxagon with Humain, a Saudi Arabia Public Investment Fund (PIF) company delivering full-stack artificial intelligence capabilities globally.\nZain KSA is also enhancing the operational communications of Saudi utility the National Water Company (NWC), by deploying an advanced cloud-based solution designed to improve call management, communications privacy and reliability. The solution, says Zain, supports faster response times and improves service quality.\nBuilt on a cloud-native platform hosted on Zain KSA’s local cloud infrastructure, the solution, says the company, provides secure, scalable voice communications capabilities, including call masking and encrypted call recording. It also features real-time analytics dashboards that provide greater visibility into performance and support informed decision-making.\nThe solution further integrates smart call routing and AI-automated responses to streamline call flows and improve communications handling, while boosting security and operational agility.\nAs Vice President IT and Digital at NWC, Eng Majid Abdulmohsen Al-Juraib, explains: “The service has enabled faster, more efficient communication between beneficiaries and our water tanker service through an integrated system built to the highest standards of security and reliability. This supports NWC’s strategic objectives while enhancing service quality and the beneficiary experience.”",
+  "published_at": "2026-09-03T23:04:43Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.211090Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

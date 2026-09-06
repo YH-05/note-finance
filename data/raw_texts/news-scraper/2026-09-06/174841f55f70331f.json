@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/04/ai-bubble-valuations-venture-capital.html",
+  "title": "A 'shakeout' in early-stage AI may be coming as VC money gets pickier on valuations",
+  "raw_text": "Investors should focus on productivity growth in artificial-intelligence companies as valuations in some areas start to look excessive, experts said.\n\"We are likely to see a shakeout as investors become much more demanding about where the technology creates genuine value and where it is simply a feature dressed up as a business,\" said Jakub Nytra, founding partner at venture capital firm Purple Ventures. He expects capital to become much more selective over the next six to 12 months.\nThe AI boom continues to reshape markets. Investors have poured money into semiconductor companies beyond Nvidia, betting that the buildout of AI data centers will benefit a broader universe of chipmakers and infrastructure companies. That said, worries of a bubble persist, as firms ramp up on capex spending with no end in sight, and sky-high growth figures create questions about sustainability of the expansion.\n\"The next question is whether applications and end users generate enough productivity, revenues and cash flow to justify that investment,\" said David Ng, co-founder and chief executive officer at wealth management firm Arki Finance.\nWhile AI can transform the economy, not every company with AI in its pitch deck \"deserves an extraordinary valuation,\" Nytra said. \"The winners will be companies using AI to solve expensive and highly complicated problems.\"\nFor instance, Nytra cited TASS Vision — one of his portfolio companies — which deploys edge AI and cameras to analyze how customers move around physical stores, and in turn gives retailers data they can use to improve.\nEven if there is a bubble, some good should come of it in the end, according to Shane Chesson, founding partner at asset manager Openspace Capital.\n\"If a bubble does pop it will mostly damage those that invested in the FOMO-led froth,\" he said. \"But the infrastructure that has been created will still be used and prove game-changing for many companies.\"",
+  "published_at": "2026-09-04T00:44:33Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.061018Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "asia_news",
+    "tags": []
+  }
+}

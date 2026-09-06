@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/24/main-street-sports-comcast-charter-lawsuit-payments.html",
+  "title": "Main Street Sports sues Comcast, Charter for underpaid licensing fees",
+  "raw_text": "Main Street Sports, the now-defunct owner of a portfolio of regional sports networks, is suing cable companies Comcast and Charter Communications in separate lawsuits for what it alleges are underpaid licensing fees.\nThe company that began its winddown earlier this year is alleging that Comcast and Charter — the two largest pay TV providers in the U.S. — breached their contracts and underpaid Main Street in the earlier part of 2026 when its networks were still delivering NBA and NHL games to local markets across the country, according to the lawsuits, which were seen by CNBC.\nThe suits were filed in Delaware Superior Court on Monday. Representatives for Comcast and Charter didn't immediately respond to requests for comment.\nMain Street, the entity that originated as Fox Sports networks, has been through a series of owners since 2019, as well as several name changes. The company emerged from bankruptcy protection in early 2025, when its channels took on the name of FanDuel Sports Network. It had about 15 channels, and at one point after its bankruptcy exit aired games for about 30 teams across Major League Baseball, the National Hockey League and the National Basketball Association.\nHowever, despite touting subscriber growth as recently as the spring, Main Street continued to face liquidity issues when its MLB fees payments were due, CNBC previously reported. The company had long been weighed down by a heavy debt load.\nThe issues led to its inevitable winddown. While it aired its final local MLB games in 2025, the company aired the entirety of the NBA regular season, as well as the NHL regular season and first round of playoffs this year.\nProblems have been piling up for regional sports networks as the pay TV bundle continues to bleed subscribers.\nRegional sports networks were once a lucrative business model for teams and leagues, as the channels pay high fees to air local games that trickle down to team payrolls. However the proliferation of cord cutting has led many pay TV distributors to rework their agreements with these channels.\nEven the direct-to-consumer streaming offerings for these networks have been in a state of change. Last month, two of New York's independently owned regional sports networks left their own streaming app for a deal to be distributed by streaming platform DAZN.",
+  "published_at": "2026-08-24T23:48:50Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.101098Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "media",
+    "tags": []
+  }
+}

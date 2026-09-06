@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://beza1e1.tuxen.de/ai_feelings.html",
+  "title": "How I feel about AI",
+  "raw_text": "I feel surprise at how well neural networks work. LLMs work like \"gut feeling\" as they just generate one more token after another. There is no planning or reasoning algorithm inside. Yet, some planning and reasoning emerges.\nI feel fear about an impending doom. Yudkowsky's argument that a superintelligent AI will inevitably destroy humanity seems to have no flaw. Yet, nobody seriously tries to sandbox AIs because they are too useful with access.\nI feel disgust about AI companies destroying the open web society. Their crawlers and agents make it increasingly difficult to sustain an open community on the web. Like a locust plague, they descend on any open wiki and forum and overwhelm them.\nI feel sad about the artists who suffer due to AI-slop competition. Being an artist always required some sacrifice and only a few are fortunate to gain some wealth. This is even harder now that AI can generate some kinds of \"content\" cheaper and faster.\nI feel anger about the inability of our political systems to rein in the power of capital. While I can rant about politicians a lot, I still prefer a democratic government to have power instead of billionaires. It essentially just comes down to making some decisions in a coordinated way, but most people are not even aware of the problem. This also covers the environmental destruction by AI companies as they greedily gobble up all kinds of resources.\nI feel happy to live in this age of discovery. We might observe the creation of artificial intelligence. Working in software development, the practice was radically transformed forever in 2026. It is fascinating to observe this firsthand. It allows me to generate stuff (code, images, music) which would never have been created otherwise.\nAs a conclusion, does the good or the bad outweigh the other? It seems positive on a technological level to me, but bleak on a societal level.\n(I used Mistral as reviewer here. I typed every word myself.)",
+  "published_at": "2026-09-06T15:00:19Z",
+  "author": "qznc",
+  "collected_at": "2026-09-06T21:00:44.293028Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

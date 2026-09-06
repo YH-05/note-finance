@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/01/fed-governor-barr-says-hell-support-rate-hike-if-inflation-doesnt-ease.html",
+  "title": "Fed Governor Barr says he'll support rate hike if inflation doesn't ease",
+  "raw_text": "Federal Reserve Governor Michael Barr said Tuesday he would be prepared to support an interest rate hike if inflation doesn't ease.\nSpeaking at a banking forum in Washington, the policymaker said he's concerned about \"broader price pressures taking hold\" as inflation has remained stuck above the Fed's 2% target for nearly 5½ years.\n\"If trends in the data give me some confidence that inflation is moderating on a path to 2%, then I think we can take a bit more time to assess our policy stance,\" Barr said in prepared remarks. \"However, if inflation appears not to be moderating sufficiently, then I think we should act decisively to raise rates.\"\nThe comments come at a critical time for policy and the broader backdrop of elevated inflation and rising Treasury yields. As a governor, Barr is a permanent voting member on the rate-setting Federal Open Market Committee.\nAmid fresh worries over the precarious Middle East situation, yields jumped again Tuesday, with the benchmark 10-year note at a level not seen since mid-January 2025.\nAt the same time, Fed Chairman Kevin Warsh last week delivered remarks that markets widely interpreted as titled toward a rate hike, possibly as soon as the next policy meeting in two weeks. Barr supported the July decision to keep the benchmark funds rate targeted between 3.5%-3.75%, but markets Tuesday morning were pricing in about a 66% chance of an increase this month, according to the CME Group's FedWatch tool.\nBarr gave the economy good marks even with elevated inflation.\n\"Consumer spending to date has been largely resilient,\" he said. \"But inflation remains too high — and has been for over five years,\" he said.\nThe most recent inflation readings showed headline prices up 3.7% over the past year, or 3.3% excluding food and energy. The Fed will get one more look at inflation data when the consumer and producer price indexes are released next week.",
+  "published_at": "2026-09-01T14:01:27Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.083547Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

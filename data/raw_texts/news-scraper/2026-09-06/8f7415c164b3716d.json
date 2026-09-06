@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/09/pentagon-releases-then-quickly-removes-testosterone-screening-policy/",
+  "title": "Pentagon rescinds new testosterone screening policy without explanation",
+  "raw_text": "Following Defense Secretary Pete Hegseth’s startling announcement in July that the US military would begin mandatory testosterone screening for personnel, the Pentagon released a clinical guidance document on September 2 outlining the new medically questionable policy.\nThe next day, though, the clinical guidance document disappeared, as did an accompanying statement by spokesperson Sean Parnell. The withdrawal was first reported by Reuters.\nIn a statement sent to Ars Technica, the Pentagon said that the document, titled “Clinical Guidance for Health and Human Performance Optimization,” had been temporarily rescinded on September 3 to allow for updates.\n“The Department remains committed to addressing hormone deficiencies, protecting the long-term health of its Service members, and enabling peak operational performance,” the Pentagon said. An interim guidance remains in effect, and “the final clinical guidance will be issued shortly,” it added.\nThe Pentagon declined to provide more information regarding what was being updated about the guidance and why it needed to be updated so quickly after its release.\nReuters reported that the rescinded guidelines called for men aged 30 and older to be screened through a questionnaire that could then trigger a blood test for testosterone levels and, if needed, testosterone hormone therapy. Women were also to be screened through a questionnaire, which could lead to treatment for hormonal imbalances.",
+  "published_at": "2026-09-04T16:57:24Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-09-06T03:00:30.151651Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "hegseth",
+      "hormone therapy",
+      "Pentagon",
+      "testosterone"
+    ]
+  }
+}

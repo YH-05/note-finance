@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/20764-ai-project-growth-continues-in-saudi-arabia.html",
+  "title": "AI project growth continues in Saudi Arabia",
+  "raw_text": "The fast-growing number of artificial intelligence projects in Saudi Arabia has been underlined by recent announcements involving AI data centre development from Humain and Datavolt and enterprise AI from NTT Data.\nHumain, a Saudi Arabia Public Investment Fund (PIF) company delivering full-stack artificial intelligence capabilities globally, and DataVolt, a Saudi-based developer and operator of sustainable digital infrastructure, have announced an expanded partnership to develop 100MW of a 360MW AI-ready data centre at Oxagon, the industrial city on the Red Sea coast which is part of megacity project NEOM. The facility is part of DataVolt’s wider planned 1.5GW Oxagon campus on which construction is now underway.\nThe facility is expected to integrate renewable energy sources, innovative cooling technologies, and high-performance computing clusters to support large-scale AI and cloud workloads. The first 100MW is anticipated to be available in 2028.\nThe project brings together Humain’s capabilities across the AI stack with DataVolt’s expertise in developing, financing, delivering and operating large-scale digital infrastructure.\nThe companies say they expect the project to benefit from Oxagon’s industrial infrastructure – pre-zoned industrial land availability, at-scale energy resources and access to low-latency compute through subsea cable connectivity to Europe and Africa.\nIt has only been a matter of days since Humain's last AI anouncement, which involved AMD.\nMeanwhile NTT Data, a major name in AI, digital business and technology services, has announced plans to launch the NTT Data AI Factory Lab in Riyadh, Saudi Arabia.\nDesigned to help organisations accelerate AI adoption, the lab will bring together NTT Data’s full stack AI solutions and services expertise and technologies from leading ecosystem partners, including Cisco and Nvidia.\nScheduled to open in September this year, the AI Factory Lab will support executive briefings, AI strategy workshops and hands-on experiences that will help organisations identify high-impact AI use cases, validate business outcomes and accelerate adoption on a secure, integrated foundation spanning infrastructure, platforms and services.\nCisco intends to provide the critical AI infrastructure foundation for the lab, including Cisco’s networking, security, observability and collaboration capabilities that enable enterprise AI adoption.\nNvidia will provide the accelerated computing platform and AI software technologies powering generative AI, agentic AI, computer vision and digital twin workloads.",
+  "published_at": "2026-09-01T14:02:28Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.212879Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Data Centres & Networks"
+    ]
+  }
+}

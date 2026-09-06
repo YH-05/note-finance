@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/energy-sustainability/20772-dayone-and-tnb-explore-data-centre-power-solution.html",
+  "title": "DayOne and TNB explore data centre power solution",
+  "raw_text": "A new collaboration aims to explore a dedicated on-site power generation solution of up to 1.5 gigawatts (GW) for a new data centre development in Selangor, within the Greater Kuala Lumpur region in Malaysia.\nDayOne Data Centres, a global digital infrastructure platform headquartered in Singapore, has announced a collaboration with Malaysia’s TNB Power Generation, the wholly owned power generation subsidiary of Tenaga Nasional Berhad (TNB).\nThis announcement builds on a longstanding partnership between the two companies, which includes collaborating on DayOne's campuses in Johor and national green energy programmes, including the Corporate Renewable Energy Supply Scheme (CRESS) and the Green Electricity Tariff (GET).\nBy combining DayOne's digital infrastructure expertise with TNB GenCo's power generation capabilities, the partners say they will look into solutions that support national grid security and reliability, while serving the needs of large-scale data centre operations and future AI infrastructure growth.\nAs for more precise details, the partners say the final capacity, configuration and implementation model remain subject to feasibility assessments, definitive agreements and applicable regulatory approvals.\nBy integrating dedicated on-site power generation and a battery energy storage system (BESS) directly with its data centre infrastructure, and working closely with TNB and other industry partners, DayOne says it aims to contribute to greater energy resilience, more efficient use of power infrastructure, and the accelerated adoption of renewable and lower-carbon energy solutions.\nDayOne adds that Malaysia has been one of its most important growth markets since the company launched its first Malaysian campus, Nusajaya Tech Park (NTP), in 2023, followed by Kempas Tech Park (KTP) in 2025, both in Johor.\nDayOne's new Selangor development marks its continued expansion in the Greater Kuala Lumpur region. The company says it expects its cumulative investment in Malaysia to reach over RM28 billion (about US$69.2 billion) by the end of 2026.",
+  "published_at": "2026-09-02T13:26:19Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.211755Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Energy & Sustainability"
+    ]
+  }
+}

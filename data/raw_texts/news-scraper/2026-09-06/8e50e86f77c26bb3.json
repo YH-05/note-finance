@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260904a.htm",
+  "title": "Federal Reserve Board announces termination of enforcement actions with United Texas Bank, Quontic Bank Acquisition Corp., and Quontic Bank Holdings Corp.",
+  "raw_text": "September 04, 2026\nFederal Reserve Board announces termination of enforcement actions with United Texas Bank, Quontic Bank Acquisition Corp., and Quontic Bank Holdings Corp.\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Friday announced the termination of the enforcement actions listed below:\nUnited Texas Bank, Dallas, Texas\nCease and Desist Order dated August 29, 2024 (PDF)\nTerminated September 2, 2026\nQuontic Bank Acquisition Corp., Astoria, New York, and Quontic Bank Holdings Corp., Astoria, New York\nWritten Agreement dated July 5, 2023 (PDF)\nTerminated September 2, 2026\nAdditional enforcement actions can be searched for here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-09-04T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.669089Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Enforcement Actions"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/science/990906/isar-aerospace-europe-orbital-rocket-launch",
+  "title": "Europe has its first commercial orbital rocket",
+  "raw_text": "German company Isar Aerospace has successfully launched Europe’s first entirely commercial orbital rocket. It attempted to achieve the feat last March, but that lasted all of 30 seconds before the vehicle crashed into the sea and exploded. This time the company managed to get the two-stage Spectrum into low Earth orbit from a Norwegian spaceport.\nEurope has its first commercial orbital rocket\nIsar Aerospace gives the continent more options to “buy European” for space launches.\nIsar Aerospace gives the continent more options to “buy European” for space launches.\n“Today, Isar Aerospace opened space from Continental Europe. Launch continues to be the largest bottleneck for the global space industry and from today on, there is a true alternative for commercial and institutional customers … Europe now has sovereign access to space. We have entered into a new chapter for European spaceflight.”\nUntil now, Europe has been largely reliant on Arianespace and Avio, which are largely funded by governments. The current global political climate makes the accomplishment particularly important for European countries that might view the United States as a less reliable partner at the moment and that have been cut off from Russian Soyuz rockets by the country’s invasion of Ukraine. The European Space Agency has also made “buy European” a cornerstone of its policies.",
+  "published_at": "2026-09-06T19:04:22Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-09-06T21:00:14.736918Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "News",
+      "Science",
+      "Space"
+    ]
+  }
+}

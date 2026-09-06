@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/990868/iphone-handoff-ios-27",
+  "title": "iPhone Handoff will seamlessly share one number between two phones",
+  "raw_text": "When iOS 27 lands later this month, it will have a feature called iPhone Handoff that lets you switch between two phones using the same number. It was briefly mentioned during the WWDC keynote back in June, but there were no details at the time. Now there’s a demo clip showing how to set up the feature running in Xcode 27’s Device Hub. It lets you pair two iPhones, using one as your main device and the other as its “companion.”\niPhone Handoff will seamlessly share one number between two phones\nThe feature is expected to launch as part of iOS 27 later this month.\nThe feature is expected to launch as part of iOS 27 later this month.\nLaunching the feature now makes sense with the expected launch of the foldable iPhone Ultra right around the corner. People might not always want to take a chunky and extremely expensive device out with them. So Handoff would let users temporarily switch over to a cheaper, smaller device — like that cracked iPhone 13 you’ve been stubbornly refusing to upgrade.\nThe feature will require carrier support, however. References to T-Mobile US and Telekom.de were found in the code, but support beyond that is unknown.",
+  "published_at": "2026-09-05T20:53:58Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-09-06T03:00:15.525404Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apple",
+      "Apple Rumors",
+      "News",
+      "Tech"
+    ]
+  }
+}

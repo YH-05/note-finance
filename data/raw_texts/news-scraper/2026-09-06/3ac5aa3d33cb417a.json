@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://packagemain.tech/p/gitignore-everything-by-default",
+  "title": ".gitignore Everything by Default",
+  "raw_text": "I think we’ve all been there. You’re working on a project, making commits, and then suddenly realize you’ve been committing .DS_Store files, node_modules, IDE configuration files, or other junk (CLAUDE.md for example) that shouldn’t be in your repository. Or even worse - environment variables. Then comes the embarrassing cleanup: adding these files to .gitignore, removing them from the repository history, and hoping that no one has noticed.\nWhat if we flipped this approach entirely? Instead of allowing everything by default and selectively ignoring files, what if we ignored everything by default and only allowed specific files?\nHere’s what this could look like in practice for a simple Go project:\n*\n!.gitignore\n!*.go\n!README.md\n!go.mod\n!go.sum\nThis .gitignore\nfile does exactly that:\n*\n- Ignore everything\nBut not these files...\n!.gitignore\n- the gitignore file itself!*.go\n- Go source files!go.mod\n- Go module file!go.sum\n- Go dependencies fileanything else you wish to include\nWith this setup, only the files you explicitly allow will be tracked by Git. No more accidental commits of unintended local files.\nThe technique isn’t necessarily the right choice for every repository or developer, but is an alternative to explore.\nNowadays, I see that projects have so much crap locally, like various agentic docs or subfolders, so it may seem easier to just ignore everything at first.\nJust look at this 207-lines .gitignore from typescript-go.\np.s. if you want to check if the path is ignored by git, you can run this command:\ngit check-ignore -v internal/server/server.go\nThis can save a lot of head-scratching when a file you expected to track doesn’t appear in Git.\np.s. have you heard of lazygit? The best Git TUI out there, check it out.",
+  "published_at": "2026-09-05T13:19:42Z",
+  "author": "der_gopher",
+  "collected_at": "2026-09-06T03:03:01.983850Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

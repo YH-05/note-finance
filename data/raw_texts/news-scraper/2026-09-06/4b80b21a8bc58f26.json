@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/09/06/the-real-estate-bet-behind-the-ai-infrastructure-boom.html",
+  "title": "Chasing AI fortunes, investors race to snap up land",
+  "raw_text": "watch now\nThe investors racing to cash in on the AI boom\nInvestors are spending billions of dollars buying up land in hopes of developing it into data centers or other AI infrastructure. The buildout is impacting communities across the country, sparking confrontations between tech companies, developers, local governments and residents. CNBC traveled to Lancaster County, Pennsylvania and Boise, Idaho to learn more about the real estate bet behind the AI boom.\n11:03\n3 hours ago",
+  "published_at": "2026-09-06T11:55:01Z",
+  "author": null,
+  "collected_at": "2026-09-06T15:17:04.534543Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

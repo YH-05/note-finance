@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/05/missouri-supreme-court-congressional-districts.html",
+  "title": "Missouri asks Supreme Court to let it use new Trump-backed congressional districts in midterms",
+  "raw_text": "Missouri appealed to the U.S. Supreme Court on Friday to allow the use of new congressional districts backed by President Donald Trump in the fast-approaching midterm election.\nThe appeal comes after Missouri's highest court blocked the new map and ordered a statewide vote in November on whether to keep or reject it.\nIt's part of a national redistricting battle that Trump launched last year. Missouri's new congressional boundaries were drawn to help Republicans win an additional seat and hold onto their slim House majority in November's midterm elections.\nThe Missouri Supreme Court weighed in after redistricting opponents submitted over 300,000 petition signatures seeking to put the map to a vote. Republican Secretary of State Denny Hoskins rejected the petition on primary Election Day, asserting that Missouri's constitution doesn't allow referendum petitions on congressional redistricting. He successfully defended his decision in a lower court, but lost on Thursday before the state's highest court.\nThe court said the referendum petition effectively suspended the new districts, retroactive to last December, pending voter approval. Although the new districts were used in the August primary, Missouri's top court said the previous districts enacted after the 2020 census must be used in the general election.\nMissouri Attorney General Catherine Hanaway said no court had previously overturned a congressional map after a primary but before a general election.\n\"No court in American history has ever given such an extraordinary remedy, which inflicts unprecedented chaos on Missouri,\" her office wrote in the appeal. She asked the Supreme Court to halt the state court's decision immediately.\nState law sets a Tuesday deadline to make changes to the November ballot. The Supreme Court asked critics of the new map to respond to the appeal by Monday.\nMissouri currently has six Republicans and two Democrats in the U.S. House. The new maps reconfigured a Kansas City-based district held by longtime Democratic Rep. Emanuel Cleaver.\nCongressional districts typically are redrawn at the start of each decade, based on new census data. But Trump's quest for a midterm election advantage triggered an unusual mid-decade redistricting battle that spread to more than a dozen states, led by Democrats and Republicans.",
+  "published_at": "2026-09-05T10:25:17Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.045442Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "politics",
+    "tags": []
+  }
+}

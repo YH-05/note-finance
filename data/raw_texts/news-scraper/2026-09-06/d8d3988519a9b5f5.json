@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/26/mortgage-rates-hit-highest-level-in-3-weeks-weakening-demand-further.html",
+  "title": "Mortgage rates hit highest level in 3 weeks, weakening demand further",
+  "raw_text": "Mortgage interest rates moved even higher last week, causing demand for loans to weaken yet again.\nTotal mortgage application volume dropped 1% from the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances of up to $832,750 increased last week to 6.78% from 6.77% the prior week, with points rising to 0.66 from 0.65, including the origination fee, for loans with a 20% down payment. That is the highest level in three weeks.\nApplications to refinance a home loan, which are most sensitive to weekly rate moves, fell 2% for the week. They were 17% lower than the same week one year ago, when rates were 9 basis points lower.\n\"Refinance applications decreased, particularly for FHA and VA loans, and the average loan size for refinances was at its lowest since June 2025,\" said Joel Kan, vice president and deputy chief economist at the MBA, in a release.\nApplications for a home mortgage fell 0.3% for the week and were 5% lower than the same week a year ago.\nEven though rates are higher than last year, fewer buyers are using all cash, according to a separate report from Realtor.com. Less competition in the overall market makes sellers more likely to accept buyers who need financing.\n\"Purchase activity was down over the week, driven by a 7 percent decrease in FHA applications. The purchase market has also slowed these past two months,\" Kan added.\nMortgage rates are lower this week, according to a separate survey from Mortgage News Daily, with rates dropping Tuesday thanks to falling oil prices.\n\"News reports suggested progress in the peace process via Pakistani mediators. Oil prices dropped sharply in response, and bond yields followed the move. Bond yields correlate with mortgage rates,\" wrote Matthew Graham, chief operating officer at Mortgage News Daily.",
+  "published_at": "2026-08-26T11:33:07Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.097733Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

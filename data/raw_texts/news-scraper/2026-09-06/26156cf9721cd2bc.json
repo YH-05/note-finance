@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://techcrunch.com/2026/09/04/us-military-disabled-ad-tracking-on-troops-devices-following-reports-of-targeted-attacks/",
+  "title": "US military disabled ad tracking on troops’ devices following reports of targeted attacks",
+  "raw_text": "The U.S. Department of Defense has disabled advertising tracking on troops’ phones and computers as part of an effort to protect them from threats that target their locations, according to a letter shared with Senator Ron Wyden.\nPer a letter shared with the senior Democrat on the Senate Intelligence Committee, Wyden said that the U.S. Army, Air Force, Navy, and Marine Corps, and Special Operations Command have all disabled advertising tracking across their government-issued devices.\nThis includes the departments’ iPhones and Android devices, and Windows computers managed across the federal military enterprise network, the letter said.\nReuters, which first reported the news and the letters, said the military rolled out the protections earlier this year. The Air Force told Wyden it implemented its changes more recently in July.\nThe aim is to prevent adversaries, including hostile governments, from using location data derived from the apps on troops’ phones to target them on the battlefield or on their bases. Location data collected from phone apps is commonly shared with third-party companies and data brokers, which then sell the information on the commercial market. Disabling the advertising ID makes the person far more difficult to identify as the location data blends in with everyone else whose advertising ID is also disabled.\nWyden raised the issue earlier this year in a letter to U.S. military leaders after finding that unnamed foreign adversaries had targeted U.S. troops in the Middle East using their commercially obtained location data. The senator, a known privacy hawk on Capitol Hill, said that while the move to reduce the advertising tracking was commendable, he warned that the personal devices of troops and contractors brought onto military bases could still expose service members and facilities to attacks.\nWhile the U.S. government has acknowledged that its troops face a risk from this data, the U.S. intelligence community and the FBI have confirmed that they buy this data for surveillance and intelligence collection without a warrant.",
+  "published_at": "2026-09-04T13:21:37Z",
+  "author": "Zack Whittaker",
+  "collected_at": "2026-09-06T03:00:25.397528Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "techcrunch",
+    "category": "technology",
+    "tags": [
+      "Security",
+      "cybersecurity",
+      "data brokers",
+      "location data",
+      "us military"
+    ]
+  }
+}

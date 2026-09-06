@@ -1,0 +1,25 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/09/xbox-imposes-harsh-new-time-limits-for-game-pass-game-streaming/",
+  "title": "Xbox imposes harsh new time limits for Game Pass game streaming",
+  "raw_text": "In 2020, Microsoft announced that Game Pass Ultimate subscriptions would include unlimited access to its new Xbox Cloud Gaming service (then still known as Project xCloud). Now, that kind of streaming buffet service is coming to an end, as Microsoft announced strict new limits on how much streaming is included in its various Game Pass subscriptions.\nStarting in November, Game Pass subscriptions will include the following monthly limits on game streaming time:\n- Game Pass Ultimate ($23/month): 15 hours\n- Game Pass Premium ($15/month): 10 hours\n- Game Pass Essential ($10/month): 5 hours\nSubscribers who use up their monthly streaming allotment will be able to buy additional time, Microsoft said, without sharing specific pricing or availability for that streaming time. Access to downloadable versions of games included in a Game Pass subscription remains unaffected.\nPlayers who don’t subscribe to Game Pass will also be able to purchase timed access to streaming versions of “eligible games they own on supported devices,” Microsoft said. In June, Microsoft also began testing a free “stream with ads” option for players to access their cloud libraries at no additional cost.\nSony currently offers streamable versions of select PlayStation games—without time limits—only to subscribers of its top-tier, $20 per month PlayStation Plus Premium plan. Nvidia’s GeForce Now streaming PC games service currently limits the length of a user’s individual play sessions, ranging from one-hour sessions on the free ad-supported tier to eight-hour sessions on the $20 per month Ultimate tier. GeForce Now users can start as many sessions as they want in a day, however, and can purchase single-day passes for limited-time streaming access to over 2,000 streamable titles.\nWho pays?\nWhile Microsoft acknowledges that its new streaming limits will result in a “higher cost” for some customers, the company says the change will only impact “4% of Game Pass subscribers.” That ratio suggests that about 1.2 million of the estimated 30 million Xbox Game Pass subscribers are currently using streaming often enough to require additional payments under the new structure.",
+  "published_at": "2026-09-03T21:10:59Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-09-06T03:00:30.153301Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "cloud gaming",
+      "Game Pass",
+      "microsoft",
+      "streaming",
+      "XBox",
+      "xcloud"
+    ]
+  }
+}

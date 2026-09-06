@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/27/august-apartment-rents-turn-positive-for-the-first-time-in-four-years.html",
+  "title": "August apartment rents turn positive for the first time in four years",
+  "raw_text": "The national median apartment rent in August grew 0.1% from July, moving higher for the seventh straight month, according to Apartment List. While that might seem tiny, it is the first positive rent growth for the month since August 2022.\nRents are still 0.8% lower compared with August of last year, but that drop is shrinking, a sign the rental market is finally beginning to stabilize after several years of rent declines.\nRents saw their steepest decline in April of this year, according to the report, as demand pulled back due to economic uncertainty and concern over the job market. The national median monthly rent now stands at $1,390, down $11 compared with August 2025.\nThe peak moving season in the apartment market is spring and summer, but an oversupply of new units changed that seasonal dynamic with respect to rents and vacancies.\n\"In recent years, rents had dipped slightly in August, as the rental market's off-season shifted earlier in the year amid soft conditions,\" wrote Chris Salviati, chief economist at Apartment List, in a report. \"By bucking that trend, this month's data offer another sign that the rental market is turning the corner.\"\nApartment List's vacancy index has also been dropping for six straight months, down to 7.1% in August. While the vacancy rate is still near its recent February peak, its fall since then marks its first decline since 2021.\nMultifamily construction was on steroids in recent years, peaking in 2024 when more than 600,000 new units came to market. That was the most new supply since 1986, according to Apartment List.\n\"Despite being at the tail end of the construction boom, the market had still been struggling to absorb the swell of new inventory. That is now finally changing, as we see multifamily occupancy also hitting an inflection point in tandem with rent growth,\" Salviati wrote.\nWhile the national picture points to recovery, regional trends vary widely. Rent declines from a year ago are concentrated in the South and Mountain West regions. In the Northeast, Midwest and parts of the West Coast, rents are definitively higher.\nThe highest rent growth was seen in San Francisco and San Jose, California, as well as Virginia Beach, Virginia, and Milwaukee. Rents dropped the most in San Antonio, Las Vegas and Denver.",
+  "published_at": "2026-08-28T13:28:44Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.093126Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

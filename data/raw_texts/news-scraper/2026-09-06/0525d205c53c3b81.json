@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/gemini-not-at-fault-for-collapse-of-earn-lending-program-arbitrator-says.html",
+  "title": "Crypto exchange Gemini not at fault for collapse of Earn lending program, arbitrator says",
+  "raw_text": "Gemini Space Station scored a legal victory earlier in August after an arbitrator found the crypto exchange did not mislead users and was not at fault for the collapse of its Earn lending program.\nThe claim was filed in late 2024 by a user of the digital asset firm's lending program Earn. However, there was insufficient evidence that Gemini had lied to its customers or neglected to do due diligence with Genesis Global Capital, its main lending partner, according to the ruling viewed by CNBC.\n\"To succeed in a claim for negligent infliction of emotional distress, a claimant must prove: (i) a breach of a duty owed to the claimant; (ii) emotional harm; (iii) a direct causal connection between the breach and the emotional harm; and (iv) circumstances providing some guarantee of genuineness of the harm,\" the Aug. 12 ruling said. \"In the instant case, Claimant offered no evidence of an actual or perceived threat to his physical safety.\"\nInstead, the arbitrator pointed to Genesis, which was run by Digital Currency Group Barry Silbert, alleging \"massive\" fraud on its part. Silbert is facing several multibillion-dollar lawsuits accusing him of defrauding investors. Last year, DCG agreed to pay the Securities and Exchange Commission $38.5 million for misleading investors.\n\"The scope of the Silbert / DGC / Genesis fraud was massive, and until the fraud was discovered by Gemini, it went undetected by Genesis' & DCG's auditors, as well as by various regulatory authorities,\" the arbitrator said.\nSilbert and DCG did not respond to CNBC's request for comment.\nLaunched in 2021, Earn allowed users to reap up to 7.4% annual yields on their cryptocurrencies by lending them out. Under the program, Gemini lent the assets to institutional borrowers, using Genesis as its intermediary.\nHowever, Gemini halted withdrawals from its Earn program in November 2022, angering some of its more than 300,000 users. The move came shortly after Genesis paused new loan originations and redemptions due to a liquidity crunch it faced amid the crypto market downturn that year.\nFollowing the Earn withdrawals freeze, several customers brought legal complaints against Gemini. The New York Attorney General also sued Gemini over its Earn program, settling with the company for $50 million in 2024.\nIn February 2024, Gemini announced that the company reached a \"settlement in principle\" with Genesis and other creditors in the Genesis Bankruptcy. Three months later, Earn users received $2.18 billion of their digital assets in kind, representing 97% of digital assets owed to Earn users and $1 billion more than when Genesis halted withdrawals in 2022.\nAs of earlier this month, there were still more than a dozen ongoing disputes aimed at Gemini brought by Earn customers.\n— CNBC's Talia Kaplan contributed to this reporting.",
+  "published_at": "2026-08-31T15:22:43Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.087471Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

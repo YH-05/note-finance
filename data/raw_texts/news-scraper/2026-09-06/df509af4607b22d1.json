@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20775-teltronic-to-supply-private-4g-network-for-chilean-rail-company.html",
+  "title": "Teltronic to supply private 4G network for Chilean rail company",
+  "raw_text": "Teltronic, a Spanish company with more than 50 years of experience in the critical communications sector, says it will be supplying a 4G broadband communications network for national rail company EFE Trenes de Chile.\nThe broadband communications system will provide data transmission services for two new lines that will connect the capital city, Santiago de Chile, with the nearby towns of Melipilla and Batuco, as part of a project awarded by the Chilean railway operator to Siemens Mobility.\nThe project includes the implementation of the country’s first ETCS (European Train Control System) Level 2 system, an in-cab digital signalling system that uses continuous radio communication to guide trains safely without relying on traditional physical lineside signals.\nSiemens Mobility has entrusted Teltronic with the deployment of a private 4G network that will provide coverage along the 87 kilometres of new railway lines. However, as Teltronic explains, the system is 5G ready, meaning that it can evolve to 5G technology through a simple software upgrade. In addition, the infrastructure includes two control nodes, one primary and one redundant, to ensure system robustness.\nTeltronic says it will also equip the 32 new trains that will operate on the lines with its RTP-800, a state-of-the-art radio that will enable continuous train-to-ground data transmission. The onboard solution is completed by the DCD7 touch-screen console, which has been designed to meet the stringent requirements of railway environments and allows train drivers to operate the radio controls.\nThe system, which is also prepared to support voice communications, will be integrated with a passenger information system, a public address system and the CCTV network, whose images will be transmitted in real time. It will also support Level 2 ETCS which, says Teltronic, means it will play a key role in the safe and efficient operation of the trains.",
+  "published_at": "2026-09-03T13:44:46Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.211293Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

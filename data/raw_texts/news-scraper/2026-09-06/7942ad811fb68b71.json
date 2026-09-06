@@ -1,0 +1,26 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/09/150-research-primates-got-diarrhea-flooding-lab-with-priceless-vaccine-data/",
+  "title": "150 research primates got diarrhea, flooding lab with priceless vaccine data",
+  "raw_text": "Having more than 150 non-human primates at a research center fall ill with diarrhea in a stomach-churning outbreak that flowed for over two years doesn’t sound much like good fortune. But for some scientists, it kind of was, providing a heaping pile of valuable data on how they might finally defeat a foul foe.\nIn a study published in the latest issue of Science Translational Medicine, scientist sifted through the dump of immunological data from the infections, logging new ways to train immune cells to defeat the bacteria behind the outbreak, a type of Shigella. Researchers were able to pluck out specific bits of the bacteria that the immune system could most effectively attack, linking specific target molecules to specific types of germ-busting immune responses. The researchers even precisely homed in on some of the tiny notches within those craggy target molecules where the most potent antibodies attached.\nIn all, the study “revealed unexpected features of the anti-Shigella antibody response in naturally infected [non-human primates] and represents a step toward the rational design of Shigella vaccine candidates,” the authors write.\nShigella is a gastrointestinal horror, striking more than 200 million people in the world each year and killing more than 200,000, mostly children. Those who survive typically develop some protective immune responses. But, given that there are various species and serotypes of Shigella, protective immune responses tend to only work against a narrow range of the bacteria’s family. And, on top of that, Shigella strains are only becoming more resistant to antibiotics.\nThe need for a Shigella vaccine—one that can combat the whole cruddy clan—is clear. As such, there are many vaccine development efforts underway. Still, scientists have been toiling without some of the detailed molecular and structural data needed to design a sophisticated vaccine. That’s where the outbreak came in.",
+  "published_at": "2026-09-03T20:14:48Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-09-06T03:00:30.153481Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "bacteria",
+      "LPS",
+      "outbreak",
+      "primates",
+      "shigella",
+      "Type 3 secretion system",
+      "vaccine"
+    ]
+  }
+}

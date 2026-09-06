@@ -1,0 +1,23 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/gaming/2026/09/valve-secretly-leaked-a-left-4-dead-2-trailer-to-dodge-the-esrb/",
+  "title": "A ratings board wouldn't let Valve release a trailer. It \"leaked\" it instead.",
+  "raw_text": "Back in 2009, Ars wrote about what was being reported as a leaked trailer for the then-upcoming Left 4 Dead 2, saying the footage “looks like it’s straight from a high-gloss action movie.” Today, we need to offer an important update to this crucial, 17-year-old story: The trailer “leak” was orchestrated by Valve itself.\nThat news comes courtesy of former Valve writer Chet Faliszek, who said in a newly posted video about cut lines in the game that “for Left 4 Dead 2 with the ESRB… we leaked our trailer ahead of time because they wouldn’t let us release the trailer.”\nFaliszek is referring to the Entertainment Software Rating Board, the self-regulating industry group that, since 1994, has offered sometimes questionable age-appropriateness ratings for thousands of games submitted to its purview. While many smaller and/or online-focused game makers skip out on getting those ratings these days, at the time, any publisher that wanted space on major retailers’ shelves needed to submit to the ESRB’s standards.\nThose standards included restrictions on how companies could market their games as well. And looking back at the “leaked” Left 4 Dead 2 trailer on YouTube, you could argue that it falls afoul of guidelines that prohibited trailers with “graphic and/or excessive depictions” of “violence… the use of weapons… [and] blood and/or gore” as well as those with “crude and/or offensive language.”\nAt the time, Valve had some recent firsthand experience with the ESRB’s sometimes onerous enforcement of its marketing standards. Earlier in 2009, the ESRB requested a change to a Left 4 Dead 2 promotional image featuring a hand with three gnawed-off fingers, leaving two intact digits indicating the number of the sequel. To pass the ESRB’s muster, Valve shot a new version with two of those fingers back in place (and simply curled down) that eventually appeared on the game’s box art.\n“Faliszek pointed out that this is a game where people are torn apart using a chainsaw,” we reported at the time. “But bitten off fingers on the logo? That’s crossing some line.”\n“Likely to cause serious offense to the average consumer”\nThe ESRB of nearly two decades ago could also be quite restrictive regarding game trailers in particular. In 2007, the ratings group requested the removal of trailers for D3’s Dark Sector and 2K’s The Darkness after they had already been shared across the web (behind age gates on most major news sites). In a statement at the time, the ESRB’s Patricia Vance said that “the mere presence of an age gate does not permit a publisher to simply put whatever content it wishes into the trailer. All trailers must still conform to [the Advertising Review Council]’s Principles and Guidelines, which prohibit the display of excessively violent content or any content likely to cause serious offense to the average consumer.”",
+  "published_at": "2026-09-04T16:42:53Z",
+  "author": "Kyle Orland",
+  "collected_at": "2026-09-06T03:00:30.151834Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Gaming",
+      "ESRB",
+      "Left 4 Dead",
+      "rating",
+      "Valve"
+    ]
+  }
+}

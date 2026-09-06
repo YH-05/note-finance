@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/31/byd-shares-slide-as-fierce-china-competition-dents-first-half-earnings.html",
+  "title": "BYD shares slide as fierce China competition dents first-half earnings",
+  "raw_text": "Shares of Chinese electric-vehicle giant BYD fell nearly 5% in Hong Kong on Monday, following the release of its interim results on Friday.\nBYD's second-quarter net profit stood at 8.2 billion yuan ($1.2 billion), up 30% from a year earlier, while revenue fell 3% year on year to 194.6 billion yuan, according to Citi following the release of the automaker's results.\nFor the first half, BYD reported revenue of 344.8 billion yuan, down 7.1% from a year earlier, while net profit attributable for the company's shareholders fell 20.5% to 12.3 billion yuan, according to the company.\nBYD said China's auto industry faced \"sluggish domestic demand and robust export growth\" in the first half, while fierce competition and rising costs for commodities, raw materials and chips squeezed automakers' profit margins.\nMeanwhile, BYD's exports rose 67.8% year on year to 792,000 vehicles in the first half. In China, despite intensifying competition and temporary challenges to domestic demand, combined sales of brands such as FANGCHENGBAO, Denza and Yangwang brands grew 61% year on year, accounting for 12.8% of the group's passenger vehicle sales.\nCiti expects BYD's third-quarter core earnings to reach 13.5 billion yuan and sees full-year net profit of 41.2 billion yuan, potentially coming in 8% above consensus.",
+  "published_at": "2026-08-31T04:01:47Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.088827Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

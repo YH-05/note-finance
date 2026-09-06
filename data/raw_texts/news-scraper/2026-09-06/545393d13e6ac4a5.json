@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/28/marvell-mrvl-q2-earnings-outlook.html",
+  "title": "Marvell shares tumble 6% as outlook underwhelms despite 37% revenue growth",
+  "raw_text": "Marvell Technology shares fell 6% on Friday despite a second-quarter revenue beat, as its raised fiscal 2028 outlook failed to meet investors' elevated expectations.\nThe chipmaker said Thursday that it now expects revenue to grow about 50% year-on-year to around $18 billion, higher than its previous forecast of $16.5 billion.\nRevenue rose 37% to $2.7 billion in its fiscal second quarter. That came in $39 million above the company guidance provided in May.\nMarvell, which makes networking, connectivity and custom chips used in AI data centers, offered limited detail on its fiscal 2028 outlook, dampening investor sentiment after hopes that a Google partnership worth up to $12.2 billion in shares would further boost earnings.\nThe stock was last trading down 6.6%. It's up 184% this year, buoyed by demand for its products used in AI infrastructure.\nMarvell's Chairman and CEO Matt Murphy said the results were driven by continued strong demand across the company's data center portfolio, where revenue growth accelerated to 46% year over year.\n\"AI-related bookings remain exceptionally robust, and we expect our revenue growth to accelerate further through the remainder of fiscal 2027,\" Murphy added.\nThe Google partnership, announced last week, allows the tech giant to buy up to 58.97 million Marvell shares at $206.58 each, subject to purchase targets through fiscal 2033.\nMarvell said the agreement covers products that work with Google's TPU systems, including AI inference chips, storage controllers and network interface controllers.\nGoldman Sachs analysts noted \"high investor expectations\" ahead of the quarter.\n\"We believe investor expectations were elevated heading into the quarter based on robust spending at key customers, as well as the previously disclosed Google relationship,\" the analysts said in a Thursday note.\nThe results were an \"incremental positive\" for the stock, they added. Goldman Sachs remains neutral on Marvell as the investment bank noted that it trades at a higher valuation than its peers and there is less certainty about its ability to add custom-chip customers.",
+  "published_at": "2026-08-28T13:42:43Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.092744Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

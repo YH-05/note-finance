@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/23/small-uk-power-plant-shut-down-after-iran-linked-cyberattack-report.html",
+  "title": "Small UK power generator shut down after cyberattack linked to Iran: Telegraph",
+  "raw_text": "A small power plant in the U.K. was shut down for four days in July following a cyberattack carried out by hackers linked to Iran, The Telegraph newspaper reported Sunday.\nThe paper said the incident happened around the time that U.S. authorities including the Federal Bureau of Investigation warned about malicious cyber actors targeting water facilities across at least seven states. The Cybersecurity and Infrastructure Security Agency, FBI, Environmental Protection Agency and other agencies blamed Iran..\nA U.K. government spokesperson declined to attribute blame for the reported power outage or identify the facility.\n\"This story refers to an incident impacting a small-scale energy generator, and at no point was there a risk to the wider energy system,\" the spokesperson told CNBC in a statement. \"The U.K. has a highly resilient energy system. We work closely with the energy sector to protect infrastructure and ensure the highest security standards.\"\nThe government's Department of Energy Security and Net Zero said it briefed energy CEOs and wrote to companies advising them on next steps. It also said it is updating its cybersecurity regulations.\nShortly after the U.S. and Israel launched their war on Iran on Feb. 28, cyber experts warned of online attacks from Iran on U.S. businesses and infrastructure.\nOn August 18, the U.S. Department of Justice charged 17 Iranians with conducting a \"massive cyber theft campaign on behalf of the Islamic Revolutionary Guard Corps and other Iranian entities\".\nIran has also been the target of cyber attacks.\nIn June, blockchain analytics firm Elliptic said Iran's largest cryptocurrency exchange, Nobitex, was hacked for more than $90 million.\nThe funds were drained from platform wallets into addresses bearing anti-government messages explicitly referencing the IRGC, pointing to a politically motivated cyberattack, Elliptic said.\nPro-Israel hacking group Gonjeshke Darande, or \"Predatory Sparrow,\" claimed responsibility for the attack.",
+  "published_at": "2026-08-23T12:46:01Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.102659Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "europe_news",
+    "tags": []
+  }
+}

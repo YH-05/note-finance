@@ -1,0 +1,21 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident",
+  "title": "OpenAI admits to German wiki ‘incident’",
+  "raw_text": "OpenAI says it needs to overhaul how and when it reports instances of AI models attacking real-world targets. The acknowledgement comes as the company manages the fallout from reports that a swarm of its out-of-control agents hijacked a German wiki site.\nOpenAI admits to German wiki ‘incident’\nThe company pledged to overhaul their agent ‘misalignment incident’ reporting.\nThe company pledged to overhaul their agent ‘misalignment incident’ reporting.\nRegarding the “‘wiki incident,’ where our agents wrote to several internet sites,” OpenAI wrote in a post on X on Saturday morning, “it’s past time for us to define standards for when and how we share misalignment incidents, not just misalignment properties of our models.”\nOpenAI said it has typically treated cases of AI agents acting in unintended ways as a “research question,” but that recent incidents involving real-world targets, particularly the hack on Hugging Face, show the need to take stock.\nThe post marks the first time OpenAI has acknowledged its involvement in what it terms the “wiki incident” since it was first reported on Friday. The full extent and scope of that is not yet known, but reports indicate a swarm of seemingly internal OpenAI agents took over a German-language wiki, impersonating moderators and turning it into a message board to share information about how to cheat on tasks and evade detection.\nReports that the company knew that it lost control of their agents in this way but did not report this “incident” sparked widespread concern among the AI community about the safety of frontier systems and the reliability of the companies developing them. In the X post, OpenAI said it had “considered the wiki incident to be an instance of misalignment similar to the ones we’d shared” in previous safety reports.\nThe company said it is working on a new reporting framework and will “share it in upcoming weeks,” calling on the larger AI community to develop clear standards on how to report misalignment.",
+  "published_at": "2026-09-05T11:15:55Z",
+  "author": "Robert Hart",
+  "collected_at": "2026-09-06T03:00:15.526439Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "OpenAI",
+      "Tech"
+    ]
+  }
+}

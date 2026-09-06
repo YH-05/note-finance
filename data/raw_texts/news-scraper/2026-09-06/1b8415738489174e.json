@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/ai/2026/09/anthropics-2-trillion-ipo-puts-powerful-external-trustees-in-spotlight/",
+  "title": "Anthropic’s $2 trillion IPO puts powerful external trustees in spotlight",
+  "raw_text": "Anthropic’s prospective public-market investors must reckon with an external group of trustees that control the majority of the AI company’s board, as its planned blockbuster initial public offering forces close scrutiny of its experimental governance structure.\nThe company’s Long-Term Benefit Trust (LTBT) is a small group of advisers created to safeguard the lab’s mission of developing AI for the long-term benefit of humanity, even as commercial pressures intensify.\nThe trust holds no equity in Anthropic, but has significant influence, with the San Francisco-based company planning to preserve its role after a stock market debut that could value the Claude maker at as much as $2 trillion.\nThe LTBT, which is the controlling governance mechanism of the Anthropic public benefit corporation, has the right to appoint or dismiss the majority of the company’s board. It has selected four of Anthropic’s seven directors, including Netflix’s co-founder Reed Hastings and Vas Narasimhan, chief executive of Novartis.\nCurrently, the LTBT has three members out of a potential maximum of five, chaired by Neil Buddy Shah, chief executive of the Clinton Health Access Initiative, alongside former Federal Reserve chair Ben Bernanke and Richard Fontaine, CEO of the Center for a New American Security. Mariano-Florentino “Tino” Cuéllar, a former California Supreme Court justice, left the trust after a few months to work as Anthropic’s chief global affairs officer.\nAnthropic is attempting to establish a template for future AI governance through the trust, said multiple people close to its plans.\nThey said the ambition for the LTBT is to provide an industry blueprint, similar to the GAAP accounting principles, which initially emerged as voluntary standards proposed by private companies. Bernanke’s appointment in July signals this intention to build a more institutional body, one person added.\nThe trustees are required to receive advance notice of major company actions, including the launch of new AI models. They meet weekly among themselves, while also meeting Anthropic’s leadership as frequently as every other week, according to people close to the matter.",
+  "published_at": "2026-09-04T16:22:18Z",
+  "author": "Madhumita Murgia, Financial Times",
+  "collected_at": "2026-09-06T03:00:30.152213Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "IPO",
+      "syndication"
+    ]
+  }
+}

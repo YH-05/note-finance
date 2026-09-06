@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731a.htm",
+  "title": "Federal Reserve Board requests comment on a proposal to modernize rules for mutual banking organizations",
+  "raw_text": "July 31, 2026\nFederal Reserve Board requests comment on a proposal to modernize rules for mutual banking organizations\nFor release at 10:00 a.m. EDT\nThe Federal Reserve Board on Friday requested comment on a proposal to modernize rules for mutual banking organizations. These institutions are owned by depositors rather than shareholders, and more than 90 percent have less than $3 billion in total assets.\nThe Board assumed regulatory and supervisory authority over mutual banks from the Office of Thrift Supervision in 2011. The rules governing these banks were first established in 1993. They have not been updated and have proven over time to be overly burdensome and complex.\n\"Today's proposal is another important step in our work to modernize the bank regulatory framework by updating mutual bank regulations for the first time in 30 years. The continued success of this model contributes to the institutional diversity of the U.S. banking system, which is one of the greatest strengths of our financial system,\" said Vice Chair for Supervision Michelle W. Bowman. \"This proposal will allow mutual banks to continue to grow and more effectively serve communities across the country, while preserving their unique depositor-owned structure.\"\nThe proposal would modernize the framework and increase flexibility for certain mutual banks to raise capital. More specifically, it would clarify which instruments count as regulatory capital and reduce procedural burdens, among other comprehensive updates.\nComments on the proposal are due 60 days after publication in the Federal Register.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-07-31T14:00:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.671479Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

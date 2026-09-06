@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/tech-policy/2026/09/trump-admin-fights-abc-lawsuit-as-watchdogs-worry-disney-will-settle-with-fcc/",
+  "title": "Trump admin fights ABC lawsuit as watchdogs worry Disney will settle with FCC",
+  "raw_text": "The Federal Communications Commission yesterday urged a court to dismiss a Disney lawsuit and let the FCC continue a proceeding that could end in the nonrenewal of ABC’s broadcast licenses.\nMeanwhile, two watchdog groups and individual viewers of ABC stations are trying to intervene in the lawsuit, saying they are worried Disney will agree to a settlement with the FCC that isn’t in the public’s interest. Disney opposed the motion, and a judge will have to decide whether the groups and individuals can act as intervenors in the case.\nDisney sued the FCC on August 18, saying the agency is waging a “campaign of censorship” to retaliate against ABC for speech that President Trump doesn’t like. As the lawsuit gets underway, Trump continued his attacks on the media last weekend by demanding that the FCC punish or rebuke an NBC journalist for saying he has “mixed results” in his election endorsements.\nThe FCC filed a motion to dismiss the Disney lawsuit yesterday, defending the early license review that it ordered for the eight broadcast stations owned by ABC. FCC Chairman Brendan Carr has threatened ABC over jokes made by Jimmy Kimmel and political content on The View, but the FCC claims the early license review is strictly about other matters and that no decision has been made.\nFCC says Chairman Carr is “open-minded”\nThe FCC filing in US District Court for the District of Columbia said the proceeding is only about “allegations of unlawful discrimination” related to Disney’s diversity, equity, and inclusion (DEI) policies. The FCC wants the court to toss the lawsuit entirely, or at least deny Disney’s request for a preliminary injunction that would halt the license review pending the outcome of litigation. The FCC said:",
+  "published_at": "2026-09-04T19:46:34Z",
+  "author": "Jon Brodkin",
+  "collected_at": "2026-09-06T03:00:30.150876Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Policy",
+      "ABC",
+      "Disney",
+      "FCC"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/28/iran-war-gulf-oil-exports-goldman-estimate.html",
+  "title": "Oil exports from the Gulf rise to more than 60% of level before Iran war, Goldman Sachs estimates",
+  "raw_text": "Goldman Sachs estimates the Gulf states are exporting roughly 15 million to 16 million barrels of oil per day, or more than 60% of the amount the region supplied to the world before the Iran war started. Oil exports from the Gulf are still 7 million bpd to 8 million bpd below the normal level before the war, Goldman analysts estimated in a note Thursday. But shipments have surged 5 million bpd to 6 million bpd above the bottom hit in March during the worst phase of the war, they said. It has become difficult to figure out how much oil is flowing from the Gulf because information on tanker traffic in the region is limited and delayed due to the war, the analysts said. @CL.1 @LCO.1 YTD mountain WTI, Brent YTD More tankers are leaving the region with their transponders turned off so they don't show up in real time on ship-tracking platforms, they said. Satellite coverage to detect vessels is limited and ship-to-ship transfers outside Hormuz have increased, they said. As a result, oil volumes from the Gulf are revised higher later when tankers turn their transponders back on and are detected, the analysts said. These revisions suggest oil transits through the Strait of Hormuz are probably close to Trump administration's estimates of 8 million bpd to 10 million bpd, they said. \"The rise in dark crossings by specialized shippers and in ship-to-ship transfers shows that producers and shippers are adapting to the Mideast conflict,\" Daan Struyven, head of oil research at Goldman, and his colleagues told clients. \"Shipping markets now price in disruptions likely continuing well into 2027.\"",
+  "published_at": "2026-08-28T18:10:55Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.091728Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "energy",
+    "tags": []
+  }
+}

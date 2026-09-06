@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/microsoft-xbox-game-pass-cloud-limits.html",
+  "title": "Microsoft to impose time limits on Xbox cloud gaming subscribers as costs continue to climb",
+  "raw_text": "Microsoft's Xbox unit said Thursday that it will impose monthly cloud gaming time limits for Game Pass subscribers after years of unlimited access, as the company seeks to find a better balance between usage and costs.\nPlayers will be able to pay for additional hours beyond the caps, which go into effect in November.\nAcross product organizations, Microsoft executives have been devising ways to charge customers based on usage to better reflect rising costs. Demand is climbing for the software company's finite amount of computing power — not unlike its technology peers — and clients of artificial intelligence products such as GitHub Copilot and the Microsoft 365 Copilot increasingly pay based on how much they use.\n\"We're introducing this model because the cost of providing cloud gaming grows as more people use it and play for longer,\" Xbox said in a blog post. \"Moving to monthly limits allows us to keep offering the service while continuing to invest in its reliability and performance. We understand that for some players the practical result is a higher cost.\"\nUsers with high-end Game Pass Ultimate subscriptions, which cost $22.99 per month, will have access to 15 hours of cloud gaming. Game Pass Premium account holders, who pay $14.99 per month, will have 10 hours of cloud-based playtime, while Game Pass Essential, which costs $9.99 a month, includes five hours, according to the blog post.\nInside Xbox, new CEO Asha Sharma has been busy evaluating business model changes to return the division to growth and boost profitability. In July, Xbox said it would test ad-supported game streaming.\nJust 4% of Game Pass subscribers spend more time each month streaming games through the cloud, Microsoft said. The company did not specify fees for extra hours.\nThose who don't subscribe to Game Pass will be able to buy cloud gaming time to stream games they already own, Xbox said.",
+  "published_at": "2026-09-03T19:03:56Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.064769Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "us_news",
+    "tags": []
+  }
+}

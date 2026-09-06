@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/operator-news/20774-orange-plans-new-subsea-cable-linking-la-reunion-to-south-africa.html",
+  "title": "Orange plans new subsea cable linking La Reunion to South Africa",
+  "raw_text": "Orange is partnering with Telco OI, Reunicable and La Reunion Connectee on a new submarine cable linking La Reunion directly with South Africa, aiming to reduce latency and strengthen the island's international connectivity.\nThe ReuNION cable will feature 16 fibre pairs, each with a capacity of 20Tbps, providing additional capacity as existing regional subsea systems approach the end of their operational lives.\nThe project is also intended to diversify international routes serving La Reunion and improve resilience by adding a more direct connection to South Africa.\nOrange will act as the project's landing party, handling permits, civil engineering works, the landing station and the interconnection between the subsea system and the island's terrestrial networks. Orange Marine will deploy the cable, while Alcatel Submarine Networks will design and manufacture the system.\nThe project has received European funding through the Connecting Europe Facility (CEF) and the European Regional Development Fund (ERDF), reflecting efforts to strengthen strategic digital infrastructure in overseas territories.\nThe consortium will next carry out marine surveys and secure the necessary permits before beginning cable manufacturing and laying operations.\nOrange said the project would help address rising traffic demand while providing greater resilience to La Reunion's international connectivity.\nThe French operator is involved in more than 40 submarine cable systems worldwide, spanning nearly 450,000km of fibre. Its subsidiary Orange Marine handles cable deployment and maintenance, while Orange Wholesale operates cable landing points across the group's territories.",
+  "published_at": "2026-09-03T08:52:45Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-09-06T03:01:26.211462Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Operators"
+    ]
+  }
+}

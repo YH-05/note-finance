@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/10/trump-vaccine-executive-order-autism.html",
+  "title": "Trump signs executive order calling for fewer childhood vaccines, falsely linking shots to autism",
+  "raw_text": "President Donald Trump on Monday signed an executive order backing fewer routine vaccines for kids, calling to whittle down the number of recommended childhood shots to 11 while falsely tying immunizations to autism.\nThe order builds on the Trump administration's efforts to reshape the childhood shot schedule under Health and Human Services Secretary Robert F. Kennedy Jr., a longtime vaccine skeptic.\n\"This updated recommendation finally aligns the United States with other advanced and developed nations around the world,\" Trump said during a briefing on Monday. \"More importantly, it aligns us with common sense and knowledge.\"\nHe also falsely tied vaccines to autism, suggesting multiple times that rising rates of childhood shots have led to an increase in autism diagnoses. Decades of scientific evidence has shown no link between autism and childhood vaccines.\nHe also called for splitting the combination measles, mumps and rubella, or MMR, vaccine into three separate single-disease shots.\n\"The MMR we want to have separate visits, separate times. The vaccine being broken into three separate single doses and vaccines being administered in separate visits,\" Trump said.\nThe order also directs the Department of Justice to investigate where states are in violation of exemptions for childhood vaccine mandates, including parental authority and disability accommodations as well as religious and medical reasons.\nIt's not the first time the administration has taken aim at the MMR vaccine and the related MMRV shot, which adds the varicella vaccine to inoculate against chickenpox. Last year, a key vaccine advisory panel to the Centers for Disease Control and Prevention also weakened recommendations for the MMRV shot for children under age 4.\nBut some health experts say that splitting up the shot raises the chance of missed appointments and skipped immunizations because it requires more doctor visits. Speaking to reporters after signing the order, Trump acknowledged it may be hard for some parents to take a child to the doctor multiple times, but argued it would be worth it.\n\"It's inconvenient, it's five stops, but it's something that I think will have a huge impact on autism,\" he said.\nThere is no scientific evidence that combining the shots leads to higher autism risk.\nAsked if he has any concerns about parents being able to afford multiple co-pays for doctor's visits, Trump said \"we're going to work with the families\" to help them afford the costs, without saying specifically how.\nThe White House also confirmed that changes in vaccine recommendations would not change insurance coverage for the shots.\nTrump's executive order comes as the U.S. logs its worst year for measles infections in decades. Vaccination rates for children have fallen since the Covid-19 pandemic.",
+  "published_at": "2026-08-10T20:51:17Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.113711Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "health_care",
+    "tags": []
+  }
+}

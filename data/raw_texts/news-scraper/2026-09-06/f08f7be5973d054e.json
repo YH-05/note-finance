@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/06/opec-oil-output-october.html",
+  "title": "OPEC+ keeps oil output policy unchanged for October",
+  "raw_text": "OPEC+ kept its oil output policy unchanged for October at a meeting on Sunday, it said in a statement, as the producer group needs to agree on new quotas before deciding its next output steps.\nThe meeting of seven core OPEC+ members — Saudi Arabia, Russia, Iraq, Kuwait, Algeria, Kazakhstan and Oman — comes as the Iran war continues to disrupt oil exports through the Strait of Hormuz, limiting OPEC+'s influence over prices and market share.\nIn August, OPEC+ agreed to its production boost for September, completing a phased rollback of a 1.65 million-barrel-per-day supply cut first agreed in 2023. Despite the agreed production increases, the group, made up of the Organization of the Petroleum Exporting Countries and its allies, including Russia, still produces far below its targets because of the war.\n\"OPEC+ currently has very limited power over the physical oil market,\" said Jorge Leon of Rystad Energy. \"The group can change production targets on paper, but it cannot guarantee that those barrels will be produced or actually reach the market.\"\n\"The focus now shifts away from monthly production adjustments and towards the much more consequential debate over 2027.\"\nOPEC+ still has another layer of production cuts in place, covering most members of the 21-country group until the end of 2026. Before the group decides how to unwind the cuts and return production to the market, it needs to review members' oil production capacity to set 2027 output baselines, which form the basis for quotas.\nThis debate will likely happen later in 2026, and hence OPEC+ is likely to pause its output increases for the fourth quarter, sources earlier told Reuters. The statement on Sunday made no mention of policy beyond October.\nOnly the seven OPEC+ members who met on Sunday, plus the United Arab Emirates until it left OPEC in May, have been involved in monthly output decisions in recent years.\nThe seven countries will hold their next meeting on Oct. 4.\nOil prices climbed more than 7% for the week after the U.S. and Iran resumed military exchanges in the seventh month of their conflict, while U.S. diesel prices hit a record high.\nBrent crude futures gained 76 cents to close at $96.28 a barrel on Friday, and West Texas Intermediate crude futures advanced 18 cents to settle at $91.48. Brent was up nearly 8% for the week, and WTI gained almost 10%.",
+  "published_at": "2026-09-06T13:04:02Z",
+  "author": null,
+  "collected_at": "2026-09-06T15:17:04.531583Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

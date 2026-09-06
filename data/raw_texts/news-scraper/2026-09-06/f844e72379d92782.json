@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/in-blow-to-trump-missouri-top-court-blocks-republican-drawn-congressional-map.html",
+  "title": "In blow to Trump, Missouri top court blocks Republican-drawn congressional map",
+  "raw_text": "The Missouri Supreme Court on Thursday blocked a Republican-drawn new congressional map from being used in November's midterm elections, dealing a blow to the party's odds of maintaining its narrow U.S. House majority.\nThe ruling could return longtime Democratic U.S. Representative Emanuel Cleaver to the House, after his Kansas City-based district was dismantled under the redrawn map.\nThe court found the state's Republican secretary of state, Denny Hoskins, improperly rejected an effort to put the new map to a voter referendum before it could take effect.\nRepublican lawmakers had installed the new map as part of a broader campaign backed by President Donald Trump to redraw district lines to favor the party's candidates.\nSome Democratic states responded with their own redistricting plans. But Republicans eventually secured an advantage after a U.S. Supreme Court ruling permitted several conservative Southern states to eliminate districts with significant Black populations.",
+  "published_at": "2026-09-03T23:55:02Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.061185Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "politics",
+    "tags": []
+  }
+}

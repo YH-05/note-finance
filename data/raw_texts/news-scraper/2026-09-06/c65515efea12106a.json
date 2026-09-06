@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260716a.htm",
+  "title": "Agencies issue joint statement on handling of highly sensitive information during bank examinations",
+  "raw_text": "July 16, 2026\nAgencies issue joint statement on handling of highly sensitive information during bank examinations\n- Board of Governors of the Federal Reserve System\n- Federal Deposit Insurance Corporation\n- Office of the Comptroller of the Currency\nFor release at 2:00 p.m. EDT\nThe federal bank regulatory agencies today issued a joint statement describing enhanced security procedures for review of highly sensitive information in connection with examinations of supervised banks, such as reviewing materials on-site rather than transferring them onto agency systems.\nThe statement discusses a coordinated approach to identifying highly sensitive data and documents and discusses enhanced procedures for the review of such information to reduce any cybersecurity risks while ensuring that the agencies have access to such information at all times during an examination.\nThe agencies recognize the importance of keeping a bank's highly sensitive information confidential and protecting it against disclosure to or from access by unauthorized persons as a result of cybersecurity vulnerabilities. The agencies have committed to notify affected banks of any potential or confirmed material data breach involving confidential supervisory information. They will do so as soon as practicable, and no later than 72 hours after discovery, unless legal restrictions apply.",
+  "published_at": "2026-07-16T18:00:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.672349Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Banking and Consumer Regulatory Policy"
+    ]
+  }
+}

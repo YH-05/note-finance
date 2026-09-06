@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20769-kontron-and-hitachi-rail-romania-partner-on-rail-comms-project.html",
+  "title": "Kontron and Hitachi Rail Romania partner on rail comms project",
+  "raw_text": "Kontron Transportation, a supplier of end-to-end communication solutions for mission-critical networks, says it has been awarded several contracts in the establishment of the Orient/East-Med Corridor, with special relevance to Romania.\nThis strategically important route is 6,480 kilometres long, including the Connecting Europe Facility 2 extension. It crosses eight countries: Germany, Czechia, Slovakia, Austria, Hungary, Romania, Bulgaria and Greece\nAs Kontron points out, this route plays a vital role in connecting Romania with wider European transport flows. Kontron says it is working with Hitachi Rail Romania, a longstanding partner, in this project, which expands its presence in Romania and the wider CEE region.\nAs part of the contracts, Kontron Transportation will provide a complete railway communication solution to support safe and reliable operations along the line. The project is planned to be carried out over a period of 48 months.\nWhile precise details of the contract appear to be unavailable, Kontron Transportation’s areas of expertise are well known.\nHeadquartered in Austria, and part of leading IoT technology company Kontron, Kontron Transportation is a global supplier of end-to-end communication solutions for mission-critical networks. Its core customers are railways across Europe and beyond. The company specialises in systems that produce, transport, and process voice, data and video.\nIts solutions include GSM-R, FRMCS, and mission-critical over public networks (MCx) with interworking functions (IWF). It also offers enhanced radio solutions, private 4G/5G mobile networks, transmission networks, and cybersecurity solutions.\nIn addition, the portfolio includes communication products for secondary lines and other mission-critical network operators. The company also provides mobility products like validators and fare collection systems for public transport operators.",
+  "published_at": "2026-09-02T10:31:52Z",
+  "author": "Vaughan O'Grady",
+  "collected_at": "2026-09-06T03:01:26.212102Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

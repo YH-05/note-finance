@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/video/2026/08/06/superyacht-amadea-sold-for-187-million-heres-what-to-know.html",
+  "title": "Superyacht 'Amadea' sold for $187 million: Here's what to know",
+  "raw_text": "watch now",
+  "published_at": "2026-08-06T12:13:22Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.116730Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "wealth",
+    "tags": []
+  }
+}

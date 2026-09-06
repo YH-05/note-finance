@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm",
+  "title": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
+  "raw_text": "August 20, 2026\nFederal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch\nFor release at 11:00 a.m. EDT\nThe Federal Reserve Board on Thursday announced the execution of the following enforcement action listed below:\nSouthPoint Bancshares, Inc., Birmingham, Alabama\nWritten Agreement dated August 14, 2026\nThe Federal Reserve Board also announced the termination of the enforcement action listed below:\nDeutsche Bank AG, Frankfurt am Main, Germany, DB USA Corporation, New York, New York, and Deutsche Bank AG New York Branch, New York, New York\nCease and Desist Order dated April 20, 2017 (PDF)\nTerminated August 13, 2026\nAdditional enforcement actions can be searched for here.\nFor media inquiries, please email [email protected] or call 202-452-2955.",
+  "published_at": "2026-08-20T15:00:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.670265Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Enforcement Actions"
+    ]
+  }
+}

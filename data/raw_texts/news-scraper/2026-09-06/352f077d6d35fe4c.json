@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/enterprise-ecosystems/20778-cote-divoire-govt-partners-with-mistral-to-develop-national-ai-ecosystem.html",
+  "title": "Côte d'Ivoire govt partners with Mistral to develop national AI ecosystem",
+  "raw_text": "Côte d'Ivoire’s Ministry of Digital Transition and Technological Innovation (MTNIT) says it has signed a strategic partnership agreement with French AI solutions company Mistral to help develop an AI ecosystem adapted to the country’s specific requirements.\nUnder the agreement – which was signed last month but publicly announced on Tuesday – MTNIT and Mistral are conducting a strategic study and audit to map out the players and available resources for an AI ecosystem, as well as evaluating existing data and infrastructures, and identifying areas where AI could provide concrete use cases serving the needs of the government, companies and populations.\nIdeally, the audit will form the basis for an operational roadmap that will define the conditions for deploying AI solutions and allow the emergence of “high-impact” pilot projects.\nThe ministry said the study focuses on several priority sectors, including public administration, health, education, agriculture and services to the population.\nAs part of the project, Mistral is working with Artefact Côte d'Ivoire, a local entity of the Artefact group specialising in data and AI consulting, who will provide technological and local expertise.\nMTNIT said in a post on social media site X that the Mistral partnership will contribute to the AI pillar of the government’s Digital Roadmap 2026-2028, which includes 40 structuring projects.\nThe audit is expected to be completed in time for MTNIT’s \"IMPACT IA\" conference next week in Abidjan.",
+  "published_at": "2026-09-04T05:38:07Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.210703Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Enterprise Ecosystems"
+    ]
+  }
+}

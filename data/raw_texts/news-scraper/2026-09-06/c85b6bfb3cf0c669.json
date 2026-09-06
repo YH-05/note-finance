@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/optical-fixed-networks/20777-telecom-egypt-to-extend-red2med-system-to-taba-with-petabit-link.html",
+  "title": "Telecom Egypt to extend Red2Med system to Taba with petabit link",
+  "raw_text": "Telecom Egypt signed an agreement on Thursday with Greece-based Power Sub Link (PSL) to construct a mult-petabit subsea cable that will extend the reach of its Red2Med cable system up the Gulf of Aqaba coast from Sharm El Sheikh to Taba.\nThe 200-km Sharm El Sheikh–Taba link is designed as a repeaterless cable with a capacity of 5 Pbps (petabits per second). The cable will interconnect with Telecom Egypt’s Red Sea Subsea Festoon Cable System, which serves as the southern part of the Red2Med system that connects Sharm El Sheikh to Port Said on Egypt’s Mediterranean coast via the Internet Corridor of Egypt (ICE).\nTelecom Egypt said the new link will create not only one of the shortest, fastest, and most secure connectivity routes between Sharm El Sheikh and Taba – with lower signal losses, enhanced network performance, and greater capacity – but also a continuous subsea connectivity path along the Sinai Peninsula coastline from Taba to Sharm El Sheikh, Ras Ghareb, Zafarana and Suez.\nThe telco also said the link will provide international carriers and network operators with more route diversity and connectivity options for international traffic transiting Egypt between Asia, Africa, and Europe, whilst also adding new landing-point options along the Gulf of Aqaba coastline.\nThe Sharm-Taba cable is expected to be ready for service in the fourth quarter of 2027.\nTelecom Egypt’s MD and CEO Tamer El Mahdi said the project aligns with the telco’s new strategy to maximize its role in digital infrastructure and strengthen its position regionally and internationally.\n“[The Sharm-Taba cable] advances a new eastern digital corridor connecting the Red Sea and the Mediterranean through the Sinai Peninsula, reinforcing our strategy of leveraging Egypt’s unique geographic position at the crossroads of three continents,” he said in a statement.\n“By developing a resilient Red Sea bypass, we reinforce Egypt’s position as a strategic gateway between continents, strengthen the security and continuity of international communications, and create new digital corridors of lasting global significance,” added PSL’s MD Byron Skaftouros.",
+  "published_at": "2026-09-04T04:58:27Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.210904Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Optical & Fixed Networks"
+    ]
+  }
+}

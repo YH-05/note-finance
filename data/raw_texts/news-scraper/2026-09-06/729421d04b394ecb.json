@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/06/sec-iss-proxy-adviser-subpoena.html",
+  "title": "SEC sues ISS as Trump administration ramps up scrutiny of proxy advisers",
+  "raw_text": "The Securities and Exchange Commission sued Institutional Shareholder Services, seeking to force the influential proxy adviser to turn over information as the Trump administration steps up scrutiny of firms that help investors decide how to vote their shares.\nThe SEC filed the subpoena-enforcement action Friday in the U.S. District Court for the Eastern District of Pennsylvania, saying ISS had refused to fully comply with an administrative subpoena seeking information about its proxy recommendations and voting activity.\nThe agency's Division of Examinations began reviewing ISS in March and requested data related to the firm's recommendations and votes, the SEC said. After ISS did not produce all of the requested information, the enforcement division opened an inquiry and issued a subpoena on July 21.\nThe SEC said ISS has continued to withhold some records despite extended deadlines and repeated efforts to resolve the dispute. The regulator said its investigation remains in the fact-finding stage and that it has not concluded ISS violated federal securities laws.\nISS argued in correspondence with the SEC that the subpoena raised First Amendment concerns and could expose ISS and its clients to retaliation over their voting activity.\nISS did not immediately respond to CNBC's request for comment.\nThe lawsuit comes amid a broader Trump administration push to tighten oversight of proxy advisers, which provide institutional investors with research and recommendations on shareholder votes covering issues including board elections, executive compensation and shareholder proposals.\nPresident Donald Trump signed an executive order in December directing the SEC to review its rules and guidance on proxy advisers, enforce securities-law antifraud provisions and consider additional disclosure and regulatory requirements.\nThe order specifically named ISS and rival Glass Lewis, which the White House said together control more than 90% of the proxy-advisory market.\nISS is registered with the SEC as an investment adviser. The SEC is asking the court to order the firm to comply with the outstanding subpoena.",
+  "published_at": "2026-09-06T17:53:53Z",
+  "author": null,
+  "collected_at": "2026-09-06T21:16:29.800366Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "top_news",
+    "tags": []
+  }
+}

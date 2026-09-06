@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/20/bessent-says-treasury-buyback-operation-could-be-more-than-4-billion.html",
+  "title": "Bessent says Treasury buyback operation could be more than $4 billion",
+  "raw_text": "Treasury Secretary Scott Bessent told CNBC on Thursday that an accelerated buyback of government debt could be higher than the announced $4 billion.\nIn a live interview, Bessent said his department is going \"make a market\" in the longer-dated securities where yields have been surging lately. Treasury announced Wednesday that it would be doubling its scheduled $2 billion in buybacks of longer-dated government debt, sending yields sharply lower.\n\"We're going to increase the size of the buyback,\" he said. \"I would note that it could be more than the 4 billion per issue.\"\nThe remarks caused a brief easing in yields, which had largely reversed the decline following Wednesday's announcement. The 30-year bond most recently was trading around 5.235%. The so-called long bond recently had been trading at levels not seen since prior to the global financial crisis in 2008.\nThe benchmark 10-year yield also briefly pulled back as Bessent spoke but then headed higher, most recently up about 5 basis points to 4.704%. One basis points equals 0.01%.\nThe Treasury chief noted that the level of yields did not factor into the buybacks decision and he wants to see fundamentals control the market.\nWhile he said the buybacks could grow, Bessent declined to attach a figure, saying it will depend on market conditions.\n\"We'll see what the conditions are, and you know we will analyze them,\" he said. \"All we're trying to do is get people to focus on the fundamentals and not trade the headlines during a quiet period in a thin market.\"\nBessent acknowledged the pressure at the farther reaches of the curve, saying that the current trading levels didn't reflect current economic conditions.\n\"We have a big toolkit, so we'll see,\" he said. \"Part of it is signaling here and to show that we believe that the yields don't reflect the underlying fundamentals.\"\nHe also characterized liquidity for the 30-year bond as \"very poor,\" providing another incentive for Treasury to intervene in what normally is a robust market.\nMultiple factors have combined to push yields higher: Surging debt and deficits in the U.S.; competition from other areas including corporate debt issuance related to artificial intelligence and higher yields from other sovereigns such as Japan, and escalating term premiums, or the extra yield investors demand to hold government debt.\nOn the fiscal side, Bessent said he will be meeting with Russell Vought, head of the Office of Management and Budget, to discuss \"fiscal consolidation.\" Figures released Wednesday from Treasury showed the national debt crossed the $40 trillion mark this week.\n\"There's nothing magic about the 40 trillion number, and we can grow our way out of that,\" Bessent said.\n\"Our message to our allies, our trading partners, is that global growth is the way to take care of this mountain of debt,\" he added.",
+  "published_at": "2026-08-20T15:35:33Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.105956Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "economy",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://cloudinabottle.org/blog/launch-post",
+  "title": "Cloud in a Bottle: making self-hosting accessible to everyone",
+  "raw_text": "<p>Article URL: <a href=\"https://cloudinabottle.org/blog/launch-post\">https://cloudinabottle.org/blog/launch-post</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=49582000\">https://news.ycombinator.com/item?id=49582000</a></p>\n<p>Points: 157</p>\n<p># Comments: 55</p>",
+  "published_at": "2026-09-06T00:03:29Z",
+  "author": "zplizzi",
+  "collected_at": "2026-09-06T03:03:01.975149Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "hacker_news",
+    "category": "technology",
+    "tags": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/03/cramer-says-buy-five-below.html",
+  "title": "Cramer says buy this retail stock after the market got its latest quarter all wrong",
+  "raw_text": "Key Points\n- CNBC’s Jim Cramer said Wall Street is misreading Five Below’s latest quarter by focusing on slowing comparable sales growth despite another earnings beat and raised outlook.\n- He said the muted stock reaction could be a buying opportunity, with Five Below’s higher earnings forecast pushing its valuation down to roughly 24 times earnings.",
+  "published_at": "2026-09-03T22:49:35Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.061856Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "retail",
+    "tags": []
+  }
+}

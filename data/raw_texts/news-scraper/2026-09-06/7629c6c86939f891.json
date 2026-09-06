@@ -1,0 +1,24 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/health/2026/09/measles-killed-6-week-old-baby-coroner-confirms-after-rfk-jr-disputed-deaths/",
+  "title": "Measles killed 6-week-old baby, coroner confirms after RFK Jr. disputed deaths",
+  "raw_text": "A six-week-old baby girl in Lancaster, Pennsylvania, died from measles, the county coroner confirmed to local press on Friday.\nStephen Diamantoni, a Republican elected coroner in 2007, told Lancaster Online that the baby died at home. “I believe it was the 18th of August,” he said.\nHe also noted that the baby had a genetic condition called Amish lethal microcephaly, in which babies are born with unusually small heads and underdeveloped brains. The condition is caused by a mutation in the SLC25A19 gene, which codes for a protein involved with energy-producing enzymes in the mitochondria and is thought to be important for brain development. About 1 in 500 babies in the Old Order Amish population of Pennsylvania is born with the condition. Infants with the disorder only survive for about six months.\nDiamontoni confirmed to Lancaster Online that while microcephaly was present, measles was the cause of death.\nPennsylvania’s two measles deaths\nThe death is one of two that the state’s health department announced last week as being from measles, according to a response from the state health department sent to Ars Technica Friday. Additionally on Friday, Pennsylvania Governor Josh Shapiro shared a local news report about the coroner’s confirmation on social media. In the post, he also seemed to confirm that it was one of the deaths reported by state health officials.\nThe tragic deaths—both in infants, the other a newborn boy—have been engulfed in a firestorm of controversy sparked when anti-vaccine Health Secretary Robert F. Kennedy Jr. claimed without evidence that the state may have “fabricated” them. The controversy was fueled by Diamantoni himself, who said he had not received the death reports at the time of the state’s announcement, seemingly adding to Kennedy’s false claim that the deaths were not real. But Lancaster County does not have its own health department and relies on information sent from the state health department.",
+  "published_at": "2026-09-04T20:22:41Z",
+  "author": "Beth Mole",
+  "collected_at": "2026-09-06T03:00:30.150674Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Health",
+      "baby",
+      "death",
+      "infant",
+      "measles",
+      "Pennsylvania"
+    ]
+  }
+}

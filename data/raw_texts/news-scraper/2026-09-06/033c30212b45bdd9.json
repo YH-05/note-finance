@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/06/american-airlines-flight-upgrades-become-harder-to-get.html",
+  "title": "American Airlines will stop upgrading elite flyers to business from coach on long domestic flights",
+  "raw_text": "American Airlines elite frequent flyers have to say goodbye to the free coach-to-business leap on several long-haul domestic routes.\nStarting Aug. 25, American said it will stop putting frequent flyers with elite status on the upgrade list for business class on some of its transcontinental and Hawaii routes. They'll be put on the list for a complimentary upgrade to premium economy instead.\nThe change is the latest sign of how American and other airlines are working to give fewer high-fare seats away to increase revenue and profits. Getting an upgrade overall has become tougher on many flights with more and more customers paying up for pricier, roomier seats.\nRoutes that include the upgrade to premium economy instead of business class are New York's John F. Kennedy International Airport to Los Angeles; Boston to San Francisco; Dallas Fort Worth International Airport to Honolulu, Kona and Maui in Hawaii; Phoenix to Honolulu; and Chicago O'Hare International Airport to Honolulu and Maui.\nElite flyers who bought a premium economy ticket or purchased an upgrade after buying a coach ticket are still eligible for the complimentary upgrade, American said.\n\"We'll do our best to accommodate your seating preferences, though options may vary depending on aircraft type and availability,\" American said. \"In Premium Economy, some aircraft types include middle seats, so you may be assigned one if other seating options aren't available.\"",
+  "published_at": "2026-08-06T20:30:05Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.115798Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "travel",
+    "tags": []
+  }
+}

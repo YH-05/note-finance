@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20768-ericsson-signs-multi-year-deal-with-stc-to-expand-5g-network.html",
+  "title": "Ericsson signs multi-year deal with stc to expand 5G network",
+  "raw_text": "Ericsson announced on Tuesday it has signed a new multi-year agreement with stc Group to further expand the telco’s 5G network across Saudi Arabia.\nThe scope of the deal includes new network sites, additional capacity at existing sites, expansion of stc’s 5G Standalone (SA) network and preparation for differentiated connectivity services.\nThe deal also marks the first commercial deployment of Ericsson Radio 4496, a quad-band FDD radio that aggregates four low-frequency bands – including stc's newly acquired 600 MHz spectrum – into a single, high-power 400-watt unit.\nEricsson said the deployment of its low-band radio will enable stc to expand wide area 5G coverage – especially in rural and remote areas – and strengthen network capacity in areas of growing demand, while lowering power consumption for a more sustainable network.\nStc will also deploy Ericsson’s massive MIMO and mid-band radios, baseband and associated RAN software and features. As part of the deal, stc will also leverage Ericsson's software subscription model to ensure the network is continuously upgraded with the latest innovations to enhance network performance and operational efficiency.\nThe overall expanded network will support connectivity across logistics, energy, mining, tourism and public services while strengthening FWA as a fixed broadband alternative in areas outside fibre coverage, said Sultan S. Alturki, technology procurement GM at stc Group.\n“By expanding network capacity and deploying 600 MHz spectrum, we can extend reliable connectivity to more areas, elevate the customer experience and support Saudi Arabia’s growing digital needs,” he said in a statement.\nDeployment of the new network sites is planned to begin in 2026 and continue throughout the multi-year agreement period across Ericsson’s geographic footprint in Saudi Arabia.\nThe deal was announced at the LEAP 2026 event in Riyadh, where Ericsson also signed two MoUs with Saudi Arabian telco Mobily to explore AI-powered RANs and boost Mobily’s network autonomy to Level 4.",
+  "published_at": "2026-09-02T03:29:26Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.212262Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

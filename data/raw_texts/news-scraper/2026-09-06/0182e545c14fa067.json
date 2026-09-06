@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://kabutan.jp/news/marketnews/?&b=n202609060064",
+  "title": "明日の経済スケジュール ─ ★景気動向指数に注目",
+  "raw_text": "【経済】明日の経済スケジュール ─ ★景気動向指数に注目\n9月7日(月)\n友引・月齢25.4\n「5勝5敗」(過去10年の日経平均の陰陽星取)\n【国内】\n★7月景気動向指数(14:00)\n□消費活動指数(14:00)\n【海外】\n★米国、カナダ(レイバー・デー)、ブラジル市場休場\n□ドイツ7月鉱工業生産(15:00)\n□ユーロ圏4-6月期GDP[確報値](18:00)\n株探ニュース",
+  "published_at": "2026-09-06T11:05:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T15:00:17.236883Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "kabutan",
+    "category": "経済",
+    "tags": []
+  }
+}

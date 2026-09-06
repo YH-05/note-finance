@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/02/demand-for-riskier-mortgages-rises-along-with-interest-rates.html",
+  "title": "Demand for riskier mortgages rises along with interest rates",
+  "raw_text": "Mortgage rates continue to move higher and that has demand for home loans stuck in place. It also, however, has more borrowers opting for riskier loans that offer lower rates.\nTotal mortgage application volume rose just 0.8% last week compared with the previous week, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, increased to 6.79% from 6.78%, with points decreasing to 0.65 from 0.66, including the origination fee, for loans with a 20% down payment.\n\"Mortgage rates reached their highest levels in four weeks as investors' concerns about inflation and growing deficits push yields higher across the globe,\" said Mike Fratantoni, senior vice president and chief economist at the MBA, in a release.\nApplications for a mortgage to purchase a home did eke out a small gain, up 2% for the week but still 0.2% lower than the same week one year ago. Last year, rates were 15 basis points lower.\n\"In many local markets, potential buyers have plenty of homes to choose, and this is likely supporting transaction volume,\" Fratantoni said. \"Another trend we're monitoring is more borrowers choosing ARMs [adjustable-rate mortgages], with the ARM share back to 8 percent last week, its highest level in 5 weeks.\"\nThese ARMs can be fixed for up to 10 years, but the fact that they will adjust to whatever the rate is in the future makes them riskier. The average contract interest rate for 5/1 ARMs last week fell to 5.94%.\nApplications to refinance a home loan dropped 1% for the week and were 19% lower than the same week one year ago. With rates as high as they are now, most borrowers have very little incentive to refinance unless they need to pull equity out of their homes.\nMortgage rates continued to move up this week, reaching the highest level since June 2025, according to Mortgage News Daily.",
+  "published_at": "2026-09-02T12:10:43Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.079125Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

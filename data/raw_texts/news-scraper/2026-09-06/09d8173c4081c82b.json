@@ -1,0 +1,27 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://arstechnica.com/space/2026/09/german-company-becomes-first-in-europe-to-launch-fully-commercial-orbital-rocket/",
+  "title": "German company becomes first in Europe to launch fully commercial orbital rocket",
+  "raw_text": "Isar Aerospace, founded in 2018 by three students at a German university, successfully launched a privately-developed rocket into low-Earth orbit Saturday from a Norwegian spaceport inside the Arctic Circle.\nThe two-stage rocket, named Spectrum, became the first fully commercial launch vehicle in Europe to reach orbit. With Saturday’s success, Isar is the clear leader among a pack of several European launch startups vying to inject some competition into Europe’s stagnant launch market.\nIsar’s 92-foot-tall (28-meter) Spectrum rocket lifted off at 4:12 pm EST (20:12 UTC) Saturday from Andøya Spaceport in northern Norway, where it was 10:12 pm local time as the final bluish hues of daylight faded from the late summer sky. Seven minutes later, the rocket was in orbit.\n“Today, Isar Aerospace opened space from continental Europe,” said Daniel Metzler, the company’s co-founder and CEO, in a press release. “Launch continues to be the largest bottleneck for the global space industry and from today on, there is a true alternative for commercial and institutional customers.\n“We achieved within a few years what had taken the European space industry decades before,” Metzler continued. “Europe now has sovereign access to space. We have entered into a new chapter for European spaceflight. I am incredibly proud of our team, that has made this success story from Europe possible. We will now focus on rapidly scaling launch vehicle production, deliver on our order pipeline, and meet surging global demand.”\nMetzler joined two classmates at the Technical University of Munich in 2018 to establish Isar, named for the river that runs through the Bavarian capital. Metzler, Josef Fleischmann, and Markus Brandl enjoyed tinkering with rocket parts in a campus workshop before deciding they might be able to make some money with their hobby.",
+  "published_at": "2026-09-06T11:55:26Z",
+  "author": "Stephen Clark",
+  "collected_at": "2026-09-06T15:00:26.095304Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "ars_technica",
+    "category": "technology",
+    "tags": [
+      "Science",
+      "Space",
+      "Commercial space",
+      "europe",
+      "european space agency",
+      "germany",
+      "isar aerospace",
+      "launch",
+      "Norway"
+    ]
+  }
+}

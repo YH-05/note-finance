@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/09/01/prediction-market-traders-think-job-creation-rebounded-in-august.html",
+  "title": "Prediction market traders think job creation rebounded in August",
+  "raw_text": "After a disappointing July payrolls report that showed the economy lost jobs that month, traders on prediction market platforms think August will show a rebound in hiring, though potentially not as strong as economists think.\nSpeculators on Kalshi see 50-50 odds that more than 50,000 jobs were created last month. That implies a slightly lower outlook than Dow Jones consensus estimate for 53,000 jobs created in August.\nOn the contracts on the market, traders are asked whether they think the U.S. added more than a certain number of jobs in the month. The contracts are resolved using official data from the Bureau of Labor Statistics.\nPrediction market traders on Polymarket give a 48% likelihood the economy created more than 50,000 jobs in August.\nFor two months in a row, prediction market traders and economists have overestimated payroll numbers. Both expected job creation numbers in the six figures in June — when they actually came in just below 60,000 — and for the economy to create jobs in July when it ended up losing them.\nGiven that, traders on Kalshi see a wide range for a beat or miss. Speculators on the platform see about 1-in-4 odds for a contract that implies the U.S. actually lost jobs last month, and a similar likelihood for another contract that asks if the country created more than 80,000 jobs in the period.\nThe August employment reading will be delivered at 8:30 a.m. ET on Friday.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-09-01T18:57:14Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.081719Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

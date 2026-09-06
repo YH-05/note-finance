@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-business/telecom-regulation/20771-philippines-telecoms-sector-lines-up-us-2-2bn-in-2026-capex.html",
+  "title": "Philippines telecoms sector lines up US$2.2bn in 2026 capex",
+  "raw_text": "The Philippines' telecoms sector is set to invest more than US$2.2 billion in 2026, with the country's largest operators continuing to expand network infrastructure amid growing demand for digital services.\nDepartment of Information and Communications Technology (DICT) secretary Henry Aguda said PLDT, Globe Telecom and Converge ICT have collectively announced around US$2.21 billion in capital expenditure for the year, based on company guidance disclosed as of August.\nThe figure could rise to around US$2.4 billion-US$2.45 billion once expected spending from DITO Telecommunity is included.\nThe investments are being made as the Philippines pushes ahead with its Konektadong Pinoy Act, expansion of the National Fiber Backbone and wider efforts to improve access to digital services.\nAguda said the spending would support network infrastructure, connectivity, jobs and the country's wider digital economy, including digital government, education, healthcare, e-commerce, AI, cloud services and data centres.\nAccording to the Philippines News Agency (PNA), PLDT has committed around PHP55 billion for 2026, while Globe's capex guidance is below PHP59.4 billion. Converge plans to spend around PHP17 billion-PHP20 billion, while DITO is expected to invest below its 2025 spending level of PHP15 billion-PHP18 billion.\nThe DICT said the confirmed guidance from PLDT, Globe and Converge alone is enough to take the sector above the US$2 billion mark.\nAguda described the investment from the operators as \"Digital Bayanihan\", arguing that although the companies compete commercially, they are collectively contributing to the country's connectivity and digitalisation goals.",
+  "published_at": "2026-09-02T11:00:55Z",
+  "author": "Manny Pham",
+  "collected_at": "2026-09-06T03:01:26.211919Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Regulation"
+    ]
+  }
+}

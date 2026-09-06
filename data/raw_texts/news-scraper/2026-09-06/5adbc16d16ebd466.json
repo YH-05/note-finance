@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/28/affirm-stock-earnings-levchin-gas-prices.html",
+  "title": "CEO of buy now, pay later giant Affirm says high gas prices are hitting U.S. shoppers",
+  "raw_text": "Affirm Holdings stock closed nearly unchanged on Friday after the buy now, pay later firm reported fiscal fourth-quarter earnings and CEO Max Levchin said high gas prices are weighing on shoppers.\n\"The U.S. consumer undoubtedly sees the higher gas prices, so can't, can't ignore that,\" Levchin told CNBC's \"Squawk Box.\" \"They're also coming to us to help manage those prices across all the various inflationary points.\"\nThe national average price for gas was at $4.09 per gallon as of Friday, according to AAA data. That is down from May, when gas climbed above $4.50, but is still much higher than pre-Iran war levels.\nThe national average was last below $3 on March 2.\n\"In times of inflation, we see more demand because folks are budgeting,\" Levchin told CNBC. \"They're more thoughtful about how they want to use the money, and we're there to help.\"\nThe annual inflation rate sat at 3.7% in July, following the latest personal consumption expenditures price index numbers.\nThe PCE, which is the Federal Reserve's preferred forecasting tool, increased a seasonally adjusted 0.2% in July, but other data showed some consumer strength. Personal income rose 0.4% and spending increased 0.2% in July, which were both stronger than expected.\nAll this is weighing on the Fed and Chairman Kevin Warsh, who will decide on their next policy move at a September meeting.\nLevchin told CNBC that while the consumer is generally healthy, there is reason to be wary.\n\"I do think that sustained pressure on prices isn't great in the long term, and so can't ignore that either,\" he said.\nThe fintech company issued Q4 results after the bell on Thursday, reporting revenue of $1.17 billion, beating the $1.11 billion LSEG estimate. Affirm said it expects fiscal first-quarter revenue of $1.19 billion to $1.22 billion, ahead of the Street expectation of $1.16 billion.\nGross merchandise volume was also a standout at $14.1 billion, easily topping the $13.39 billion StreetAccount expectation.",
+  "published_at": "2026-08-28T20:09:13Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.091211Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "earnings",
+    "tags": []
+  }
+}

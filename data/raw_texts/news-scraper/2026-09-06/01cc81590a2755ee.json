@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/19/mortgage-demand-stalls-along-with-interest-rates.html",
+  "title": "Weekly mortgage demand stalls along with interest rates, but rates are now moving higher again.",
+  "raw_text": "Mortgage rates didn't budge last week, leaving little incentive for either homebuyers or current homeowners to call their lenders.\nTotal mortgage application volume was essentially flat from the previous week, down 0.4%, according to the Mortgage Bankers Association's seasonally adjusted index.\nThe average contract interest rate for 30-year fixed-rate mortgages with conforming loan balances, $832,750 or less, remained unchanged at 6.77%, with points decreasing to 0.65 from 0.67, including the origination fee, for loans with a 20% down payment.\nApplications to refinance a home loan rose 2% for the week and were 18% lower than the same week one year ago, when rates were slightly lower.\n\"Mortgage rates and applications changed little last week, with just a slight increase in refinances for conventional and VA loans, while FHA refinances were lower,\" said Joel Kan, vice president and deputy chief economist at the MBA, in a release. \"Borrowers with larger loan sizes remain less likely to refinance with rates at these higher levels. The average loan size on refinances continues to shrink, dipping to $282,200 last week, the lowest level since June 2025.\"\nApplications for a mortgage to purchase a home fell 2% for the week and were 3% lower than the same week one year ago. While mortgage rates didn't move last week, they have been hovering on the higher end of the latest range.\n\"In addition to the economic uncertainty, affordability difficulties have reemerged as a reason for homebuyers to delay purchase decisions given the impact of higher mortgage rates on monthly mortgage payments,\" Kan added.\nMortgage rates turned slightly higher again to start this week, according to a separate survey from Mortgage News Daily.",
+  "published_at": "2026-08-19T14:18:35Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.107474Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "real_estate",
+    "tags": []
+  }
+}

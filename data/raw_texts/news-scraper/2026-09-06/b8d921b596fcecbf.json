@@ -1,0 +1,17 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.cnbc.com/2026/08/28/-september-fed-decision-now-a-coin-flip-as-rate-hike-odds-increase.html",
+  "title": "September Fed decision is now a coin flip as rate hike odds increase post Warsh",
+  "raw_text": "Kevin Warsh's keynote speech at the central bank's annual symposium in Jackson Hole, Wyo. has altered investors' outlook for an interest rate hike in September after the Fed chairman said he was committed to fighting inflation.\nTraders on prediction market platform Kalshi now believe there are 48% odds that the Fed will hike rates by 25 basis points. Before Warsh's speech, odds that the central bank would maintain the status quo in September were nearly 70%. '\nTraders of fed funds futures now see a nearly 56% chance of a quarter-point hike in September, per the CME's FedWatch tool. And on Polymarket, speculators indicated 49% odds that the Fed raises rates.\nAfter the Fed's July meeting, investors were fairly certain of a rate hike in September, especially considering that three members of the Federal Open Market Committee disagreed with the majority's decision to keep interest rates steady. Those three members, instead, argued rates needed to move higher in response to elevated inflation.\nBut odds for a rate hike in September declined in the past month after a weaker-than-expected employment report showed the U.S. lost jobs in July, and that inflation — while remaining above the Fed's 2% target — cooled.\nWarsh directly addressed those data reports in his Friday speech, but cautioned the central bank needed to see more. \"While this summer's [inflation] readings were better than expected,\" he said, \"they do not tell me that underlying trends have meaningfully improved,\" Warsh said.\nAddressing the situation more directly Warsh said, \"We must be confident that underlying inflation is moving to our objective, clearly and at sufficient speed. Otherwise, we have work to do. That's our job, our mandate and our charge to keep.\"\nIn response, short-term yields rose, with the 2-year Treasury yield, which closely follows short-term rate decisions by the Fed, hitting its highest level since late July.\nThe Fed's rate decision is Sept. 16.\nDisclosure: CNBC and Kalshi have a commercial relationship that includes customer acquisition and a minority investment.",
+  "published_at": "2026-08-28T15:22:10Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:16:17.092097Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "cnbc",
+    "category": "finance",
+    "tags": []
+  }
+}

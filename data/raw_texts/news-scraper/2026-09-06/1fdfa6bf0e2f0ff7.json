@@ -1,0 +1,22 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.theverge.com/tech/990873/earth-garden-globe-field-recordings",
+  "title": "Explore the globe in field recordings",
+  "raw_text": "I love field recordings. I love making them. I love them when they’re incorporated into my ambient music. They’re great background noise for working or sleeping. But they’re also great for active listening, focusing in on the fine nuances of burbling brooks or urban chaos. Earth Garden gives you a globe to explore with real field recordings taken from various locations. Earth Garden is inspired by Radio Garden (which you should also check out) except, instead of exploring the world via radio, it’s environmental sounds. There are waves lapping at the shores of remote islands in the Atlantic, a chorus of crickets in Tanzania, and rainfall on the streets of Manhattan. (There’s a lot of rainfall, actually.)\nExplore the globe in field recordings\nEarth Garden takes you around the world using environmental audio from Freesound.\nEarth Garden takes you around the world using environmental audio from Freesound.\nThe recordings are all pulled from Freesound, which does mean quality can vary, and volume between clips can be inconsistent. It also means that recordings tend to be more concentrated in the US and Europe, especially the UK. But it’s still quite fun and soothing to set the globe to rotate automatically, and as the reticle nears points on the Earth, it transitions to those new sounds. You can even click a button to put some generic ambient drones in the background.",
+  "published_at": "2026-09-05T21:31:34Z",
+  "author": "Terrence O’Brien",
+  "collected_at": "2026-09-06T03:00:15.523671Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "the_verge",
+    "category": "technology",
+    "tags": [
+      "Apps",
+      "Column",
+      "Entertainment",
+      "Tech"
+    ]
+  }
+}

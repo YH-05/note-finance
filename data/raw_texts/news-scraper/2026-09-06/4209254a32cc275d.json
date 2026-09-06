@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/wireless-networks/20760-botswanas-btc-reveals-plans-to-launch-5g-next-month.html",
+  "title": "Botswana’s BTC reveals plans to launch 5G next month",
+  "raw_text": "State-owned Botswana Telecommunications Corporation (BTC) has revealed plans to enter the country’s 5G race in October as part of a BWP240 million (US$17.8 million) investment plan in the 2026/27 financial year to modernise and upgrade its network.\nAccording to its 2026 Integrated Report released on Monday, BTC will invest the money in accelerating deployment of 5G, as well as expanding its 4G coverage and upgrading its network capacity, as part of its network modernisation programme.\nThe investment amount is slightly higher than the BWP225.5 million BTC spent on network modernisation and coverage expansion in the previous financial year.\nBTC said it plans to launch 5G in strategic areas in Gaborone to start, followed by accelerated rollouts to other cities and key villages.\nThe Gaborone launch is slated for October, by which time BTC also plans to have upgraded capacity for 599 mobile sites and migrated fixed-line customers from copper to fibre and fixed wireless access (FWA) technologies, the report said.\n“We have now fully modernised our mobile network. At all sites where we previously offered voice services across the country, data is now available, and at sites where data was already provided, capacity has been increased by up to fivefold,” said BTC CEO Jürgen Peschel in the report.\nBTC also said it will complete migration of its fixed network services from legacy circuit-switched infrastructure to an IMS-based platform in December 2026.\nBTC said its mobile network now provides 97% coverage for 2G and 4G, and 62% for 3G.\nThe telco, which is 51% government owned, is last to Botswana’s 5G race, with Mascom Wireless and Orange Botswana having launched commercial 5G services in 2022. That said, neither has reported how many people have signed on for 5G subscriptions since then, and the Botswana Communications Regulatory Authority (BOCRA) doesn't break down its public mobile subscriber data by technology type.",
+  "published_at": "2026-09-01T04:03:57Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.213642Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Wireless Networks"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+  "title": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+  "raw_text": "August 04, 2026\nFederal Reserve Board announces approval of the application by FS Bancorp, Inc.\nFor release at 4:30 p.m. EDT\nThe Federal Reserve Board on Tuesday announced its approval of the application by FS Bancorp, Inc., of Mountlake Terrace, Washington, to merge with Pacific West Bancorp, and thereby indirectly acquire Pacific West Bank, both of West Linn, Oregon.\nFor media inquiries, please email [email protected] or call (202) 452-2955.",
+  "published_at": "2026-08-04T20:30:00Z",
+  "author": null,
+  "collected_at": "2026-09-06T03:00:28.671133Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "federal_reserve",
+    "category": "press_releases",
+    "tags": [
+      "Orders on Banking Applications"
+    ]
+  }
+}

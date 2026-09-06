@@ -1,0 +1,19 @@
+{
+  "source_id": "news-scraper",
+  "url": "https://developingtelecoms.com/telecom-technology/financial-services/20747-visa-tests-first-live-international-transaction-in-syria.html",
+  "title": "Visa tests first live international transaction in Syria",
+  "raw_text": "Visa announced on Wednesday it has successfully tested its first live international transaction in Syria in its bid to help integrate the country’s financial services sector into the global digital economy.\nThe test transaction was carried out by Syrian digital payments company Paymera, with Fransabank Lebanon as the acquiring financial institution, confirming the ability of international visitors to use their Visa cards while in Syria.\nVisa said the test transaction is the latest milestone in its strategic roadmap announced in December 2025 to build a future-ready payments ecosystem in Syria based on global standards in collaboration with the Central Bank of Syria and the broader financial ecosystem.\nAs part of that roadmap, Visa hosted its first industry gathering of banks, ecosystem partners and policymakers in Damascus in February 2026, and signed an agreement with Syria's Ministry of Communications and Information Technology in San Francisco the same month.\n\"Over the past several months, we have taken important steps to support the reintroduction of digital payments in Syria and greater participation in the global digital economy within applicable legal, regulatory and compliance requirements, working closely with partners and stakeholders to help lay the foundations for a more connected and digitally enabled economy,” said Leila Serhan, Visa’s senior VP and group country manager for the North Africa, Levant and Pakistan (NALP) Region.\n“Today’s test paves the way for international card acceptance in Syria and represents a practical milestone in expanding payment options and facilitating transactions for international visitors,” added Mohammed Safwat Raslan, Governor of the Central Bank of Syria. “As we build on this milestone, maintaining strong compliance, risk management and operational controls will remain essential to safeguarding the integrity of payment and settlement operations and strengthening confidence in the payment's ecosystem.”",
+  "published_at": "2026-08-28T04:13:02Z",
+  "author": "John Tanner",
+  "collected_at": "2026-09-06T03:01:26.215387Z",
+  "collection_method": "scraping",
+  "content_type": "article",
+  "language": null,
+  "metadata": {
+    "source": "developing_telecoms",
+    "category": "telecom_news",
+    "tags": [
+      "Mobile Finance"
+    ]
+  }
+}
